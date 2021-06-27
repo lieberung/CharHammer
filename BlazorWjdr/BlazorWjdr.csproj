@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>9</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="json-data\bestiole.json" />
+    <Content Remove="json-data\carriere.json" />
+    <Content Remove="json-data\carriereinitiale.json" />
+    <Content Remove="json-data\choixcompetence.json" />
+    <Content Remove="json-data\choixtalent.json" />
+    <Content Remove="json-data\chrono.json" />
+    <Content Remove="json-data\competence.json" />
+    <Content Remove="json-data\dieu.json" />
+    <Content Remove="json-data\lieu.json" />
+    <Content Remove="json-data\lieutype.json" />
+    <Content Remove="json-data\profil.json" />
+    <Content Remove="json-data\race.json" />
+    <Content Remove="json-data\reference.json" />
+    <Content Remove="json-data\talent.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="json-data\bestiole.json" />
+    <None Include="json-data\carriere.json" />
+    <None Include="json-data\choixcompetence.json" />
+    <None Include="json-data\choixtalent.json" />
+    <None Include="json-data\chrono.json" />
+    <None Include="json-data\competence.json" />
+    <None Include="json-data\dieu.json" />
+    <None Include="json-data\lieu.json" />
+    <None Include="json-data\lieutype.json" />
+    <None Include="json-data\profil.json" />
+    <None Include="json-data\race.json" />
+    <None Include="json-data\reference.json" />
+    <None Include="json-data\talent.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorWjdr.DataSource\BlazorWjdr.DataSource.csproj" />
+    <ProjectReference Include="..\BlazorWjdr.DomaineModel\BlazorWjdr.DomainModel.csproj" />
+  </ItemGroup>
+
+</Project>

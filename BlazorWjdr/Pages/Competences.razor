@@ -1,0 +1,51 @@
+﻿@page "/competences"
+
+@using BlazorWjdr.DomainModel
+@using BlazorWjdr.Services
+@inject CompetencesEtTalentsService CompetenceService
+
+<h1>Compétences</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (competencesLines == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Compétence</th>
+                <th>Carac.</th>
+                <th>Base</th>
+                <th>Talents liés</th>
+                <th>Proposée par</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var competence in competencesLines)
+            {
+            <tr>
+                <td>@competence.ToString()</td>
+                <td>@competence.CaracteristiqueAssociee</td>
+                <td>@competence.EstUneCompetenceDeBase</td>
+                <td>@competence.TalentsLiesToString</td>
+                <td><button>Carrières...</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<CompetenceDto> competencesLines = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var competences = await CompetenceService.ItemsCompetences();
+        competencesLines = competences.ToList();
+        competencesLines.RemoveAll(c => c.Ignore);
+    }
+}

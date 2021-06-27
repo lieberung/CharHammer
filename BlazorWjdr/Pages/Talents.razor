@@ -1,0 +1,47 @@
+﻿@page "/talents"
+
+@using BlazorWjdr.DomainModel
+@using BlazorWjdr.Services
+@inject CompetencesEtTalentsService CompetencesEtTalentsService
+
+<h1>Talents</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (talentsLines == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Talent</th>
+                <th>Trait</th>
+                <th>Compétences liées</th>
+                <th>Proposé par</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var talent in talentsLines.Where(t => t.Ignore == false))
+            {
+            <tr>
+                <td>@talent.ToString()</td>
+                <td>@talent.Trait</td>
+                <td>@talent.CompetencesLieesToString</td>
+                <td><button>Carrières...</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private TalentDto[] talentsLines = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        talentsLines = await CompetencesEtTalentsService.ItemsTalents();
+    }
+}

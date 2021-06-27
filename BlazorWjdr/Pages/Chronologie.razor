@@ -1,0 +1,45 @@
+﻿@page "/chronologie"
+
+@using BlazorWjdr.DomainModel
+@using BlazorWjdr.Services
+@inject ChronologieService ChronologieService
+
+<h1>Chronologie</h1>
+
+<p>This component demonstrates fetching data from a service.</p>
+
+@if (chronologieLines == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Période</th>
+                <th>Evènement</th>
+                <th>Titre</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var chrono in chronologieLines)
+            {
+                <tr>
+                    <td>@chrono.Periode</td>
+                    <td>@chrono.Resume</td>
+                    <td>@chrono.Titre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private ChronologieDto[] chronologieLines = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        chronologieLines = await ChronologieService. GetLines();
+    }
+}

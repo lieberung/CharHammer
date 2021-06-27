@@ -1,0 +1,200 @@
+{
+  "items": [
+    {
+      "referenceid": 21,
+      "referencetitre": "Le Compagnon",
+      "referencepublishyear": 2008,
+      "referencecode": "COMP",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 22,
+      "referencetitre": "Middenheim, la cité du Loup Blanc",
+      "referencepublishyear": 1990,
+      "referencecode": "MIDD",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 23,
+      "referencetitre": "Nains Pierre et Acier",
+      "referencepublishyear": 2003,
+      "referencecode": "NAINS",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 25,
+      "referencetitre": "Les royaumes rénégats",
+      "referencepublishyear": 2007,
+      "referencecode": "RENEG",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 26,
+      "referencetitre": "Shades of Empire",
+      "referencepublishyear": null,
+      "referencecode": "SoE",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 27,
+      "referencetitre": "Les royaumes de sorcellerie",
+      "referencepublishyear": null,
+      "referencecode": "SORC",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 10,
+      "referencetitre": "Site web officiel v2",
+      "referencepublishyear": null,
+      "referencecode": "WEBSITE",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 9,
+      "referencetitre": "Carreer compendium",
+      "referencepublishyear": 2009,
+      "referencecode": "CARCOM",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 8,
+      "referencetitre": "Le Tome de la Corruption",
+      "referencepublishyear": 2007,
+      "referencecode": "CORRUPT",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 7,
+      "referencetitre": "Warhammer Le jeu de rôle",
+      "referencepublishyear": 2005,
+      "referencecode": "WJDR",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 6,
+      "referencetitre": "Les héritiers de Sigmar",
+      "referencepublishyear": null,
+      "referencecode": "HDS",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 4,
+      "referencetitre": "Mort sur le Reik",
+      "referencepublishyear": 1988,
+      "referencecode": "LCI2-MSLR",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 3,
+      "referencetitre": "Repose Sans Paix",
+      "referencepublishyear": 1991,
+      "referencecode": "RSP",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 2,
+      "referencetitre": "La Campagne Impériale",
+      "referencepublishyear": 1988,
+      "referencecode": "LCI1",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 1,
+      "referencetitre": "Warhammer Le jeu de rôle fantastique",
+      "referencepublishyear": 1986,
+      "referencecode": "WJRF",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 11,
+      "referencetitre": "Terreur à Talabheim",
+      "referencepublishyear": 2006,
+      "referencecode": "TALAB",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 12,
+      "referencetitre": "Les Maîtres de la Nuit",
+      "referencepublishyear": 2007,
+      "referencecode": "VAMP",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 13,
+      "referencetitre": "Le Tome de la Rédemption",
+      "referencepublishyear": null,
+      "referencecode": "REDEMP",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 24,
+      "referencetitre": "Sombre est l'Aile de la Mort",
+      "referencepublishyear": 1992,
+      "referencecode": "SEAM",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 14,
+      "referencetitre": "La Reine des Glaces",
+      "referencepublishyear": 2008,
+      "referencecode": "KISLEV",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 16,
+      "referencetitre": "Le duché des damnés",
+      "referencepublishyear": 2006,
+      "referencecode": "DAMNES",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 15,
+      "referencetitre": "Les Chevaliers du Graal",
+      "referencepublishyear": 2006,
+      "referencecode": "GRAAL",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 17,
+      "referencetitre": "Les fils du Rat Cornu",
+      "referencepublishyear": 2007,
+      "referencecode": "SKAVEN",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 5,
+      "referencetitre": "Marienburg à vau-l'eau",
+      "referencepublishyear": 2000,
+      "referencecode": "MAVE",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 18,
+      "referencetitre": "LVdlD1 Les cendres de Middenheim",
+      "referencepublishyear": null,
+      "referencecode": "VD1-MID",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 19,
+      "referencetitre": "LVdlD2 Les tours d'Altdorf",
+      "referencepublishyear": 2006,
+      "referencecode": "VD2-ALT",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 20,
+      "referencetitre": "LVdlD3 Les forges de Nuln",
+      "referencepublishyear": 2006,
+      "referencecode": "VD3-NUL",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 28,
+      "referencetitre": "Sartosa, La cité des pirates",
+      "referencepublishyear": 1998,
+      "referencecode": "SARTOSA",
+      "referenceversion": 1
+    }
+  ]
+}
