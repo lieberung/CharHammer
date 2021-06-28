@@ -25,6 +25,7 @@ else
                 <th>Avancée</th>
                 <th>Restriction</th>
                 <th>Source</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,12 @@ else
                     <td>@carriere.EstUneCarriereAvancee</td>
                     <td>@carriere.Restriction</td>
                     <td>@carriere.Source</td>
+                    <td>
+                        <a href="@($"carrieres/{carriere.Id}/")" class="btn btn-primary table-btn">
+                            <span class="oi oi-magnifying-glass" aria-hidden="true"></span>
+                            <!--i class="fas fa-info-circle"></!i-->
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>

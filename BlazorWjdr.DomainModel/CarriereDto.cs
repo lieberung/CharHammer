@@ -19,7 +19,7 @@
         public string? Dotations { get; set; }
         public int? CarriereMereId { get; set; }
 
-        public ProfilDto PlanDeCarriere { get; set; } = new ProfilDto();
+        public PlanDeCarriereDto PlanDeCarriere { get; set; } = null!;
         public CarriereDto? CarriereMere { get; set; }
         
         public List<TalentDto> Talents { get; set; } = new List<TalentDto>();

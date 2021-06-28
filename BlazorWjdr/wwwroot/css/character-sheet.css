@@ -1,0 +1,90 @@
+﻿
+/*body { background-color: #333333; }
+
+#sheet
+{
+    position: absolute;
+    width: 103em;
+    height: 66em;
+}
+ 
+.page
+{
+    float: left;
+    background-image: url(../img/background.gif);*/
+    /*background-color: #E6D8B9;*/
+    /*width: 48em;
+    height: 62em;
+    border-style: solid;
+    border-width: 1.5px;
+    margin: 0.6em;*/ /* définie l'espace entre les 2 pages et la bordure du navigateur */
+    /*padding: 1em;*/ /* définie l'espace entre le bord des pages et leur contenu */
+/*}*/
+
+/************************** PROFILE **************************/
+#profile-area
+{
+    position: relative;
+    top: 48%;
+    left: 5%;
+}
+
+.profile-row
+{
+    float: none ;
+    width: 380px; 
+    text-align: center;
+}
+
+.profile-row-interline
+{
+    float: left;
+    width: 380px;
+    height: 8px;
+}
+
+.profile-columns-title
+{
+    float: left;
+    height: 22px;
+    background-color: #874F31;
+    color: White;
+}
+
+.profile-column-header
+{
+    vertical-align: middle;
+    height: 22px; /* ATTENTION : la hauteur est précisée car non héritée de [profile-columns-title] */
+    width: 40px;
+}
+
+.profile-row-title
+{
+    padding-top: 6px;
+    float: left;
+    width: 60px; 
+}
+
+.profile-box
+{
+    float: left;
+    background-repeat: no-repeat;
+    width: 40px;
+    font-size:large;
+    vertical-align: -25%;
+}
+
+.big-box {
+    background-image: url(../images/box-40x35.png);
+    height: 35px;
+}
+
+.medium-box {
+    background-image: url(../images/box-40x30.png);
+    height: 30px;
+}
+
+.medium-box-chk {
+    background-image: url(../images/box-40x30-4x4.png);
+    height: 30px;
+}

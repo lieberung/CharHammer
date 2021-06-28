@@ -1,0 +1,75 @@
+﻿@page "/carrieres/{CarriereId}/"
+
+<h3>@Carriere.Libelle</h3>
+
+<img src="..@Carriere.Image" />
+
+<div class="scroll" id="profile-area">
+    <div class="profile-row">
+        <div class="profile-row-title"></div>
+        <div class="profile-columns-title">
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="profile-column-header">CC</td>
+                    <td class="profile-column-header">CT</td>
+                    <td class="profile-column-header">F</td>
+                    <td class="profile-column-header">E</td>
+                    <td class="profile-column-header">Ag</td>
+                    <td class="profile-column-header">Int</td>
+                    <td class="profile-column-header">FM</td>
+                    <td class="profile-column-header">Soc</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="profile-row">
+        <div class="profile-row-title">Initial</div>
+        <div class="profile-row-boxes">
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.CC</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.CT</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.F</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.E</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.Ag</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.Int</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.FM</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.Soc</div>
+        </div>
+    </div>
+    <div class="profile-row">
+        <div class="profile-row-interline"></div>
+    </div>
+    <div class="profile-row">
+        <div class="profile-row-title"></div>
+        <div class="profile-columns-title">
+            <table cellspacing="0" cellpadding="0">
+                <tr>
+                    <td class="profile-column-header">A</td>
+                    <td class="profile-column-header">B</td>
+                    <td class="profile-column-header">BF</td>
+                    <td class="profile-column-header">BE</td>
+                    <td class="profile-column-header">M</td>
+                    <td class="profile-column-header">Mag</td>
+                    <td class="profile-column-header">PF</td>
+                    <td class="profile-column-header">PD</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="profile-row">
+        <div class="profile-row-title">Initial</div>
+        <div class="profile-row-boxes">
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.A</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.B</div>
+            <div class="profile-box medium-box"></div>
+            <div class="profile-box medium-box"></div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.M</div>
+            <div class="profile-box medium-box">@Carriere.PlanDeCarriere.Mag</div>
+            <div class="profile-box medium-box"></div>
+            <div class="profile-box medium-box"></div>
+        </div>
+    </div>
+</div>
+
+@code {
+     
+}

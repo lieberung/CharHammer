@@ -19,9 +19,12 @@
         public static RootDomaine GetRootDomaine() => LoadRootFromJson<RootDomaine>("./json-data/domaine.json");
         public static RootLieu GetRootLieu() => LoadRootFromJson<RootLieu>("./json-data/lieu.json");
         public static RootLieuType GetRootLieuType() => LoadRootFromJson<RootLieuType>("./json-data/lieutype.json");
+        public static RootPersonnage GetRootPersonnage() => LoadRootFromJson<RootPersonnage>("./json-data/personnage.json");
+        public static RootPj GetRootPj() => LoadRootFromJson<RootPj>("./json-data/pj.json");
         public static RootProfil GetRootProfil() => LoadRootFromJson<RootProfil>("./json-data/profil.json");
         public static RootRace GetRootRace() => LoadRootFromJson<RootRace>("./json-data/race.json");
         public static RootReference GetRootReference() => LoadRootFromJson<RootReference>("./json-data/reference.json");
+        public static RootTableCalcPoints GetRootTableCalcPoints() => LoadRootFromJson<RootTableCalcPoints>("./json-data/tablecalcpoints.json");
         public static RootTableCarriereInitiale GetRootTableCarriereInitiale() => LoadRootFromJson<RootTableCarriereInitiale>("./json-data/tablecarriereinitiale.json");
         public static RootTalent GetRootTalent() => LoadRootFromJson<RootTalent>("./json-data/talent.json");
     }
