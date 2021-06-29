@@ -1,6 +1,7 @@
 ﻿namespace BlazorWjdr.Services
 {
     using BlazorWjdr.DomainModel;
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -62,16 +63,16 @@
                 .items
                 .Select(t => new TalentDto
                 {
-                    Id = t.talentid,
-                    Description = t.talentdescription ?? "",
-                    Ignore = t.talentignore,
-                    Libelle = t.talentlibelle,
-                    Resume = t.talentresume,
-                    Specialisation = t.talentspecialis,
-                    TalentParentId = t.talentparentkey,
-                    Trait = t.talenttrait
+                    Id = t.id,
+                    Nom = t.nom,
+                    Description = t.description,
+                    Ignore = t.ignorer,
+                    Resume = t.resume,
+                    Specialisation = t.specialisation,
+                    TalentParentId = t.parent_id,
+                    Trait = t.trait
                 })
-                .OrderBy(t => t.Libelle).ThenBy(t => t.Specialisation)
+                .OrderBy(t => t.Nom).ThenBy(t => t.Specialisation)
                 .ToList();
 
             _cacheTalents = _allTalents.ToDictionary(k => k.Id, v => v);
@@ -86,21 +87,21 @@
                 .items
                 .Select(c => new CompetenceDto
                 {
-                    Id = c.competenceid,
-                    Description = c.competencedescription ?? "",
-                    Ignore = c.competenceignore,
-                    Libelle = c.competencelibelle,
-                    Resume = c.competenceresume,
-                    Specialisation = c.competencespecialis,
-                    CaracteristiqueAssociee = c.competencecaract,
-                    EstUneCompetenceDeBase = c.competencebase,
+                    Id = c.id,
+                    Description = c.description,
+                    Ignore = c.ignorer,
+                    Nom = c.nom,
+                    Resume = c.resume,
+                    Specialisation = c.specialisation,
+                    CaracteristiqueAssociee = c.carac,
+                    EstUneCompetenceDeBase = c.de_base,
                     CompetenceMereId = c.fk_competencemereid,
-                    TalentsLies = (c.fk_talentslies ?? new int[0])
+                    TalentsLies = (c.fk_talentslies ?? Array.Empty<int>())
                         .Select(id => _cacheTalents[id])
-                        .OrderBy(c => c.Libelle).ThenBy(c => c.Specialisation)
+                        .OrderBy(c => c.Nom).ThenBy(c => c.Specialisation)
                         .ToList()
                 })
-                .OrderBy(t => t.Libelle).ThenBy(t => t.Specialisation)
+                .OrderBy(t => t.Nom).ThenBy(t => t.Specialisation)
                 .ToList();
 
             _cacheCompetences = _allCompetences.ToDictionary(k => k.Id, v => v);

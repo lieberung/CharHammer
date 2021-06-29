@@ -44,7 +44,7 @@
 
             _cacheChoixTalents = _allChoixTalents.ToDictionary(k => k.id, v => v.choixtalentkeys
                 .Select(id => _competencesEtTalentsService.GetTalent(id))
-                .OrderBy(t => t.Libelle)
+                .OrderBy(t => t.Nom)
                 .ToArray());
 
             var _allChoixCompetences = DataSource.JsonLoader
@@ -53,7 +53,7 @@
 
             _cacheChoixCompetences = _allChoixCompetences.ToDictionary(k => k.id, v => v.choixcompetencekeys
                 .Select(id => _competencesEtTalentsService.GetCompetence(id))
-                .OrderBy(c => c.Libelle).ThenBy(c => c.Specialisation)
+                .OrderBy(c => c.Nom).ThenBy(c => c.Specialisation)
                 .ToArray());
         }
     }

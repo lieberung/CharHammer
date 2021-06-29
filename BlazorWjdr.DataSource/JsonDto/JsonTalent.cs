@@ -4,14 +4,14 @@
 
     public class JsonTalent
     {
-        public int talentid { get; set; }
-        public string talentlibelle { get; set; } = null!;
-        public string talentresume { get; set; } = null!;
-        public string? talentdescription { get; set; }
-        public bool talenttrait { get; set; }
-        public string? talentspecialis { get; set; }
-        public int? talentparentkey { get; set; }
-        public bool talentignore { get; set; }
+        public int id { get; set; }
+        public int? parent_id { get; set; }
+        public bool ignorer { get; set; }
+        public bool trait { get; set; }
+        public string nom { get; set; } = null!;
+        public string resume { get; set; } = null!;
+        public string description { get; set; } = null!;
+        public string specialisation { get; set; } = null!;
     }
 
     public class RootTalent

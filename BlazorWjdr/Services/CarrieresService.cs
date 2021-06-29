@@ -70,18 +70,16 @@
                 {
                     Id = c.id,
                     Libelle = c.libelle,
-                    Description = c.description ?? "",
+                    Description = c.description,
                     CarriereMereId = c.fk_parentcarriereid,
-                    ChoixCompetencesIds = (c.fk_choixcompetences ?? new int[0]).ToList(),
-                    ChoixTalentsIds = (c.fk_choixtalents ?? new int[0]).ToList(),
                     Complete = c.complete,
-                    DebouchesIds = c.fk_debouches ?? new int[0],
+                    DebouchesIds = c.fk_debouches ?? Array.Empty<int>(),
                     Dotations = c.dotations,
                     EstUneCarriereAvancee = c.avancee,
                     Image = $"/images/careers/{c.id}.png",
                     PlanDeCarriere = new PlanDeCarriereDto(_profilsService.GetProfil(c.fk_plandecarriereid)),
-                    Restriction = c.restriction ?? "",
-                    Source = c.source ?? "",
+                    Restriction = c.restriction,
+                    Source = c.source,
                     SourceId = c.fk_sourceid,
 #pragma warning disable CS8604 // Possible null reference argument.
                     Competences = (c.fk_competences ?? Array.Empty<int>()).Any() ?

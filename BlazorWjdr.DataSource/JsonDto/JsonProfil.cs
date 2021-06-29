@@ -4,23 +4,23 @@
 
     public class JsonProfil
     {
-        public int profilid { get; set; }
-        public int profilcc { get; set; }
-        public int profilct { get; set; }
-        public int profilf { get; set; }
-        public int profile { get; set; }
-        public int profilag { get; set; }
-        public int profilint { get; set; }
-        public int profilfm { get; set; }
-        public int profilsoc { get; set; }
-        public int profila { get; set; }
-        public int profilb { get; set; }
-        public int profilbf { get; set; }
-        public int profilbe { get; set; }
-        public int profilm { get; set; }
-        public int profilmag { get; set; }
-        public int profilpf { get; set; }
-        public int profilpd { get; set; }
+        public int id { get; set; }
+        public int cc { get; set; }
+        public int ct { get; set; }
+        public int f { get; set; }
+        public int e { get; set; }
+        public int ag { get; set; }
+        public int intel { get; set; }
+        public int fm { get; set; }
+        public int soc { get; set; }
+        public int a { get; set; }
+        public int b { get; set; }
+        public int bf { get; set; }
+        public int be { get; set; }
+        public int m { get; set; }
+        public int mag { get; set; }
+        public int pf { get; set; }
+        public int pd { get; set; }
     }
 
     public class RootProfil

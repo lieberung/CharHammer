@@ -4,15 +4,15 @@
 
     public class JsonDieu
     {
-        public int dieuid { get; set; }
-        public string dieunom { get; set; } = null!;
-        public string? dieudomaines { get; set; }
-        public string? dieufideles { get; set; }
-        public string? dieusymboles { get; set; }
-        public string? dieusymbolesimg { get; set; }
-        public string? dieuhistoire { get; set; }
-        public string? dieucomment { get; set; }
-        public int? fk_dieupatron { get; set; }
+        public int id { get; set; }
+        public int? patron_id { get; set; }
+        public string nom { get; set; } = null!;
+        public string domaines { get; set; } = null!;
+        public string fideles { get; set; } = null!;
+        public string symboles { get; set; } = null!;
+        public string symboles_image { get; set; } = null!;
+        public string histoire { get; set; } = null!;
+        public string comment { get; set; } = null!;
     }
 
     public class RootDieu

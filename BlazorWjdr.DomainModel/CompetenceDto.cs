@@ -6,7 +6,7 @@
     public class CompetenceDto
     {
         public int Id { get; set; }
-        public string Libelle { get; set; } = null!;
+        public string Nom { get; set; } = null!;
         public string Resume { get; set; } = null!;
         public string Description { get; set; } = null!;
         public bool EstUneCompetenceDeBase { get; set; }
@@ -20,11 +20,11 @@
         public string TalentsLiesToString => TalentsLies.Any() ?
             string.Join(", ", TalentsLies
                 .Where(t => t.Ignore == false)
-                .OrderBy(t => t.Libelle).ThenBy(t => t.Specialisation)
+                .OrderBy(t => t.Nom).ThenBy(t => t.Specialisation)
                 .Select(t => t.ToString())
                 .ToArray())
             : "";
 
-        public override string ToString() => $"{Libelle}{(Specialisation != null ? $" ({Specialisation})" : "")}";
+        public override string ToString() => $"{Nom}{(Specialisation != null ? $" ({Specialisation})" : "")}";
     }
 }

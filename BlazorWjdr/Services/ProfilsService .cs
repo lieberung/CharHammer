@@ -28,23 +28,23 @@
                 .items
                 .Select(c => new ProfilDto
                 {
-                    Id = c.profilid,
-                    A = c.profila,
-                    Ag = c.profilag,
-                    B = c.profilb,
-                    BE = c.profilbe,
-                    BF = c.profilbf,
-                    CC = c.profilcc,
-                    CT = c.profilct,
-                    E = c.profile,
-                    F = c.profilf,
-                    FM = c.profilfm,
-                    Int = c.profilint,
-                    M = c.profilm,
-                    Mag = c.profilmag,
-                    PD = c.profilpd,
-                    PF = c.profilpf,
-                    Soc = c.profilsoc
+                    Id = c.id,
+                    A = c.a,
+                    Ag = c.ag,
+                    B = c.b,
+                    BE = c.be,
+                    BF = c.bf,
+                    CC = c.cc,
+                    CT = c.ct,
+                    E = c.e,
+                    F = c.f,
+                    FM = c.fm,
+                    Int = c.intel,
+                    M = c.m,
+                    Mag = c.mag,
+                    PD = c.pd,
+                    PF = c.pf,
+                    Soc = c.soc
                 })
                 .ToDictionary(k => k.Id, v => v);
         }

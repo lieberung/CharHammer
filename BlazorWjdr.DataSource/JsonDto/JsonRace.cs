@@ -4,19 +4,19 @@
 
     public class JsonRace
     {
-        public int raceid { get; set; }
-        public int? fk_parentid { get; set; }
-        public int? fk_profilid { get; set; }
-        public string racenommasculin { get; set; } = null!;
-        public string? racedescription { get; set; }
-        public string? racetraits { get; set; }
-        public string? raceimagemale { get; set; }
-        public string? raceimagefemelle { get; set; }
-        public bool racepourpj { get; set; }
-        public bool racepourpnj { get; set; }
-        public bool racegrouponly { get; set; }
-        public int[]? fk_lieux { get; set; }
-        public string? racenomfeminin { get; set; }
+        public int id { get; set; }
+        public int? parent_id { get; set; }
+        public int? profil_id { get; set; }
+        public List<int>? lieux_ids { get; set; }
+        public bool pour_pj { get; set; }
+        public bool pour_pnj { get; set; }
+        public bool group_only { get; set; }
+        public string nom_masculin { get; set; } = null!;
+        public string nom_feminin { get; set; } = null!;
+        public string description { get; set; } = null!;
+        public string traits { get; set; } = null!;
+        public string image_male { get; set; } = null!;
+        public string image_femelle { get; set; } = null!;
     }
 
     public class RootRace

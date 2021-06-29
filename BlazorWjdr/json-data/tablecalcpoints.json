@@ -39,6 +39,6 @@
 {"id":19,"fk_raceid":27,"dicevalue":9,"blessures":13,"destin":3,"siblings":2,"cheveux":"Bleu foncé","yeux":"Marron foncé"},
 {"id":20,"fk_raceid":27,"dicevalue":10,"blessures":14,"destin":3,"siblings":3,"cheveux":"Noir","yeux":"Mauve"},
 {"id":22,"fk_raceid":25,"dicevalue":2,"blessures":9,"destin":1,"siblings":1,"cheveux":"Blond cendré","yeux":"Bleu"},
-{"id":23,"fk_raceid":25,"dicevalue":3,"blessures":9,"destin":1,"siblings":1,"cheveux":"Paille","yeux":"Vert"},
+{"id":23,"fk_raceid":25,"dicevalue":3,"blessures":9,"destin":1,"siblings":1,"cheveux":"Paille","yeux":"Vert"}
 	]
 }
