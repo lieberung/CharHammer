@@ -91,6 +91,7 @@
                     Description = c.description,
                     Ignore = c.ignorer,
                     Nom = c.nom,
+                    NomComplet = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.specialisation) ? $" ({c.specialisation})" : "")}",
                     Resume = c.resume,
                     Specialisation = c.specialisation,
                     CaracteristiqueAssociee = c.carac,

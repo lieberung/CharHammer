@@ -1,0 +1,37 @@
+﻿<tr>
+    <td>
+        <a href="@($"carrieres/{Carriere.Id}/")" class="btn btn-primary table-btn">
+            <span class="oi oi-magnifying-glass" aria-hidden="true"></span>
+        </a>
+    </td>
+    <td>
+        <span class="btn btn-primary table-btn" @onclick="e => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
+            <span class="oi oi-grid-four-up" aria-hidden="true"></span>
+        </span>
+    </td>
+    <td>
+        <span class="btn btn-primary table-btn" @onclick="e => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
+            <span class="oi oi-grid-four-up" aria-hidden="true"></span>
+        </span>
+    </td>
+    <td>@Carriere.Libelle</td>
+    <td>@Carriere.EstUneCarriereAvancee</td>
+    <td>@Carriere.Restriction</td>
+    <td>@Carriere.Source</td>
+</tr>
+@if (AfficherPlanDeCarriere)
+{
+    <tr>
+        <td colspan="7">
+            <PlanDeCarriere Plan="@Carriere.PlanDeCarriere"></PlanDeCarriere>
+        </td>
+    </tr>
+}
+@if (AfficherCompetencesEtTalents)
+{
+    <tr>
+        <td colspan="7">
+            <CompetencesEtTalents Carriere="@Carriere"></CompetencesEtTalents>
+        </td>
+    </tr>
+}

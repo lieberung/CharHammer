@@ -24,6 +24,6 @@
                 .Select(t => t.ToString())
                 .ToArray())
             : "";
-        public override string ToString() => $"{Nom}{(Specialisation != null ? $" ({Specialisation})" : "")}";
+        public override string ToString() => $"{Nom}{(!string.IsNullOrWhiteSpace(Specialisation) ? $" ({Specialisation})" : "")}";
     }
 }

@@ -6,7 +6,9 @@
     public class CompetenceDto
     {
         public int Id { get; set; }
+        public string NomComplet { get; set; } = null!;
         public string Nom { get; set; } = null!;
+        public string? Specialisation { get; set; }
         public string Resume { get; set; } = null!;
         public string Description { get; set; } = null!;
         public bool EstUneCompetenceDeBase { get; set; }
@@ -14,7 +16,6 @@
         public List<TalentDto> TalentsLies { get; set; } = new List<TalentDto>();
         public int? CompetenceMereId { get; set; }
         public CompetenceDto? CompetenceParente { get; set; }
-        public string? Specialisation { get; set; }
         public bool Ignore { get; set; }
 
         public string TalentsLiesToString => TalentsLies.Any() ?
@@ -24,7 +25,5 @@
                 .Select(t => t.ToString())
                 .ToArray())
             : "";
-
-        public override string ToString() => $"{Nom}{(Specialisation != null ? $" ({Specialisation})" : "")}";
     }
 }

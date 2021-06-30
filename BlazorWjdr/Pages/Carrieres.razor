@@ -1,11 +1,9 @@
 ﻿@page "/carrieres"
 
+@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.DomainModel
 @using BlazorWjdr.Services
-<!--
-@inject ProfilsService CompetenceService
-@inject CompetencesEtTalentsService CompetenceService
--->
+
 @inject CarrieresService CompetenceService
 
 <h1>Carrières</h1>
@@ -21,40 +19,31 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th></th>
+                <th></th>
+                <th></th>
                 <th>Carrière</th>
                 <th>Avancée</th>
                 <th>Restriction</th>
                 <th>Source</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var carriere in carrieresLines)
             {
-                <tr>
-                    <td>@carriere.Libelle</td>
-                    <td>@carriere.EstUneCarriereAvancee</td>
-                    <td>@carriere.Restriction</td>
-                    <td>@carriere.Source</td>
-                    <td>
-                        <a href="@($"carrieres/{carriere.Id}/")" class="btn btn-primary table-btn">
-                            <span class="oi oi-magnifying-glass" aria-hidden="true"></span>
-                            <!--i class="fas fa-info-circle"></!i-->
-                        </a>
-                    </td>
-                </tr>
+                <CarriereRow Carriere="carriere" />
             }
         </tbody>
     </table>
 }
 
 @code {
-    private List<CarriereDto> carrieresLines = null!;
+private List<CarriereDto> carrieresLines = null!;
 
-    protected override async Task OnInitializedAsync()
-    {
-        var carrieres = await CompetenceService.ItemsCarrieres();
-        carrieresLines = carrieres.ToList();
-        //carrieresLines.RemoveAll(c => c.Ignore);
-    }
+protected override async Task OnInitializedAsync()
+{
+    var carrieres = await CompetenceService.ItemsCarrieres();
+    carrieresLines = carrieres.ToList();
+    //carrieresLines.RemoveAll(c => c.Ignore);
+}
 }
