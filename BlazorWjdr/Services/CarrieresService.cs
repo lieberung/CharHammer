@@ -1,6 +1,6 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.DomainModel;
+    using BlazorWjdr.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -69,7 +69,7 @@
                 .Select(c => new CarriereDto
                 {
                     Id = c.id,
-                    Libelle = c.libelle,
+                    Nom = c.libelle,
                     Description = c.description,
                     CarriereMereId = c.fk_parentcarriereid,
                     Complete = c.complete,
@@ -96,7 +96,7 @@
                         : new List<TalentDto[]>()
 #pragma warning restore CS8604 // Possible null reference argument.
                 })
-                .OrderBy(t => t.Libelle)
+                .OrderBy(t => t.Nom)
                 .ToList();
 
             _cacheCarrieres = _allCarrieres.ToDictionary(k => k.Id, v => v);

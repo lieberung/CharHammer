@@ -1,4 +1,4 @@
-﻿namespace BlazorWjdr.DomainModel
+﻿namespace BlazorWjdr.Models
 {
     using System.Collections.Generic;
     using System.Linq;

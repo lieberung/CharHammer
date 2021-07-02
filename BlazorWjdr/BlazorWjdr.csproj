@@ -41,7 +41,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorWjdr.DataSource\BlazorWjdr.DataSource.csproj" />
-    <ProjectReference Include="..\BlazorWjdr.DomainModel\BlazorWjdr.DomainModel.csproj" />
+    <ProjectReference Include="..\BlazorWjdr.DomainModel\BlazorWjdr.Models.csproj" />
   </ItemGroup>
 
 </Project>

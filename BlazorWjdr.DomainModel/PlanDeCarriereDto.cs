@@ -1,4 +1,4 @@
-﻿namespace BlazorWjdr.DomainModel
+﻿namespace BlazorWjdr.Models
 {
     public class PlanDeCarriereDto
     {

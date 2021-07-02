@@ -1,4 +1,4 @@
-﻿using BlazorWjdr.DomainModel;
+﻿using BlazorWjdr.Models;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 

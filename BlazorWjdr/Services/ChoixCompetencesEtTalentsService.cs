@@ -1,6 +1,6 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.DomainModel;
+    using BlazorWjdr.Models;
     using System.Collections.Generic;
     using System.Linq;
 

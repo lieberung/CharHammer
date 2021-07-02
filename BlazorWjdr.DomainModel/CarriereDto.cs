@@ -1,21 +1,21 @@
-﻿namespace BlazorWjdr.DomainModel
+﻿namespace BlazorWjdr.Models
 {
     using System.Collections.Generic;
 
     public class CarriereDto
     {
-        public int Id { get; set; }
-        public string Libelle { get; set; } = null!;
-        public string Description { get; set; } = null!;
-        public string Image { get; set; } = null!;
-        public bool EstUneCarriereAvancee { get; set; }
-        public string Restriction { get; set; } = null!;
-        public string Source { get; set; } = null!;
-        public int[] DebouchesIds { get; set; } = null!;
-        public int? SourceId { get; set; }
-        public bool Complete { get; set; }
-        public string Dotations { get; set; } = null!;
-        public int? CarriereMereId { get; set; }
+        public int Id { get; init; }
+        public string Nom { get; init; } = null!;
+        public string Description { get; init; } = null!;
+        public string Image { get; init; } = null!;
+        public bool EstUneCarriereAvancee { get; init; }
+        public string Restriction { get; init; } = null!;
+        public string Source { get; init; } = null!;
+        public int[] DebouchesIds { get; init; } = null!;
+        public int? SourceId { get; init; }
+        public bool Complete { get; init; }
+        public string Dotations { get; init; } = null!;
+        public int? CarriereMereId { get; init; }
 
         public PlanDeCarriereDto PlanDeCarriere { get; set; } = null!;
         

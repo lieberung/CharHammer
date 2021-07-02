@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWjdr", "BlazorWjdr\Bl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWjdr.DataSource", "BlazorWjdr.DataSource\BlazorWjdr.DataSource.csproj", "{DFE43098-E88C-442D-ACFB-0BCFF7D01640}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWjdr.DomainModel", "BlazorWjdr.DomainModel\BlazorWjdr.DomainModel.csproj", "{D65DDC85-340B-46C5-B949-DC21A683A7A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWjdr.Models", "BlazorWjdr.DomainModel\BlazorWjdr.Models.csproj", "{D65DDC85-340B-46C5-B949-DC21A683A7A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
