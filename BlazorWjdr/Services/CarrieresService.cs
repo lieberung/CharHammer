@@ -11,18 +11,21 @@
         private List<CarriereDto>? _allCarrieres = null;
         private Dictionary<int, CarriereDto>? _cacheCarrieres = null;
 
-        private ProfilsService _profilsService;
-        private CompetencesEtTalentsService _competencesEtTalentsService;
-        private ChoixCompetencesEtTalentsService _choixCompetencesEtTalentsService;
+        private readonly ProfilsService _profilsService;
+        private readonly CompetencesEtTalentsService _competencesEtTalentsService;
+        private readonly ChoixCompetencesEtTalentsService _choixCompetencesEtTalentsService;
+        private readonly ReferencesService _referencesService;
 
         public CarrieresService(
             ProfilsService profilsService,
             CompetencesEtTalentsService competencesEtTalentsService,
-            ChoixCompetencesEtTalentsService choixCompetencesEtTalentsService)
+            ChoixCompetencesEtTalentsService choixCompetencesEtTalentsService,
+            ReferencesService referencesService)
         {
             _profilsService = profilsService;
             _competencesEtTalentsService = competencesEtTalentsService;
             _choixCompetencesEtTalentsService = choixCompetencesEtTalentsService;
+            _referencesService = referencesService;
         }
 
         protected List<CarriereDto> AllCarrieres
@@ -80,7 +83,7 @@
                     PlanDeCarriere = new PlanDeCarriereDto(_profilsService.GetProfil(c.fk_plandecarriereid)),
                     Restriction = c.restriction,
                     Source = c.source,
-                    SourceId = c.fk_sourceid,
+                    SourceLivre = c.fk_sourceid == null ? null : _referencesService.GetReference(c.fk_sourceid.Value),
 #pragma warning disable CS8604 // Possible null reference argument.
                     Competences = (c.fk_competences ?? Array.Empty<int>()).Any() ?
                         _competencesEtTalentsService.GetCompetences(c.fk_competences).ToList()
@@ -110,7 +113,14 @@
                 carriere.Debouches = GetCarrieres(carriere.DebouchesIds).ToList();
 
             foreach (var carriere in _allCarrieres)
+            {
+                if (carriere.SourceLivre != null)
+                    carriere.Source = carriere.SourceLivre.Titre
+                                      + (string.IsNullOrWhiteSpace(carriere.Source)
+                        ? ""
+                        : $" ({carriere.Source})"); 
                 carriere.Filieres = _allCarrieres.Where(c => c.Debouches.Contains(carriere)).ToList();
+            }
         }
     }
 }

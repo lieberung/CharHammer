@@ -1,33 +1,5 @@
 ﻿@using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
 
-<div>
-    @for (int i = 0; i < _competences.Length; i++)
-    {
-        @if (i != 0)
-        {
-            <span>&nbsp;-&nbsp;</span>
-        }
-        <CompetenceItem Competence="_competences[i]"></CompetenceItem>
-    }
-    @for (int i = 0; i < _competencesChoix.Length; i++)
-    {
-        <span>&nbsp;-&nbsp;</span>
-        <ChoixDeCompetenceItem Choix="_competencesChoix[i]"></ChoixDeCompetenceItem>
-    }
-</div>
-<div>
-    @for (int i = 0; i < _talents.Length; i++)
-    {
-        @if (i != 0)
-        {
-            <span>&nbsp;-&nbsp;</span>
-        }
-        <TalentItem Talent="_talents[i]"></TalentItem>
-    }
-    @for (int i = 0; i < _talentsChoix.Length; i++)
-    {
-        <span>&nbsp;-&nbsp;</span>
-        <ChoixDeTalentItem Choix="_talentsChoix[i]"></ChoixDeTalentItem>
-    }
-</div>
+<CompetenceItemList Title="Compétences" Items="_competences" ItemsChoix="_competencesChoix" />
+<TalentItemList Title="Talents" Items="_talents" ItemsChoix="_talentsChoix" />

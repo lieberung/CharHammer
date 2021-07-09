@@ -2,10 +2,12 @@
 {
     public class ReferenceDto
     {
-        public int Id { get; set; }
-        public string Titre { get; set; } = null!;
-        public int? AnneeDePublication { get; set; }
-        public string Code { get; set; } = null!;
-        public int Version { get; set; }
+        public int Id { get; init; }
+        public string Titre { get; init; } = null!;
+        public int? AnneeDePublication { get; init; }
+        public string Code { get; init; } = null!;
+        public int Version { get; init; }
+
+        public string Image => $"{Id}.jpg";
     }
 }

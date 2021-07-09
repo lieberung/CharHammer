@@ -8,7 +8,7 @@ namespace BlazorWjdr.Components.Carriere
         [Parameter]
         public CarriereDto Carriere { get; set; } = null!;
 
-        public bool AfficherPlanDeCarriere { get; set; }
-        public bool AfficherCompetencesEtTalents { get; set; }
+        private bool AfficherPlanDeCarriere { get; set; }
+        private bool AfficherCompetencesEtTalents { get; set; }
     }
 }

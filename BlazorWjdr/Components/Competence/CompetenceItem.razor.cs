@@ -6,6 +6,6 @@ namespace BlazorWjdr.Components.Competence
     public partial class CompetenceItem
     {
         [Parameter]
-        public CompetenceDto Competence { get; set; } = null!;
+        public CompetenceDto Item { get; set; } = null!;
     }
 }

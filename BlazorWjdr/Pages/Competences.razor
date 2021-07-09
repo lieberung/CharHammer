@@ -2,50 +2,37 @@
 
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
-@inject CompetencesEtTalentsService CompetenceService
+@using BlazorWjdr.Components.Competence
+
+@inject CompetencesEtTalentsService _competenceService
 
 <h1>Compétences</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
-
-@if (competencesLines == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Compétence</th>
-                <th>Carac.</th>
-                <th>Base</th>
-                <th>Talents liés</th>
-                <th>Proposée par</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var competence in competencesLines)
-            {
-            <tr>
-                <td>@competence.NomComplet</td>
-                <td>@competence.CaracteristiqueAssociee</td>
-                <td>@competence.EstUneCompetenceDeBase</td>
-                <td>@competence.TalentsLiesToString</td>
-                <td><button>Carrières...</button></td>
-            </tr>
-            }
-        </tbody>
-    </table>
-}
+<table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Compétence</th>
+        <th>Carac.</th>
+        <th>Base</th>
+        <th>Talents liés</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var competence in _competencesLines)
+        {
+            <CompetenceRow Item="@competence" /> 
+        }
+    </tbody>
+</table>
 
 @code {
-    private List<CompetenceDto> competencesLines = null!;
+    private List<CompetenceDto> _competencesLines = null!;
 
     protected override async Task OnInitializedAsync()
     {
-        var competences = await CompetenceService.ItemsCompetences();
-        competencesLines = competences.ToList();
-        competencesLines.RemoveAll(c => c.Ignore);
+        var competences = await _competenceService.ItemsCompetences();
+        _competencesLines = competences.ToList();
+        _competencesLines.RemoveAll(c => c.Ignore || c.CompetenceParente != null);
     }
 }

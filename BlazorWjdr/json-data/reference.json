@@ -31,21 +31,21 @@
     {
       "referenceid": 26,
       "referencetitre": "Shades of Empire",
-      "referencepublishyear": null,
+      "referencepublishyear": 2008,
       "referencecode": "SoE",
       "referenceversion": 2
     },
     {
       "referenceid": 27,
       "referencetitre": "Les royaumes de sorcellerie",
-      "referencepublishyear": null,
+      "referencepublishyear": 2006,
       "referencecode": "SORC",
       "referenceversion": 2
     },
     {
       "referenceid": 10,
       "referencetitre": "Site web officiel v2",
-      "referencepublishyear": null,
+      "referencepublishyear": 2005,
       "referencecode": "WEBSITE",
       "referenceversion": 2
     },
@@ -73,7 +73,7 @@
     {
       "referenceid": 6,
       "referencetitre": "Les héritiers de Sigmar",
-      "referencepublishyear": null,
+      "referencepublishyear": 2006,
       "referencecode": "HDS",
       "referenceversion": 2
     },
@@ -93,7 +93,7 @@
     },
     {
       "referenceid": 2,
-      "referencetitre": "La Campagne Impériale",
+      "referencetitre": "LCI 1 - La Campagne Impériale",
       "referencepublishyear": 1988,
       "referencecode": "LCI1",
       "referenceversion": 1
@@ -122,7 +122,7 @@
     {
       "referenceid": 13,
       "referencetitre": "Le Tome de la Rédemption",
-      "referencepublishyear": null,
+      "referencepublishyear": 2007,
       "referencecode": "REDEMP",
       "referenceversion": 2
     },
@@ -171,7 +171,7 @@
     {
       "referenceid": 18,
       "referencetitre": "LVdlD1 Les cendres de Middenheim",
-      "referencepublishyear": null,
+      "referencepublishyear": 2005,
       "referencecode": "VD1-MID",
       "referenceversion": 2
     },
@@ -195,6 +195,160 @@
       "referencepublishyear": 1998,
       "referencecode": "SARTOSA",
       "referenceversion": 1
+    },
+    {
+      "referenceid": 29,
+      "referencetitre": "Le Seigneur des Liches",
+      "referencepublishyear": 1991,
+      "referencecode": "LICHES",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 30,
+      "referencetitre": "Château Drachenfels",
+      "referencepublishyear": 1996,
+      "referencecode": "DRACHEN",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 31,
+      "referencetitre": "L'Agonie du Jour",
+      "referencepublishyear": 1997,
+      "referencecode": "AGONIE",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 32,
+      "referencetitre": "Le Premier Compagnon",
+      "referencepublishyear": 1992,
+      "referencecode": "PCOMP",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 33,
+      "referencetitre": "Le Nouvel Apocryphe",
+      "referencepublishyear": 1996,
+      "referencecode": "APOCRY",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 34,
+      "referencetitre": "Les Royaumes de la Sorcellerie",
+      "referencepublishyear": 2002,
+      "referencecode": "SORC1",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 35,
+      "referencetitre": "PERSONNAGE",
+      "referencepublishyear": 1987,
+      "referencecode": "PERSO",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 36,
+      "referencetitre": "Pour la gloire d'Ulric",
+      "referencepublishyear": 1995,
+      "referencecode": "ULRIC",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 37,
+      "referencetitre": "LCI 2 - Mort Sur le Reik",
+      "referencepublishyear": 1989,
+      "referencecode": "REIK",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 38,
+      "referencetitre": "LCI 3 - Le Pouvoir Derrière le Trône",
+      "referencepublishyear": 1990,
+      "referencecode": "TRONE",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 40,
+      "referencetitre": "LCI 5 - L'Empire en Flammes",
+      "referencepublishyear": 1991,
+      "referencecode": "FLAMMES",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 41,
+      "referencetitre": "Le Feu dans la Montagne",
+      "referencepublishyear": 1992,
+      "referencecode": "FEUMONT",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 42,
+      "referencetitre": "Le Sang dans les Ténèbres",
+      "referencepublishyear": 1992,
+      "referencecode": "SANGTEN",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 43,
+      "referencetitre": "La Mort sur son Rocher",
+      "referencepublishyear": 1992,
+      "referencecode": "MORTROCH",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 44,
+      "referencetitre": "La Guerre au Royaume des Nains",
+      "referencepublishyear": 1992,
+      "referencecode": "GUERNAINS",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 45,
+      "referencetitre": "Coeur de Chaos",
+      "referencepublishyear": 1992,
+      "referencecode": "GUERNAINS",
+      "referenceversion": 1
+    },
+    {
+      "referenceid": 46,
+      "referencetitre": "Les Mille Trônes",
+      "referencepublishyear": 2009,
+      "referencecode": "1000T",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 47,
+      "referencetitre": "La Crypte des Secrets",
+      "referencepublishyear": 2005,
+      "referencecode": "SECRETS",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 48,
+      "referencetitre": "Bestiaire du Vieux Monde",
+      "referencepublishyear": 2005,
+      "referencecode": "BESTIAIRE",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 49,
+      "referencetitre": "Arsenal du Vieux Monde",
+      "referencepublishyear": 2005,
+      "referencecode": "ARSENAL",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 50,
+      "referencetitre": "Karak Azgal",
+      "referencepublishyear": 2006,
+      "referencecode": "KARAK",
+      "referenceversion": 2
+    },
+    {
+      "referenceid": 51,
+      "referencetitre": "Le Seigneur Liche",
+      "referencepublishyear": 2007,
+      "referencecode": "LSLICHE",
+      "referenceversion": 2
     }
   ]
 }

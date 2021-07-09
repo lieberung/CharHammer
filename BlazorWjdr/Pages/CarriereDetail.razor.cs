@@ -10,15 +10,16 @@
         [Parameter]
         public string CarriereId { get; set; } = null!;
 
-        public CarriereDto Carriere { get; set; } = null!;
+        private CarriereDto Carriere { get; set; } = null!;
 
         [Inject]
         public CarrieresService CarrieresService { get; set; } = null!;
 
-        protected override Task OnInitializedAsync()
+        protected override Task OnParametersSetAsync()
         {
             Carriere = CarrieresService.GetCarriere(int.Parse(CarriereId));
-            return base.OnInitializedAsync();
+
+            return base.OnParametersSetAsync();
         }
     }
 }

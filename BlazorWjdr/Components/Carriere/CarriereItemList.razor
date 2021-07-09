@@ -1,0 +1,16 @@
+﻿@using BlazorWjdr.Models
+@if (!string.IsNullOrWhiteSpace(Title))
+{
+    <h5 class="card-title">@Title</h5>
+}
+<ul class="list-inline">
+    @foreach (var carriere in Items)
+    {
+        <li class="list-inline-item"><CarriereItem Item="@carriere"/></li>
+    }
+</ul>
+@code
+{
+    [Parameter] public string Title { get; set; } = null!;
+    [Parameter] public CarriereDto[] Items { get; set; } = null!;
+}

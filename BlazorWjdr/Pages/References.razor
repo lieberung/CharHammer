@@ -2,48 +2,41 @@
 
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
-@inject ReferencesService ReferencesService
+@using BlazorWjdr.Components.Reference
+
+@inject ReferencesService _referencesService
 
 <h1>Références</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
-
-@if (referencesLines == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Paru en</th>
-                <th>Version</th>
-                <th>Titre</th>
-                <th>Code</th>
-                <th>Contenu</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var reference in referencesLines.OrderBy(r => r.AnneeDePublication))
-            {
-            <tr>
-                <td>@reference.AnneeDePublication</td>
-                <td>@reference.Version</td>
-                <td>@reference.Titre</td>
-                <td>@reference.Code</td>
-                <td><button>Carrières...</button></td>
-            </tr>
-            }
-        </tbody>
-    </table>
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Paru en</th>
+            <th>Version</th>
+            <th>Titre</th>
+            <th>Code</th>
+            <th>Contenu</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reference in _referencesLines.OrderBy(r => r.AnneeDePublication))
+        {
+        <tr>
+            <td>@reference.AnneeDePublication</td>
+            <td>@reference.Version</td>
+            <td><ReferenceItem Item="@reference" /></td>
+            <td>@reference.Code</td>
+            <td><button>Carrières...</button></td>
+        </tr>
+        }
+    </tbody>
+</table>
 
 @code {
-    private ReferenceDto[] referencesLines = null!;
+    private ReferenceDto[] _referencesLines = null!;
 
     protected override async Task OnInitializedAsync()
     {
-        referencesLines = await ReferencesService.Items();
+        _referencesLines = await _referencesService.Items();
     }
 }

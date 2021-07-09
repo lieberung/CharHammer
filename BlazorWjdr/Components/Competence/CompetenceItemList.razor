@@ -1,0 +1,14 @@
+﻿@if (!string.IsNullOrWhiteSpace(Title))
+{
+    <h5 class="card-title">@Title</h5>
+}
+<ul class="list-inline">
+    @foreach (var item in Items)
+    {
+        <li class="list-inline-item"><CompetenceItem Item="@item"/></li>
+    }
+    @foreach (var choix in ItemsChoix)
+    {
+        <li class="list-inline-item"><ChoixDeCompetenceItem Choix="@choix"/></li>
+    }
+</ul>

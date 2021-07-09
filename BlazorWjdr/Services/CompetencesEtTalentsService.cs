@@ -64,7 +64,7 @@
                 .Select(t => new TalentDto
                 {
                     Id = t.id,
-                    Nom = t.nom,
+                    Nom = $"{t.nom}{(!string.IsNullOrWhiteSpace(t.specialisation) ? $" ({t.specialisation})" : "")}",
                     Description = t.description,
                     Ignore = t.ignorer,
                     Resume = t.resume,
@@ -72,7 +72,7 @@
                     TalentParentId = t.parent_id,
                     Trait = t.trait
                 })
-                .OrderBy(t => t.Nom).ThenBy(t => t.Specialisation)
+                .OrderBy(t => t.Nom)
                 .ToList();
 
             _cacheTalents = _allTalents.ToDictionary(k => k.Id, v => v);
@@ -88,10 +88,8 @@
                 .Select(c => new CompetenceDto
                 {
                     Id = c.id,
-                    Description = c.description,
                     Ignore = c.ignorer,
-                    Nom = c.nom,
-                    NomComplet = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.specialisation) ? $" ({c.specialisation})" : "")}",
+                    Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.specialisation) ? $" ({c.specialisation})" : "")}",
                     Resume = c.resume,
                     Specialisation = c.specialisation,
                     CaracteristiqueAssociee = c.carac,
@@ -99,10 +97,10 @@
                     CompetenceMereId = c.fk_competencemereid,
                     TalentsLies = (c.fk_talentslies ?? Array.Empty<int>())
                         .Select(id => _cacheTalents[id])
-                        .OrderBy(c => c.Nom).ThenBy(c => c.Specialisation)
+                        .OrderBy(t => t.Nom)
                         .ToList()
                 })
-                .OrderBy(t => t.Nom).ThenBy(t => t.Specialisation)
+                .OrderBy(t => t.Nom)
                 .ToList();
 
             _cacheCompetences = _allCompetences.ToDictionary(k => k.Id, v => v);
@@ -112,10 +110,20 @@
                 competence.CompetenceParente = GetCompetence(competence.CompetenceMereId.Value);
 #pragma warning restore CS8629 // Nullable value type may be null.
 
+            foreach (var competence in _allCompetences)
+            {
+                competence.SetResume();
+                competence.CompetenceParente?.SousElements.Add(competence);
+            }
+
             foreach (var talent in _allTalents)
+            {
+                talent.SetResumeComplet();
+                talent.Parent?.SousElements.Add(talent);
                 talent.CompetencesLiees = _allCompetences
-                    .Where(c => c.TalentsLies.Contains(talent))                    
+                    .Where(c => c.TalentsLies.Contains(talent))
                     .ToList();
+            }
         }
     }
 }

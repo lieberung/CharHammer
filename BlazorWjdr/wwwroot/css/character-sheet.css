@@ -25,8 +25,6 @@
 #profile-area
 {
     position: relative;
-    top: 48%;
-    left: 5%;
 }
 
 .profile-row
@@ -53,6 +51,7 @@
 
 .profile-column-header
 {
+    display: inline-block;
     vertical-align: middle;
     height: 22px; /* ATTENTION : la hauteur est précisée car non héritée de [profile-columns-title] */
     width: 40px;

@@ -7,7 +7,6 @@ SELECT competenceid AS id
 	, competencecaract AS carac
 	, competencelibelle AS nom
 	, COALESCE(competenceresume,'') AS resume
-	, COALESCE(competencedescription,'') AS description
 	, COALESCE(competencespecialis,'') AS specialisation
 	FROM warhammer.competence
 	) t;

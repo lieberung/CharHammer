@@ -1,0 +1,16 @@
+﻿@using BlazorWjdr.Models
+<a href="/references/@Item.Id.ToString()/" class="btn btn-light">
+    <TooltipImage Path="@Item.Image" Alt="@Item.Titre">
+        <span class="oi oi-book mr-1" aria-hidden="true"></span>
+    </TooltipImage>
+    @Item.Titre
+    @if (Item.AnneeDePublication != null)
+    {
+        <em class="ml-2">Item.AnneeDePublication</em>
+    }
+</a>
+@code
+{
+    [Parameter]
+    public ReferenceDto Item { get; set; } = null!;
+}

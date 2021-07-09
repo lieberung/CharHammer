@@ -1,23 +1,18 @@
 ﻿<tr>
-    <td>
-        <a href="@($"carrieres/{Carriere.Id}/")" class="btn btn-primary table-btn">
+    <td width="180">
+        <a href="@($"carrieres/{Carriere.Id}/")" class="btn btn-primary table-btn mr-1">
             <span class="oi oi-magnifying-glass" aria-hidden="true"></span>
         </a>
-    </td>
-    <td>
-        <span class="btn btn-primary table-btn" @onclick="e => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
+        <span class="btn btn-primary table-btn mr-1" @onclick="e => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
             <span class="oi oi-grid-four-up" aria-hidden="true"></span>
         </span>
-    </td>
-    <td>
-        <span class="btn btn-primary table-btn" @onclick="e => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
+        <span class="btn btn-primary table-btn mr-1" @onclick="e => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
             <span class="oi oi-grid-four-up" aria-hidden="true"></span>
         </span>
     </td>
     <td>@Carriere.Nom</td>
     <td>@Carriere.EstUneCarriereAvancee</td>
     <td>@Carriere.Restriction</td>
-    <td>@Carriere.Source</td>
 </tr>
 @if (AfficherPlanDeCarriere)
 {

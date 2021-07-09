@@ -1,23 +1,55 @@
 ﻿@page "/carrieres/{CarriereId}/"
 
 @using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Components.Profil
 
-<h3>@Carriere.Nom</h3>
-<h5>@Carriere.Restriction</h5>
+<div class="card">
+    <h3 class="card-header">@Carriere.Nom</h3>
+    
+    @if (!string.IsNullOrWhiteSpace(Carriere.Source))
+    {
+        <div class="card-body">
+            <div class="alert alert-info" role="alert">
+                <span class="oi oi-book mr-1" aria-hidden="true"></span>
+                @Carriere.Source
+            </div>
+        </div>
+    }
+    
+    @if (!string.IsNullOrWhiteSpace(Carriere.Restriction))
+    {
+        <div class="card-body">
+            <div class="alert alert-danger" role="alert">
+                <span class="oi oi-warning mr-1" aria-hidden="true"></span>
+                @Carriere.Restriction
+            </div>
+        </div>
+    }
+    
+    <div class="card-body">
+        <img src="..@Carriere.Image" alt="@Carriere.Nom" />
+    </div>
+    
+    <div class="card-body">
+        <PlanDeCarriere Plan="@Carriere.PlanDeCarriere" />
+    </div>
+    
+    <div class="card-body">
+        <h5 class="card-title">Description</h5>
+        <p class="card-text">@Carriere.Description</p>
+    </div>
 
-<div>
-    <span>Source : @Carriere.Source</span>
-</div>
-
-<div>
-    <img src="..@Carriere.Image" />
-</div>
-
-<PlanDeCarriere Plan="@Carriere.PlanDeCarriere"></PlanDeCarriere>
-
-<div>@Carriere.Description</div>
-
-<div>
-    <CompetencesEtTalents Carriere="@Carriere"></CompetencesEtTalents>
+    <div class="card-body">
+        <CompetencesEtTalents Carriere="@Carriere" />
+    </div>
+    
+@if (@Carriere.Filieres.Any())
+{
+    <div class="card-body">
+        <CarriereItemList Title="Filières" Items="@Carriere.Filieres.ToArray()"/>
+    </div>
+}
+        
+    <div class="card-body">
+        <CarriereItemList Title="Débouchés" Items="@Carriere.Debouches.ToArray()" />
+    </div>
 </div>

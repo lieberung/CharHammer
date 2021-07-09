@@ -1,0 +1,86 @@
+﻿<label>Search for:</label>
+<input @bind="_search" @bind:event="oninput" class="form form-control col-2"/>
+
+<div class="alert alert-primary mt-2 col-5">
+    <span class="d-block">Total occurences: (@FoundWordCount)</span>
+    @if (FoundWordCount != 0)
+    {
+        <div class="row">
+            <input type="number" @bind="_number" class="form form-control col-2 m2" min="1" max="FoundWordCount">
+            <label>(@(_number) / @(FoundWordCount))</label>
+        </div>
+    }
+    @foreach (var word in _words)
+    {
+        if (word.Highlighted)
+        {
+            <span class="d-inline-block mr-1" style="background-color: orange;">
+                @word.TheWord
+            </span>
+        }
+        else if (word.SearchFor)
+        {
+            <span class="d-inline-block mr-1" style="background-color: deepskyblue;">
+                @word.TheWord
+            </span>
+        }
+        else
+        {
+            <span class="d-inline-block mr-1">
+                @word.TheWord
+            </span>
+        }
+    }
+</div>
+
+@code
+{
+    [Parameter]
+    public string SearchWord { get; set; } = "";
+
+    class Word
+    {
+        internal Word(string theWord, bool searchFor)
+        {
+            TheWord = theWord;
+            SearchFor = searchFor;
+        }
+
+        public string TheWord { get; init; }
+        public bool SearchFor { get; set; }
+        public bool Highlighted { get; set; }
+    }
+
+    private List<Word> _words = null!;
+    protected override void OnInitialized()
+    {
+        _words = SearchWord.Split(' ').Select(w => new Word(w, false)).ToList();
+    }
+
+    private string _search = "";
+    public string Search
+    {
+        get { return _search; }
+        set
+        {
+            _words.ForEach(s => s.SearchFor = false);
+            _search = value;
+            if (_search.Count() > 2)
+                _words = _words.Select(w => new Word(w.TheWord, w.TheWord.Contains(_search))).ToList();
+        }
+    }
+
+    private int _number;
+    public int Number
+    {
+        get { return _number; }
+        set
+        {
+            _words.ForEach(w => w.Highlighted = false);
+            _number = value;
+            _words.Where(w => w.SearchFor).Skip(_number - 1).First().Highlighted = true;
+        }
+    }
+
+    public int FoundWordCount => _words.Where(w => w.SearchFor).Count();
+}

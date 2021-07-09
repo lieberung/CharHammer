@@ -5,25 +5,32 @@
 
     public class CompetenceDto
     {
-        public int Id { get; set; }
-        public string NomComplet { get; set; } = null!;
-        public string Nom { get; set; } = null!;
-        public string? Specialisation { get; set; }
-        public string Resume { get; set; } = null!;
-        public string Description { get; set; } = null!;
-        public bool EstUneCompetenceDeBase { get; set; }
-        public string CaracteristiqueAssociee { get; set; } = null!;
-        public List<TalentDto> TalentsLies { get; set; } = new List<TalentDto>();
-        public int? CompetenceMereId { get; set; }
-        public CompetenceDto? CompetenceParente { get; set; }
-        public bool Ignore { get; set; }
+        public int Id { get; init; }
+        public string Nom { get; init; } = null!;
+        public string? Specialisation { get; init; }
+        public string Resume { private get; init; } = null!;
+        public string ResumeComplet { get; private set; } = "";
+        public bool EstUneCompetenceDeBase { get; init; }
+        public string CaracteristiqueAssociee { get; init; } = null!;
+        public List<TalentDto> TalentsLies { get; init; } = new();
+        public bool Ignore { get; init; }
 
-        public string TalentsLiesToString => TalentsLies.Any() ?
-            string.Join(", ", TalentsLies
-                .Where(t => t.Ignore == false)
-                .OrderBy(t => t.Nom).ThenBy(t => t.Specialisation)
-                .Select(t => t.ToString())
-                .ToArray())
-            : "";
+        public int? CompetenceMereId { get; init; }
+        public CompetenceDto? CompetenceParente { get; set; }
+        public readonly List<CompetenceDto> SousElements = new();
+
+        public void SetResume()
+        {
+            ResumeComplet = GetResume();
+        }
+
+        private string GetResume()
+        {
+            if (!string.IsNullOrWhiteSpace(Resume))
+                return Resume;
+            if (CompetenceParente == null || string.IsNullOrWhiteSpace(CompetenceParente.Resume))
+                return "";
+            return CompetenceParente.Resume;
+        }
     }
 }

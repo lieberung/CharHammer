@@ -53,7 +53,7 @@
 
             _cacheChoixCompetences = _allChoixCompetences.ToDictionary(k => k.id, v => v.choixcompetencekeys
                 .Select(id => _competencesEtTalentsService.GetCompetence(id))
-                .OrderBy(c => c.Nom).ThenBy(c => c.Specialisation)
+                .OrderBy(c => c.Nom)
                 .ToArray());
         }
     }

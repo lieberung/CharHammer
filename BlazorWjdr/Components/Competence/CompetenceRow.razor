@@ -1,0 +1,29 @@
+﻿@using BlazorWjdr.Components.Talent
+
+<tr>
+    <td>
+        @if (Item.SousElements.Any())
+        {
+            <span class="btn btn-primary table-btn mr-1" @onclick="e => AfficherSousElements = !AfficherSousElements">
+                <span class="oi oi-list" aria-hidden="true"></span>
+            </span>
+        }
+    </td>
+    <td>
+        @if (Item.CompetenceParente != null)
+        {
+            <span class="oi oi-ellipses mr-2" aria-hidden="true"></span>
+        }
+        @Item.Nom
+    </td>
+    <td>@Item.CaracteristiqueAssociee</td>
+    <td>@Item.EstUneCompetenceDeBase</td>
+    <td><TalentItemList Items="@Item.TalentsLies.ToArray()"/></td>
+</tr>
+@if (AfficherSousElements && Item.SousElements.Any())
+{
+    @foreach (var sousElement in Item.SousElements)
+    {
+        <CompetenceRow Item="@sousElement" />
+    }
+}
