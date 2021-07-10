@@ -48,7 +48,7 @@
                 .Select(c => new ReferenceDto
                 {
                     Id = c.id,
-                    AnneeDePublication = c.publishyear,
+                    AnneeDePublication = c.publishyear ?? 6666,
                     Code = c.code,
                     Titre = c.titre,
                     Version = c.version

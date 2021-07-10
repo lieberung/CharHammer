@@ -10,6 +10,9 @@ a, .btn-link {
 .table td, .table th { padding: .25rem; }
 .table td ul { margin-bottom: 0; }
 
+.zone-detail { color: #ac94a0; }
+.item-icon { font-size: .800rem; color: #8e6047; }
+
 .btn.btn-item { padding:.20rem .65rem; }
 .btn-primary{color:#dbcfc8;background-color:#80390f;border-color:#80390f}
 .btn-primary:hover{color:#dbcfc8;background-color:#91531a;border-color:#653509}

@@ -1,7 +1,16 @@
-﻿@using BlazorWjdr.Components.Talent
+﻿@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Shared.Oi
 
 <tr>
+    <td>
+        @if (_carrieresLiees.Any())
+        {
+            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="e => AfficherCarrieres = !AfficherCarrieres">
+                <span class="oi oi-fork" aria-hidden="true"></span>
+            </span>
+        }
+    </td>
     <td>
         @if (Item.SousElements.Any())
         {
@@ -21,6 +30,14 @@
     <td><CheckedIfTrue Condition="@Item.EstUneCompetenceDeBase"/> </td>
     <td><TalentItemList Items="@Item.TalentsLies.ToArray()"/></td>
 </tr>
+@if (AfficherCarrieres && _carrieresLiees.Any())
+{
+    <tr class="zone-detail">
+        <td colspan="6">
+            <CarriereItemList Items="_carrieresLiees" Title=""/>
+        </td>
+    </tr>
+}
 @if (AfficherSousElements && Item.SousElements.Any())
 {
     @foreach (var sousElement in Item.SousElements)

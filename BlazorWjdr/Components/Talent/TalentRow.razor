@@ -1,7 +1,20 @@
 ﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Services
 @using BlazorWjdr.Shared.Oi
+
+@inject CarrieresService _carrieresService
+
 <tr>
+    <td>
+        @if (_carrieresLiees.Any())
+        {
+            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="e => AfficherCarrieres = !AfficherCarrieres">
+                <span class="oi oi-fork" aria-hidden="true"></span>
+            </span>
+        }
+    </td>
     <td>
         @if (Item.SousElements.Any())
         {
@@ -9,7 +22,7 @@
                 <span class="oi oi-layers" aria-hidden="true"></span>
             </span>
         }
-    </td>   
+    </td>
     <td>
         @if (Item.Parent != null)
         {
@@ -20,6 +33,14 @@
     <td><CheckedIfTrue Condition="Item.Trait"></CheckedIfTrue></td>
     <td><CompetenceItemList Title="" Items="@Item.CompetencesLiees.ToArray()"/></td>
 </tr>
+@if (AfficherCarrieres)
+{
+    <tr class="zone-detail">
+        <td colspan="5">
+            <CarriereItemList Items="_carrieresLiees"/>
+        </td>
+    </tr>
+}
 @if (AfficherSousElements && Item.SousElements.Any())
 {
     @foreach (var sousElement in Item.SousElements)
@@ -31,4 +52,12 @@
     [Parameter]
     public TalentDto Item { get; set; } = null!;
     private bool AfficherSousElements { get; set; } = false;
+    private bool AfficherCarrieres { get; set; } = false;
+
+    private CarriereDto[] _carrieresLiees = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _carrieresLiees = await _carrieresService.GetCarrieresProposant(Item);
+    }
 }
