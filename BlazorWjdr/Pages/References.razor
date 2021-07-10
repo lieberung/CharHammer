@@ -11,23 +11,15 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Paru en</th>
-            <th>Version</th>
+            <th></th>
             <th>Titre</th>
             <th>Code</th>
-            <th>Contenu</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var reference in _referencesLines.OrderBy(r => r.AnneeDePublication))
         {
-        <tr>
-            <td>@reference.AnneeDePublication</td>
-            <td>@reference.Version</td>
-            <td><ReferenceItem Item="@reference" /></td>
-            <td>@reference.Code</td>
-            <td><button>Carrières...</button></td>
-        </tr>
+            <ReferenceRow Reference="@reference"/>
         }
     </tbody>
 </table>

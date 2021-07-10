@@ -6,12 +6,14 @@ namespace BlazorWjdr.Services
 {
     public class TableDesCarrieresInitialesService
     {
+        private readonly RacesService _racesService;
         private readonly CarrieresService _carrieresService;
         
         private Dictionary<int, List<LigneDeCarriereInitialeDto>>? _allLignes = null;
         
-        public TableDesCarrieresInitialesService(CarrieresService carrieresService)
+        public TableDesCarrieresInitialesService(RacesService racesService, CarrieresService carrieresService)
         {
+            _racesService = racesService;
             _carrieresService = carrieresService;
         }
 
@@ -37,22 +39,21 @@ namespace BlazorWjdr.Services
                 .items
                 .Select(l => new LigneDeCarriereInitialeDto
                 {
-                    Id = l.id,
                     Carriere = _carrieresService.GetCarriere(l.fk_carriereid),
                     Facteur = l.facteur,
-                    RaceId = l.fk_raceid
+                    Race = _racesService.GetRace(l.fk_raceid)
                 })
                 .ToList();
 
             _allLignes = lignesEnVrac
-                .Select(l => l.RaceId)
+                .Select(l => l.Race.Id)
                 .Distinct()
                 .ToDictionary(k => k, v => new List<LigneDeCarriereInitialeDto>());
 
             foreach (var raceId in _allLignes.Keys)
             {
                 _allLignes[raceId].AddRange(lignesEnVrac
-                    .Where(l => l.RaceId == raceId)
+                    .Where(l => l.Race.Id == raceId)
                     .OrderBy(l => l.Carriere.Nom));
             }
         }

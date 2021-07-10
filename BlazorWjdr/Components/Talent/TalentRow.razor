@@ -1,22 +1,23 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Shared.Oi
 <tr>
     <td>
         @if (Item.SousElements.Any())
         {
-            <span class="btn btn-primary table-btn mr-1" @onclick="e => AfficherSousElements = !AfficherSousElements">
-                <span class="oi oi-list" aria-hidden="true"></span>
+            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="e => AfficherSousElements = !AfficherSousElements">
+                <span class="oi oi-layers" aria-hidden="true"></span>
             </span>
         }
     </td>   
     <td>
         @if (Item.Parent != null)
         {
-            <span class="oi oi-ellipses mr-2" aria-hidden="true"></span>
+            <SousElement/>
         }
-        @Item.Nom
+        <TalentItem Item="Item"/>
     </td>
-    <td>@Item.Trait</td>
+    <td><CheckedIfTrue Condition="Item.Trait"></CheckedIfTrue></td>
     <td><CompetenceItemList Title="" Items="@Item.CompetencesLiees.ToArray()"/></td>
 </tr>
 @if (AfficherSousElements && Item.SousElements.Any())

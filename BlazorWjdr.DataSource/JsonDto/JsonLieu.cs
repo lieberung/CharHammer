@@ -4,12 +4,12 @@
 
     public class JsonLieu
     {
-        public int lieuid { get; set; }
+        public int id { get; set; }
         public int fk_typeid { get; set; }
-        public int fk_parentid { get; set; }
-        public string lieulibelle { get; set; } = null!;
-        public string? lieudescription { get; set; }
-        public string? lieuimage { get; set; }
+        public int? fk_parentid { get; set; }
+        public string nom { get; set; } = null!;
+        public string? description { get; set; }
+        public string? image { get; set; }
     }
 
     public class RootLieu

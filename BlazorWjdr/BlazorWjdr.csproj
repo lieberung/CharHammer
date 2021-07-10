@@ -44,4 +44,8 @@
     <ProjectReference Include="..\BlazorWjdr.DomainModel\BlazorWjdr.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\lieux" />
+  </ItemGroup>
+
 </Project>

@@ -5,14 +5,26 @@ html, body {
 }
 
 a, .btn-link {
-    color: #0366d6;
+    color: #562f08;
 }
+.table td, .table th { padding: .25rem; }
+.table td ul { margin-bottom: 0; }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
+.btn.btn-item { padding:.20rem .65rem; }
+.btn-primary{color:#dbcfc8;background-color:#80390f;border-color:#80390f}
+.btn-primary:hover{color:#dbcfc8;background-color:#91531a;border-color:#653509}
+.btn-primary.focus,.btn-primary:focus{box-shadow:0 0 0 .2rem #7c4814}
+.btn-primary.disabled,.btn-primary:disabled{color:#dbcfc8;background-color:#80390f;border-color:#80390f}
+.btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show>.btn-primary.dropdown-toggle{color:#dbcfc8;background-color:#653509;border-color:#5e1a05}
+.btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem #7c4814}
+/*
+.btn-primary{color:#f5cfb4;background-color:#9c3c04;border-color:#9c3c04}
+.btn-primary:hover{color:#f5cfb4;background-color:#7e3921;border-color:#562f08}
+.btn-primary.focus,.btn-primary:focus{box-shadow:0 0 0 .2rem #573628}
+.btn-primary.disabled,.btn-primary:disabled{color:#f5cfb4;background-color:#9c3c04;border-color:#9c3c04}
+.btn-primary:not(:disabled):not(.disabled).active,.btn-primary:not(:disabled):not(.disabled):active,.show>.btn-primary.dropdown-toggle{color:#f5cfb4;background-color:#562f08;border-color:#501208}
+.btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem #573628}
+*/
 .span.btn-primary:hover{cursor:pointer;}
 
 .content {
@@ -20,15 +32,15 @@ a, .btn-link {
 }
 
 .valid.modified:not([type=checkbox]) {
-    outline: 1px solid #26b050;
+    outline: 1px solid #83761c;
 }
 
 .invalid {
-    outline: 1px solid red;
+    outline: 1px solid #9c3c04;
 }
 
 .validation-message {
-    color: red;
+    color: #9c3c04;
 }
 
 #blazor-error-ui {

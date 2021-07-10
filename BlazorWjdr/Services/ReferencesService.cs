@@ -47,11 +47,11 @@
                 .items
                 .Select(c => new ReferenceDto
                 {
-                    Id = c.referenceid,
-                    AnneeDePublication = c.referencepublishyear,
-                    Code = c.referencecode,
-                    Titre = c.referencetitre,
-                    Version = c.referenceversion
+                    Id = c.id,
+                    AnneeDePublication = c.publishyear,
+                    Code = c.code,
+                    Titre = c.titre,
+                    Version = c.version
                 })
                 .ToDictionary(k => k.Id, v => v);
             _allReferences = _cacheReference.Values.ToList();

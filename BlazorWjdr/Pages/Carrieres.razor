@@ -12,15 +12,16 @@
     <thead>
         <tr>
             <th></th>
+            <th></th>
             <th>Carrière</th>
             <th>Avancée</th>
             <th>Source</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var carriere in _carrieresLines)
+        @foreach (var carriere in _carrieresLines.Where(c => c.CarriereMere == null))
         {
-            <CarriereRow Carriere="carriere" />
+            <CarriereRow Item="carriere" />
         }
     </tbody>
 </table>

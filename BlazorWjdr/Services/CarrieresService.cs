@@ -58,7 +58,12 @@
             => Task.FromResult(AllCarrieres
                 .Where(c => c.Talents.Contains(talent)) // ToDo: choix
                 .ToArray());
-
+        
+        public Task<CarriereDto[]> GetCarrieresParuesDans(ReferenceDto reference)
+            => Task.FromResult(AllCarrieres
+                .Where(c => c.SourceLivre == reference)
+                .ToArray());
+        
         public Task<CarriereDto[]> ItemsCarrieres()
         {
             return Task.FromResult(AllCarrieres.ToArray());
@@ -114,12 +119,8 @@
 
             foreach (var carriere in _allCarrieres)
             {
-                //if (carriere.SourceLivre != null)
-                   //carriere.Source = carriere.SourceLivre.Titre
-                   //                   + (string.IsNullOrWhiteSpace(carriere.Source)
-                   //     ? ""
-                   //     : $" ({carriere.Source})"); 
                 carriere.Filieres = _allCarrieres.Where(c => c.Debouches.Contains(carriere)).ToList();
+                carriere.SousElements.AddRange(_allCarrieres.Where(c=>c.CarriereMere == carriere));
             }
         }
     }

@@ -1,0 +1,15 @@
+﻿<a href="/table-carrieres-initiales/@Race.Id/" class="mr-2 btn @_btnClass">@Race.NomMasculin</a>
+@code {
+    [Parameter]
+    public Models.RaceDto Race { get; set; } = null!;
+    [Parameter]
+    public bool Actif { get; set; }
+
+    private string _btnClass = "";
+
+    protected override void OnParametersSet()
+    {
+        _btnClass = Actif ? "btn-primary" : "btn-secondary";
+        base.OnParametersSet();
+    }
+}

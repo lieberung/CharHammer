@@ -6,8 +6,9 @@ namespace BlazorWjdr.Components.Carriere
     public partial class CarriereRow
     {
         [Parameter]
-        public CarriereDto Carriere { get; set; } = null!;
-
+        public CarriereDto Item { get; set; } = null!;
+        
+        private bool AfficherSousElements { get; set; } = false;
         private bool AfficherPlanDeCarriere { get; set; }
         private bool AfficherCompetencesEtTalents { get; set; }
     }

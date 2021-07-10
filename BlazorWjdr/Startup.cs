@@ -29,7 +29,10 @@ namespace BlazorWjdr
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            services.AddSingleton<DieuxService>();
+            services.AddSingleton<RacesService>();
             services.AddSingleton<ReferencesService>();
+            services.AddSingleton<LieuxService>();
             services.AddSingleton<ChronologieService>();
             services.AddSingleton<ProfilsService>();
             services.AddSingleton<CompetencesEtTalentsService>();

@@ -1,0 +1,36 @@
+﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+@using BlazorWjdr.Components.Carriere
+
+@inject CarrieresService _carrieresService
+
+<tr>
+    <td style="width:65px;">
+        @if (_carrieresLiees.Any())
+        {
+            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="e => AfficherCarrieres = !AfficherCarrieres">
+                <span class="oi oi-fork" aria-hidden="true"></span>
+            </span>
+        }
+    </td>
+    <td><ReferenceItem Item="@Reference" /></td>
+    <td>@Reference.Code</td>
+</tr>
+@if (AfficherCarrieres)
+{
+    <tr><td colspan="3"><CarriereItemList Items="_carrieresLiees" Title=""/></td></tr>
+}
+@code
+{
+    [Parameter]
+    public ReferenceDto Reference { get; set; } = null!;
+
+    private bool AfficherCarrieres { get; set; }
+
+    private CarriereDto[] _carrieresLiees = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _carrieresLiees = await _carrieresService.GetCarrieresParuesDans(Reference);
+    }
+}

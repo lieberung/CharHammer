@@ -4,11 +4,11 @@
 
     public class JsonReference
     {
-        public int referenceid { get; set; }
-        public string referencetitre { get; set; } = null!;
-        public int? referencepublishyear { get; set; }
-        public string referencecode { get; set; } = null!;
-        public int referenceversion { get; set; }
+        public int id { get; set; }
+        public string titre { get; set; } = null!;
+        public int? publishyear { get; set; }
+        public string code { get; set; } = null!;
+        public int version { get; set; }
     }
 
     public class RootReference

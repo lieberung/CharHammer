@@ -5,9 +5,9 @@ using BlazorWjdr.Models;
 using BlazorWjdr.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorWjdr.Pages
+namespace BlazorWjdr.Components
 {
-    public partial class Recherche
+    public partial class RechercheGlobale
     {
         private IEnumerable<CarriereDto> AllCarrieres { get; set; } = new List<CarriereDto>();
         private IEnumerable<CompetenceDto> AllCompetences { get; set; } = new List<CompetenceDto>();

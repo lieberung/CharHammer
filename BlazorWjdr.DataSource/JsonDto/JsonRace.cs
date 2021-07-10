@@ -7,7 +7,7 @@
         public int id { get; set; }
         public int? parent_id { get; set; }
         public int? profil_id { get; set; }
-        public List<int>? lieux_ids { get; set; }
+        public int[]? lieux_ids { get; set; }
         public bool pour_pj { get; set; }
         public bool pour_pnj { get; set; }
         public bool group_only { get; set; }

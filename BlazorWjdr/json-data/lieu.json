@@ -1,876 +1,113 @@
 {
-  "items": [
-    {
-      "lieuid": 3,
-      "fk_typeid": 2,
-      "fk_parentid": 1,
-      "lieulibelle": "Le Pays-Perdu",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 8,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "L'Anguille",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 9,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Aquitanie",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 10,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Artenois",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 11,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Bastogne",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 12,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Bordeleaux",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 13,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Brionne",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 14,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Couronne",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 15,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Gasconnie",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 16,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Gisoreux",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 17,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Lyonesse",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 18,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Monfort",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 19,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Mousillon",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 20,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Parravon",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 21,
-      "fk_typeid": 8,
-      "fk_parentid": 4,
-      "lieulibelle": "Quenelles",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 23,
-      "fk_typeid": 5,
-      "fk_parentid": 3,
-      "lieulibelle": "Marienburg",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 24,
-      "fk_typeid": 2,
-      "fk_parentid": 3,
-      "lieulibelle": "Wastelands",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 25,
-      "fk_typeid": 9,
-      "fk_parentid": 5,
-      "lieulibelle": "Oblast de l'Est",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 26,
-      "fk_typeid": 9,
-      "fk_parentid": 5,
-      "lieulibelle": "Oblast du Nord",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 27,
-      "fk_typeid": 9,
-      "fk_parentid": 5,
-      "lieulibelle": "Oblast de l'Ouest",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 28,
-      "fk_typeid": 9,
-      "fk_parentid": 5,
-      "lieulibelle": "Oblast du Sud",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 29,
-      "fk_typeid": 9,
-      "fk_parentid": 5,
-      "lieulibelle": "Pays des Trolls",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 30,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Averland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 31,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Hochland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 32,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Middenland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 34,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Nordland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 35,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Ostermark",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 36,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Ostland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 37,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Reikland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 38,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Stirland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 39,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Talabecland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 40,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Wissenland",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 41,
-      "fk_typeid": 4,
-      "fk_parentid": 1,
-      "lieulibelle": "Norsca",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 43,
-      "fk_typeid": 12,
-      "fk_parentid": 1,
-      "lieulibelle": "Montagnes Noires",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 42,
-      "fk_typeid": 12,
-      "fk_parentid": 1,
-      "lieulibelle": "Montagnes Grises",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 44,
-      "fk_typeid": 12,
-      "fk_parentid": 1,
-      "lieulibelle": "Montagnes du Bord du Monde",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 46,
-      "fk_typeid": 12,
-      "fk_parentid": 1,
-      "lieulibelle": "Montagnes du Feu Noir",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 47,
-      "fk_typeid": 12,
-      "fk_parentid": 7,
-      "lieulibelle": "Montagnes Apuccini",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 79,
-      "fk_typeid": 6,
-      "fk_parentid": 43,
-      "lieulibelle": "Karak Hirn",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 48,
-      "fk_typeid": 13,
-      "fk_parentid": 4,
-      "lieulibelle": "Forêt de Chalôns",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 49,
-      "fk_typeid": 13,
-      "fk_parentid": 4,
-      "lieulibelle": "Forêt d'Arden",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 50,
-      "fk_typeid": 13,
-      "fk_parentid": 1,
-      "lieulibelle": "Athel Loren",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 51,
-      "fk_typeid": 13,
-      "fk_parentid": 2,
-      "lieulibelle": "Forêt de Laurelorn",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 52,
-      "fk_typeid": 13,
-      "fk_parentid": 2,
-      "lieulibelle": "Forêt de la Drakwald",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 54,
-      "fk_typeid": 13,
-      "fk_parentid": 2,
-      "lieulibelle": "Forêt des Ombres",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 55,
-      "fk_typeid": 14,
-      "fk_parentid": 2,
-      "lieulibelle": "Bois Mort",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 57,
-      "fk_typeid": 14,
-      "fk_parentid": 5,
-      "lieulibelle": "Bois de Grovod",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 58,
-      "fk_typeid": 13,
-      "fk_parentid": 5,
-      "lieulibelle": "Forêt de Dhuklys",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 59,
-      "fk_typeid": 13,
-      "fk_parentid": 5,
-      "lieulibelle": "Forêt de Shirokij",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 56,
-      "fk_typeid": 14,
-      "fk_parentid": 2,
-      "lieulibelle": "Bois du Griffon",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 53,
-      "fk_typeid": 13,
-      "fk_parentid": 2,
-      "lieulibelle": "Grande Forêt",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 60,
-      "fk_typeid": 15,
-      "fk_parentid": 5,
-      "lieulibelle": "Monts Goromadny",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 45,
-      "fk_typeid": 15,
-      "fk_parentid": 2,
-      "lieulibelle": "Monts du Milieu",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 61,
-      "fk_typeid": 16,
-      "fk_parentid": 38,
-      "lieulibelle": "Comté de Sylvanie",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 62,
-      "fk_typeid": 13,
-      "fk_parentid": 61,
-      "lieulibelle": "Hundsheimerwald",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 63,
-      "fk_typeid": 14,
-      "fk_parentid": 61,
-      "lieulibelle": "Bois des Goules",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 64,
-      "fk_typeid": 14,
-      "fk_parentid": 61,
-      "lieulibelle": "Bois de la Famine",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 65,
-      "fk_typeid": 14,
-      "fk_parentid": 61,
-      "lieulibelle": "Bois Sinistre",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 66,
-      "fk_typeid": 13,
-      "fk_parentid": 61,
-      "lieulibelle": "Verbogenwald",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 70,
-      "fk_typeid": 2,
-      "fk_parentid": 1,
-      "lieulibelle": "Arabie",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 73,
-      "fk_typeid": 18,
-      "fk_parentid": 1,
-      "lieulibelle": "Terres des loups",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 72,
-      "fk_typeid": 18,
-      "fk_parentid": 1,
-      "lieulibelle": "Terre des Morts",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 68,
-      "fk_typeid": 17,
-      "fk_parentid": 7,
-      "lieulibelle": "Sartosa",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 74,
-      "fk_typeid": 18,
-      "fk_parentid": 1,
-      "lieulibelle": "Terres Sombres",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 75,
-      "fk_typeid": 18,
-      "fk_parentid": 1,
-      "lieulibelle": "Désolations du Chaos",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 76,
-      "fk_typeid": 6,
-      "fk_parentid": 42,
-      "lieulibelle": "Karak Norn",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 77,
-      "fk_typeid": 15,
-      "fk_parentid": 1,
-      "lieulibelle": "La Voûte",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 78,
-      "fk_typeid": 6,
-      "fk_parentid": 77,
-      "lieulibelle": "Karak Izor",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 80,
-      "fk_typeid": 6,
-      "fk_parentid": 44,
-      "lieulibelle": "Karak Kadrin",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 81,
-      "fk_typeid": 6,
-      "fk_parentid": 44,
-      "lieulibelle": "Karaz-a-Karak",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 82,
-      "fk_typeid": 6,
-      "fk_parentid": 44,
-      "lieulibelle": "Zhufbar",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 83,
-      "fk_typeid": 19,
-      "fk_parentid": 1,
-      "lieulibelle": "Collines Varenka",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 84,
-      "fk_typeid": 6,
-      "fk_parentid": 83,
-      "lieulibelle": "Barak Varr",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 85,
-      "fk_typeid": 13,
-      "fk_parentid": 2,
-      "lieulibelle": "Forêt de Reikwald",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 71,
-      "fk_typeid": 18,
-      "fk_parentid": 1,
-      "lieulibelle": "Terres Arides (Badlands)",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 67,
-      "fk_typeid": 3,
-      "fk_parentid": 87,
-      "lieulibelle": "Cathay",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 86,
-      "fk_typeid": 1,
-      "fk_parentid": null,
-      "lieulibelle": "Monde de Warhammer",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 91,
-      "fk_typeid": 21,
-      "fk_parentid": 86,
-      "lieulibelle": "Royaumes Elfiques",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 87,
-      "fk_typeid": 20,
-      "fk_parentid": 86,
-      "lieulibelle": "Extrême-Orient",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 88,
-      "fk_typeid": 3,
-      "fk_parentid": 87,
-      "lieulibelle": "Iles Nippon",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 90,
-      "fk_typeid": 20,
-      "fk_parentid": 86,
-      "lieulibelle": "Nouveau Monde",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 89,
-      "fk_typeid": 20,
-      "fk_parentid": 86,
-      "lieulibelle": "Lustrianie (Lustria)",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 69,
-      "fk_typeid": 17,
-      "fk_parentid": 86,
-      "lieulibelle": "Albion",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 92,
-      "fk_typeid": 22,
-      "fk_parentid": 32,
-      "lieulibelle": "Delberz",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 2,
-      "fk_typeid": 3,
-      "fk_parentid": 1,
-      "lieulibelle": "L'Empire",
-      "lieudescription": "L’Empire est la plus grande et la plus ancienne des nations du\r\nVieux Monde et il s’agit du plus important des bastions édifiés\r\npar l’humanité contre la menace toujours présente du Chaos.\r\nLe royaume gouverné par l’empereur Karl Franz s’étend depuis la Mer\r\ndes Griffes et Kislev au nord jusqu’aux Montagnes du Bord du Monde\r\nà l’est et au sud et aux Montagnes Grises à l’ouest. La surface de\r\nl’Empire est presque totalement couverte de forêts denses et très\r\nanciennes qui abritent tout un assortiment de créatures sauvages et\r\nmaléfiques. Les villages, villes et cités sont des îlots de civilisation au\r\nsein de ces contrées farouches et la population de l’Empire lutte\r\nconstamment pour survivre contre les périls qui l’entourent et qui\r\ncherchent sans arrêt à la submerger.",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 22,
-      "fk_typeid": 2,
-      "fk_parentid": 1,
-      "lieulibelle": "Principautés frontalières",
-      "lieudescription": "Au sud de l’Empire, le long du Col du Feu Noir et par-delà les\r\nMontagnes Noires, s’étend une terre sauvage et indomptée. Là, les\r\nnobles dépossédés de l’Empire vont parfois s’installer pour recouvrer\r\nun peu de leur pouvoir et le paysage aride est parsemé de petits\r\nchâteaux et de bastions, morcelé par les multiples petits fiefs de ces\r\naristocrates bagarreurs. Ce sont ces barons hors-la-loi qui ont donné\r\nson nom à cette région, les Principautés Frontalières.\r\nLes Principautés Frontalières sont un pays de cocagne pour les mercenaires\r\ncomme pour les aventuriers. Limitées au sud par la Sanglante,\r\nles Principautés sont constamment assaillies par les orques et les\r\ngobelins venus des Terres Arides, sur l’autre rive. Des armées de\r\nmercenaires à la solde d’un baron ou d’un autre y guerroient également\r\npour étendre les petits domaines de leurs commanditaires.\r\nOn peut également y rencontrer des chasseurs de trésors en grand\r\nnombre car il existe de vieilles tombes datant d’antiques tribus préimpériales\r\ndisséminées dans toute la région. De vilaines petites collines\r\ncachent des cairns remplis d’or et sur plus d’un sommet on peut\r\nencore voir se dresser, comme des dents irrégulières, les monolithes\r\nd’un passé séculaire. On dit que les anciens seigneurs de ces lieux ne\r\ndorment pas d’un sommeil paisible et que des malédictions plus\r\nanciennes que Sigmar protègent leurs tombes. Des nécromanciens et\r\nd’autres sorciers corrompus viennent également dans les Principautés\r\npour y pratiquer leurs arts funestes loin des torches des répurgateurs.\r\nÀ l’ouest s’étend le Golfe Noir, dont la côte est truffée de multiples\r\ncavernes naturelles et de mouillages discrets. C’est l’endroit idéal pour\r\nles repaires secrets des corsaires et il n’est pas inhabituel que les\r\nmercenaires qui exercent leur métier dans ces parages s’adonnent un\r\npeu à la piraterie lorsque les emplois plus sérieux se font rares.\r\nLes contreforts des Montagnes du Bord du Monde sont également une\r\nrégion où règne l’illégalité. Les chefs des bandes de brigands y affrontent\r\ndes seigneurs de guerre orques pour le contrôle des abords du Col\r\ndu Feu Noir, tant ils sont avides de rançonner les voyageurs imprudents\r\nqui viennent de l’Empire ou les convois qui traversent le col pour aller\r\ncommercer avec les nobliaux des Principautés dans leurs châteaux\r\néparpillés. Le Col du Feu Noir est aussi le départ de la route de l'ivoire\r\net de la route de la soie.\r\nDans leur ensemble, les Principautés Frontalières marquent les limites\r\nde la civilisation de l’Empire et un homme à la morale peu farouche\r\npeut s’y faire une vie confortable en peu de temps. Mais il peut tout\r\naussi bien y mourir loin de tout, sur un champ de bataille ou dans les\r\ngriffes d’une horreur tout juste sortie de sa tombe.",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 7,
-      "fk_typeid": 4,
-      "fk_parentid": 1,
-      "lieulibelle": "Tilée",
-      "lieudescription": "La Tilée est une contrée ensoleillée située au sud-ouest de l’Empire.\r\nContrairement à la Bretonnie et à l’Empire, ce n’est pas une nation unifiée\r\nmais un ensemble de cités-états rivales. Elle est bordée de trois chaînes de\r\nmontagnes, les Apuccini à l’est, la chaîne des Irrana au nord et l’Abasko à\r\nl’ouest, et par la mer Tiléenne. Grâce à ces impressionnantes barrières\r\nnaturelles,la Tilée n’a jamais eu à souffrir d’invasions comme celles qui ont\r\nfrappé l’Empire, Kislev ou même la Bretonnie. Cela a permis à la culture\r\nde Tilée d’atteindre un stade de développement avancé mais en revanche\r\nla région est restée divisée. Sans l’intervention d’une menace extérieure\r\npour unifier les cités-états, une nation unique ne s’est jamais constituée\r\nComme la plupart des régions du Vieux Monde,la Tilée a été colonisée par\r\ndes tribus humaines en migration.Ces humains découvrirent les ruines de\r\ncolonies elfes et beaucoup des cités-états d’aujourd’hui sont bâties sur\r\nl’emplacement de ces ruines. Ils découvrirent également le Marais\r\nPutride, une région dépourvue de toute vie où des mares peu profondes\r\net croupissantes,alimentées par d’innombrables ruisseaux puants,sont en\r\npermanence enveloppées d’une épaisse brume grisâtre.Tout le monde se\r\ntient à distance respectable de cet endroit, si infect et saturé de maladies,\r\nsauf les hors-la-loi les plus désespérés et les fous dangereux. À l’insu de\r\ntous ou presque,la grande cité des hommes-rats,Skarogne,dresse ses habitations\r\nà moitié en ruines au beau milieu de ce bourbier puant. Jusque-là,\r\nla Tilée n’a subi que quelques attaques sporadiques de la part des skavens.\r\nElle a également dû résister à au moins un début de peste rouge, mais elle\r\na eu bien de la chance que le conseil des Treize ait décidé d’orienter les\r\nefforts des hommes-rats dans une autre direction.\r\nLes plus importantes des cités-états tiléennes sont Luccini, Miragliano,\r\nRémas,Tobaro,Trantio et Verezzo. Sartosa, la soi-disant Cité Pirate, est plus\r\nparticulière.Tous les pirates y sont les bienvenus et, en vérité, ils sont littéralement\r\nles maîtres de la cité.Les pirates de Sartosa s’attaquent continuellement\r\naux navires qui croisent dans la Mer Tiléenne, mais les cités-états,\r\ntrop occupées par leurs querelles continuelles, n’ont jamais réussi à\r\ncoopérer suffisamment longtemps pour mettre un terme à leurs rapines.\r\nDeux forces se partagent le pouvoir dans les cités-états de Tilée :\r\nles maisons marchandes et les compagnies de mercenaires. Les maisons\r\nmarchandes sont les premières à avoir pris de l’importance en\r\nassumant le rôle d’intermédiaires entre les nains et les elfes. Leurs\r\nimportantes caravanes de marchandises de luxe avaient besoin de\r\nprotection et les gardes embauchés dans les premières années\r\nconstituèrent de puissantes compagnies de mercenaires au fil des\r\nsiècles. Ils prirent une importance capitale, à la fois pour la défense de\r\nla Tilée dans son intégralité et dans les guerres que se livraient les différentes\r\ncités-états. Les soudards sont si communs à la Tilée qu’on lui\r\ndonne fréquemment le nom de « pays des mercenaires ».\r\nLes deux visages de la Tilée se retrouvent également dans les deux divinités\r\nles plus appréciées au sein des cités-états.Les mercenaires honorent\r\nMyrmidia avant tout et les marchands révèrent Ranald. Des derniers\r\nexpliquent qu’ils vénèrent Ranald sous son aspect de dieu de la chance,\r\nalors que leurs détracteurs disent que cela les montre comme les voleurs\r\nqu’ils sont.",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 1,
-      "fk_typeid": 20,
-      "fk_parentid": 86,
-      "lieulibelle": "Vieux Monde",
-      "lieudescription": "",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 33,
-      "fk_typeid": 7,
-      "fk_parentid": 2,
-      "lieulibelle": "Mootland",
-      "lieudescription": "De part et d’autre de l’Aver, entre le Stirland et l’Averland, on trouve le\r\nMootland, ou plus simplement le Moot, qui est le pays des halflings.\r\nQuoique ses habitants s’accommodent parfaitement de leur vie de\r\ngloutonnerie et de procréation incessante et qu’ils ne se soucient guère\r\nd’avoir des relations avec le monde extérieur s’ils peuvent l’éviter, le\r\nMootland fait théoriquement partie de l’Empire. L’Ancien, élu par le\r\npeuple, dispose d’un vote dans les élections impériales et d’une voix à\r\nla cour de l’Empereur.\r\nLes halflings se reproduisent rapidement. Leurs familles, extrêmement\r\nnombreuses, vivent dans des complexes de tunnels tentaculaires ou\r\ndans des maisons chancelantes à multiples étages s’ils sont trop\r\npauvres pour s’offrir un trou confortable. Il est dans la nature des\r\nhalflings d’accumuler tout et n’importe quoi. De ce fait, des ailes\r\nentières de leurs trous sont occupées par des empilements de bibelots\r\nsans intérêt et de souvenirs amoncelés dans des labyrinthes de pièces\r\nmal tenues. Le concept de décharge publique est absolument étranger\r\nau mode de pensée des halflings. Même les reliefs de nourriture, s’il en\r\nreste, sont donnés aux chiens.\r\nLe Moot a la chance de posséder un paysage magnifique et une terre\r\nfertile.Au premier coup d’oeil, on peut n’y voir qu’un pays de collines\r\net de champs onduleux, où règne une paix champêtre. Cependant le\r\nMoot n’est pas préservé des attaques du monde extérieur. Pendant des\r\nannées, ses habitants ont dû résister à la menace des morts-vivants de\r\nla Sylvanie et à la violence de tribus déchaînées d’orques et de gobelins\r\ndescendus des Montagnes du Bord du Monde.",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 4,
-      "fk_typeid": 4,
-      "fk_parentid": 1,
-      "lieulibelle": "Royaume de Bretonnie",
-      "lieudescription": "La Bretonnie est l’héritage des anciens royaumes traditionnels des\r\ntribus bretonni qui vivaient là à l’époque de Sigmar. À peu près un\r\nmillénaire après la fondation de l’Empire par Sigmar, ces terres étaient\r\nen grand danger. Les orques, en particulier, harcelaient les duchés issus\r\ndes territoires des plus puissants chefs bretonniens. Jusque-là,\r\nles duchés étaient restés des nations indépendantes, qui s’alliaient et se\r\ncombattaient à leur guise. Toutefois, en ces temps troublés, Gilles,\r\nduc de Bastonne, emmena une puissante armée au secours de ses\r\ncompatriotes et les unit contre leurs ennemis communs.\r\nGilles avait été visité par les apparitions d’une déesse d’une grande\r\nbeauté qu’il avait reconnue comme la Dame du Lac. Elle lui enjoignit de\r\nrassembler autant de guerriers qu’il le pourrait pour marcher contre une\r\ngigantesque armée d’orques qui saccageaient les terres de Quenelles\r\naux frontières de la mystérieuse forêt hantée d’Athel Loren. En récompense,\r\nGilles et ses compagnons furent invités à boire à une coupe que\r\nleur présenta la Dame du Lac, ce qui leur conféra une grande force, une\r\ngrande sagesse et une résistance à la magie. Gilles fit ce qui lui était\r\ndemandé et, alors que l’histoire de ce don divin se répandait, il unit les\r\nducs sous sa bannière. Il écrasa les orques au combat et la Dame du Lac\r\nlui apparut une nouvelle fois. Elle lui dit que tout chevalier dont le coeur\r\nserait assez pur et le courage assez grand pouvait la rechercher et que,\r\ns’il en était jugé digne par le corps et l’esprit, il pourrait également boire\r\nà la coupe du Graal. C’était la récompense qu’elle accordait au peuple\r\nbretonnien pour sa loyauté. Devant cet événement miraculeux et après\r\navoir assisté aux prouesses de Gilles et de ses chevaliers du Graal au\r\ncombat, les autres ducs lui jurèrent fidélité et le couronnèrent comme\r\npremier roi des territoires unis des Bretonniens, la Bretonnie.\r\nGilles quitta ce monde quelques années plus tard, alors qu’il effectuait\r\nun pèlerinage avec les plus jeunes de ses chevaliers sur le lieu où la\r\nDame lui était apparue après la bataille contre les orques. Les peauxvertes\r\nse cachaient toujours dans la région et Gilles et ses compagnons\r\ntombèrent dans une embuscade. Gilles fut mortellement touché par\r\nune infecte lame orque et les deux chevaliers errants survivants l’emmenèrent\r\nsur la rive du lac sacré et prièrent la Dame de revenir pour\r\nsauver leur roi. Une silhouette solitaire émergea des brumes tourbillonnantes,\r\nsur une barque qui avançait sans rames ni voile. C’était une\r\njeune femme grande et belle, vêtue d’une longue robe et d’un manteau\r\ndont la capuche dissimulait presque complètement son visage délicat.\r\nElle ordonna aux chevaliers de coucher le mourant dans sa barque et\r\nleur dit qu’il vivrait mais qu’il serait dorénavant le serviteur de la Dame\r\ndu Lac. Elle se présenta sous le nom de Fée Enchanteresse, messagère\r\nde la Dame, et leur dit que Gilles serait dorénavant immortel et qu’il\r\nserait le gardien des saintes eaux du lac.\r\nLouis, fils de Gilles, fut choisi pour lui succéder sur le trône de\r\nBretonnie.Toutefois, les ducs et barons rassemblés firent remarquer que\r\nGilles avait été un homme exceptionnel, distingué entre tous les autres\r\npar la Dame du Lac. Louis avait hérité de la bravoure de son père et il\r\ndéclara qu’il partirait en quête du Graal auquel son père avait bu, ce qui\r\nétablirait son droit à la royauté. Son audace lui valut le surnom de Louis\r\nl'Impétueux. Sa quête dura de nombreuses années et il revint finalement\r\navec une couronne d’or magnifique et des armes enchantées qui,\r\ndit-il, lui avaient été données par la Dame.Depuis,aucun homme n’a été\r\nautorisé à porter la couronne d’or sans être d’abord adoubé chevalier\r\ndu Graal. Au fil des années, la couronne est passée dans plusieurs\r\nfamilles et duchés, mais elle a toujours été portée par un homme ayant\r\nrencontré la Dame du Lac en personne et ayant communié avec elle.",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 6,
-      "fk_typeid": 4,
-      "fk_parentid": 1,
-      "lieulibelle": "Estalie",
-      "lieudescription": "Les Royaumes Estaliens se situent loin au sud, en des lieux où la\r\nmenace du Chaos semble très lointaine.Tout comme les Principautés\r\nFrontalières, l’Estalie est constituée d’un amas de petits royaumes.\r\nToutefois, à la différence des Principautés Frontalières, les Estaliens ne\r\nsont pas menacés par les orques et les gobelins. Ils se battent donc\r\nsurtout entre eux.\r\nLe seul événement qui ait jamais fait l’unité de l’Estalie a été une invasion\r\nmenée par le sultan d’Arabie, il y a plus de mille ans. Une armée arabe\r\ndébarqua en Estalie et conquit la plus grande partie de la région,y compris\r\nla cité de Magritta. En réponse à l’appel de l’Estalie, des armées de croisés\r\naffluèrent de Bretonnie, de l’Empire et des cités-états de Tilée. Les Arabes\r\nfurent vaincus et la terre reconquise, mais aucun dirigeant estalien d’importance\r\nne se détacha pour faire l’unité des petits royaumes. À défaut\r\nd’un Sigmar ou d’un Gilles pour montrer la voie,l’Estalie retomba dans ses\r\nvieilles habitudes. En moins d’une génération, les croisés étaient repartis\r\net les Estaliens se querellaient de nouveau entre eux.\r\nDe nos jours, les deux royaumes les plus puissants sont les cités-états\r\nde Bilbali et de Magritta. Leur puissance leur vient du commerce et de\r\nleur accès à la mer, ce qui déclenche des jalousies considérables au sein\r\ndes royaumes pauvres des Irrana. On voit peu de traces de l’influence\r\ndu Chaos dans les royaumes estaliens, mais elle est pourtant là. Subtile\r\npeut-être, mais tout aussi mortelle. Elle ne se manifeste pas dans la force\r\nbrute et la rage des hommes-bêtes, mais plutôt dans les complots\r\ncachés de sociétés et de cultes secrets et elle ronge la lointaine Estalie.\r\nIl n’existe pas de répurgateurs pour traquer le Chaos en Estalie, mais le\r\nculte de Myrmidia y est populaire. Elle est la déesse tutélaire de l’art et\r\nde la science de la guerre et les Estaliens ont bien retenu ses leçons. Si\r\nla Tilée est connue pour ses mercenaires, l’Estalie est célèbre pour ses\r\nduellistes. Les écoles d’escrime fleurissent partout dans la région et\r\nnombreuses sont celles qui ont une longue histoire et qui entretiennent\r\ndes rivalités mortelles avec leurs concurrentes. Les bretteurs estaliens\r\nsont bien connus et les Diestro estaliens sont de plus en plus\r\npopulaires (cf. Chapitre 3 : Les carrières).",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 5,
-      "fk_typeid": 4,
-      "fk_parentid": 1,
-      "lieulibelle": "Royaume du Kislev",
-      "lieudescription": "''Kislev s’étend au nord-est de l’Empire, c’est la nation « civilisée » située\r\nle plus au nord. Elle est bordée par l’Empire au sud et à l’ouest, par la\r\nMer des Griffes à l’ouest, par le Pays des Trolls au nord et par les\r\nMontagnes du Bord du Monde au nord-est et à l’est.La frontière nord du\r\npays n’est pas clairement définie, mais la plupart s’accordent à la placer\r\nsur la Lynsk qui coule vers l’ouest, des Montagnes du Bord du Monde à\r\nla Mer des Griffes. Sa frontière avec l’Empire a été établie à l’Urskoy (ainsi\r\nnommée d’après le dieu Ursun), un affluent de la Talabec. Le nord de\r\nKislev se distingue à peine du Pays des Trolls et de la toundra qui s’étend\r\nau-delà. La contrée est plus boisée à l’est dans les contreforts des montagnes.\r\nCertaines tribus kislevites voyagent vers le nord au-delà de la Lynsk,\r\ndans le Pays des Trolls et vers l’est le long de la Haute Passe. La terre y est\r\nfroide et stérile et la plupart des kislevites qui vivent là sont des nomades\r\nqui se déplacent de pâturage en pâturage, très semblables en cela aux\r\ntribus de maraudeurs de la Terre des Ombres. Plus au sud, Kislev est plus\r\nhospitalier quoique que le climat reste froid tout au long de l’année.\r\nLes fermes peuvent prospérer dans cette région, mais on n’y trouve\r\nguère de carrières de pierre. De ce fait, les habitations sont le plus\r\nsouvent en pierre brute ou en bois non équarri, ce que les populations\r\nde l’Empire considèrent comme arriéré et peu civilisé.On ne peut pas en\r\ndire autant des palais et des temples grandioses qu’on trouve dans les\r\ncités du sud, avec leurs toits dorés en forme de bulbes et leurs tours.",
-      "lieuimage": null
-    },
-    {
-      "lieuid": 96,
-      "fk_typeid": 22,
-      "fk_parentid": 32,
-      "lieulibelle": "Grimminhagen",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 95,
-      "fk_typeid": 26,
-      "fk_parentid": 32,
-      "lieulibelle": "Untergard",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 98,
-      "fk_typeid": 10,
-      "fk_parentid": 32,
-      "lieulibelle": "Middenheim",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 99,
-      "fk_typeid": 5,
-      "fk_parentid": 37,
-      "lieulibelle": "Altdorf",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 101,
-      "fk_typeid": 22,
-      "fk_parentid": 37,
-      "lieulibelle": "Bögenhafen",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 102,
-      "fk_typeid": 22,
-      "fk_parentid": 37,
-      "lieulibelle": "Grissenwald",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 104,
-      "fk_typeid": 22,
-      "fk_parentid": 37,
-      "lieulibelle": "Weissbruck",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 105,
-      "fk_typeid": 22,
-      "fk_parentid": 37,
-      "lieulibelle": "Helmgart",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 103,
-      "fk_typeid": 26,
-      "fk_parentid": 37,
-      "lieulibelle": "Wittgendorf",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 106,
-      "fk_typeid": 22,
-      "fk_parentid": 37,
-      "lieulibelle": "Grunburg",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 107,
-      "fk_typeid": 25,
-      "fk_parentid": 37,
-      "lieulibelle": "Delfgruber",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 109,
-      "fk_typeid": 6,
-      "fk_parentid": 44,
-      "lieulibelle": "Karak Azgal",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 112,
-      "fk_typeid": 6,
-      "fk_parentid": 44,
-      "lieulibelle": "Karak Azul",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 111,
-      "fk_typeid": 6,
-      "fk_parentid": 44,
-      "lieulibelle": "Karak Drazh",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 114,
-      "fk_typeid": 6,
-      "fk_parentid": 44,
-      "lieulibelle": "Karak Dron",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 113,
-      "fk_typeid": 6,
-      "fk_parentid": 44,
-      "lieulibelle": "Karak Huit Pics",
-      "lieudescription": null,
-      "lieuimage": null
-    },
-    {
-      "lieuid": 116,
-      "fk_typeid": 27,
-      "fk_parentid": 44,
-      "lieulibelle": "Karag Haraz (La Montagne de feu)",
-      "lieudescription": null,
-      "lieuimage": null
-    }
+  "items":[
+    {"id":3,"fk_typeid":2,"fk_parentid":1,"nom":"Le Pays-Perdu","description":""},
+    {"id":8,"fk_typeid":8,"fk_parentid":4,"nom":"L'Anguille","description":""},
+    {"id":9,"fk_typeid":8,"fk_parentid":4,"nom":"Aquitanie","description":""},
+    {"id":10,"fk_typeid":8,"fk_parentid":4,"nom":"Artenois","description":""},
+    {"id":11,"fk_typeid":8,"fk_parentid":4,"nom":"Bastogne","description":""},
+    {"id":12,"fk_typeid":8,"fk_parentid":4,"nom":"Bordeleaux","description":""},
+    {"id":13,"fk_typeid":8,"fk_parentid":4,"nom":"Brionne","description":""},
+    {"id":14,"fk_typeid":8,"fk_parentid":4,"nom":"Couronne","description":""},
+    {"id":15,"fk_typeid":8,"fk_parentid":4,"nom":"Gasconnie","description":""},
+    {"id":16,"fk_typeid":8,"fk_parentid":4,"nom":"Gisoreux","description":""},
+    {"id":17,"fk_typeid":8,"fk_parentid":4,"nom":"Lyonesse","description":""},
+    {"id":18,"fk_typeid":8,"fk_parentid":4,"nom":"Monfort","description":""},
+    {"id":19,"fk_typeid":8,"fk_parentid":4,"nom":"Mousillon","description":""},
+    {"id":20,"fk_typeid":8,"fk_parentid":4,"nom":"Parravon","description":""},
+    {"id":21,"fk_typeid":8,"fk_parentid":4,"nom":"Quenelles","description":""},
+    {"id":23,"fk_typeid":5,"fk_parentid":3,"nom":"Marienburg","description":""},
+    {"id":24,"fk_typeid":2,"fk_parentid":3,"nom":"Wastelands","description":""},
+    {"id":25,"fk_typeid":9,"fk_parentid":5,"nom":"Oblast de l'Est","description":""},
+    {"id":26,"fk_typeid":9,"fk_parentid":5,"nom":"Oblast du Nord","description":""},
+    {"id":27,"fk_typeid":9,"fk_parentid":5,"nom":"Oblast de l'Ouest","description":""},
+    {"id":28,"fk_typeid":9,"fk_parentid":5,"nom":"Oblast du Sud","description":""},
+    {"id":29,"fk_typeid":9,"fk_parentid":5,"nom":"Pays des Trolls","description":""},
+    {"id":30,"fk_typeid":7,"fk_parentid":2,"nom":"Averland","description":""},
+    {"id":31,"fk_typeid":7,"fk_parentid":2,"nom":"Hochland","description":""},
+    {"id":32,"fk_typeid":7,"fk_parentid":2,"nom":"Middenland","description":""},
+    {"id":34,"fk_typeid":7,"fk_parentid":2,"nom":"Nordland","description":""},
+    {"id":35,"fk_typeid":7,"fk_parentid":2,"nom":"Ostermark","description":""},
+    {"id":36,"fk_typeid":7,"fk_parentid":2,"nom":"Ostland","description":""},
+    {"id":37,"fk_typeid":7,"fk_parentid":2,"nom":"Reikland","description":""},
+    {"id":38,"fk_typeid":7,"fk_parentid":2,"nom":"Stirland","description":""},
+    {"id":39,"fk_typeid":7,"fk_parentid":2,"nom":"Talabecland","description":""},
+    {"id":40,"fk_typeid":7,"fk_parentid":2,"nom":"Wissenland","description":""},
+    {"id":41,"fk_typeid":4,"fk_parentid":1,"nom":"Norsca","description":""},
+    {"id":43,"fk_typeid":12,"fk_parentid":1,"nom":"Montagnes Noires","description":""},
+    {"id":42,"fk_typeid":12,"fk_parentid":1,"nom":"Montagnes Grises","description":""},
+    {"id":44,"fk_typeid":12,"fk_parentid":1,"nom":"Montagnes du Bord du Monde","description":""},
+    {"id":46,"fk_typeid":12,"fk_parentid":1,"nom":"Montagnes du Feu Noir","description":""},
+    {"id":47,"fk_typeid":12,"fk_parentid":7,"nom":"Montagnes Apuccini","description":""},
+    {"id":79,"fk_typeid":6,"fk_parentid":43,"nom":"Karak Hirn","description":""},
+    {"id":48,"fk_typeid":13,"fk_parentid":4,"nom":"Forêt de Chalôns","description":""},
+    {"id":49,"fk_typeid":13,"fk_parentid":4,"nom":"Forêt d'Arden","description":""},
+    {"id":50,"fk_typeid":13,"fk_parentid":1,"nom":"Athel Loren","description":""},
+    {"id":51,"fk_typeid":13,"fk_parentid":2,"nom":"Forêt de Laurelorn","description":""},
+    {"id":52,"fk_typeid":13,"fk_parentid":2,"nom":"Forêt de la Drakwald","description":""},
+    {"id":54,"fk_typeid":13,"fk_parentid":2,"nom":"Forêt des Ombres","description":""},
+    {"id":55,"fk_typeid":14,"fk_parentid":2,"nom":"Bois Mort","description":""},
+    {"id":57,"fk_typeid":14,"fk_parentid":5,"nom":"Bois de Grovod","description":""},
+    {"id":58,"fk_typeid":13,"fk_parentid":5,"nom":"Forêt de Dhuklys","description":""},
+    {"id":59,"fk_typeid":13,"fk_parentid":5,"nom":"Forêt de Shirokij","description":""},
+    {"id":56,"fk_typeid":14,"fk_parentid":2,"nom":"Bois du Griffon","description":""},
+    {"id":53,"fk_typeid":13,"fk_parentid":2,"nom":"Grande Forêt","description":""},
+    {"id":60,"fk_typeid":15,"fk_parentid":5,"nom":"Monts Goromadny","description":""},
+    {"id":45,"fk_typeid":15,"fk_parentid":2,"nom":"Monts du Milieu","description":""},
+    {"id":61,"fk_typeid":16,"fk_parentid":38,"nom":"Comté de Sylvanie","description":""},
+    {"id":62,"fk_typeid":13,"fk_parentid":61,"nom":"Hundsheimerwald","description":""},
+    {"id":63,"fk_typeid":14,"fk_parentid":61,"nom":"Bois des Goules","description":""},
+    {"id":64,"fk_typeid":14,"fk_parentid":61,"nom":"Bois de la Famine","description":""},
+    {"id":65,"fk_typeid":14,"fk_parentid":61,"nom":"Bois Sinistre","description":""},
+    {"id":66,"fk_typeid":13,"fk_parentid":61,"nom":"Verbogenwald","description":""},
+    {"id":70,"fk_typeid":2,"fk_parentid":1,"nom":"Arabie","description":""},
+    {"id":73,"fk_typeid":18,"fk_parentid":1,"nom":"Terres des loups","description":""},
+    {"id":72,"fk_typeid":18,"fk_parentid":1,"nom":"Terre des Morts","description":""},
+    {"id":68,"fk_typeid":17,"fk_parentid":7,"nom":"Sartosa","description":""},
+    {"id":74,"fk_typeid":18,"fk_parentid":1,"nom":"Terres Sombres","description":""},
+    {"id":75,"fk_typeid":18,"fk_parentid":1,"nom":"Désolations du Chaos","description":""},
+    {"id":76,"fk_typeid":6,"fk_parentid":42,"nom":"Karak Norn","description":""},
+    {"id":77,"fk_typeid":15,"fk_parentid":1,"nom":"La Voûte","description":""},
+    {"id":78,"fk_typeid":6,"fk_parentid":77,"nom":"Karak Izor","description":""},
+    {"id":80,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Kadrin","description":""},
+    {"id":81,"fk_typeid":6,"fk_parentid":44,"nom":"Karaz-a-Karak","description":""},
+    {"id":82,"fk_typeid":6,"fk_parentid":44,"nom":"Zhufbar","description":""},
+    {"id":83,"fk_typeid":19,"fk_parentid":1,"nom":"Collines Varenka","description":""},
+    {"id":84,"fk_typeid":6,"fk_parentid":83,"nom":"Barak Varr","description":""},
+    {"id":85,"fk_typeid":13,"fk_parentid":2,"nom":"Forêt de Reikwald","description":""},
+    {"id":71,"fk_typeid":18,"fk_parentid":1,"nom":"Terres Arides (Badlands)","description":""},
+    {"id":67,"fk_typeid":3,"fk_parentid":87,"nom":"Cathay","description":""},
+    {"id":86,"fk_typeid":1,"fk_parentid":null,"nom":"Monde de Warhammer","description":""},
+    {"id":91,"fk_typeid":21,"fk_parentid":86,"nom":"Royaumes Elfiques","description":""},
+    {"id":87,"fk_typeid":20,"fk_parentid":86,"nom":"Extrême-Orient","description":""},
+    {"id":88,"fk_typeid":3,"fk_parentid":87,"nom":"Iles Nippon","description":""},
+    {"id":90,"fk_typeid":20,"fk_parentid":86,"nom":"Nouveau Monde","description":""},
+    {"id":89,"fk_typeid":20,"fk_parentid":86,"nom":"Lustrianie (Lustria)","description":""},
+    {"id":69,"fk_typeid":17,"fk_parentid":86,"nom":"Albion","description":""},
+    {"id":92,"fk_typeid":22,"fk_parentid":32,"nom":"Delberz","description":""},
+    {"id":2,"fk_typeid":3,"fk_parentid":1,"nom":"L'Empire","description":"L’Empire est la plus grande et la plus ancienne des nations du\r\nVieux Monde et il s’agit du plus important des bastions édifiés\r\npar l’humanité contre la menace toujours présente du Chaos.\r\nLe royaume gouverné par l’empereur Karl Franz s’étend depuis la Mer\r\ndes Griffes et Kislev au nord jusqu’aux Montagnes du Bord du Monde\r\nà l’est et au sud et aux Montagnes Grises à l’ouest. La surface de\r\nl’Empire est presque totalement couverte de forêts denses et très\r\nanciennes qui abritent tout un assortiment de créatures sauvages et\r\nmaléfiques. Les villages, villes et cités sont des îlots de civilisation au\r\nsein de ces contrées farouches et la population de l’Empire lutte\r\nconstamment pour survivre contre les périls qui l’entourent et qui\r\ncherchent sans arrêt à la submerger."},
+    {"id":22,"fk_typeid":2,"fk_parentid":1,"nom":"Principautés frontalières","description":"Au sud de l’Empire, le long du Col du Feu Noir et par-delà les\r\nMontagnes Noires, s’étend une terre sauvage et indomptée. Là, les\r\nnobles dépossédés de l’Empire vont parfois s’installer pour recouvrer\r\nun peu de leur pouvoir et le paysage aride est parsemé de petits\r\nchâteaux et de bastions, morcelé par les multiples petits fiefs de ces\r\naristocrates bagarreurs. Ce sont ces barons hors-la-loi qui ont donné\r\nson nom à cette région, les Principautés Frontalières.\r\nLes Principautés Frontalières sont un pays de cocagne pour les mercenaires\r\ncomme pour les aventuriers. Limitées au sud par la Sanglante,\r\nles Principautés sont constamment assaillies par les orques et les\r\ngobelins venus des Terres Arides, sur l’autre rive. Des armées de\r\nmercenaires à la solde d’un baron ou d’un autre y guerroient également\r\npour étendre les petits domaines de leurs commanditaires.\r\nOn peut également y rencontrer des chasseurs de trésors en grand\r\nnombre car il existe de vieilles tombes datant d’antiques tribus préimpériales\r\ndisséminées dans toute la région. De vilaines petites collines\r\ncachent des cairns remplis d’or et sur plus d’un sommet on peut\r\nencore voir se dresser, comme des dents irrégulières, les monolithes\r\nd’un passé séculaire. On dit que les anciens seigneurs de ces lieux ne\r\ndorment pas d’un sommeil paisible et que des malédictions plus\r\nanciennes que Sigmar protègent leurs tombes. Des nécromanciens et\r\nd’autres sorciers corrompus viennent également dans les Principautés\r\npour y pratiquer leurs arts funestes loin des torches des répurgateurs.\r\nÀ l’ouest s’étend le Golfe Noir, dont la côte est truffée de multiples\r\ncavernes naturelles et de mouillages discrets. C’est l’endroit idéal pour\r\nles repaires secrets des corsaires et il n’est pas inhabituel que les\r\nmercenaires qui exercent leur métier dans ces parages s’adonnent un\r\npeu à la piraterie lorsque les emplois plus sérieux se font rares.\r\nLes contreforts des Montagnes du Bord du Monde sont également une\r\nrégion où règne l’illégalité. Les chefs des bandes de brigands y affrontent\r\ndes seigneurs de guerre orques pour le contrôle des abords du Col\r\ndu Feu Noir, tant ils sont avides de rançonner les voyageurs imprudents\r\nqui viennent de l’Empire ou les convois qui traversent le col pour aller\r\ncommercer avec les nobliaux des Principautés dans leurs châteaux\r\néparpillés. Le Col du Feu Noir est aussi le départ de la route de l'ivoire\r\net de la route de la soie.\r\nDans leur ensemble, les Principautés Frontalières marquent les limites\r\nde la civilisation de l’Empire et un homme à la morale peu farouche\r\npeut s’y faire une vie confortable en peu de temps. Mais il peut tout\r\naussi bien y mourir loin de tout, sur un champ de bataille ou dans les\r\ngriffes d’une horreur tout juste sortie de sa tombe."},
+    {"id":7,"fk_typeid":4,"fk_parentid":1,"nom":"Tilée","description":"La Tilée est une contrée ensoleillée située au sud-ouest de l’Empire.\r\nContrairement à la Bretonnie et à l’Empire, ce n’est pas une nation unifiée\r\nmais un ensemble de cités-états rivales. Elle est bordée de trois chaînes de\r\nmontagnes, les Apuccini à l’est, la chaîne des Irrana au nord et l’Abasko à\r\nl’ouest, et par la mer Tiléenne. Grâce à ces impressionnantes barrières\r\nnaturelles,la Tilée n’a jamais eu à souffrir d’invasions comme celles qui ont\r\nfrappé l’Empire, Kislev ou même la Bretonnie. Cela a permis à la culture\r\nde Tilée d’atteindre un stade de développement avancé mais en revanche\r\nla région est restée divisée. Sans l’intervention d’une menace extérieure\r\npour unifier les cités-états, une nation unique ne s’est jamais constituée\r\nComme la plupart des régions du Vieux Monde,la Tilée a été colonisée par\r\ndes tribus humaines en migration.Ces humains découvrirent les ruines de\r\ncolonies elfes et beaucoup des cités-états d’aujourd’hui sont bâties sur\r\nl’emplacement de ces ruines. Ils découvrirent également le Marais\r\nPutride, une région dépourvue de toute vie où des mares peu profondes\r\net croupissantes,alimentées par d’innombrables ruisseaux puants,sont en\r\npermanence enveloppées d’une épaisse brume grisâtre.Tout le monde se\r\ntient à distance respectable de cet endroit, si infect et saturé de maladies,\r\nsauf les hors-la-loi les plus désespérés et les fous dangereux. À l’insu de\r\ntous ou presque,la grande cité des hommes-rats,Skarogne,dresse ses habitations\r\nà moitié en ruines au beau milieu de ce bourbier puant. Jusque-là,\r\nla Tilée n’a subi que quelques attaques sporadiques de la part des skavens.\r\nElle a également dû résister à au moins un début de peste rouge, mais elle\r\na eu bien de la chance que le conseil des Treize ait décidé d’orienter les\r\nefforts des hommes-rats dans une autre direction.\r\nLes plus importantes des cités-états tiléennes sont Luccini, Miragliano,\r\nRémas,Tobaro,Trantio et Verezzo. Sartosa, la soi-disant Cité Pirate, est plus\r\nparticulière.Tous les pirates y sont les bienvenus et, en vérité, ils sont littéralement\r\nles maîtres de la cité.Les pirates de Sartosa s’attaquent continuellement\r\naux navires qui croisent dans la Mer Tiléenne, mais les cités-états,\r\ntrop occupées par leurs querelles continuelles, n’ont jamais réussi à\r\ncoopérer suffisamment longtemps pour mettre un terme à leurs rapines.\r\nDeux forces se partagent le pouvoir dans les cités-états de Tilée :\r\nles maisons marchandes et les compagnies de mercenaires. Les maisons\r\nmarchandes sont les premières à avoir pris de l’importance en\r\nassumant le rôle d’intermédiaires entre les nains et les elfes. Leurs\r\nimportantes caravanes de marchandises de luxe avaient besoin de\r\nprotection et les gardes embauchés dans les premières années\r\nconstituèrent de puissantes compagnies de mercenaires au fil des\r\nsiècles. Ils prirent une importance capitale, à la fois pour la défense de\r\nla Tilée dans son intégralité et dans les guerres que se livraient les différentes\r\ncités-états. Les soudards sont si communs à la Tilée qu’on lui\r\ndonne fréquemment le nom de « pays des mercenaires ».\r\nLes deux visages de la Tilée se retrouvent également dans les deux divinités\r\nles plus appréciées au sein des cités-états.Les mercenaires honorent\r\nMyrmidia avant tout et les marchands révèrent Ranald. Des derniers\r\nexpliquent qu’ils vénèrent Ranald sous son aspect de dieu de la chance,\r\nalors que leurs détracteurs disent que cela les montre comme les voleurs\r\nqu’ils sont."},
+    {"id":1,"fk_typeid":20,"fk_parentid":86,"nom":"Vieux Monde","description":""},
+    {"id":33,"fk_typeid":7,"fk_parentid":2,"nom":"Mootland","description":"De part et d’autre de l’Aver, entre le Stirland et l’Averland, on trouve le\r\nMootland, ou plus simplement le Moot, qui est le pays des halflings.\r\nQuoique ses habitants s’accommodent parfaitement de leur vie de\r\ngloutonnerie et de procréation incessante et qu’ils ne se soucient guère\r\nd’avoir des relations avec le monde extérieur s’ils peuvent l’éviter, le\r\nMootland fait théoriquement partie de l’Empire. L’Ancien, élu par le\r\npeuple, dispose d’un vote dans les élections impériales et d’une voix à\r\nla cour de l’Empereur.\r\nLes halflings se reproduisent rapidement. Leurs familles, extrêmement\r\nnombreuses, vivent dans des complexes de tunnels tentaculaires ou\r\ndans des maisons chancelantes à multiples étages s’ils sont trop\r\npauvres pour s’offrir un trou confortable. Il est dans la nature des\r\nhalflings d’accumuler tout et n’importe quoi. De ce fait, des ailes\r\nentières de leurs trous sont occupées par des empilements de bibelots\r\nsans intérêt et de souvenirs amoncelés dans des labyrinthes de pièces\r\nmal tenues. Le concept de décharge publique est absolument étranger\r\nau mode de pensée des halflings. Même les reliefs de nourriture, s’il en\r\nreste, sont donnés aux chiens.\r\nLe Moot a la chance de posséder un paysage magnifique et une terre\r\nfertile.Au premier coup d’oeil, on peut n’y voir qu’un pays de collines\r\net de champs onduleux, où règne une paix champêtre. Cependant le\r\nMoot n’est pas préservé des attaques du monde extérieur. Pendant des\r\nannées, ses habitants ont dû résister à la menace des morts-vivants de\r\nla Sylvanie et à la violence de tribus déchaînées d’orques et de gobelins\r\ndescendus des Montagnes du Bord du Monde."},
+    {"id":4,"fk_typeid":4,"fk_parentid":1,"nom":"Royaume de Bretonnie","description":"La Bretonnie est l’héritage des anciens royaumes traditionnels des\r\ntribus bretonni qui vivaient là à l’époque de Sigmar. À peu près un\r\nmillénaire après la fondation de l’Empire par Sigmar, ces terres étaient\r\nen grand danger. Les orques, en particulier, harcelaient les duchés issus\r\ndes territoires des plus puissants chefs bretonniens. Jusque-là,\r\nles duchés étaient restés des nations indépendantes, qui s’alliaient et se\r\ncombattaient à leur guise. Toutefois, en ces temps troublés, Gilles,\r\nduc de Bastonne, emmena une puissante armée au secours de ses\r\ncompatriotes et les unit contre leurs ennemis communs.\r\nGilles avait été visité par les apparitions d’une déesse d’une grande\r\nbeauté qu’il avait reconnue comme la Dame du Lac. Elle lui enjoignit de\r\nrassembler autant de guerriers qu’il le pourrait pour marcher contre une\r\ngigantesque armée d’orques qui saccageaient les terres de Quenelles\r\naux frontières de la mystérieuse forêt hantée d’Athel Loren. En récompense,\r\nGilles et ses compagnons furent invités à boire à une coupe que\r\nleur présenta la Dame du Lac, ce qui leur conféra une grande force, une\r\ngrande sagesse et une résistance à la magie. Gilles fit ce qui lui était\r\ndemandé et, alors que l’histoire de ce don divin se répandait, il unit les\r\nducs sous sa bannière. Il écrasa les orques au combat et la Dame du Lac\r\nlui apparut une nouvelle fois. Elle lui dit que tout chevalier dont le coeur\r\nserait assez pur et le courage assez grand pouvait la rechercher et que,\r\ns’il en était jugé digne par le corps et l’esprit, il pourrait également boire\r\nà la coupe du Graal. C’était la récompense qu’elle accordait au peuple\r\nbretonnien pour sa loyauté. Devant cet événement miraculeux et après\r\navoir assisté aux prouesses de Gilles et de ses chevaliers du Graal au\r\ncombat, les autres ducs lui jurèrent fidélité et le couronnèrent comme\r\npremier roi des territoires unis des Bretonniens, la Bretonnie.\r\nGilles quitta ce monde quelques années plus tard, alors qu’il effectuait\r\nun pèlerinage avec les plus jeunes de ses chevaliers sur le lieu où la\r\nDame lui était apparue après la bataille contre les orques. Les peauxvertes\r\nse cachaient toujours dans la région et Gilles et ses compagnons\r\ntombèrent dans une embuscade. Gilles fut mortellement touché par\r\nune infecte lame orque et les deux chevaliers errants survivants l’emmenèrent\r\nsur la rive du lac sacré et prièrent la Dame de revenir pour\r\nsauver leur roi. Une silhouette solitaire émergea des brumes tourbillonnantes,\r\nsur une barque qui avançait sans rames ni voile. C’était une\r\njeune femme grande et belle, vêtue d’une longue robe et d’un manteau\r\ndont la capuche dissimulait presque complètement son visage délicat.\r\nElle ordonna aux chevaliers de coucher le mourant dans sa barque et\r\nleur dit qu’il vivrait mais qu’il serait dorénavant le serviteur de la Dame\r\ndu Lac. Elle se présenta sous le nom de Fée Enchanteresse, messagère\r\nde la Dame, et leur dit que Gilles serait dorénavant immortel et qu’il\r\nserait le gardien des saintes eaux du lac.\r\nLouis, fils de Gilles, fut choisi pour lui succéder sur le trône de\r\nBretonnie.Toutefois, les ducs et barons rassemblés firent remarquer que\r\nGilles avait été un homme exceptionnel, distingué entre tous les autres\r\npar la Dame du Lac. Louis avait hérité de la bravoure de son père et il\r\ndéclara qu’il partirait en quête du Graal auquel son père avait bu, ce qui\r\nétablirait son droit à la royauté. Son audace lui valut le surnom de Louis\r\nl'Impétueux. Sa quête dura de nombreuses années et il revint finalement\r\navec une couronne d’or magnifique et des armes enchantées qui,\r\ndit-il, lui avaient été données par la Dame.Depuis,aucun homme n’a été\r\nautorisé à porter la couronne d’or sans être d’abord adoubé chevalier\r\ndu Graal. Au fil des années, la couronne est passée dans plusieurs\r\nfamilles et duchés, mais elle a toujours été portée par un homme ayant\r\nrencontré la Dame du Lac en personne et ayant communié avec elle."},
+    {"id":6,"fk_typeid":4,"fk_parentid":1,"nom":"Estalie","description":"Les Royaumes Estaliens se situent loin au sud, en des lieux où la\r\nmenace du Chaos semble très lointaine.Tout comme les Principautés\r\nFrontalières, l’Estalie est constituée d’un amas de petits royaumes.\r\nToutefois, à la différence des Principautés Frontalières, les Estaliens ne\r\nsont pas menacés par les orques et les gobelins. Ils se battent donc\r\nsurtout entre eux.\r\nLe seul événement qui ait jamais fait l’unité de l’Estalie a été une invasion\r\nmenée par le sultan d’Arabie, il y a plus de mille ans. Une armée arabe\r\ndébarqua en Estalie et conquit la plus grande partie de la région,y compris\r\nla cité de Magritta. En réponse à l’appel de l’Estalie, des armées de croisés\r\naffluèrent de Bretonnie, de l’Empire et des cités-états de Tilée. Les Arabes\r\nfurent vaincus et la terre reconquise, mais aucun dirigeant estalien d’importance\r\nne se détacha pour faire l’unité des petits royaumes. À défaut\r\nd’un Sigmar ou d’un Gilles pour montrer la voie,l’Estalie retomba dans ses\r\nvieilles habitudes. En moins d’une génération, les croisés étaient repartis\r\net les Estaliens se querellaient de nouveau entre eux.\r\nDe nos jours, les deux royaumes les plus puissants sont les cités-états\r\nde Bilbali et de Magritta. Leur puissance leur vient du commerce et de\r\nleur accès à la mer, ce qui déclenche des jalousies considérables au sein\r\ndes royaumes pauvres des Irrana. On voit peu de traces de l’influence\r\ndu Chaos dans les royaumes estaliens, mais elle est pourtant là. Subtile\r\npeut-être, mais tout aussi mortelle. Elle ne se manifeste pas dans la force\r\nbrute et la rage des hommes-bêtes, mais plutôt dans les complots\r\ncachés de sociétés et de cultes secrets et elle ronge la lointaine Estalie.\r\nIl n’existe pas de répurgateurs pour traquer le Chaos en Estalie, mais le\r\nculte de Myrmidia y est populaire. Elle est la déesse tutélaire de l’art et\r\nde la science de la guerre et les Estaliens ont bien retenu ses leçons. Si\r\nla Tilée est connue pour ses mercenaires, l’Estalie est célèbre pour ses\r\nduellistes. Les écoles d’escrime fleurissent partout dans la région et\r\nnombreuses sont celles qui ont une longue histoire et qui entretiennent\r\ndes rivalités mortelles avec leurs concurrentes. Les bretteurs estaliens\r\nsont bien connus et les Diestro estaliens sont de plus en plus\r\npopulaires (cf. Chapitre 3 : Les carrières)."},
+    {"id":5,"fk_typeid":4,"fk_parentid":1,"nom":"Royaume du Kislev","description":"''Kislev s’étend au nord-est de l’Empire, c’est la nation « civilisée » située\r\nle plus au nord. Elle est bordée par l’Empire au sud et à l’ouest, par la\r\nMer des Griffes à l’ouest, par le Pays des Trolls au nord et par les\r\nMontagnes du Bord du Monde au nord-est et à l’est.La frontière nord du\r\npays n’est pas clairement définie, mais la plupart s’accordent à la placer\r\nsur la Lynsk qui coule vers l’ouest, des Montagnes du Bord du Monde à\r\nla Mer des Griffes. Sa frontière avec l’Empire a été établie à l’Urskoy (ainsi\r\nnommée d’après le dieu Ursun), un affluent de la Talabec. Le nord de\r\nKislev se distingue à peine du Pays des Trolls et de la toundra qui s’étend\r\nau-delà. La contrée est plus boisée à l’est dans les contreforts des montagnes.\r\nCertaines tribus kislevites voyagent vers le nord au-delà de la Lynsk,\r\ndans le Pays des Trolls et vers l’est le long de la Haute Passe. La terre y est\r\nfroide et stérile et la plupart des kislevites qui vivent là sont des nomades\r\nqui se déplacent de pâturage en pâturage, très semblables en cela aux\r\ntribus de maraudeurs de la Terre des Ombres. Plus au sud, Kislev est plus\r\nhospitalier quoique que le climat reste froid tout au long de l’année.\r\nLes fermes peuvent prospérer dans cette région, mais on n’y trouve\r\nguère de carrières de pierre. De ce fait, les habitations sont le plus\r\nsouvent en pierre brute ou en bois non équarri, ce que les populations\r\nde l’Empire considèrent comme arriéré et peu civilisé.On ne peut pas en\r\ndire autant des palais et des temples grandioses qu’on trouve dans les\r\ncités du sud, avec leurs toits dorés en forme de bulbes et leurs tours."},
+    {"id":96,"fk_typeid":22,"fk_parentid":32,"nom":"Grimminhagen","description":""},
+    {"id":95,"fk_typeid":26,"fk_parentid":32,"nom":"Untergard","description":""},
+    {"id":98,"fk_typeid":10,"fk_parentid":32,"nom":"Middenheim","description":""},
+    {"id":99,"fk_typeid":5,"fk_parentid":37,"nom":"Altdorf","description":""},
+    {"id":101,"fk_typeid":22,"fk_parentid":37,"nom":"Bögenhafen","description":""},
+    {"id":102,"fk_typeid":22,"fk_parentid":37,"nom":"Grissenwald","description":""},
+    {"id":104,"fk_typeid":22,"fk_parentid":37,"nom":"Weissbruck","description":""},
+    {"id":105,"fk_typeid":22,"fk_parentid":37,"nom":"Helmgart","description":""},
+    {"id":103,"fk_typeid":26,"fk_parentid":37,"nom":"Wittgendorf","description":""},
+    {"id":106,"fk_typeid":22,"fk_parentid":37,"nom":"Grunburg","description":""},
+    {"id":107,"fk_typeid":25,"fk_parentid":37,"nom":"Delfgruber","description":""},
+    {"id":109,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Azgal","description":""},
+    {"id":112,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Azul","description":""},
+    {"id":111,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Drazh","description":""},
+    {"id":114,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Dron","description":""},
+    {"id":113,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Huit Pics","description":""},
+    {"id":116,"fk_typeid":27,"fk_parentid":44,"nom":"Karag Haraz (La Montagne de feu)","description":""}
   ]
 }

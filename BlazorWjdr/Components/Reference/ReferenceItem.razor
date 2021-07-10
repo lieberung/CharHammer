@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Models
-<a href="/references/@Item.Id.ToString()/" class="btn btn-light">
+<a href="/references/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <TooltipImage Path="@Item.Image" Alt="@Item.Titre">
         <span class="oi oi-book mr-1" aria-hidden="true"></span>
     </TooltipImage>
@@ -8,6 +8,8 @@
     {
         <em class="ml-2">@Item.AnneeDePublication</em>
     }
+    <em class="ml-2">(v
+@Item.Version)</em>
     @if (!string.IsNullOrWhiteSpace(Page))
     {
         <strong class="ml-2">@Page</strong>

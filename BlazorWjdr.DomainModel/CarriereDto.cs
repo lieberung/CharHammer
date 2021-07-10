@@ -25,8 +25,9 @@
         public List<CompetenceDto[]> ChoixCompetences { get; init; } = null!;
 
         public CarriereDto? CarriereMere { get; set; }
-        public List<CarriereDto> Debouches = new List<CarriereDto>();
-        public List<CarriereDto> Filieres = new List<CarriereDto>();
+        public List<CarriereDto> Debouches = new();
+        public List<CarriereDto> Filieres = new();
+        public List<CarriereDto> SousElements = new();
 
         public ReferenceDto? SourceLivre { get; init; }
     }

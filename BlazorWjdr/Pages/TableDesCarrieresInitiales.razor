@@ -1,14 +1,18 @@
 ﻿@page "/table-carrieres-initiales/{RaceId}/"
 
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Race
+@using BlazorWjdr.Services
+
+@inject RacesService _racesService;
 
 <h1>Table des carrières initiales</h1>
 
-<div>
-    <a href="/table-carrieres-initiales/25/" class="btn btn-primary">Elfes</a>
-    <a href="/table-carrieres-initiales/26/" class="btn btn-primary">Halfelings</a>
-    <a href="/table-carrieres-initiales/1/" class="btn btn-primary">Humains</a>
-    <a href="/table-carrieres-initiales/27/" class="btn btn-primary">Nains</a>
+<div class="mb-3 pl-2">
+    <LinkCarrieresInitiales Actif="@_racesService.Elfes.Id.Equals(int.Parse(@RaceId))" Race="@_racesService.Elfes" />
+    <LinkCarrieresInitiales Actif="@_racesService.Halfelings.Id.Equals(int.Parse(@RaceId))" Race="@_racesService.Halfelings" />
+    <LinkCarrieresInitiales Actif="@_racesService.Humains.Id.Equals(int.Parse(@RaceId))" Race="@_racesService.Humains" />
+    <LinkCarrieresInitiales Actif="@_racesService.Nains.Id.Equals(int.Parse(@RaceId))" Race="@_racesService.Nains" />
 </div>
 
 <TableDeDepart RaceId="@RaceId" />
