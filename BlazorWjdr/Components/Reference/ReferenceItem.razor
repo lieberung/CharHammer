@@ -6,11 +6,18 @@
     @Item.Titre
     @if (Item.AnneeDePublication != null)
     {
-        <em class="ml-2">Item.AnneeDePublication</em>
+        <em class="ml-2">@Item.AnneeDePublication</em>
+    }
+    @if (!string.IsNullOrWhiteSpace(Page))
+    {
+        <strong class="ml-2">@Page</strong>
     }
 </a>
 @code
 {
     [Parameter]
     public ReferenceDto Item { get; set; } = null!;
+
+    [Parameter]
+    public string Page { get; set; } = null!;
 }

@@ -1,0 +1,19 @@
+﻿@page "/table-carrieres-initiales/{RaceId}/"
+
+@using BlazorWjdr.Components.Carriere
+
+<h1>Table des carrières initiales</h1>
+
+<div>
+    <a href="/table-carrieres-initiales/25/" class="btn btn-primary">Elfes</a>
+    <a href="/table-carrieres-initiales/26/" class="btn btn-primary">Halfelings</a>
+    <a href="/table-carrieres-initiales/1/" class="btn btn-primary">Humains</a>
+    <a href="/table-carrieres-initiales/27/" class="btn btn-primary">Nains</a>
+</div>
+
+<TableDeDepart RaceId="@RaceId" />
+
+@code{
+    [Parameter]
+    public string RaceId { get; set; } = null!;
+}

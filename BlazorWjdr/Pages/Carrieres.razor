@@ -4,43 +4,34 @@
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
-@inject CarrieresService CompetenceService
+@inject CarrieresService _competenceService
 
 <h1>Carrières</h1>
 
-<p>This component demonstrates fetching data from a service.</p>
-
-@if (carrieresLines == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Carrière</th>
-                <th>Avancée</th>
-                <th>Restriction</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var carriere in carrieresLines)
-            {
-                <CarriereRow Carriere="carriere" />
-            }
-        </tbody>
-    </table>
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Carrière</th>
+            <th>Avancée</th>
+            <th>Source</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var carriere in _carrieresLines)
+        {
+            <CarriereRow Carriere="carriere" />
+        }
+    </tbody>
+</table>
 
 @code {
-private List<CarriereDto> carrieresLines = null!;
+    private List<CarriereDto> _carrieresLines = null!;
 
-protected override async Task OnInitializedAsync()
-{
-    var carrieres = await CompetenceService.ItemsCarrieres();
-    carrieresLines = carrieres.ToList();
-    //carrieresLines.RemoveAll(c => c.Ignore);
-}
+    protected override async Task OnInitializedAsync()
+    {
+        var carrieres = await _competenceService.ItemsCarrieres();
+        _carrieresLines = carrieres.ToList();
+        //carrieresLines.RemoveAll(c => c.Ignore);
+    }
 }

@@ -1,6 +1,7 @@
 ﻿@page "/carrieres/{CarriereId}/"
 
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Reference
 
 <div class="card">
     <h3 class="card-header">@Carriere.Nom</h3>
@@ -9,8 +10,7 @@
     {
         <div class="card-body">
             <div class="alert alert-info" role="alert">
-                <span class="oi oi-book mr-1" aria-hidden="true"></span>
-                @Carriere.Source
+                <ReferenceItem Item="@Carriere.SourceLivre" Page="@Carriere.Source" />
             </div>
         </div>
     }

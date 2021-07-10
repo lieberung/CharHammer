@@ -114,11 +114,11 @@
 
             foreach (var carriere in _allCarrieres)
             {
-                if (carriere.SourceLivre != null)
-                    carriere.Source = carriere.SourceLivre.Titre
-                                      + (string.IsNullOrWhiteSpace(carriere.Source)
-                        ? ""
-                        : $" ({carriere.Source})"); 
+                //if (carriere.SourceLivre != null)
+                   //carriere.Source = carriere.SourceLivre.Titre
+                   //                   + (string.IsNullOrWhiteSpace(carriere.Source)
+                   //     ? ""
+                   //     : $" ({carriere.Source})"); 
                 carriere.Filieres = _allCarrieres.Where(c => c.Debouches.Contains(carriere)).ToList();
             }
         }

@@ -29,12 +29,13 @@ namespace BlazorWjdr
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            services.AddSingleton<ReferencesService>();
             services.AddSingleton<ChronologieService>();
             services.AddSingleton<ProfilsService>();
             services.AddSingleton<CompetencesEtTalentsService>();
             services.AddSingleton<ChoixCompetencesEtTalentsService>();
             services.AddSingleton<CarrieresService>();
-            services.AddSingleton<ReferencesService>();
+            services.AddSingleton<TableDesCarrieresInitialesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

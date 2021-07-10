@@ -1,12 +1,48 @@
 ﻿@using BlazorWjdr.Services
-<h3>TableDeDepart</h3>
-
-
+@using BlazorWjdr.Models
+        
+<table>
+    <thead>
+        <tr>
+            <td>Carrière</td>
+            <td>Facteur Race @RaceId</td>
+            <td>Score</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ligne in _allLines)
+        {
+            <tr>
+                <td><CarriereItem Item="ligne.Carriere"></CarriereItem></td>
+                <td>@ligne.Facteur</td>
+                <td>xx ~ YY</td>
+            </tr>
+        }
+    </tbody>
+</table>
+        
 
 @code {
-
     [Inject]
     public CarrieresService CarrieresService { get; set; } = null!;
-    
+    [Inject]
+    public TableDesCarrieresInitialesService TableDesCarrieresInitialesService { get; set; } = null!;
 
+    [Parameter]
+    public string RaceId { get; set; }
+
+    private List<LigneDeCarriereInitialeDto> _allLines = null!;
+
+    protected override void OnInitialized()
+    {
+        _allLines = TableDesCarrieresInitialesService.AllLignes[int.Parse(RaceId)];
+        base.OnInitialized();
+    }
+    
+    protected override Task OnParametersSetAsync()
+    {
+        OnInitialized();
+
+        return base.OnParametersSetAsync();
+    }
 }
