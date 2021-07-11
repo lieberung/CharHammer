@@ -5,6 +5,7 @@
 @inject CarrieresService _carrieresService
 
 <tr>
+    <td><img style="width:128px;" src="@Item.Image" alt="@Item.Titre"/></td>
     <td style="width:65px;">
         @if (_carrieresLiees.Any())
         {
@@ -13,8 +14,8 @@
             </span>
         }
     </td>
-    <td><ReferenceItem Item="@Reference" /></td>
-    <td>@Reference.Code</td>
+    <td><ReferenceItem Item="@Item"/></td>
+    <td>@Item.Code</td>
 </tr>
 @if (AfficherCarrieres)
 {
@@ -23,7 +24,7 @@
 @code
 {
     [Parameter]
-    public ReferenceDto Reference { get; set; } = null!;
+    public ReferenceDto Item { get; set; } = null!;
 
     private bool AfficherCarrieres { get; set; }
 
@@ -31,6 +32,6 @@
 
     protected override async Task OnInitializedAsync()
     {
-        _carrieresLiees = await _carrieresService.GetCarrieresParuesDans(Reference);
+        _carrieresLiees = await _carrieresService.GetCarrieresParuesDans(Item);
     }
 }

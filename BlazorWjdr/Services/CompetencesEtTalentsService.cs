@@ -81,6 +81,10 @@
 #pragma warning disable CS8629 // Nullable value type may be null.
                 talent.Parent = GetTalent(talent.TalentParentId.Value);
 #pragma warning restore CS8629 // Nullable value type may be null.
+            foreach (var talent in _allTalents)
+                talent.SousElements.AddRange(_allTalents
+                    .Where(c=>c.Parent == talent)
+                    .OrderBy(c => c.Nom));
 
             _allCompetences = DataSource.JsonLoader
                 .GetRootCompetence()
@@ -107,19 +111,20 @@
 
             foreach (var competence in _allCompetences.Where(c => c.CompetenceMereId.HasValue))
 #pragma warning disable CS8629 // Nullable value type may be null.
-                competence.CompetenceParente = GetCompetence(competence.CompetenceMereId.Value);
+                competence.Parent = GetCompetence(competence.CompetenceMereId.Value);
 #pragma warning restore CS8629 // Nullable value type may be null.
 
             foreach (var competence in _allCompetences)
             {
+                competence.SousElements.AddRange(_allCompetences
+                    .Where(c=>c.Parent == competence)
+                    .OrderBy(c => c.Nom));
                 competence.SetResume();
-                competence.CompetenceParente?.SousElements.Add(competence);
             }
 
             foreach (var talent in _allTalents)
             {
                 talent.SetResumeComplet();
-                talent.Parent?.SousElements.Add(talent);
                 talent.CompetencesLiees = _allCompetences
                     .Where(c => c.TalentsLies.Contains(talent))
                     .ToList();

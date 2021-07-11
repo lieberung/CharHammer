@@ -97,6 +97,13 @@
             {
                 lieu.Parent = _cacheLieu[lieu.ParentId!.Value];
             }
+
+            foreach (var lieu in _allLieux)
+            {
+                lieu.SousElements.AddRange(_allLieux
+                    .Where(c=>c.Parent == lieu)
+                    .OrderBy(c => c.Nom));                
+            }
         }
     }
 }

@@ -1,0 +1,36 @@
+﻿@page "/lieux"
+
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+@using BlazorWjdr.Components.Lieu
+
+@inject LieuxService _lieuxService
+
+<h1>Lieux</h1>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Nom</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var lieu in _lieuxLines.Where(l => l.ParentsCount == 0).OrderBy(r => r.Nom))
+    {
+        <LieuRow Item="@lieu"/>
+    }
+    </tbody>
+</table>
+
+@code {
+    private LieuDto[] _lieuxLines = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _lieuxLines = await _lieuxService.Items();
+    }
+
+}

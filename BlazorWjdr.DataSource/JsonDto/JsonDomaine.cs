@@ -6,7 +6,7 @@
     {
         public int id { get; set; }
         public string nom { get; set; } = null!;
-        public string? comment { get; set; }
+        public string comment { get; set; }
     }
 
     public class RootDomaine

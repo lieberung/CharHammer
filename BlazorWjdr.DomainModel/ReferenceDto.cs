@@ -9,6 +9,6 @@
         public int Version { get; init; }
         public string VersionStr => $"v{Version}";
 
-        public string Image => $"{Id}.jpg";
+        public string Image => $"/images/books/{Id}.jpg";
     }
 }

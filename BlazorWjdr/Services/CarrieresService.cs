@@ -111,7 +111,7 @@
 
             foreach (var carriere in _allCarrieres.Where(c => c.CarriereMereId.HasValue))
 #pragma warning disable CS8629 // Nullable value type may be null.
-                carriere.CarriereMere = _cacheCarrieres[carriere.CarriereMereId.Value];
+                carriere.Parent = _cacheCarrieres[carriere.CarriereMereId.Value];
 #pragma warning restore CS8629 // Nullable value type may be null.
 
             foreach (var carriere in _allCarrieres.Where(c => c.DebouchesIds.Any()))
@@ -119,8 +119,13 @@
 
             foreach (var carriere in _allCarrieres)
             {
-                carriere.Filieres = _allCarrieres.Where(c => c.Debouches.Contains(carriere)).ToList();
-                carriere.SousElements.AddRange(_allCarrieres.Where(c=>c.CarriereMere == carriere));
+                carriere.Filieres = _allCarrieres
+                    .Where(c => c.Debouches.Contains(carriere))
+                    .OrderBy(c => c.Nom)
+                    .ToList();
+                carriere.SousElements.AddRange(_allCarrieres
+                    .Where(c=>c.Parent == carriere)
+                    .OrderBy(c => c.Nom));
             }
         }
     }

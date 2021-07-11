@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var carriere in _carrieresLines.Where(c => c.CarriereMere == null))
+        @foreach (var carriere in _carrieresLines.Where(c => c.Parent == null))
         {
             <CarriereRow Item="carriere" />
         }

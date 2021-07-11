@@ -24,10 +24,10 @@
         public List<TalentDto[]> ChoixTalents { get; init; } = null!;
         public List<CompetenceDto[]> ChoixCompetences { get; init; } = null!;
 
-        public CarriereDto? CarriereMere { get; set; }
+        public CarriereDto? Parent { get; set; }
         public List<CarriereDto> Debouches = new();
         public List<CarriereDto> Filieres = new();
-        public List<CarriereDto> SousElements = new();
+        public readonly List<CarriereDto> SousElements = new();
 
         public ReferenceDto? SourceLivre { get; init; }
     }

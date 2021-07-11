@@ -16,7 +16,7 @@
         public bool Ignore { get; init; }
 
         public int? CompetenceMereId { get; init; }
-        public CompetenceDto? CompetenceParente { get; set; }
+        public CompetenceDto? Parent { get; set; }
         public readonly List<CompetenceDto> SousElements = new();
 
         public void SetResume()
@@ -28,9 +28,9 @@
         {
             if (!string.IsNullOrWhiteSpace(Resume))
                 return Resume;
-            if (CompetenceParente == null || string.IsNullOrWhiteSpace(CompetenceParente.Resume))
+            if (Parent == null || string.IsNullOrWhiteSpace(Parent.Resume))
                 return "";
-            return CompetenceParente.Resume;
+            return Parent.Resume;
         }
     }
 }

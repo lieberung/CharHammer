@@ -34,6 +34,6 @@
     {
         var competences = await _competenceService.ItemsCompetences();
         _competencesLines = competences.ToList();
-        _competencesLines.RemoveAll(c => c.Ignore || c.CompetenceParente != null);
+        _competencesLines.RemoveAll(c => c.Ignore || c.Parent != null);
     }
 }

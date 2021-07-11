@@ -6,21 +6,20 @@
 
 @inject ReferencesService _referencesService
 
-<h1>Références</h1>
-
 <table class="table">
     <thead>
-        <tr>
-            <th></th>
-            <th>Titre</th>
-            <th>Code</th>
-        </tr>
+    <tr>
+        <th></th>
+        <th></th>
+        <th>Références</th>
+        <th>Code</th>
+    </tr>
     </thead>
     <tbody>
-        @foreach (var reference in _referencesLines.OrderBy(r => r.AnneeDePublication))
-        {
-            <ReferenceRow Reference="@reference"/>
-        }
+    @foreach (var reference in _referencesLines.OrderBy(r => r.AnneeDePublication))
+    {
+        <ReferenceRow Item="@reference"/>
+    }
     </tbody>
 </table>
 
