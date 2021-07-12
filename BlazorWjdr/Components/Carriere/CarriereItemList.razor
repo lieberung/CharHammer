@@ -6,11 +6,12 @@
 <ul class="list-inline">
     @foreach (var carriere in Items)
     {
-        <li class="list-inline-item"><CarriereItem Item="@carriere"/></li>
+        <li class="@ItemClass"><CarriereItem Item="@carriere"/></li>
     }
 </ul>
 @code
 {
+    [Parameter] public string ItemClass { get; set; } = "list-inline-item";
     [Parameter] public string Title { get; set; } = null!;
     [Parameter] public CarriereDto[] Items { get; set; } = null!;
 }

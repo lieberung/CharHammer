@@ -3,53 +3,60 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Reference
 
-<div class="card">
-    <h3 class="card-header">@Carriere.Nom</h3>
-    
-    @if (!string.IsNullOrWhiteSpace(Carriere.Source))
-    {
-        <div class="card-body">
-            <div class="alert alert-info" role="alert">
-                <ReferenceItem Item="@Carriere.SourceLivre" Page="@Carriere.Source" />
-            </div>
-        </div>
-    }
-    
-    @if (!string.IsNullOrWhiteSpace(Carriere.Restriction))
-    {
-        <div class="card-body">
-            <div class="alert alert-danger" role="alert">
-                <span class="oi oi-warning mr-1" aria-hidden="true"></span>
-                @Carriere.Restriction
-            </div>
-        </div>
-    }
-    
-    <div class="card-body">
-        <img src="..@Carriere.Image" alt="@Carriere.Nom" />
-    </div>
-    
-    <div class="card-body">
-        <PlanDeCarriere Plan="@Carriere.PlanDeCarriere" />
-    </div>
-    
-    <div class="card-body">
-        <h5 class="card-title">Description</h5>
-        <p class="card-text">@Carriere.Description</p>
-    </div>
+<MainTopRow>
+    <h3>@Carriere.Nom</h3>
+</MainTopRow>
 
-    <div class="card-body">
-        <CompetencesEtTalents Carriere="@Carriere" />
-    </div>
-    
-@if (@Carriere.Filieres.Any())
-{
-    <div class="card-body">
-        <CarriereItemList Title="Filières" Items="@Carriere.Filieres.ToArray()"/>
-    </div>
-}
+<div class="content px-4">
+    <div class="card">
+        <h3 class="card-header">@Carriere.Nom</h3>
         
-    <div class="card-body">
-        <CarriereItemList Title="Débouchés" Items="@Carriere.Debouches.ToArray()" />
+        @if (!string.IsNullOrWhiteSpace(Carriere.Source))
+        {
+            <div class="card-body">
+                <div class="alert alert-info" role="alert">
+                    <ReferenceItem Item="@Carriere.SourceLivre" Page="@Carriere.Source" />
+                </div>
+            </div>
+        }
+        
+        @if (!string.IsNullOrWhiteSpace(Carriere.Restriction))
+        {
+            <div class="card-body">
+                <div class="alert alert-danger" role="alert">
+                    <span class="oi oi-warning mr-1" aria-hidden="true"></span>
+                    @Carriere.Restriction
+                </div>
+            </div>
+        }
+        
+        <div class="card-body">
+            <img src="..@Carriere.Image" alt="@Carriere.Nom" />
+        </div>
+        
+        <div class="card-body">
+            <PlanDeCarriere Plan="@Carriere.PlanDeCarriere" />
+        </div>
+        
+        <div class="card-body">
+            <h5 class="card-title">Description</h5>
+            <p class="card-text">@Carriere.Description</p>
+        </div>
+
+        <div class="card-body">
+            <CompetencesEtTalents Carriere="@Carriere" />
+        </div>
+        
+    @if (@Carriere.Filieres.Any())
+    {
+        <div class="card-body">
+            <CarriereItemList Title="Filières" Items="@Carriere.Filieres.ToArray()"/>
+        </div>
+    }
+            
+        <div class="card-body">
+            <CarriereItemList Title="Débouchés" Items="@Carriere.Debouches.ToArray()" />
+        </div>
     </div>
 </div>
+

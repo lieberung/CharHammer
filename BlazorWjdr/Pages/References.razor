@@ -6,28 +6,34 @@
 
 @inject ReferencesService _referencesService
 
-<table class="table">
-    <thead>
-    <tr>
-        <th></th>
-        <th></th>
-        <th>Références</th>
-        <th>Code</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var reference in _referencesLines.OrderBy(r => r.AnneeDePublication))
-    {
-        <ReferenceRow Item="@reference"/>
-    }
-    </tbody>
-</table>
+<div class="top-row px-4">
+    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+</div>
+
+<div class="content px-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Références</th>
+            <th>Code</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var reference in _lines.OrderBy(r => r.AnneeDePublication))
+        {
+            <ReferenceRow Item="@reference"/>
+        }
+        </tbody>
+    </table>
+</div>
 
 @code {
-    private ReferenceDto[] _referencesLines = null!;
+    private ReferenceDto[] _lines = null!;
 
     protected override async Task OnInitializedAsync()
     {
-        _referencesLines = await _referencesService.Items();
+        _lines = await _referencesService.Items();
     }
 }

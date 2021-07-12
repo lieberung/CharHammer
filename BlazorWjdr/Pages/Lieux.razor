@@ -6,24 +6,29 @@
 
 @inject LieuxService _lieuxService
 
-<h1>Lieux</h1>
+<div class="top-row px-4">
+    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+</div>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th></th>
-        <th>Nom</th>
-        <th>Type</th>
-        <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach (var lieu in _lieuxLines.Where(l => l.ParentsCount == 0).OrderBy(r => r.Nom))
-    {
-        <LieuRow Item="@lieu"/>
-    }
-    </tbody>
-</table>
+<div class="content px-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Nom</th>
+            <th>Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var lieu in _lieuxLines.Where(l => l.ParentsCount == 0).OrderBy(r => r.Nom))
+        {
+            <LieuRow Item="@lieu"/>
+        }
+        </tbody>
+    </table>
+</div>
+
 
 @code {
     private LieuDto[] _lieuxLines = null!;

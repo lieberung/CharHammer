@@ -6,25 +6,30 @@
 
 @inject CarrieresService _competenceService
 
-<h1>Carrières</h1>
+<MainTopRow>
+    <h3>Carrières</h3>
+</MainTopRow>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-            <th></th>
-            <th>Carrière</th>
-            <th>Avancée</th>
-            <th>Source</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var carriere in _carrieresLines.Where(c => c.Parent == null))
-        {
-            <CarriereRow Item="carriere" />
-        }
-    </tbody>
-</table>
+<div class="content px-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Carrière</th>
+                <th>Avancée</th>
+                <th>Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var carriere in _carrieresLines.Where(c => c.Parent == null))
+            {
+                <CarriereRow Item="carriere" />
+            }
+        </tbody>
+    </table>
+</div>
+
 
 @code {
     private List<CarriereDto> _carrieresLines = null!;
@@ -33,6 +38,5 @@
     {
         var carrieres = await _competenceService.ItemsCarrieres();
         _carrieresLines = carrieres.ToList();
-        //carrieresLines.RemoveAll(c => c.Ignore);
     }
 }

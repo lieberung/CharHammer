@@ -1,0 +1,87 @@
+﻿@using Microsoft.AspNetCore.Components
+@using System.Net.Mime
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
+
+<div class="header-menu">
+    <div class="btn-group" >
+        <div class="text-center">
+            <input class="dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
+                   @bind-value="_searchText"
+                   @bind-value:event="oninput"
+                   placeholder="Carrières, compétences, talents"
+                   style="background-color: #a4ccf6"/>
+        </div>
+        @if (_searchText.Length > 2 && ResultFound)
+        {
+            <div class="header-menu-list dropdown-menu show p-2">
+
+                @if (FilteredCarrieres.Any())
+                {
+                    <div class="mb-3">
+                        <CarriereItemList Title="Carrières" Items="FilteredCarrieres" ItemClass=""/>
+                    </div>
+                }
+
+                @if (FilteredCompetences.Any())
+                {
+                    <div class="mb-3">
+                        <CompetenceItemList Title="Compétences" Items="FilteredCompetences" ItemClass=""/>
+                    </div>
+                }
+                
+                @if (FilteredTalents.Any())
+                {
+                    <div class="mb-3">
+                        <TalentItemList Title="Talents" Items="FilteredTalents" ItemClass=""/>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+    private IEnumerable<CarriereDto> AllCarrieres { get; set; } = new List<CarriereDto>();
+    private IEnumerable<CompetenceDto> AllCompetences { get; set; } = new List<CompetenceDto>();
+    private IEnumerable<TalentDto> AllTalents { get; set; } = new List<TalentDto>();
+
+    [Parameter]
+    public string Text { get; set; } = "";
+        
+    private string _searchText = "";
+
+    [Inject] private CarrieresService CarrieresService { get; set; } = null!;
+    [Inject] private CompetencesEtTalentsService CompetencesEtTalentsService { get; set; } = null!;
+        
+    protected override async Task OnInitializedAsync()
+    {
+        AllCarrieres = await CarrieresService.ItemsCarrieres();
+        AllCompetences = await CompetencesEtTalentsService.ItemsCompetences();
+        AllTalents = await CompetencesEtTalentsService.ItemsTalents();
+    }
+
+    protected override void OnParametersSet()
+    {
+        _searchText = Text;
+        base.OnParametersSet();
+    }
+
+    private bool ResultFound => AllCarrieres.Any() || AllCompetences.Any() || AllTalents.Any(); 
+
+    private CarriereDto[] FilteredCarrieres => _searchText.Length < 3
+        ?  new CarriereDto[0]
+        : AllCarrieres.Where(c => c.Nom.ToLower().Contains(_searchText.ToLower())).ToArray();
+        
+    private CompetenceDto[] FilteredCompetences => _searchText.Length < 3
+        ?  new CompetenceDto[0]
+        : AllCompetences.Where(c => c.Nom.ToLower().Contains(_searchText.ToLower())).ToArray();
+
+    private TalentDto[] FilteredTalents => _searchText.Length < 3
+        ?  new TalentDto[0]
+        : AllTalents.Where(c => c.Nom.ToLower().Contains(_searchText.ToLower())).ToArray();
+}

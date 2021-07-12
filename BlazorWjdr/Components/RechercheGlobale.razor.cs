@@ -13,6 +13,9 @@ namespace BlazorWjdr.Components
         private IEnumerable<CompetenceDto> AllCompetences { get; set; } = new List<CompetenceDto>();
         private IEnumerable<TalentDto> AllTalents { get; set; } = new List<TalentDto>();
 
+        [Parameter]
+        public string Text { get; set; } = "";
+        
         private string _searchText = "";
 
         [Inject] private CarrieresService CarrieresService { get; set; } = null!;
@@ -23,6 +26,12 @@ namespace BlazorWjdr.Components
             AllCarrieres = await CarrieresService.ItemsCarrieres();
             AllCompetences = await CompetencesEtTalentsService.ItemsCompetences();
             AllTalents = await CompetencesEtTalentsService.ItemsTalents();
+        }
+
+        protected override void OnParametersSet()
+        {
+            _searchText = Text;
+            base.OnParametersSet();
         }
 
         private CarriereDto[] FilteredCarrieres => _searchText.Length < 3

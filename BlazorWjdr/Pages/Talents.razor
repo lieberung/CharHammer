@@ -6,25 +6,31 @@
 
 @inject CompetencesEtTalentsService _competencesEtTalentsService
 
-<h1>Talents</h1>
+<div class="top-row px-4">
+    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+</div>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th></th>
-        <th></th>
-        <th style="width:250px">Talent</th>
-        <th>Trait</th>
-        <th>Compétences liées</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="content px-4">
+    <h1>Talents</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th style="width:250px">Talent</th>
+            <th>Trait</th>
+            <th>Compétences liées</th>
+        </tr>
+        </thead>
+        <tbody>
         @foreach (var talent in _talentsLines.Where(t => t.Ignore == false && t.Parent == null))
         {
             <TalentRow Item="talent"/>
         }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
 
 @code {
     private TalentDto[] _talentsLines = null!;

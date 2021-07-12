@@ -1,0 +1,8 @@
+﻿<div class="top-row px-4">
+    @ChildContent
+    <MainTopRowSearchBar/>
+</div>
+@code
+{
+    [Parameter] public RenderFragment ChildContent { get; set; } = null!;
+}

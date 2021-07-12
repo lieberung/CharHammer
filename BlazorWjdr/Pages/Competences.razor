@@ -6,26 +6,30 @@
 
 @inject CompetencesEtTalentsService _competenceService
 
-<h1>Compétences</h1>
+<div class="top-row px-4">
+    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+</div>
 
-<table class="table">
-    <thead>
-    <tr>
-        <th></th>
-        <th></th>
-        <th>Compétence</th>
-        <th>Carac.</th>
-        <th>Base</th>
-        <th>Talents liés</th>
-    </tr>
-    </thead>
-    <tbody>
+<div class="content px-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Compétence</th>
+            <th>Carac.</th>
+            <th>Base</th>
+            <th>Talents liés</th>
+        </tr>
+        </thead>
+        <tbody>
         @foreach (var competence in _competencesLines)
         {
             <CompetenceRow Item="@competence" /> 
         }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
 
 @code {
     private List<CompetenceDto> _competencesLines = null!;

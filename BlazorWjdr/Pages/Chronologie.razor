@@ -4,16 +4,11 @@
 @using BlazorWjdr.Services
 @inject ChronologieService ChronologieService
 
-<h1>Chronologie</h1>
+<MainTopRow>
+    <h3>Chronologie</h3>
+</MainTopRow>
 
-<p>This component demonstrates fetching data from a service.</p>
-
-@if (chronologieLines == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
+<div class="content px-4">
     <table class="table">
         <thead>
             <tr>
@@ -33,13 +28,13 @@ else
             }
         </tbody>
     </table>
-}
+</div>
 
 @code {
     private ChronologieDto[] chronologieLines = null!;
 
     protected override async Task OnInitializedAsync()
     {
-        chronologieLines = await ChronologieService. GetLines();
+        chronologieLines = await ChronologieService.GetLines();
     }
 }
