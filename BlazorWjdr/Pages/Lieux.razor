@@ -6,9 +6,9 @@
 
 @inject LieuxService _lieuxService
 
-<div class="top-row px-4">
-    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-</div>
+<MainTopRow>
+    <h3>Lieux</h3>
+</MainTopRow>
 
 <div class="content px-4">
     <table class="table">
@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (var lieu in _lieuxLines.Where(l => l.ParentsCount == 0).OrderBy(r => r.Nom))
+        @foreach (var lieu in _lieuxLines.Where(l => l.ParentsCount == 1).OrderBy(r => r.Nom))
         {
             <LieuRow Item="@lieu"/>
         }

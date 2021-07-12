@@ -12,7 +12,7 @@
             <input class="dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
                    @bind-value="_searchText"
                    @bind-value:event="oninput"
-                   placeholder="Carrières, compétences, talents"
+                   placeholder="Recherche..."
                    style="background-color: #a4ccf6"/>
         </div>
         @if (_searchText.Length > 2 && ResultFound)

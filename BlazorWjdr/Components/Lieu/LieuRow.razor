@@ -14,9 +14,10 @@
         }
     </td>
     <td>
-        @for (var i = 0; i < Item.ParentsCount; i++)
+        @for (var i = 0; i < Item.ParentsCount -1; i++)
         {
-            <SousElement/>
+            var hidden = i < Item.ParentsCount - 2;
+            <SousElement Hidden="@hidden"/>
         }
         <LieuItem Item="@Item" /></td>
     <td>@Item.TypeDeLieu.Nom</td>
