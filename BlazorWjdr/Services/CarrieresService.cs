@@ -85,7 +85,7 @@
                     Dotations = c.dotations,
                     EstUneCarriereAvancee = c.avancee,
                     Image = $"/images/careers/{c.id}.png",
-                    PlanDeCarriere = new PlanDeCarriereDto(_profilsService.GetProfil(c.fk_plandecarriereid)),
+                    PlanDeCarriere = _profilsService.GetProfil(c.fk_plandecarriereid),
                     Restriction = c.restriction,
                     Source = c.source,
                     SourceLivre = c.fk_sourceid == null ? null : _referencesService.GetReference(c.fk_sourceid.Value),

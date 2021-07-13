@@ -37,6 +37,7 @@
         <div class="row">
             <div class="col-5">
                 <div class="card-body">
+                    <h5 class="card-title">Description</h5>
                     <p class="card-text">
                         <img style="float: right; margin: 5px;" src="..@Carriere.Image" alt="@Carriere.Nom"/>
                         @Carriere.Description
@@ -45,18 +46,29 @@
             </div>
             <div class="col-7">
                 <div class="card-body">
-                    <ProfilTable PlanDeCarriere="@Carriere.PlanDeCarriere.ProfilSource"/>
+                    <h5 class="card-title">Plan de carrière</h5>
+                    <Profil PlanDeCarriere="@Carriere.PlanDeCarriere"/>
                 </div>
 
                 <div class="card-body">
                     <CompetencesEtTalents Carriere="@Carriere"/>
                 </div>
+                
+                @if (!string.IsNullOrWhiteSpace(@Carriere.Dotations))
+                {
+                    <div class="card-body">
+                        <h5 class="card-title">Dotations</h5>
+                        <p class="card-text">
+                            @Carriere.Dotations
+                        </p>
+                    </div>
+                }
             </div>
         </div>
         
         <div class="row">
             <div class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-5" : "-7")">
-                @if (@Carriere.Filieres.Any())
+                @if (Carriere.Filieres.Any())
                 {
                     <div class="card-body">
                         <CarriereItemList Title="Filières" Items="@Carriere.Filieres.ToArray()"/>
