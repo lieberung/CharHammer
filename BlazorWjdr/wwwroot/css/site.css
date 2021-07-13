@@ -13,8 +13,9 @@ a, .btn-link {
 
 .zone-detail { color: #ac94a0; }
 .item-icon { font-size: .800rem; color: #8e6047; }
+.card-title { color: #5e1a05; }
 
-.btn.btn-item { padding:.20rem .65rem; }
+.btn.btn-item { padding:.1rem .45rem; letter-spacing: -1px; background-color: #dbcfc8; margin-bottom: 2px; line-height: 1.4;  }
 .btn-primary{color:#dbcfc8;background-color:#80390f;border-color:#80390f}
 .btn-primary:hover{color:#dbcfc8;background-color:#91531a;border-color:#653509}
 .btn-primary.focus,.btn-primary:focus{box-shadow:0 0 0 .2rem #7c4814}

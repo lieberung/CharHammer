@@ -11,33 +11,27 @@
 
     <div class="_container">
         <div class="row">
-            <div class="col-6">
+            <div class="col-1"></div>
+            <div class="col-10">
                 @if (!string.IsNullOrWhiteSpace(Carriere.Restriction))
                 {
-                    <div class="card-body">
-                        <div class="alert alert-danger" role="alert">
-                            <span class="oi oi-warning mr-1" aria-hidden="true"></span>
-                            @Carriere.Restriction
-                        </div>
+                    <div class="alert alert-danger" role="alert">
+                        <span class="oi oi-warning mr-1" aria-hidden="true"></span>
+                        @Carriere.Restriction
                     </div>
                 }
             </div>
-            <div class="col-6">
-                @if (!string.IsNullOrWhiteSpace(Carriere.Source))
-                {
-                    <div class="card-body">
-                        <div class="alert alert-info" role="alert">
-                            <ReferenceItem Item="@Carriere.SourceLivre" Page="@Carriere.Source"/>
-                        </div>
-                    </div>
-                }
-            </div>
+            <div class="col-1"></div>
         </div>
 
         <div class="row">
             <div class="col-5">
                 <div class="card-body">
                     <h5 class="card-title">Description</h5>
+                    @if (!string.IsNullOrWhiteSpace(Carriere.Source))
+                    {
+                        <ReferenceItem Item="@Carriere.SourceLivre" Page="@Carriere.Source"/>
+                    }
                     <p class="card-text">
                         <img style="float: right; margin: 5px;" src="..@Carriere.Image" alt="@Carriere.Nom"/>
                         @Carriere.Description
