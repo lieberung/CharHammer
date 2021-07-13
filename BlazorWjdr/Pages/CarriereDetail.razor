@@ -1,7 +1,6 @@
 ﻿@page "/carrieres/{CarriereId}/"
 
 @using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Components.Reference
 
 <MainTopRow>
     <h3>@Carriere.Nom</h3>
@@ -13,13 +12,7 @@
         <div class="row">
             <div class="col-1"></div>
             <div class="col-10">
-                @if (!string.IsNullOrWhiteSpace(Carriere.Restriction))
-                {
-                    <div class="alert alert-danger" role="alert">
-                        <span class="oi oi-warning mr-1" aria-hidden="true"></span>
-                        @Carriere.Restriction
-                    </div>
-                }
+                <CarriereRestriction Item="@Carriere"/>
             </div>
             <div class="col-1"></div>
         </div>
@@ -27,15 +20,7 @@
         <div class="row">
             <div class="col-5">
                 <div class="card-body">
-                    <h5 class="card-title">Description</h5>
-                    @if (!string.IsNullOrWhiteSpace(Carriere.Source))
-                    {
-                        <ReferenceItem Item="@Carriere.SourceLivre" Page="@Carriere.Source"/>
-                    }
-                    <p class="card-text">
-                        <img style="float: right; margin: 5px;" src="..@Carriere.Image" alt="@Carriere.Nom"/>
-                        @Carriere.Description
-                    </p>
+                    <CarriereDescription Item="@Carriere"/>
                 </div>
             </div>
             <div class="col-7">
@@ -48,24 +33,22 @@
                     <CompetencesEtTalents Carriere="@Carriere"/>
                 </div>
                 
-                @if (!string.IsNullOrWhiteSpace(@Carriere.Dotations))
-                {
-                    <div class="card-body">
-                        <h5 class="card-title">Dotations</h5>
-                        <p class="card-text">
-                            @Carriere.Dotations
-                        </p>
-                    </div>
-                }
+                <div class="card-body">
+                    <CarriereDotations Item="@Carriere"/>
+                </div>
             </div>
         </div>
         
         <div class="row">
             <div class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-5" : "-7")">
-                @if (Carriere.Filieres.Any())
+                @if (Carriere.Filieres.Any() || Carriere.EstUneCarriereAvancee == false)
                 {
                     <div class="card-body">
                         <CarriereItemList Title="Filières" Items="@Carriere.Filieres.ToArray()"/>
+                        @if (Carriere.EstUneCarriereAvancee == false)
+                        {
+                            <CarriereDeBase/>
+                        }
                     </div>
                 }
             </div>

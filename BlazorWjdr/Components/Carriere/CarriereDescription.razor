@@ -1,0 +1,36 @@
+﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Reference
+
+@if (!string.IsNullOrWhiteSpace(Title))
+{
+    <h5 class="card-title">@Title</h5>
+}
+@if (Item.SourceLivre != null || !string.IsNullOrWhiteSpace(Item.Source))
+{
+    <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
+}
+<img style="float: right; margin: 5px;" src="..@Item.Image" alt="@Item.Nom"/>
+@foreach (var paragraphe in _paragraphes)
+{
+    <p class="card-text">
+        @paragraphe
+    </p>
+}
+@code{
+    [Parameter]
+    public string Title { get; set; } = "Description";
+    [Parameter]
+    public CarriereDto Item { get; set; } = null!;
+
+    private string[] _paragraphes;
+
+    protected override void OnParametersSet()
+    {
+        _paragraphes = Item.Description
+            .Replace('\r', '\n')
+            .Replace("\n\n", "\n")
+            .Split('\n');
+        base.OnParametersSet();
+    }
+
+}
