@@ -1,0 +1,22 @@
+﻿<div class="col col-profil col-profil-@(IsBonus ? "bonus" : "value")">
+    @_cellContent
+</div>
+@code {
+    [Parameter]
+    public int Value { get; set; }
+    [Parameter]
+    public bool IsBonus { get; set; }
+
+    private string _cellContent = "";
+
+    protected override void OnParametersSet()
+    {
+        if (Value == 0)
+            _cellContent = "-";
+        else if (IsBonus)
+            _cellContent = $"+{Value}%";
+        else
+            _cellContent = Value.ToString();
+        base.OnParametersSet();
+    }
+}

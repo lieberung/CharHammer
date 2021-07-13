@@ -1,6 +1,7 @@
-﻿<div class="scroll" id="profile-area">
+﻿@using BlazorWjdr.Models
+<div class="scroll" id="profile-area">
     <ProfilRowHeaders></ProfilRowHeaders>
-    <ProfilRowBonus PlanDeCarriere="@Plan"></ProfilRowBonus>
+    <ProfilRowBonus Profil="@Plan.ProfilSource"></ProfilRowBonus>
     <div class="profile-row">
         <div class="profile-row-interline"></div>
     </div>
@@ -34,3 +35,8 @@
         </div>
     </div>
 </div>
+@code
+{
+    [Parameter]
+    public PlanDeCarriereDto Plan { get; set; } = null!;
+}

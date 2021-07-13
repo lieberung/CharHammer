@@ -1,12 +1,15 @@
-﻿<div class="profile-row">
-    <div class="profile-row-boxes">
-        <div class="profile-box medium-box">@PlanDeCarriere.CC</div>
-        <div class="profile-box medium-box">@PlanDeCarriere.CT</div>
-        <div class="profile-box medium-box">@PlanDeCarriere.F</div>
-        <div class="profile-box medium-box">@PlanDeCarriere.E</div>
-        <div class="profile-box medium-box">@PlanDeCarriere.Ag</div>
-        <div class="profile-box medium-box">@PlanDeCarriere.Int</div>
-        <div class="profile-box medium-box">@PlanDeCarriere.FM</div>
-        <div class="profile-box medium-box">@PlanDeCarriere.Soc</div>
-    </div>
+﻿@using BlazorWjdr.Models
+<div class="row row-profil row-profil-bonus">
+    <ProfilCellValue IsBonus="true" Value="@Profil.CC"/>
+    <ProfilCellValue IsBonus="true" Value="@Profil.CT"/>
+    <ProfilCellValue IsBonus="true" Value="@Profil.F"/>
+    <ProfilCellValue IsBonus="true" Value="@Profil.E"/>
+    <ProfilCellValue IsBonus="true" Value="@Profil.Ag"/>
+    <ProfilCellValue IsBonus="true" Value="@Profil.Int"/>
+    <ProfilCellValue IsBonus="true" Value="@Profil.FM"/>
+    <ProfilCellValue IsBonus="true" Value="@Profil.Soc"/>
 </div>
+@code{
+    [Parameter]
+    public ProfilDto Profil { get; set; } = null!;
+}

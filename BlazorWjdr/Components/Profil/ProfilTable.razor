@@ -1,0 +1,47 @@
+﻿@using BlazorWjdr.Models
+<div class="container-md">
+    <div class="row">
+        <div class="col-8">
+            <div class="container-sm table-profil">
+                <ProfilRowHeaders/>
+                @if (ProfilInitial != null)
+                {
+                    <ProfilRowValues Profil="ProfilInitial"/>
+                }
+                @if (PlanDeCarriere != null)
+                {
+                    <ProfilRowBonus Profil="PlanDeCarriere"/>
+                }
+                @if (ProfilActuel != null)
+                {
+                    <ProfilRowValues Profil="ProfilActuel"/>
+                }
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="container table-profil">
+                <ProfilRowHeadersPartTwo/>
+                @if (ProfilInitial != null)
+                {
+                    <ProfilRowValuesPartTwo Profil="ProfilInitial"/>
+                }
+                @if (PlanDeCarriere != null)
+                {
+                    <ProfilRowBonusPartTwo Profil="PlanDeCarriere"/>
+                }
+                @if (ProfilActuel != null)
+                {
+                    <ProfilRowValuesPartTwo Profil="ProfilActuel"/>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter]
+    public ProfilDto? ProfilInitial { get; set; }
+    [Parameter]
+    public ProfilDto? PlanDeCarriere { get; set; }
+    [Parameter]
+    public ProfilDto? ProfilActuel { get; set; }
+}
