@@ -1,7 +1,4 @@
-﻿@if (!string.IsNullOrWhiteSpace(Title))
-{
-    <h5 class="card-title">@Title</h5>
-}
+﻿@using BlazorWjdr.Models
 <ul class="list-inline">
     @foreach (var item in Items)
     {
@@ -12,3 +9,7 @@
         <li class="list-inline-item"><ChoixDeTalentItem Choix="@choix"/></li>
     }
 </ul>
+@code{
+    [Parameter] public TalentDto[] Items { get; set; } = null!;
+    [Parameter] public TalentDto[][] ItemsChoix { get; set; } = System.Array.Empty<TalentDto[]>();
+}

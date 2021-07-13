@@ -1,6 +1,8 @@
 ﻿@page "/carrieres/{CarriereId}/"
 
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
 
 <MainTopRow>
     <h3>@Carriere.Nom</h3>
@@ -30,7 +32,13 @@
                 </div>
 
                 <div class="card-body">
-                    <CompetencesEtTalents Carriere="@Carriere"/>
+                    <h5 class="card-title">Compétences</h5>
+                    <CompetenceItemList Items="@Carriere.Competences.ToArray()" ItemsChoix="@Carriere.ChoixCompetences.ToArray()" />
+                </div>
+                
+                <div class="card-body">
+                    <h5 class="card-title">Talents</h5>
+                    <TalentItemList Items="@Carriere.Talents.ToArray()" ItemsChoix="@Carriere.ChoixTalents.ToArray()" />
                 </div>
                 
                 <div class="card-body">
@@ -43,8 +51,9 @@
             <div class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-5" : "-7")">
                 @if (Carriere.Filieres.Any() || Carriere.EstUneCarriereAvancee == false)
                 {
+                    <h5 class="card-title">Filières</h5>
                     <div class="card-body">
-                        <CarriereItemList Title="Filières" Items="@Carriere.Filieres.ToArray()"/>
+                        <CarriereItemList Items="@Carriere.Filieres.ToArray()"/>
                         @if (Carriere.EstUneCarriereAvancee == false)
                         {
                             <CarriereDeBase/>
@@ -54,7 +63,8 @@
             </div>
             <div class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-7" : "-5")">
                 <div class="card-body">
-                    <CarriereItemList Title="Débouchés" Items="@Carriere.Debouches.ToArray()"/>
+                    <h5 class="card-title">Débouchés</h5>
+                    <CarriereItemList Items="@Carriere.Debouches.ToArray()"/>
                 </div>
             </div>
         </div>

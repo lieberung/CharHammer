@@ -1,8 +1,13 @@
-﻿@for (int i = 0; i < Choix.Length; i++)
+﻿@using BlazorWjdr.Models
+@for (int i = 0; i < Choix.Length; i++)
 {
     @if (i != 0)
     {
         <span>&nbsp;ou&nbsp;</span>
     }
     <TalentItem Item="Choix[i]"></TalentItem>
+}
+@code{
+    [Parameter]
+    public TalentDto[] Choix { get; set; } = null!;
 }

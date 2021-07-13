@@ -1,15 +1,20 @@
 ﻿@using BlazorWjdr.Components.Reference
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Shared.Oi
 
 <tr>
 
-    <td style="width:130px;">
+    <td style="width:180px;">
         <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
             <span class="oi oi-grid-four-up" aria-hidden="true"></span>
         </span>
         <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
             <span class="oi oi-target" aria-hidden="true"></span>
             <span class="oi oi-brush" aria-hidden="true"></span>
+        </span>
+        <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherFilieresEtDebouches = !AfficherFilieresEtDebouches">
+            <span class="oi oi-loop" aria-hidden="true"></span>
         </span>
     </td>
     <td>
@@ -37,17 +42,38 @@
 </tr>
 @if (AfficherPlanDeCarriere)
 {
-    <tr class="zone-detail">
-        <td colspan="4" class="p-3">
-            <PlanDeCarriere Plan="@Item.PlanDeCarriere"/>
+    <tr>
+        <td colspan="5" class="p-3">
+            <div class="bulle">
+                <h6 class="card-title">Plan de carrière</h6>
+                <Profil PlanDeCarriere="@Item.PlanDeCarriere"/>
+            </div>
         </td>
     </tr>
 }
 @if (AfficherCompetencesEtTalents)
 {
-    <tr class="zone-detail">
-        <td colspan="4" class="p-3">
-            <CompetencesEtTalents Carriere="@Item"/>
+    <tr>
+        <td colspan="5" class="px-3 pt-1 pb-3">
+            <div class="bulle">
+                <h6 class="card-title">Compétences</h6>
+                <CompetenceItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()" />
+                <h6 class="card-title">Talents</h6>
+                <TalentItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()" />
+            </div>
+        </td>
+    </tr>
+}
+@if (AfficherFilieresEtDebouches)
+{
+    <tr>
+        <td colspan="5" class="px-3 pt-1 pb-3">
+            <div class="bulle">
+                <h6 class="card-title">Filières</h6>
+                <CarriereItemList Items="@Item.Filieres.ToArray()"/>
+                <h6 class="card-title">Débouchés</h6>
+                <CarriereItemList Items="@Item.Debouches.ToArray()"/>
+            </div>
         </td>
     </tr>
 }

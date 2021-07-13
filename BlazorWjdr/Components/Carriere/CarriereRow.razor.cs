@@ -11,5 +11,6 @@ namespace BlazorWjdr.Components.Carriere
         private bool AfficherSousElements { get; set; } = false;
         private bool AfficherPlanDeCarriere { get; set; }
         private bool AfficherCompetencesEtTalents { get; set; }
+        private bool AfficherFilieresEtDebouches { get; set; }
     }
 }
