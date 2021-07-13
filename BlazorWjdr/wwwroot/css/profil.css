@@ -1,0 +1,31 @@
+﻿.row-profil{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.col-profil {
+    display: inline-block;
+    min-width: 44px;
+    max-width: 44px;
+    padding: 0;
+    border: 2px solid #5e1a05;
+    text-align: center;
+}
+.col-profil-header {
+    display: inline-block;
+    min-width: 44px;
+    max-width: 44px;
+    padding: 0;
+    border: 2px solid #5e1a05;
+    background-color: #5e1a05;
+    height: 27px;
+    color: White;
+    text-align: center;
+}
+.col-profil-bonus {
+    border-radius: .45rem;
+    letter-spacing: -1px;
+}
+.col-profil-value {
+    border-radius: .45rem;
+}

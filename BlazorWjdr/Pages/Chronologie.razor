@@ -2,7 +2,7 @@
 
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
-@inject ChronologieService ChronologieService
+@inject ChronologieService _chronologieService
 
 <MainTopRow>
     <h3>Chronologie</h3>
@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var chrono in chronologieLines)
+            @foreach (var chrono in _lines)
             {
                 <tr>
                     <td>@chrono.Periode</td>
@@ -31,10 +31,10 @@
 </div>
 
 @code {
-    private ChronologieDto[] chronologieLines = null!;
+    private ChronologieDto[] _lines = null!;
 
     protected override async Task OnInitializedAsync()
     {
-        chronologieLines = await ChronologieService.GetLines();
+        _lines = await _chronologieService.GetLines();
     }
 }

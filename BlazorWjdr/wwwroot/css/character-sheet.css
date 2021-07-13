@@ -22,6 +22,8 @@
 /*}*/
 
 /************************** PROFILE **************************/
+
+/*
 #profile-area
 {
     position: relative;
@@ -48,12 +50,15 @@
     background-color: #874F31;
     color: White;
 }
+*/
 
+/* ATTENTION : la hauteur est précisée car non héritée de [profile-columns-title] */
+/*
 .profile-column-header
 {
     display: inline-block;
     vertical-align: middle;
-    height: 22px; /* ATTENTION : la hauteur est précisée car non héritée de [profile-columns-title] */
+    height: 22px; 
     width: 40px;
 }
 
@@ -87,3 +92,4 @@
     background-image: url(../images/box-40x30-4x4.png);
     height: 30px;
 }
+*/

@@ -1,0 +1,11 @@
+﻿@using BlazorWjdr.Models
+<span class="row-profil">
+    <ProfilCol IsBonus="false" Value="@Profil.A"/>
+    <ProfilCol IsBonus="false" Value="@Profil.B"/>
+    <ProfilCol IsBonus="false" Value="@Profil.M"/>
+    <ProfilCol IsBonus="false" Value="@Profil.Mag"/>
+</span>
+@code{
+    [Parameter]
+    public ProfilDto Profil { get; set; } = null!;
+}

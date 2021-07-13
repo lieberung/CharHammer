@@ -1,6 +1,6 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.Models;
+    using Models;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -10,8 +10,8 @@
         private readonly LieuxService _lieuxService;
         private readonly ProfilsService _profilsService;
         
-        private Dictionary<int, RaceDto>? _cacheRace = null;
-        private List<RaceDto>? _allRaces = null;
+        private Dictionary<int, RaceDto>? _cacheRace;
+        private List<RaceDto>? _allRaces;
 
         public RacesService(LieuxService lieuxService, ProfilsService profilsService)
         {

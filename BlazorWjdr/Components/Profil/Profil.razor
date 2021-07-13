@@ -1,0 +1,51 @@
+﻿@using BlazorWjdr.Models
+<div>
+    <div style="display:inline-block;">
+        <ProfilHeaderRow/>
+    </div>
+    <div style="display:inline-block; padding-left: 15px;">
+        <ProfilHeaderRowPartTwo/>
+    </div>
+</div>
+@if (ProfilInitial != null)
+{
+    <div>
+        <div style="display:inline-block;">
+            <ProfilValueRow Profil="ProfilInitial"/>
+        </div>
+        <div style="display:inline-block; padding-left: 15px;">
+            <ProfilValueRowPartTwo Profil="ProfilInitial"/>
+        </div>
+    </div>
+}
+@if (PlanDeCarriere != null)
+{
+    <div>
+        <div style="display:inline-block;">
+            <ProfilBonusRow Profil="PlanDeCarriere"/>
+        </div>
+        <div style="display:inline-block; padding-left: 15px;">
+            <ProfilValueRowPartTwo Profil="PlanDeCarriere"/>
+        </div>
+    </div>
+}
+@if (ProfilActuel != null)
+{
+    <div>
+        <div style="display:inline-block;">
+            <ProfilValueRow Profil="ProfilActuel"/>
+        </div>
+        <div style="display:inline-block; padding-left: 15px;">
+            <ProfilValueRowPartTwo Profil="ProfilActuel"/>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public ProfilDto? ProfilInitial { get; set; }
+    [Parameter]
+    public ProfilDto? PlanDeCarriere { get; set; }
+    [Parameter]
+    public ProfilDto? ProfilActuel { get; set; }
+}

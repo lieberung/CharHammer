@@ -1,7 +1,7 @@
 ﻿namespace BlazorWjdr.Pages
 {
-    using BlazorWjdr.Models;
-    using BlazorWjdr.Services;
+    using Models;
+    using Services;
     using Microsoft.AspNetCore.Components;
     using System.Threading.Tasks;
 

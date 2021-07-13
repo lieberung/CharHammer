@@ -5,12 +5,12 @@ namespace BlazorWjdr.Models
     public class LieuDto
     {
         public int Id { get; init; }
-        
-        public LieuTypeDto TypeDeLieu { get; init; }
+
+        public LieuTypeDto TypeDeLieu { get; init; } = null!;
         
         public int? ParentId { get; init; }
         public LieuDto? Parent { get; set; }
-        public List<LieuDto> SousElements = new();
+        public readonly List<LieuDto> SousElements = new();
         
         public string Nom { get; init; } = null!;
         public string Description { get; init; } = null!;

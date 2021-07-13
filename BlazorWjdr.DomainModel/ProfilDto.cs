@@ -2,22 +2,22 @@
 {
     public class ProfilDto
     {
-        public int Id { get; set; }
-        public int CC { get; set; }
-        public int CT { get; set; }
-        public int F { get; set; }
-        public int E { get; set; }
-        public int Ag { get; set; }
-        public int Int { get; set; }
-        public int FM { get; set; }
-        public int Soc { get; set; }
-        public int A { get; set; }
-        public int B { get; set; }
-        public int BF { get; set; }
-        public int BE { get; set; }
-        public int M { get; set; }
-        public int Mag { get; set; }
-        public int PF { get; set; }
-        public int PD { get; set; }
+        public int Id { get; init; }
+        public int Cc { get; init; }
+        public int Ct { get; init; }
+        public int F { get; init; }
+        public int E { get; init; }
+        public int Ag { get; init; }
+        public int Int { get; init; }
+        public int Fm { get; init; }
+        public int Soc { get; init; }
+        public int A { get; init; }
+        public int B { get; init; }
+        public int Bf => F / 10;
+        public int Be => E / 10;
+        public int M { get; init; }
+        public int Mag { get; init; }
+        public int Pf { get; init; }
+        public int Pd { get; init; }
     }
 }

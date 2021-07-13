@@ -5,13 +5,13 @@
         public PlanDeCarriereDto(ProfilDto profil)
         {
             ProfilSource = profil;
-            CC = ToBonus(profil.CC);
-            CT = ToBonus(profil.CT);
+            CC = ToBonus(profil.Cc);
+            CT = ToBonus(profil.Ct);
             F = ToBonus(profil.F);
             E = ToBonus(profil.E);
             Ag = ToBonus(profil.Ag);
             Int = ToBonus(profil.Int);
-            FM = ToBonus(profil.FM);
+            FM = ToBonus(profil.Fm);
             Soc = ToBonus(profil.Soc);
             A = ToBonus(profil.A);
             B = ToBonus(profil.B);

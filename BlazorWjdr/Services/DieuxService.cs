@@ -1,20 +1,16 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.Models;
+    using Models;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     public class DieuxService
     {
-        private Dictionary<int, DieuDto>? _cacheDieu = null;
-        private List<DieuDto>? _allDieux = null;
+        private Dictionary<int, DieuDto>? _cacheDieu;
+        private List<DieuDto>? _allDieux;
 
-        public DieuxService()
-        {
-        }
-
-        protected List<DieuDto> AllDieux
+        private List<DieuDto> AllDieux
         {
             get
             {

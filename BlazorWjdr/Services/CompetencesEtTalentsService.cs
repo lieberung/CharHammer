@@ -1,6 +1,6 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.Models;
+    using Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -8,17 +8,13 @@
 
     public class CompetencesEtTalentsService
     {
-        private List<CompetenceDto>? _allCompetences = null;
-        private Dictionary<int, CompetenceDto>? _cacheCompetences = null;
+        private List<CompetenceDto>? _allCompetences;
+        private Dictionary<int, CompetenceDto>? _cacheCompetences;
 
-        private List<TalentDto>? _allTalents = null;
-        private Dictionary<int, TalentDto>? _cacheTalents = null;
+        private List<TalentDto>? _allTalents;
+        private Dictionary<int, TalentDto>? _cacheTalents;
 
-        public CompetencesEtTalentsService()
-        {
-        }
-
-        public CompetenceDto[] GetCompetences(int[] ids) => ids.Select(id => GetCompetence(id)).ToArray();
+        public IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int> ids) => ids.Select(GetCompetence).ToArray();
         public CompetenceDto GetCompetence(int id)
         {
             if (_cacheCompetences == null)
@@ -37,7 +33,7 @@
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
-        public TalentDto[] GetTalents(int[] ids) => ids.Select(id => GetTalent(id)).ToArray();
+        public IEnumerable<TalentDto> GetTalents(IEnumerable<int> ids) => ids.Select(GetTalent).ToArray();
         public TalentDto GetTalent(int id)
         {
             if (_cacheTalents == null)

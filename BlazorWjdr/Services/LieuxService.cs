@@ -1,19 +1,15 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.Models;
+    using Models;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     public class LieuxService
     {
-        private Dictionary<int, LieuTypeDto>? _cacheLieuType = null;
-        private Dictionary<int, LieuDto>? _cacheLieu = null;
-        private List<LieuDto>? _allLieux = null;
-
-        public LieuxService()
-        {
-        }
+        private Dictionary<int, LieuTypeDto>? _cacheLieuType;
+        private Dictionary<int, LieuDto>? _cacheLieu;
+        private List<LieuDto>? _allLieux;
 
         protected Dictionary<int, LieuTypeDto> AllTypesDeLieu
         {
@@ -82,12 +78,13 @@
             _cacheLieu = DataSource.JsonLoader
                 .GetRootLieu()
                 .items
-                .Select(c => new LieuDto
+                .Select(l => new LieuDto
                 {
-                    Id = c.id,
-                    Nom = c.nom,
-                    ParentId = c.fk_parentid,
-                    TypeDeLieu = _cacheLieuType[c.fk_typeid]
+                    Id = l.id,
+                    Nom = l.nom,
+                    Description = l.description ?? "",
+                    ParentId = l.fk_parentid,
+                    TypeDeLieu = _cacheLieuType[l.fk_typeid]
                 })
                 .ToDictionary(k => k.Id, v => v);
             

@@ -1,20 +1,16 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.Models;
+    using Models;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
     public class ReferencesService
     {
-        private Dictionary<int, ReferenceDto>? _cacheReference = null;
-        private List<ReferenceDto>? _allReferences = null;
+        private Dictionary<int, ReferenceDto>? _cacheReference;
+        private List<ReferenceDto>? _allReferences;
 
-        public ReferencesService()
-        {
-        }
-
-        protected List<ReferenceDto> AllReferences
+        private List<ReferenceDto> AllReferences
         {
             get
             {

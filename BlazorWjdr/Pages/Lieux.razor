@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (var lieu in _lieuxLines.Where(l => l.ParentsCount == 1).OrderBy(r => r.Nom))
+        @foreach (var lieu in _lines.Where(l => l.ParentsCount == 1).OrderBy(r => r.Nom))
         {
             <LieuRow Item="@lieu"/>
         }
@@ -31,11 +31,11 @@
 
 
 @code {
-    private LieuDto[] _lieuxLines = null!;
+    private LieuDto[] _lines = null!;
 
     protected override async Task OnInitializedAsync()
     {
-        _lieuxLines = await _lieuxService.Items();
+        _lines = await _lieuxService.Items();
     }
 
 }

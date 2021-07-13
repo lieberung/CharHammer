@@ -24,12 +24,10 @@
 
 @code {
     [Inject]
-    public CarrieresService CarrieresService { get; set; } = null!;
-    [Inject]
     public TableDesCarrieresInitialesService TableDesCarrieresInitialesService { get; set; } = null!;
 
     [Parameter]
-    public string RaceId { get; set; }
+    public string RaceId { get; set; } = null!;
 
     private List<LigneDeCarriereInitialeDto> _allLines = null!;
 

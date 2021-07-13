@@ -4,10 +4,10 @@
 <tr>
 
     <td style="width:130px;">
-        <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="e => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
+        <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
             <span class="oi oi-grid-four-up" aria-hidden="true"></span>
         </span>
-        <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="e => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
+        <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
             <span class="oi oi-target" aria-hidden="true"></span>
             <span class="oi oi-brush" aria-hidden="true"></span>
         </span>
@@ -15,7 +15,7 @@
     <td>
         @if (Item.SousElements.Any())
         {
-            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="e => AfficherSousElements = !AfficherSousElements">
+            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
                 <span class="oi oi-layers" aria-hidden="true"></span>
             </span>
         }

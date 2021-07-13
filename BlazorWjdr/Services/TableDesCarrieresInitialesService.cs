@@ -9,7 +9,7 @@ namespace BlazorWjdr.Services
         private readonly RacesService _racesService;
         private readonly CarrieresService _carrieresService;
         
-        private Dictionary<int, List<LigneDeCarriereInitialeDto>>? _allLignes = null;
+        private Dictionary<int, List<LigneDeCarriereInitialeDto>>? _allLignes;
         
         public TableDesCarrieresInitialesService(RacesService racesService, CarrieresService carrieresService)
         {
@@ -48,7 +48,7 @@ namespace BlazorWjdr.Services
             _allLignes = lignesEnVrac
                 .Select(l => l.Race.Id)
                 .Distinct()
-                .ToDictionary(k => k, v => new List<LigneDeCarriereInitialeDto>());
+                .ToDictionary(k => k, _ => new List<LigneDeCarriereInitialeDto>());
 
             foreach (var raceId in _allLignes.Keys)
             {

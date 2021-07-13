@@ -1,13 +1,13 @@
 ﻿namespace BlazorWjdr.DataSource
 {
-    using BlazorWjdr.DataSource.JsonDto;
+    using JsonDto;
     using Newtonsoft.Json;
     using System.IO;
 
     public static class JsonLoader
     {
         private static T LoadRootFromJson<T>(string path) => JsonConvert.DeserializeObject<T>(File.ReadAllText(path))
-            ?? throw new System.Exception($"Impossible de désérialiser '{path}' avec la class '{typeof(T).GetType()}'");
+            ?? throw new System.Exception($"Impossible de désérialiser '{path}' avec la class '{typeof(T)}'");
 
         public static RootBestiole GetRootBestiole() => LoadRootFromJson<RootBestiole>("./json-data/bestiole.json");
         public static RootCarriere GetRootCarriere() => LoadRootFromJson<RootCarriere>("./json-data/carriere.json");

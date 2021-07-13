@@ -1,6 +1,6 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.Models;
+    using Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -8,8 +8,8 @@
 
     public class CarrieresService
     {
-        private List<CarriereDto>? _allCarrieres = null;
-        private Dictionary<int, CarriereDto>? _cacheCarrieres = null;
+        private List<CarriereDto>? _allCarrieres;
+        private Dictionary<int, CarriereDto>? _cacheCarrieres;
 
         private readonly ProfilsService _profilsService;
         private readonly CompetencesEtTalentsService _competencesEtTalentsService;
@@ -28,7 +28,7 @@
             _referencesService = referencesService;
         }
 
-        protected List<CarriereDto> AllCarrieres
+        private List<CarriereDto> AllCarrieres
         {
             get
             {
@@ -40,7 +40,7 @@
             }
         }
 
-        public CarriereDto[] GetCarrieres(int[] ids) => ids.Select(id => GetCarriere(id)).ToArray();
+        private IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int> ids) => ids.Select(GetCarriere).ToArray();
         public CarriereDto GetCarriere(int id)
         {
             if (_cacheCarrieres == null)

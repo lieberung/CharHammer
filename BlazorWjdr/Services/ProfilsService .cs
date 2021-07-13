@@ -1,16 +1,12 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.Models;
+    using Models;
     using System.Collections.Generic;
     using System.Linq;
 
     public class ProfilsService
     {
-        private Dictionary<int, ProfilDto>? _cacheProfils = null;
-
-        public ProfilsService()
-        {
-        }
+        private Dictionary<int, ProfilDto>? _cacheProfils;
 
         public ProfilDto GetProfil(int id)
         {
@@ -32,18 +28,16 @@
                     A = c.a,
                     Ag = c.ag,
                     B = c.b,
-                    BE = c.be,
-                    BF = c.bf,
-                    CC = c.cc,
-                    CT = c.ct,
+                    Cc = c.cc,
+                    Ct = c.ct,
                     E = c.e,
                     F = c.f,
-                    FM = c.fm,
+                    Fm = c.fm,
                     Int = c.intel,
                     M = c.m,
                     Mag = c.mag,
-                    PD = c.pd,
-                    PF = c.pf,
+                    Pd = c.pd,
+                    Pf = c.pf,
                     Soc = c.soc
                 })
                 .ToDictionary(k => k.Id, v => v);
