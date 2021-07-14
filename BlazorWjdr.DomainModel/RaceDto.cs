@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Models
+﻿using System.Collections.Generic;
+
+namespace BlazorWjdr.Models
 {
     public class RaceDto
     {
@@ -15,8 +17,18 @@
 
         public int? ParentId { get; init; }
         public RaceDto? Parent { get; set; }
+        public readonly List<RaceDto> SousElements = new();
 
         public string ImageMale => $"{Id}m.png";
         public string ImageFemelle => $"{Id}f.png";
+        
+        public int ParentsCount {
+            get
+            {
+                if (Parent == null)
+                    return 0;
+                return Parent.ParentsCount + 1;
+            }
+        }
     }
 }

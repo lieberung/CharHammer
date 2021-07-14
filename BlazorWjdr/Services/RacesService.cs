@@ -19,7 +19,7 @@
             _profilsService = profilsService;
         }
 
-        protected List<RaceDto> AllRaces
+        private List<RaceDto> AllRaces
         {
             get
             {
@@ -76,6 +76,13 @@
             foreach (var race in _allRaces.Where(d => d.ParentId.HasValue))
             {
                 race.Parent = _cacheRace[race.ParentId!.Value];
+            }
+            
+            foreach (var lieu in _allRaces)
+            {
+                lieu.SousElements.AddRange(_allRaces
+                    .Where(c=>c.Parent == lieu)
+                    .OrderBy(c => c.NomMasculin));                
             }
         }
     }

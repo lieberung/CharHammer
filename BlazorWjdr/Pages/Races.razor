@@ -1,0 +1,44 @@
+﻿@page "/races"
+
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+@using BlazorWjdr.Components.Race
+
+@inject RacesService _racesService
+
+<MainTopRow>
+    <span class="title-primary top-row-title">Races</span>
+</MainTopRow>
+
+<div class="content px-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Nom</th>
+            <th>PJ</th>
+            <th>PNJ</th>
+            <th>Description</th>
+            <th>Lieux</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var race in _lines.Where(l => l.ParentsCount == 0).OrderBy(r => r.NomMasculin))
+        {
+            <RaceRow Item="@race"/>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+@code {
+    private RaceDto[] _lines = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _lines = await _racesService.Items();
+    }
+
+}
