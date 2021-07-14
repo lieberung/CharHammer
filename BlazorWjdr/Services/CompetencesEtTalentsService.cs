@@ -120,7 +120,6 @@
 
             foreach (var talent in _allTalents)
             {
-                talent.SetResumeComplet();
                 talent.CompetencesLiees = _allCompetences
                     .Where(c => c.TalentsLies.Contains(talent))
                     .ToList();

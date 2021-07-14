@@ -4,7 +4,7 @@
     @if (string.IsNullOrWhiteSpace(Item.ResumeComplet)) {
         @Item.Nom
     } else {
-        <Tooltip Text="@Item.Resume">@Item.Nom</Tooltip>
+        <Tooltip Text="@Item.ResumeComplet">@Item.Nom</Tooltip>
     }
 </a>
 @code{
