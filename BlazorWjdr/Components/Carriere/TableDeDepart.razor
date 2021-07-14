@@ -1,21 +1,37 @@
 ﻿@using BlazorWjdr.Services
 @using BlazorWjdr.Models
-        
+@using BlazorWjdr.Components.Race
+@using BlazorWjdr.Components.Reference
+
+@inject RacesService _racesService
+
 <table>
     <thead>
-        <tr>
-            <td>Carrière</td>
-            <td>Facteur Race @RaceId</td>
-            <td>Score</td>
-        </tr>
+        <!--tr>
+            <td><RaceItem Item="_race"/></td>
+            <td>Facteur</td>
+            <td>Référence</td>
+        </tr-->
     </thead>
     <tbody>
         @foreach (var ligne in _allLines)
         {
             <tr>
                 <td><CarriereItem Item="ligne.Carriere"></CarriereItem></td>
-                <td>@ligne.Facteur</td>
-                <td>xx ~ YY</td>
+                <td>
+                    <div class="mx-3"> 
+                    @for (var i = 0; i < ligne.Facteur; i++)
+                    {
+                        <span class="oi oi-star item-icon" aria-hidden="true"></span>
+                    }
+                    </div>
+                </td>
+                <td>
+                    @if (ligne.Carriere.SourceLivre != null || !string.IsNullOrWhiteSpace(ligne.Carriere.Source))
+                    {
+                        <ReferenceItem Item="@ligne.Carriere.SourceLivre" Page="@ligne.Carriere.Source"/>
+                    }
+                </td>
             </tr>
         }
     </tbody>
@@ -29,6 +45,8 @@
     [Parameter]
     public string RaceId { get; set; } = null!;
 
+    private RaceDto _race = null!;
+
     private List<LigneDeCarriereInitialeDto> _allLines = null!;
 
     protected override void OnInitialized()
@@ -39,6 +57,7 @@
     
     protected override Task OnParametersSetAsync()
     {
+        _race = _racesService.GetRace(int.Parse(RaceId));
         OnInitialized();
 
         return base.OnParametersSetAsync();

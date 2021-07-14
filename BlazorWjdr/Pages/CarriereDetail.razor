@@ -5,7 +5,7 @@
 @using BlazorWjdr.Components.Talent
 
 <MainTopRow>
-    <span class="title-primary top-row-title">@Carriere.Nom</span>
+    <!--span class="title-primary top-row-title">@Carriere.Nom</!--span-->
 </MainTopRow>
 
 <div class="content px-4">
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-5">
                 <div class="card-body">
-                    <h5 class="card-title">Description</h5>
+                    <h5 class="card-title" style="font-size: xxx-large;">@Carriere.Nom</h5>
                     <CarriereDescription Item="@Carriere"/>
                 </div>
             </div>
@@ -34,12 +34,13 @@
 
                 <div class="card-body">
                     <h5 class="card-title">Compétences</h5>
-                    <CompetenceItemList Items="@Carriere.Competences.ToArray()" ItemsChoix="@Carriere.ChoixCompetences.ToArray()" />
-                </div>
-                
-                <div class="card-body">
+                    <p class="card-text">
+                        <CompetenceItemList Items="@Carriere.Competences.ToArray()" ItemsChoix="@Carriere.ChoixCompetences.ToArray()" />
+                    </p>
                     <h5 class="card-title">Talents</h5>
-                    <TalentItemList Items="@Carriere.Talents.ToArray()" ItemsChoix="@Carriere.ChoixTalents.ToArray()" />
+                    <p class="card-text">
+                        <TalentItemList Items="@Carriere.Talents.ToArray()" ItemsChoix="@Carriere.ChoixTalents.ToArray()" />
+                    </p>
                 </div>
                 
                 <div class="card-body">

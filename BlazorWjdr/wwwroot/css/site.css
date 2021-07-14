@@ -21,9 +21,9 @@ html, body {
     font-weight: 600;
 }
 .top-row-title {
-    width: 512px;
-    font-size: xxx-large;
-    padding: 3px;
+    /*width: 512px;*/
+    font-size: xx-large;
+    /*padding: 3px;*/
 }
 h5.card-title, h6.card-title {
     color: #5e1a05;
@@ -50,6 +50,7 @@ a, .btn-link {
 .top-row { box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05),inset 0 -1px 0 rgba(0,0,0,0.15); }
 .bulle { padding:8px; background-color: #cebfb5; border: 1px dotted #80390f; border-radius: .75em; }
 .item-icon { font-size: .800rem; color: #80390f; }
+.career-img { float: right; margin-left: 15px; }
 .btn.btn-item-action {
     padding: .25rem .5rem;
     font-size: .875rem;

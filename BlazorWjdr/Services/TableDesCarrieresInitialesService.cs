@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BlazorWjdr.Models;
 using System.Linq;
 
@@ -17,7 +18,6 @@ namespace BlazorWjdr.Services
             _carrieresService = carrieresService;
         }
 
-        public int GetSommeDesFacteurs(int raceId) => AllLignes[raceId].Sum(l => l.Facteur);
         public int GetNombreDeCarrieres(int raceId) => AllLignes[raceId].Count;
 
         public Dictionary<int, List<LigneDeCarriereInitialeDto>> AllLignes
@@ -56,6 +56,25 @@ namespace BlazorWjdr.Services
                     .Where(l => l.Race.Id == raceId)
                     .OrderBy(l => l.Carriere.Nom));
             }
+        }
+
+        public CarriereDto GetRandomStartingCareer(int raceId)
+        {
+            Dictionary<int, CarriereDto> dico = new();
+            var key = 0;
+            var plage = 0;
+            foreach (var carriere in AllLignes[raceId].OrderBy(c => c.Carriere.Id))
+            {
+                plage += carriere.Facteur;
+                for (var i = 1; i <= carriere.Facteur; i++)
+                {
+                    key += 1;
+                    dico[key] = carriere.Carriere;
+                }
+            }
+            
+            var dice = new Random().Next(1, plage + 1);
+            return dico[dice];
         }
     }
 }
