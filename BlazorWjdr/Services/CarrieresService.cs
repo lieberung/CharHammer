@@ -80,14 +80,13 @@
                     Nom = c.libelle,
                     Description = c.description,
                     CarriereMereId = c.fk_parentcarriereid,
-                    Complete = c.complete,
                     DebouchesIds = c.fk_debouches ?? Array.Empty<int>(),
                     Dotations = c.dotations,
                     EstUneCarriereAvancee = c.avancee,
                     Image = $"/images/careers/{c.id}.png",
                     PlanDeCarriere = _profilsService.GetProfil(c.fk_plandecarriereid),
-                    Restriction = c.restriction,
-                    Source = c.source,
+                    Restriction = c.restriction ?? "",
+                    Source = c.source ?? "",
                     SourceLivre = c.fk_sourceid == null ? null : _referencesService.GetReference(c.fk_sourceid.Value),
 #pragma warning disable CS8604 // Possible null reference argument.
                     Competences = (c.fk_competences ?? Array.Empty<int>()).Any() ?

@@ -10,9 +10,8 @@
         public string Image { get; init; } = null!;
         public bool EstUneCarriereAvancee { get; init; }
         public string Restriction { get; init; } = null!;
-        public string Source { get; set; } = null!;
+        public string Source { get; init; } = null!;
         public int[] DebouchesIds { get; init; } = null!;
-        public bool Complete { get; init; }
         public string Dotations { get; init; } = null!;
         public int? CarriereMereId { get; init; }
 

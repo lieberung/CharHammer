@@ -1,3 +1,19 @@
 ﻿création de perso :
 jusqu'à 3 retirages de carrière qui annule et remplace la précédente
 jusqu'à 3 retirages de carract qui annule et remplace la valeur précédente
+
+
+passe gagnante : on prend un token, cumulable
+1 token = +10% CC
+Sur ses gardes => annuler un token ennemi ?
+
+table traits raciaux competences
+table traits raciaux talents
+
+folies
+
+signes astraux
+
+appellation
+SELECT appellationid, appellationlibelle, appellationordre, fk_raceid, appellationfeminin, appellationnomdefamille
+	FROM warhammer.appellation;
