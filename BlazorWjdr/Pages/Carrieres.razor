@@ -8,19 +8,19 @@
 @inject CarrieresService _competenceService
 
 <MainTopRow>
-    <h3>Carrières</h3>
+    <span class="title-primary top-row-title">Carrières</span>
 </MainTopRow>
 
 <div class="content px-4">
     <table class="table">
         <thead>
-            <tr>
+            <!--tr>
                 <th></th>
                 <th></th>
-                <th>Carrière</th>
-                <th>Avancée</th>
-                <th>Source</th>
-            </tr>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr-->
         </thead>
         <tbody>
             @foreach (var carriere in _carrieresLines.Where(c => c.Parent == null))

@@ -7,6 +7,9 @@
     [Parameter]
     public bool IsBonus { get; set; }
 
+    [Parameter]
+    public bool Pourcent { get; set; } = true;
+    
     private string _cellContent = "";
 
     protected override void OnParametersSet()
@@ -14,7 +17,11 @@
         if (Value == 0)
             _cellContent = "-";
         else if (IsBonus)
-            _cellContent = $"+{Value}%";
+        {
+            _cellContent = $"+{Value}";
+            if (Pourcent)
+                _cellContent += "%";
+        }
         else
             _cellContent = Value.ToString();
         base.OnParametersSet();

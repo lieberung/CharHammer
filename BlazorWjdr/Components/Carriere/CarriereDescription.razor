@@ -1,10 +1,6 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Components.Reference
 
-@if (!string.IsNullOrWhiteSpace(Title))
-{
-    <h5 class="card-title">@Title</h5>
-}
 @if (Item.SourceLivre != null || !string.IsNullOrWhiteSpace(Item.Source))
 {
     <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
@@ -18,8 +14,6 @@
 }
 @code{
     [Parameter]
-    public string Title { get; set; } = "Description";
-    [Parameter]
     public CarriereDto Item { get; set; } = null!;
 
     private string[] _paragraphes;
@@ -32,5 +26,4 @@
             .Split('\n');
         base.OnParametersSet();
     }
-
 }

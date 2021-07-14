@@ -4,7 +4,7 @@
 @using BlazorWjdr.Components.Talent
 
 <div class="top-row px-4">
-    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+    <span class="title-primary top-row-title">@Competence.Nom</span>
 </div>
 
 <div class="content px-4">
@@ -19,12 +19,12 @@
         </div>
 
         <div class="card-body">
-            <h5 class="card-title">Description</h5>
+            <h5 class="card-title title-primary">Description</h5>
             <p class="card-text">@Competence.ResumeComplet</p>
         </div>
 
         <div class="card-body">
-            <h5 class="card-title">Talents liés</h5>
+            <h5 class="card-title title-primary">Talents liés</h5>
             <TalentItemList Title="Talents" Items="@Competence.TalentsLies.ToArray()" />
         </div>
 

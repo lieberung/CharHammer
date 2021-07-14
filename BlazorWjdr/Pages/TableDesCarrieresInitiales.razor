@@ -7,16 +7,16 @@
 @inject RacesService _racesService;
 
 <MainTopRow>
+    <span class="title-primary top-row-title">Table des carrières initiales</span>
+</MainTopRow>
+
+<div class="content px-4">
     <div class="mt-3 mb-3 pl-2">
         <LinkCarrieresInitiales Actif="@_racesService.Elfes.Id.Equals(int.Parse(@RaceId))" Race="@_racesService.Elfes" />
         <LinkCarrieresInitiales Actif="@_racesService.Halfelings.Id.Equals(int.Parse(@RaceId))" Race="@_racesService.Halfelings" />
         <LinkCarrieresInitiales Actif="@_racesService.Humains.Id.Equals(int.Parse(@RaceId))" Race="@_racesService.Humains" />
         <LinkCarrieresInitiales Actif="@_racesService.Nains.Id.Equals(int.Parse(@RaceId))" Race="@_racesService.Nains" />
     </div>
-</MainTopRow>
-
-<div class="content px-4">
-    <h3>Table des carrières initiales</h3>
     
     <TableDeDepart RaceId="@RaceId" />
 </div>

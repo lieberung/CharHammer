@@ -5,16 +5,55 @@ html, body {
 }
 */
 
+@font-face {
+    font-family: 'Caslon Antique', fantasy;
+    src: url('font/caslon-antique-regular.woff2') format('woff2'),
+         url('font/caslon-antique-regular.woff') format('woff'),
+         url('font/caslon-antique-regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.title-primary {
+    color: #5e1a05;
+    font-family: 'Caslon Antique', fantasy;
+    font-weight: 600;
+}
+.top-row-title {
+    width: 512px;
+    font-size: xxx-large;
+    padding: 3px;
+}
+h5.card-title, h6.card-title {
+    color: #5e1a05;
+    margin-bottom: .35rem;
+}
+h5.card-title {
+    margin-top: .50rem;
+    font-family: 'Caslon Antique', fantasy;
+    font-weight: 600;
+    font-size: xx-large;
+}
+h6.card-title {
+    margin-top: .25rem;
+    font-size: medium;
+}
+
 a, .btn-link {
     color: #562f08;
 }
-.table td, .table th { padding: .25rem; border-top: none; }
+.table td, .table th { padding: .10rem; border-top: none; }
 .table td ul { margin-bottom: 0; }
 
 .content { background-color: #dbcfc8; }
-.bulle { padding:8px; background-color: #cebfb5; border: 1px dotted; border-radius: .75em; }
-.item-icon { font-size: .800rem; color: #5e1a05; }
-.card-title { color: #5e1a05; }
+.bulle { padding:8px; background-color: #cebfb5; border: 1px dotted #80390f; border-radius: .75em; }
+.item-icon { font-size: .800rem; color: #80390f; }
+.btn.btn-item-action {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1rem;
+}
 .btn.btn-item {
     padding:.1rem .45rem;
     letter-spacing: -1px;

@@ -5,7 +5,7 @@
 @using BlazorWjdr.Components.Talent
 
 <MainTopRow>
-    <h3>@Carriere.Nom</h3>
+    <span class="title-primary top-row-title">@Carriere.Nom</span>
 </MainTopRow>
 
 <div class="content px-4">
@@ -22,6 +22,7 @@
         <div class="row">
             <div class="col-5">
                 <div class="card-body">
+                    <h5 class="card-title">Description</h5>
                     <CarriereDescription Item="@Carriere"/>
                 </div>
             </div>
@@ -42,6 +43,7 @@
                 </div>
                 
                 <div class="card-body">
+                    <h5 class="card-title">Dotations</h5>
                     <CarriereDotations Item="@Carriere"/>
                 </div>
             </div>
@@ -51,8 +53,8 @@
             <div class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-5" : "-7")">
                 @if (Carriere.Filieres.Any() || Carriere.EstUneCarriereAvancee == false)
                 {
-                    <h5 class="card-title">Filières</h5>
                     <div class="card-body">
+                        <h5 class="card-title">Filières</h5>
                         <CarriereItemList Items="@Carriere.Filieres.ToArray()"/>
                         @if (Carriere.EstUneCarriereAvancee == false)
                         {

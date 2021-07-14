@@ -22,21 +22,24 @@
                 @if (FilteredCarrieres.Any())
                 {
                     <div class="mb-3">
-                        <CarriereItemList Title="Carrières" Items="FilteredCarrieres" ItemClass=""/>
+                        <h5 class="card-title">Carrières</h5>
+                        <CarriereItemList Items="FilteredCarrieres" ItemClass=""/>
                     </div>
                 }
 
                 @if (FilteredCompetences.Any())
                 {
                     <div class="mb-3">
-                        <CompetenceItemList Title="Compétences" Items="FilteredCompetences"/>
+                        <h5 class="card-title">Compétences</h5>
+                        <CompetenceItemList Items="FilteredCompetences"/>
                     </div>
                 }
                 
                 @if (FilteredTalents.Any())
                 {
                     <div class="mb-3">
-                        <TalentItemList Title="Talents" Items="FilteredTalents"/>
+                        <h5 class="card-title">Talents</h5>
+                        <TalentItemList Items="FilteredTalents"/>
                     </div>
                 }
             </div>

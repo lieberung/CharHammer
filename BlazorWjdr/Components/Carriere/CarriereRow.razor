@@ -4,23 +4,20 @@
 @using BlazorWjdr.Shared.Oi
 
 <tr>
-
-    <td style="width:180px;">
-        <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
             <span class="oi oi-grid-four-up" aria-hidden="true"></span>
         </span>
-        <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
             <span class="oi oi-target" aria-hidden="true"></span>
             <span class="oi oi-brush" aria-hidden="true"></span>
         </span>
-        <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherFilieresEtDebouches = !AfficherFilieresEtDebouches">
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFilieresEtDebouches = !AfficherFilieresEtDebouches">
             <span class="oi oi-loop" aria-hidden="true"></span>
         </span>
-    </td>
-    <td>
         @if (Item.SousElements.Any())
         {
-            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+            <span class="btn btn-primary btn-item-action table-btn mr-1 ml-4" @onclick="_ => AfficherSousElements = !AfficherSousElements">
                 <span class="oi oi-layers" aria-hidden="true"></span>
             </span>
         }
@@ -32,7 +29,12 @@
         }
         <CarriereItem Item="@Item"/>
     </td>
-    <td><CheckedIfTrue Condition="@Item.EstUneCarriereAvancee"/></td>
+    <td>
+        @if (Item.EstUneCarriereAvancee == false)
+        {
+            <CarriereDeBase/>
+        }
+    </td>
     <td>
         @if (Item.SourceLivre != null)
         {
@@ -43,7 +45,7 @@
 @if (AfficherPlanDeCarriere)
 {
     <tr>
-        <td colspan="5" class="p-3">
+        <td colspan="4" class="p-3">
             <div class="bulle">
                 <h6 class="card-title">Plan de carrière</h6>
                 <Profil PlanDeCarriere="@Item.PlanDeCarriere"/>
@@ -54,11 +56,11 @@
 @if (AfficherCompetencesEtTalents)
 {
     <tr>
-        <td colspan="5" class="px-3 pt-1 pb-3">
+        <td colspan="4" class="px-3 pt-1 pb-3">
             <div class="bulle">
                 <h6 class="card-title">Compétences</h6>
                 <CompetenceItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()" />
-                <h6 class="card-title">Talents</h6>
+                <h6 class="card-title title-primary">Talents</h6>
                 <TalentItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()" />
             </div>
         </td>
@@ -67,7 +69,7 @@
 @if (AfficherFilieresEtDebouches)
 {
     <tr>
-        <td colspan="5" class="px-3 pt-1 pb-3">
+        <td colspan="4" class="px-3 pt-1 pb-3">
             <div class="bulle">
                 <h6 class="card-title">Filières</h6>
                 <CarriereItemList Items="@Item.Filieres.ToArray()"/>

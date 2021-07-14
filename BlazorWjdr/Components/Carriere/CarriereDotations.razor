@@ -1,18 +1,11 @@
 ﻿@using BlazorWjdr.Models
 
-@if (!string.IsNullOrWhiteSpace(Title))
-{
-    <h5 class="card-title">@Title</h5>
-}
-        
 @if (string.IsNullOrWhiteSpace(@Item.Dotations)) {
     <p class="card-text">Aucune</p>
 } else {
     <p class="card-text">@Item.Dotations</p>
 }
 @code{
-    [Parameter]
-    public string Title { get; set; } = "Dotations";
     [Parameter]
     public CarriereDto Item { get; set; } = null!;
 }
