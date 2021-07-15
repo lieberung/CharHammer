@@ -57,7 +57,7 @@
                 {
                     <div class="card-body">
                         <h5 class="card-title">Filières</h5>
-                        <CarriereItemList Items="@Carriere.Filieres.ToArray()"/>
+                        <CarriereItemList Items="@Carriere.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"/>
                         @if (Carriere.EstUneCarriereAvancee == false)
                         {
                             <CarriereDeBase/>
@@ -68,7 +68,7 @@
             <div class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-7" : "-5")">
                 <div class="card-body">
                     <h5 class="card-title">Débouchés</h5>
-                    <CarriereItemList Items="@Carriere.Debouches.ToArray()"/>
+                    <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
                 </div>
             </div>
         </div>

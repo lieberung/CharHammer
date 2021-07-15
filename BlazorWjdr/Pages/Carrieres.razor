@@ -13,15 +13,7 @@
 
 <div class="content px-4">
     <table class="table">
-        <thead>
-            <!--tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr-->
-        </thead>
+        <thead></thead>
         <tbody>
             @foreach (var carriere in _carrieresLines.Where(c => c.Parent == null))
             {
@@ -30,8 +22,6 @@
         </tbody>
     </table>
 </div>
-
-
 @code {
     private List<CarriereDto> _carrieresLines = null!;
 

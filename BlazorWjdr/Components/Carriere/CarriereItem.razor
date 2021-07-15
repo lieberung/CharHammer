@@ -2,14 +2,25 @@
 <a href="/carrieres/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <span class="oi oi-badge item-icon mr-1" aria-hidden="true"></span>
     @Item.Nom
-    @if (!string.IsNullOrWhiteSpace(Item.Restriction))
+    @if (!HideIndicatorBase && !Item.EstUneCarriereAvancee)
+    {
+        <Tooltip Text="Vous pouvez entreprendre cette carrière à tout moment contre 200 points d'expérience.">
+            <span class="oi oi-home ml-2" aria-hidden="true" style="color: #a46022;"></span>
+        </Tooltip>
+    }
+    @if (!HideIndicatorRestriction && !string.IsNullOrWhiteSpace(Item.Restriction))
     {
         <Tooltip Text="@Item.Restriction">
-            <span class="oi oi-warning ml-2" style="color:#aa0101" aria-hidden="true"></span>
+            <span class="oi oi-warning ml-2" aria-hidden="true" style="color:#aa0101"></span>
         </Tooltip>
     }
 </a>
 @code{
     [Parameter]
     public CarriereDto Item { get; set; } = null!;
+    [Parameter]
+    public bool HideIndicatorBase { get; set; }
+    [Parameter]
+    public bool HideIndicatorRestriction { get; set; }
+
 }

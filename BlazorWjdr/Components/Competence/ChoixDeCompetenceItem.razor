@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Models
-@for (int i = 0; i < Choix.Length; i++)
+@for (var i = 0; i < Choix.Length; i++)
 {
     @if (i != 0)
     {
@@ -8,5 +8,6 @@
     <CompetenceItem Item="Choix[i]"></CompetenceItem>
 }
 @code{
+    [Parameter]
     public CompetenceDto[] Choix { get; set; } = null!;
 }

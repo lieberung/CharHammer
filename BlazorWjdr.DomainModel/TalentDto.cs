@@ -33,7 +33,7 @@
         public string GetDescritpion()
         {
             if (!string.IsNullOrWhiteSpace(Description))
-                return Resume;
+                return Description;
             if (Parent == null || string.IsNullOrWhiteSpace(Parent.Description))
                 return "";
             return Parent.Description;

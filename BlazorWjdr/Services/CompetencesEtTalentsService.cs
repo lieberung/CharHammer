@@ -60,7 +60,7 @@
                 .Select(t => new TalentDto
                 {
                     Id = t.id,
-                    Nom = $"{t.nom}{(!string.IsNullOrWhiteSpace(t.specialisation) ? $" ({t.specialisation})" : "")}",
+                    Nom = $"{t.nom}{(!string.IsNullOrWhiteSpace(t.specialisation) ? $" : {t.specialisation}" : "")}",
                     Description = t.description,
                     Ignore = t.ignorer,
                     Resume = t.resume,
@@ -89,7 +89,7 @@
                 {
                     Id = c.id,
                     Ignore = c.ignorer,
-                    Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.specialisation) ? $" ({c.specialisation})" : "")}",
+                    Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.specialisation) ? $" : {c.specialisation}" : "")}",
                     Resume = c.resume,
                     Specialisation = c.specialisation,
                     CaracteristiqueAssociee = c.carac,

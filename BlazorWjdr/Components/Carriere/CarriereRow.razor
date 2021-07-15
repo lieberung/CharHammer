@@ -27,12 +27,6 @@
         <CarriereItem Item="@Item"/>
     </td>
     <td>
-        @if (Item.EstUneCarriereAvancee == false)
-        {
-            <CarriereDeBase/>
-        }
-    </td>
-    <td>
         @if (Item.SourceLivre != null)
         {
             <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
@@ -42,7 +36,7 @@
 @if (AfficherPlanDeCarriere)
 {
     <tr>
-        <td colspan="4" class="p-3">
+        <td colspan="3" class="p-3">
             <div class="bulle">
                 <h6 class="card-title">Plan de carrière</h6>
                 <p>
@@ -63,15 +57,15 @@
 @if (AfficherFilieresEtDebouches)
 {
     <tr>
-        <td colspan="4" class="px-3 pt-1 pb-3">
+        <td colspan="3" class="px-3 pt-1 pb-3">
             <div class="bulle">
                 <h6 class="card-title">Filières</h6>
                 <p>
-                    <CarriereItemList Items="@Item.Filieres.ToArray()"/>
+                    <CarriereItemList Items="@Item.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"/>
                 </p>
                 <h6 class="card-title">Débouchés</h6>
                 <p>
-                    <CarriereItemList Items="@Item.Debouches.ToArray()"/>
+                    <CarriereItemList Items="@Item.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
                 </p>
             </div>
         </td>

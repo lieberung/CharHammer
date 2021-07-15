@@ -2,11 +2,14 @@
 <ul class="list-inline">
     @foreach (var carriere in Items)
     {
-        <li class="@ItemClass"><CarriereItem Item="@carriere"/></li>
+        <li class="@ItemClass"><CarriereItem Item="@carriere" HideIndicatorBase="@HideIndicatorBase" HideIndicatorRestriction="@HideIndicatorRestriction"/></li>
     }
 </ul>
 @code
 {
     [Parameter] public string ItemClass { get; set; } = "list-inline-item";
     [Parameter] public CarriereDto[] Items { get; set; } = null!;
+    
+    [Parameter] public bool HideIndicatorBase { get; set; }
+    [Parameter] public bool HideIndicatorRestriction { get; set; }
 }

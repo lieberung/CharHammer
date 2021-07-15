@@ -29,6 +29,6 @@
     protected override async Task OnInitializedAsync()
     {
         var bestioles = await _bestiolesService.Items();
-        _bestiolesLines = bestioles.Where(b => b.EstUnPersonnage).ToList();
+        _bestiolesLines = bestioles.Where(b => b.EstUnPersonnage).OrderBy(b => b.Nom).ToList();
     }
 }

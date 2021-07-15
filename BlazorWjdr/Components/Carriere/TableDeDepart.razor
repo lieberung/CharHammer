@@ -10,7 +10,7 @@
         @foreach (var ligne in _allLines)
         {
             <tr>
-                <td><CarriereItem Item="ligne.Carriere"></CarriereItem></td>
+                <td><CarriereItem Item="ligne.Carriere" HideIndicatorBase="true" HideIndicatorRestriction="false"/></td>
                 <td>
                     <div class="mx-3"> 
                     @for (var i = 0; i < ligne.Facteur; i++)
@@ -40,5 +40,4 @@
         _allLines = _tableDesCarrieresInitialesService.AllLignes[int.Parse(RaceId)];
         base.OnParametersSet();
     }
-
 }
