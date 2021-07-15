@@ -40,7 +40,7 @@
             }
         }
 
-        private IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int> ids) => ids.Select(GetCarriere).ToArray();
+        public IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int> ids) => ids.Select(GetCarriere).ToArray();
         public CarriereDto GetCarriere(int id)
         {
             if (_cacheCarrieres == null)
@@ -89,16 +89,16 @@
                     Source = c.source ?? "",
                     SourceLivre = c.fk_sourceid == null ? null : _referencesService.GetReference(c.fk_sourceid.Value),
 #pragma warning disable CS8604 // Possible null reference argument.
-                    Competences = (c.fk_competences ?? Array.Empty<int>()).Any() ?
+                    Competences = c.fk_competences != null ?
                         _competencesEtTalentsService.GetCompetences(c.fk_competences).ToList()
                         : new List<CompetenceDto>(),
-                    Talents = (c.fk_talents ?? Array.Empty<int>()).Any() ?
+                    Talents = c.fk_talents != null ?
                         _competencesEtTalentsService.GetTalents(c.fk_talents).ToList()
                         : new List<TalentDto>(),
-                    ChoixCompetences = (c.fk_choixcompetences ?? Array.Empty<int>()).Any() ? 
+                    ChoixCompetences = c.fk_choixcompetences != null ? 
                         _choixCompetencesEtTalentsService.GetChoixCompetences(c.fk_choixcompetences).ToList()
                         : new List<CompetenceDto[]>(),
-                    ChoixTalents = (c.fk_choixtalents ?? Array.Empty<int>()).Any() ?
+                    ChoixTalents = c.fk_choixtalents  != null ?
                         _choixCompetencesEtTalentsService.GetChoixTalents(c.fk_choixtalents).ToList()
                         : new List<TalentDto[]>()
 #pragma warning restore CS8604 // Possible null reference argument.

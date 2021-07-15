@@ -9,9 +9,9 @@
         public int fk_userid { get; set; }
         public string nom { get; set; } = null!;
         public string histoire { get; set; } = null!;
-        public string? comment { get; set; }
-        public int[]? fk_bestiolecompetences { get; set; }
-        public int[]? fk_bestioletalents { get; set; }
+        public string comment { get; set; }
+        public int[]? fk_competences { get; set; }
+        public int[]? fk_talents { get; set; }
         public int[]? fk_origines { get; set; }
         public int fk_raceid { get; set; }
         public int[] membrede { get; set; } = null!;

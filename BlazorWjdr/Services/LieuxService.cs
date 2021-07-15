@@ -49,6 +49,7 @@
 #pragma warning restore CS8602 // DeLieu of a possibly null Lieu.
         }
 
+        public IEnumerable<LieuDto> GetLieux(IEnumerable<int> ids) => ids.Select(GetLieu).ToArray();
         public LieuDto GetLieu(int id)
         {
             if (_cacheLieu == null)
