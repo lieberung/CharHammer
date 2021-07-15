@@ -1,8 +1,8 @@
 ﻿@using BlazorWjdr.Models
 <a href="/races/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <TooltipImage Path="@Item.ImageMale" Alt="@Item.NomMasculin">
+    <!--TooltipImage Path="@Item.ImageMale" Alt="@Item.NomMasculin"-->
         <span class="oi oi-droplet item-icon mr-1" aria-hidden="true"></span>
-    </TooltipImage>
+    <!--/TooltipImage-->
     @Item.NomMasculin @(string.IsNullOrWhiteSpace(Item.NomFeminin) ? "" : " / " + Item.NomFeminin)
 </a>
 @code

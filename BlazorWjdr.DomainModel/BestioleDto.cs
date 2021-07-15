@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Models
+﻿using System.Linq;
+
+namespace BlazorWjdr.Models
 {
     public class BestioleDto
     {
@@ -32,6 +34,8 @@
         public CarriereDto[] CheminementPro { get; set; }
         public string? Cheveux { get; set; }
         public string? Yeux { get; set; }
+
+        public CarriereDto? CarriereActuelle => CheminementPro.LastOrDefault();
         
         // PJ
         public System.DateTime? DateDeCreation { get; set; }
@@ -39,5 +43,16 @@
         public int XpActuel { get; set; }
         public int XpTotal { get; set; }
         public ProfilDto? ProfilInitial { get; set; }
+        
+        public string Equipement
+        {
+            get
+            {
+                //if (!CheminementPro.Any()) return "";
+                return string.Join(", ",  
+                    CheminementPro.SelectMany(c => c.Dotations.Split(", ")).Distinct().OrderBy(s => s).ToArray()
+                );
+            }
+        }
     }
 }

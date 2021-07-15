@@ -1,8 +1,12 @@
-﻿@for (int i = 0; i < Choix.Length; i++)
+﻿@using BlazorWjdr.Models
+@for (int i = 0; i < Choix.Length; i++)
 {
     @if (i != 0)
     {
         <span>&nbsp;ou&nbsp;</span>
     }
     <CompetenceItem Item="Choix[i]"></CompetenceItem>
+}
+@code{
+    public CompetenceDto[] Choix { get; set; } = null!;
 }

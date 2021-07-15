@@ -29,23 +29,24 @@
             <div class="col-7">
                 <div class="card-body">
                     <h5 class="card-title">Plan de carrière</h5>
-                    <Profil PlanDeCarriere="@Carriere.PlanDeCarriere"/>
-                </div>
-
-                <div class="card-body">
+                    <p class="card-text">
+                        <Profil PlanDeCarriere="@Carriere.PlanDeCarriere"/>
+                    </p>
+                    
                     <h5 class="card-title">Compétences</h5>
                     <p class="card-text">
                         <CompetenceItemList Items="@Carriere.Competences.ToArray()" ItemsChoix="@Carriere.ChoixCompetences.ToArray()" />
                     </p>
+                    
                     <h5 class="card-title">Talents</h5>
                     <p class="card-text">
                         <TalentItemList Items="@Carriere.Talents.ToArray()" ItemsChoix="@Carriere.ChoixTalents.ToArray()" />
                     </p>
-                </div>
-                
-                <div class="card-body">
+                    
                     <h5 class="card-title">Dotations</h5>
-                    <CarriereDotations Item="@Carriere"/>
+                    <p class="card-text">
+                        <CarriereDotations Item="@Carriere"/>
+                    </p>
                 </div>
             </div>
         </div>

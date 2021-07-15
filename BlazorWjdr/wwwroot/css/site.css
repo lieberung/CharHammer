@@ -46,9 +46,12 @@ a, .btn-link {
 .table td, .table th { padding: .10rem; border-top: none; }
 .table td ul { margin-bottom: 0; }
 
+.decal-top-1 { z-index: 1; position: relative; top: -5px; }
+.decal-top-2 { z-index: 2; position: relative; top: -5px; }
+.decal-top-3 { z-index: 3; position: relative; top: -5px; }
 .content { background-color: #dbcfc8; }
 .top-row { box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05),inset 0 -1px 0 rgba(0,0,0,0.15); }
-.bulle { padding:8px; background-color: #cebfb5; border: 1px dotted #80390f; border-radius: .75em; }
+.bulle { padding: 8px; background-color: #cebfb5; border: 1px dotted #80390f; border-radius: .75em; }
 .item-icon { font-size: .800rem; color: #80390f; }
 .career-img { float: right; margin-left: 15px; }
 .btn.btn-item-action {
@@ -57,7 +60,7 @@ a, .btn-link {
     line-height: 1rem;
 }
 .btn.btn-item {
-    padding:.1rem .45rem;
+    padding:.12rem .60rem;
     letter-spacing: -1px;
     margin-bottom: 2px; line-height: 1.4;
     background-color: #cf8d4236;

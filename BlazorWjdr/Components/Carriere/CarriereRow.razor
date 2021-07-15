@@ -1,16 +1,13 @@
 ﻿@using BlazorWjdr.Components.Reference
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Models
 @using BlazorWjdr.Shared.Oi
 
 <tr>
     <td>
         <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
-            <span class="oi oi-grid-four-up" aria-hidden="true"></span>
-        </span>
-        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherCompetencesEtTalents = !AfficherCompetencesEtTalents">
-            <span class="oi oi-target" aria-hidden="true"></span>
-            <span class="oi oi-brush" aria-hidden="true"></span>
+            <span class="oi oi-eye" aria-hidden="true"></span>
         </span>
         <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFilieresEtDebouches = !AfficherFilieresEtDebouches">
             <span class="oi oi-loop" aria-hidden="true"></span>
@@ -48,20 +45,17 @@
         <td colspan="4" class="p-3">
             <div class="bulle">
                 <h6 class="card-title">Plan de carrière</h6>
-                <Profil PlanDeCarriere="@Item.PlanDeCarriere"/>
-            </div>
-        </td>
-    </tr>
-}
-@if (AfficherCompetencesEtTalents)
-{
-    <tr>
-        <td colspan="4" class="px-3 pt-1 pb-3">
-            <div class="bulle">
+                <p>
+                    <Profil PlanDeCarriere="@Item.PlanDeCarriere"/>
+                </p>
                 <h6 class="card-title">Compétences</h6>
-                <CompetenceItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()" />
-                <h6 class="card-title title-primary">Talents</h6>
-                <TalentItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()" />
+                <p>
+                    <CompetenceItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()" />
+                </p>
+                <h6 class="card-title">Talents</h6>
+                <p>
+                    <TalentItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()" />
+                </p>
             </div>
         </td>
     </tr>
@@ -72,9 +66,13 @@
         <td colspan="4" class="px-3 pt-1 pb-3">
             <div class="bulle">
                 <h6 class="card-title">Filières</h6>
-                <CarriereItemList Items="@Item.Filieres.ToArray()"/>
+                <p>
+                    <CarriereItemList Items="@Item.Filieres.ToArray()"/>
+                </p>
                 <h6 class="card-title">Débouchés</h6>
-                <CarriereItemList Items="@Item.Debouches.ToArray()"/>
+                <p>
+                    <CarriereItemList Items="@Item.Debouches.ToArray()"/>
+                </p>
             </div>
         </td>
     </tr>
@@ -85,4 +83,13 @@
     {
         <CarriereRow Item="@sousElement" />
     }
+}
+@code
+{
+    [Parameter]
+    public CarriereDto Item { get; set; } = null!;
+        
+    private bool AfficherSousElements { get; set; } = false;
+    private bool AfficherPlanDeCarriere { get; set; }
+    private bool AfficherFilieresEtDebouches { get; set; }
 }

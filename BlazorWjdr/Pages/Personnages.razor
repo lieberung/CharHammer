@@ -1,0 +1,34 @@
+﻿@page "/personnages"
+
+@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject BestiolesService _bestiolesService
+
+<MainTopRow>
+    <span class="title-primary top-row-title">Bestiaire</span>
+</MainTopRow>
+
+<div class="content px-4">
+    <table class="table">
+        <thead></thead>
+        <tbody>
+            @foreach (var bestiole in _bestiolesLines)
+            {
+                <BestioleRow Item="bestiole" />
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@code {
+    private List<BestioleDto> _bestiolesLines = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var bestioles = await _bestiolesService.Items();
+        _bestiolesLines = bestioles.Where(b => b.EstUnPersonnage).ToList();
+    }
+}

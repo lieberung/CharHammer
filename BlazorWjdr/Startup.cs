@@ -33,6 +33,7 @@ namespace BlazorWjdr
             services.AddSingleton<ChoixCompetencesEtTalentsService>();
             services.AddSingleton<CarrieresService>();
             services.AddSingleton<TableDesCarrieresInitialesService>();
+            services.AddSingleton<BestiolesService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

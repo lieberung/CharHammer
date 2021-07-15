@@ -1,0 +1,47 @@
+﻿@using BlazorWjdr.Components.Reference
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Models
+@using BlazorWjdr.Shared.Oi
+
+<tr>
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+            <span class="oi oi-eye" aria-hidden="true"></span>
+        </span>
+        <BestioleItem Item="@Item"/>
+    </td>
+</tr>
+@if (AfficherFiche)
+{
+    <tr>
+        <td colspan="2" class="p-3">
+            <div class="bulle" style="padding-bottom: 0;">
+                <h6 class="card-title">Plan de carrière</h6>
+                <p>
+                    <CarriereItemList Items="@Item.CheminementPro"/>
+                    <Profil ProfilActuel="@Item.ProfilActuel" ProfilInitial="@Item.ProfilInitial" PlanDeCarriere="@Item.CarriereActuelle?.PlanDeCarriere"/>
+                </p>
+                
+                <h6 class="card-title">Compétences</h6>
+                <p><CompetenceItemList Items="@Item.Competences.ToArray()" /></p>
+                
+                <h6 class="card-title">Talents</h6>
+                <p><TalentItemList Items="@Item.Talents.ToArray()" /></p>
+                
+                @if (!string.IsNullOrWhiteSpace(Item.Equipement))
+                {
+                    <h6 class="card-title">Equipement</h6>
+                    <p>@Item.Equipement</p>
+                }
+            </div>
+        </td>
+    </tr>
+}
+@code{
+    [Parameter]
+    public BestioleDto Item { get; set; } = null!;
+    
+    private bool AfficherFiche { get; set; }
+}
