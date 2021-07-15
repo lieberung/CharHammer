@@ -108,14 +108,14 @@ namespace BlazorWjdr.Services
                     MainDirectrice = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].main_directrice : 0,
                     Mort = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].mort,
                     CarriereDuPere = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].fk_carrierepereid.HasValue ?
-                        _carrieresService.GetCarriere(cachePersonnage[c.id].fk_carrierepereid.Value) : null,
+                        _carrieresService.GetCarriere(cachePersonnage[c.id].fk_carrierepereid!.Value) : null,
                     CarriereDeLaMere = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].fk_carrieremereid.HasValue ?
-                        _carrieresService.GetCarriere(cachePersonnage[c.id].fk_carrieremereid.Value) : null,
+                        _carrieresService.GetCarriere(cachePersonnage[c.id].fk_carrieremereid!.Value) : null,
                     // PJ
                     Joueur = cachePj.ContainsKey(c.id) ? cachePj[c.id].nom_joueur : "",
                     CheminementPro = cachePersonnage.ContainsKey(c.id) ?
                         cachePersonnage[c.id].fk_cheminprofess != null ?
-                            _carrieresService.GetCarrieres(cachePersonnage[c.id].fk_cheminprofess).ToArray()
+                            _carrieresService.GetCarrieres(cachePersonnage[c.id].fk_cheminprofess!).ToArray()
                             : Array.Empty<CarriereDto>()
                         : Array.Empty<CarriereDto>(),
                     

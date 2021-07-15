@@ -1,0 +1,15 @@
+﻿@using BlazorWjdr.Models
+<a href="/carrieres/@Item.Id.ToString()/" class="btn btn-light btn-item">
+    <span class="oi oi-badge item-icon mr-1" aria-hidden="true"></span>
+    @Item.Nom
+    @if (!string.IsNullOrWhiteSpace(Item.Restriction))
+    {
+        <Tooltip Text="@Item.Restriction">
+            <span class="oi oi-warning ml-2" style="color:#aa0101" aria-hidden="true"></span>
+        </Tooltip>
+    }
+</a>
+@code{
+    [Parameter]
+    public CarriereDto Item { get; set; } = null!;
+}

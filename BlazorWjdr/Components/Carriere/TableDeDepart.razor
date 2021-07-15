@@ -1,18 +1,11 @@
 ﻿@using BlazorWjdr.Services
 @using BlazorWjdr.Models
-@using BlazorWjdr.Components.Race
 @using BlazorWjdr.Components.Reference
 
-@inject RacesService _racesService
+@inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
 
 <table>
-    <thead>
-        <!--tr>
-            <td><RaceItem Item="_race"/></td>
-            <td>Facteur</td>
-            <td>Référence</td>
-        </tr-->
-    </thead>
+    <thead></thead>
     <tbody>
         @foreach (var ligne in _allLines)
         {
@@ -36,30 +29,16 @@
         }
     </tbody>
 </table>
-        
-
 @code {
-    [Inject]
-    public TableDesCarrieresInitialesService TableDesCarrieresInitialesService { get; set; } = null!;
-
     [Parameter]
     public string RaceId { get; set; } = null!;
 
-    private RaceDto _race = null!;
-
     private List<LigneDeCarriereInitialeDto> _allLines = null!;
 
-    protected override void OnInitialized()
+    protected override void OnParametersSet()
     {
-        _allLines = TableDesCarrieresInitialesService.AllLignes[int.Parse(RaceId)];
-        base.OnInitialized();
+        _allLines = _tableDesCarrieresInitialesService.AllLignes[int.Parse(RaceId)];
+        base.OnParametersSet();
     }
-    
-    protected override Task OnParametersSetAsync()
-    {
-        _race = _racesService.GetRace(int.Parse(RaceId));
-        OnInitialized();
 
-        return base.OnParametersSetAsync();
-    }
 }

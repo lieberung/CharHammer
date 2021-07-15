@@ -4,7 +4,7 @@
     <span>@Item.Nom</span>
     @if (Item.CheminementPro.Any())
     {
-        <span>, @Item.CarriereActuelle.Nom</span>
+        <span>, @Item.CarriereActuelle?.Nom</span>
     }
     <strong class="ml-2">@(Item.Sexe == 0 ? Item.Race.NomMasculin : Item.Race.NomFeminin)</strong>
     @if (!string.IsNullOrWhiteSpace(Item.Joueur))
