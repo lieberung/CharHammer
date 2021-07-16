@@ -75,12 +75,12 @@
         base.OnParametersSet();
     }
 
-    private bool ResultFound => AllCarrieres.Any() || AllCompetences.Any() || AllTalents.Any(); 
+    private bool ResultFound => AllCarrieres.Any() || AllCompetences.Any() || AllTalents.Any();
 
     private CarriereDto[] FilteredCarrieres => _searchText.Length < 3
-        ?  new CarriereDto[0]
-        : AllCarrieres.Where(c => c.Nom.ToLower().Contains(_searchText.ToLower())).ToArray();
-        
+        ? new CarriereDto[0]
+        : CarrieresService.Recherche(_searchText);
+    
     private CompetenceDto[] FilteredCompetences => _searchText.Length < 3
         ?  new CompetenceDto[0]
         : AllCompetences.Where(c => c.Nom.ToLower().Contains(_searchText.ToLower())).ToArray();

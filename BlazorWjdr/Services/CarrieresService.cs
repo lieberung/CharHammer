@@ -78,6 +78,7 @@
                 {
                     Id = c.id,
                     Nom = c.libelle,
+                    MotsClefDeRecherche = ConvertirCaracteres(c.libelle).ToLower().Split(' ').ToList(),
                     Description = c.description,
                     CarriereMereId = c.fk_parentcarriereid,
                     DebouchesIds = c.fk_debouches ?? Array.Empty<int>(),
@@ -126,6 +127,34 @@
                     .Where(c=>c.Parent == carriere)
                     .OrderBy(c => c.Nom));
             }
+        }
+        
+        #region Supprimer les caractères indésirables pour le nom du fichier
+
+        private const string CaracteresARemplacer     = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÿÑñÇç-'";
+        private const string CaracteresDeRemplacement = "aaaaaaaaaaaaooooooooooooeeeeeeeeiiiiiiiiuuuuuuuuynncc  ";
+
+        private static string ConvertirCaracteres(string chaineANettoyer)
+        {
+            char[] tableauFind = CaracteresDeRemplacement.ToCharArray();
+            char[] tableauReplace = CaracteresARemplacer.ToCharArray();
+
+            for (var i = 0; i < tableauReplace.Length; i++)
+                chaineANettoyer = chaineANettoyer.Replace(tableauReplace[i], tableauFind[i]);
+
+            return chaineANettoyer;
+        }
+        #endregion
+
+        public CarriereDto[] Recherche(string searchText)
+        {
+            searchText = ConvertirCaracteres(searchText).ToLower();
+            var motsClefRecherches = searchText.Split(' ').Where(c => c != "").ToList();
+            
+            return AllCarrieres
+                .Where(c => ConvertirCaracteres(c.Nom).ToLower().Contains(searchText)
+                                 || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any())
+                .ToArray();
         }
     }
 }
