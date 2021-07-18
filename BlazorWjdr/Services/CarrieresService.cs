@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Data;
+
+namespace BlazorWjdr.Services
 {
     using Models;
     using System;
@@ -124,11 +126,39 @@
                     .OrderBy(c => c.Nom)
                     .ToList();
                 carriere.SousElements.AddRange(_allCarrieres
-                    .Where(c=>c.Parent == carriere)
+                    .Where(c=> c.Parent == carriere)
                     .OrderBy(c => c.Nom));
+                carriere.ScoreAcademique = CalculScoreAcademique(carriere);
+                carriere.ScoreMartial = CalculScoreMartial(carriere);
             }
         }
-        
+
+        private int CalculScoreMartial(CarriereDto carriere)
+        {
+            int score = 0;
+            score += carriere.Competences.Count(c => c.Parent == _competencesEtTalentsService.CompetenceGroupeConnaissancesAcademiques) * 2;
+            score += carriere.Competences.Count(c => c.Parent == _competencesEtTalentsService.CompetenceGroupeLangue);
+            score += carriere.Competences.Count(c => c.Parent == _competencesEtTalentsService.CompetenceGroupeConnaissancesGenerales);
+            if (carriere.Competences.Any(c => c == _competencesEtTalentsService.CompetenceLireEcrire))
+                score += 1;
+            score += carriere.PlanDeCarriere.A * (carriere.EstUneCarriereAvancee ? 2 : 4);
+            score += (carriere.PlanDeCarriere.Cc / 10) * (carriere.EstUneCarriereAvancee ? 1 : 2);
+            score += (carriere.PlanDeCarriere.Ct / 10) * (carriere.EstUneCarriereAvancee ? 1 : 2);
+            return score;
+        }
+
+        private int CalculScoreAcademique(CarriereDto carriere)
+        {
+            int score = 0;
+            score += carriere.Competences.Count(c => c.Parent == _competencesEtTalentsService.CompetenceGroupeConnaissancesAcademiques) * 2;
+            score += carriere.Competences.Count(c => c.Parent == _competencesEtTalentsService.CompetenceGroupeLangue);
+            score += carriere.Competences.Count(c => c.Parent == _competencesEtTalentsService.CompetenceGroupeConnaissancesGenerales);
+            if (carriere.Competences.Any(c => c == _competencesEtTalentsService.CompetenceLireEcrire))
+                score += 1;
+            score += (carriere.PlanDeCarriere.Int / 5) * (carriere.EstUneCarriereAvancee ? 1 : 2);
+            return score;
+        }
+
         #region Supprimer les caractères indésirables pour le nom du fichier
 
         private const string CaracteresARemplacer     = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÿÑñÇç-'";

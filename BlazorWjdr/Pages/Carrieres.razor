@@ -1,6 +1,6 @@
 ﻿@page "/"
-@page "/carrieres/"
-@page "/carrieres/{parameter}/"
+@page "/carrieres-liste/"
+@page "/carrieres-liste/{Theme}/"
 
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Models
@@ -12,36 +12,57 @@
     <span class="title-primary top-row-title">Carrières</span>
 </MainTopRow>
 
-<div class="ml-3 mt-3 mb-3 pl-2">
-    <a href="/carrieres/" class="mr-2 btn" style="width:90px;">Toutes les carrières</a>
-    <a href="/carrieres/de-base/" class="mr-2 btn" style="width:90px;">Carrières de base</a>
-    <a href="/carrieres/avancees/" class="mr-2 btn" style="width:90px;">Carrières avancées</a>
-    <a href="/carrieres/martiales/" class="mr-2 btn" style="width:90px;">Martiales</a>
-    <a href="/carrieres/forestieres/" class="mr-2 btn" style="width:90px;">Forestières</a>
-    <a href="/carrieres/spiritualite/" class="mr-2 btn" style="width:90px;">Spiritualité</a>
-    <a href="/carrieres/sciences/" class="mr-2 btn" style="width:90px;">Sciences</a>
-    <a href="/carrieres/de-l-ombre/" class="mr-2 btn" style="width:90px;">De l'ombre</a>
-    <a href="/carrieres/fluviales-et-maritimes/" class="mr-2 btn" style="width:90px;">Fluviales et maritimes</a>
-    <!-- marginales sociales urbaines académiques artisanat --> 
-</div>
-
 <div class="content px-4">
+    
+    <div class="ml-3 mt-3 mb-3 pl-2">
+        <a style="width:120px;" href="/carrieres-liste/" class="mr-2 btn @(Theme == "" ? "btn-primary" : "btn-secondary")">Toutes</a>
+        <a style="width:120px;" href="/carrieres-liste/de-base/" class="mr-2 btn @(Theme == "de-base" ? "btn-primary" : "btn-secondary")">Base</a>
+        <a style="width:120px;" href="/carrieres-liste/avancees/" class="mr-2 btn @(Theme == "avancees" ? "btn-primary" : "btn-secondary")">Avancées</a>
+        <a style="width:120px;" href="/carrieres-liste/martiales/" class="mr-2 btn @(Theme == "martiales" ? "btn-primary" : "btn-secondary")">Martiales</a>
+        <a style="width:120px;" href="/carrieres-liste/forestieres/" class="mr-2 btn @(Theme == "forestieres" ? "btn-primary" : "btn-secondary")">Forestières</a>
+        <a style="width:120px;" href="/carrieres-liste/spiritualite/" class="mr-2 btn @(Theme == "spiritualite" ? "btn-primary" : "btn-secondary")">Spiritualité</a>
+        <a style="width:120px;" href="/carrieres-liste/academiques/" class="mr-2 btn @(Theme == "academiques" ? "btn-primary" : "btn-secondary")">Académiques</a>
+        <a style="width:120px;" href="/carrieres-liste/de-l-ombre/" class="mr-2 btn @(Theme == "de-l-ombre" ? "btn-primary" : "btn-secondary")">De l'ombre</a>
+        <a style="width:120px;" href="/carrieres-liste/fluviales/" class="mr-2 btn  @(Theme == "fluviales" ? "btn-primary" : "btn-secondary")">Fluviales</a>
+        <a style="width:120px;" href="/carrieres-liste/marginales/" class="mr-2 btn @(Theme == "marginales" ? "btn-primary" : "btn-secondary")">Marginales</a>
+        <!-- marginales sociales urbaines académiques artisanat -->
+    </div>
+    
     <table class="table">
         <thead></thead>
         <tbody>
-            @foreach (var carriere in _carrieresLines.Where(c => c.Parent == null))
-            {
-                <CarriereRow Item="carriere" />
-            }
+        @foreach (var carriere in _carrieresLines.Where(c => c.Parent == null))
+        {
+            <CarriereRow Item="carriere"/>
+        }
         </tbody>
     </table>
+    
 </div>
 @code {
+
+    [Parameter]
+    public string Theme { get; set; } = "";
+    
+    
+
     private List<CarriereDto> _carrieresLines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override async Task OnParametersSetAsync()
     {
         var carrieres = await _carrieresService.ItemsCarrieres();
-        _carrieresLines = carrieres.ToList();
+
+        if (Theme == null) Theme = "";
+        _carrieresLines = Theme switch
+        {
+            "" => carrieres.ToList(),
+            "de-base" => carrieres.Where(c => c.EstUneCarriereAvancee == false).ToList(),
+            "avancees" => carrieres.Where(c => c.EstUneCarriereAvancee).ToList(),
+            "academiques" => carrieres.Where(c => c.ScoreAcademique > 7).OrderByDescending(c => c.ScoreAcademique).ToList(),
+            "martiales" => carrieres.Where(c => c.ScoreMartial > 7).OrderByDescending(c => c.ScoreAcademique).ToList(),
+            _ => _carrieresLines
+            };
+
+        var toto = _carrieresLines.Count;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Models
+﻿using System.Linq;
+
+namespace BlazorWjdr.Models
 {
     using System.Collections.Generic;
 
@@ -30,5 +32,8 @@
         public readonly List<CarriereDto> SousElements = new();
 
         public ReferenceDto? SourceLivre { get; init; }
+
+        public int ScoreAcademique { get; set; }
+        public int ScoreMartial { get; set; }
     }
 }

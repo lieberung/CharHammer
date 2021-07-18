@@ -43,7 +43,7 @@
 }
 @if (AfficherSousElements && Item.SousElements.Any())
 {
-    @foreach (var sousElement in Item.SousElements)
+    @foreach (var sousElement in Item.SousElements.Where(t => t.Ignore == false))
     {
         <TalentRow Item="@sousElement" />
     }

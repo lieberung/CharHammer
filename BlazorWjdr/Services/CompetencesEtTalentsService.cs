@@ -125,5 +125,26 @@
                     .ToList();
             }
         }
+
+        public CompetenceDto CompetenceGroupeConnaissancesAcademiques => GetCompetence(13);
+        public CompetenceDto CompetenceGroupeConnaissancesGenerales => GetCompetence(14);
+        public CompetenceDto CompetenceGroupeLangue => GetCompetence(39);
+        public CompetenceDto CompetenceLireEcrire => GetCompetence(42);
+
+        public CompetenceDto CompetenceEsquive => GetCompetence(26);
+        public TalentDto TalentAdresseAuTir => GetTalent(4);
+        public TalentDto TalentAmbidextrie => GetTalent(5);
+        public TalentDto TalentCombatADeuxArmes => GetTalent(155);
+        public TalentDto TalentCombatDeRue => GetTalent(14);
+        public TalentDto TalentCombattantVirevoltant => GetTalent(15);
+        public TalentDto TalentCoupsAuBut => GetTalent(18);
+        public TalentDto TalentCoupsPuissants => GetTalent(21);
+        public TalentDto TalentCoupsAssomants => GetTalent(19);
+        public TalentDto TalentCoupsPrécis => GetTalent(20);
+        public TalentDto TalentDesarmement => GetTalent(23);
+        public TalentDto TalentDurACuir => GetTalent(24);
+        public TalentDto TalentFrenesie => GetTalent(30);
+        public TalentDto TalentRechergementRapide => GetTalent(67);
+        public TalentDto TalentGroupeMaitrise => GetTalent(50);
     }
 }
