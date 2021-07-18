@@ -1,5 +1,6 @@
 ﻿@page "/"
-@page "/carrieres"
+@page "/carrieres/"
+@page "/carrieres/{parameter}/"
 
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Models
@@ -10,6 +11,19 @@
 <MainTopRow>
     <span class="title-primary top-row-title">Carrières</span>
 </MainTopRow>
+
+<div class="ml-3 mt-3 mb-3 pl-2">
+    <a href="/carrieres/" class="mr-2 btn" style="width:90px;">Toutes les carrières</a>
+    <a href="/carrieres/de-base/" class="mr-2 btn" style="width:90px;">Carrières de base</a>
+    <a href="/carrieres/avancees/" class="mr-2 btn" style="width:90px;">Carrières avancées</a>
+    <a href="/carrieres/martiales/" class="mr-2 btn" style="width:90px;">Martiales</a>
+    <a href="/carrieres/forestieres/" class="mr-2 btn" style="width:90px;">Forestières</a>
+    <a href="/carrieres/spiritualite/" class="mr-2 btn" style="width:90px;">Spiritualité</a>
+    <a href="/carrieres/sciences/" class="mr-2 btn" style="width:90px;">Sciences</a>
+    <a href="/carrieres/de-l-ombre/" class="mr-2 btn" style="width:90px;">De l'ombre</a>
+    <a href="/carrieres/fluviales-et-maritimes/" class="mr-2 btn" style="width:90px;">Fluviales et maritimes</a>
+    <!-- marginales sociales urbaines académiques artisanat --> 
+</div>
 
 <div class="content px-4">
     <table class="table">
