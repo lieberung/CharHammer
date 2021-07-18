@@ -153,6 +153,16 @@
 {"id":151,"fk_raceid":1,"fk_carriereid":127,"facteur":2},
 {"id":152,"fk_raceid":26,"fk_carriereid":127,"facteur":3},
 {"id":153,"fk_raceid":27,"fk_carriereid":127,"facteur":3},
-{"id":154,"fk_raceid":1,"fk_carriereid":128,"facteur":2}
-	]
+{"id":154,"fk_raceid":1,"fk_carriereid":128,"facteur":2}, 
+{"id":155,"fk_raceid":1,"fk_carriereid":125,"facteur":2}, 
+{"id":156,"fk_raceid":27,"fk_carriereid":125,"facteur":3},
+{"id":157,"fk_raceid":1,"fk_carriereid":116,"facteur":2},
+{"id":158,"fk_raceid":1,"fk_carriereid":115,"facteur":2},
+{"id":159,"fk_raceid":1,"fk_carriereid":141,"facteur":1},
+{"id":161,"fk_raceid":28,"fk_carriereid":141,"facteur":1},
+{"id":162,"fk_raceid":27,"fk_carriereid":141,"facteur":1},
+{"id":163,"fk_raceid":1,"fk_carriereid":250,"facteur":2},
+{"id":164,"fk_raceid":27,"fk_carriereid":250,"facteur":2},
+{"id":165,"fk_raceid":28,"fk_carriereid":250,"facteur":2}
+  ]
 }

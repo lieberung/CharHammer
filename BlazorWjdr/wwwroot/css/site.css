@@ -49,7 +49,7 @@ a, .btn-link {
 .decal-top-1 { z-index: 1; position: relative; top: -5px; }
 .decal-top-2 { z-index: 2; position: relative; top: -5px; }
 .decal-top-3 { z-index: 3; position: relative; top: -5px; }
-.content { background-color: #dbcfc8; }
+.content { background-color: #f3e3c1; } /* #f3e3c1 #dbcfc8 */
 .top-row { box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05),inset 0 -1px 0 rgba(0,0,0,0.15); }
 .bulle { padding: 8px; background-color: #cebfb5; border: 1px dotted #80390f; border-radius: .75em; }
 .item-icon { font-size: .800rem; color: #80390f; }
