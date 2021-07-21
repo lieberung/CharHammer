@@ -4,9 +4,8 @@
 
     public class JsonTableCarriereInitiale
     {
-        public int id { get; set; }
-        public int fk_raceid { get; set; }
-        public int fk_carriereid { get; set; }
+        public int race { get; set; }
+        public int carriere { get; set; }
         public int facteur { get; set; }
     }
 

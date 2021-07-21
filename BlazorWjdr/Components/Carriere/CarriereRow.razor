@@ -33,7 +33,14 @@
         }
     </td>
     <td>
-        ACA @Item.ScoreAcademique
+        <div class="row">
+            <div class="col-2">Acad @Item.ScoreAcademique</div>
+            <div class="col-2">Ombr @Item.ScoreDeLOmbre</div>
+            <div class="col-2">CaC @Item.ScoreMartialAuContact</div>
+            <div class="col-2">Dist @Item.ScoreMartialADistance</div>
+            <div class="col-2">Soc @Item.ScoreSocial</div>
+            <div class="col-2">Arc @Item.ScoreArcanique</div>
+        </div>
     </td>
 </tr>
 @if (AfficherPlanDeCarriere)

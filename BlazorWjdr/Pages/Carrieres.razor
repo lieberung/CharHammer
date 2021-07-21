@@ -1,6 +1,4 @@
-﻿@page "/"
-@page "/carrieres-liste/"
-@page "/carrieres-liste/{Theme}/"
+﻿@page "/carrieres-liste/{Theme}/{Filtre}/"
 
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Models
@@ -10,24 +8,34 @@
 
 <MainTopRow>
     <span class="title-primary top-row-title">Carrières</span>
+    <span style="margin-left: 160px;">
+        <a style="width:120px; margin-top:-10px;" href="/carrieres-liste/@Theme/toutes/" class="mr-2 btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+        <a style="width:120px; margin-top:-10px;" href="/carrieres-liste/@Theme/de-base/" class="mr-2 btn btn-sm @(Filtre == "de-base" ? "btn-primary" : "btn-secondary")">Base</a>
+        <a style="width:120px; margin-top:-10px;" href="/carrieres-liste/@Theme/avancees/" class="mr-2 btn btn-sm @(Filtre == "avancees" ? "btn-primary" : "btn-secondary")">Avancées</a>
+    </span>
 </MainTopRow>
 
 <div class="content px-4">
     
-    <div class="ml-3 mt-3 mb-3 pl-2">
-        <a style="width:120px;" href="/carrieres-liste/" class="mr-2 btn @(Theme == "" ? "btn-primary" : "btn-secondary")">Toutes</a>
-        <a style="width:120px;" href="/carrieres-liste/de-base/" class="mr-2 btn @(Theme == "de-base" ? "btn-primary" : "btn-secondary")">Base</a>
-        <a style="width:120px;" href="/carrieres-liste/avancees/" class="mr-2 btn @(Theme == "avancees" ? "btn-primary" : "btn-secondary")">Avancées</a>
-        <a style="width:120px;" href="/carrieres-liste/martiales/" class="mr-2 btn @(Theme == "martiales" ? "btn-primary" : "btn-secondary")">Martiales</a>
-        <a style="width:120px;" href="/carrieres-liste/forestieres/" class="mr-2 btn @(Theme == "forestieres" ? "btn-primary" : "btn-secondary")">Forestières</a>
-        <a style="width:120px;" href="/carrieres-liste/spiritualite/" class="mr-2 btn @(Theme == "spiritualite" ? "btn-primary" : "btn-secondary")">Spiritualité</a>
-        <a style="width:120px;" href="/carrieres-liste/academiques/" class="mr-2 btn @(Theme == "academiques" ? "btn-primary" : "btn-secondary")">Académiques</a>
-        <a style="width:120px;" href="/carrieres-liste/de-l-ombre/" class="mr-2 btn @(Theme == "de-l-ombre" ? "btn-primary" : "btn-secondary")">De l'ombre</a>
-        <a style="width:120px;" href="/carrieres-liste/fluviales/" class="mr-2 btn  @(Theme == "fluviales" ? "btn-primary" : "btn-secondary")">Fluviales</a>
-        <a style="width:120px;" href="/carrieres-liste/marginales/" class="mr-2 btn @(Theme == "marginales" ? "btn-primary" : "btn-secondary")">Marginales</a>
+    <div class="ml-3 mb-3 pl-2">
+        <a href="/carrieres-liste/toutes/@Filtre/" class="mr-2 btn btn-sm @(Theme == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+        <a href="/carrieres-liste/academiques/@Filtre/" class="mr-2 btn btn-sm @(Theme == "academiques" ? "btn-primary" : "btn-secondary")">Académiques</a>
+        <a href="/carrieres-liste/de-l-ombre/@Filtre/" class="mr-2 btn btn-sm @(Theme == "de-l-ombre" ? "btn-primary" : "btn-secondary")">De l'ombre</a>
+        <a href="/carrieres-liste/martiales-au-contact/@Filtre/" class="mr-2 btn btn-sm @(Theme == "martiales-au-contact" ? "btn-primary" : "btn-secondary")">Au contact</a>
+        <a href="/carrieres-liste/martiales-a-distance/@Filtre/" class="mr-2 btn btn-sm @(Theme == "martiales-a-distance" ? "btn-primary" : "btn-secondary")">A distance</a>
+        <a href="/carrieres-liste/sociales/@Filtre/" class="mr-2 btn btn-sm @(Theme == "sociales" ? "btn-primary" : "btn-secondary")">Sociales</a>
+        <a href="/carrieres-liste/urbaines/@Filtre/" class="mr-2 btn btn-sm @(Theme == "urbaines" ? "btn-primary" : "btn-secondary")">Urbaines</a>
+        <a href="/carrieres-liste/commerce/@Filtre/" class="mr-2 btn btn-sm @(Theme == "commerce" ? "btn-primary" : "btn-secondary")">Commerce</a>
+        <a href="/carrieres-liste/artisanat/@Filtre/" class="mr-2 btn btn-sm @(Theme == "artisanat" ? "btn-primary" : "btn-secondary")">Artisanat</a>
+        <a href="/carrieres-liste/forestieres/@Filtre/" class="mr-2 btn btn-sm @(Theme == "forestieres" ? "btn-primary" : "btn-secondary")">Forestières</a>
+        <a href="/carrieres-liste/fluviales/@Filtre/" class="mr-2 btn btn-sm  @(Theme == "fluviales" ? "btn-primary" : "btn-secondary")">Fluviales</a>
+        <a href="/carrieres-liste/spiritualite/@Filtre/" class="mr-2 btn btn-sm @(Theme == "spiritualite" ? "btn-primary" : "btn-secondary")">Spiritualité</a>
+        <a href="/carrieres-liste/ami-des-betes/@Filtre/" class="mr-2 btn btn-sm @(Theme == "ami-des-betes" ? "btn-primary" : "btn-secondary")">Ami des bêtes</a>
+        <a href="/carrieres-liste/marginales/@Filtre/" class="mr-2 btn btn-sm @(Theme == "marginales" ? "btn-primary" : "btn-secondary")">Marginales</a>
+        <a href="/carrieres-liste/folie/@Filtre/" class="mr-2 btn btn-sm @(Theme == "folie" ? "btn-primary" : "btn-secondary")">Folie</a>
         <!-- marginales sociales urbaines académiques artisanat -->
     </div>
-    
+
     <table class="table">
         <thead></thead>
         <tbody>
@@ -43,7 +51,8 @@
 
     [Parameter]
     public string Theme { get; set; } = "";
-    
+    [Parameter]
+    public string Filtre { get; set; } = "";    
     
 
     private List<CarriereDto> _carrieresLines = null!;
@@ -52,17 +61,20 @@
     {
         var carrieres = await _carrieresService.ItemsCarrieres();
 
-        if (Theme == null) Theme = "";
+        //if (Theme == null) Theme = "";
         _carrieresLines = Theme switch
         {
-            "" => carrieres.ToList(),
-            "de-base" => carrieres.Where(c => c.EstUneCarriereAvancee == false).ToList(),
-            "avancees" => carrieres.Where(c => c.EstUneCarriereAvancee).ToList(),
-            "academiques" => carrieres.Where(c => c.ScoreAcademique > 7).OrderByDescending(c => c.ScoreAcademique).ToList(),
-            "martiales" => carrieres.Where(c => c.ScoreMartial > 7).OrderByDescending(c => c.ScoreAcademique).ToList(),
+            "toutes" => carrieres.ToList(),
+            "academiques" => carrieres.Where(c => c.ScoreAcademique > 11).OrderByDescending(c => c.ScoreAcademique).ToList(),
+            "martiales-au-contact" => carrieres.Where(c => c.ScoreMartialAuContact > 11).OrderByDescending(c => c.ScoreMartialAuContact).ToList(),
+            "martiales-a-distance" => carrieres.Where(c => c.ScoreMartialADistance > 11).OrderByDescending(c => c.ScoreMartialADistance).ToList(),
+            "de-l-ombre" => carrieres.Where(c => c.ScoreDeLOmbre > 11).OrderByDescending(c => c.ScoreDeLOmbre).ToList(),
+            "sociales" => carrieres.Where(c => c.ScoreSocial > 10).OrderByDescending(c => c.ScoreSocial).ToList(),
+            "folie" => carrieres.Where(c => _carrieresService.Folie.Contains(c)).ToList(),
             _ => _carrieresLines
-            };
+        };
+        if (Filtre != "toutes")
+            _carrieresLines.RemoveAll(c => c.EstUneCarriereAvancee == (Filtre == "de-base"));
 
-        var toto = _carrieresLines.Count;
     }
 }

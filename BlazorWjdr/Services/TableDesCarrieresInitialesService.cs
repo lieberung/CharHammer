@@ -39,9 +39,9 @@ namespace BlazorWjdr.Services
                 .items
                 .Select(l => new LigneDeCarriereInitialeDto
                 {
-                    Carriere = _carrieresService.GetCarriere(l.fk_carriereid),
+                    Carriere = _carrieresService.GetCarriere(l.carriere),
                     Facteur = l.facteur,
-                    Race = _racesService.GetRace(l.fk_raceid)
+                    Race = _racesService.GetRace(l.race)
                 })
                 .ToList();
 

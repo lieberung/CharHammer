@@ -34,6 +34,33 @@ namespace BlazorWjdr.Models
         public ReferenceDto? SourceLivre { get; init; }
 
         public int ScoreAcademique { get; set; }
-        public int ScoreMartial { get; set; }
+        public int ScoreMartialAuContact { get; set; }
+        public int ScoreMartialADistance { get; set; }
+        public int ScoreDeLOmbre { get; set; }
+        public int ScoreSocial { get; set; }
+        public int ScoreArcanique { get; set; }
+        public int ScoreReligieux { get; set; }
+
+        public List<CompetenceDto> CompetencesPourScore {
+            get
+            {
+                var list = new List<CompetenceDto>();
+                list.AddRange(Competences);
+                list.AddRange(ChoixCompetences.SelectMany(c => c));
+                return list;
+            }
+        }
+        
+        public List<TalentDto> TalentsPourScore {
+            get
+            {
+                var list = new List<TalentDto>();
+                list.AddRange(Talents);
+                list.AddRange(ChoixTalents.SelectMany(c => c));
+                return list;
+            }
+        }
+
+
     }
 }
