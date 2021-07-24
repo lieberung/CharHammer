@@ -23,6 +23,7 @@
         <a href="/carrieres-liste/de-l-ombre/@Filtre/" class="mr-2 btn btn-sm @(Theme == "de-l-ombre" ? "btn-primary" : "btn-secondary")">De l'ombre</a>
         <a href="/carrieres-liste/martiales-au-contact/@Filtre/" class="mr-2 btn btn-sm @(Theme == "martiales-au-contact" ? "btn-primary" : "btn-secondary")">Au contact</a>
         <a href="/carrieres-liste/martiales-a-distance/@Filtre/" class="mr-2 btn btn-sm @(Theme == "martiales-a-distance" ? "btn-primary" : "btn-secondary")">A distance</a>
+        <a href="/carrieres-liste/cavalerie/@Filtre/" class="mr-2 btn btn-sm @(Theme == "cavalerie" ? "btn-primary" : "btn-secondary")">Cavalerie</a>
         <a href="/carrieres-liste/sociales/@Filtre/" class="mr-2 btn btn-sm @(Theme == "sociales" ? "btn-primary" : "btn-secondary")">Sociales</a>
         <a href="/carrieres-liste/urbaines/@Filtre/" class="mr-2 btn btn-sm @(Theme == "urbaines" ? "btn-primary" : "btn-secondary")">Urbaines</a>
         <a href="/carrieres-liste/commerce/@Filtre/" class="mr-2 btn btn-sm @(Theme == "commerce" ? "btn-primary" : "btn-secondary")">Commerce</a>
@@ -35,12 +36,27 @@
         <a href="/carrieres-liste/folie/@Filtre/" class="mr-2 btn btn-sm @(Theme == "folie" ? "btn-primary" : "btn-secondary")">Folie</a>
         <a href="/carrieres-liste/bretonnie/@Filtre/" class="mr-2 btn btn-sm @(Theme == "bretonnie" ? "btn-primary" : "btn-secondary")">Bretonnie</a>
         <a href="/carrieres-liste/kislev/@Filtre/" class="mr-2 btn btn-sm @(Theme == "kislev" ? "btn-primary" : "btn-secondary")">Kislev</a>
+        <a href="/carrieres-liste/norsca/@Filtre/" class="mr-2 btn btn-sm @(Theme == "norsca" ? "btn-primary" : "btn-secondary")">Norsca</a>
         <a href="/carrieres-liste/skaven/@Filtre/" class="mr-2 btn btn-sm @(Theme == "skaven" ? "btn-primary" : "btn-secondary")">Skavens</a>
         <a href="/carrieres-liste/chaos/@Filtre/" class="mr-2 btn btn-sm @(Theme == "chaos" ? "btn-primary" : "btn-secondary")">Chaos</a>
     </div>
 
     <table class="table">
-        <thead></thead>
+        <thead>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Académique</td>
+            <td>De l'ombre</td>
+            <td>Au contact</td>
+            <td>A distance</td>
+            <td>Cavalerie</td>
+            <td>Social</td>
+            <td>Commerce</td>
+            <td>Arcanique</td>
+        </tr>
+        </thead>
         <tbody>
         @foreach (var carriere in _carrieresLines.Where(c => c.Parent == null))
         {
@@ -64,16 +80,25 @@
     {
         var carrieres = await _carrieresService.ItemsCarrieres();
 
-        //if (Theme == null) Theme = "";
         _carrieresLines = Theme switch
         {
-            "toutes" => carrieres.ToList(),
+            "toutes" => carrieres
+                .Except(_carrieresService.CarrieresSkaven)
+                .Except(_carrieresService.CarrieresChaos)
+                .ToList(),
             "academiques" => carrieres.Where(c => c.ScoreAcademique > 11).OrderByDescending(c => c.ScoreAcademique).ToList(),
             "martiales-au-contact" => carrieres.Where(c => c.ScoreMartialAuContact > 11).OrderByDescending(c => c.ScoreMartialAuContact).ToList(),
             "martiales-a-distance" => carrieres.Where(c => c.ScoreMartialADistance > 11).OrderByDescending(c => c.ScoreMartialADistance).ToList(),
+            "cavalerie" => carrieres.Where(c => c.ScoreCavalerie > 0).OrderByDescending(c => c.ScoreCavalerie).ToList(),
             "de-l-ombre" => carrieres.Where(c => c.ScoreDeLOmbre > 11).OrderByDescending(c => c.ScoreDeLOmbre).ToList(),
             "sociales" => carrieres.Where(c => c.ScoreSocial > 10).OrderByDescending(c => c.ScoreSocial).ToList(),
-            "folie" => carrieres.Where(c => _carrieresService.Folie.Contains(c)).ToList(),
+            "commerce" => carrieres.Where(c => c.ScoreCommerce > 5).OrderByDescending(c => c.ScoreCommerce).ToList(),
+            "folie" => _carrieresService.CarrieresFolie.OrderBy(c => c.Nom).ToList(),
+            "bretonnie" => _carrieresService.CarrieresDeBretonnie.OrderBy(c => c.Nom).ToList(),
+            "kislev" => _carrieresService.CarrieresDuKislev.OrderBy(c => c.Nom).ToList(),
+            "norsca" => _carrieresService.CarrieresDeNorsca.OrderBy(c => c.Nom).ToList(),
+            "skavens" => _carrieresService.CarrieresSkaven.OrderBy(c => c.Nom).ToList(),
+            "chaos" => _carrieresService.CarrieresChaos.OrderBy(c => c.Nom).ToList(),
             _ => _carrieresLines
         };
         if (Filtre != "toutes")

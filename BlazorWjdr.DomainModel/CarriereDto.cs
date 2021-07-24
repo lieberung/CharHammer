@@ -36,8 +36,10 @@ namespace BlazorWjdr.Models
         public int ScoreAcademique { get; set; }
         public int ScoreMartialAuContact { get; set; }
         public int ScoreMartialADistance { get; set; }
+        public int ScoreCavalerie { get; set; }
         public int ScoreDeLOmbre { get; set; }
         public int ScoreSocial { get; set; }
+        public int ScoreCommerce { get; set; }
         public int ScoreArcanique { get; set; }
         public int ScoreReligieux { get; set; }
 

@@ -52,5 +52,10 @@
                 .ToDictionary(k => k.Id, v => v);
             _allReferences = _cacheReference.Values.ToList();
         }
+
+        public ReferenceDto LivreLesChevaliersDuGraal => GetReference(15);
+        public ReferenceDto LivreLeDucheDesDamnes => GetReference(16);
+        public ReferenceDto LivreLaReineDesGlaces => GetReference(14);
+        public ReferenceDto LivreLesFilsDuRatCornu => GetReference(17);
     }
 }

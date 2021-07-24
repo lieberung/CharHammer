@@ -145,6 +145,8 @@
         public TalentDto TalentSurSesGardes => GetTalent(85);
         public TalentDto TalentForceAccrue => GetTalent(29);
         public TalentDto TalentTroublant => GetTalent(91);
+        public TalentDto TalentMaitriseUneAuChoix => GetTalent(153);
+        public TalentDto TalentMaitriseDeuxAuChoix => GetTalent(152);
         
         // Martial CaC
         public CompetenceDto CompetenceEsquive => GetCompetence(26);
@@ -226,6 +228,28 @@
         public TalentDto TalentEtiquette => GetTalent(28);
         public TalentDto TalentIntriguant => GetTalent(40);
         public TalentDto TalentSociable => GetTalent(83);
+        
+        // Commerce
+        public CompetenceDto CompetenceMarchandage => GetCompetence(43);
+        public CompetenceDto CompetenceMetierMarchand => GetCompetence(78);
+        public CompetenceDto CompetenceEvaluation => GetCompetence(179);
+        public CompetenceDto CompetenceExpressionArtistiqueConteur => GetCompetence(123);
+        //public TalentDto TalentCalculMental => GetTalent(7);
+        public TalentDto TalentDurEnAffaires => GetTalent(25);
+
+        // Cavalerie
+        public CompetenceDto CompetenceEquitation => GetCompetence(23);
+        public CompetenceDto CompetenceExpressionArtistiqueAcrobatEquestre => GetCompetence(153);
+        public CompetenceDto CompetenceEmpriseSurLesAnimaux => GetCompetence(22);
+        public CompetenceDto CompetenceSoinsDesAnimaux => GetCompetence(54);
+        public CompetenceDto CompetenceMetierGarconDEcurie => GetCompetence(180);
+        public CompetenceDto CompetenceMetierVendeurDeCheveaux => GetCompetence(177);
+        public CompetenceDto CompetenceDressage => GetCompetence(21);
+        //public TalentDto TalentMaitriseArmesDeCavalerie => GetTalent(54);
+        public TalentDto TalentAcrobateEquestre => GetTalent(1);
+        
+        // Arcaniques
+        //public CompetenceDto
 
     }
 }
