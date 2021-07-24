@@ -20,6 +20,8 @@
     <div class="ml-3 mb-3 pl-2">
         <a href="/carrieres-liste/toutes/@Filtre/" class="mr-2 btn btn-sm @(Theme == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
         <a href="/carrieres-liste/academiques/@Filtre/" class="mr-2 btn btn-sm @(Theme == "academiques" ? "btn-primary" : "btn-secondary")">Académiques</a>
+        <a href="/carrieres-liste/arcaniques/@Filtre/" class="mr-2 btn btn-sm @(Theme == "arcaniques" ? "btn-primary" : "btn-secondary")">Arcaniques</a>
+        <a href="/carrieres-liste/rodeurs/@Filtre/" class="mr-2 btn btn-sm @(Theme == "rodeurs" ? "btn-primary" : "btn-secondary")">Rôdeurs</a>
         <a href="/carrieres-liste/de-l-ombre/@Filtre/" class="mr-2 btn btn-sm @(Theme == "de-l-ombre" ? "btn-primary" : "btn-secondary")">De l'ombre</a>
         <a href="/carrieres-liste/martiales-au-contact/@Filtre/" class="mr-2 btn btn-sm @(Theme == "martiales-au-contact" ? "btn-primary" : "btn-secondary")">Au contact</a>
         <a href="/carrieres-liste/martiales-a-distance/@Filtre/" class="mr-2 btn btn-sm @(Theme == "martiales-a-distance" ? "btn-primary" : "btn-secondary")">A distance</a>
@@ -28,7 +30,6 @@
         <a href="/carrieres-liste/urbaines/@Filtre/" class="mr-2 btn btn-sm @(Theme == "urbaines" ? "btn-primary" : "btn-secondary")">Urbaines</a>
         <a href="/carrieres-liste/commerce/@Filtre/" class="mr-2 btn btn-sm @(Theme == "commerce" ? "btn-primary" : "btn-secondary")">Commerce</a>
         <a href="/carrieres-liste/artisanat/@Filtre/" class="mr-2 btn btn-sm @(Theme == "artisanat" ? "btn-primary" : "btn-secondary")">Artisanat</a>
-        <a href="/carrieres-liste/forestieres/@Filtre/" class="mr-2 btn btn-sm @(Theme == "forestieres" ? "btn-primary" : "btn-secondary")">Forestières</a>
         <a href="/carrieres-liste/fluviales/@Filtre/" class="mr-2 btn btn-sm  @(Theme == "fluviales" ? "btn-primary" : "btn-secondary")">Fluviales</a>
         <a href="/carrieres-liste/spiritualite/@Filtre/" class="mr-2 btn btn-sm @(Theme == "spiritualite" ? "btn-primary" : "btn-secondary")">Spiritualité</a>
         <a href="/carrieres-liste/ami-des-betes/@Filtre/" class="mr-2 btn btn-sm @(Theme == "ami-des-betes" ? "btn-primary" : "btn-secondary")">Ami des bêtes</a>
@@ -37,7 +38,7 @@
         <a href="/carrieres-liste/bretonnie/@Filtre/" class="mr-2 btn btn-sm @(Theme == "bretonnie" ? "btn-primary" : "btn-secondary")">Bretonnie</a>
         <a href="/carrieres-liste/kislev/@Filtre/" class="mr-2 btn btn-sm @(Theme == "kislev" ? "btn-primary" : "btn-secondary")">Kislev</a>
         <a href="/carrieres-liste/norsca/@Filtre/" class="mr-2 btn btn-sm @(Theme == "norsca" ? "btn-primary" : "btn-secondary")">Norsca</a>
-        <a href="/carrieres-liste/skaven/@Filtre/" class="mr-2 btn btn-sm @(Theme == "skaven" ? "btn-primary" : "btn-secondary")">Skavens</a>
+        <a href="/carrieres-liste/skavens/@Filtre/" class="mr-2 btn btn-sm @(Theme == "skavens" ? "btn-primary" : "btn-secondary")">Skavens</a>
         <a href="/carrieres-liste/chaos/@Filtre/" class="mr-2 btn btn-sm @(Theme == "chaos" ? "btn-primary" : "btn-secondary")">Chaos</a>
     </div>
 
@@ -48,6 +49,7 @@
             <td></td>
             <td></td>
             <td>Académique</td>
+            <td>Rodeurs</td>
             <td>De l'ombre</td>
             <td>Au contact</td>
             <td>A distance</td>
@@ -55,6 +57,7 @@
             <td>Social</td>
             <td>Commerce</td>
             <td>Arcanique</td>
+            <td>Artisanat</td>
         </tr>
         </thead>
         <tbody>
@@ -87,9 +90,12 @@
                 .Except(_carrieresService.CarrieresChaos)
                 .ToList(),
             "academiques" => carrieres.Where(c => c.ScoreAcademique > 11).OrderByDescending(c => c.ScoreAcademique).ToList(),
+            "arcaniques" => carrieres.Where(c => c.ScoreArcanique > 9).OrderByDescending(c => c.ScoreArcanique).ToList(),
+            "artisanat" => carrieres.Where(c => c.ScoreArtisanat > 6).OrderByDescending(c => c.ScoreArtisanat).ToList(),
             "martiales-au-contact" => carrieres.Where(c => c.ScoreMartialAuContact > 11).OrderByDescending(c => c.ScoreMartialAuContact).ToList(),
             "martiales-a-distance" => carrieres.Where(c => c.ScoreMartialADistance > 11).OrderByDescending(c => c.ScoreMartialADistance).ToList(),
             "cavalerie" => carrieres.Where(c => c.ScoreCavalerie > 0).OrderByDescending(c => c.ScoreCavalerie).ToList(),
+            "rodeurs" => carrieres.Where(c => c.ScoreRodeur > 19).OrderByDescending(c => c.ScoreRodeur).ToList(),
             "de-l-ombre" => carrieres.Where(c => c.ScoreDeLOmbre > 11).OrderByDescending(c => c.ScoreDeLOmbre).ToList(),
             "sociales" => carrieres.Where(c => c.ScoreSocial > 10).OrderByDescending(c => c.ScoreSocial).ToList(),
             "commerce" => carrieres.Where(c => c.ScoreCommerce > 5).OrderByDescending(c => c.ScoreCommerce).ToList(),

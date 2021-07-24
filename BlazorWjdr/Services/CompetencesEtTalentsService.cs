@@ -137,6 +137,28 @@
         public TalentDto TalentCalculMental => GetTalent(7);
         public TalentDto TalentLinguistique => GetTalent(42);
 
+        // Arcanique
+        public CompetenceDto CompetenceConnaissanceAcademiqueEsprits => GetCompetence(141);
+        public CompetenceDto CompetenceConnaissanceAcademiqueMagie => GetCompetence(109);
+        public CompetenceDto CompetenceConnaissanceAcademiqueNecromancie => GetCompetence(110);
+        public CompetenceDto CompetenceFocalisation => GetCompetence(31);
+        public CompetenceDto CompetenceLangageMystique => GetCompetence(36);
+        public CompetenceDto CompetenceLangageMystiqueMagick => GetCompetence(162);
+        public CompetenceDto CompetenceLangageMystiqueDemoniaque => GetCompetence(170);
+        public CompetenceDto CompetenceLangageMystiqueElfeMystique => GetCompetence(171);
+        public CompetenceDto CompetenceLangueClassique => GetCompetence(142);
+        public CompetenceDto CompetenceSensDeLaMagie => GetCompetence(52);
+        public TalentDto TalentSangFroid => GetTalent(76);
+        public TalentDto TalentHarmonieAethyrique => GetTalent(35);
+        public TalentDto TalentMainsAgiles => GetTalent(48);
+        public TalentDto TalentMeditation => GetTalent(63);
+        public TalentDto TalentProjectilePuissant => GetTalent(66);
+        public TalentDto TalentGroupeMagieCommune => GetTalent(44);
+        public TalentDto TalentGroupeMagieMineure => GetTalent(45);
+        public TalentDto TalentMagieNoire => GetTalent(46);
+        public TalentDto TalentMagieVulgaire => GetTalent(47);
+        
+
         // Martial
         public CompetenceDto CompetenceLangSecretBataille => GetCompetence(148);
         public TalentDto TalentAmbidextrie => GetTalent(5);
@@ -250,6 +272,52 @@
         
         // Arcaniques
         //public CompetenceDto
+
+        // Artisanat
+        //public CompetenceDto CompetenceEvaluation => GetCompetence(27);
+        public CompetenceDto CompetenceLangageSecretGuilde => GetCompetence(158);
+        public CompetenceDto CompetenceGroupeMetier => GetCompetence(44);
+        public CompetenceDto CompetenceMetierDeuxAuChoix => GetCompetence(159);
+        public CompetenceDto CompetenceMetierTroisAuChoix => GetCompetence(172);
+        public CompetenceDto CompetenceConnaissancesAcademiquesArts => GetCompetence(102);
+        public CompetenceDto CompetenceConnaissancesAcademiquesIngénierie => GetCompetence(108);
+        public CompetenceDto CompetenceConnaissancesAcademiquesRunes => GetCompetence(112);
+        public CompetenceDto CompetenceConnaissancesAcademiquesSciences => GetCompetence(113);
+        public CompetenceDto CompetenceLangageMystiqueNain => GetCompetence(3);
+        public TalentDto TalentRuneDeuxAuChoix => GetTalent(170);
+        public TalentDto TalentRuneSixAuChoix => GetTalent(171);
+        public TalentDto TalentRuneDixAuChoix => GetTalent(173);
+        public TalentDto TalentRuneMajeureDeuxAuChoix => GetTalent(172);
+        //public CompetenceDto CompetencePreparationDePoisons => GetCompetence(50);
+        public CompetenceDto CompetenceCreationDeRunes => GetCompetence(6);
+        public TalentDto TalentSavoirFaireNain => GetTalent(78);
+        public TalentDto TalentTalentArtistique => GetTalent(86);
+        
+        // Rôdeurs
+        public CompetenceDto CompetenceBraconnage => GetCompetence(5);
+        public CompetenceDto CompetenceAlphabetSecretPisteurs => GetCompetence(86);
+        public CompetenceDto CompetenceAlphabetSecretDeuxAuChoix => GetCompetence(2);
+        //public CompetenceDto CompetenceDeplacementSilencieux 
+        //public CompetenceDto CompetenceDissimulation
+        //public CompetenceDto CompetenceEmpriseSurLesAnimaux
+        public CompetenceDto CompetenceLangageSecretRodeurs => GetCompetence(149);
+        public CompetenceDto CompetenceLangageSecretDeuxAuChoix => GetCompetence(38);
+        //public CompetenceDto CompetenceGroupeLangue
+        public CompetenceDto CompetenceNatation => GetCompetence(45);
+        public CompetenceDto CompetenceOrientation => GetCompetence(47);
+        public CompetenceDto CompetenceMetierCartographe => GetCompetence(63);
+        //public CompetenceDto CompetencePerception
+        //public CompetenceDto CompetenceFouille
+        //public CompetenceDto CompetenceEscalade
+        public CompetenceDto CompetenceSurvie => GetCompetence(55);
+        public CompetenceDto CompetencePistage => GetCompetence(49);
+        //public TalentDto TalentSensAiguises
+        public TalentDto TalentSensDeLOrientation => GetTalent(81);
+        public TalentDto TalentGrandVoyageur => GetTalent(33);
+        //public TalentDto TalentLinguistique
+        //public TalentDto TalentConnaissanceDesPieges
+        public TalentDto TalentSixiemeSens => GetTalent(82);
+        public TalentDto TalentCourseAPied => GetTalent(22);
 
     }
 }

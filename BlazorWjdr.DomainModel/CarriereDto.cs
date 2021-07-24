@@ -41,6 +41,8 @@ namespace BlazorWjdr.Models
         public int ScoreSocial { get; set; }
         public int ScoreCommerce { get; set; }
         public int ScoreArcanique { get; set; }
+        public int ScoreArtisanat { get; set; }
+        public int ScoreRodeur { get; set; }
         public int ScoreReligieux { get; set; }
 
         public List<CompetenceDto> CompetencesPourScore {

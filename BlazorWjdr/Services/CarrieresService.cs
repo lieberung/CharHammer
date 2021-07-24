@@ -132,12 +132,15 @@ namespace BlazorWjdr.Services
                     .OrderBy(c => c.Nom));
 
                 carriere.ScoreAcademique = CalculScoreAcademique(carriere);
+                carriere.ScoreArcanique = CalculScoreArcanique(carriere);
+                carriere.ScoreArtisanat = CalculScoreArtisanat(carriere);
                 carriere.ScoreMartialAuContact = CalculScoreMartialAuContact(carriere);
                 carriere.ScoreMartialADistance = CalculScoreMartialADistance(carriere);
                 carriere.ScoreCavalerie = CalculScoreCavalerie(carriere);
                 carriere.ScoreDeLOmbre = CalculScoreDeLOmbre(carriere);
                 carriere.ScoreSocial = CalculScoreSocial(carriere);
                 carriere.ScoreCommerce = CalculScoreCommerce(carriere);
+                carriere.ScoreRodeur = CalculScoreRodeur(carriere);
             }
         }
 
@@ -271,15 +274,129 @@ namespace BlazorWjdr.Services
 
             if (score == 0)
                 return 0;
+
+            score += CalculBonusAgilite(carriere, 1);
+
+            return score;
+        }
+        
+        private int CalculScoreArcanique(CarriereDto carriere)
+        {
+            var score = carriere.PlanDeCarriere.Mag * 10;
+
+            score += carriere.CompetencesPourScore.Count(c
+                => c == _competencesEtTalentsService.CompetenceConnaissanceAcademiqueMagie
+                   || c == _competencesEtTalentsService.CompetenceConnaissanceAcademiqueEsprits
+                   || c == _competencesEtTalentsService.CompetenceConnaissanceAcademiqueNecromancie
+                   || c == _competencesEtTalentsService.CompetenceLangueClassique
+            ) * 1;
             
+            score += carriere.CompetencesPourScore.Count(c
+                => c == _competencesEtTalentsService.CompetenceFocalisation
+                   || c == _competencesEtTalentsService.CompetenceLangageMystique
+                   || c == _competencesEtTalentsService.CompetenceLangageMystiqueMagick
+                   || c == _competencesEtTalentsService.CompetenceLangageMystiqueDemoniaque
+                   || c == _competencesEtTalentsService.CompetenceLangageMystiqueElfeMystique
+                   || c == _competencesEtTalentsService.CompetenceSensDeLaMagie
+            ) * 2;
+            
+            score += carriere.TalentsPourScore.Count(c
+                => c == _competencesEtTalentsService.TalentHarmonieAethyrique
+                   || c == _competencesEtTalentsService.TalentMainsAgiles
+                   || c == _competencesEtTalentsService.TalentMeditation
+                   || c == _competencesEtTalentsService.TalentProjectilePuissant
+                   || c == _competencesEtTalentsService.TalentMagieVulgaire
+                   || c == _competencesEtTalentsService.TalentMagieNoire
+                   || c.Parent != null && (
+                       c.Parent == _competencesEtTalentsService.TalentGroupeMagieCommune
+                       || c.Parent == _competencesEtTalentsService.TalentGroupeMagieMineure)
+            ) * 2;
+            
+            score += CalculBonusIntelligence(carriere, 1);
+            score += CalculBonusForceMentale(carriere, 1);
+
+            return score;
+        }
+
+        private int CalculScoreArtisanat(CarriereDto carriere)
+        {
+            var score = 0;
+
+            score += carriere.CompetencesPourScore.Count(c
+                => c == _competencesEtTalentsService.CompetenceEvaluation
+                   || c == _competencesEtTalentsService.CompetenceLangageSecretGuilde
+                   || c.Parent == _competencesEtTalentsService.CompetenceGroupeMetier
+                   || c == _competencesEtTalentsService.CompetenceConnaissancesAcademiquesArts
+                   || c == _competencesEtTalentsService.CompetenceConnaissancesAcademiquesIngénierie
+                   || c == _competencesEtTalentsService.CompetenceConnaissancesAcademiquesRunes
+                   || c == _competencesEtTalentsService.CompetenceConnaissancesAcademiquesSciences
+                   || c == _competencesEtTalentsService.CompetencePreparationDePoisons
+                   || c == _competencesEtTalentsService.CompetenceCreationDeRunes
+                   || c == _competencesEtTalentsService.CompetenceLangageMystiqueNain
+            ) * 2;
+
+            if (carriere.CompetencesPourScore.Contains(_competencesEtTalentsService.CompetenceMetierDeuxAuChoix))
+                score += 2;
+            if (carriere.CompetencesPourScore.Contains(_competencesEtTalentsService.CompetenceMetierTroisAuChoix))
+                score += 4;
+            
+            score += carriere.TalentsPourScore.Count(c
+                => c == _competencesEtTalentsService.TalentSavoirFaireNain
+                   || c == _competencesEtTalentsService.TalentTalentArtistique
+            ) * 2;
+
+            if (carriere.TalentsPourScore.Contains(_competencesEtTalentsService.TalentRuneDeuxAuChoix))
+                score += 4;
+            if (carriere.TalentsPourScore.Contains(_competencesEtTalentsService.TalentRuneSixAuChoix))
+                score += 5;
+            if (carriere.TalentsPourScore.Contains(_competencesEtTalentsService.TalentRuneDixAuChoix))
+                score += 6;
+            if (carriere.TalentsPourScore.Contains(_competencesEtTalentsService.TalentRuneMajeureDeuxAuChoix))
+                score += 7;
+            
+            score += CalculBonusIntelligence(carriere, 1);
+            score += CalculBonusAgilite(carriere, 1) / 2;
+
+            return score;
+        }
+
+        private int CalculBonusIntelligence(CarriereDto carriere, int facteur)
+        {
+            var intelligence = carriere.PlanDeCarriere.Int;
+            if (carriere.TalentsPourScore.Any(t => t == _competencesEtTalentsService.TalentIntelligent))
+                intelligence += 5;
+            if (carriere.EstUneCarriereAvancee)
+                intelligence -= 10;
+            var score = 0;
+            if (intelligence > 0)
+                score += (intelligence / 5) * facteur;
+            return score;
+        }
+
+        private int CalculBonusForceMentale(CarriereDto carriere, int facteur)
+        {
+            var forceMentale = carriere.PlanDeCarriere.Fm;
+            if (carriere.TalentsPourScore.Any(t => t == _competencesEtTalentsService.TalentSangFroid))
+                forceMentale += 5;
+            if (carriere.EstUneCarriereAvancee)
+                forceMentale -= 10;
+            var score = 0;
+            if (forceMentale > 0)
+                score += (forceMentale / 5) * facteur;
+            return score;
+        }
+
+        private int CalculBonusAgilite(CarriereDto carriere, int facteur)
+        {
+            var score = 0;
             var agilite = carriere.PlanDeCarriere.Ag;
             if (carriere.TalentsPourScore.Any(t => t == _competencesEtTalentsService.TalentReflexesEclairs))
                 agilite += 5;
             if (carriere.EstUneCarriereAvancee)
                 agilite -= 10;
             if (agilite > 0)
-                score += (agilite / 5);
-
+                score += (agilite / 5) * facteur;
+            
             return score;
         }
 
@@ -306,13 +423,7 @@ namespace BlazorWjdr.Services
                    || c == _competencesEtTalentsService.TalentLinguistique
             ) * 2;
 
-            var intelligence = carriere.PlanDeCarriere.Int;
-            if (carriere.TalentsPourScore.Any(t => t == _competencesEtTalentsService.TalentIntelligent))
-                intelligence += 5;
-            if (carriere.EstUneCarriereAvancee)
-                intelligence -= 10;
-            if (intelligence > 0)
-                score += (intelligence / 5) * 3;
+            score += CalculBonusIntelligence(carriere, 3);
 
             return score;
         }
@@ -396,6 +507,62 @@ namespace BlazorWjdr.Services
                 agilite -= 10;
             if (agilite > 0)
                 score += (agilite / 5) * 3;
+            return score;
+        }
+
+        private int CalculScoreRodeur(CarriereDto carriere)
+        {
+            var score = 0;
+
+            score += carriere.CompetencesPourScore.Count(c
+                => c == _competencesEtTalentsService.CompetenceAlphabetSecretPisteurs
+                || c == _competencesEtTalentsService.CompetenceAlphabetSecretDeuxAuChoix
+                || c == _competencesEtTalentsService.CompetenceLangageSecretRodeurs
+                || c == _competencesEtTalentsService.CompetenceLangageSecretDeuxAuChoix
+                || c == _competencesEtTalentsService.CompetenceSurvie
+                || c == _competencesEtTalentsService.CompetencePistage
+            ) * 4;
+
+            score += carriere.CompetencesPourScore.Count(c
+                => c == _competencesEtTalentsService.CompetenceBraconnage
+                   || c == _competencesEtTalentsService.CompetenceDeplacementSilencieux
+                   || c == _competencesEtTalentsService.CompetenceDissimulation
+                   || c == _competencesEtTalentsService.CompetenceEmpriseSurLesAnimaux
+                   || c == _competencesEtTalentsService.CompetenceNatation
+                   || c == _competencesEtTalentsService.CompetenceOrientation
+                   || c == _competencesEtTalentsService.CompetencePerception
+                   || c == _competencesEtTalentsService.CompetenceEscalade
+            ) * 2;
+
+            score += carriere.CompetencesPourScore.Count(c
+                => c.Parent == _competencesEtTalentsService.CompetenceGroupeConnaissancesGenerales
+                || c.Parent == _competencesEtTalentsService.CompetenceGroupeLangue
+                || c == _competencesEtTalentsService.CompetenceFouille
+                || c == _competencesEtTalentsService.CompetenceMetierCartographe
+                || c == _competencesEtTalentsService.CompetenceSoinsDesAnimaux
+            );
+
+            score += carriere.TalentsPourScore.Count(c
+                => c == _competencesEtTalentsService.TalentSensAiguises
+                   || c == _competencesEtTalentsService.TalentAccuiteAuditive
+                   || c == _competencesEtTalentsService.TalentAccuiteVisuelle
+                   || c == _competencesEtTalentsService.TalentSensDeLOrientation
+                   || c == _competencesEtTalentsService.TalentCamouflageRural
+                   || c == _competencesEtTalentsService.TalentGrandVoyageur
+                   || c == _competencesEtTalentsService.TalentLinguistique
+                   || c == _competencesEtTalentsService.TalentConnaissanceDesPieges
+                   || c == _competencesEtTalentsService.TalentSixiemeSens
+                   || c == _competencesEtTalentsService.TalentMaitriseArcsLongs
+                   || c == _competencesEtTalentsService.TalentMaitriseArmesParalisantes
+                   || c == _competencesEtTalentsService.TalentTireurDElite
+            ) * 2;
+
+            if (carriere.TalentsPourScore.Contains(_competencesEtTalentsService.TalentCourseAPied))
+                score += 4;
+            
+            score += CalculBonusIntelligence(carriere, 1) / 2;
+            score += CalculBonusAgilite(carriere, 1) / 2;
+
             return score;
         }
 
