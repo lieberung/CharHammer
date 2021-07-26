@@ -1,10 +1,76 @@
-﻿@page "/talent/{TalentId}"
+﻿@page "/talents/{TalentId}/"
+
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CarrieresService _carrieresService
 
 <MainTopRow>
-    <span class="title-primary top-row-title">Chronologie</span>
-    <h3>Nom du talent</h3>
 </MainTopRow>
 
 <div class="content px-4">
-    <h1>Nom du talent</h1>
+
+    <div class="row">
+        
+        <div class="col-6" style="padding-right: 0;">
+            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                
+                <h5 class="card-title" style="font-size: xxx-large;">@Talent.Nom</h5>
+                @foreach (var paragraphe in Talent.Description.Replace('\r', '\n').Replace("\n\n", "\n").Split('\n'))
+                {
+                    <p class="card-text" style="text-align:justify;">
+                        @paragraphe
+                    </p>
+                }
+                
+                <h5 class="card-title">Résumé</h5>
+                <p class="card-text" style="text-align:justify;">
+                    @Talent.Resume
+                </p>
+
+                <h5 class="card-title">Compétences liées</h5>
+                <p class="card-text">
+                    @if (Talent.CompetencesLiees.Any())
+                    {
+                        <CompetenceItemList Items="@Talent.CompetencesLiees.ToArray()"/>    
+                    }
+                    else
+                    {
+                        <em>Aucune</em>
+                    }
+                </p>
+                
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                
+                <h5 class="card-title title-primary">Carrières proposant ce talent</h5>
+                <p class="card-text">
+                    <CarriereItemList Items="@_carrieres"/>
+                </p>
+                
+            </div>
+        </div>
+
+    </div>
+
 </div>
+@code {
+    [Parameter]
+    public string TalentId { get; set; }
+
+    private TalentDto Talent { get; set; } = null!;
+    
+    private CarriereDto[] _carrieres = null!;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Talent = _competencesEtTalentsService.GetTalent(int.Parse(TalentId));
+        _carrieres = await _carrieresService.GetCarrieresProposant(Talent);
+    }
+}

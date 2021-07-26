@@ -126,6 +126,18 @@
             }
         }
 
+        #region Competences & Talents
+        
+        // Caractéristiques
+        public TalentDto TalentGuerrierNe => GetTalent(34);
+        public TalentDto TalentTireurDElite => GetTalent(90);
+        public TalentDto TalentForceAccrue => GetTalent(29);
+        public TalentDto TalentResistanceAccrue => GetTalent(69);
+        public TalentDto TalentReflexesEclairs => GetTalent(80);
+        public TalentDto TalentIntelligent => GetTalent(39);
+        public TalentDto TalentSangFroid => GetTalent(76);
+        public TalentDto TalentSociable => GetTalent(83);
+
         // Académique
         public CompetenceDto CompetenceGroupeConnaissancesAcademiques => GetCompetence(13);
         public CompetenceDto CompetenceGroupeConnaissancesGenerales => GetCompetence(14);
@@ -133,7 +145,6 @@
         public CompetenceDto CompetenceConnaissancesAcademiquesDeuxAuChoix => GetCompetence(169);
         public CompetenceDto CompetenceConnaissancesAcademiquesTroisAuChoix => GetCompetence(166);
         public CompetenceDto CompetenceLireEcrire => GetCompetence(42);
-        public TalentDto TalentIntelligent => GetTalent(39);
         public TalentDto TalentCalculMental => GetTalent(7);
         public TalentDto TalentLinguistique => GetTalent(42);
 
@@ -148,7 +159,6 @@
         public CompetenceDto CompetenceLangageMystiqueElfeMystique => GetCompetence(171);
         public CompetenceDto CompetenceLangueClassique => GetCompetence(142);
         public CompetenceDto CompetenceSensDeLaMagie => GetCompetence(52);
-        public TalentDto TalentSangFroid => GetTalent(76);
         public TalentDto TalentHarmonieAethyrique => GetTalent(35);
         public TalentDto TalentMainsAgiles => GetTalent(48);
         public TalentDto TalentMeditation => GetTalent(63);
@@ -157,7 +167,6 @@
         public TalentDto TalentGroupeMagieMineure => GetTalent(45);
         public TalentDto TalentMagieNoire => GetTalent(46);
         public TalentDto TalentMagieVulgaire => GetTalent(47);
-        
 
         // Martial
         public CompetenceDto CompetenceLangSecretBataille => GetCompetence(148);
@@ -165,7 +174,6 @@
         public TalentDto TalentCoupsPrécis => GetTalent(20);
         public TalentDto TalentGroupeMaitrise => GetTalent(50);
         public TalentDto TalentSurSesGardes => GetTalent(85);
-        public TalentDto TalentForceAccrue => GetTalent(29);
         public TalentDto TalentTroublant => GetTalent(91);
         public TalentDto TalentMaitriseUneAuChoix => GetTalent(153);
         public TalentDto TalentMaitriseDeuxAuChoix => GetTalent(152);
@@ -181,11 +189,9 @@
         public TalentDto TalentDesarmement => GetTalent(23);
         public TalentDto TalentDurACuir => GetTalent(24);
         public TalentDto TalentFrenesie => GetTalent(30);
-        public TalentDto TalentGuerrierNe => GetTalent(34);
         public TalentDto TalentParadeEclair => GetTalent(65);
         public TalentDto TalentLutte => GetTalent(43);
         public TalentDto TalentEffrayant => GetTalent(26);
-        public TalentDto TalentResistanceAccrue => GetTalent(69);
         public TalentDto TalentRobuste => GetTalent(74);
         public TalentDto TalentValeureux => GetTalent(92);
         public TalentDto TalentGroupeVertu => GetTalent(206);
@@ -200,7 +206,6 @@
         // Martial Distance
         public CompetenceDto CompetenceMetierArquebusier => GetCompetence(59);
         public TalentDto TalentAdresseAuTir => GetTalent(4);
-        public TalentDto TalentTireurDElite => GetTalent(90);
         public TalentDto TalentRechergementRapide => GetTalent(67);
         public TalentDto TalentTirDePrecision => GetTalent(88);
         public TalentDto TalentTirEnPuissance => GetTalent(89);
@@ -234,7 +239,6 @@
         public TalentDto TalentAccuiteAuditive => GetTalent(2);
         public TalentDto TalentAccuiteVisuelle => GetTalent(3);
         public TalentDto TalentFilature => GetTalent(30);
-        public TalentDto TalentReflexesEclairs => GetTalent(80);
         public TalentDto TalentLectureSurLesLevres => GetTalent(41);
         public TalentDto TalentPistage => GetTalent(49);
         
@@ -249,32 +253,25 @@
         public TalentDto TalentPolitique => GetTalent(174);
         public TalentDto TalentEtiquette => GetTalent(28);
         public TalentDto TalentIntriguant => GetTalent(40);
-        public TalentDto TalentSociable => GetTalent(83);
         
-        // Commerce
+        // Commerce  + TalentCalculMental
         public CompetenceDto CompetenceMarchandage => GetCompetence(43);
         public CompetenceDto CompetenceMetierMarchand => GetCompetence(78);
         public CompetenceDto CompetenceEvaluation => GetCompetence(179);
         public CompetenceDto CompetenceExpressionArtistiqueConteur => GetCompetence(123);
-        //public TalentDto TalentCalculMental => GetTalent(7);
         public TalentDto TalentDurEnAffaires => GetTalent(25);
 
-        // Cavalerie
+        // Cavalerie  + CompetenceMetierVendeurDeChevaux, TalentMaitriseArmesDeCavalerie
         public CompetenceDto CompetenceEquitation => GetCompetence(23);
+        public CompetenceDto CompetenceEquitationCochonDeGuerre => GetCompetence(152);
         public CompetenceDto CompetenceExpressionArtistiqueAcrobatEquestre => GetCompetence(153);
         public CompetenceDto CompetenceEmpriseSurLesAnimaux => GetCompetence(22);
         public CompetenceDto CompetenceSoinsDesAnimaux => GetCompetence(54);
         public CompetenceDto CompetenceMetierGarconDEcurie => GetCompetence(180);
-        public CompetenceDto CompetenceMetierVendeurDeCheveaux => GetCompetence(177);
         public CompetenceDto CompetenceDressage => GetCompetence(21);
-        //public TalentDto TalentMaitriseArmesDeCavalerie => GetTalent(54);
         public TalentDto TalentAcrobateEquestre => GetTalent(1);
-        
-        // Arcaniques
-        //public CompetenceDto
 
-        // Artisanat
-        //public CompetenceDto CompetenceEvaluation => GetCompetence(27);
+        // Artisanat  + CompetencePreparationDePoisons, CompetenceEvaluation
         public CompetenceDto CompetenceLangageSecretGuilde => GetCompetence(158);
         public CompetenceDto CompetenceGroupeMetier => GetCompetence(44);
         public CompetenceDto CompetenceMetierDeuxAuChoix => GetCompetence(159);
@@ -288,36 +285,44 @@
         public TalentDto TalentRuneSixAuChoix => GetTalent(171);
         public TalentDto TalentRuneDixAuChoix => GetTalent(173);
         public TalentDto TalentRuneMajeureDeuxAuChoix => GetTalent(172);
-        //public CompetenceDto CompetencePreparationDePoisons => GetCompetence(50);
         public CompetenceDto CompetenceCreationDeRunes => GetCompetence(6);
         public TalentDto TalentSavoirFaireNain => GetTalent(78);
         public TalentDto TalentTalentArtistique => GetTalent(86);
         
-        // Rôdeurs
+        // Rôdeurs  + CompetenceDeplacementSilencieux, CompetenceDissimulation, CompetenceEmpriseSurLesAnimaux, CompetenceGroupeLangue
+        //          , CompetencePerception, CompetenceFouille, CompetenceEscalade, TalentLinguistique, TalentConnaissanceDesPieges
         public CompetenceDto CompetenceBraconnage => GetCompetence(5);
         public CompetenceDto CompetenceAlphabetSecretPisteurs => GetCompetence(86);
         public CompetenceDto CompetenceAlphabetSecretDeuxAuChoix => GetCompetence(2);
-        //public CompetenceDto CompetenceDeplacementSilencieux 
-        //public CompetenceDto CompetenceDissimulation
-        //public CompetenceDto CompetenceEmpriseSurLesAnimaux
         public CompetenceDto CompetenceLangageSecretRodeurs => GetCompetence(149);
         public CompetenceDto CompetenceLangageSecretDeuxAuChoix => GetCompetence(38);
-        //public CompetenceDto CompetenceGroupeLangue
-        public CompetenceDto CompetenceNatation => GetCompetence(45);
         public CompetenceDto CompetenceOrientation => GetCompetence(47);
         public CompetenceDto CompetenceMetierCartographe => GetCompetence(63);
-        //public CompetenceDto CompetencePerception
-        //public CompetenceDto CompetenceFouille
-        //public CompetenceDto CompetenceEscalade
         public CompetenceDto CompetenceSurvie => GetCompetence(55);
         public CompetenceDto CompetencePistage => GetCompetence(49);
-        //public TalentDto TalentSensAiguises
         public TalentDto TalentSensDeLOrientation => GetTalent(81);
         public TalentDto TalentGrandVoyageur => GetTalent(33);
-        //public TalentDto TalentLinguistique
-        //public TalentDto TalentConnaissanceDesPieges
         public TalentDto TalentSixiemeSens => GetTalent(82);
         public TalentDto TalentCourseAPied => GetTalent(22);
 
+        // Maritimes  + CompetenceOrientation, CompetenceMetierCartographe, TalentGrandVoyageur
+        public CompetenceDto CompetenceCanotage => GetCompetence(7);
+        public CompetenceDto CompetenceNatation => GetCompetence(45);
+        public CompetenceDto CompetenceNavigation => GetCompetence(46);
+        public CompetenceDto CompetenceConnaissancesAcademiquesAstronomie => GetCompetence(103);
+        public CompetenceDto CompetenceConnaissancesAcademiquesPotamologie => GetCompetence(189);
+        public CompetenceDto CompetenceMetierCharpentierNaval => GetCompetence(65);
+        
+        // Poudre noire  + CompetenceMetierArquebusier, TalentMaitriseArmesAFeu
+
+        // Ami des bêtes  + CompetenceMetierGarconDEcurie
+        public CompetenceDto CompetenceMetierVendeurDeChevaux => GetCompetence(177);
+        public CompetenceDto CompetenceMetierMaitreChien => GetCompetence(178);
+        public CompetenceDto CompetenceMetierFauconnerie => GetCompetence(179);
+        public CompetenceDto CompetenceConnaissancesAcademiquesZoologie => GetCompetence(188);
+        public CompetenceDto CompetenceMetierFermier => GetCompetence(74);
+        public CompetenceDto CompetenceConduiteDAttelage => GetCompetence(12);
+        
+        #endregion
     }
 }

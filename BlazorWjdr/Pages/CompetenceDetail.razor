@@ -1,36 +1,67 @@
-﻿@page "/competence/{CompetenceId}/"
+﻿@page "/competences/{CompetenceId}/"
 
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
 
-<div class="top-row px-4">
-    <span class="title-primary top-row-title">@Competence.Nom</span>
-</div>
+@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CarrieresService _carrieresService
+
+<MainTopRow>
+</MainTopRow>
 
 <div class="content px-4">
-    <div class="card">
-        <h3 class="card-header">@Competence.Nom</h3>
+
+    <div class="row">
         
-        <div class="card-body">
-            <div class="alert alert-info" role="alert">
-                <span class="oi oi-book mr-1" aria-hidden="true"></span>
-                @Competence.CaracteristiqueAssociee
+        <div class="col-6" style="padding-right: 0;">
+            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                
+                <h5 class="card-title" style="font-size: xxx-large;">@Competence.Nom</h5>
+                <CompetenceDescription Item="@Competence"/>
+
+                <h5 class="card-title">Talents liés</h5>
+                <p class="card-text">
+                    @if (Competence.TalentsLies.Any())
+                    {
+                        <TalentItemList Items="@Competence.TalentsLies.ToArray()"/>    
+                    }
+                    else
+                    {
+                        <em>Aucun</em>
+                    }
+                </p>
+                
             </div>
         </div>
 
-        <div class="card-body">
-            <h5 class="card-title title-primary">Description</h5>
-            <p class="card-text">@Competence.ResumeComplet</p>
+        <div class="col-6">
+            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                
+                <h5 class="card-title title-primary">Carrières proposant cette compétence</h5>
+                <p class="card-text">
+                    <CarriereItemList Items="@_carrieres"/>
+                </p>
+                
+            </div>
         </div>
 
-        <div class="card-body">
-            <h5 class="card-title title-primary">Talents liés</h5>
-            <TalentItemList Title="Talents" Items="@Competence.TalentsLies.ToArray()" />
-        </div>
-
-        <div class="card-body">
-            <CarriereItemList Title="Carrières proposant cette compétence" Items="@_carrieres"/>
-        </div>
     </div>
-</div>
 
+</div>
+@code {
+    [Parameter]
+    public string CompetenceId { get; set; }
+
+    private CompetenceDto Competence { get; set; } = null!;
+    
+    private CarriereDto[] _carrieres = null!;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        Competence = _competencesEtTalentsService.GetCompetence(int.Parse(CompetenceId));
+        _carrieres = await _carrieresService.GetCarrieresProposant(Competence);
+    }
+}

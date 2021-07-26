@@ -57,5 +57,6 @@
         public ReferenceDto LivreLeDucheDesDamnes => GetReference(16);
         public ReferenceDto LivreLaReineDesGlaces => GetReference(14);
         public ReferenceDto LivreLesFilsDuRatCornu => GetReference(17);
+        public ReferenceDto LivreLeTomeDeLaRedemption => GetReference(13);
     }
 }

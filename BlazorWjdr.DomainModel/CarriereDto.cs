@@ -43,6 +43,9 @@ namespace BlazorWjdr.Models
         public int ScoreArcanique { get; set; }
         public int ScoreArtisanat { get; set; }
         public int ScoreRodeur { get; set; }
+        public int ScoreMaritime { get; set; }
+        public int ScorePoudreNoire { get; set; }
+        public int ScoreAmiDesBetes { get; set; }
         public int ScoreReligieux { get; set; }
 
         public List<CompetenceDto> CompetencesPourScore {

@@ -45,7 +45,13 @@
         </div>
 
         <div class="row">
-            <div class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-5" : "-7")">
+            <div class="col-5"> <!-- class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-5" : "-7")"-->
+            </div>
+            <div class="col-7"> <!--@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-7" : "-5")"-->
+                <div class="card-body">
+                    <h5 class="card-title">Débouchés</h5>
+                    <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
+                </div>
                 @if (Carriere.Filieres.Any() || Carriere.EstUneCarriereAvancee == false)
                 {
                     <div class="card-body">
@@ -57,12 +63,6 @@
                         }
                     </div>
                 }
-            </div>
-            <div class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-7" : "-5")">
-                <div class="card-body">
-                    <h5 class="card-title">Débouchés</h5>
-                    <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
-                </div>
             </div>
         </div>
     </div>

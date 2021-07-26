@@ -311,6 +311,7 @@
 {"id":310,"choixcompetencekeys":[4,51]},
 {"id":311,"choixcompetencekeys":[8,9]},
 {"id":312,"choixcompetencekeys":[4,10]},
-{"id":313,"choixcompetencekeys":[34,35]}
+{"id":313,"choixcompetencekeys":[34,35]},
+{"id":314,"choixcompetencekeys": [27,46]}
 	]
 }

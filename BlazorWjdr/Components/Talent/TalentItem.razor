@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Models
-<a href="/talents/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="/talents/@Item.Id.ToString()/" class="btn btn-light btn-item" target="_blank">
     <span class="oi oi-brush item-icon mr-1" aria-hidden="true"></span>
     @if (string.IsNullOrWhiteSpace(Item.GetDescritpion())) {
         @Item.Nom

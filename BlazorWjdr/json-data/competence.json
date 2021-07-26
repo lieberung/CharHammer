@@ -187,5 +187,7 @@
     {"id":180,"fk_talentslies":[78],"fk_competencemereid":44,"ignorer":false,"de_base":false,"carac":"Int","nom":"Métier","resume":"Trade - stableman","specialisation":"garçon d'écurie"},
     {"id":179,"fk_talentslies":[78],"fk_competencemereid":44,"ignorer":false,"de_base":false,"carac":"Int","nom":"Métier","resume":"Trade - aviarist","specialisation":"fauconnerie"},
     {"id":187,"fk_competencemereid":44,"ignorer":false,"de_base":false,"carac":"Ag","nom":"Métier","resume":"Adaptation tirée du scénario \"En terrain découvert\" du webzine Easternwest","specialisation":"rotzball"},
+    {"id":188,"fk_competencemereid":13,"ignorer":false,"de_base":false,"carac":"Int","nom":"Conn. académiques","resume":"","specialisation":"zoologie"},
+    {"id":189,"fk_competencemereid":13,"ignorer":false,"de_base":false,"carac":"Int","nom":"Conn. académiques","resume":"Connaissance des fleuves","specialisation":"potamologie"}
   ]
 }
