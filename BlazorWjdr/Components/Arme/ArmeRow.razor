@@ -1,0 +1,36 @@
+﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Services
+
+@inject CarrieresService _carrieresService
+@inject ArmesService _armesService
+
+<tr>
+    <td>
+        @Item.Nom
+    </td>
+    <td>
+        @if (Item.TalentsDeMaitrise.Any())
+        {
+            <TalentItem Item="@Item.TalentsDeMaitrise.First()"/>
+        }
+        else
+        {
+            <span>@Item.Groupe</span>
+        }
+    </td>
+    <td>
+        <AttributDArmeItemList Items="@Item.Attributs.ToArray()"/>
+    </td>
+    <td>@Item.Degats</td>
+    <td>@Item.Portee</td>
+    <td>@Item.Rechargement</td>
+    <td>@Item.Encombrement</td>
+    <td>@Item.Prix</td>
+    <td>@Item.Disponibilite</td>
+</tr>
+@code {
+    [Parameter]
+    public ArmeDto Item { get; set; } = null!;
+}

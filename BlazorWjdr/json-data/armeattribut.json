@@ -9,6 +9,7 @@
     {"id":16,"nom":"Perforante","description":"Les armes dotées de cet attribut sont particulièrement efficaces pour transpercer les armures. Les attaques portées au moyen de ces armes ignorent 1 point d'Armure. Si la cible ne possède pas d'armure, cet attribut reste sans effet. Vous pouvez combiner ce bonus à celui qui est associé au talent Tir de précision."},
     {"id":17,"nom":"Précise","description":"Les armes dotées de cet attribut sont d'une précision mortelle. Quand vous utilisez une telle arme, la valeur critique de tout coup critique augmente de l.Vous pouvez combiner ce bonus avec celui qui est associé au talent Coups précis."},
     {"id":18,"nom":"Rapide","description":"Les armes dotées de cet attribut frappent rapidement car elles sont particulièrement longues ou maniables. Les adversaires subissent un malus de -10% quand ils tentent de parer ou d'esquiver les attaques de ces armes."},
-    {"id":19,"nom":"Spéciale","description":"Reportez-vous à la description de l'arme pour les règles particulières qui la concernent."}
+    {"id":19,"nom":"Spéciale","description":"Reportez-vous à la description de l'arme pour les règles particulières qui la concernent."},
+    {"id":20,"nom":"Expérimentale","description":"Reportez-vous à la description de l'arme pour les règles particulières qui la concernent."}
   ]
 }

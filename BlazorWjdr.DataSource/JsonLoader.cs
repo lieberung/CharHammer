@@ -19,6 +19,8 @@
         public static RootDomaine GetRootDomaine() => LoadRootFromJson<RootDomaine>("./json-data/domaine.json");
         public static RootLieu GetRootLieu() => LoadRootFromJson<RootLieu>("./json-data/lieu.json");
         public static RootLieuType GetRootLieuType() => LoadRootFromJson<RootLieuType>("./json-data/lieutype.json");
+        public static RootArme GetRootArme() => LoadRootFromJson<RootArme>("./json-data/arme.json");
+        public static RootArmeAttribut GetRootArmeAttribut() => LoadRootFromJson<RootArmeAttribut>("./json-data/armeattribut.json");
         public static RootPersonnage GetRootPersonnage() => LoadRootFromJson<RootPersonnage>("./json-data/personnage.json");
         public static RootPj GetRootPj() => LoadRootFromJson<RootPj>("./json-data/pj.json");
         public static RootProfil GetRootProfil() => LoadRootFromJson<RootProfil>("./json-data/profil.json");

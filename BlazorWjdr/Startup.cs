@@ -27,6 +27,7 @@ namespace BlazorWjdr
             services.AddSingleton<RacesService>();
             services.AddSingleton<ReferencesService>();
             services.AddSingleton<LieuxService>();
+            services.AddSingleton<ArmesService>();
             services.AddSingleton<ChronologieService>();
             services.AddSingleton<ProfilsService>();
             services.AddSingleton<CompetencesEtTalentsService>();

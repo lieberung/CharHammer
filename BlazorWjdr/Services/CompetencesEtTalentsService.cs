@@ -245,6 +245,7 @@
         public TalentDto TalentMaitriseArmesMecaniques => GetTalent(59);
         public TalentDto TalentMaitriseLancePierres => GetTalent(62);
         public TalentDto TalentMaitriseExplosifs => GetTalent(208);
+        public List<TalentDto> TalentsMaitriseADistance => new() {TalentMaitriseArbaletes, TalentMaitriseArcsLongs, TalentMaitriseArmesAFeu, TalentMaitriseArmesDeJet, TalentMaitriseArmesMecaniques, TalentMaitriseLancePierres, TalentMaitriseExplosifs };
         
         // De l'ombre
         public CompetenceDto CompetenceAlphSecretVoleurs => GetCompetence(89);

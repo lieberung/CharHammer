@@ -1,0 +1,96 @@
+﻿@page "/armes-liste/{Groupe}/{Filtre}/"
+
+@using BlazorWjdr.Components.Arme
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject ArmesService _armesService
+@inject CompetencesEtTalentsService _competencesEtTalentsService
+
+<MainTopRow>
+    <span class="title-primary top-row-title">Armes</span>
+    <span style="margin-left: 160px;">
+        <a style="width:120px; margin-top:-10px;" href="/armes-liste/@Groupe/toutes/" class="mr-2 btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+        <a style="width:120px; margin-top:-10px;" href="/armes-liste/@Groupe/corps-a-corps/" class="mr-2 btn btn-sm @(Filtre == "corps-a-corps" ? "btn-primary" : "btn-secondary")">Corps à corps</a>
+        <a style="width:120px; margin-top:-10px;" href="/armes-liste/@Groupe/tir/" class="mr-2 btn btn-sm @(Filtre == "tir" ? "btn-primary" : "btn-secondary")">Tir</a>
+    </span>
+</MainTopRow>
+
+<div class="content px-4">
+    
+    <div class="ml-3 mb-3 pl-2">
+
+        <div class="row">
+            <div class="col-1">
+                <a href="/armes-liste/toutes/@Filtre/" class="mb-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+            </div>
+            <div class="col-5">
+                <a href="/armes-liste/ordinaires/@Filtre/" class="mb-1 btn btn-sm @(Groupe == "ordinaires" ? "btn-primary" : "btn-secondary")">Ordinaires</a>
+                @foreach (var maitrise in _competencesEtTalentsService.TalentsMaitriseAuContact)
+                {
+                    <a href="/armes-liste/@(maitrise.Specialisation)/@Filtre/" class="mb-1 btn btn-sm @(Groupe == "@(maitrise.Specialisation)" ? "btn-primary" : "btn-secondary")">@maitrise.Specialisation</a>
+                }
+            </div>
+            <div class="col-5">
+                @foreach (var maitrise in _competencesEtTalentsService.TalentsMaitriseADistance)
+                {
+                    <a href="/armes-liste/@(maitrise.Specialisation)/@Filtre/" class="mb-1 btn btn-sm @(Groupe == "@(maitrise.Specialisation)" ? "btn-primary" : "btn-secondary")">@maitrise.Specialisation</a>
+                }
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Arme</td>
+            <td>Groupe</td>
+            <td>Attributs</td>
+            <td>Dégâts</td>
+            <td>Portée</td>
+            <td>Rechargement</td>
+            <td>Enc.</td>
+            <td>Prix</td>
+            <td>Disponibilité</td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var arme in _armesLines)
+        {
+            <ArmeRow Item="arme"/>
+        }
+        </tbody>
+    </table>
+    
+</div>
+@code {
+
+    [Parameter]
+    public string Groupe { get; set; } = "";
+    [Parameter]
+    public string Filtre { get; set; } = "";    
+    
+
+    private List<ArmeDto> _armesLines = null!;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var armes = await _armesService.Items();
+
+        if (Groupe != "toutes")
+        {
+            var maitrise = _competencesEtTalentsService.TalentGroupeMaitrise.SousElements.Single(t => t.Specialisation == Groupe);
+            _armesLines = armes.Where(a => a.TalentsDeMaitrise.Contains(maitrise)).ToList();
+        }
+        else
+        {
+            _armesLines = armes.ToList();
+        }
+        
+        if (Filtre == "corps-a-corps")
+            _armesLines.RemoveAll(c => c.Portee != "");
+        if (Filtre == "tir")
+            _armesLines.RemoveAll(c => c.Portee == "");
+
+    }
+}
