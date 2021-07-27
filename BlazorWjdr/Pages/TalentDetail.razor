@@ -22,7 +22,14 @@
                 @foreach (var paragraphe in Talent.Description.Replace('\r', '\n').Replace("\n\n", "\n").Split('\n'))
                 {
                     <p class="card-text" style="text-align:justify;">
-                        @paragraphe
+                        @if (paragraphe.StartsWith("•"))
+                        {
+                            <strong>@paragraphe</strong>
+                        }
+                        else
+                        {
+                            @paragraphe
+                        }
                     </p>
                 }
                 

@@ -642,25 +642,30 @@
         {
             if (!carriere.TalentsPourScore.Any(c
                 => c == _competencesEtTalentsService.TalentMaitreArtilleur
-                   || c == _competencesEtTalentsService.TalentMaitriseArmesAFeu))
+                || c == _competencesEtTalentsService.TalentMaitriseArmesAFeu
+                || c == _competencesEtTalentsService.TalentMaitriseExplosifs
+                || c == _competencesEtTalentsService.TalentMaitriseArmesMecaniques
+            ))
                 return 0;
             
             var score = 0;
             score += carriere.CompetencesPourScore.Count(c
                 => c == _competencesEtTalentsService.CompetenceMetierArquebusier
-            ) * 2;
+            );
 
             score += carriere.TalentsPourScore.Count(c
                 => c == _competencesEtTalentsService.TalentMaitreArtilleur
                 || c == _competencesEtTalentsService.TalentMaitriseArmesAFeu
+                || c == _competencesEtTalentsService.TalentMaitriseArmesMecaniques
+                || c == _competencesEtTalentsService.TalentMaitriseExplosifs
                 || c == _competencesEtTalentsService.TalentAdresseAuTir
                 || c == _competencesEtTalentsService.TalentRechergementRapide
                 || c == _competencesEtTalentsService.TalentSurSesGardes
                 || c == _competencesEtTalentsService.TalentTirDePrecision
                 || c == _competencesEtTalentsService.TalentTirEnPuissance
-            ) * 2;
+            );
 
-            score += CalculBonusCapaciteDeTir(carriere) * 2;
+            score += CalculBonusCapaciteDeTir(carriere);
             
             return score;
         }
