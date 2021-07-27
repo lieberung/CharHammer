@@ -91,9 +91,10 @@ namespace BlazorWjdr.Services
                     Sexe = c.sexe,
                     Taille = c.taille,
                     ProfilActuel = _profilsService.GetProfil(c.fk_profilactuelid),
-                    Competences = c.fk_competences  != null ?
-                        _competencesEtTalentsService.GetCompetences(c.fk_competences).ToArray()
-                        : Array.Empty<CompetenceDto>(),
+                    CompetencesAcquises = CompetenceAcquise.GetList(
+                        c.fk_competences  != null
+                            ? _competencesEtTalentsService.GetCompetences(c.fk_competences).ToArray()
+                            : Array.Empty<CompetenceDto>()),
                     Talents = c.fk_talents != null ?
                         _competencesEtTalentsService.GetTalents(c.fk_talents).ToArray()
                         : Array.Empty<TalentDto>(),

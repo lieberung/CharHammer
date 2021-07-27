@@ -13,7 +13,8 @@ namespace BlazorWjdr.Models
         public string Nom { get; init; } = null!;
         public string Histoire { get; init; } = null!;
         public string Commentaire { get; init; }
-        public CompetenceDto[] Competences { get; init; }
+        public CompetenceAcquise[] CompetencesAcquises { get; init; }
+
         public TalentDto[] Talents { get; init; }
         public LieuDto[] Origines { get; init; }
         public RaceDto Race { get; init; }

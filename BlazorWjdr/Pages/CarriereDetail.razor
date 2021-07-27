@@ -49,20 +49,25 @@
             </div>
             <div class="col-7"> <!--@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-7" : "-5")"-->
                 <div class="card-body">
+                    
                     <h5 class="card-title">Débouchés</h5>
-                    <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
-                </div>
-                @if (Carriere.Filieres.Any() || Carriere.EstUneCarriereAvancee == false)
-                {
-                    <div class="card-body">
-                        <h5 class="card-title">Filières</h5>
-                        <CarriereItemList Items="@Carriere.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"/>
+                    <p class="card-text">
+                        <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
+                    </p>
+
+                    <h5 class="card-title">Filières</h5>
+                    <p class="card-text">
+                        @if (Carriere.Filieres.Any())
+                        {
+                            <CarriereItemList Items="@Carriere.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"/>
+                        }
                         @if (Carriere.EstUneCarriereAvancee == false)
                         {
                             <CarriereDeBase/>
                         }
-                    </div>
-                }
+                    </p>
+                    
+                </div>
             </div>
         </div>
     </div>

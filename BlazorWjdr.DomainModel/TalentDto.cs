@@ -5,8 +5,11 @@
     public class TalentDto
     {
         public int Id { get; init; }
+        
         public string Nom { get; init; } = null!;
-        public string ResumeComplet { get; private set; } = "";
+        public string NomPourRecherche { get; set; } = "";
+        public List<string> MotsClefDeRecherche { get; set; } = new();
+        
         public string Resume { get; init; } = null!;
         public string Description { get; init; } = null!;
         public bool Trait { get; init; }
@@ -18,27 +21,5 @@
         public readonly List<TalentDto> SousElements = new();
 
         public List<CompetenceDto> CompetencesLiees { get; set; } = new ();
-        
-        #region Resume, Description, ResumeComplet
-        
-        private string GetResume()
-        {
-            if (!string.IsNullOrWhiteSpace(Resume))
-                return Resume;
-            if (Parent == null || string.IsNullOrWhiteSpace(Parent.Resume))
-                return "";
-            return Parent.Resume;
-        }
-        
-        public string GetDescritpion()
-        {
-            if (!string.IsNullOrWhiteSpace(Description))
-                return Description;
-            if (Parent == null || string.IsNullOrWhiteSpace(Parent.Description))
-                return "";
-            return Parent.Description;
-        }
-        
-        #endregion
     }
 }

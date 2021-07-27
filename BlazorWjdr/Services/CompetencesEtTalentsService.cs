@@ -32,6 +32,18 @@
             return Task.FromResult(_allCompetences.ToArray());
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
+        
+        private IEnumerable<CompetenceDto> AllCompetences
+        {
+            get
+            {
+                if (_allCompetences == null)
+                    Initialize();
+#pragma warning disable CS8603 // Possible null reference return.
+                return _allCompetences;
+#pragma warning restore CS8603 // Possible null reference return.
+            }
+        }
 
         public IEnumerable<TalentDto> GetTalents(IEnumerable<int> ids) => ids.Select(GetTalent).OrderBy(t => t.Nom).ToArray();
         public TalentDto GetTalent(int id)
@@ -50,6 +62,18 @@
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
             return Task.FromResult(_allTalents.ToArray());
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
+        }
+        
+        private IEnumerable<TalentDto> AllTalents
+        {
+            get
+            {
+                if (_allTalents == null)
+                    Initialize();
+#pragma warning disable CS8603 // Possible null reference return.
+                return _allTalents;
+#pragma warning restore CS8603 // Possible null reference return.
+            }
         }
 
         private void Initialize()
@@ -112,6 +136,8 @@
 
             foreach (var competence in _allCompetences)
             {
+                competence.NomPourRecherche = GenericService.ConvertirCaracteres(competence.Nom);
+                competence.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(competence.NomPourRecherche);
                 competence.SousElements.AddRange(_allCompetences
                     .Where(c=>c.Parent == competence)
                     .OrderBy(c => c.Nom));
@@ -120,6 +146,8 @@
 
             foreach (var talent in _allTalents)
             {
+                talent.NomPourRecherche = GenericService.ConvertirCaracteres(talent.Nom);
+                talent.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(talent.NomPourRecherche);
                 talent.CompetencesLiees = _allCompetences
                     .Where(c => c.TalentsLies.Contains(talent))
                     .ToList();
@@ -324,5 +352,27 @@
         public CompetenceDto CompetenceConduiteDAttelage => GetCompetence(12);
         
         #endregion
+        
+        public CompetenceDto[] RechercheCompetences(string searchText)
+        {
+            searchText = GenericService.ConvertirCaracteres(searchText);
+            var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
+
+            return AllCompetences
+                .Where(c => c.NomPourRecherche.Contains(searchText)
+                            || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any())
+                .ToArray();
+        }
+        
+        public TalentDto[] RechercheTalents(string searchText)
+        {
+            searchText = GenericService.ConvertirCaracteres(searchText);
+            var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
+
+            return AllTalents
+                .Where(t => t.NomPourRecherche.Contains(searchText)
+                            || t.MotsClefDeRecherche.Intersect(motsClefRecherches).Any())
+                .ToArray();
+        }
     }
 }

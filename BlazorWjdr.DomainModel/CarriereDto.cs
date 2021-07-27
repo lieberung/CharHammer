@@ -1,8 +1,7 @@
-﻿using System.Linq;
-
-namespace BlazorWjdr.Models
+﻿namespace BlazorWjdr.Models
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     public class CarriereDto
     {
@@ -20,7 +19,7 @@ namespace BlazorWjdr.Models
 
         public ProfilDto PlanDeCarriere { get; init; } = null!;
         
-        public List<TalentDto> Talents { get; set; } = null!;
+        public List<TalentDto> Talents { get; init; } = null!;
         public List<CompetenceDto> Competences { get; init; } = null!;
 
         public List<TalentDto[]> ChoixTalents { get; init; } = null!;
@@ -46,7 +45,6 @@ namespace BlazorWjdr.Models
         public int ScoreMaritime { get; set; }
         public int ScorePoudreNoire { get; set; }
         public int ScoreAmiDesBetes { get; set; }
-        public int ScoreReligieux { get; set; }
 
         public List<CompetenceDto> CompetencesPourScore {
             get
@@ -67,7 +65,5 @@ namespace BlazorWjdr.Models
                 return list;
             }
         }
-
-
     }
 }
