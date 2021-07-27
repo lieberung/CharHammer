@@ -11,7 +11,7 @@
         
         private Dictionary<int, ArmeAttributDto>? _cacheArmeAttribut;
         private Dictionary<int, ArmeDto>? _cacheArme;
-        private List<ArmeDto>? _allArmex;
+        private List<ArmeDto>? _allArmes;
 
         public ArmesService(CompetencesEtTalentsService competencesEtTalentsService)
         {
@@ -34,10 +34,10 @@
         {
             get
             {
-                if (_allArmex == null)
+                if (_allArmes == null)
                     Initialize();
 #pragma warning disable CS8603 // Possible null Arme return.
-                return _allArmex;
+                return _allArmes;
 #pragma warning restore CS8603 // Possible null Arme return.
             }
         }
@@ -98,7 +98,7 @@
                 })
                 .ToDictionary(k => k.Id, v => v);
             
-            _allArmex = _cacheArme.Values.ToList();
+            _allArmes = _cacheArme.Values.OrderBy(a => a.Nom).ToList();
         }
     }
 }
