@@ -19,6 +19,10 @@
             <div class="card-body" style="padding-top: 0; padding-right: 0;">
                 
                 <h5 class="card-title" style="font-size: xxx-large;">@Talent.Nom</h5>
+                <p class="card-text" style="text-align:justify;">
+                    @Talent.Resume
+                </p>
+                <h5 class="card-title">Description</h5>
                 @foreach (var paragraphe in Talent.Description.Replace('\r', '\n').Replace("\n\n", "\n").Split('\n'))
                 {
                     <p class="card-text" style="text-align:justify;">
@@ -32,11 +36,6 @@
                         }
                     </p>
                 }
-                
-                <h5 class="card-title">Résumé</h5>
-                <p class="card-text" style="text-align:justify;">
-                    @Talent.Resume
-                </p>
 
                 <h5 class="card-title">Compétences liées</h5>
                 <p class="card-text">
