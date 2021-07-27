@@ -7,7 +7,7 @@ namespace BlazorWjdr.Services
     {
         #region Supprimer les caractères indésirables pour le nom du fichier
 
-        private const string CaracteresARemplacer = "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÿÑñÇç-'";
+        private const string CaracteresARemplacer =     "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÿÑñÇç-'";
         private const string CaracteresDeRemplacement = "aaaaaaaaaaaaooooooooooooeeeeeeeeiiiiiiiiuuuuuuuuynncc  ";
 
         internal static string ConvertirCaracteres(string chaineANettoyer)

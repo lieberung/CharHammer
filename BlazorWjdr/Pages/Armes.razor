@@ -21,20 +21,22 @@
     <div class="ml-3 mb-3 pl-2">
 
         <div class="row">
-            <div class="col-1">
-                <a href="/armes-liste/toutes/@Filtre/" class="mb-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+            <div class="col-2">
+                <a href="/armes-liste/toutes/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+                <a href="/armes-liste/ordinaires/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == "ordinaires" ? "btn-primary" : "btn-secondary")">Ordinaires</a>
             </div>
             <div class="col-5">
-                <a href="/armes-liste/ordinaires/@Filtre/" class="mb-1 btn btn-sm @(Groupe == "ordinaires" ? "btn-primary" : "btn-secondary")">Ordinaires</a>
                 @foreach (var maitrise in _competencesEtTalentsService.TalentsMaitriseAuContact)
                 {
-                    <a href="/armes-liste/@(maitrise.Specialisation)/@Filtre/" class="mb-1 btn btn-sm @(Groupe == "@(maitrise.Specialisation)" ? "btn-primary" : "btn-secondary")">@maitrise.Specialisation</a>
+                    var groupe = GetGroupe(maitrise.Specialisation);
+                    <a href="/armes-liste/@groupe/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == groupe ? "btn-primary" : "btn-secondary")">@maitrise.Specialisation</a>
                 }
             </div>
             <div class="col-5">
                 @foreach (var maitrise in _competencesEtTalentsService.TalentsMaitriseADistance)
                 {
-                    <a href="/armes-liste/@(maitrise.Specialisation)/@Filtre/" class="mb-1 btn btn-sm @(Groupe == "@(maitrise.Specialisation)" ? "btn-primary" : "btn-secondary")">@maitrise.Specialisation</a>
+                    var groupe = GetGroupe(maitrise.Specialisation);
+                    <a href="/armes-liste/@groupe/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == groupe ? "btn-primary" : "btn-secondary")">@maitrise.Specialisation</a>
                 }
             </div>
         </div>
@@ -42,17 +44,17 @@
 
     <table class="table">
         <thead>
-        <tr>
-            <td>Arme</td>
-            <td>Groupe</td>
-            <td>Attributs</td>
-            <td>Dégâts</td>
-            <td>Portée</td>
-            <td>Rechargement</td>
-            <td>Enc.</td>
-            <td>Prix</td>
-            <td>Disponibilité</td>
-        </tr>
+            <tr>
+                <td>Arme</td>
+                <td>Groupe</td>
+                <td>Attributs</td>
+                <td>Dégâts</td>
+                <td>Portée</td>
+                <td>Rechargement</td>
+                <td>Enc.</td>
+                <td>Prix</td>
+                <td>Disponibilité</td>
+            </tr>
         </thead>
         <tbody>
         @foreach (var arme in _armesLines)
@@ -73,14 +75,23 @@
 
     private List<ArmeDto> _armesLines = null!;
 
+    private string GetGroupe(string specialisation)
+    {
+        return GenericService.ConvertirCaracteres(specialisation).Replace(" ", "-");
+    }
+
     protected override async Task OnParametersSetAsync()
     {
         var armes = await _armesService.Items();
 
-        if (Groupe != "toutes")
+        if (Groupe != "toutes" && Groupe != "ordinaires")
         {
-            var maitrise = _competencesEtTalentsService.TalentGroupeMaitrise.SousElements.Single(t => t.Specialisation == Groupe);
+            var maitrise = _competencesEtTalentsService.TalentGroupeMaitrise.SousElements.Single(t => GetGroupe(t.Specialisation) == Groupe);
             _armesLines = armes.Where(a => a.TalentsDeMaitrise.Contains(maitrise)).ToList();
+        }
+        else if (Groupe == "ordinaires")
+        {
+            _armesLines = armes.Where(a => !a.TalentsDeMaitrise.Any()).ToList();
         }
         else
         {
