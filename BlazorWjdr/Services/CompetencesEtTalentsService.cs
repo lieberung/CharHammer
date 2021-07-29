@@ -361,8 +361,11 @@
             var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
 
             return AllCompetences
-                .Where(c => c.NomPourRecherche.Contains(searchText)
-                            || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any())
+                .Where(c => c.Ignore == false && (
+                            c.NomPourRecherche.Contains(searchText) || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any()
+                    )
+                )
+                .OrderByDescending(c => c.MotsClefDeRecherche.Intersect(motsClefRecherches).Count())
                 .ToArray();
         }
         
@@ -372,8 +375,11 @@
             var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
 
             return AllTalents
-                .Where(t => t.NomPourRecherche.Contains(searchText)
-                            || t.MotsClefDeRecherche.Intersect(motsClefRecherches).Any())
+                .Where(t => t.Ignore == false && (
+                        t.NomPourRecherche.Contains(searchText) || t.MotsClefDeRecherche.Intersect(motsClefRecherches).Any()
+                    )
+                )
+                .OrderByDescending(t => t.MotsClefDeRecherche.Intersect(motsClefRecherches).Count())
                 .ToArray();
         }
     }
