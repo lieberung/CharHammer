@@ -5,20 +5,21 @@ namespace BlazorWjdr.Services
 {
     public static class GenericService
     {
-        #region Supprimer les caractères indésirables pour le nom du fichier
+        #region Supprimer les caractères indésirables
 
         private const string CaracteresARemplacer =     "ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÌÍÎÏìíîïÙÚÛÜùúûüÿÑñÇç-'";
         private const string CaracteresDeRemplacement = "aaaaaaaaaaaaooooooooooooeeeeeeeeiiiiiiiiuuuuuuuuynncc  ";
 
         internal static string ConvertirCaracteres(string chaineANettoyer)
         {
+            chaineANettoyer = chaineANettoyer.ToLower();
+
             char[] tableauFind = CaracteresDeRemplacement.ToCharArray();
             char[] tableauReplace = CaracteresARemplacer.ToCharArray();
 
             for (var i = 0; i < tableauReplace.Length; i++)
                 chaineANettoyer = chaineANettoyer.Replace(tableauReplace[i], tableauFind[i]);
 
-            return chaineANettoyer.ToLower();
         }
 
         internal static List<string> MotsClefsDeRecherche(string chaineADecouper)
