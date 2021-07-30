@@ -7,6 +7,7 @@
 
 @inject CompetencesEtTalentsService _competencesEtTalentsService
 @inject CarrieresService _carrieresService
+@inject ArmesService _armesService
 
 <MainTopRow>
 </MainTopRow>
@@ -25,6 +26,17 @@
                 <h5 class="card-title">Description</h5>
                 <CardParagraphes Text="@Talent.Description"/>
 
+                @if (Talent?.Parent == _competencesEtTalentsService.TalentGroupeMaitrise)
+                {
+                    <h5 class="card-title">Armes liées</h5>
+                    @foreach (var arme in _armesService.GetArmesDeMaitrise(Talent))
+                    {
+                        <p class="card-text">
+                            <strong>• @arme.Nom : </strong><span>@arme.Description</span>
+                        </p>
+                    }
+                }
+                
                 <h5 class="card-title">Compétences liées</h5>
                 <p class="card-text">
                     @if (Talent.CompetencesLiees.Any())

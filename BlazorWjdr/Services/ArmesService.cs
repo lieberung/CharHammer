@@ -58,6 +58,9 @@
 #pragma warning restore CS8602 // DeArme of a possibly null Arme.
         }
 
+        public IEnumerable<ArmeDto> GetArmesDeMaitrise(TalentDto maitrise) =>
+            AllArmes.Where(a => a.TalentsDeMaitrise.Contains(maitrise)).OrderBy(a => a.Nom).ToArray();
+
         public IEnumerable<ArmeDto> GetArmes(IEnumerable<int> ids) => ids.Select(GetArme).ToArray();
         public ArmeDto GetArme(int id)
         {
