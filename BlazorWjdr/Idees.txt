@@ -2,6 +2,24 @@
 jusqu'à 3 retirages de carrière qui annule et remplace la précédente
 jusqu'à 3 retirages de carract qui annule et remplace la valeur précédente
 
+Choisir sa race						200
+Choisir sa carrière					300
+Tirer une carrière supplémentaire	100
+Choisir jusqu'à 3 tares
+
+
+Profil initial :
+Alternative à "la miséricorde de Shallya" (voir p.19) : après avoir tiré son profille joueur pour intervertir deux de ses scores (somme des 2d10 sans compter le bonus accordé par la race).
+
+Amis, Connaissances et contacts :
+Le personnage dispose d'un nombre en fonction de sa Sociabilité
+
+
+un joueur chargé du calendrier
+un joueur chargé des contacts
+un joueur chargé de la trésorerie du groupe
+un joueur chargé de la carte et des lieux d'intérêt
+
 
 passe gagnante : on prend un token, cumulable
 1 token = +10% CC
@@ -17,3 +35,13 @@ signes astraux
 appellation
 SELECT appellationid, appellationlibelle, appellationordre, fk_raceid, appellationfeminin, appellationnomdefamille
 	FROM warhammer.appellation;
+	
+Les arrimeurs sont des dockers spécialisés, formés à charger et décharger efficacement les bateaux. Charger un navire est un travail dangereux, qui demande des connaissances précises : les bateaux peuvent tanguer et chavirer s'ils sont mal chargés et les matériaux mal fixés peuvent écrases les imprudents. Dans les entrailles étouffantes des navires, ils 'nouent des amarres d'arrimeurs' (des noeuds spéciaux) avec des cales de bois pour sécuriser et protéger les marchandises lourdes. Bien des arrimeurs se spécialisent dans le transport d'un type de marchandises bien précis, car empiler et empaqueter correctement chaque type de produit nécessite des compétences différentes. Par conséquent la plupart des docks ont des bandes de 'porteurs' qui s'identifient en fonction des produits qu'ils importent ou exportent : porteurs de poisson, de viande ou de bois. Aucune de ces organisations n'est plus connue que les porteurs de charbon en livée noire de Nuln, connus pour leur attitude désinvolte et leur passion pour les chansons de docker grivoises. Les arrimeurs portent des bonnets de marin spécifiques, teints aux couleurs de leur bande, à la fois pour manifester leur appartenance à un groupe et pour se protéger des éléments. Les bandes d'arrimeurs protègent jalousement leurs quais contre leurs rivaux, et il n'y a pas à trop leur forcer la main pour qu'ils 'nouent' d'autres types de relations...
+
+armure légère (veste de cuir), bonnet de marin aux couleurs de la bande, 10 mètres de corde, 1d10 pointes de bois
+
+
+Autorité naturelle (Trait) : +10% lié à Charisme (pour la persuasion), Intimidation (quand le jet concerne la Soc).
+Blasé (Trait) : -10% aux jets d'intimidation qui vous prennent pour cible.
+Esprit créatif : +10% aux jets d'Int visant à inventer des stratgèmes, mécanismes, +10% aux jets d'ingégnirie
+Sens de la répartie

@@ -7,7 +7,7 @@
     {
         public int Id { get; init; }
         public string Nom { get; init; } = null!;
-        public List<string> MotsClefDeRecherche { get; init; }
+        public List<string> MotsClefDeRecherche { get; init; } = null!;
         public string Description { get; init; } = null!;
         public string Image { get; init; } = null!;
         public bool EstUneCarriereAvancee { get; init; }

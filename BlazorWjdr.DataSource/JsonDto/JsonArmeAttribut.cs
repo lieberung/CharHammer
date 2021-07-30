@@ -5,6 +5,7 @@
     public class JsonArmeAttribut
     {
         public int id { get; set; }
+        public string type { get; set; } = null!;
         public string nom { get; set; } = null!;
         public string description { get; set; } = null!;
     }

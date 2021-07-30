@@ -11,17 +11,19 @@
         @Item.Nom
     </td>
     <td>
-        @if (Item.TalentsDeMaitrise.Any())
+        @if (Item.Groupes.Any())
         {
-            <TalentItem Item="@Item.TalentsDeMaitrise.First()"/>
-        }
-        else
-        {
-            <span>@Item.Groupe</span>
+            <AttributDArmeItemList Items="@Item.Groupes.ToArray()" />
         }
     </td>
     <td>
-        <AttributDArmeItemList Items="@Item.Attributs.ToArray()"/>
+        @if (Item.TalentsDeMaitrise.Any())
+        {
+            <TalentItem Item="@Item.TalentsDeMaitrise.First()" />
+        }
+    </td>
+    <td>
+        <AttributDArmeItemList Items="@Item.Attributs.ToArray()" />
     </td>
     <td>@Item.Degats</td>
     <td>@Item.Portee</td>

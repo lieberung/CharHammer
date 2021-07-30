@@ -8,16 +8,16 @@ namespace BlazorWjdr.Models
         public bool EstUnPersonnage { get; init; }
         public bool EstUnPersonnageJoueur { get; init; }
         
-        public ProfilDto ProfilActuel { get; init; }
+        public ProfilDto ProfilActuel { get; init; } = null!;
         public int Userid { get; init; }
         public string Nom { get; init; } = null!;
         public string Histoire { get; init; } = null!;
-        public string Commentaire { get; init; }
-        public CompetenceAcquise[] CompetencesAcquises { get; init; }
+        public string Commentaire { get; init; } = "";
+        public CompetenceAcquise[] CompetencesAcquises { get; init; } = null!;
 
-        public TalentDto[] Talents { get; init; }
-        public LieuDto[] Origines { get; init; }
-        public RaceDto Race { get; init; }
+        public TalentDto[] Talents { get; init; } = null!;
+        public LieuDto[] Origines { get; init; } = null!;
+        public RaceDto Race { get; init; } = null!;
         public int[] MembreDe { get; init; } = null!;
         public int? Poids { get; init; }
         public int? Taille { get; init; }
@@ -32,7 +32,7 @@ namespace BlazorWjdr.Models
         public string? FreresEtSoeurs { get; set; }
         public int MainDirectrice { get; set; }
         public bool Mort { get; set; }
-        public CarriereDto[] CheminementPro { get; set; }
+        public CarriereDto[] CheminementPro { get; set; } = null!;
         public string? Cheveux { get; set; }
         public string? Yeux { get; set; }
 

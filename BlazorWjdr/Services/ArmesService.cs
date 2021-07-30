@@ -29,7 +29,9 @@
 #pragma warning restore CS8603 // Possible null Arme return.
             }
         }
-        
+
+        public List<ArmeAttributDto> AllGroupesDArmes => AllAttributsDArme.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToList();
+
         protected List<ArmeDto> AllArmes
         {
             get
@@ -74,6 +76,7 @@
                 .Select(t => new ArmeAttributDto
                 {
                     Id = t.id,
+                    Type = t.type,
                     Nom = t.nom,
                     Description = t.description
                 }).ToDictionary(k => k.Id, v => v);
@@ -90,7 +93,7 @@
                     Degats = l.degats,
                     Disponibilite = l.dispo,
                     Encombrement = l.enc,
-                    Groupe = l.groupes,
+                    Groupes = l.groupes.Select(id => _cacheArmeAttribut[id]).ToList(),
                     Portee = l.portee,
                     Prix = l.prix,
                     Rechargement = l.rechargement,
