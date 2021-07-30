@@ -17,37 +17,17 @@
 </MainTopRow>
 
 <div class="content px-4">
-    
-    <div class="ml-3 mb-3 pl-2">
 
+    <div class="ml-3 mb-3 pl-2">
         <div class="row">
             <div class="col-1">
                 <a href="/equipement/armes-liste/toutes/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
-                <!--
-                <a href="/armes-liste/ordinaires/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == "ordinaires" ? "btn-primary" : "btn-secondary")">Ordinaires</a>
-                -->
             </div>
             <div class="col-11">
                 @foreach (var groupeDArmes in _armesService.AllGroupesDArmes)
                 {
-                    var groupeDA = "grp_" + GetGroupe(groupeDArmes.Nom);
-                    <a href="/equipement/armes-liste/@groupeDA/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == groupeDA ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
-                }
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6">
-                @foreach (var maitrise in _competencesEtTalentsService.TalentsMaitriseAuContact)
-                {
-                    var spe = "spe_" + GetGroupe(maitrise.Specialisation ?? "");
-                    <a href="/equipement/armes-liste/@spe/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == spe ? "btn-primary" : "btn-secondary")">@maitrise.Specialisation</a>
-                }
-            </div>
-            <div class="col-6">
-                @foreach (var maitrise in _competencesEtTalentsService.TalentsMaitriseADistance)
-                {
-                    var spe = "spe_" + GetGroupe(maitrise.Specialisation ?? "");
-                    <a href="/equipement/armes-liste/@spe/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == spe ? "btn-primary" : "btn-secondary")">@maitrise.Specialisation</a>
+                    var groupeDArme = GetGroupe(groupeDArmes.Nom);
+                    <a href="/equipement/armes-liste/@groupeDArme/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == groupeDArme ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
                 }
             </div>
         </div>
@@ -69,13 +49,23 @@
             </tr>
         </thead>
         <tbody>
-        @foreach (var arme in _armesLines)
-        {
-            <ArmeRow Item="arme"/>
-        }
+            @foreach (var arme in _armesLines)
+            {
+                <ArmeRow Item="arme" />
+            }
         </tbody>
     </table>
-    
+
+    @if (GroupeActuel != null)
+    {
+        <div class="row">
+            <div class="col">
+                <CardParagraphes Text="@GroupeActuel.Description" />
+            </div>
+        </div>
+    }
+
+
 </div>
 @code {
 
@@ -84,6 +74,7 @@
     [Parameter]
     public string Filtre { get; set; } = "";
 
+    private ArmeAttributDto? GroupeActuel { get; set; }
 
     private List<ArmeDto> _armesLines = null!;
 
@@ -98,26 +89,12 @@
 
         if (Groupe != "toutes")
         {
-            var type = Groupe.Split('_')[0];
-            var item = Groupe.Split('_')[1];
-
-            if (type == "grp")
-            {
-                var groupeDArme = _armesService.AllGroupesDArmes.Single(g => GetGroupe(g.Nom) == item);
-                _armesLines = armes.Where(a => a.Groupes.Contains(groupeDArme)).ToList();
-            }
-            else if (type == "spe")
-            {
-                var maitrise = _competencesEtTalentsService.TalentGroupeMaitrise.SousElements.Single(t => GetGroupe(t.Specialisation ?? "") == item);
-                _armesLines = armes.Where(a => a.TalentsDeMaitrise.Contains(maitrise)).ToList();
-            }
+            GroupeActuel = _armesService.AllGroupesDArmes.Single(g => GetGroupe(g.Nom) == Groupe);
+            _armesLines = armes.Where(a => a.Groupes.Contains(GroupeActuel)).ToList();
         }
-        //else if (Groupe == "ordinaires")
-        //{
-        //    _armesLines = armes.Where(a => !a.TalentsDeMaitrise.Any()).ToList();
-        //}
         else
         {
+            GroupeActuel = null;
             _armesLines = armes.ToList();
         }
 

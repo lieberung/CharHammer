@@ -23,19 +23,7 @@
                     @Talent.Resume
                 </p>
                 <h5 class="card-title">Description</h5>
-                @foreach (var paragraphe in Talent.Description.Replace('\r', '\n').Replace("\n\n", "\n").Split('\n'))
-                {
-                    <p class="card-text" style="text-align:justify;">
-                        @if (paragraphe.StartsWith("•"))
-                        {
-                            <strong>@paragraphe</strong>
-                        }
-                        else
-                        {
-                            @paragraphe
-                        }
-                    </p>
-                }
+                <CardParagraphes Text="@Talent.Description"/>
 
                 <h5 class="card-title">Compétences liées</h5>
                 <p class="card-text">
