@@ -26,8 +26,11 @@
         <AttributDArmeItemList Items="@Item.Attributs.ToArray()" />
     </td>
     <td>@Item.Degats</td>
-    <td>@Item.Portee</td>
-    <td>@Item.Rechargement</td>
+    @if (Item.EstUneArmeDeTir)
+    {
+        <td>@Item.Portee</td>
+        <td>@Item.Rechargement</td>
+    }
     <td>@Item.Encombrement</td>
     <td>@Item.Prix</td>
     <td>@Item.Disponibilite</td>

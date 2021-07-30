@@ -4,17 +4,20 @@
 
     public class ArmeDto
     {
-        public int Id { get; set; }
-        public List<TalentDto> TalentsDeMaitrise { get; set; } = null!;
-        public List<ArmeAttributDto> Attributs { get; set; } = null!;
-        public List<ArmeAttributDto> Groupes { get; set; } = null!;
-        public string Nom { get; set; } = null!;
-        public string Degats { get; set; } = null!;
-        public string Portee { get; set; } = null!;
-        public string Rechargement { get; set; } = null!;
-        public string Encombrement { get; set; } = null!;
-        public string Prix { get; set; } = null!;
-        public string Disponibilite { get; set; } = null!;
-        public string Description { get; set; } = null!;
+        public int Id { get; init; }
+        public List<TalentDto> TalentsDeMaitrise { get; init; } = null!;
+        public List<ArmeAttributDto> Attributs { get; init; } = null!;
+        public List<ArmeAttributDto> Groupes { get; init; } = null!;
+        public string Nom { get; init; } = null!;
+        public string Degats { get; init; } = null!;
+        public string Portee { get; init; } = null!;
+        public string Rechargement { get; init; } = null!;
+        public string Encombrement { get; init; } = null!;
+        public string Prix { get; init; } = null!;
+        public string Disponibilite { get; init; } = null!;
+        public string Description { get; init; } = null!;
+
+        public bool EstUneArmeDeCaC => Degats.StartsWith("BF");
+        public bool EstUneArmeDeTir => Portee != "";
     }
 }

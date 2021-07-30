@@ -3,6 +3,7 @@
 @using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
+@using System.Diagnostics.Contracts
 
 @inject ArmesService _armesService
 @inject CompetencesEtTalentsService _competencesEtTalentsService
@@ -33,10 +34,35 @@
         </div>
     </div>
 
-    <table class="table">
-        <thead>
+    @if (_armesLines.Any(a => a.EstUneArmeDeCaC))
+    {
+        <table class="table">
+            <thead>
             <tr>
-                <td>Arme</td>
+                <td>Arme de corps à corps</td>
+                <td>Groupes</td>
+                <td>Maîtrise</td>
+                <td>Attributs</td>
+                <td>Dégâts</td>
+                <td>Enc.</td>
+                <td>Prix</td>
+                <td>Disponibilité</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeCaC))
+            {
+                <ArmeRow Item="arme"/>
+            }
+            </tbody>
+        </table>
+    }
+    @if (_armesLines.Any(a => a.EstUneArmeDeTir))
+    {
+        <table class="table">
+            <thead>
+            <tr>
+                <td>Armes à distance</td>
                 <td>Groupes</td>
                 <td>Maîtrise</td>
                 <td>Attributs</td>
@@ -47,15 +73,16 @@
                 <td>Prix</td>
                 <td>Disponibilité</td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var arme in _armesLines)
+            </thead>
+            <tbody>
+            @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeTir))
             {
-                <ArmeRow Item="arme" />
+                <ArmeRow Item="arme"/>
             }
-        </tbody>
-    </table>
-
+            </tbody>
+        </table>
+    }
+    
     @if (GroupeActuel != null)
     {
         <div class="row">
@@ -99,9 +126,9 @@
         }
 
         if (Filtre == "corps-a-corps")
-            _armesLines.RemoveAll(c => c.Portee != "");
+            _armesLines.RemoveAll(a => a.EstUneArmeDeTir);
         if (Filtre == "tir")
-            _armesLines.RemoveAll(c => c.Portee == "");
+            _armesLines.RemoveAll(a => a.EstUneArmeDeCaC);
 
     }
 }
