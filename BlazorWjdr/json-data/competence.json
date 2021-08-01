@@ -188,6 +188,8 @@
     {"id":179,"fk_competencemereid":44,"carac":"Int","nom":"Métier","resume":"Trade - aviarist","specialisation":"fauconnerie"},
     {"id":187,"fk_competencemereid":44,"carac":"Ag","nom":"Métier","resume":"Adaptation tirée du scénario \"En terrain découvert\" du webzine Easternwest","specialisation":"rotzball"},
     {"id":188,"fk_competencemereid":13,"carac":"Int","nom":"Conn. académiques","resume":"","specialisation":"zoologie"},
-    {"id":189,"fk_competencemereid":13,"carac":"Int","nom":"Conn. académiques","resume":"Connaissance des fleuves","specialisation":"potamologie"}
+    {"id":189,"fk_competencemereid":13,"carac":"Int","nom":"Conn. académiques","resume":"Connaissance des fleuves","specialisation":"potamologie"},
+    {"id":190,"fk_talentslies":[42],"fk_competencemereid":39,"carac":"Int","nom":"Langue","resume":"","specialisation":"ghassally (gnômes)"},
+    {"id":191,"fk_talentslies":[33],"fk_competencemereid":14,"carac":"Int","nom":"Conn. générales","resume":"","specialisation":"Gnômes"}
   ]
 }

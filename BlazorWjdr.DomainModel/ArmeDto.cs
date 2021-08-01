@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Models
+﻿using System.Linq;
+
+namespace BlazorWjdr.Models
 {
     using System.Collections.Generic;
 
@@ -17,7 +19,8 @@
         public string Disponibilite { get; init; } = null!;
         public string Description { get; init; } = null!;
 
-        public bool EstUneArmeDeCaC => Degats.StartsWith("BF");
+        public bool EstUneArmeDeCaC => Degats.StartsWith("BF") && Groupes.All(g => g.Nom != "De jet");
         public bool EstUneArmeDeTir => Portee != "";
+        public bool EstUneMunition => Groupes.Any(g => g.Nom == "Munitions");
     }
 }

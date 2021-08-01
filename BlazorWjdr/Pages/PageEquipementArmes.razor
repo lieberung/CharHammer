@@ -37,18 +37,7 @@
     @if (_armesLines.Any(a => a.EstUneArmeDeCaC))
     {
         <table class="table">
-            <thead>
-            <tr>
-                <td>Arme de corps à corps</td>
-                <td>Groupes</td>
-                <td>Maîtrise</td>
-                <td>Attributs</td>
-                <td>Dégâts</td>
-                <td>Enc.</td>
-                <td>Prix</td>
-                <td>Disponibilité</td>
-            </tr>
-            </thead>
+            <THeadCaC/>
             <tbody class="alternate-color-dark">
             @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeCaC))
             {
@@ -60,22 +49,21 @@
     @if (_armesLines.Any(a => a.EstUneArmeDeTir))
     {
         <table class="table">
-            <thead>
-            <tr>
-                <td>Armes à distance</td>
-                <td>Groupes</td>
-                <td>Maîtrise</td>
-                <td>Attributs</td>
-                <td>Dégâts</td>
-                <td>Portée</td>
-                <td>Rechargement</td>
-                <td>Enc.</td>
-                <td>Prix</td>
-                <td>Disponibilité</td>
-            </tr>
-            </thead>
+            <THeadTir/>
             <tbody class="alternate-color-dark">
             @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeTir))
+            {
+                <ArmeRow Item="arme"/>
+            }
+            </tbody>
+        </table>
+    }
+    @if (_armesLines.Any(a => a.EstUneMunition))
+    {
+        <table class="table">
+            <THeadTir/>
+            <tbody class="alternate-color-dark">
+            @foreach (var arme in _armesLines.Where(a => a.EstUneMunition))
             {
                 <ArmeRow Item="arme"/>
             }

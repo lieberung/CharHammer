@@ -1,12 +1,276 @@
-﻿@page "/regles/creation-de-personnage/{Race}/"
+﻿@page "/regles/creation-de-personnage/{RaceId}/"
 
+@using BlazorWjdr.Components.Race
+@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
+@using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
+@inject RacesService _racesService
+@inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
+
+<MainTopRow>
+    <span class="title-primary top-row-title">Création de personnage</span>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">1. Déterminer sa race</h5>
+                <p class="card-text">
+                    On effectue un jet sur la table ci-contre.
+                </p>
+                <p class="card-text">
+                    Si le résultat n'est pas celui attendu, on peut choisir une race en dépensant le coût indiqué en points d'expérience.
+                </p>
+                <p class="card-text">
+                    <LinkPageCreationPerso Actif="@_racesService.Elfes.Id.Equals(_race.Id)" Race="@_racesService.Elfes"/>
+                    <LinkPageCreationPerso Actif="@_racesService.Gnomes.Id.Equals(_race.Id)" Race="@_racesService.Gnomes"/>
+                    <LinkPageCreationPerso Actif="@_racesService.Halfelings.Id.Equals(_race.Id)" Race="@_racesService.Halfelings"/>
+                    <LinkPageCreationPerso Actif="@_racesService.Humains.Id.Equals(_race.Id)" Race="@_racesService.Humains"/>
+                    <LinkPageCreationPerso Actif="@_racesService.Nains.Id.Equals(_race.Id)" Race="@_racesService.Nains"/>
+                 </p>
+            </div>
+        </div>
+        <div class="col-5">
+            <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre="@true"/>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="card-body">
+                <h5 class="card-title">2. Déterminer ses caractéristiques</h5>
+                <p class="card-text">
+                    <span>On effectue un tirage de 1d100 pour chacune des caractéristiques, puis choisissez l'une des options suivantes :</span>
+                    <br/>
+                    <ul>
+                        <li>Conserver ces jets dans l'ordre obtenu</li>
+                        <li>Dépenser <strong>100 xp</strong> pour ordonner librement ces jets</li>
+                        <li>Dépenser <strong>150 xp</strong> pour ignorer ces jets et répartir <strong>80&nbsp;(v2) / 100&nbsp;(v4) points</strong> dans chacune des 10 caractéristiques, avec un <strong>minimum de 4</strong> et un <strong>maximum de 18</strong> à chaque fois.</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="col-8">
+            <TableDetail Item="@_tablesService.GetTable(11)" MasquerTitre="@true"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <div class="card-body">
+                <h5 class="card-title">2-1. Points de Blessures (v2)</h5>
+                <TableDetail Item="@_tablesService.GetTable(12)" MasquerTitre="@true"/>
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col-5">
+            <div class="card-body">
+                <h5 class="card-title">2-2. Points de Destin (v2)</h5>
+                <TableDetail Item="@_tablesService.GetTable(13)" MasquerTitre="@true"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">3. Déterminer sa carrière initiale</h5>
+                <div class="mt-3 mb-3 pl-2">
+                    <button class="btn btn-primary" type="button" @onclick="() => TirerUneCarriereInitiale()">
+                        <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
+                        Tirer une carrière initiale
+                    </button>
+                </div>
+                @if (_carriereAleatoire != null)
+                {
+                    <div class="bulle">
+                        <h5 class="card-title">@_carriereAleatoire.Nom</h5>
+                        <CarriereItem Item="_carriereAleatoire"/>
+                        <CarriereDescription Item="_carriereAleatoire"/>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-5">
+            <div class="card-body">
+                <h5 class="card-title">3-1 @_race.NomMasculin - Carrière initiales</h5>
+                <TableDeDepart RaceId="@_race.Id.ToString()"/>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card-body">
+                <h5 class="card-title">4. Déterminer vos traits raciaux</h5>
+                <p class="card-text">
+                    <LinkPageCreationPerso Actif="@_racesService.Elfes.Id.Equals(_race.Id)" Race="@_racesService.Elfes"/>
+                    <LinkPageCreationPerso Actif="@_racesService.Gnomes.Id.Equals(_race.Id)" Race="@_racesService.Gnomes"/>
+                    <LinkPageCreationPerso Actif="@_racesService.Halfelings.Id.Equals(_race.Id)" Race="@_racesService.Halfelings"/>
+                    <LinkPageCreationPerso Actif="@_racesService.Humains.Id.Equals(_race.Id)" Race="@_racesService.Humains"/>
+                    <LinkPageCreationPerso Actif="@_racesService.Nains.Id.Equals(_race.Id)" Race="@_racesService.Nains"/>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @if (_race == _racesService.Elfes)
+        {
+            <div class="col-12">
+                <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
+            </div>
+        }
+        @if (_race == _racesService.Gnomes)
+        {
+            <div class="col-12">
+                <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
+            </div>
+        }
+        @if (_race == _racesService.Halfelings)
+        {
+            <div class="col-12">
+                <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false"/>
+            </div>
+        }
+        @if (_race == _racesService.Humains)
+        {
+            <div class="col-6">
+                <RegleDetail Item="@_reglesService.GetRegle(19)" MasquerTitre="@false"/>
+            </div>
+            <div class="col-6">
+                <RegleDetail Item="@_reglesService.GetRegle(21)" MasquerTitre="@false"/>
+            </div>
+        }
+        @if (_race == _racesService.Nains)
+        {
+            <div class="col-12">
+                <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false"/>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card-body">
+                <h5 class="card-title">5. Jouer avec l'aethyre...</h5>
+                <p class="card-text">
+                    <ul>
+                        <li>Déterminer vos tares</li>
+                        <li>Tirer une mutation ?</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">6-1. Donner de la vie à son personnage</h5>
+                <p class="card-text">
+                    <ul>
+                        <li>Choisir votre nom et votre sexe</li>
+                        <li>Déterminer votre âge</li>
+                        <li>Déterminer votre signe astral</li>
+                        <li>Déterminer vos caractéristiques physiques (taille, poids, couleur des yeux et des cheveux, main directrice, etc.)</li>
+                        <li>Déterminer votre région d'origine</li>
+                        <li>Déterminer votre famille (profession des parents, frères et soeurs)</li>
+                        <li>Déterminer votre orientation sexuelle</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">6-2. Etoffer le passé et le caractère du personnage</h5>
+                <p class="card-text">
+                    <ul>
+                        <li>Votre famille, à quoi ressemble-t-elle ?</li>
+                        <li>Comment s’est déroulée votre enfance ?</li>
+                        <li>Quand avez-vous quitté la maison familiale ?</li>
+                        <li>Qui sont vos meilleurs amis ?</li>
+                        <li>Quel est votre plus grand désir ?</li>
+                        <li>Quels sont vos meilleurs et pires souvenirs ?</li>
+                        <li>Avez-vous des croyances religieuses ?</li>
+                        <li>Êtes-vous loyal envers quelque chose ou quelqu’un ?</li>
+                        <li>Pourquoi partez-vous à l’aventure ?</li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">7-1. Déterminer son ambition personnelle</h5>
+                <p class="card-text">
+                    Vient ensuite le choix des Ambitions !
+                </p>
+                <p class="card-text">
+                    Une nouvelle notion, avec des ambitions à court terme (visiter une terre lointaine, s'intégrer à une culture exotique, venger un ami tombé au combat, sympathiser avec un érudit isolé…) et des ambitions à long terme (posséder votre propre auberge, débarrasser les collège de magie de l’influence des elfes…).
+                </p>
+                <p class="card-text">
+                    Réaliser une ambition de court terme rapporte 50 XP (et on peut en choisir une autre), tandis que réaliser une ambition de long terme rapporte 500 XP et permet, soit d’en choisir une nouvelle, soit de mettre le personnage à la retraite pour en créer un nouveau qui démarrera avec la moitié des XP du retraité !
+                </p>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">7-2. Insufler un souffle à l'équipe</h5>
+                <p class="card-text">
+                    C’est là qu’on essaie de se mettre d’accord avec tout le monde pour savoir si les personnages sont amis, de simples compagnons de voyage, etc.
+                    On peut déterminer une Ambition d’équipe !
+                    Même idée : des ambitions courtes (qui donnent 50 XP à tout le monde) et d’énormes ambitions d’équipe à long terme (genre construire un château) qui permettent là aussi à tout le monde de gagner 500 XP et de prendre ou pas une retraite bien méritée.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">8-1. Dépenser les XP (points d'experience)</h5>
+                <TableDetail Item="@_tablesService.GetTable(21)" MasquerTitre="@true"/>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card-body">
+                <h5 class="card-title">8-2. Coût d'amélioration d'une caractéristique</h5>
+                <TableDetail Item="@_tablesService.GetTable(20)" MasquerTitre="@true"/>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 @code {
-    [Parameter] public string Race { get; set; }
+
+    [Parameter]
+    public string RaceId { get; set; }
+
+    private RaceDto _race;
+
+    private CarriereDto? _carriereAleatoire;
+
+    protected override void OnParametersSet()
+    {
+        _race = _racesService.GetRace(int.Parse(RaceId));
+        base.OnParametersSet();
+    }
+
+    private void TirerUneCarriereInitiale()
+    {
+        _carriereAleatoire = _tableDesCarrieresInitialesService.GetRandomStartingCareer(int.Parse(RaceId));
+    }
+
 }

@@ -11,7 +11,6 @@ namespace BlazorWjdr.Services
     {
         private readonly CarrieresService _carrieresService;
         private readonly CompetencesEtTalentsService _competencesEtTalentsService;
-        private readonly ChoixCompetencesEtTalentsService _choixCompetencesEtTalentsService;
         private readonly BestiolesService _bestiolesService;
         private readonly TablesService _tablesService;
 

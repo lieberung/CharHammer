@@ -38,8 +38,10 @@
 
         public RaceDto Elfes => GetRace(25);
         public RaceDto Humains => GetRace(1);
+        public RaceDto HumainsMutants => GetRace(64);
         public RaceDto Halfelings => GetRace(26);
         public RaceDto Nains => GetRace(27);
+        public RaceDto Gnomes => GetRace(63);
         
         public RaceDto GetRace(int id)
         {

@@ -5,47 +5,48 @@
       "lignes":[
         ["d100","Probabilité","Race","Choisir (coût en XP)"],
         ["01-87","87%","Humain","50"],
-        ["88","1%","Humain (mutant)","spécial"],
-        ["89-94","5%","Halfeling","100"],
-        ["95-98","4%","Nain","125"],
-        ["99-00","2%","Elfe sylvain","250"]
+        ["88-91","4%","Halfeling","100"],
+        ["92-95","4%","Nain","125"],
+        ["96-98","2%","Gnôme","250"],
+        ["98-99","2%","Elfe sylvain","250"],
+        ["100","1%","Mutant","spécial"]
       ]
     },
     {"id":11,"titre":"Détermination des caractéristiques",
       "description": "",
       "lignes":[
-        ["Caractéristique","Elfe","Halfling","Humain","Nain","Gnôme"],
-        ["CC - Capacité de Combat"  ,"20+2d10","10+2d10","20+2d10","30+2d10","20+2d10"],
-        ["CT - Capacité de Tir"     ,"30+2d10","30+2d10","20+2d10","20+2d10","21+2d10"],
-        ["F  - Force"               ,"20+2d10","10+2d10","20+2d10","20+2d10","21+2d10"],
-        ["E  - Endurance"           ,"20+2d10","10+2d10","20+2d10","30+2d10","15+2d10"],
-        ["Ag - Agilité"             ,"30+2d10","30+2d10","20+2d10","10+2d10","30+2d10"],
+        ["Caractéristique"          ,"Elfe"   ,"Gnôme"  ,"Halfling","Humain","Nain"],
+        ["CC - Capacité de Combat"  ,"20+2d10","20+2d10","10+2d10","20+2d10","30+2d10"],
+        ["CT - Capacité de Tir"     ,"30+2d10","21+2d10","30+2d10","20+2d10","20+2d10"],
+        ["F  - Force"               ,"20+2d10","21+2d10","10+2d10","20+2d10","20+2d10"],
+        ["E  - Endurance"           ,"20+2d10","15+2d10","10+2d10","20+2d10","30+2d10"],
+        ["Ag - Agilité"             ,"30+2d10","30+2d10","30+2d10","20+2d10","10+2d10"],
         ["Int - Intelligence"       ,"20+2d10","20+2d10","20+2d10","20+2d10","20+2d10"],
-        ["FM - Force Mentale"       ,"20+2d10","20+2d10","20+2d10","20+2d10","40+2d10"],
-        ["Soc - Sociabilité"        ,"20+2d10","30+2d10","20+2d10","10+2d10","15+2d10"],
+        ["FM - Force Mentale"       ,"20+2d10","40+2d10","20+2d10","20+2d10","20+2d10"],
+        ["Soc - Sociabilité"        ,"20+2d10","15+2d10","30+2d10","20+2d10","10+2d10"],
         ["A - Attaques","1","1","1","1","1"],
         ["B - Points de Blessures (v2)","Lancer","1d10","sur la","table","concernée"],
-        ["B - Points de Blessures (v4)","BF+(2xBE)+BFM","(2xBE)+BFM","BF+(2xBE)+BFM","BF+(2xBE)+BFM","(2xBE)+BFM"],
-        ["M - Mouvement","5","4","4","3","3"]
+        ["B - Points de Blessures (v4)","BF+(2xBE)+BFM","(2xBE)+BFM","(2xBE)+BFM","BF+(2xBE)+BFM","BF+(2xBE)+BFM"],
+        ["M - Mouvement","5","3","4","4","3"]
       ]
     },
     {"id":12,"titre":"Points de Blessures de départ",
       "description": "",
       "lignes":[
-        ["d10","Elfe","Halfling","Humain","Nain","Gnôme"],
-        ["1-3","9","8","10","11","8"],
-        ["4-6","10","9","11","12","9"],
-        ["7-9","11","10","12","13","10"],
-        ["10","12","11","13","14","11"]
+        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
+        ["1-3","9","8","8","10","11"],
+        ["4-6","10","9","9","11","12"],
+        ["7-9","11","10","10","12","13"],
+        ["10","12","11","11","13","14"]
       ]
     },
     {"id":13,"titre":"Points de Destin de départ",
       "description": "",
       "lignes":[
-        ["d10","Elfe","Halfling","Humain","Humain (mutant)","Nain"],
-        ["1-4","1","2","2","1","1"],
-        ["5-7","2","2","3","2","2"],
-        ["8-10","2","3","3","2","3"]
+        ["d10","Elfe","Gnôme","Halfling","Humain","Humain (mutant)","Nain"],
+        ["1-4","1","2","2","2","1","1"],
+        ["5-7","2","3","2","3","2","2"],
+        ["8-10","2","3","3","3","2","3"]
       ]
     },
     {"id":20,"titre":"Coût d'amélioration d'une caractéristique",

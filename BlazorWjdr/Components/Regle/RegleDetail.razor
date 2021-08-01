@@ -6,8 +6,19 @@
 @using BlazorWjdr.Components.Table
 
 <div class="card-body">
-    <h5 class="card-title">@Item.Titre</h5>
+    @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
+    {
+        <h5 class="card-title">@Item.Titre</h5>
+    }
     <CardParagraphes Text="@Item.Regle"></CardParagraphes>
+@if (Item.Competences.Any())
+{
+    <CompetenceItemList Items="@Item.Competences" ItemsChoix="@Item.ChoixCompetences.ToArray()"/>
+}
+@if (Item.Talents.Any())
+{
+    <TalentItemList Items="@Item.Talents" ItemsChoix="@Item.ChoixTalents.ToArray()"/>
+}
 </div>
 
 @if (Item.Bestioles.Any())
@@ -33,18 +44,10 @@
         </p>
     </div>
 }
-@if (Item.Competences.Any())
-{
-    <CompetenceItemList Items="@Item.Competences" ItemsChoix="@Item.ChoixCompetences.ToArray()"/>
-}
-@if (Item.Talents.Any())
-{
-    <TalentItemList Items="@Item.Talents" ItemsChoix="@Item.ChoixTalents.ToArray()"/>
-}
 
 @foreach (var table in Item.Tables)
 {
-    <div class="bulle">
+    <div class="card-body">
         <TableDetail Item="@table"/>
     </div>
 }
@@ -57,4 +60,6 @@
 @code {
     [Parameter]
     public RegleDto Item { get; set; } = null!;
+    [Parameter]
+    public bool MasquerTitre { get; set; }
 }
