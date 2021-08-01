@@ -1,0 +1,37 @@
+﻿@page "/regles/"
+
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject ReglesService _reglesService
+
+<MainTopRow>
+    <span class="title-primary top-row-title">Règles</span>
+</MainTopRow>
+
+<div class="content px-4">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Règle</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var regle in _lines)
+        {
+            <tr>
+                <td><a href="regles/@regle.Id/">@regle.Titre</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+@code {
+    private RegleDto[] _lines = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _lines = await _reglesService.Items();
+    }
+}

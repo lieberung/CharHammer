@@ -1,0 +1,24 @@
+﻿using System.Collections.Generic;
+
+namespace BlazorWjdr.DataSource.JsonDto
+{
+    public class JsonRegle
+    {
+        public int id { get; set; }
+        public string titre { get; set; }
+        public int[]? regles { get; set; }
+        public int[]? carrieres { get; set; }
+        public int[]? competences { get; set; }
+        public int[][]? choixcompetences { get; set; }
+        public int[]? talents { get; set; }
+        public int[][]? choixtalents { get; set; }
+        public int[]? bestioles { get; set; }
+        public int[]? tables { get; set; }
+        public string regle { get; set; }
+    }
+
+    public class RootRegle
+    {
+        public List<JsonRegle> items { get; set; }
+    }
+}

@@ -1,0 +1,60 @@
+﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Table
+
+<div class="card-body">
+    <h5 class="card-title">@Item.Titre</h5>
+    <CardParagraphes Text="@Item.Regle"></CardParagraphes>
+</div>
+
+@if (Item.Bestioles.Any())
+{
+    <div class="card-body">
+        <table class="table">
+            <tbody>
+            @foreach (var bestiole in Item.Bestioles)
+            {
+                <BestioleRow Item="@bestiole"/>
+            }
+            </tbody>
+        </table>
+    </div>
+}
+
+@if (Item.Carrieres.Any())
+{
+    <div class="card-body">
+        <h5 class="card-title">Carrières liées</h5>
+        <p class="card-text">
+            <CarriereItemList Items="@Item.Carrieres"/>
+        </p>
+    </div>
+}
+@if (Item.Competences.Any())
+{
+    <CompetenceItemList Items="@Item.Competences" ItemsChoix="@Item.ChoixCompetences.ToArray()"/>
+}
+@if (Item.Talents.Any())
+{
+    <TalentItemList Items="@Item.Talents" ItemsChoix="@Item.ChoixTalents.ToArray()"/>
+}
+
+@foreach (var table in Item.Tables)
+{
+    <div class="bulle">
+        <TableDetail Item="@table"/>
+    </div>
+}
+
+@foreach (var sousRegle in Item.SousRegles)
+{
+    <RegleDetail Item="@sousRegle"/>
+}
+
+@code {
+    [Parameter]
+    public RegleDto Item { get; set; } = null!;
+}

@@ -33,6 +33,8 @@ namespace BlazorWjdr
             services.AddSingleton<CompetencesEtTalentsService>();
             services.AddSingleton<ChoixCompetencesEtTalentsService>();
             services.AddSingleton<CarrieresService>();
+            services.AddSingleton<TablesService>();
+            services.AddSingleton<ReglesService>();
             services.AddSingleton<TableDesCarrieresInitialesService>();
             services.AddSingleton<BestiolesService>();
         }

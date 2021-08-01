@@ -1,0 +1,40 @@
+﻿@using BlazorWjdr.Models
+
+<div class="card-body">
+    @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
+    {
+        <h5 class="card-title" style="font-size: large;">@Item.Titre</h5>
+    }
+    @if (!string.IsNullOrWhiteSpace(Item.Description))
+    {
+        <p class="card-text">Item.Description</p>
+    }
+    <p class="card-text">
+        <table class="table">
+            <tbody class="alternate-color-light">
+            <tr>
+                @foreach (var header in Item.Lignes[0])
+                {
+                    <th>@header</th>
+                }
+            </tr>
+            @for (var x = 1; x < Item.Lignes.Length; x++)
+            {
+                <tr>
+                    @for (var y = 0; y < Item.Lignes[x].Length; y++)
+                    {
+                        <td>@Item.Lignes[x][y]</td>
+                    }
+                </tr>
+            }
+            </tbody>
+        </table>
+    </p>
+</div>
+
+@code {
+    [Parameter]
+    public TableDto Item { get; set; } = null!;
+    [Parameter]
+    public bool MasquerTitre { get; set; }
+}

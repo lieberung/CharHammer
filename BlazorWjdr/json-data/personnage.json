@@ -4,15 +4,16 @@
 {"id":2,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":1,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[24,80,158],"cheveux":"châtains clairs","yeux":"marrons foncés"},
 {"id":3,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":1,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[66,25,22],"cheveux":"violets","yeux":"mauves"},
 {"id":4,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":1,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[47,33],"cheveux":"châtains","yeux":"marrons clairs"},
-{"id":27,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":2,"mort":false,"fk_cheminprofess":[22,163],"cheveux":null,"yeux":null},
-{"id":10,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[30,186,31],"cheveux":"origami","yeux":"gris clair"},
-{"id":11,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[47,160,233,194,198],"cheveux":"blonds cendrés","yeux":"cuivre"},
-{"id":12,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[27,179,169],"cheveux":"noirs","yeux":"marrons clairs"},
-{"id":13,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[51,50,157],"cheveux":"argenté","yeux":"noisette"},
 {"id":5,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":1,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[45],"cheveux":"noirs","yeux":"mauves"},
 {"id":6,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[22],"cheveux":null,"yeux":null},
 {"id":7,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[31],"cheveux":null,"yeux":null},
 {"id":8,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[57],"cheveux":null,"yeux":null},
 {"id":9,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[65],"cheveux":null,"yeux":null},
-	]
+{"id":10,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[30,186,31],"cheveux":"origami","yeux":"gris clair"},
+{"id":11,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[47,160,233,194,198],"cheveux":"blonds cendrés","yeux":"cuivre"},
+{"id":12,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[27,179,169],"cheveux":"noirs","yeux":"marrons clairs"},
+{"id":13,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[51,50,157],"cheveux":"argenté","yeux":"noisette"},
+{"id":27,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":2,"mort":false,"fk_cheminprofess":[22,163],"cheveux":null,"yeux":null},
+{"id":28,"fk_carrierepereid":null,"fk_carrieremereid":null,"fk_signeastralid":null,"freres_et_soeurs":null,"main_directrice":1,"mort":false,"fk_cheminprofess":[27,179],"cheveux":null,"yeux":null}
+    ]
 }

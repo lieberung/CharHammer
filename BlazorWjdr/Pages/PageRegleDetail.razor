@@ -1,0 +1,28 @@
+﻿@page "/regles/{RegleId}/"
+
+@using BlazorWjdr.Services
+@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Regle
+
+@inject ReglesService _reglesService
+
+<MainTopRow>
+    <span class="title-primary top-row-title">@_regle.Titre</span>
+</MainTopRow>
+
+<div class="content px-4">
+    <RegleDetail Item="@_regle"/>    
+</div>
+
+@code {
+    [Parameter]
+    public string RegleId { get; set; } = null!;
+
+    private RegleDto _regle;
+
+    protected override void OnParametersSet()
+    {
+        _regle = _reglesService.GetRegle(int.Parse(RegleId));
+        base.OnParametersSet();
+    }
+}

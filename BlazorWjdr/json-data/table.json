@@ -1,0 +1,97 @@
+﻿{
+  "items": [
+     {"id":10,"titre":"Déterminer votre race",
+      "description": "",
+      "lignes":[
+        ["d100","Probabilité","Race","Choisir (coût en XP)"],
+        ["01-87","87%","Humain","50"],
+        ["88","1%","Humain (mutant)","spécial"],
+        ["89-94","5%","Halfeling","100"],
+        ["95-98","4%","Nain","125"],
+        ["99-00","2%","Elfe sylvain","250"]
+      ]
+    },
+    {"id":11,"titre":"Détermination des caractéristiques",
+      "description": "",
+      "lignes":[
+        ["Caractéristique","Elfe","Halfling","Humain","Nain","Gnôme"],
+        ["CC - Capacité de Combat"  ,"20+2d10","10+2d10","20+2d10","30+2d10","20+2d10"],
+        ["CT - Capacité de Tir"     ,"30+2d10","30+2d10","20+2d10","20+2d10","21+2d10"],
+        ["F  - Force"               ,"20+2d10","10+2d10","20+2d10","20+2d10","21+2d10"],
+        ["E  - Endurance"           ,"20+2d10","10+2d10","20+2d10","30+2d10","15+2d10"],
+        ["Ag - Agilité"             ,"30+2d10","30+2d10","20+2d10","10+2d10","30+2d10"],
+        ["Int - Intelligence"       ,"20+2d10","20+2d10","20+2d10","20+2d10","20+2d10"],
+        ["FM - Force Mentale"       ,"20+2d10","20+2d10","20+2d10","20+2d10","40+2d10"],
+        ["Soc - Sociabilité"        ,"20+2d10","30+2d10","20+2d10","10+2d10","15+2d10"],
+        ["A - Attaques","1","1","1","1","1"],
+        ["B - Points de Blessures (v2)","Lancer","1d10","sur la","table","concernée"],
+        ["B - Points de Blessures (v4)","BF+(2xBE)+BFM","(2xBE)+BFM","BF+(2xBE)+BFM","BF+(2xBE)+BFM","(2xBE)+BFM"],
+        ["M - Mouvement","5","4","4","3","3"]
+      ]
+    },
+    {"id":12,"titre":"Points de Blessures de départ",
+      "description": "",
+      "lignes":[
+        ["d10","Elfe","Halfling","Humain","Nain","Gnôme"],
+        ["1-3","9","8","10","11","8"],
+        ["4-6","10","9","11","12","9"],
+        ["7-9","11","10","12","13","10"],
+        ["10","12","11","13","14","11"]
+      ]
+    },
+    {"id":13,"titre":"Points de Destin de départ",
+      "description": "",
+      "lignes":[
+        ["d10","Elfe","Halfling","Humain","Humain (mutant)","Nain"],
+        ["1-4","1","2","2","1","1"],
+        ["5-7","2","2","3","2","2"],
+        ["8-10","2","3","3","2","3"]
+      ]
+    },
+    {"id":20,"titre":"Coût d'amélioration d'une caractéristique",
+      "description": "",
+      "lignes":[
+        ["Promotion","Carac. (v2)","Carac (v4)","Competence (v4)"],
+        ["+5%","50","25","2"],
+        ["+10%","100","30","3"],
+        ["+15%","150","40","3"],
+        ["+20%","200","50","3"],
+        ["+25%","250","70","3"],
+        ["+30%","300","90","3"],
+        ["+35%","350","120","3"],
+        ["+40%","400","150","3"],
+        ["+45%","-","190","140"],
+        ["+50%","-","230","180"]
+      ]
+    },
+    {"id":21,"titre":"Dépenser ses XP (points d'expérience)",
+      "description": "",
+      "lignes":[
+        ["","Coût"],
+        ["Acheter une compétence","De base","Avancée"],
+        ["- 1ère fois (acquise)","50","100"],
+        ["- 2nd fois (+10%)","100","100"],
+        ["- 3ème fois (+20%)","125","150"],
+        ["Acheter un talent","100"],
+        ["Choisir une nouvelle carrière de base","200","100 si carrière actuelle complétée"],
+        ["Choisir une carrière parmi ses débouchés","100","gratuit si carrière actuelle complétée"]
+      ]
+    },
+    {"id":50,"titre":"Marchand : Traits aléatoires",
+      "description": "",
+      "lignes":[
+        ["1d10","Trait","Effet"],
+        ["1","Bureaucrate","ce marchand s'assure que ses transactions s'accompagnent de tous les actes et documents légaux, en triple exemplaire si nécessaire. Chaque transaction demande donc 1d10 jours."],
+        ["2","D'une honnêteté scrupuleuse","le marchand fait toujours de justes propositions d'achat et de vente, si bien qu'aucun test d'Évaluation n'est nécessaire. En revanche, il refuse de marchander."],
+        ["3","Profondément pieux","le marchand appartient à une société secrète de Händrich ou de Ranald le Bonimenteur (cf. Le compagnon p.32 pour plus de détails sur l'influence que cela peut avoir sur les transactions)."],
+        ["4","Habile","le marchand à la compétence Marchandage +10%."],
+        ["5","Cupide","le marchand sous-estime toujours la valeur des biens des P) tout en gonflant celle de ses propres articles. Des tests d'Évaluation sont nécessaires pour réaliser des alfaires honnêtes."],
+        ["6","Entrepreneur","le marchand accepte aussi de prêter de l'argent aux habitants de la ville ou fait le commerce de produits locaux pour arrondir ses fins de mois."],
+        ["7","Relations criminelles","le marchand est impliqué dans le commerce de biens illicites, si bien qu'il est possible de lui demander d'en rechercher. Lorsqu'il s'agit de déterminer la disponibilité de biens illicites, les joueurs bénéficient d'un bonus de +10%."],
+        ["8","Grand voyageur","le marchand a des contacts dans remouille de l'Empire et les personnages joueurs qui ont affaire à lui ont droit à un jet de spéculation (cf Le compagnon p.31)."],
+        ["9","Charlatan","le marchand est un charlatan. S'il en a l'occasion il n'hésitera pas à vendre des caisses vides ou à filer avec la marchandise des sans les payer. Des tests d'Évaluation sont nécessaires pour réaliser des affaires hommes."],
+        ["10","Bourré d'oseille","le marchand est en mesure d'acheter bien plus que tous ses concurrents. Les joueurs pourront lui vendre toutes leurs UC en réussissant un test de demande, quelle que soit la quantité indiquée par les dés."]
+      ]
+    }
+  ]
+}

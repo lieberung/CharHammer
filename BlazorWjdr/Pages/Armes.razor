@@ -49,7 +49,7 @@
                 <td>Disponibilité</td>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="alternate-color-dark">
             @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeCaC))
             {
                 <ArmeRow Item="arme"/>
@@ -74,7 +74,7 @@
                 <td>Disponibilité</td>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="alternate-color-dark">
             @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeTir))
             {
                 <ArmeRow Item="arme"/>

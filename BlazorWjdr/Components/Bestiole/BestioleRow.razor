@@ -18,23 +18,7 @@
     <tr>
         <td colspan="2" class="p-3">
             <div class="bulle" style="padding-bottom: 0;">
-                <h6 class="card-title">Plan de carrière</h6>
-                <p>
-                    <CarriereItemList Items="@Item.CheminementPro" HideIndicatorBase="true" HideIndicatorRestriction="true"/>
-                    <Profil ProfilActuel="@Item.ProfilActuel" ProfilInitial="@Item.ProfilInitial" PlanDeCarriere="@Item.CarriereActuelle?.PlanDeCarriere"/>
-                </p>
-                
-                <h6 class="card-title">Compétences</h6>
-                <p><CompetenceAcquiseItemList Items="@Item.CompetencesAcquises.ToArray()" /></p>
-                
-                <h6 class="card-title">Talents</h6>
-                <p><TalentItemList Items="@Item.Talents.ToArray()" /></p>
-                
-                @if (!string.IsNullOrWhiteSpace(Item.Equipement))
-                {
-                    <h6 class="card-title">Equipement</h6>
-                    <p>@Item.Equipement</p>
-                }
+                <BestioleFiche Item="@Item"/>
             </div>
         </td>
     </tr>

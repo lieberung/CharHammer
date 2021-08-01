@@ -36,6 +36,7 @@
     <None Include="json-data\profil.json" />
     <None Include="json-data\race.json" />
     <None Include="json-data\reference.json" />
+    <None Include="json-data\table.json" />
     <None Include="json-data\talent.json" />
   </ItemGroup>
 

@@ -1,0 +1,9 @@
+﻿{
+  "items": [
+    {"id":100,"severite":1,"type":"nevrose","nom":"Maniaque de l'accomplissement","guerison":"","description":"Blabla bla. -5% à -10% à tous vos jets suite à une affaire baclée ou à un objectif manqué Lorsque vous complétez une carrière, vous gagnez 100 xp, +25xp pour chaque carrière complétée auparavant."},
+    {"id":101,"severite":1,"type":"nevrose","nom":"Onychophage","guerison":"Hypnose","description":"L'onychophagie est une attitude compulsive consistant à se ronger les ongles. Souvent provoquée par le stress et l'anxiété elle devient une habitude banale et souvent sans gravité. L'onychophagie est parfois le signe d'une personnalité perfectionniste, angoissée à l'idée de ne pas tout faire au mieux, et évacuant cette angoisse par ce comportement compulsif. -3% en Soc."},
+    {"id":102,"severite":3,"type":"folie","nom":"","guerison":"","description":""},
+    {"id":103,"severite":4,"type":"mutation","nom":"","guerison":"","description":""},
+    {"id":104,"severite":1,"type":"maladie","nom":"","guerison":"","contagieux":true,"description":""}
+  ]
+}

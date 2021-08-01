@@ -45,3 +45,7 @@ Autorité naturelle (Trait) : +10% lié à Charisme (pour la persuasion), Intimi
 Blasé (Trait) : -10% aux jets d'intimidation qui vous prennent pour cible.
 Esprit créatif : +10% aux jets d'Int visant à inventer des stratgèmes, mécanismes, +10% aux jets d'ingégnirie
 Sens de la répartie
+
+Action de combat : frappe à deux armes (action complète), -20 CC si 1A, -10 CC si 2A, pas de malus si 3 A, si réussi 2 jets de dégâts successif (1 de chaque arme).
+
+Cri de guerre : Test contre la Peur des ennemis, si Echec -10 à tous ses jets pendant un Round 

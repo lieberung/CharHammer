@@ -1,0 +1,12 @@
+﻿@page "/regles/creation-de-personnage/{Race}/"
+
+@using BlazorWjdr.Components.Regle
+@using BlazorWjdr.Components.Table
+@using BlazorWjdr.Services
+
+@inject ReglesService _reglesService
+@inject TablesService _tablesService
+
+@code {
+    [Parameter] public string Race { get; set; }
+}

@@ -1,0 +1,33 @@
+﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
+
+<h6 class="card-title">Plan de carrière</h6>
+<p>
+    <CarriereItemList Items="@Item.CheminementPro" HideIndicatorBase="true" HideIndicatorRestriction="true"/>
+    @if (NAfficherQueLeProfilActuel) {
+        <Profil ProfilActuel="@Item.ProfilActuel" />
+    } else {
+        <Profil ProfilActuel="@Item.ProfilActuel" ProfilInitial="@Item.ProfilInitial" PlanDeCarriere="@Item.CarriereActuelle?.PlanDeCarriere"/>
+    }
+</p>
+
+<h6 class="card-title">Compétences</h6>
+<p><CompetenceAcquiseItemList Items="@Item.CompetencesAcquises.ToArray()" /></p>
+
+<h6 class="card-title">Talents</h6>
+<p><TalentItemList Items="@Item.Talents.ToArray()" /></p>
+
+@if (!string.IsNullOrWhiteSpace(Item.Equipement))
+{
+    <h6 class="card-title">Equipement</h6>
+    <p>@Item.Equipement</p>
+}
+
+@code{
+    [Parameter]
+    public BestioleDto Item { get; set; } = null!;
+    [Parameter]
+    public bool NAfficherQueLeProfilActuel { get; set; }
+}
