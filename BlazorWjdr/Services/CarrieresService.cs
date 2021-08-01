@@ -79,8 +79,9 @@
                 .Select(c => new CarriereDto
                 {
                     Id = c.id,
-                    Nom = c.libelle,
-                    MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.libelle)),
+                    Groupe = c.groupe ?? "",
+                    Nom = c.nom,
+                    MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
                     Description = c.description,
                     CarriereMereId = c.fk_parentcarriereid,
                     DebouchesIds = c.fk_debouches ?? Array.Empty<int>(),

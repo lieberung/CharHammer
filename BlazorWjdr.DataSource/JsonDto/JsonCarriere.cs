@@ -5,7 +5,8 @@
     public class JsonCarriere
     {
         public int id { get; set; }
-        public string libelle { get; set; } = null!;
+        public string? groupe { get; set; }
+        public string nom { get; set; } = null!;
         public string description { get; set; } = null!;
         public bool avancee { get; set; }
         public string? restriction { get; set; }

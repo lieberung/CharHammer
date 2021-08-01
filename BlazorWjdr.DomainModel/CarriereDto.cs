@@ -6,6 +6,7 @@
     public class CarriereDto
     {
         public int Id { get; init; }
+        public string Groupe { get; init; } = null!;
         public string Nom { get; init; } = null!;
         public List<string> MotsClefDeRecherche { get; init; } = null!;
         public string Description { get; init; } = null!;
