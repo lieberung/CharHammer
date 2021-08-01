@@ -2,6 +2,7 @@
 
 @using BlazorWjdr.Components.Race
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
 @using BlazorWjdr.Models
@@ -109,7 +110,7 @@
 
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-6">
             <div class="card-body">
                 <h5 class="card-title">4. Déterminer vos traits raciaux</h5>
                 <p class="card-text">
@@ -120,42 +121,49 @@
                     <LinkPageCreationPerso Actif="@_racesService.Nains.Id.Equals(_race.Id)" Race="@_racesService.Nains"/>
                 </p>
             </div>
-        </div>
-    </div>
-    <div class="row">
         @if (_race == _racesService.Elfes)
         {
-            <div class="col-12">
+            <div class="card-body bulle">
                 <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
             </div>
         }
         @if (_race == _racesService.Gnomes)
         {
-            <div class="col-12">
+            <div class="card-body bulle">
                 <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
             </div>
         }
         @if (_race == _racesService.Halfelings)
         {
-            <div class="col-12">
+            <div class="card-body bulle">
                 <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false"/>
             </div>
         }
         @if (_race == _racesService.Humains)
         {
-            <div class="col-6">
+            <div class="card-body bulle">
                 <RegleDetail Item="@_reglesService.GetRegle(19)" MasquerTitre="@false"/>
             </div>
-            <div class="col-6">
+            <div class="card-body bulle">
                 <RegleDetail Item="@_reglesService.GetRegle(21)" MasquerTitre="@false"/>
             </div>
         }
         @if (_race == _racesService.Nains)
         {
-            <div class="col-12">
+            <div class="card-body bulle">
                 <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false"/>
             </div>
-        }
+        }        
+        </div>
+        <div class="col-6">
+            @if (_race == _racesService.Halfelings || _race == _racesService.Humains)
+            {
+                <div class="card-body">
+                    <h5 class="card-title">4-1. Détermination aléatoire des talents</h5>
+                    <TableTalentsInitiaux/>
+                </div>
+            }
+        </div>
     </div>
 
     <div class="row">

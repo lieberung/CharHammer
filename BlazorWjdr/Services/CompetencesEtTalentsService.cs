@@ -267,6 +267,7 @@
         public TalentDto TalentImitation => GetTalent(36);
         public TalentDto TalentSensAiguises => GetTalent(80);
         public TalentDto TalentAccuiteAuditive => GetTalent(2);
+        public TalentDto TalentAccuiteGustativeEtOlfactive => GetTalent(209);
         public TalentDto TalentAccuiteVisuelle => GetTalent(3);
         public TalentDto TalentFilature => GetTalent(30);
         public TalentDto TalentLectureSurLesLevres => GetTalent(41);
@@ -352,6 +353,13 @@
         public CompetenceDto CompetenceConnaissancesAcademiquesZoologie => GetCompetence(188);
         public CompetenceDto CompetenceMetierFermier => GetCompetence(74);
         public CompetenceDto CompetenceConduiteDAttelage => GetCompetence(12);
+        
+        public TalentDto TalentChance => GetTalent(11);
+        public TalentDto TalentResistanceALaMagie => GetTalent(70);
+        public TalentDto TalentResistanceAuxMaladies => GetTalent(72);
+        public TalentDto TalentResistanceAuxPoisons => GetTalent(73);
+        public TalentDto TalentSainDEsprit => GetTalent(75);
+        public TalentDto TalentVisionNocturne => GetTalent(93);
         
         #endregion
         

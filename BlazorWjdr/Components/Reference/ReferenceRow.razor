@@ -5,7 +5,7 @@
 @inject CarrieresService _carrieresService
 
 <tr>
-    <td><img style="width:128px;" src="@Item.Image" alt="@Item.Titre"/></td>
+    <td><img style="width:192px;" src="@Item.Image" alt="@Item.Titre"/></td>
     <td style="width:65px;">
         @if (_carrieresLiees.Any())
         {
@@ -15,7 +15,6 @@
         }
     </td>
     <td><ReferenceItem Item="@Item"/></td>
-    <td>@Item.Code</td>
 </tr>
 @if (AfficherCarrieres)
 {

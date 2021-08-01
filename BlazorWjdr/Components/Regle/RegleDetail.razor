@@ -5,12 +5,12 @@
 @using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Table
 
-<div class="card-body">
-    @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
-    {
-        <h5 class="card-title">@Item.Titre</h5>
-    }
-    <CardParagraphes Text="@Item.Regle"></CardParagraphes>
+
+@if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
+{
+    <h5 class="card-title">@Item.Titre</h5>
+}
+<CardParagraphes Text="@Item.Regle"></CardParagraphes>
 @if (Item.Competences.Any())
 {
     <CompetenceItemList Items="@Item.Competences" ItemsChoix="@Item.ChoixCompetences.ToArray()"/>
@@ -19,11 +19,10 @@
 {
     <TalentItemList Items="@Item.Talents" ItemsChoix="@Item.ChoixTalents.ToArray()"/>
 }
-</div>
 
 @if (Item.Bestioles.Any())
 {
-    <div class="card-body">
+    <p class="card-text">
         <table class="table">
             <tbody>
             @foreach (var bestiole in Item.Bestioles)
@@ -32,24 +31,22 @@
             }
             </tbody>
         </table>
-    </div>
+    </p>
 }
 
 @if (Item.Carrieres.Any())
 {
-    <div class="card-body">
-        <h5 class="card-title">Carrières liées</h5>
-        <p class="card-text">
-            <CarriereItemList Items="@Item.Carrieres"/>
-        </p>
-    </div>
+    <h5 class="card-title">Carrières liées</h5>
+    <p class="card-text">
+        <CarriereItemList Items="@Item.Carrieres"/>
+    </p>
 }
 
 @foreach (var table in Item.Tables)
 {
-    <div class="card-body">
+    <p class="card-text">
         <TableDetail Item="@table"/>
-    </div>
+    </p>
 }
 
 @foreach (var sousRegle in Item.SousRegles)
