@@ -37,7 +37,8 @@
     {"id":40,"titre":"Jouer avec l'aethyre...",
       "regle":"Une folie ? Une mutation ?"},
     {"id":50,"titre":"Dépenser ses XP (points d'expérience)","tables":[20,21],
-      "regle":"Une folie ? Une mutation ?"}
-
+      "regle":"Une folie ? Une mutation ?"},
+    {"id":100,"titre":"Monnaie kislévite",
+      "regle":"Les Kislevites utilisent trois types de pièces : les ducats d’or, les dengas d’argent et les pulos de cuivre (cf. Arsenal du Vieux Monde).\\nLa frappe des ducats et des dengas change à chaque \ntsar ou tsarine, représentant le profil du monarque en question sur une face et le palais Bokha de l’autre. Le pulo présente une tête d’ours d’un côté et un aigle de l’autre."}
   ]
 }
