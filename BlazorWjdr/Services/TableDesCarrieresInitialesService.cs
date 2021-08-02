@@ -18,8 +18,6 @@ namespace BlazorWjdr.Services
             _carrieresService = carrieresService;
         }
 
-        public int GetNombreDeCarrieres(int raceId) => AllLignes[raceId].Count;
-
         public Dictionary<int, List<LigneDeCarriereInitialeDto>> AllLignes
         {
             get
@@ -54,7 +52,9 @@ namespace BlazorWjdr.Services
             {
                 _allLignes[raceId].AddRange(lignesEnVrac
                     .Where(l => l.Race.Id == raceId)
-                    .OrderBy(l => l.Carriere.Nom));
+                    .OrderBy(l => l.Carriere.Groupe)
+                    .ThenBy(l => l.Carriere.Nom)
+                );
             }
         }
 

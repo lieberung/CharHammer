@@ -16,11 +16,13 @@
 
     <div class="row">
         <div class="col-6">
-            <div class="ml-3 mt-3 mb-3 pl-2">
-                <LinkCarrieresInitiales Actif="@_racesService.Elfes.Id.Equals(Race.Id)" Race="@_racesService.Elfes"/>
-                <LinkCarrieresInitiales Actif="@_racesService.Halfelings.Id.Equals(Race.Id)" Race="@_racesService.Halfelings"/>
-                <LinkCarrieresInitiales Actif="@_racesService.Humains.Id.Equals(Race.Id)" Race="@_racesService.Humains"/>
-                <LinkCarrieresInitiales Actif="@_racesService.Nains.Id.Equals(Race.Id)" Race="@_racesService.Nains"/>
+            <div class="card-body">
+                <p class="card-text">
+                    <LinkCarrieresInitiales Actif="@_racesService.Elfes.Id.Equals(Race.Id)" Race="@_racesService.Elfes"/>
+                    <LinkCarrieresInitiales Actif="@_racesService.Halfelings.Id.Equals(Race.Id)" Race="@_racesService.Halfelings"/>
+                    <LinkCarrieresInitiales Actif="@_racesService.Humains.Id.Equals(Race.Id)" Race="@_racesService.Humains"/>
+                    <LinkCarrieresInitiales Actif="@_racesService.Nains.Id.Equals(Race.Id)" Race="@_racesService.Nains"/>
+                </p>
             </div>
         </div>
         <div class="col-1"></div>
@@ -34,13 +36,10 @@
         </div>
         <div class="col-1"></div>
     </div>
-    <div class="row">
-        <div class="col-12"></div>
-    </div>
+
     <div class="row">
         <div class="col-6">
             <div class="card-body">
-                <h5 class="card-title">Table pour : @Race.NomMasculin / @Race.NomFeminin</h5>
                 <TableDeDepart RaceId="@Race.Id.ToString()"/>
             </div>
         </div>

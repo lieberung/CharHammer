@@ -5,28 +5,34 @@
 @inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
 
 <table>
-    <thead></thead>
     <tbody>
-        @foreach (var ligne in _allLines)
-        {
-            <tr>
-                <td><CarriereItem Item="ligne.Carriere" HideIndicatorBase="true" HideIndicatorRestriction="false"/></td>
-                <td>
-                    <div class="mx-3"> 
+@foreach (var groupe in _allLines.Select(l => l.Carriere.Groupe).Distinct())
+{
+    <tr style="border-bottom: 1px black dashed;">
+        <td><strong>@groupe</strong></td>
+        <td></td>
+    </tr>
+    @foreach (var ligne in _allLines.Where(l => l.Carriere.Groupe == groupe))
+    {
+        <tr>
+            <td>
+                <div class="mx-3">
                     @for (var i = 0; i < ligne.Facteur; i++)
                     {
-                        <span class="oi oi-star item-icon" aria-hidden="true"></span>
+                        <span class="oi oi-star item-icon" aria-hidden="true" style="float:right;"></span>
                     }
-                    </div>
-                </td>
-                <td>
-                    @if (ligne.Carriere.SourceLivre != null || !string.IsNullOrWhiteSpace(ligne.Carriere.Source))
-                    {
-                        <ReferenceItem Item="@ligne.Carriere.SourceLivre" Page="@ligne.Carriere.Source"/>
-                    }
-                </td>
-            </tr>
-        }
+                </div>
+            </td>
+            <td><CarriereItem Item="ligne.Carriere" HideIndicatorBase="true" HideIndicatorRestriction="false"/></td>
+            <!--td>
+            @if (ligne.Carriere.SourceLivre != null || !string.IsNullOrWhiteSpace(ligne.Carriere.Source))
+            {
+                <ReferenceItem Item="@ligne.Carriere.SourceLivre" Page="@ligne.Carriere.Source"/>
+            }
+            </td-->
+        </tr>
+    }
+}
     </tbody>
 </table>
 @code {
