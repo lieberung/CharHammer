@@ -10,16 +10,16 @@
         public string description { get; set; } = null!;
         public bool avancee { get; set; }
         public string? restriction { get; set; }
-        public int fk_plandecarriereid { get; set; }
+        public int plan { get; set; }
         public string? source { get; set; }
-        public int[]? fk_debouches { get; set; }
-        public int[]? fk_competences { get; set; }
-        public int[]? fk_talents { get; set; }
-        public int[]? fk_choixcompetences { get; set; }
-        public int[]? fk_choixtalents { get; set; }
+        public int[]? debouch { get; set; }
+        public int[]? competences { get; set; }
+        public int[]? talents { get; set; }
+        public int[]? competenceschoix { get; set; }
+        public int[]? talentschoix { get; set; }
         public int? fk_sourceid { get; set; }
         public string dotations { get; set; } = null!;
-        public int? fk_parentcarriereid { get; set; }
+        public int? parent { get; set; }
     }
 
     public class RootCarriere

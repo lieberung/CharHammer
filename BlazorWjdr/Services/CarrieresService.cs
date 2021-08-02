@@ -83,27 +83,27 @@
                     Nom = c.nom,
                     MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
                     Description = c.description,
-                    CarriereMereId = c.fk_parentcarriereid,
-                    DebouchesIds = c.fk_debouches ?? Array.Empty<int>(),
+                    CarriereMereId = c.parent,
+                    DebouchesIds = c.debouch ?? Array.Empty<int>(),
                     Dotations = c.dotations,
                     EstUneCarriereAvancee = c.avancee,
                     Image = $"/images/careers/{c.id}.png",
-                    PlanDeCarriere = _profilsService.GetProfil(c.fk_plandecarriereid),
+                    PlanDeCarriere = _profilsService.GetProfil(c.plan),
                     Restriction = c.restriction ?? "",
                     Source = c.source ?? "",
                     SourceLivre = c.fk_sourceid == null ? null : _referencesService.GetReference(c.fk_sourceid.Value),
 #pragma warning disable CS8604 // Possible null reference argument.
-                    Competences = c.fk_competences != null
-                        ? _competencesEtTalentsService.GetCompetences(c.fk_competences).ToList()
+                    Competences = c.competences != null
+                        ? _competencesEtTalentsService.GetCompetences(c.competences).ToList()
                         : new List<CompetenceDto>(),
-                    Talents = c.fk_talents != null
-                        ? _competencesEtTalentsService.GetTalents(c.fk_talents).ToList()
+                    Talents = c.talents != null
+                        ? _competencesEtTalentsService.GetTalents(c.talents).ToList()
                         : new List<TalentDto>(),
-                    ChoixCompetences = c.fk_choixcompetences != null
-                        ? _choixCompetencesEtTalentsService.GetChoixCompetences(c.fk_choixcompetences).ToList()
+                    ChoixCompetences = c.competenceschoix != null
+                        ? _choixCompetencesEtTalentsService.GetChoixCompetences(c.competenceschoix).ToList()
                         : new List<CompetenceDto[]>(),
-                    ChoixTalents = c.fk_choixtalents != null
-                        ? _choixCompetencesEtTalentsService.GetChoixTalents(c.fk_choixtalents).ToList()
+                    ChoixTalents = c.talentschoix != null
+                        ? _choixCompetencesEtTalentsService.GetChoixTalents(c.talentschoix).ToList()
                         : new List<TalentDto[]>()
 #pragma warning restore CS8604 // Possible null reference argument.
                 })
