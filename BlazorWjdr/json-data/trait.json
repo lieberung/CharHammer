@@ -1,11 +1,11 @@
 ﻿{
   "items": [
-    {"id":100,"severite":1,"type":"nevrose","nom":"Maniaque de l'accomplissement","guerison":"","description":"Blabla bla. -5% à -10% à tous vos jets suite à une affaire bâclée ou à un objectif manqué Lorsque vous complétez une carrière, vous gagnez 100 xp, +25xp pour chaque carrière complétée auparavant."},
-    {"id":101,"severite":1,"type":"nevrose","nom":"Onychophage","guerison":"Hypnose","description":"L'onychophagie est une attitude compulsive consistant à se ronger les ongles. Souvent provoquée par le stress et l'anxiété elle devient une habitude banale et souvent sans gravité. L'onychophagie est parfois le signe d'une personnalité perfectionniste, angoissée à l'idée de ne pas tout faire au mieux, et évacuant cette angoisse par ce comportement compulsif."},
-    {"id":102,"severite":3,"type":"folie","nom":"","guerison":"","description":""},
-    {"id":103,"severite":1,"type":"phobie","nom":"Anthelmophobie","guerison":"","description":"L'anthelmophobie est la peur viscérale, instinctive des vers. Il s'agit d'un trouble psychologique qui peut parfois sembler irraisonné, sauf quand la longueur du ver se mesure en mètres."},
-    {"id":104,"severite":4,"type":"mutation","nom":"","guerison":"","description":""},
-    {"id":105,"severite":1,"type":"maladie","nom":"","guerison":"","contagieux":true,"description":""},
+    {"id":100,"severite":1,"type":"trait","nom":"*Cordon bleu","description":"+10% au jets de Métier (cuisine) et +5% aux jets de Survie visant à trouver de la nourriture."},
+    {"id":101,"severite":1,"type":"trait","nom":"Traumatisme","description":"Vous avez vécu un traumatisme (à votre discréation avec l'accord du meneur de jeu). Vous gagnez 1d6 points de folie. Si vous obtenez 6, réferrez vous au livre de base p.200."},
+    {"id":102,"severite":1,"type":"trait","nom":"*Mauvaise habitude","description":"Cela dépend de votre carrière initiale.\nGuerrière : Vous avez pris la mauvaise habitude de toujours viser au même endroits. Faite un jet de localisation. Action Viser : +10% sur la loc, -10% sur les autres. Après 2 frappes succésives au même endroit vos adversaires bénéficient de +10% en parade."},
+    {"id":103,"severite":1,"type":"trait","nom":"*Enfant de la nuit","description":"Lorsque la nuit tombe / Morslieb est pleine, vous bénéficier d'un don du sang aléatoire. Toutefois cela ne dure rarement plus de 20mn et ne se reproduit plus avant la nuit suivante. En outre, durant toute la journée suivante vous serez particulièrement fatigué et subirez un malus de -10% à tous vos jets."},
+    {"id":104,"severite":1,"type":"trait","nom":"Rire singulier","description":"Votre rire ne passe pas innaperçu et provoque souvent la surprise autours de vous. Ce peut-être parce qu'il est trop aigu, exhubérant, porcin, sadique ou encore pervers."},
+    {"id":105,"severite":1,"type":"trait","nom":"Verrue","description":""},
     {"id":106,"severite":1,"type":"trait","nom":"Accent prononcé","description":"-5% aux jets de Commandement et de Commérage, +5% aux jets de Barratin"},
     {"id":107,"severite":1,"type":"trait","nom":"Balafre","description":"Dans votre profil initial, diminuez votre [Soc] de 1+1d4."},
     {"id":108,"severite":0,"type":"trait","nom":"Barbe volumineuse","description":""},
@@ -19,7 +19,7 @@
     {"id":116,"severite":0,"type":"trait","nom":"Cheveux frisés","description":""},
     {"id":117,"severite":2,"type":"trait","nom":"Chicots","description":"Dans votre profil initial, diminuez votre [Soc] de 1+1d4."},
     {"id":118,"severite":3,"type":"trait","nom":"Claudication","description":"M-1 (minimum 2)"},
-    {"id":119,"severite":2,"type":"trait","nom":"Corps couvert de cicatrices","description":"Tests sous Soc -5% (+5% envers les races/personnages à tempéramment guerrier"},
+    {"id":119,"severite":2,"type":"trait","nom":"Couvert de cicatrices","description":"Tests sous Soc -5% (+5% envers les races/personnages à tempéramment guerrier"},
     {"id":120,"severite":-1,"type":"trait","nom":"Dents très blanches","description":"Dans votre profil initial, augmentez votre [Soc] de 1d4."},
     {"id":121,"severite":1,"type":"trait","nom":"Dos vouté","description":""},
     {"id":122,"severite":1,"type":"trait","nom":"Expression hautaine","description":"-5% aux jets de Charisme, +5% aux jets de Commandement."},
@@ -62,9 +62,18 @@
     {"id":159,"severite":-1,"type":"trait","nom":"Visage asymétrique","description":"Cela vous donne un air... bizarre, et un peu moche aussi !\nDans votre profil initial, diminuez votre [Soc] de 1d4."},
     {"id":160,"severite":0,"type":"trait","nom":"Oreilles décolées","description":""},
     {"id":161,"severite":3,"type":"trait","nom":"Quelque chose de pourri","description":"Vous venez de contracter une mutation ! Vous devenez un Mutant et tirez une mutation aléatoire (cf. Le tome de la Corruption)."},
-    {"id":162,"severite":1,"type":"trait","nom":"Cordon bleu","description":"+10% au jets de Métier (cuisine) et +5% aux jets de Survie visant à trouver de la nourriture."},
-    {"id":163,"severite":1,"type":"trait","nom":"Traumatisme","description":"Vous avez vécu un traumatisme (à votre discréation avec l'accord du meneur de jeu). Vous gagnez 1d6 points de folie. Si vous obtenez 6, réferrez vous au livre de base p.200."},
-    {"id":164,"severite":1,"type":"trait","nom":"Mauvaise habitude","description":"Cela dépend de votre carrière initiale.\nGuerrière : Vous avez pris la mauvaise habitude de toujours viser au même endroits. Faite un jet de localisation. Action Viser : +10% sur la loc, -10% sur les autres. Après 2 frappes succésives au même endroit vos adversaires bénéficient de +10% en parade."},
-    {"id":165,"severite":1,"type":"trait","nom":"Enfant de la nuit","description":"Lorsque Morslieb est plaine, vous bénéficier d'un don du sang aléatoire."},
+    {"id":162,"severite":1,"type":"trait","nom":"Petite vérole","description":""},
+    {"id":163,"severite":1,"type":"trait","nom":"Transpiration abondante","description":""},
+    {"id":164,"severite":1,"type":"trait","nom":"Névrosé","description":"Tirer une névrose bégnine aléatoire sur la table des Névroses."},
+    {"id":165,"severite":1,"type":"trait","nom":"Sourcils contigus","description":"Difficile de savoir où s'arrête l'un et ou commence l'autre."},
+    {"id":166,"severite":-1,"type":"trait","nom":"Passionné","description":"Vous êtes pationné d'un domaine en particulier.\nAvec l'accord du MJ choisissez ou tirez aléatoirement une compétence de Connaissances générales (vous pouvez en choisir une que vous possédez déjà)."},
+    
+
+    {"id":200,"severite":1,"type":"nevrose","nom":"Maniaque de l'accomplissement","guerison":"","description":"Blabla bla. -5% à -10% à tous vos jets suite à une affaire bâclée ou à un objectif manqué Lorsque vous complétez une carrière, vous gagnez 100 xp, +25xp pour chaque carrière complétée auparavant."},
+    {"id":201,"severite":1,"type":"nevrose","nom":"Onychophage","guerison":"Hypnose","description":"L'onychophagie est une attitude compulsive consistant à se ronger les ongles. Souvent provoquée par le stress et l'anxiété elle devient une habitude banale et souvent sans gravité. L'onychophagie est parfois le signe d'une personnalité perfectionniste, angoissée à l'idée de ne pas tout faire au mieux, et évacuant cette angoisse par ce comportement compulsif."},
+    {"id":202,"severite":3,"type":"folie","nom":"","guerison":"","description":""},
+    {"id":203,"severite":1,"type":"phobie","nom":"Anthelmophobie","guerison":"","description":"L'anthelmophobie est la peur viscérale, instinctive des vers. Il s'agit d'un trouble psychologique qui peut parfois sembler irraisonné, sauf quand la longueur du ver se mesure en mètres."},
+    {"id":204,"severite":4,"type":"mutation","nom":"","guerison":"","description":""},
+    {"id":205,"severite":1,"type":"maladie","nom":"","guerison":"","contagieux":true,"description":""}
   ]
 }

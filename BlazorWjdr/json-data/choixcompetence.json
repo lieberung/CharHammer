@@ -312,6 +312,9 @@
 {"id":311,"choixcompetencekeys":[8,9]},
 {"id":312,"choixcompetencekeys":[4,10]},
 {"id":313,"choixcompetencekeys":[34,35]},
-{"id":314,"choixcompetencekeys": [27,46]}
+{"id":314,"choixcompetencekeys": [27,46]},
+{"id":315,"choixcompetencekeys": [50,53]},
+{"id":316,"choixcompetencekeys": [23,43]},
+{"id":317,"choixcompetencekeys": [119,120,121,126,127,128]}
 	]
 }

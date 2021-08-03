@@ -63,13 +63,11 @@
                     Description = r.description,
                     Lieux = (r.lieux_ids ?? System.Array.Empty<int>()).Select(id => _lieuxService.GetLieu(id)).ToArray(),
                     Profil = r.profil_id.HasValue ? _profilsService.GetProfil(r.profil_id.Value) : null,
-                    Traits = r.traits,
                     GroupOnly = r.group_only,
                     NomFeminin = r.nom_feminin,
                     NomMasculin = r.nom_masculin,
                     ParentId = r.parent_id,
-                    PourPj = r.pour_pj,
-                    PourPnj = r.pour_pnj
+                    PourPj = r.pj
                 })
                 .ToDictionary(k => k.Id, v => v);
             
