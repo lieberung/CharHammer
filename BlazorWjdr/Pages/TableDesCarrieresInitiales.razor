@@ -38,7 +38,7 @@
     </div>
 
     <div class="row">
-        <div class="col-6">
+        <div class="col-7">
             <div class="card-body">
                 <TableDeDepart RaceId="@Race.Id.ToString()"/>
             </div>
@@ -53,26 +53,24 @@
                     <CarriereDescription Item="_carriereAleatoire"/>
                 </div>
             </div>
+            <!--
             <div class="col-1"></div>
+            -->
         }
         else
         {
-            <div class="col-6"></div>
+            <div class="col-5"></div>
         }
     </div>
 
 </div>
 
 @code{
-
     [Parameter]
     public string RaceId { get; set; } = null!;
     
     private RaceDto Race { get; set; } = null!;
-
     private CarriereDto? _carriereAleatoire;
-
-    
     
     protected override void OnParametersSet()
     {
@@ -84,5 +82,4 @@
     {
         _carriereAleatoire = _tableDesCarrieresInitialesService.GetRandomStartingCareer(Race.Id);
     }
-
 }

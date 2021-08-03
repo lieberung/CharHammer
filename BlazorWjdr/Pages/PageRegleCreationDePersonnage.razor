@@ -5,6 +5,7 @@
 @using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
+@using BlazorWjdr.Components.Trait
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
@@ -19,6 +20,7 @@
 
 <div class="content px-4">
 
+    <!-- 1. Déterminer sa race -->
     <div class="row">
         <div class="col-6">
             <div class="card-body">
@@ -43,6 +45,7 @@
         </div>
     </div>
 
+    <!-- 2. Déterminer ses caractéristiques -->
     <div class="row">
         <div class="col-4">
             <div class="card-body">
@@ -79,19 +82,22 @@
         </div>
     </div>
 
+    <!-- 3. Déterminer sa carrière initiale -->
     <div class="row">
-        <div class="col-6">
+        <div class="col-5">
             <div class="card-body">
                 <h5 class="card-title">3. Déterminer sa carrière initiale</h5>
-                <div class="mt-3 mb-3 pl-2">
-                    <button class="btn btn-primary" type="button" @onclick="() => TirerUneCarriereInitiale()">
-                        <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
-                        Tirer une carrière initiale
-                    </button>
-                </div>
+                <p class="card-text">
+                    Tirer une première carrière aléatoire sur la table de votre race.<br/>
+                    Si celle-ci ne vous convient pas, vous pouvez :
+                    <ul>
+                        <li>dépenser <strong>100 xp</strong> pour tirer deux carrières supplémentaires et en choisir une parmi les trois.</li>
+                        <li>dépenser <strong>250 xp</strong> et choisir une carrière dans la table.</li>
+                    </ul>
+                </p>
                 @if (_carriereAleatoire != null)
                 {
-                    <div class="bulle">
+                    <div class="bulle pl-3" style="min-height: 550px">
                         <h5 class="card-title">@_carriereAleatoire.Nom</h5>
                         <CarriereItem Item="_carriereAleatoire"/>
                         <CarriereDescription Item="_carriereAleatoire"/>
@@ -99,16 +105,24 @@
                 }
             </div>
         </div>
-        <div class="col-5">
+        <div class="col-7">
             <div class="card-body">
                 <h5 class="card-title">3-1 @_race.NomMasculin - Carrière initiales</h5>
+                <div class="mt-3 mb-3 pl-2">
+                    <button class="btn btn-primary" type="button" @onclick="() => TirerUneCarriereInitiale()">
+                        <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
+                        Tirer une carrière initiale
+                    </button>
+                </div>
                 <TableDeDepart RaceId="@_race.Id.ToString()"/>
             </div>
         </div>
+        <!--
         <div class="col-1"></div>
+        -->
     </div>
 
-
+    <!-- 4. Déterminer vos traits raciaux -->
     <div class="row">
         <div class="col-6">
             <div class="card-body">
@@ -121,39 +135,35 @@
                     <LinkPageCreationPerso Actif="@_racesService.Nains.Id.Equals(_race.Id)" Race="@_racesService.Nains"/>
                 </p>
             </div>
-        @if (_race == _racesService.Elfes)
-        {
-            <div class="card-body bulle">
-                <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
+            
+            <div class="card-body bulle px-4">
+                @if (_race == _racesService.Elfes)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
+                }
+                @if (_race == _racesService.Gnomes)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
+                }
+                @if (_race == _racesService.Halfelings)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false"/>
+                }
+                @if (_race == _racesService.Humains)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(19)" MasquerTitre="@false"/>
+                }
+                @if (_race == _racesService.Nains)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false"/>
+                }
             </div>
-        }
-        @if (_race == _racesService.Gnomes)
-        {
-            <div class="card-body bulle">
-                <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
-            </div>
-        }
-        @if (_race == _racesService.Halfelings)
-        {
-            <div class="card-body bulle">
-                <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false"/>
-            </div>
-        }
-        @if (_race == _racesService.Humains)
-        {
-            <div class="card-body bulle">
-                <RegleDetail Item="@_reglesService.GetRegle(19)" MasquerTitre="@false"/>
-            </div>
-            <div class="card-body bulle">
+            @if (_race == _racesService.Humains) // Humains Mutant
+            {
+            <div class="card-body bulle px-4 mt-4">
                 <RegleDetail Item="@_reglesService.GetRegle(21)" MasquerTitre="@false"/>
             </div>
-        }
-        @if (_race == _racesService.Nains)
-        {
-            <div class="card-body bulle">
-                <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false"/>
-            </div>
-        }        
+            }
         </div>
         <div class="col-6">
             @if (_race == _racesService.Halfelings || _race == _racesService.Humains)
@@ -167,14 +177,21 @@
     </div>
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-5">
             <div class="card-body">
-                <h5 class="card-title">5. Jouer avec l'aethyre...</h5>
+                <h5 class="card-title">5. Déterminer vos signes distinctifs</h5>
                 <p class="card-text">
-                    <ul>
-                        <li>Déterminer vos tares</li>
-                        <li>Tirer une mutation ?</li>
-                    </ul>
+                    Déterminez aléatoirement (1d3) ou choisissez le nombre de signes distinctifs dont vous serez affublé (1 minimum, 3 maximum).<br/>
+                    Tirez successivement chaque signe  sur la table ci-contre : si un signe est incompatible avec l'un des précédents, ignorer le dernier venu et refaite un tirage.<br/>>
+                    Vous pouvez dépenser <strong>100 xp</strong> (une seule fois) pour en tirer un supplémentaire et en écarter un parmi l'ensemble.
+                </p>
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="card-body">
+                <h5 class="card-title">5-1. Table des signes distinctifs</h5>
+                <p class="card-text">
+                    <TableSignesDistinctifs/>
                 </p>
             </div>
         </div>
@@ -264,9 +281,9 @@
 @code {
 
     [Parameter]
-    public string RaceId { get; set; }
+    public string RaceId { get; set; } = null!;
 
-    private RaceDto _race;
+    private RaceDto _race = null!;
 
     private CarriereDto? _carriereAleatoire;
 

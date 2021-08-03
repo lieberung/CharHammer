@@ -1,0 +1,28 @@
+﻿@using BlazorWjdr.Models
+<tr>
+    <!--
+    <td>
+        <span class="mx-3">
+            @for (var i = 0; i < Item.Facteur; i++)
+            {
+                <span class="oi oi-star item-icon" aria-hidden="true" style="text-align:right;"></span>
+            }
+        </span>
+    </td>
+    -->
+    <td style="width:175px; @(BorderTop ? "border-top: 1px black dashed;" : "")">
+        <CarriereItem Item="Item.Carriere" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
+    </td>
+    <!--td>
+    @if (Item.Carriere.SourceLivre != null || !string.IsNullOrWhiteSpace(Item.Carriere.Source))
+    {
+        <ReferenceItem Item="@Item.Carriere.SourceLivre" Page="@Item.Carriere.Source"/>
+    }
+    </td-->
+</tr>
+@code {
+    [Parameter]
+    public LigneDeCarriereInitialeDto Item { get; set; } = null!;
+    [Parameter]
+    public bool BorderTop { get; set; }
+}

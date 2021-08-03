@@ -24,6 +24,7 @@ namespace BlazorWjdr
             services.AddServerSideBlazor();
 
             services.AddSingleton<DieuxService>();
+            services.AddSingleton<TraitsService>();
             services.AddSingleton<RacesService>();
             services.AddSingleton<ReferencesService>();
             services.AddSingleton<LieuxService>();
