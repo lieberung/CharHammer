@@ -1,0 +1,44 @@
+﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject TraitsService _traitsService
+
+<table>
+    <tbody>
+        @for (var y = 0; y < _colonneLength; y++)
+        {
+            <tr>
+            @for (var x = 0; x < NbColonnes; x++)
+            {
+                <td>@if (y < _colonnes[x].Count) { <TraitItem Item="@_colonnes[x][y]"/> }</td>
+            }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    [Parameter]
+    public int NbColonnes { get; set; }
+    [Parameter]
+    public TraitDto[] Traits { get; set; } = null!;
+
+    private int _colonneLength;
+    private List<TraitDto>[] _colonnes = null!;
+
+    protected override void OnParametersSet()
+    {
+        _colonneLength = Traits.Length / NbColonnes;
+        if (Traits.Length % NbColonnes != 0)
+            _colonneLength++;
+        
+        _colonnes = new List<TraitDto>[NbColonnes];
+        for (var i = 0; i < NbColonnes; i++)
+            _colonnes[i] = new List<TraitDto>();
+       
+        for (var i = 0; i < Traits.Length; i++)
+            _colonnes[i / _colonneLength].Add(Traits[i]);
+        
+        base.OnInitialized();
+    }
+}

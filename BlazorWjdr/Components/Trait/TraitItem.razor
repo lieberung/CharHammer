@@ -2,9 +2,9 @@
 <a href="/trait/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <span class="oi oi-droplet item-icon mr-1" aria-hidden="true"></span>
     @if (string.IsNullOrWhiteSpace(Item.Description)) {
-        @Item.Nom
+        @Item.NomComplet
     } else {
-        <Tooltip Text="@Item.Description">@Item.Nom</Tooltip>
+        <Tooltip Text="@Item.Description">@Item.NomComplet</Tooltip>
     }
 </a>
 @code

@@ -2,6 +2,7 @@
 {
     using Models;
     using System;
+    using System.IO;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -83,6 +84,7 @@
                     Nom = c.nom,
                     MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
                     Description = c.description,
+                    Ambiance = c.ambiance ?? Array.Empty<string>(),
                     CarriereMereId = c.parent,
                     DebouchesIds = c.debouch ?? Array.Empty<int>(),
                     Dotations = c.dotations,
@@ -143,6 +145,15 @@
                 carriere.ScoreMaritime = CalculScoreMaritime(carriere);
                 carriere.ScorePoudreNoire = CalculScorePoudreNoire(carriere);
                 carriere.ScoreAmiDesBetes = CalculScoreAmiDesBetes(carriere);
+            }
+
+            DirectoryInfo d = new DirectoryInfo("./wwwroot/images/careers/");
+            var images = d.GetFiles("*-*.png").Select(f => f.Name);
+            foreach (var carriere in _allCarrieres)
+            {
+                var list = new List<string> { $"{carriere.Id}.png" };
+                list.AddRange(images.Where(img => img.StartsWith($"{carriere.Id}-")));
+                carriere.Images = list.ToArray();
             }
         }
 
@@ -763,6 +774,12 @@
                 
                 return list;
             }
+        }
+
+        public string[] GallerieComplete()
+        {
+            Random rnd = new ();
+            return AllCarrieres.SelectMany(c => c.Images).OrderBy(x => rnd.Next()).ToArray();
         }
     }
 }

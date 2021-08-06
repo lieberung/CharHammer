@@ -13,18 +13,18 @@
 @inject TablesService _tablesService
 @inject RacesService _racesService
 @inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
+@inject TraitsService _traitsService
 
 <MainTopRow>
-    <span class="title-primary top-row-title">Création de personnage</span>
+    <h3 class="card-title">Création de personnage</h3>
 </MainTopRow>
 
 <div class="content px-4">
 
-    <!-- 1. Déterminer sa race -->
     <div class="row">
         <div class="col-6">
+            <PageSectionRowTitle Title="1. Déterminer sa race"/>
             <div class="card-body">
-                <h5 class="card-title">1. Déterminer sa race</h5>
                 <p class="card-text">
                     On effectue un jet sur la table ci-contre.
                 </p>
@@ -32,31 +32,32 @@
                     Si le résultat n'est pas celui attendu, on peut choisir une race en dépensant le coût indiqué en points d'expérience.
                 </p>
                 <p class="card-text">
-                    <LinkPageCreationPerso Actif="@_racesService.Elfes.Id.Equals(_race.Id)" Race="@_racesService.Elfes"/>
-                    <LinkPageCreationPerso Actif="@_racesService.Gnomes.Id.Equals(_race.Id)" Race="@_racesService.Gnomes"/>
-                    <LinkPageCreationPerso Actif="@_racesService.Halfelings.Id.Equals(_race.Id)" Race="@_racesService.Halfelings"/>
-                    <LinkPageCreationPerso Actif="@_racesService.Humains.Id.Equals(_race.Id)" Race="@_racesService.Humains"/>
-                    <LinkPageCreationPerso Actif="@_racesService.Nains.Id.Equals(_race.Id)" Race="@_racesService.Nains"/>
-                 </p>
+                    <LinkPageCreationPerso Actif="@RaceDesElfesSelectionnee" Race="@_racesService.Elfes"/>
+                    <LinkPageCreationPerso Actif="@RaceDesGnomesSelectionnee" Race="@_racesService.Gnomes"/>
+                    <LinkPageCreationPerso Actif="@RaceDesHalflingsSelectionnee" Race="@_racesService.Halfelings"/>
+                    <LinkPageCreationPerso Actif="@RaceDesHumainsSelectionnee" Race="@_racesService.Humains"/>
+                    <LinkPageCreationPerso Actif="@RaceDesNainsSelectionnee" Race="@_racesService.Nains"/>
+                </p>
             </div>
         </div>
         <div class="col-5">
-            <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre="@true"/>
+            <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre="@true" FixedColSize="75"/>
         </div>
     </div>
 
-    <!-- 2. Déterminer ses caractéristiques -->
+    <PageSectionDivider/>
+
     <div class="row">
         <div class="col-4">
+            <PageSectionRowTitle Title="2. Déterminer ses caractéristiques"/>
             <div class="card-body">
-                <h5 class="card-title">2. Déterminer ses caractéristiques</h5>
                 <p class="card-text">
                     <span>On effectue un tirage de 1d100 pour chacune des caractéristiques, puis choisissez l'une des options suivantes :</span>
                     <br/>
                     <ul>
                         <li>Conserver ces jets dans l'ordre obtenu</li>
                         <li>Dépenser <strong>100 xp</strong> pour ordonner librement ces jets</li>
-                        <li>Dépenser <strong>150 xp</strong> pour ignorer ces jets et répartir <strong>80&nbsp;(v2) / 100&nbsp;(v4) points</strong> dans chacune des 10 caractéristiques, avec un <strong>minimum de 4</strong> et un <strong>maximum de 18</strong> à chaque fois.</li>
+                        <li>Dépenser <strong>150 xp</strong> pour ignorer ces jets et répartir <strong>80&nbsp;(v2) / 100&nbsp;(v4) points</strong> dans chacune des 8/10 caractéristiques, avec un <strong>minimum de 4</strong> et un <strong>maximum de 18</strong> à chaque fois.</li>
                     </ul>
                 </p>
             </div>
@@ -67,26 +68,21 @@
     </div>
     <div class="row">
         <div class="col-5">
-            <div class="card-body">
-                <h5 class="card-title">2-1. Points de Blessures (v2)</h5>
-                <TableDetail Item="@_tablesService.GetTable(12)" MasquerTitre="@true"/>
-            </div>
+            <TableDetail Item="@_tablesService.GetTable(12)" FixedColSize="35"/>
         </div>
         <div class="col-1">
         </div>
         <div class="col-5">
-            <div class="card-body">
-                <h5 class="card-title">2-2. Points de Destin (v2)</h5>
-                <TableDetail Item="@_tablesService.GetTable(13)" MasquerTitre="@true"/>
-            </div>
+            <TableDetail Item="@_tablesService.GetTable(13)" FixedColSize="50"/>
         </div>
     </div>
 
-    <!-- 3. Déterminer sa carrière initiale -->
+    <PageSectionDivider/>
+
     <div class="row">
         <div class="col-5">
+            <PageSectionRowTitle Title="3. Déterminer sa carrière initiale"/>
             <div class="card-body">
-                <h5 class="card-title">3. Déterminer sa carrière initiale</h5>
                 <p class="card-text">
                     Tirer une première carrière aléatoire sur la table de votre race.<br/>
                     Si celle-ci ne vous convient pas, vous pouvez :
@@ -107,66 +103,95 @@
         </div>
         <div class="col-7">
             <div class="card-body">
-                <h5 class="card-title">3-1 @_race.NomMasculin - Carrière initiales</h5>
                 <div class="mt-3 mb-3 pl-2">
                     <button class="btn btn-primary" type="button" @onclick="() => TirerUneCarriereInitiale()">
                         <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
-                        Tirer une carrière initiale
+                        Tirer une carrière initiale (@_race.NomMasculin)
                     </button>
                 </div>
                 <TableDeDepart RaceId="@_race.Id.ToString()"/>
             </div>
         </div>
-        <!--
-        <div class="col-1"></div>
-        -->
     </div>
 
-    <!-- 4. Déterminer vos traits raciaux -->
+    <PageSectionDivider/>
+
+<div class="row">
+    <div class="col-12">
+        <PageSectionRowTitle Title="4. Déterminer ses origines"></PageSectionRowTitle>
+        
+    </div>
+</div>
+<div class="row">
+                <div class="col-6">
+                    
+                </div>
+        <div class="col-6">
+            
+        </div>
+
+</div>
+
+    <PageSectionDivider/>
+
     <div class="row">
         <div class="col-6">
-            <div class="card-body">
-                <h5 class="card-title">4. Déterminer vos traits raciaux</h5>
-                <p class="card-text">
-                    <LinkPageCreationPerso Actif="@_racesService.Elfes.Id.Equals(_race.Id)" Race="@_racesService.Elfes"/>
-                    <LinkPageCreationPerso Actif="@_racesService.Gnomes.Id.Equals(_race.Id)" Race="@_racesService.Gnomes"/>
-                    <LinkPageCreationPerso Actif="@_racesService.Halfelings.Id.Equals(_race.Id)" Race="@_racesService.Halfelings"/>
-                    <LinkPageCreationPerso Actif="@_racesService.Humains.Id.Equals(_race.Id)" Race="@_racesService.Humains"/>
-                    <LinkPageCreationPerso Actif="@_racesService.Nains.Id.Equals(_race.Id)" Race="@_racesService.Nains"/>
-                </p>
-            </div>
-            
-            <div class="card-body bulle px-4">
-                @if (_race == _racesService.Elfes)
-                {
-                    <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
-                }
-                @if (_race == _racesService.Gnomes)
-                {
-                    <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
-                }
-                @if (_race == _racesService.Halfelings)
-                {
-                    <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false"/>
-                }
-                @if (_race == _racesService.Humains)
-                {
-                    <RegleDetail Item="@_reglesService.GetRegle(19)" MasquerTitre="@false"/>
-                }
-                @if (_race == _racesService.Nains)
-                {
-                    <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false"/>
-                }
-            </div>
-            @if (_race == _racesService.Humains) // Humains Mutant
+            <PageSectionRowTitle Title="4. Déterminer ses traits raciaux et origines"></PageSectionRowTitle>
+
+            <!-- Lieu de naissance -->
+            @if (RaceDesElfesSelectionnee)
             {
-            <div class="card-body bulle px-4 mt-4">
-                <RegleDetail Item="@_reglesService.GetRegle(21)" MasquerTitre="@false"/>
-            </div>
+                <TableDetail Item="@_tablesService.GetTable(25)"/>
+            }
+            @if (RaceDesGnomesSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(26)"/>
+            }
+            @if (RaceDesHalflingsSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(27)"/>
+            }
+            @if (RaceDesHumainsSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(28)"/>
+            }
+            @if (RaceDesNainsSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(29)"/>
+            }
+            @if (RaceDesGnomesSelectionnee || RaceDesHalflingsSelectionnee || RaceDesNainsSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(28)"/>
+            }
+            <!-- Traits raciaux/provinciaux -->
+            @if (RaceDesHumainsSelectionnee)
+            {
+                <TraitsRaciauxImpériaux ProvinceActive="Empire"/>
+            }
+            else
+            {
+                <div class="card-body bulle px-4">
+                    @if (RaceDesElfesSelectionnee)
+                    {
+                        <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
+                    }
+                    @if (RaceDesGnomesSelectionnee)
+                    {
+                        <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
+                    }
+                    @if (RaceDesHalflingsSelectionnee)
+                    {
+                        <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false"/>
+                    }
+                    @if (RaceDesNainsSelectionnee)
+                    {
+                        <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false"/>
+                    }
+                </div>
             }
         </div>
-        <div class="col-6">
-            @if (_race == _racesService.Halfelings || _race == _racesService.Humains)
+        <div class="col-4">
+            @if (RaceDesHalflingsSelectionnee || RaceDesHumainsSelectionnee)
             {
                 <div class="card-body">
                     <h5 class="card-title">4-1. Détermination aléatoire des talents</h5>
@@ -176,31 +201,62 @@
         </div>
     </div>
 
+    <PageSectionDivider/>
+
     <div class="row">
-        <div class="col-5">
+        <div class="col-4">
+            <PageSectionRowTitle Title="5. Déterminer vos signes distinctifs"/>
             <div class="card-body">
-                <h5 class="card-title">5. Déterminer vos signes distinctifs</h5>
                 <p class="card-text">
                     Déterminez aléatoirement (1d3) ou choisissez le nombre de signes distinctifs dont vous serez affublé (1 minimum, 3 maximum).<br/>
-                    Tirez successivement chaque signe  sur la table ci-contre : si un signe est incompatible avec l'un des précédents, ignorer le dernier venu et refaite un tirage.<br/>>
+                    Tirez successivement chaque signe sur la table ci-contre : si un signe est incompatible avec l'un des précédents, ignorer le dernier venu et refaite un tirage.<br/>
                     Vous pouvez dépenser <strong>100 xp</strong> (une seule fois) pour en tirer un supplémentaire et en écarter un parmi l'ensemble.
                 </p>
             </div>
+            @if (RaceDesElfesSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(15)" FixedColSize="45"/>
+            }
+            @if (RaceDesGnomesSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(16)" FixedColSize="45"/>
+            }
+            @if (RaceDesHalflingsSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(17)" FixedColSize="45"/>
+            }
+            @if (RaceDesHumainsSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(18)" FixedColSize="45"/>
+            }
+            @if (RaceDesNainsSelectionnee)
+            {
+                <TableDetail Item="@_tablesService.GetTable(19)" FixedColSize="45"/>
+            }
         </div>
-        <div class="col-7">
+        <div class="col-8">
             <div class="card-body">
                 <h5 class="card-title">5-1. Table des signes distinctifs</h5>
                 <p class="card-text">
-                    <TableSignesDistinctifs/>
+                    <TableTraits Traits="_traitsService.SignesDistinctifs.ToArray()" NbColonnes="5"/>
                 </p>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-10">
+            <TableDetail Item="@_tablesService.GetTable(14)" FixedColSize="75"/>
+        </div>
+        <div class="col-2">
+        </div>
+    </div>
+
+    <PageSectionDivider/>
 
     <div class="row">
         <div class="col-6">
+            <PageSectionRowTitle Title="6-1. Donner de la vie à son personnage"/>
             <div class="card-body">
-                <h5 class="card-title">6-1. Donner de la vie à son personnage</h5>
                 <p class="card-text">
                     <ul>
                         <li>Choisir votre nom et votre sexe</li>
@@ -215,11 +271,17 @@
             </div>
         </div>
         <div class="col-6">
+            <TableDetail Item="_tablesService.GetTable(22)" FixedColSize="35"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
             <div class="card-body">
                 <h5 class="card-title">6-2. Etoffer le passé et le caractère du personnage</h5>
                 <p class="card-text">
                     <ul>
                         <li>Votre famille, à quoi ressemble-t-elle ?</li>
+                        <li>Quelle activité pratiquaient vos parents ?</li>
                         <li>Comment s’est déroulée votre enfance ?</li>
                         <li>Quand avez-vous quitté la maison familiale ?</li>
                         <li>Qui sont vos meilleurs amis ?</li>
@@ -230,14 +292,17 @@
                         <li>Pourquoi partez-vous à l’aventure ?</li>
                     </ul>
                 </p>
-            </div>
+            </div>        
         </div>
+        <div class="col-6"></div>
     </div>
+
+    <PageSectionDivider/>
 
     <div class="row">
         <div class="col-6">
+            <PageSectionRowTitle Title="7-1. Déterminer son ambition personnelle"/>
             <div class="card-body">
-                <h5 class="card-title">7-1. Déterminer son ambition personnelle</h5>
                 <p class="card-text">
                     Vient ensuite le choix des Ambitions !
                 </p>
@@ -261,18 +326,14 @@
         </div>
     </div>
 
+    <PageSectionDivider/>
+
     <div class="row">
-        <div class="col-6">
-            <div class="card-body">
-                <h5 class="card-title">8-1. Dépenser les XP (points d'experience)</h5>
-                <TableDetail Item="@_tablesService.GetTable(21)" MasquerTitre="@true"/>
-            </div>
+        <div class="col-7">
+            <TableDetail Item="@_tablesService.GetTable(21)"/>
         </div>
-        <div class="col-6">
-            <div class="card-body">
-                <h5 class="card-title">8-2. Coût d'amélioration d'une caractéristique</h5>
-                <TableDetail Item="@_tablesService.GetTable(20)" MasquerTitre="@true"/>
-            </div>
+        <div class="col-5">
+            <TableDetail Item="@_tablesService.GetTable(20)"/>
         </div>
     </div>
 
@@ -293,6 +354,13 @@
         base.OnParametersSet();
     }
 
+    private bool RaceDesElfesSelectionnee => _race == _racesService.Elfes;
+    private bool RaceDesGnomesSelectionnee => _race == _racesService.Gnomes;
+    private bool RaceDesHalflingsSelectionnee => _race == _racesService.Halfelings;
+    private bool RaceDesHumainsSelectionnee => _race == _racesService.Humains;
+    private bool RaceDesNainsSelectionnee => _race == _racesService.Nains;
+   
+    
     private void TirerUneCarriereInitiale()
     {
         _carriereAleatoire = _tableDesCarrieresInitialesService.GetRandomStartingCareer(int.Parse(RaceId));

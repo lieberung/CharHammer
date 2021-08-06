@@ -8,6 +8,7 @@
         public string? groupe { get; set; }
         public string nom { get; set; } = null!;
         public string description { get; set; } = null!;
+        public string[] ambiance { get; set; }
         public bool avancee { get; set; }
         public string? restriction { get; set; }
         public int plan { get; set; }

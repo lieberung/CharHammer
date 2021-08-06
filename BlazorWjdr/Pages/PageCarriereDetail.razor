@@ -4,22 +4,26 @@
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
 
-<MainTopRow>
-    <!--span class="title-primary top-row-title">@Carriere.Nom</!--span-->
-</MainTopRow>
+<MainTopRow/>
 
 <div class="content px-4">
-
     <div class="_container">
+        
         <div class="row">
+            
             <div class="col-5" style="padding-right: 0;">
+
                 <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                    <h5 class="card-title" style="font-size: xxx-large;">@Carriere.Nom</h5>
-                    <CarriereDescription Item="@Carriere"/>
+                    <h1 class="card-title" style="font-size: xxx-large;">@Carriere.Nom</h1>
+                    <CarriereDescription Item="@Carriere" AfficherCitations="@true"/>
                 </div>
+
                 <CarriereRestriction Item="@Carriere"/>
+
             </div>
+            
             <div class="col-7">
+
                 <div class="card-body">
                     <h5 class="card-title">Plan de carrière</h5>
                     <p class="card-text">
@@ -41,15 +45,8 @@
                         <CarriereDotations Item="@Carriere"/>
                     </p>
                 </div>
-            </div>
-        </div>
 
-        <div class="row">
-            <div class="col-5"> <!-- class="col@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-5" : "-7")"-->
-            </div>
-            <div class="col-7"> <!--@(Carriere.Filieres.Count <= Carriere.Debouches.Count ? "-7" : "-5")"-->
-                <div class="card-body">
-                    
+                <div class="card-body mt-2">
                     <h5 class="card-title">Débouchés</h5>
                     <p class="card-text">
                         <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
@@ -66,10 +63,10 @@
                             <CarriereDeBase/>
                         }
                     </p>
-                    
                 </div>
+
             </div>
+            
         </div>
     </div>
-    
 </div>

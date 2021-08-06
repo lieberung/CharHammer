@@ -28,7 +28,6 @@
         public static RootReference GetRootReference() => LoadRootFromJson<RootReference>("./json-data/reference.json");
         public static RootTable GetRootTable() => LoadRootFromJson<RootTable>("./json-data/table.json");
         public static RootRegle GetRootRegle() => LoadRootFromJson<RootRegle>("./json-data/regle.json");
-        public static RootTableCalcPoints GetRootTableCalcPoints() => LoadRootFromJson<RootTableCalcPoints>("./json-data/tablecalcpoints.json");
         public static RootTableCarriereInitiale GetRootTableCarriereInitiale() => LoadRootFromJson<RootTableCarriereInitiale>("./json-data/tablecarriereinitiale.json");
         public static RootTalent GetRootTalent() => LoadRootFromJson<RootTalent>("./json-data/talent.json");
         public static RootTrait GetRootTrait() => LoadRootFromJson<RootTrait>("./json-data/trait.json");

@@ -9,8 +9,7 @@
 @inject CarrieresService _carrieresService
 @inject ArmesService _armesService
 
-<MainTopRow>
-</MainTopRow>
+<MainTopRow/>
 
 <div class="content px-4">
 
@@ -19,16 +18,16 @@
         <div class="col-6" style="padding-right: 0;">
             <div class="card-body" style="padding-top: 0; padding-right: 0;">
                 
-                <h5 class="card-title" style="font-size: xxx-large;">@Talent.Nom</h5>
+                <h1 class="card-title" style="font-size: xxx-large;">@Talent.Nom</h1>
                 <p class="card-text" style="text-align:justify;">
                     @Talent.Resume
                 </p>
-                <h5 class="card-title">Description</h5>
+                <h3 class="card-title">Description</h3>
                 <CardParagraphes Text="@Talent.Description"/>
 
                 @if (Talent?.Parent == _competencesEtTalentsService.TalentGroupeMaitrise)
                 {
-                    <h5 class="card-title">Armes liées</h5>
+                    <h3 class="card-title">Armes liées</h3>
                     @foreach (var arme in _armesService.GetArmesDeMaitrise(Talent))
                     {
                         <p class="card-text">
@@ -37,7 +36,7 @@
                     }
                 }
                 
-                <h5 class="card-title">Compétences liées</h5>
+                <h3 class="card-title">Compétences liées</h3>
                 <p class="card-text">
                     @if (Talent.CompetencesLiees.Any())
                     {
@@ -55,7 +54,7 @@
         <div class="col-6">
             <div class="card-body" style="padding-top: 0; padding-right: 0;">
                 
-                <h5 class="card-title title-primary">Carrières proposant ce talent</h5>
+                <h3 class="card-title">Carrières proposant ce talent</h3>
                 <p class="card-text">
                     <CarriereItemList Items="@_carrieres"/>
                 </p>

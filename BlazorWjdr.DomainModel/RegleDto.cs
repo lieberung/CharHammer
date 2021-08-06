@@ -15,6 +15,7 @@ namespace BlazorWjdr.Models
         public List<TalentDto[]> ChoixTalents { get; init; } = null!;
         public BestioleDto[] Bestioles { get; init; } = null!;
         public TableDto[] Tables { get; init; } = null!;
+        public LieuDto[] Lieux { get; init; } = null!;
         public string Regle { get; init; } = null!;
     }
 }

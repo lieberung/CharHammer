@@ -3,13 +3,13 @@
      {"id":10,"titre":"Déterminer votre race",
       "description": "",
       "lignes":[
-        ["d100","Probabilité","Race","Choisir (coût en XP)"],
-        ["01-87","87%","Humain","50"],
-        ["88-91","4%","Halfeling","100"],
-        ["92-95","4%","Nain","125"],
-        ["96-98","2%","Gnôme","250"],
-        ["98-99","2%","Elfe sylvain","250"],
-        ["100","1%","Mutant","spécial"]
+        ["d100","Proba.","Race"  ,"Choisir"],
+        ["01-89","89%","Humain"       ,"50 xp"],
+        ["90-93","4%" ,"Halfling"     ,"100 xp"],
+        ["94-97","4%" ,"Nain"         ,"100 xp"],
+        ["98"   ,"1%" ,"Gnôme"        ,"200 xp"],
+        ["99"   ,"1%" ,"Elfe sylvain" ,"200 xp"],
+        ["100"  ,"1%" ,"Mutant"       ,"NA"]
       ]
     },
     {"id":11,"titre":"Détermination des caractéristiques",
@@ -31,7 +31,7 @@
       ]
     },
     {"id":12,"titre":"Points de Blessures de départ",
-      "description": "",
+      "description": "Régles de la v2 - référez-vous au tableau des caractéristiques pour les règles de la v4.",
       "lignes":[
         ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
         ["1-3","9","8","8","10","11"],
@@ -41,28 +41,129 @@
       ]
     },
     {"id":13,"titre":"Points de Destin de départ",
-      "description": "",
+      "description": "Si vous êtes un mutant, faite un jet pour votre race et soustrayez 1 (1 minimum).",
       "lignes":[
-        ["d10","Elfe","Gnôme","Halfling","Humain","Humain (mutant)","Nain"],
-        ["1-4","1","2","2","2","1","1"],
-        ["5-7","2","3","2","3","2","2"],
-        ["8-10","2","3","3","3","2","3"]
+        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
+        ["1-4","1","2","2","2","1"],
+        ["5-7","2","3","2","3","2"],
+        ["8-10","2","3","3","3","3"]
+      ]
+    },
+    {"id":14,"titre":"Age, poids et taille",
+      "description": "Choisissez ou déterminez aléatoirement en utilisant la table.",
+      "lignes":[
+        [""                 ,"Elfe"         ,"Gnôme"        ,"Halfling"     ,"Humain"       ,"Nain"],
+        ["Espérance de vie" ,"~ 1000 ans"   ,"~ 300 ans"    ,"~ 120 ans"    ,"~ 60 ans"     ,"~ 200 ans"],
+        ["Age"              ,"30+10d10"     ,"30+5d10"      ,"25+7d6"       ,"13+3d10"      ,"35+5d10"],
+        ["Poids"            ,"30+5d10"      ,"30+5d10"      ,"25+7d6"       ,"40+6d10"      ,"35+5d10"],
+        ["Taille (femme)"   ,"1m50+3d10cm"  ,"1m10+3d10cm"  ,"0m91+3d10cm"  ,"1m50+3d10cm"  ,"1m21+3d10cm"],
+        ["Taille (homme)"   ,"1m50+3d10cm"  ,"1m15+3d10cm"  ,"0m96+3d10cm"  ,"1m60+3d10cm"  ,"1m26+3d10cm"]
+      ]
+    },
+    {"id":15,"titre":"Couleur des cheveux et des yeux (Elfes)",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux"      ,"Yeux"      ],
+        ["2"         ,"Argenté"      ,"Ivoire"    ],
+        ["3"         ,"Blond cendré" ,"Fusain"    ],
+        ["4"         ,"Paille"       ,"Emeraude"  ],
+        ["5-7"       ,"Blond"        ,"Vert"      ],
+        ["8-11"      ,"Châtain clair","Châtain"   ],
+        ["12-14"     ,"Chataîn"      ,"Châtain"   ],
+        ["15-17"     ,"Auburn"       ,"Brun"      ],
+        ["18"        ,"Brun"         ,"Brun roux" ],
+        ["19"        ,"Noir"         ,"Brun clair"],
+        ["20"        ,"Gris"         ,"Violet"    ]
+      ]
+    },
+    {"id":16,"titre":"Couleur des cheveux et des yeux (Gnômes) [Alpha]",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux"      ,"Yeux"      ],
+        ["2"         ,"Argenté"      ,"Ivoire"    ],
+        ["3"         ,"Blond cendré" ,"Fusain"    ],
+        ["4"         ,"Paille"       ,"Emeraude"  ],
+        ["5-7"       ,"Blond"        ,"Vert"      ],
+        ["8-11"      ,"Châtain clair","Châtain"   ],
+        ["12-14"     ,"Chataîn"      ,"Châtain"   ],
+        ["15-17"     ,"Auburn"       ,"Brun"      ],
+        ["18"        ,"Brun"         ,"Brun roux" ],
+        ["19"        ,"Noir"         ,"Brun clair"],
+        ["20"        ,"Gris"         ,"Violet"    ]
+      ]
+    },
+    {"id":17,"titre":"Couleur des cheveux et des yeux (Halflings)",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux"      ,"Yeux"],
+        ["2"         ,"Gris"         ,"Gris clair"],
+        ["3"         ,"Auburn"       ,"Gris"],
+        ["4"         ,"Roux"         ,"Bleu pâle"],
+        ["5-7"       ,"Blond"        ,"Bleu"],
+        ["8-11"      ,"Blond"        ,"Vert"],
+        ["12-14"     ,"Châtain clair","Noisette"],
+        ["15-17"     ,"Châtain"      ,"Marron"],
+        ["18"        ,"Brun"         ,"Cuivre"],
+        ["19"        ,"Noir"         ,"Marron"],
+        ["20"        ,"Noir"         ,"Marron"]
+      ]
+    },
+    {"id":18,"titre":"Couleur des cheveux et des yeux (Reiklanders)",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux"      ,"Yeux"],
+        ["2"         ,"Gris clair"   ,"Blond cendré"],
+        ["3"         ,"Gris"         ,"Paille"],
+        ["4"         ,"Auburn"       ,"Bleu clair"],
+        ["5-7"       ,"Brun"         ,"Bleu"],
+        ["8-11"      ,"Châtain"      ,"Gris pâle"],
+        ["12-14"     ,"Châtain"      ,"Gris"],
+        ["15-17"     ,"Châtain clair","Marron"],
+        ["18"        ,"Roux"         ,"Noisette"],
+        ["19"        ,"Brun"         ,"Marron"],
+        ["20"        ,"Noir"         ,"Noir"]
+      ]
+    },
+    {"id":19,"titre":"Couleur des cheveux et des yeux (Nains)",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux" ,"Yeux"],
+        ["2"         ,"Blanc"   ,"Charbon"],
+        ["3"         ,"Gris"    ,"Plomb"],
+        ["4"         ,"Blond cendré","Acier"],
+        ["5-7"       ,"Doré"    ,"Bleu"],
+        ["8-11"      ,"Cuivré"  ,"Marron terre"],
+        ["12-14"     ,"Bronze"  ,"Brun"],
+        ["15-17"     ,"Châtain" ,"Noisette"],
+        ["18"        ,"Brun"    ,"Vert"],
+        ["19"        ,"Auburn"  ,"Cuivre"],
+        ["20"        ,"Noir"    ,"Or"]
+      ]
+    },
+    {"id":22,"titre":"Frères et soeurs",
+      "description": "Choisissez ou déterminez aléatoirement en faisant un jet.",
+      "lignes":[
+        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
+        ["1"  ,"0","0","1","0","0"],
+        ["2-3","1","0","2","1","0"],
+        ["4-5","1","0","3","2","1"],
+        ["6-7","2","1","4","3","1"],
+        ["8-9","2","1","5","4","2"],
+        ["10" ,"3","2","6","5","3"]
       ]
     },
     {"id":20,"titre":"Coût d'amélioration d'une caractéristique",
       "description": "",
       "lignes":[
-        ["Promotion","Carac. (v2)","Carac (v4)","Competence (v4)"],
-        ["+5%","50","25","2"],
-        ["+10%","100","30","3"],
-        ["+15%","150","40","3"],
-        ["+20%","200","50","3"],
-        ["+25%","250","70","3"],
-        ["+30%","300","90","3"],
-        ["+35%","350","120","3"],
-        ["+40%","400","150","3"],
-        ["+45%","-","190","140"],
-        ["+50%","-","230","180"]
+        ["Promotion","Caractéristique"],
+        ["+5%","50 xp"],
+        ["+10%","100 xp"],
+        ["+15%","150 xp"],
+        ["+20%","200 xp"],
+        ["+25%","250 xp"],
+        ["+30%","300 xp"],
+        ["+35%","350 xp"],
+        ["+40%","400 xp"]
       ]
     },
     {"id":21,"titre":"Dépenser ses XP (points d'expérience)",
@@ -70,12 +171,70 @@
       "lignes":[
         ["","Coût"],
         ["Acheter une compétence","De base","Avancée"],
-        ["- 1ère fois (acquise)","50","100"],
-        ["- 2nd fois (+10%)","100","100"],
-        ["- 3ème fois (+20%)","125","150"],
-        ["Acheter un talent","100"],
-        ["Choisir une nouvelle carrière de base","200","100 si carrière actuelle complétée"],
-        ["Choisir une carrière parmi ses débouchés","100","gratuit si carrière actuelle complétée"]
+        ["- 1ère fois (acquise)","50 xp","100 xp"],
+        ["- 2nd fois (+10%)","100 xp","100 xp"],
+        ["- 3ème fois (+20%)","125 xp","150 xp"],
+        ["Acheter un talent","100 xp",""],
+        ["Choisir une nouvelle carrière de base","200 xp","100 xp si carrière actuelle complétée"],
+        ["Choisir une carrière parmi ses débouchés","100 xp","gratuit si carrière actuelle complétée"]
+      ]
+    },
+    {"id":25,"titre":"Lieu de naissance (Elfes)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-20","Cité d'Altdorf"],
+        ["21-40","Cité de Marienburg"],
+        ["41-70","Forêt de Laurelorn"],
+        ["71-85","Grande Forêt"],
+        ["86-00","Forêt de Raikwald"]
+      ]
+    },
+    {"id":26,"titre":"Lieu de naissance (Gnômes)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-00","Retirez sur la table des humains (Empire)"]
+      ]
+    },
+    {"id":27,"titre":"Lieu de naissance (Halfelings)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-50","Le Moot"],
+        ["51-00","Retirez sur la table des humains (Empire)"]
+      ]
+    },
+    {"id":28,"titre":"Lieu de naissance (Humains de l'Empire)",
+      "description": "Si vos jets vous donnent un résultat vraiment incohérent (ex : un noble dans un taudis), retirez ou montrez-vous inventif dans le développement de votre histoire.",
+      "lignes":[
+        ["d10","Province","d10","Environnement"],
+        ["1","Averland","1","Cité"],
+        ["2","Hochland","2","Ville prospère"],
+        ["3","Middenland","3","Bourg"],
+        ["4","Nordland","4","Ville fortifiée"],
+        ["5","Ostermark","5","Village agricole"],
+        ["6","Ostland","6","Village pauvre"],
+        ["7","Reikland","7","Petite communauté"],
+        ["8","Stirland","8","Ferme (élevage)"],
+        ["9","Talabecland","9","Ferme (culture)"],
+        ["10","Wissenland","10","Taudis"]
+        
+      ]
+    },
+    {"id":29,"titre":"Lieu de naissance (Nains)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-30","Retirez sur la table des humains (Empire)"],
+        ["31-40","Karak Norn (Montagnes Grises)"],
+        ["41-50","Karak Izor (la Voûte)"],
+        ["51-60","Karak Hirn (Montagnes Noires)"],
+        ["61-70","Karak Kadrin (Montagnes du Bord du Monde)"],
+        ["71-80","Karak-a-Karak Norn (Montagnes du Bord du Monde)"],
+        ["81-90","Zhufbar (Montagnes du Bord du Monde)"],
+        ["91-00","Barak Var (Golfe Noir)"]
+        
       ]
     },
     {"id":50,"titre":"Marchand : Traits aléatoires",

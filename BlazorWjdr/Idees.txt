@@ -9,7 +9,7 @@ Choisir jusqu'à 3 tares
 
 
 Profil initial :
-Alternative à "la miséricorde de Shallya" (voir p.19) : après avoir tiré son profille joueur pour intervertir deux de ses scores (somme des 2d10 sans compter le bonus accordé par la race).
+Alternative à "la miséricorde de Shallya" (voir p.19) : après avoir tiré son profil le joueur pour intervertir deux de ses scores (somme des 2d10 sans compter le bonus accordé par la race).
 
 Amis, Connaissances et contacts :
 Le personnage dispose d'un nombre en fonction de sa Sociabilité
@@ -48,4 +48,6 @@ Sens de la répartie
 
 Action de combat : frappe à deux armes (action complète), -20 CC si 1A, -10 CC si 2A, pas de malus si 3 A, si réussi 2 jets de dégâts successif (1 de chaque arme).
 
-Cri de guerre : Test contre la Peur des ennemis, si Echec -10 à tous ses jets pendant un Round 
+Cri de guerre : Test contre la Peur des ennemis, si Echec -10 à tous ses jets pendant un Round
+
+Bunit 

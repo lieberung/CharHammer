@@ -1,0 +1,16 @@
+﻿@foreach (var citation in Items)
+{
+    <p class="card-text p-4">
+        <em style="text-align: justify;">
+            @citation.Split("\n-")[0]
+        </em>
+        <br/>
+        <span style="text-align: right;">
+            @citation.Split("\n-")[1]
+        </span>
+    </p>
+}
+@code {
+    [Parameter]
+    public string[] Items { get; set; } = null!;
+}

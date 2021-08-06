@@ -5,6 +5,14 @@ namespace BlazorWjdr.Services
 {
     public static class GenericService
     {
+        public static IEnumerable<IEnumerable<T>> Split<T>(this T[] array, int size)
+        {
+            for (var i = 0; i < (float)array.Length / size; i++)
+            {
+                yield return array.Skip(i * size).Take(size);
+            }
+        }
+        
         #region Supprimer les caractères indésirables
 
         private const string CaracteresARemplacer =     "àáâãäåòóôõöøèéêëìíîïùúûüÿñç-'";

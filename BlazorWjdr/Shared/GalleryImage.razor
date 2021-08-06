@@ -1,0 +1,50 @@
+﻿<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap" rel="stylesheet">
+
+<div class="gallery">
+	<div class="gallery__column">
+		@foreach (var arr in _images)
+		{
+			@foreach (var img in arr)
+			{
+			<a href="@img.Href" target="_blank" class="gallery__link">
+				<figure class="gallery__thumb">
+					<img src="@img.Src" alt="@img.Alt" class="gallery__image" style="max-height:600px; max-width:600px;">
+					<figcaption class="gallery__caption">@img.Alt</figcaption>
+				</figure>
+			</a>
+			}
+		}
+	</div>
+</div>
+
+@code {
+	[Parameter]
+	public IEnumerable<IEnumerable<string>> Images { get; set; }
+
+	private List<ImageHtml[]> _images;
+	
+	class ImageHtml
+	{
+		public ImageHtml(string img)
+		{
+			Alt = img.Contains("-") ? img.Split('-')[1].Split('.')[0] : "Main";
+			Src = $"/images/careers/{img}";
+			Href = $"/carrieres/{img.Split('-')[0]}/";
+		}
+
+		public string Src { get; init; }
+		public string Alt { get; init; }
+		public string Href { get; init; }
+	}
+
+	
+	protected override void OnParametersSet()
+	{
+		foreach (var arr in Images)
+		{
+			_images.Add(arr.Select(a => new ImageHtml(a)).ToArray());
+		}
+		
+		base.OnParametersSet();
+	}
+}

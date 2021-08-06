@@ -13,16 +13,18 @@ namespace BlazorWjdr.Services
         private readonly CompetencesEtTalentsService _competencesEtTalentsService;
         private readonly BestiolesService _bestiolesService;
         private readonly TablesService _tablesService;
+        private readonly LieuxService _lieuxService;
 
         private Dictionary<int, RegleDto>? _cacheRegle;
         private List<RegleDto>? _allRegles;
 
-        public ReglesService(CarrieresService carrieresService, CompetencesEtTalentsService competencesEtTalentsService, BestiolesService bestiolesService, TablesService tablesService)
+        public ReglesService(CarrieresService carrieresService, CompetencesEtTalentsService competencesEtTalentsService, BestiolesService bestiolesService, TablesService tablesService, LieuxService lieuxService)
         {
             _carrieresService = carrieresService;
             _competencesEtTalentsService = competencesEtTalentsService;
             _bestiolesService = bestiolesService;
             _tablesService = tablesService;
+            _lieuxService = lieuxService;
         }
 
         private List<RegleDto> AllRegles
@@ -72,6 +74,7 @@ namespace BlazorWjdr.Services
                         : new List<TalentDto[]>(),
                     Bestioles = (r.bestioles ?? Array.Empty<int>()).Select(id => _bestiolesService.GetBestiole(id)).ToArray(),
                     Tables = (r.tables ?? Array.Empty<int>()).Select(id => _tablesService.GetTable(id)).ToArray(),
+                    Lieux = (r.lieux ?? Array.Empty<int>()).Select(id => _lieuxService.GetLieu(id)).ToArray(),
                     Regle = r.regle
                 })
                 .ToDictionary(k => k.Id, v => v);

@@ -9,7 +9,7 @@
 @inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
 
 <MainTopRow>
-    <span class="title-primary top-row-title">Table des carrières initiales</span>
+    <h3 class="card-title">Table des carrières initiales</h3>
 </MainTopRow>
 
 <div class="content px-4">
@@ -48,14 +48,11 @@
         {
             <div class="col-5">
                 <div class="card-body">
-                    <h5 class="card-title">@_carriereAleatoire.Nom</h5>
+                    <h3 class="card-title">@_carriereAleatoire.Nom</h3>
                     <CarriereItem Item="_carriereAleatoire"/>
                     <CarriereDescription Item="_carriereAleatoire"/>
                 </div>
             </div>
-            <!--
-            <div class="col-1"></div>
-            -->
         }
         else
         {

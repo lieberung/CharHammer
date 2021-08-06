@@ -3,11 +3,11 @@
 <div class="card-body">
     @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
     {
-        <h5 class="card-title" style="font-size: large;">@Item.Titre</h5>
+        <h5 class="card-title">@Item.Titre</h5>
     }
     @if (!string.IsNullOrWhiteSpace(Item.Description))
     {
-        <p class="card-text">Item.Description</p>
+        <p class="card-text">@Item.Description</p>
     }
     <p class="card-text bulle">
         <table class="table">
@@ -15,7 +15,14 @@
             <tr>
                 @foreach (var header in Item.Lignes[0])
                 {
-                    <th>@header</th>
+                    if (FixedColSize == 0)
+                    {
+                        <th>@header</th>
+                    }
+                    else
+                    {
+                        <th style="width:@(FixedColSize)px">@header</th>
+                    }
                 }
             </tr>
             @for (var x = 1; x < Item.Lignes.Length; x++)
@@ -37,4 +44,6 @@
     public TableDto Item { get; set; } = null!;
     [Parameter]
     public bool MasquerTitre { get; set; }
+    [Parameter]
+    public int FixedColSize { get; set; }
 }

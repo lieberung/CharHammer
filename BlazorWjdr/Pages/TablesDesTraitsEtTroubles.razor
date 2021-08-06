@@ -1,0 +1,108 @@
+﻿@page "/tables-traits-et-troubles/{GroupeActif}/"
+
+@using BlazorWjdr.Components.Trait
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject TraitsService _traitsService;
+@inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
+
+<MainTopRow>
+    <h3 class="card-title">Tables des traits et troubles</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="row">
+        <div class="col-8">
+            <div class="card-body">
+                <p class="card-text">
+                    <LinkGroupeDeTraits Groupe="traits" Text="Signes distinctifs" Actif="@(GroupeActif == "traits")"/>
+                    <LinkGroupeDeTraits Groupe="troubles-mineurs" Text="Troubles mineurs" Actif="@(GroupeActif == "troubles-mineurs")"/>
+                    <LinkGroupeDeTraits Groupe="folies" Text="Folies" Actif="@(GroupeActif == "folies")"/>
+                    <LinkGroupeDeTraits Groupe="maladies" Text="Maladies" Actif="@(GroupeActif == "maladies")"/>
+                </p>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="mt-3 mb-3 pl-2">
+                <button class="btn btn-primary" type="button" @onclick="() => TirerUnTraitAleatoire()">
+                    <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
+                    Tirer @_determinant @_typeDeTrait aléatoire
+                </button>
+            </div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="card-body">
+                <TableTraits Traits="@_traits.ToArray()" NbColonnes="_nbColonnes"/>
+            </div>
+        </div>
+
+        <div class="col-3">
+            @if (_traitAleatoire != null)
+            {
+                <div class="card-body">
+                    <TraitDetail Trait="_traitAleatoire"/>
+                </div>
+            }
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+</div>
+
+@code{
+    [Parameter]
+    public string GroupeActif { get; set; } = null!;
+    
+    private List<TraitDto> _traits { get; set; } = null!;
+    private TraitDto? _traitAleatoire;
+    private int _nbColonnes;
+    private string _determinant;
+    private string _typeDeTrait;
+    
+    protected override void OnParametersSet()
+    {
+        switch (GroupeActif)
+        {
+            case "traits":
+                _traits = _traitsService.SignesDistinctifs;
+                _nbColonnes = 5;
+                _determinant = "un";
+                _typeDeTrait = "signe distinctif";
+                break;
+            case "troubles-mineurs":
+                _traits = _traitsService.TroublesMineurs();
+                _nbColonnes = 3;
+                _determinant = "un";
+                _typeDeTrait = "trouble mineur";
+                break;
+            case "folies":
+                _traits = _traitsService.Folies;
+                _nbColonnes = 3;
+                _determinant = "une";
+                _typeDeTrait = "folie";
+                break;
+            case "maladies":
+                _traits = _traitsService.Maladies;
+                _nbColonnes = 3;
+                _determinant = "une";
+                _typeDeTrait = "maladie";
+                break;
+        }
+        
+        base.StateHasChanged();
+        
+        base.OnParametersSet();
+    }
+
+    private void TirerUnTraitAleatoire()
+    {
+        var i = new Random().Next(0, _traits.Count);
+        _traitAleatoire = _traits[i];
+    }
+}

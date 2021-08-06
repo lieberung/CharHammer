@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Models
+﻿using System;
+
+namespace BlazorWjdr.Models
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -10,6 +12,7 @@
         public string Nom { get; init; } = null!;
         public List<string> MotsClefDeRecherche { get; init; } = null!;
         public string Description { get; init; } = null!;
+        public string[] Ambiance { get; init; } = null!;
         public string Image { get; init; } = null!;
         public bool EstUneCarriereAvancee { get; init; }
         public string Restriction { get; init; } = null!;
@@ -17,6 +20,8 @@
         public int[] DebouchesIds { get; init; } = null!;
         public string Dotations { get; init; } = null!;
         public int? CarriereMereId { get; init; }
+
+        public string[] Images { get; set; } = Array.Empty<string>();
 
         public ProfilDto PlanDeCarriere { get; init; } = null!;
         

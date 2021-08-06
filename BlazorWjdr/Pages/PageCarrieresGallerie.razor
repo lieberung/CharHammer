@@ -1,0 +1,15 @@
+﻿@page "/carrieres-gallerie/"
+
+@using BlazorWjdr.Services
+
+@inject CarrieresService _carrieresService
+
+<MainTopRow>
+    
+</MainTopRow>
+
+<div class="content px-4">
+    <div class="_container">
+        <!--GalleryImage Images="@_carrieresService.GallerieComplete().AsEnumerable()"/-->        
+    </div>
+</div>

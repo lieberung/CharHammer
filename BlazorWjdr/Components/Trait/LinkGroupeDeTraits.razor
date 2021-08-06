@@ -1,0 +1,17 @@
+﻿<a href="/tables-traits-et-troubles/@Groupe/" class="mr-2 btn @_btnClass" style="width:150px;">@Text</a>
+@code {
+    [Parameter]
+    public string Groupe { get; set; } = null!;
+    [Parameter]
+    public string Text { get; set; } = null!;
+    [Parameter]
+    public bool Actif { get; set; }
+
+    private string _btnClass = "";
+
+    protected override void OnParametersSet()
+    {
+        _btnClass = Actif ? "btn-primary" : "btn-secondary";
+        base.OnParametersSet();
+    }
+}

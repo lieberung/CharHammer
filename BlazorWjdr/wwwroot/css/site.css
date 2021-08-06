@@ -1,9 +1,4 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-/*
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-*/
 
 @font-face {
     font-family: 'Caslon Antique', fantasy;
@@ -15,35 +10,29 @@ html, body {
     font-display: swap;
 }
 
-.title-primary, thead {
+.thead {
     color: #5e1a05;
     font-family: 'Caslon Antique', fantasy;
     font-weight: 600;
+    font-size: x-large;
 }
-.table thead { font-size: x-large; }
 .table thead th { border-bottom: none; }
 .table td, .table th { padding: .10rem; border-top: none; }
 .table td ul { margin-bottom: 0; }
 tbody.alternate-color-dark tr:nth-child(even) { background-color: #cebfb5; }
 tbody.alternate-color-light tr:nth-child(even) { background-color: #f3e3c1; }
 
-.top-row-title {
-    font-size: xx-large;
-}
-h5.card-title, h6.card-title {
+.card-title {
     color: #5e1a05;
     margin-bottom: .35rem;
-}
-h5.card-title {
     margin-top: .50rem;
     font-family: 'Caslon Antique', fantasy;
     font-weight: 600;
-    font-size: xx-large;
 }
-h6.card-title {
-    margin-top: .25rem;
-    font-size: medium;
-}
+h1.card-title { font-size: xxx-large; }
+h3.card-title { font-size: xx-large; }
+h5.card-title { font-size: x-large; }
+h6.card-title { font-size: medium; margin-top: .25rem; }
 
 a, .btn-link {
     color: #562f08;
@@ -57,7 +46,6 @@ a, .btn-link {
 
 .bulle { padding: 8px; background-color: #fff7f2; border: 1px dotted #80390f; border-radius: .75em; } /* bg-c: #cebfb5 */
 .bulle > .table { margin-bottom: 0; }
-
 
 .item-icon { font-size: .800rem; color: #80390f; }
 .career-img { float: right; margin-left: 15px; }

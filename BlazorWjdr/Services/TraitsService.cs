@@ -45,6 +45,7 @@
                 {
                     Id = c.id,
                     Nom = c.nom,
+                    Spe = c.spe,
                     Groupe = c.type,
                     Description = c.description,
                     Contagieux = c.contagieux,
@@ -61,5 +62,17 @@
         public List<TraitDto> Maladies => AllTraits.Where(t => t.Groupe == "maladie").ToList();
         public List<TraitDto> Mutations => AllTraits.Where(t => t.Groupe == "mutation").ToList();
         public List<TraitDto> Nevroses => AllTraits.Where(t => t.Groupe == "nevrose").ToList();
+        public List<TraitDto> Addictions => AllTraits.Where(t => t.Groupe == "addiction").ToList();
+        public List<TraitDto> Alergies => AllTraits.Where(t => t.Groupe == "allergie").ToList();
+        public List<TraitDto> Phobies => AllTraits.Where(t => t.Groupe == "phobie").ToList();
+
+        public List<TraitDto> TroublesMineurs()
+        {
+            var list = new List<TraitDto>();
+            list.AddRange(Alergies.Where(t => t.Severite == 1));
+            list.AddRange(Nevroses.Where(t => t.Severite == 1));
+            list.AddRange(Phobies.Where(t => t.Severite == 1));
+            return list.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ToList();
+        }
     }
 }
