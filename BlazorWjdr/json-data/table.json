@@ -24,9 +24,7 @@
         ["Int - Intelligence"       ,"20+2d10","20+2d10","20+2d10","20+2d10","20+2d10"],
         ["FM - Force Mentale"       ,"20+2d10","40+2d10","20+2d10","20+2d10","20+2d10"],
         ["Soc - Sociabilité"        ,"20+2d10","15+2d10","30+2d10","20+2d10","10+2d10"],
-        ["A - Attaques","1","1","1","1","1"],
-        ["B - Points de Blessures (v2)","Lancer","1d10","sur la","table","concernée"],
-        ["B - Points de Blessures (v4)","BF+(2xBE)+BFM","(2xBE)+BFM","(2xBE)+BFM","BF+(2xBE)+BFM","BF+(2xBE)+BFM"],
+        ["B - Points de Blessures","BF+(2xBE)+BFM","(2xBE)+BFM","(2xBE)+BFM","BF+(2xBE)+BFM","BF+(2xBE)+BFM"],
         ["M - Mouvement","5","3","4","4","3"]
       ]
     },
@@ -41,7 +39,7 @@
       ]
     },
     {"id":13,"titre":"Points de Destin de départ",
-      "description": "Si vous êtes un mutant, faite un jet pour votre race et soustrayez 1 (1 minimum).",
+      "description": "Le meneur de jeu peut décider de faire ce jet pour vous et de garder le résultat secret, auquel cas les Points de Fortune sont basés sur une valeur fixe en fonction de votre race.\nSi vous êtes un mutant, faite un jet pour votre race et soustrayez 1 (1 minimum).",
       "lignes":[
         ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
         ["1-4","1","2","2","2","1"],

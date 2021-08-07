@@ -21,321 +21,351 @@
 
 <div class="content px-4">
 
-    <div class="row">
-        <div class="col-6">
-            <PageSectionRowTitle Title="1. Déterminer sa race"/>
-            <div class="card-body">
-                <p class="card-text">
-                    On effectue un jet sur la table ci-contre.
-                </p>
-                <p class="card-text">
-                    Si le résultat n'est pas celui attendu, on peut choisir une race en dépensant le coût indiqué en points d'expérience.
-                </p>
-                <p class="card-text">
-                    <LinkPageCreationPerso Actif="@RaceDesElfesSelectionnee" Race="@_racesService.Elfes"/>
-                    <LinkPageCreationPerso Actif="@RaceDesGnomesSelectionnee" Race="@_racesService.Gnomes"/>
-                    <LinkPageCreationPerso Actif="@RaceDesHalflingsSelectionnee" Race="@_racesService.Halfelings"/>
-                    <LinkPageCreationPerso Actif="@RaceDesHumainsSelectionnee" Race="@_racesService.Humains"/>
-                    <LinkPageCreationPerso Actif="@RaceDesNainsSelectionnee" Race="@_racesService.Nains"/>
-                </p>
-            </div>
+<div class="row">
+    <div class="col-5">
+        <PageSectionRowTitle Title="1. Déterminer sa race"/>
+        <div class="card-body">
+            <p class="card-text">
+                On effectue un jet sur la table ci-contre.
+            </p>
+            <p class="card-text">
+                Si le résultat n'est pas celui attendu, on peut choisir une race en dépensant le coût indiqué en points d'expérience.
+            </p>
+            <p class="card-text">
+                <LinkPageCreationPerso Actif="@RaceDesElfesSelectionnee" Race="@_racesService.Elfes"/>
+                <LinkPageCreationPerso Actif="@RaceDesGnomesSelectionnee" Race="@_racesService.Gnomes"/>
+                <LinkPageCreationPerso Actif="@RaceDesHalflingsSelectionnee" Race="@_racesService.Halfelings"/>
+                <LinkPageCreationPerso Actif="@RaceDesHumainsSelectionnee" Race="@_racesService.Humains"/>
+                <LinkPageCreationPerso Actif="@RaceDesNainsSelectionnee" Race="@_racesService.Nains"/>
+            </p>
         </div>
-        <div class="col-5">
-            <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre="@true" FixedColSize="75"/>
+        <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre="@true" FixedColSize="60"/>
+    </div>
+    <div class="col-2 pt-5">
+        <img src="./images/races/@(RaceId)f.png" alt="@_race.NomFeminin">
+    </div>
+    <div class="col-2 pt-5">
+        <img src="./images/races/@(RaceId)m.png" alt="@_race.NomMasculin">
+    </div>
+    <div class="col-2 pt-5">
+        <img src="./images/races/@(RaceId)s.png" alt="@_race.NomMasculin">
+    </div>
+</div>
+
+<PageSectionDivider/>
+
+<div class="row">
+    <div class="col-4">
+        <PageSectionRowTitle Title="2. Déterminer ses caractéristiques"/>
+        <div class="card-body">
+            <p class="card-text">
+                <span>On effectue un tirage de 1d100 pour chacune des caractéristiques, puis choisissez l'une des options suivantes :</span>
+                <br/>
+                <ul>
+                    <li>Conserver ces jets dans l'ordre obtenu</li>
+                    <li>Dépenser <strong>100 xp</strong> pour ordonner librement ces jets</li>
+                    <li>Dépenser <strong>150 xp</strong> pour ignorer ces jets et répartir <strong>80&nbsp;(v2) / 100&nbsp;(v4) points</strong> dans chacune des 8/10 caractéristiques, avec un <strong>minimum de 4</strong> et un <strong>maximum de 18</strong> à chaque fois.</li>
+                </ul>
+            </p>
         </div>
     </div>
-
-    <PageSectionDivider/>
-
-    <div class="row">
-        <div class="col-4">
-            <PageSectionRowTitle Title="2. Déterminer ses caractéristiques"/>
-            <div class="card-body">
-                <p class="card-text">
-                    <span>On effectue un tirage de 1d100 pour chacune des caractéristiques, puis choisissez l'une des options suivantes :</span>
-                    <br/>
-                    <ul>
-                        <li>Conserver ces jets dans l'ordre obtenu</li>
-                        <li>Dépenser <strong>100 xp</strong> pour ordonner librement ces jets</li>
-                        <li>Dépenser <strong>150 xp</strong> pour ignorer ces jets et répartir <strong>80&nbsp;(v2) / 100&nbsp;(v4) points</strong> dans chacune des 8/10 caractéristiques, avec un <strong>minimum de 4</strong> et un <strong>maximum de 18</strong> à chaque fois.</li>
-                    </ul>
-                </p>
-            </div>
-        </div>
-        <div class="col-8">
-            <TableDetail Item="@_tablesService.GetTable(11)" MasquerTitre="@true"/>
-        </div>
+    <div class="col-8">
+        <TableDetail Item="@_tablesService.GetTable(11)" MasquerTitre="@true"/>
     </div>
-    <div class="row">
-        <div class="col-5">
-            <TableDetail Item="@_tablesService.GetTable(12)" FixedColSize="35"/>
-        </div>
-        <div class="col-1">
-        </div>
-        <div class="col-5">
-            <TableDetail Item="@_tablesService.GetTable(13)" FixedColSize="50"/>
-        </div>
+</div>
+<div class="row">
+    <div class="col-5">
+        <TableDetail Item="@_tablesService.GetTable(12)" FixedColSize="35"/>
     </div>
-
-    <PageSectionDivider/>
-
-    <div class="row">
-        <div class="col-5">
-            <PageSectionRowTitle Title="3. Déterminer sa carrière initiale"/>
-            <div class="card-body">
-                <p class="card-text">
-                    Tirer une première carrière aléatoire sur la table de votre race.<br/>
-                    Si celle-ci ne vous convient pas, vous pouvez :
-                    <ul>
-                        <li>dépenser <strong>100 xp</strong> pour tirer deux carrières supplémentaires et en choisir une parmi les trois.</li>
-                        <li>dépenser <strong>250 xp</strong> et choisir une carrière dans la table.</li>
-                    </ul>
-                </p>
-                @if (_carriereAleatoire != null)
-                {
-                    <div class="bulle pl-3" style="min-height: 550px">
-                        <h5 class="card-title">@_carriereAleatoire.Nom</h5>
-                        <CarriereItem Item="_carriereAleatoire"/>
-                        <CarriereDescription Item="_carriereAleatoire"/>
-                    </div>
-                }
-            </div>
-        </div>
-        <div class="col-7">
-            <div class="card-body">
-                <div class="mt-3 mb-3 pl-2">
-                    <button class="btn btn-primary" type="button" @onclick="() => TirerUneCarriereInitiale()">
-                        <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
-                        Tirer une carrière initiale (@_race.NomMasculin)
-                    </button>
-                </div>
-                <TableDeDepart RaceId="@_race.Id.ToString()"/>
-            </div>
-        </div>
+    <div class="col-1">
     </div>
+    <div class="col-5">
+        <TableDetail Item="@_tablesService.GetTable(13)" FixedColSize="50"/>
+    </div>
+</div>
 
-    <PageSectionDivider/>
+<PageSectionDivider/>
+
+<div class="row">
+    <div class="col-6">
+        <PageSectionRowTitle Title="3. Déterminer ses origines"></PageSectionRowTitle>
+        <!-- Lieu de naissance -->
+        @if (RaceDesElfesSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(25)"/>
+        }
+        @if (RaceDesGnomesSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(26)"/>
+        }
+        @if (RaceDesHalflingsSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(27)"/>
+        }
+        @if (RaceDesHumainsSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(28)"/>
+        }
+        @if (RaceDesNainsSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(29)"/>
+        }
+    </div>
+    <div class="col-6">
+        @if (RaceDesGnomesSelectionnee || RaceDesHalflingsSelectionnee || RaceDesNainsSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(28)"/>
+        }
+    </div>
+</div>
+
+<PageSectionDivider/>
 
 <div class="row">
     <div class="col-12">
-        <PageSectionRowTitle Title="4. Déterminer ses origines"></PageSectionRowTitle>
-        
+        <PageSectionRowTitle Title="4. Déterminer ses traits raciaux et culturels"></PageSectionRowTitle>
+    </div>
+</div>
+<!-- Traits raciaux/provinciaux -->
+@if (RaceDesHumainsSelectionnee)
+{
+    <TraitsRaciauxHumains ProvinceActive="Empire"/>
+}
+else
+{
+    <div class="row">
+        <div class="col-12">
+            <div class="card-body bulle px-4">
+                @if (RaceDesElfesSelectionnee)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
+                }
+                @if (RaceDesGnomesSelectionnee)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
+                }
+                @if (RaceDesHalflingsSelectionnee)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false"/>
+                }
+                @if (RaceDesNainsSelectionnee)
+                {
+                    <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false"/>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@if (RaceDesHalflingsSelectionnee || RaceDesHumainsSelectionnee)
+{
+    <div class="row">
+        <div class="col-4">
+            <div class="card-body">
+                <h5 class="card-title">4-1. Détermination aléatoire des talents</h5>
+                <div class="card-text">
+                    Consultez vos traits raciaux / culturels pour savoir à combien de talents aléatoires vous avez droit (0 à 2).
+                </div>
+                <TableTalentsInitiaux/>
+            </div>
+        </div>
+    </div>
+}
+
+<PageSectionDivider/>
+
+<div class="row">
+    <div class="col-4">
+        <PageSectionRowTitle Title="5. Déterminer vos signes distinctifs"/>
+        <div class="card-body">
+            <p class="card-text">
+                Déterminez aléatoirement (1d3) ou choisissez le nombre de signes distinctifs dont vous serez affublé (1 minimum, 3 maximum).<br/>
+                Tirez successivement chaque signe sur la table ci-contre : si un signe est incompatible avec l'un des précédents, ignorer le dernier venu et refaite un tirage.<br/>
+                Vous pouvez dépenser <strong>100 xp</strong> (une seule fois) pour en tirer un supplémentaire et en écarter un parmi l'ensemble.
+            </p>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <div class="mt-3 mb-3 pl-2">
+                    <button class="btn btn-primary" type="button" @onclick="() => TirerUnSigneAleatoire()">
+                        <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
+                        Tirer un signe aléatoire
+                    </button>
+                </div>
+                <TraitItemList Items="@_traitsObtenus.ToArray()"/>
+            </p>
+        </div>
+
+    </div>
+    <div class="col-8">
+        <div class="card-body">
+            <h5 class="card-title">5-1. Table des signes distinctifs</h5>
+            <p class="card-text">
+                <TableTraits Traits="_traitsService.SignesDistinctifs.ToArray()" NbColonnes="5"/>
+            </p>
+        </div>
     </div>
 </div>
 <div class="row">
-                <div class="col-6">
-                    
-                </div>
-        <div class="col-6">
-            
-        </div>
-
+    <div class="col-3">
+        <!-- Table pour la couleur des cheveux et des yeux -->
+        @if (RaceDesElfesSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(15)" FixedColSize="45"/>
+        }
+        @if (RaceDesGnomesSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(16)" FixedColSize="45"/>
+        }
+        @if (RaceDesHalflingsSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(17)" FixedColSize="45"/>
+        }
+        @if (RaceDesHumainsSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(18)" FixedColSize="45"/>
+        }
+        @if (RaceDesNainsSelectionnee)
+        {
+            <TableDetail Item="@_tablesService.GetTable(19)" FixedColSize="45"/>
+        }
+    </div>
+    <div class="col-9">
+        <!-- Table pour le calcul de l'âge du poids et de la taille -->
+        <TableDetail Item="@_tablesService.GetTable(14)" FixedColSize="75"/>
+    </div>
 </div>
 
-    <PageSectionDivider/>
+<PageSectionDivider/>
 
-    <div class="row">
-        <div class="col-6">
-            <PageSectionRowTitle Title="4. Déterminer ses traits raciaux et origines"></PageSectionRowTitle>
-
-            <!-- Lieu de naissance -->
-            @if (RaceDesElfesSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(25)"/>
-            }
-            @if (RaceDesGnomesSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(26)"/>
-            }
-            @if (RaceDesHalflingsSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(27)"/>
-            }
-            @if (RaceDesHumainsSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(28)"/>
-            }
-            @if (RaceDesNainsSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(29)"/>
-            }
-            @if (RaceDesGnomesSelectionnee || RaceDesHalflingsSelectionnee || RaceDesNainsSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(28)"/>
-            }
-            <!-- Traits raciaux/provinciaux -->
-            @if (RaceDesHumainsSelectionnee)
-            {
-                <TraitsRaciauxImpériaux ProvinceActive="Empire"/>
-            }
-            else
-            {
-                <div class="card-body bulle px-4">
-                    @if (RaceDesElfesSelectionnee)
-                    {
-                        <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
-                    }
-                    @if (RaceDesGnomesSelectionnee)
-                    {
-                        <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
-                    }
-                    @if (RaceDesHalflingsSelectionnee)
-                    {
-                        <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false"/>
-                    }
-                    @if (RaceDesNainsSelectionnee)
-                    {
-                        <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false"/>
-                    }
-                </div>
-            }
+<div class="row">
+    <div class="col-4">
+        <PageSectionRowTitle Title="6. Déterminer sa carrière initiale"/>
+        <div class="card-body">
+            <p class="card-text">
+                Tirer une première carrière aléatoire sur la table de votre race.<br/>
+                Si celle-ci ne vous convient pas, vous pouvez :
+                <ul>
+                    <li>dépenser <strong>100 xp</strong> pour tirer deux carrières supplémentaires et en choisir une parmi les trois.</li>
+                    <li>dépenser <strong>250 xp</strong> et choisir une carrière dans la table.</li>
+                </ul>
+            </p>
         </div>
+        <div class="card-body">
+            <p class="card-text mt-1 mb-1 pl-3">
+                <button class="btn btn-primary" type="button" @onclick="() => TirerUneCarriereInitiale()">
+                    <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
+                    Tirer une carrière initiale (@_race.NomMasculin)
+                </button>
+            </p>
+            <p class="card-text p-3">
+                <CarriereItemList Items="@_carrieresObtenues.ToArray()" HideIndicatorBase="true"/>
+            </p>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="card-body">
+            <TableDeDepart RaceId="@_race.Id.ToString()"/>
+        </div>
+    </div>
+</div>
+<div class="row">
+    @foreach (var co in _carrieresObtenues)
+    {
         <div class="col-4">
-            @if (RaceDesHalflingsSelectionnee || RaceDesHumainsSelectionnee)
-            {
-                <div class="card-body">
-                    <h5 class="card-title">4-1. Détermination aléatoire des talents</h5>
-                    <TableTalentsInitiaux/>
-                </div>
-            }
-        </div>
-    </div>
-
-    <PageSectionDivider/>
-
-    <div class="row">
-        <div class="col-4">
-            <PageSectionRowTitle Title="5. Déterminer vos signes distinctifs"/>
-            <div class="card-body">
-                <p class="card-text">
-                    Déterminez aléatoirement (1d3) ou choisissez le nombre de signes distinctifs dont vous serez affublé (1 minimum, 3 maximum).<br/>
-                    Tirez successivement chaque signe sur la table ci-contre : si un signe est incompatible avec l'un des précédents, ignorer le dernier venu et refaite un tirage.<br/>
-                    Vous pouvez dépenser <strong>100 xp</strong> (une seule fois) pour en tirer un supplémentaire et en écarter un parmi l'ensemble.
-                </p>
-            </div>
-            @if (RaceDesElfesSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(15)" FixedColSize="45"/>
-            }
-            @if (RaceDesGnomesSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(16)" FixedColSize="45"/>
-            }
-            @if (RaceDesHalflingsSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(17)" FixedColSize="45"/>
-            }
-            @if (RaceDesHumainsSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(18)" FixedColSize="45"/>
-            }
-            @if (RaceDesNainsSelectionnee)
-            {
-                <TableDetail Item="@_tablesService.GetTable(19)" FixedColSize="45"/>
-            }
-        </div>
-        <div class="col-8">
-            <div class="card-body">
-                <h5 class="card-title">5-1. Table des signes distinctifs</h5>
-                <p class="card-text">
-                    <TableTraits Traits="_traitsService.SignesDistinctifs.ToArray()" NbColonnes="5"/>
-                </p>
+            <div class="bulle pl-3" style="min-height: 550px">
+                <h5 class="card-title">@co.Nom</h5>
+                <CarriereDescription Item="co"/>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-10">
-            <TableDetail Item="@_tablesService.GetTable(14)" FixedColSize="75"/>
-        </div>
-        <div class="col-2">
-        </div>
-    </div>
+    }
+</div>
 
-    <PageSectionDivider/>
+<PageSectionDivider/>
 
-    <div class="row">
-        <div class="col-6">
-            <PageSectionRowTitle Title="6-1. Donner de la vie à son personnage"/>
-            <div class="card-body">
-                <p class="card-text">
-                    <ul>
-                        <li>Choisir votre nom et votre sexe</li>
-                        <li>Déterminer votre âge</li>
-                        <li>Déterminer votre signe astral</li>
-                        <li>Déterminer vos caractéristiques physiques (taille, poids, couleur des yeux et des cheveux, main directrice, etc.)</li>
-                        <li>Déterminer votre région d'origine</li>
-                        <li>Déterminer votre famille (profession des parents, frères et soeurs)</li>
-                        <li>Déterminer votre orientation sexuelle</li>
-                    </ul>
-                </p>
-            </div>
-        </div>
-        <div class="col-6">
-            <TableDetail Item="_tablesService.GetTable(22)" FixedColSize="35"/>
+<div class="row">
+    <div class="col-6">
+        <PageSectionRowTitle Title="6-1. Donner de la vie à son personnage"/>
+        <div class="card-body">
+            <p class="card-text">
+                <ul>
+                    <li>Choisir votre nom et votre sexe</li>
+                    <li>Déterminer votre âge</li>
+                    <li>Déterminer votre signe astral</li>
+                    <li>Déterminer vos caractéristiques physiques (taille, poids, couleur des yeux et des cheveux, main directrice, etc.)</li>
+                    <li>Déterminer votre région d'origine</li>
+                    <li>Déterminer votre famille (profession des parents, frères et soeurs)</li>
+                    <li>Déterminer votre orientation sexuelle</li>
+                </ul>
+            </p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-6">
-            <div class="card-body">
-                <h5 class="card-title">6-2. Etoffer le passé et le caractère du personnage</h5>
-                <p class="card-text">
-                    <ul>
-                        <li>Votre famille, à quoi ressemble-t-elle ?</li>
-                        <li>Quelle activité pratiquaient vos parents ?</li>
-                        <li>Comment s’est déroulée votre enfance ?</li>
-                        <li>Quand avez-vous quitté la maison familiale ?</li>
-                        <li>Qui sont vos meilleurs amis ?</li>
-                        <li>Quel est votre plus grand désir ?</li>
-                        <li>Quels sont vos meilleurs et pires souvenirs ?</li>
-                        <li>Avez-vous des croyances religieuses ?</li>
-                        <li>Êtes-vous loyal envers quelque chose ou quelqu’un ?</li>
-                        <li>Pourquoi partez-vous à l’aventure ?</li>
-                    </ul>
-                </p>
-            </div>        
-        </div>
-        <div class="col-6"></div>
+    <div class="col-6">
+        <TableDetail Item="_tablesService.GetTable(22)" FixedColSize="35"/>
     </div>
-
-    <PageSectionDivider/>
-
-    <div class="row">
-        <div class="col-6">
-            <PageSectionRowTitle Title="7-1. Déterminer son ambition personnelle"/>
-            <div class="card-body">
-                <p class="card-text">
-                    Vient ensuite le choix des Ambitions !
-                </p>
-                <p class="card-text">
-                    Une nouvelle notion, avec des ambitions à court terme (visiter une terre lointaine, s'intégrer à une culture exotique, venger un ami tombé au combat, sympathiser avec un érudit isolé…) et des ambitions à long terme (posséder votre propre auberge, débarrasser les collège de magie de l’influence des elfes…).
-                </p>
-                <p class="card-text">
-                    Réaliser une ambition de court terme rapporte 50 XP (et on peut en choisir une autre), tandis que réaliser une ambition de long terme rapporte 500 XP et permet, soit d’en choisir une nouvelle, soit de mettre le personnage à la retraite pour en créer un nouveau qui démarrera avec la moitié des XP du retraité !
-                </p>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card-body">
-                <h5 class="card-title">7-2. Insufler un souffle à l'équipe</h5>
-                <p class="card-text">
-                    C’est là qu’on essaie de se mettre d’accord avec tout le monde pour savoir si les personnages sont amis, de simples compagnons de voyage, etc.
-                    On peut déterminer une Ambition d’équipe !
-                    Même idée : des ambitions courtes (qui donnent 50 XP à tout le monde) et d’énormes ambitions d’équipe à long terme (genre construire un château) qui permettent là aussi à tout le monde de gagner 500 XP et de prendre ou pas une retraite bien méritée.
-                </p>
-            </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card-body">
+            <h5 class="card-title">6-2. Etoffer le passé et le caractère du personnage</h5>
+            <p class="card-text">
+                <ul>
+                    <li>Votre famille, à quoi ressemble-t-elle ?</li>
+                    <li>Quelle activité pratiquaient vos parents ?</li>
+                    <li>Comment s’est déroulée votre enfance ?</li>
+                    <li>Quand avez-vous quitté la maison familiale ?</li>
+                    <li>Qui sont vos meilleurs amis ?</li>
+                    <li>Quel est votre plus grand désir ?</li>
+                    <li>Quels sont vos meilleurs et pires souvenirs ?</li>
+                    <li>Avez-vous des croyances religieuses ?</li>
+                    <li>Êtes-vous loyal envers quelque chose ou quelqu’un ?</li>
+                    <li>Pourquoi partez-vous à l’aventure ?</li>
+                </ul>
+            </p>
         </div>
     </div>
+    <div class="col-6"></div>
+</div>
 
-    <PageSectionDivider/>
+<PageSectionDivider/>
 
-    <div class="row">
-        <div class="col-7">
-            <TableDetail Item="@_tablesService.GetTable(21)"/>
-        </div>
-        <div class="col-5">
-            <TableDetail Item="@_tablesService.GetTable(20)"/>
+<div class="row">
+    <div class="col-6">
+        <PageSectionRowTitle Title="7-1. Déterminer son ambition personnelle"/>
+        <div class="card-body">
+            <p class="card-text">
+                Vient ensuite le choix des Ambitions !
+            </p>
+            <p class="card-text">
+                Une nouvelle notion, avec des ambitions à court terme (visiter une terre lointaine, s'intégrer à une culture exotique, venger un ami tombé au combat, sympathiser avec un érudit isolé…) et des ambitions à long terme (posséder votre propre auberge, débarrasser les collège de magie de l’influence des elfes…).
+            </p>
+            <p class="card-text">
+                Réaliser une ambition de court terme rapporte 50 XP (et on peut en choisir une autre), tandis que réaliser une ambition de long terme rapporte 500 XP et permet, soit d’en choisir une nouvelle, soit de mettre le personnage à la retraite pour en créer un nouveau qui démarrera avec la moitié des XP du retraité !
+            </p>
         </div>
     </div>
+    <div class="col-6">
+        <div class="card-body">
+            <h5 class="card-title">7-2. Insufler un souffle à l'équipe</h5>
+            <p class="card-text">
+                C’est là qu’on essaie de se mettre d’accord avec tout le monde pour savoir si les personnages sont amis, de simples compagnons de voyage, etc.
+                On peut déterminer une Ambition d’équipe !
+                Même idée : des ambitions courtes (qui donnent 50 XP à tout le monde) et d’énormes ambitions d’équipe à long terme (genre construire un château) qui permettent là aussi à tout le monde de gagner 500 XP et de prendre ou pas une retraite bien méritée.
+            </p>
+        </div>
+    </div>
+</div>
+
+<PageSectionDivider/>
+
+<div class="row">
+    <div class="col-7">
+        <TableDetail Item="@_tablesService.GetTable(21)"/>
+    </div>
+    <div class="col-5">
+        <TableDetail Item="@_tablesService.GetTable(20)"/>
+    </div>
+</div>
 
 </div>
 
@@ -346,12 +376,43 @@
 
     private RaceDto _race = null!;
 
-    private CarriereDto? _carriereAleatoire;
-
+    private List<TraitDto> _traitsObtenus = new();
+    private List<CarriereDto> _carrieresObtenues = new();
+    
     protected override void OnParametersSet()
     {
         _race = _racesService.GetRace(int.Parse(RaceId));
+        _carrieresObtenues = new();
+        
         base.OnParametersSet();
+    }
+
+    private void TirerUnSigneAleatoire()
+    {
+        if (_traitsObtenus.Count == 4)
+        {
+            _traitsObtenus = new();
+            return;
+        }
+
+        TraitDto? ta = null;
+        while (ta == null || _traitsObtenus.Contains(ta))
+            ta = _traitsService.TirerUnSigneAleatoire(); 
+        _traitsObtenus.Add(ta);
+    }
+
+    private void TirerUneCarriereInitiale()
+    {
+        if (_carrieresObtenues.Count == 3)
+        {
+            _carrieresObtenues = new();
+            return;
+        }
+
+        CarriereDto? ca = null;
+        while (ca == null || _carrieresObtenues.Contains(ca))
+            ca = _tableDesCarrieresInitialesService.GetRandomStartingCareer(int.Parse(RaceId)); 
+        _carrieresObtenues.Add(ca);
     }
 
     private bool RaceDesElfesSelectionnee => _race == _racesService.Elfes;
@@ -359,11 +420,4 @@
     private bool RaceDesHalflingsSelectionnee => _race == _racesService.Halfelings;
     private bool RaceDesHumainsSelectionnee => _race == _racesService.Humains;
     private bool RaceDesNainsSelectionnee => _race == _racesService.Nains;
-   
-    
-    private void TirerUneCarriereInitiale()
-    {
-        _carriereAleatoire = _tableDesCarrieresInitialesService.GetRandomStartingCareer(int.Parse(RaceId));
-    }
-
 }

@@ -2,6 +2,7 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Trait
 
 <h6 class="card-title">Plan de carrière</h6>
 <p>
@@ -13,11 +14,23 @@
     }
 </p>
 
-<h6 class="card-title">Compétences</h6>
-<p><CompetenceAcquiseItemList Items="@Item.CompetencesAcquises.ToArray()" /></p>
+@if (Item.CompetencesAcquises.Any())
+{
+    <h6 class="card-title">Compétences</h6>
+    <p><CompetenceAcquiseItemList Items="@Item.CompetencesAcquises.ToArray()"/></p>
+}
 
-<h6 class="card-title">Talents</h6>
-<p><TalentItemList Items="@Item.Talents.ToArray()" /></p>
+@if (Item.Talents.Any())
+{
+    <h6 class="card-title">Talents</h6>
+    <p><TalentItemList Items="@Item.Talents.ToArray()"/></p>
+}
+
+@if (Item.Traits.Any())
+{
+    <h6 class="card-title">Traits</h6>
+    <p><TraitItemList Items="@Item.Traits.ToArray()" /></p>
+}
 
 @if (!string.IsNullOrWhiteSpace(Item.Equipement))
 {

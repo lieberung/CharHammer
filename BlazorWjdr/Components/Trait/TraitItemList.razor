@@ -1,0 +1,12 @@
+﻿@using BlazorWjdr.Models
+<ul class="list-inline">
+    @foreach (var item in Items)
+    {
+        <li class="@ItemClass"><TraitItem Item="@item"/></li>
+    }
+</ul>
+@code
+{
+    [Parameter] public string ItemClass { get; set; } = "list-inline-item";
+    [Parameter] public TraitDto[] Items { get; set; } = null!;
+}

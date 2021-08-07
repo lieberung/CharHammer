@@ -92,6 +92,7 @@
       "regle":"Un personnage Parravonais reçoit les compétences ci dessous, ainsi qu'1 talent aléatoire supplémentaire sur la table concernée."},
     {"id":84,"titre":"Traits raciaux - Quenellois(e)","lieux":[21],"competences":[10,90,129],"talents":[32,203],
       "regle":"Un personnage Quenellois reçoit les compétences ci dessous, ainsi qu'1 talent aléatoire supplémentaire sur la table concernée."},
+    
     {"id":85,"titre":"Traits raciaux - Sylvanien(e)s","lieux":[61],"competences":[136],"choixcompetences":[[10,55],[90,194]],"talents":[203],
       "regle":"Un personnage Sylvanien reçoit les compétences ci dessous, ainsi que 2 talents aléatoires supplémentaires sur la table concernée."},
     {"id":86,"titre":"Traits raciaux - Strigany","lieux":[2],"competences":[45,51],"choixcompetences":[[7,46],[136,175],[92,195]],

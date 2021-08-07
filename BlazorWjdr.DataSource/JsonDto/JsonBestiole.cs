@@ -20,6 +20,7 @@
         public int? age { get; set; }
         public int sexe { get; set; }
         public string psycho { get; set; } = null!;
+        public int[]? traits { get; set; }
     }
 
     public class RootBestiole

@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Services
+﻿using System;
+
+namespace BlazorWjdr.Services
 {
     using Models;
     using System.Collections.Generic;
@@ -57,7 +59,7 @@
             _allTraits = _cacheTrait.Values.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ToList();
         }
 
-        public List<TraitDto> SignesDistinctifs => AllTraits.Where(t => t.Groupe == "trait").ToList();
+        public List<TraitDto> SignesDistinctifs => AllTraits.Where(t => t.Groupe == "trait").OrderBy(t => t.NomComplet).ToList();
         public List<TraitDto> Folies => AllTraits.Where(t => t.Groupe == "folie").ToList();
         public List<TraitDto> Maladies => AllTraits.Where(t => t.Groupe == "maladie").ToList();
         public List<TraitDto> Mutations => AllTraits.Where(t => t.Groupe == "mutation").ToList();
@@ -73,6 +75,13 @@
             list.AddRange(Nevroses.Where(t => t.Severite == 1));
             list.AddRange(Phobies.Where(t => t.Severite == 1));
             return list.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ToList();
+        }
+
+        public TraitDto TirerUnSigneAleatoire()
+        {
+            var sd = SignesDistinctifs;
+            var i = new Random().Next(0, sd.Count);
+            return sd[i];
         }
     }
 }

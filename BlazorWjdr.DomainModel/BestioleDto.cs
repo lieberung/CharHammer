@@ -17,6 +17,7 @@ namespace BlazorWjdr.Models
 
         public TalentDto[] Talents { get; init; } = null!;
         public LieuDto[] Origines { get; init; } = null!;
+        public TraitDto[] Traits { get; init; } = null!;
         public RaceDto Race { get; init; } = null!;
         public int[] MembreDe { get; init; } = null!;
         public int? Poids { get; init; }

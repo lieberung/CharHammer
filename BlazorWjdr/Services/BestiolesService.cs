@@ -11,24 +11,27 @@ namespace BlazorWjdr.Services
 
     public class BestiolesService
     {
-        private readonly RacesService _racesService = null!;
-        private readonly CompetencesEtTalentsService _competencesEtTalentsService = null!;
-        private readonly LieuxService _lieuxService = null!;
-        private readonly ProfilsService _profilsService = null!;
-        private readonly CarrieresService _carrieresService = null!;
+        private readonly RacesService _racesService;
+        private readonly CompetencesEtTalentsService _competencesEtTalentsService;
+        private readonly LieuxService _lieuxService;
+        private readonly ProfilsService _profilsService;
+        private readonly CarrieresService _carrieresService;
+        private readonly TraitsService _traitsService;
 
         public BestiolesService(
             RacesService racesService,
             CompetencesEtTalentsService competencesEtTalentsService,
             LieuxService lieuxService,
             ProfilsService profilsService,
-            CarrieresService carrieresService)
+            CarrieresService carrieresService,
+            TraitsService traitsService)
         {
             _racesService = racesService;
             _competencesEtTalentsService = competencesEtTalentsService;
             _lieuxService = lieuxService;
             _profilsService = profilsService;
             _carrieresService = carrieresService;
+            _traitsService = traitsService;
         }
         
         private Dictionary<int, BestioleDto>? _cacheBestiole;
@@ -92,15 +95,11 @@ namespace BlazorWjdr.Services
                     Taille = c.taille,
                     ProfilActuel = _profilsService.GetProfil(c.fk_profilactuelid),
                     CompetencesAcquises = CompetenceAcquise.GetList(
-                        c.fk_competences  != null
-                            ? _competencesEtTalentsService.GetCompetences(c.fk_competences).ToArray()
-                            : Array.Empty<CompetenceDto>()),
-                    Talents = c.fk_talents != null ?
-                        _competencesEtTalentsService.GetTalents(c.fk_talents).ToArray()
-                        : Array.Empty<TalentDto>(),
-                    Origines = c.fk_origines != null ?
-                        _lieuxService.GetLieux(c.fk_origines).ToArray()
-                        : Array.Empty<LieuDto>(),
+                        (c.fk_competences ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetCompetence(id)).ToArray()
+                    ),
+                    Talents = (c.fk_talents ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetTalent(id)).ToArray(),
+                    Origines = (c.fk_origines ?? Array.Empty<int>()).Select(id => _lieuxService.GetLieu(id)).ToArray(),
+                    Traits = (c.traits ?? Array.Empty<int>()).Select(id => _traitsService.GetTrait(id)).ToArray(),
                     // Personnage
                     fk_signeastralid = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].fk_signeastralid : null,
                     Cheveux = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].cheveux : "",

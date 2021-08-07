@@ -1,0 +1,184 @@
+﻿@using BlazorWjdr.Services
+
+@inject ReglesService _reglesService
+
+<div class="row px-4 mt-3">
+    <div class="col-12">
+        <button type="button" @onclick="@((e) => Selectionner(e, "Bretonnie"))" class="btn @(ProvinceActive == "Bretonnie" ? "btn-primary" : "btn-secondary")">
+            Bretonnien
+        </button>
+        <button type="button" @onclick="@((e) => Selectionner(e, "Empire"))" class="btn @(ProvinceActive == "Empire" ? "btn-primary" : "btn-secondary")">
+            Impérial
+        </button>
+        <button type="button" @onclick="@((e) => Selectionner(e, "Kislev"))" class="btn @(ProvinceActive == "Kislev" ? "btn-primary" : "btn-secondary")">
+            Kislevite
+        </button>
+        <button type="button" @onclick="@((e) => Selectionner(e, "Norsca"))" class="btn @(ProvinceActive == "Norsca" ? "btn-primary" : "btn-secondary")">
+            Norsca
+        </button>
+    </div>
+</div>
+<div class="row px-4 mt-2">
+    <div class="col-12 pl-1">
+        @if (EmpireProvinces.Contains(ProvinceActive))
+        {
+            <button type="button" @onclick="@((e) => Selectionner(e, "Averland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Averland" ? "btn-primary" : "btn-secondary")">
+                Averland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Hochland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Hochland" ? "btn-primary" : "btn-secondary")">
+                Hochland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Middenland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Middenland" ? "btn-primary" : "btn-secondary")">
+                Middenland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Nordland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Nordland" ? "btn-primary" : "btn-secondary")">
+                Nordland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Ostermark"))" class="mr-1 btn btn-sm @(ProvinceActive == "Ostermark" ? "btn-primary" : "btn-secondary")">
+                Ostermark
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Ostland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Ostland" ? "btn-primary" : "btn-secondary")">
+                Ostland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Reikland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Reikland" ? "btn-primary" : "btn-secondary")">
+                Reikland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Stirland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Stirland" ? "btn-primary" : "btn-secondary")">
+                Stirland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Talabecland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Talabecland" ? "btn-primary" : "btn-secondary")">
+                Talabecland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Wissenland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Wissenland" ? "btn-primary" : "btn-secondary")">
+                Wissenland
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Sylvanie"))" class="mr-1 ml-4 btn btn-sm @(ProvinceActive == "Sylvanie" ? "btn-primary" : "btn-secondary")">
+                Sylvanie
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Strigany"))" class="mr-1 ml-4 btn btn-sm @(ProvinceActive == "Strigany" ? "btn-primary" : "btn-secondary")">
+                Strigany
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Mutant"))" class="mr-1 ml-4 btn btn-sm @(ProvinceActive == "Mutant" ? "btn-primary" : "btn-secondary")">
+                Mutant
+            </button>
+        }
+        else if (BretonnieDuches.Contains(ProvinceActive))
+        {
+            <button type="button" @onclick="@((e) => Selectionner(e, "L'Anguille"))" class="mr-1 btn btn-sm @(ProvinceActive == "L'Anguille" ? "btn-primary" : "btn-secondary")">
+                L'Anguille
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Aquitanie"))" class="mr-1 btn btn-sm @(ProvinceActive == "Aquitanie" ? "btn-primary" : "btn-secondary")">
+                Aquitanie
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Artenois"))" class="mr-1 btn btn-sm @(ProvinceActive == "Artenois" ? "btn-primary" : "btn-secondary")">
+                Artenois
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Bastogne"))" class="mr-1 btn btn-sm @(ProvinceActive == "Bastogne" ? "btn-primary" : "btn-secondary")">
+                Bastogne
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Bordeleaux"))" class="mr-1 btn btn-sm @(ProvinceActive == "Bordeleaux" ? "btn-primary" : "btn-secondary")">
+                Bordeleaux
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Brionne"))" class="mr-1 btn btn-sm @(ProvinceActive == "Brionne" ? "btn-primary" : "btn-secondary")">
+                Brionne
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Couronne"))" class="mr-1 btn btn-sm @(ProvinceActive == "Couronne" ? "btn-primary" : "btn-secondary")">
+                Couronne
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Gasconnie"))" class="mr-1 btn btn-sm @(ProvinceActive == "Gasconnie" ? "btn-primary" : "btn-secondary")">
+                Gasconnie
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Gisoreux"))" class="mr-1 btn btn-sm @(ProvinceActive == "Gisoreux" ? "btn-primary" : "btn-secondary")">
+                Gisoreux
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Lyonesse"))" class="mr-1 btn btn-sm @(ProvinceActive == "Lyonesse" ? "btn-primary" : "btn-secondary")">
+                Lyonesse
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Monfort"))" class="mr-1 btn btn-sm @(ProvinceActive == "Monfort" ? "btn-primary" : "btn-secondary")">
+                Monfort
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Mousillon"))" class="mr-1 btn btn-sm @(ProvinceActive == "Mousillon" ? "btn-primary" : "btn-secondary")">
+                Mousillon
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Parravon"))" class="mr-1 btn btn-sm @(ProvinceActive == "Parravon" ? "btn-primary" : "btn-secondary")">
+                Parravon
+            </button>
+            <button type="button" @onclick="@((e) => Selectionner(e, "Quenelles"))" class="mr-1 btn btn-sm @(ProvinceActive == "Quenelles" ? "btn-primary" : "btn-secondary")">
+                Quenelles
+            </button>
+        }
+        else if (ProvinceActive == "Kislev")
+        {
+        }
+        else if (ProvinceActive == "Norsca")
+        {
+        }
+    </div>
+</div>
+<div class="row px-4 mt-2">
+    <div class="col-12">
+        <div class="card-body">
+            <div class="bulle px-4">
+                <RegleDetail Item="@_reglesService.GetRegle(_regleId)"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string ProvinceActive { get; set; } = "Empire";
+
+    private int _regleId;
+
+    private List<string> EmpireProvinces = new List<string> {"Empire","Averland","Hochland","Middenland","Nordland","Ostermark","Ostland","Reikland","Stirland","Talabecland","Wissenland","Sylvanie","Strigany","Mutant"};
+    private List<string> BretonnieDuches = new List<string> {"Bretonnie","L'Anguille","Aquitanie","Artenois","Bastogne","Bordeleaux","Brionne","Couronne","Gasconnie","Gisoreux","Lyonesse","Monfort","Mousillon","Parravon","Quenelles"};
+    protected override void OnParametersSet()
+    {
+        _regleId = ProvinceActive switch
+        {
+            "Empire" => 19,
+            "Averland" => 60,
+            "Hochland" => 61,
+            "Middenland" => 62,
+            "Nordland" => 63,
+            "Ostermark" => 64,
+            "Ostland" => 65,
+            "Reikland" => 66,
+            "Stirland" => 67,
+            "Talabecland" => 68,
+            "Wissenland" => 69,
+            
+            "Sylvanie" => 85,
+            "Strigany" => 86,
+            "Mutant" => 21,
+            
+            "Bretonnie" => 70,
+            "L'Anguille" => 71,
+            "Aquitanie" => 72,
+            "Artenois" => 73,
+            "Bastogne" => 74,
+            "Bordeleaux" => 75,
+            "Brionne" => 76,
+            "Couronne" => 77,
+            "Gasconnie" => 78,
+            "Gisoreux" => 79,
+            "Lyonesse" => 80,
+            "Monfort" => 81,
+            "Mousillon" => 82,
+            "Parravon" => 83,
+            "Quenelles" => 84,
+            _ => _regleId
+            };
+        base.OnParametersSet();
+    }
+
+    private void Selectionner(MouseEventArgs mouseEventArgs, string province)
+    {
+        ProvinceActive = province;
+        OnParametersSet();
+    //InvokeAsync(StateHasChanged);
+    }
+
+}
