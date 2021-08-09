@@ -26,6 +26,10 @@
         <AttributDArmeItemList Items="@Item.Attributs.ToArray()" />
     </td>
     <td>@Item.Degats</td>
+    @if (Item.EstUneArmeDeCaC)
+    {
+        <td>@Item.Allonge</td>
+    }
     @if (Item.EstUneArmeDeTir || Item.EstUneMunition)
     {
         <td>@Item.Portee</td>

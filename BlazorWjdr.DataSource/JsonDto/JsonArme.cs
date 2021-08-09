@@ -10,6 +10,8 @@
         public List<int> attributs { get; set; } = null!;
         public string nom { get; set; } = null!;
         public string degats { get; set; } = null!;
+        public string degats_v2 { get; set; } = null!;
+        public string allonge { get; set; } = null!;
         public string portee { get; set; } = null!;
         public string rechargement { get; set; } = null!;
         public string enc { get; set; } = null!;

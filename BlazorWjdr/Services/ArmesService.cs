@@ -97,6 +97,7 @@
                     Disponibilite = l.dispo,
                     Encombrement = l.enc,
                     Groupes = l.groupes.Select(id => _cacheArmeAttribut[id]).ToList(),
+                    Allonge = l.allonge,
                     Portee = l.portee,
                     Prix = l.prix,
                     Rechargement = l.rechargement,

@@ -2,12 +2,26 @@
 <span class="btn btn-light btn-item" target="_blank">
     <span class="oi oi-shield item-icon mr-1" aria-hidden="true"></span>
     @if (string.IsNullOrWhiteSpace(Item.Description)) {
-        @Item.Nom
+        @_nom
     } else {
-        <Tooltip Text="@Item.Description">@Item.Nom</Tooltip>
+        <Tooltip Text="@Item.Description">@_nom</Tooltip>
     }
 </span>
 @code{
     [Parameter]
     public ArmeAttributDto Item { get; set; } = null!;
+    [Parameter]
+    public int Rating { get; set; }
+
+    private string _nom;
+    
+    protected override void OnParametersSet()
+    {
+        if (Rating > 1)
+            _nom = Item.Nom.Replace("(x)", $"({Rating})");
+        else
+            _nom = Item.Nom.Replace(" (x)","");
+        base.OnParametersSet();
+    }
+
 }

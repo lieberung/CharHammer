@@ -1,10 +1,22 @@
 ﻿@using BlazorWjdr.Models
 <ul class="list-inline">
-    @foreach (var item in Items)
+    @foreach (var item in _items)
     {
-        <li class="list-inline-item"><AttributDArmeItem Item="@item"/></li>
+        <li class="list-inline-item"><AttributDArmeItem Item="@item.Item1" Rating="@item.Item2"/></li>
     }
 </ul>
 @code{
     [Parameter] public ArmeAttributDto[] Items { get; set; } = null!;
+
+    private List<Tuple<ArmeAttributDto, int>> _items; 
+    
+    protected override void OnParametersSet()
+    {
+        var ids = Items.Select(i => i.Id).Distinct();
+        _items = ids.Select(id =>
+            new Tuple<ArmeAttributDto, int>(Items.First(i => i.Id == id), Items.Count(i => i.Id == id))
+        ).ToList();
+
+        base.OnParametersSet();
+    }
 }

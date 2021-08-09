@@ -51,3 +51,13 @@ Action de combat : frappe à deux armes (action complète), -20 CC si 1A, -10 CC
 Cri de guerre : Test contre la Peur des ennemis, si Echec -10 à tous ses jets pendant un Round
 
 Bunit 
+
+
+L'arène, peut se jouer entre les scénar
+X combats d'affilée, avec des thèmes, différents niveaux de difficulté
+genre une arme obligatoire (fléau à grain) éventuellement choisie par les spectateurs
+certaines épreuves sont définies en fonction des affinités (arme de maîtrise) du personnage
+un combat par jour max, entrée payante, gradins payants, récompense en fonction du nombre de spectateurs pour inciter le candidat à faire de la pub avant, et pour payer l'achat des créatures de l'arème
+l'équipement du personnage est gagné par l'arène si elle vient à bout de lui
+récompenses armes/armures/objets/or/instructeur, l'épée magique de tel héro qui vient d'y mourrir
+aventure où ils rencontrent un chasseur de monstre qui vend régulièrement à l'arène, et ils peuvent découvrir ce lieu reclu
