@@ -5,6 +5,7 @@ namespace BlazorWjdr.DataSource.JsonDto
     public class JsonRegle
     {
         public int id { get; set; }
+        public bool html { get; set; }
         public string titre { get; set; }
         public int[]? regles { get; set; }
         public int[]? carrieres { get; set; }

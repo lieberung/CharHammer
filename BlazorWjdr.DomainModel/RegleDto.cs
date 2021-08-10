@@ -5,6 +5,7 @@ namespace BlazorWjdr.Models
     public class RegleDto
     {
         public int Id { get; init; }
+        public bool Html { get; init; }
         public string Titre { get; init; } = null!;
         public int[] ReglesId { get; init; } = null!;
         public RegleDto[] SousRegles { get; set; } = null!;

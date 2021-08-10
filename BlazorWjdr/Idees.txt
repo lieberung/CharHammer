@@ -52,6 +52,10 @@ Cri de guerre : Test contre la Peur des ennemis, si Echec -10 à tous ses jets p
 
 Bunit 
 
+#fef4d9
+#faf1d0
+#f3e3c1
+
 
 L'arène, peut se jouer entre les scénar
 X combats d'affilée, avec des thèmes, différents niveaux de difficulté

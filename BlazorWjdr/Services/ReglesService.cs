@@ -61,6 +61,7 @@ namespace BlazorWjdr.Services
                 .Select(r => new RegleDto
                 {
                     Id = r.id,
+                    Html = r.html,
                     Titre = r.titre,
                     ReglesId = r.regles ?? Array.Empty<int>(),
                     Carrieres = (r.carrieres ?? Array.Empty<int>()).Select(id => _carrieresService.GetCarriere(id)).ToArray(),

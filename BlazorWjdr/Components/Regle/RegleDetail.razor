@@ -5,12 +5,15 @@
 @using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Table
 
-
 @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
 {
-    <h3 class="card-title">@Item.Titre</h3>
+    <h4 class="card-title">@Item.Titre</h4>
 }
-<CardParagraphes Text="@Item.Regle"></CardParagraphes>
+@if (Item.Html) {
+    @((MarkupString)Item.Regle)
+} else {
+    <CardParagraphes Text="@Item.Regle"></CardParagraphes>
+}
 @if (Item.Competences.Any())
 {
     <CompetenceItemList Items="@Item.Competences" ItemsChoix="@Item.ChoixCompetences.ToArray()"/>

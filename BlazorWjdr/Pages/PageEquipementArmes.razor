@@ -36,7 +36,7 @@
 
     @if (_armesLines.Any(a => a.EstUneArmeDeCaC))
     {
-        <table class="table">
+        <table class="table table-sm">
             <THeadCaC/>
             <tbody class="alternate-color-dark">
             @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeCaC))
