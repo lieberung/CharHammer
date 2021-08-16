@@ -1,0 +1,23 @@
+﻿@using BlazorWjdr.Models
+<tr>
+    <td colspan="8">
+        <div class="row px-3">
+            <div class="col-9 p-1">
+                @if (!string.IsNullOrEmpty(Item.Description))
+                {
+                    <div class="bulle">
+                        <AttributDArmeItemList Items="@Item.Groupes.ToArray()"/>
+                        <CardParagraphes Text="@Item.Description"/>
+                    </div>
+                }
+            </div>
+            <div class="col-3">
+                <img class="mx-2" alt="@Item.Nom" src="images/armes/@($"{Item.Id}.png")"/>
+            </div>
+        </div>
+    </td>
+</tr>
+@code {
+    [Parameter]
+    public ArmeDto Item { get; set; } = null!;
+}

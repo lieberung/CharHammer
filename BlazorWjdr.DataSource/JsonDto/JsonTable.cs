@@ -7,6 +7,8 @@
         public int id { get; set; }
         public string titre { get; set; }
         public string description { get; set; }
+        public string[]? styles_th { get; set; }
+        public string[]? styles_td { get; set; }
         public string[][] lignes { get; set; }
     }
 

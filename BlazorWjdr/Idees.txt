@@ -1,4 +1,28 @@
-﻿création de perso :
+﻿
+assistant de création de pnj (en fonctionn de classe sociale, province, ajouter des stéréotypes genre client de taverne avec cerrière aléatoire)
+assistant de création de creature
+assistant de création d'ennemi
+
+00-1 et 00-0 sont toujours des réussites/échecs mais non critiques
+
+=> coups critiques : table correspondantes, en fonction du nombre de blessures infligées une fois l'armure déduite et de la zone touchée 
+tranchantes (coupures, saignements)
+contondantes (étourdissment, fractures, déterioration d'armure)
+perforantes (
+
+<h4>Déroulement d'un combat</h4>
+<h5>1. Initiative</h5>
+<p>
+Les combattant utilisant une arme dotée de l'attribut Lente jouent en dernier.
+</p>
+<h5>Fin de round</h5>
+<ul>
+	<li>chaque combattant qui n'a gagné aucun point d'Avantage perd 1 point d'avantage</li>
+	<li>chaque combatant en infériorité numérique perd 1 point d'Avantage</li>
+	<li>pour chaque combattant neutralisé ce round, chacun de ses ennemis gagne 1 point d'avantage</li>
+</ul>
+
+création de perso :
 jusqu'à 3 retirages de carrière qui annule et remplace la précédente
 jusqu'à 3 retirages de carract qui annule et remplace la valeur précédente
 

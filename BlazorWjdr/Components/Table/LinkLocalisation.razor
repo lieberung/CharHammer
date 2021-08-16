@@ -1,0 +1,26 @@
+﻿<a href="/table-coups-critiques/@Zone/" class="mr-2 btn @_btnClass" style="width:90px;">@_zone</a>
+@code {
+    [Parameter]
+    public string Zone { get; set; } = null!;
+    [Parameter]
+    public bool Actif { get; set; }
+
+    private string _zone;
+    private string _btnClass = "";
+
+    protected override void OnParametersSet()
+    {
+        _zone = Zone switch
+        {
+            "tete" => "Tête",
+            "bras" => "Bras",
+            "torse" => "Torse",
+            "jambe" => "Jambe",
+            "fumbles" => "Echecs critiques",
+            _ => _zone
+        };
+
+        _btnClass = Actif ? "btn-primary" : "btn-secondary";
+        base.OnParametersSet();
+    }
+}

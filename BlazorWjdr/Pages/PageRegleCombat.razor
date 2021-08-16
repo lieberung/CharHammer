@@ -1,0 +1,119 @@
+﻿@page "/regles/combat/"
+
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Regle
+@using BlazorWjdr.Components.Table
+@using BlazorWjdr.Components.Trait
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject ReglesService _reglesService
+@inject TablesService _tablesService
+@inject TraitsService _traitsService
+@inject CompetencesEtTalentsService _competencesEtTalentsService
+
+<MainTopRow>
+    <h3 class="card-title">Déroulement d'une bataille</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <img class="shadow p-1 mb-5 bg-white rounded" src="/images/ambiance/bataille.png" alt="Baston !!!"/>
+    
+    <div class="row">
+        <div class="col-6">
+            <PageSectionRowTitle Title="1. Effet de surprise"/>
+            <div class="card-body">
+                
+                <p class="card-text">
+                    Le MJ détermine si certains combattants sont <em>Supris</em>. Cela ne peut normalement arriver qu'au premier Round.<br/>
+                    Les combattants qui possèdent le talent <TalentItem Item="@_competencesEtTalentsService.TalentSurSesGardes"/> ont une chance d'éviter d'être <TraitItem Item="@_traitsService.ConditionSurpris"/>.
+                </p>
+
+                <p class="card-text">
+                    Prendre l'ennemi par surprise confère un énorme avantage. Si l'un des camps prépare une attaque, il peut tenter de profiter de l'effet de suprise en :
+                    <ul>
+                        <li><strong>Dissimulation : </strong>réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceDissimulation"/> approprié. Les victimes peuvent y opposer un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> s'il sont sur leurs gardes ou selon l'humeur du MJ.</li>
+                        <li><strong>Attaque sournoise : </strong>attaque dans le dos, dans l'ombre, à travers un épais brouillard ou depuis le ciel ! Selon les conditions et l'humeur du MJ, les victimes peuvent y opposer un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> s'il sont sur leurs gardes.</li>
+                        <li><strong>Diversion : </strong>forte détonation, foule de pénitents menée par un sermon particulièrement engageant sont des exemples qui peuvent couvrir une attaque surprise.</li>
+                        <li><strong>Pris au dépourvu : </strong>s'il l'ennemi n'est particulièrement pas préparé à une attaque, l'effet de surprise est automatique.</li>
+                        <li><strong>Autre chose : </strong>tout autre plan sournois ou ingénieux concoté par des joueurs méticuleux.</li>
+                    </ul>
+                    S'il y a une chance pour que les embusqués soient repérés, le MJ appèlera un test opposé <CompetenceItem Item="@_competencesEtTalentsService.CompetenceDissimulation"/> <strong>vs</strong> <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/>, généralement avec le personnage qui a la plus faible valeur en Dissimultion opposé à toutes les sentinelles potentielles.
+                    Ceux qui échouent sont <TraitItem Item="@_traitsService.ConditionSurpris"/>.
+                    <br/>
+                    Le MJ peut également effectuer un test d'<CompetenceItem Item="@_competencesEtTalentsService.CompetenceIntuition"/> pour les personnages possédant un <TalentItem Item="_competencesEtTalentsService.TalentSixiemeSens"/> qui éviteront de justesse d'être Surpris, sans pour autant avoir le temps de prévenir les autres.
+                </p>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <PageSectionRowTitle Title="2. Initiative de combat"/>
+            <div class="card-body">
+                <p class="card-text">
+                    Chaque combattant lance 1d10 et y ajoute son bonus d'Initiative et son bonus d'Agilité.<br/>
+                    Les combattants disposant de <TalentItem Item="@_competencesEtTalentsService.TalentReflexesDeCombat"/> ont un bonus supplémentaire.
+                </p>
+                <p class="card-text">
+                    Durant chaque Round, les combatants joueront leur Tour dans l'ordre du score le plus fort au plus faible.
+                </p>
+            </div>
+            
+            <PageSectionRowTitle Title="3. Début du Round"/>
+            <div class="card-body">
+                <p class="card-text">
+                    Si des règles s'appliquent au début du Round, elles s'appliquent maintenant.
+                    <br/>
+                    <ul>
+                        <li><TalentItem Item="@_competencesEtTalentsService.TalentTirEclair"/></li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <PageSectionDivider/>
+
+    <div class="row">
+        <div class="col-4">
+            <PageSectionRowTitle Title="4. Chaque combattant joue son Tour"/>
+            <div class="card-body">
+                <p class="card-text">
+                    Cela dans l'ordre défini par l'Initiative de combat.
+                    <br/>
+                    Chaque combattant peut normalement effectuer un Déplacement et une Action pendant son Tour.
+                </p>
+                <p class="card-text">
+                    Le MJ décrit votre situation - ou se trouve chaque combattant et ce qui vous entoure - et vous pouvez poser des questions supplémentaires pour planifier votre Tour.
+                    <br/>>
+                    On détermine si le personnage actif est en supériorité numérique, en prenant en compte l'évetuelle <TalentItem Item="_competencesEtTalentsService.TalentPresenceImposante"/> de ses adversaires :
+                    <ul>
+                        <li>à raison de 2 contre 1, l'attaquant gagne un bonus de +20 en CC.</li>
+                        <li>à raison de 3 contre 1, l'attaquant gagne un bonus de +40 en CC.</li>
+                    </ul>
+                    <br/>
+                    Vous pouvez effectuer votre Déplacement et votre Action dans l'ordre souhaité, ou en même temps en décrivant comment vous combinez les deux.
+                </p>
+            </div>
+        </div>
+        <div class="col-8">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-5">
+            <h5 class="card-title">Fin du Round</h5>
+            <p class="card-text">
+                Les personnages en infériorité numérique perdent 1 Avantage.
+                
+            </p>
+        </div>
+        <div class="col-1">
+        </div>
+        <div class="col-5">
+            
+        </div>
+    </div>
+</div>

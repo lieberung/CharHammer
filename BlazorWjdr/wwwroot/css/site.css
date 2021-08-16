@@ -16,6 +16,13 @@
     font-weight: 600;
     font-size: x-large;
 }
+.tgroupe {
+    background-color:#5e1a05;
+    color:white;
+    font-family: 'Caslon Antique', fantasy;
+    font-weight: 500;
+    font-size: large;
+}
 .table thead th { border-bottom: none; }
 .table td, .table th { padding: .10rem; border-top: none; }
 .table td ul { margin-bottom: 0; }

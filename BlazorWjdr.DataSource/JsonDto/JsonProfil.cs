@@ -9,7 +9,9 @@
         public int ct { get; set; }
         public int f { get; set; }
         public int e { get; set; }
+        public int i { get; set; }
         public int ag { get; set; }
+        public int dex { get; set; }
         public int intel { get; set; }
         public int fm { get; set; }
         public int soc { get; set; }

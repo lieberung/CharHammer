@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Services
+﻿using System;
+
+namespace BlazorWjdr.Services
 {
     using Models;
     using System.Collections.Generic;
@@ -46,6 +48,8 @@
                     Id = c.id,
                     Titre = c.titre,
                     Description = c.description,
+                    StylesHeader = c.styles_th ?? Array.Empty<string>(),
+                    StylesRows = c.styles_td ?? Array.Empty<string>(),
                     Lignes = c.lignes
                 })
                 .ToDictionary(k => k.Id, v => v);

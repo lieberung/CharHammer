@@ -21,7 +21,7 @@ namespace BlazorWjdr.Models
         public string Description { get; init; } = null!;
 
         public bool EstUneArmeDeCaC => Allonge != ""; //.StartsWith("BF") && Groupes.All(g => g.Nom != "De jet");
-        public bool EstUneArmeDeTir => Portee != "";
+        public bool EstUneArmeDeTir => Portee != "" && !EstUneMunition;
         public bool EstUneMunition => Groupes.Any(g => g.Nom == "Munitions");
     }
 }

@@ -11,9 +11,9 @@
         public string nom { get; set; } = null!;
         public string degats { get; set; } = null!;
         public string degats_v2 { get; set; } = null!;
-        public string allonge { get; set; } = null!;
-        public string portee { get; set; } = null!;
-        public string rechargement { get; set; } = null!;
+        public string? allonge { get; set; }
+        public string? portee { get; set; }
+        public string? rechargement { get; set; }
         public string enc { get; set; } = null!;
         public string prix { get; set; } = null!;
         public string dispo { get; set; } = null!;

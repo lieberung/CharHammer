@@ -1,0 +1,85 @@
+﻿@page "/table-coups-critiques/{Zone}/"
+
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Trait
+@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Regle
+@using BlazorWjdr.Components.Table
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject ReglesService _reglesService
+@inject TablesService _tablesService
+@inject TraitsService _traitsService
+@inject CompetencesEtTalentsService _competencesEtTalentsService
+
+<MainTopRow>
+    <h3 class="card-title">Tables des coups critiques</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="row">
+        <div class="col-9">
+            <div class="card-body">
+                <RegleDetail Item="_reglesService.GetRegle(214)" MasquerTitre="true" MasquerTables="true"/>
+                <p class="card-text">
+                    <LinkLocalisation Actif="@(Zone == "tete")" Zone="tete"/>
+                    <LinkLocalisation Actif="@(Zone == "bras")" Zone="bras"/>
+                    <LinkLocalisation Actif="@(Zone == "torse")" Zone="torse"/>
+                    <LinkLocalisation Actif="@(Zone == "jambe")" Zone="jambe"/>
+                    <LinkLocalisation Actif="@(Zone == "fumbles")" Zone="fumbles"/>
+                </p>
+                <h5 class="card-title">Conditions</h5>
+                <p class="card-text">
+                    <TraitItemList Items="_traitsService.Conditions.ToArray()"/>
+                </p>
+            </div>
+        </div>
+        <div class="col-3">
+            <TableDetail Item="_tablesService.GetTable(64)"/>
+            <div>
+                <button class="btn btn-primary" type="button" @onclick="() => FaireUnJetDeLocalisation()">
+                    <span class="oi oi-flash ml-2 mr-1" aria-hidden="true"></span>
+                    Faire un jet de localisation
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-10">
+            <TableDetail Item="_tablesService.GetTable(_tableId)"/>
+        </div>
+        <div class="col-2">
+
+        </div>
+    </div>
+    
+</div>
+
+@code{
+
+    [Parameter]
+    public string Zone { get; set; } = null!;
+
+    private int _tableId;
+    
+    protected override void OnParametersSet()
+    {
+        _tableId = Zone switch
+        {
+            "tete" => 60,
+            "bras" => 61,
+            "torse" => 62,
+            "jambe" => 63,
+            "fumbles" => 53,
+            _ => _tableId
+        };
+        base.OnParametersSet();
+    }
+
+    private void FaireUnJetDeLocalisation()
+    {
+    }
+}

@@ -84,11 +84,11 @@
                 .Select(t => new TalentDto
                 {
                     Id = t.id,
-                    Nom = $"{t.nom}{(!string.IsNullOrWhiteSpace(t.specialisation) ? $" : {t.specialisation}" : "")}",
+                    Nom = $"{t.nom}{(!string.IsNullOrWhiteSpace(t.spe) ? $" : {t.spe}" : "")}",
                     Description = t.description,
                     Ignore = t.ignorer,
                     Resume = t.resume,
-                    Specialisation = t.specialisation,
+                    Specialisation = t.spe ?? "",
                     TalentParentId = t.parent_id,
                     Trait = t.trait
                 })
@@ -113,12 +113,12 @@
                 {
                     Id = c.id,
                     Ignore = c.ignorer,
-                    Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.specialisation) ? $" : {c.specialisation}" : "")}",
+                    Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.spe) ? $" : {c.spe}" : "")}",
                     Resume = c.resume,
-                    Specialisation = c.specialisation,
+                    Specialisation = c.spe ?? "",
                     CaracteristiqueAssociee = c.carac,
                     EstUneCompetenceDeBase = c.de_base,
-                    CompetenceMereId = c.fk_competencemereid,
+                    CompetenceMereId = c.parent,
                     TalentsLies = (c.fk_talentslies ?? Array.Empty<int>())
                         .Select(id => _cacheTalents[id])
                         .OrderBy(t => t.Nom)
@@ -205,6 +205,7 @@
         public TalentDto TalentTroublant => GetTalent(91);
         public TalentDto TalentMaitriseUneAuChoix => GetTalent(153);
         public TalentDto TalentMaitriseDeuxAuChoix => GetTalent(152);
+        public TalentDto TalentReflexesDeCombat => GetTalent(218);
         
         // Martial CaC
         public CompetenceDto CompetenceEsquive => GetCompetence(26);
@@ -230,6 +231,7 @@
         public TalentDto TalentMaitriseArmesParalisantes => GetTalent(60);
         public TalentDto TalentMaitriseFléaux => GetTalent(61);
         public List<TalentDto> TalentsMaitriseAuContact => new() {TalentMaitriseArmesDEscrime,TalentMaitriseArmesDeCavalerie,TalentMaitriseArmesDeParade,TalentMaitriseArmesLourdes,TalentMaitriseArmesParalisantes,TalentMaitriseFléaux}; 
+        public TalentDto TalentPresenceImposante => GetTalent(217);
         
         // Martial Distance
         public CompetenceDto CompetenceMetierArquebusier => GetCompetence(59);
@@ -245,6 +247,7 @@
         public TalentDto TalentMaitriseArmesMecaniques => GetTalent(59);
         public TalentDto TalentMaitriseLancePierres => GetTalent(62);
         public TalentDto TalentMaitriseExplosifs => GetTalent(208);
+        public TalentDto TalentTirEclair => GetTalent(220);
         public List<TalentDto> TalentsMaitriseADistance => new() {TalentMaitriseArbaletes, TalentMaitriseArcsLongs, TalentMaitriseArmesAFeu, TalentMaitriseArmesDeJet, TalentMaitriseArmesMecaniques, TalentMaitriseLancePierres, TalentMaitriseExplosifs };
         
         // De l'ombre
@@ -353,6 +356,8 @@
         public CompetenceDto CompetenceConnaissancesAcademiquesZoologie => GetCompetence(188);
         public CompetenceDto CompetenceMetierFermier => GetCompetence(74);
         public CompetenceDto CompetenceConduiteDAttelage => GetCompetence(12);
+        
+        public CompetenceDto CompetenceIntuition => GetCompetence(210);
         
         public TalentDto TalentChance => GetTalent(11);
         public TalentDto TalentResistanceALaMagie => GetTalent(70);

@@ -11,7 +11,7 @@
         public string nom { get; set; } = null!;
         public string resume { get; set; } = null!;
         public string description { get; set; } = null!;
-        public string specialisation { get; set; } = null!;
+        public string? spe { get; set; }
     }
 
     public class RootTalent

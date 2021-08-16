@@ -47,7 +47,7 @@ namespace BlazorWjdr.Services
                 {
                     Id = c.id,
                     Nom = c.nom,
-                    Spe = c.spe,
+                    Spe = c.spe ?? "",
                     Groupe = c.type,
                     Description = c.description,
                     Contagieux = c.contagieux,
@@ -67,7 +67,10 @@ namespace BlazorWjdr.Services
         public List<TraitDto> Addictions => AllTraits.Where(t => t.Groupe == "addiction").ToList();
         public List<TraitDto> Alergies => AllTraits.Where(t => t.Groupe == "allergie").ToList();
         public List<TraitDto> Phobies => AllTraits.Where(t => t.Groupe == "phobie").ToList();
+        public List<TraitDto> Conditions => AllTraits.Where(t => t.Groupe == "condition").OrderBy(t => t.NomComplet).ToList();
 
+        public TraitDto ConditionSurpris => GetTrait(460);
+        
         public List<TraitDto> TroublesMineurs()
         {
             var list = new List<TraitDto>();

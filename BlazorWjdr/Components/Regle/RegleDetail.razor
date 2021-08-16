@@ -45,11 +45,14 @@
     </p>
 }
 
-@foreach (var table in Item.Tables)
+@if (MasquerTables == false)
 {
-    <p class="card-text">
-        <TableDetail Item="@table"/>
-    </p>
+    @foreach (var table in Item.Tables)
+    {
+        <p class="card-text">
+            <TableDetail Item="@table"/>
+        </p>
+    }
 }
 
 @foreach (var sousRegle in Item.SousRegles)
@@ -62,4 +65,6 @@
     public RegleDto Item { get; set; } = null!;
     [Parameter]
     public bool MasquerTitre { get; set; }
+    [Parameter]
+    public bool MasquerTables { get; set; }
 }

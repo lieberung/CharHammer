@@ -11,7 +11,6 @@
         public string CarriereId { get; set; } = null!;
 
         private CarriereDto Carriere { get; set; } = null!;
-        private bool _afficherGallerie;
 
         [Inject]
         public CarrieresService CarrieresService { get; set; } = null!;

@@ -34,56 +34,48 @@
         </div>
     </div>
 
-    @if (_armesLines.Any(a => a.EstUneArmeDeCaC))
+    @if (_armesDeCaC.Any())
     {
-        <table class="table table-sm">
-            <THeadCaC/>
-            <tbody class="alternate-color-dark">
-            @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeCaC))
+        <h5 class="card-title">Armes de contact</h5>
+        @foreach (var groupe in _armesService.ArmesDeContactPourTable)
+        {
+            if (groupe.Value.Intersect(_armesDeCaC).Any())
             {
-                <ArmeRow Item="arme"/>
+                <ArmeGroupeTable Armes="@groupe.Value" Groupe="@groupe.Key" ArmesDeTir="@false"/>
             }
-            </tbody>
-        </table>
+        }
     }
-    @if (_armesLines.Any(a => a.EstUneArmeDeTir))
+    @if (_armesDeTir.Any())
     {
-        <table class="table">
-            <THeadTir/>
-            <tbody class="alternate-color-dark">
-            @foreach (var arme in _armesLines.Where(a => a.EstUneArmeDeTir))
+        <h5 class="card-title">Armes à distance</h5>
+        @foreach (var groupe in _armesService.ArmesADistancePourTable)
+        {
+            if (groupe.Value.Intersect(_armesDeTir).Any())
             {
-                <ArmeRow Item="arme"/>
+                <ArmeGroupeTable Armes="@groupe.Value" Groupe="@groupe.Key" ArmesDeTir="@true"/>
             }
-            </tbody>
-        </table>
+        }
     }
-    @if (_armesLines.Any(a => a.EstUneMunition))
+    @if (_munitions.Any())
     {
-        <table class="table">
-            <THeadTir/>
-            <tbody class="alternate-color-dark">
-            @foreach (var arme in _armesLines.Where(a => a.EstUneMunition))
-            {
-                <ArmeRow Item="arme"/>
-            }
-            </tbody>
-        </table>
+        <h5 class="card-title">Munitions</h5>
+        <ArmeGroupeTable Armes="_munitions" Groupe="Munitions" ArmesDeTir="@true"/>
     }
     
     @if (GroupeActuel != null)
     {
         <div class="row">
             <div class="col">
-                <CardParagraphes Text="@GroupeActuel.Description" />
+                <div class="bulle">
+                    <h6 class="card-title">@GroupeActuel.Nom</h6>
+                    <CardParagraphes Text="@GroupeActuel.Description"/>
+                </div>
             </div>
         </div>
     }
-
-
 </div>
-@code {
 
+@code {
     [Parameter]
     public string Groupe { get; set; } = "";
     [Parameter]
@@ -92,6 +84,9 @@
     private ArmeAttributDto? GroupeActuel { get; set; }
 
     private List<ArmeDto> _armesLines = null!;
+    private List<ArmeDto> _armesDeCaC = null!;
+    private List<ArmeDto> _armesDeTir = null!;
+    private List<ArmeDto> _munitions = null!;
 
     private string GetGroupe(string specialisation)
     {
@@ -101,6 +96,13 @@
     protected override async Task OnParametersSetAsync()
     {
         var armes = await _armesService.Items();
+        _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC).ToList();
+        _armesDeTir = armes.Where(a => a.EstUneArmeDeTir).ToList();
+        _munitions = armes.Where(a => a.EstUneMunition).ToList();
+
+        // définie les sections qui organiseront les armes dans les tableaux
+        var sectionsCaC = new List<string> { "Ordinaires",  }; 
+        var sectionsTir = new List<string> { "Arbalètes","Arcs","Poudre","Frondes","Paralysantes","Armes de jet" };
 
         if (Groupe != "toutes")
         {
@@ -114,9 +116,9 @@
         }
 
         if (Filtre == "corps-a-corps")
-            _armesLines.RemoveAll(a => a.EstUneArmeDeTir);
+            _armesLines = _armesDeCaC;
         if (Filtre == "tir")
-            _armesLines.RemoveAll(a => a.EstUneArmeDeCaC);
+            _armesLines = _armesDeTir;
 
     }
 }

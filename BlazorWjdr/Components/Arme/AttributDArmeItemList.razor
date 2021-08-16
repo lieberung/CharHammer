@@ -1,21 +1,22 @@
 ﻿@using BlazorWjdr.Models
-<ul class="list-inline">
+<ul class="@(EnColonne ? "" : "list-inline")">
     @foreach (var item in _items)
     {
-        <li class="list-inline-item"><AttributDArmeItem Item="@item.Item1" Rating="@item.Item2"/></li>
+        <li class="@(EnColonne ? "" : "list-inline-item")"><AttributDArmeItem Item="@item.Item1" Rating="@item.Item2"/></li>
     }
 </ul>
 @code{
     [Parameter] public ArmeAttributDto[] Items { get; set; } = null!;
+    [Parameter] public bool EnColonne { get; set; }
 
-    private List<Tuple<ArmeAttributDto, int>> _items; 
+    private List<Tuple<ArmeAttributDto, int>> _items = null!; 
     
     protected override void OnParametersSet()
     {
         var ids = Items.Select(i => i.Id).Distinct();
         _items = ids.Select(id =>
             new Tuple<ArmeAttributDto, int>(Items.First(i => i.Id == id), Items.Count(i => i.Id == id))
-        ).ToList();
+        ).OrderBy(a => a.Item1.Nom).ToList();
 
         base.OnParametersSet();
     }

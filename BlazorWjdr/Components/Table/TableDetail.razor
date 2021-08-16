@@ -1,43 +1,46 @@
 ﻿@using BlazorWjdr.Models
 
-<div class="card-body">
-    @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
-    {
-        <h5 class="card-title">@Item.Titre</h5>
-    }
-    @if (!string.IsNullOrWhiteSpace(Item.Description))
-    {
-        <p class="card-text">@Item.Description</p>
-    }
-    <p class="card-text bulle">
-        <table class="table">
-            <tbody class="alternate-color-light">
-            <tr>
-                @foreach (var header in Item.Lignes[0])
-                {
-                    if (FixedColSize == 0)
-                    {
-                        <th>@header</th>
+@if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
+{
+    <h5 class="card-title">@Item.Titre</h5>
+}
+@if (!string.IsNullOrWhiteSpace(Item.Description))
+{
+    <p class="card-text">@Item.Description</p>
+}
+<p class="card-text bulle">
+    <table class="table">
+        <tbody class="alternate-color-light">
+        <tr>
+            @for (var i = 0; i < Item.Lignes[0].Length; i++)
+            {
+                if (FixedColSize == 0) {
+                    if (i < Item.StylesHeader.Length) {
+                        <th style="@Item.StylesHeader[i]">@Item.Lignes[0][i]</th>
+                    } else {
+                        <th>@Item.Lignes[0][i]</th>
                     }
-                    else
-                    {
-                        <th style="width:@(FixedColSize)px">@header</th>
+                } else {
+                    <th style="width:@(FixedColSize)px">@Item.Lignes[0][i]</th>
+                }
+            }
+        </tr>
+        @for (var x = 1; x < Item.Lignes.Length; x++)
+        {
+            <tr>
+                @for (var y = 0; y < Item.Lignes[x].Length; y++)
+                {
+                    if (y < Item.StylesRows.Length) {
+                        <td style="@Item.StylesRows[y]">@Item.Lignes[x][y]</td>
+                    } else {
+                        <td>@Item.Lignes[x][y]</td>
                     }
                 }
             </tr>
-            @for (var x = 1; x < Item.Lignes.Length; x++)
-            {
-                <tr>
-                    @for (var y = 0; y < Item.Lignes[x].Length; y++)
-                    {
-                        <td>@Item.Lignes[x][y]</td>
-                    }
-                </tr>
-            }
-            </tbody>
-        </table>
-    </p>
-</div>
+        }
+        </tbody>
+    </table>
+</p>
 
 @code {
     [Parameter]

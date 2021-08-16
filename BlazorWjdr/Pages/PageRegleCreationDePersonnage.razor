@@ -39,7 +39,9 @@
                 <LinkPageCreationPerso Actif="@RaceDesNainsSelectionnee" Race="@_racesService.Nains"/>
             </p>
         </div>
-        <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre="@true" FixedColSize="60"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre="@true" FixedColSize="60"/>
+        </div>
     </div>
     <div class="col-2 pt-5">
         <img src="./images/races/@(RaceId)f.png" alt="@_race.NomFeminin">
@@ -64,23 +66,29 @@
                 <ul>
                     <li>Conserver ces jets dans l'ordre obtenu</li>
                     <li>Dépenser <strong>100 xp</strong> pour ordonner librement ces jets</li>
-                    <li>Dépenser <strong>150 xp</strong> pour ignorer ces jets et répartir <strong>80&nbsp;(v2) / 100&nbsp;(v4) points</strong> dans chacune des 8/10 caractéristiques, avec un <strong>minimum de 4</strong> et un <strong>maximum de 18</strong> à chaque fois.</li>
+                    <li>Dépenser <strong>150 xp</strong> pour ignorer ces jets et répartir <strong>100 points</strong> dans chacune des 10 caractéristiques, avec un <strong>minimum de 4</strong> et un <strong>maximum de 18</strong> à chaque fois.</li>
                 </ul>
             </p>
         </div>
     </div>
     <div class="col-8">
-        <TableDetail Item="@_tablesService.GetTable(11)" MasquerTitre="@true"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(11)" MasquerTitre="@true"/>
+        </div>
     </div>
 </div>
 <div class="row">
     <div class="col-5">
-        <TableDetail Item="@_tablesService.GetTable(12)" FixedColSize="35"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(12)" FixedColSize="35"/>
+        </div>
     </div>
     <div class="col-1">
     </div>
     <div class="col-5">
-        <TableDetail Item="@_tablesService.GetTable(13)" FixedColSize="50"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(13)" FixedColSize="50"/>
+        </div>
     </div>
 </div>
 
@@ -90,6 +98,7 @@
     <div class="col-6">
         <PageSectionRowTitle Title="3. Déterminer ses origines"></PageSectionRowTitle>
         <!-- Lieu de naissance -->
+        <div class="card-body">
         @if (RaceDesElfesSelectionnee)
         {
             <TableDetail Item="@_tablesService.GetTable(25)"/>
@@ -110,11 +119,14 @@
         {
             <TableDetail Item="@_tablesService.GetTable(29)"/>
         }
+        </div>
     </div>
     <div class="col-6">
         @if (RaceDesGnomesSelectionnee || RaceDesHalflingsSelectionnee || RaceDesNainsSelectionnee)
         {
-            <TableDetail Item="@_tablesService.GetTable(28)"/>
+            <div class="card-body">
+                <TableDetail Item="@_tablesService.GetTable(28)"/>
+            </div>
         }
     </div>
 </div>
@@ -209,6 +221,7 @@ else
 <div class="row">
     <div class="col-3">
         <!-- Table pour la couleur des cheveux et des yeux -->
+        <div class="card-body">
         @if (RaceDesElfesSelectionnee)
         {
             <TableDetail Item="@_tablesService.GetTable(15)" FixedColSize="45"/>
@@ -229,10 +242,13 @@ else
         {
             <TableDetail Item="@_tablesService.GetTable(19)" FixedColSize="45"/>
         }
+        </div>
     </div>
     <div class="col-9">
         <!-- Table pour le calcul de l'âge du poids et de la taille -->
-        <TableDetail Item="@_tablesService.GetTable(14)" FixedColSize="75"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(14)" FixedColSize="75"/>
+        </div>
     </div>
 </div>
 
@@ -301,7 +317,9 @@ else
         </div>
     </div>
     <div class="col-6">
-        <TableDetail Item="_tablesService.GetTable(22)" FixedColSize="35"/>
+        <div class="card-body">
+            <TableDetail Item="_tablesService.GetTable(22)" FixedColSize="35"/>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -360,10 +378,14 @@ else
 
 <div class="row">
     <div class="col-7">
-        <TableDetail Item="@_tablesService.GetTable(21)"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(21)"/>
+        </div>
     </div>
     <div class="col-5">
-        <TableDetail Item="@_tablesService.GetTable(20)"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(20)"/>
+        </div>
     </div>
 </div>
 
@@ -378,12 +400,12 @@ else
 
     private List<TraitDto> _traitsObtenus = new();
     private List<CarriereDto> _carrieresObtenues = new();
-    
+
     protected override void OnParametersSet()
     {
         _race = _racesService.GetRace(int.Parse(RaceId));
         _carrieresObtenues = new();
-        
+
         base.OnParametersSet();
     }
 
@@ -397,7 +419,7 @@ else
 
         TraitDto? ta = null;
         while (ta == null || _traitsObtenus.Contains(ta))
-            ta = _traitsService.TirerUnSigneAleatoire(); 
+            ta = _traitsService.TirerUnSigneAleatoire();
         _traitsObtenus.Add(ta);
     }
 
@@ -411,7 +433,7 @@ else
 
         CarriereDto? ca = null;
         while (ca == null || _carrieresObtenues.Contains(ca))
-            ca = _tableDesCarrieresInitialesService.GetRandomStartingCareer(int.Parse(RaceId)); 
+            ca = _tableDesCarrieresInitialesService.GetRandomStartingCareer(int.Parse(RaceId));
         _carrieresObtenues.Add(ca);
     }
 

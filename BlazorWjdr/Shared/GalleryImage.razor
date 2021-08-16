@@ -2,26 +2,24 @@
 
 <div class="gallery">
 	<div class="gallery__column">
-		@foreach (var arr in _images)
+		@foreach (var img in _images.SelectMany(arr => arr))
 		{
-			@foreach (var img in arr)
-			{
 			<a href="@img.Href" target="_blank" class="gallery__link">
 				<figure class="gallery__thumb">
 					<img src="@img.Src" alt="@img.Alt" class="gallery__image" style="max-height:600px; max-width:600px;">
 					<figcaption class="gallery__caption">@img.Alt</figcaption>
 				</figure>
 			</a>
-			}
 		}
 	</div>
 </div>
 
 @code {
-	[Parameter]
-	public IEnumerable<IEnumerable<string>> Images { get; set; }
 
-	private List<ImageHtml[]> _images;
+	[Parameter]
+	public IEnumerable<IEnumerable<string>> Images { get; set; } = null!;
+
+	private readonly List<ImageHtml[]> _images = new();
 	
 	class ImageHtml
 	{

@@ -8,38 +8,42 @@
 
 <tr>
     <td>
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+            <span class="oi oi-eye" aria-hidden="true"></span>
+        </span>
         @Item.Nom
-    </td>
-    <td>
-        @if (Item.Groupes.Any())
-        {
-            <AttributDArmeItemList Items="@Item.Groupes.ToArray()" />
-        }
     </td>
     <td>
         @if (Item.TalentsDeMaitrise.Any())
         {
-            <TalentItem Item="@Item.TalentsDeMaitrise.First()" />
+            <TalentItem Item="@Item.TalentsDeMaitrise.First()"/>
         }
     </td>
-    <td>
-        <AttributDArmeItemList Items="@Item.Attributs.ToArray()" />
-    </td>
     <td>@Item.Degats</td>
-    @if (Item.EstUneArmeDeCaC)
+    @if (ArmeDeTir)
+    {
+        <td>@Item.Portee</td>
+    }
+    else
     {
         <td>@Item.Allonge</td>
     }
-    @if (Item.EstUneArmeDeTir || Item.EstUneMunition)
-    {
-        <td>@Item.Portee</td>
-        <td>@Item.Rechargement</td>
-    }
+    <td>
+        <AttributDArmeItemList Items="@Item.Attributs.ToArray()"/>
+    </td>
     <td>@Item.Encombrement</td>
     <td>@Item.Prix</td>
     <td>@Item.Disponibilite</td>
 </tr>
+@if (AfficherFiche)
+{
+    <ArmeRowDetail Item="@Item"/>
+}
 @code {
     [Parameter]
     public ArmeDto Item { get; set; } = null!;
+    [Parameter]
+    public bool ArmeDeTir { get; set; }
+    
+    private bool AfficherFiche { get; set; }
 }

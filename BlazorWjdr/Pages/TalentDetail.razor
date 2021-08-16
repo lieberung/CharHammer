@@ -38,7 +38,7 @@
                 
                 <h3 class="card-title">Compétences liées</h3>
                 <p class="card-text">
-                    @if (Talent.CompetencesLiees.Any())
+                    @if (Talent!.CompetencesLiees.Any())
                     {
                         <CompetenceItemList Items="@Talent.CompetencesLiees.ToArray()"/>    
                     }
