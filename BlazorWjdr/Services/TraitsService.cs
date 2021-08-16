@@ -52,11 +52,17 @@ namespace BlazorWjdr.Services
                     Description = c.description,
                     Contagieux = c.contagieux,
                     Guerison = c.guerison,
-                    Severite = c.severite
+                    Severite = c.severite,
+                    Incompatible = c.incompatible ?? Array.Empty<int>()
                 })
                 .ToDictionary(k => k.Id, v => v);
             
             _allTraits = _cacheTrait.Values.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ToList();
+
+            foreach (var trait in _allTraits)
+            {
+                trait.TraitsIncompatibles = trait.Incompatible.Select(id => GetTrait(id)).ToList();
+            }
         }
 
         public List<TraitDto> SignesDistinctifs => AllTraits.Where(t => t.Groupe == "trait").OrderBy(t => t.NomComplet).ToList();
@@ -80,11 +86,19 @@ namespace BlazorWjdr.Services
             return list.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ToList();
         }
 
-        public TraitDto TirerUnSigneAleatoire()
+        public TraitDto TirerUnSigneAleatoire(List<TraitDto> traitsDejaObtenus)
         {
-            var sd = SignesDistinctifs;
-            var i = new Random().Next(0, sd.Count);
-            return sd[i];
+            TraitDto? ta = null;
+            while (ta == null
+                   || traitsDejaObtenus.Contains(ta)
+                   || ta.TraitsIncompatibles.Intersect(traitsDejaObtenus).Any()
+                   || traitsDejaObtenus.Any(to => to.TraitsIncompatibles.Contains(ta))
+            ) {
+                var sd = SignesDistinctifs;
+                var i = new Random().Next(0, sd.Count);
+                ta = sd[i];
+            }
+            return ta;            
         }
     }
 }

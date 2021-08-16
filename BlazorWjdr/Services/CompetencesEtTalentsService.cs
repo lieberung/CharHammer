@@ -161,10 +161,13 @@
         public TalentDto TalentTireurDElite => GetTalent(90);
         public TalentDto TalentForceAccrue => GetTalent(29);
         public TalentDto TalentResistanceAccrue => GetTalent(69);
-        public TalentDto TalentReflexesEclairs => GetTalent(80);
+        public TalentDto TalentVivacite => GetTalent(216);
+        public TalentDto TalentDoigtsVifs => GetTalent(233);
+        public TalentDto TalentReflexesEclairs => GetTalent(68);
         public TalentDto TalentIntelligent => GetTalent(39);
         public TalentDto TalentSangFroid => GetTalent(76);
         public TalentDto TalentSociable => GetTalent(83);
+        
 
         // Académique
         public CompetenceDto CompetenceGroupeConnaissancesAcademiques => GetCompetence(13);
@@ -365,6 +368,7 @@
         public TalentDto TalentResistanceAuxPoisons => GetTalent(73);
         public TalentDto TalentSainDEsprit => GetTalent(75);
         public TalentDto TalentVisionNocturne => GetTalent(93);
+        public TalentDto TalentSensAiguisés => GetTalent(80);
         
         #endregion
         
@@ -395,5 +399,34 @@
                 .OrderByDescending(t => t.MotsClefDeRecherche.Intersect(motsClefRecherches).Count())
                 .ToArray();
         }
+        
+        public List<TalentDto> TalentsInitiaux => new List<TalentDto> {
+             TalentAccuiteAuditive,
+             TalentAccuiteGustativeEtOlfactive,
+             TalentAccuiteVisuelle,
+             TalentAmbidextrie,
+             TalentCalculMental,
+             TalentChance,
+             TalentCourseAPied,
+             TalentDoigtsVifs,    
+             TalentDurACuir,
+             TalentForceAccrue,
+             TalentGuerrierNe,
+             TalentImitation,
+             TalentIntelligent,
+             TalentReflexesEclairs,
+             TalentResistanceALaMagie,
+             TalentResistanceAccrue,
+             TalentResistanceAuxMaladies,
+             TalentResistanceAuxPoisons,
+             TalentRobuste,
+             TalentSainDEsprit,
+             TalentSangFroid,
+             TalentSixiemeSens,
+             TalentSociable,
+             TalentTireurDElite,
+             TalentVisionNocturne,
+             TalentVivacite
+        };
     }
 }

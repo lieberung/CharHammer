@@ -417,9 +417,7 @@ else
             return;
         }
 
-        TraitDto? ta = null;
-        while (ta == null || _traitsObtenus.Contains(ta))
-            ta = _traitsService.TirerUnSigneAleatoire();
+        TraitDto ta = _traitsService.TirerUnSigneAleatoire(_traitsObtenus);
         _traitsObtenus.Add(ta);
     }
 

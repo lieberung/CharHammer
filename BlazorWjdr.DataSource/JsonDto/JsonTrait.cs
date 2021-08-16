@@ -12,6 +12,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string guerison { get; set; }
         public string description { get; set; }
         public bool? contagieux { get; set; }
+        public int[]? incompatible { get; set; }
 
     }
     public class RootTrait

@@ -15,17 +15,17 @@
     {"id":11,"titre":"Détermination des caractéristiques",
       "description": "",
       "lignes":[
-        ["Caractéristique"          ,"Elfe"   ,"Gnôme"  ,"Halfling","Humain","Nain"],
-        ["CC - Capacité de Combat"  ,"20+2d10","20+2d10","10+2d10","20+2d10","30+2d10"],
-        ["CT - Capacité de Tir"     ,"30+2d10","21+2d10","30+2d10","20+2d10","20+2d10"],
-        ["F  - Force"               ,"20+2d10","21+2d10","10+2d10","20+2d10","20+2d10"],
-        ["E  - Endurance"           ,"20+2d10","15+2d10","10+2d10","20+2d10","30+2d10"],
-        ["I - Initiative"           ,"40+2d10","??+2d10","20+2d10","20+2d10","20+2d10"],
-        ["Ag - Agilité"             ,"30+2d10","30+2d10","30+2d10","20+2d10","10+2d10"],
-        ["Dex - Dexterité"          ,"30+2d10","??+2d10","30+2d10","20+2d10","30+2d10"],
-        ["Int - Intelligence"       ,"20+2d10","20+2d10","20+2d10","20+2d10","20+2d10"],
-        ["FM - Force Mentale"       ,"20+2d10","40+2d10","20+2d10","20+2d10","20+2d10"],
-        ["Soc - Sociabilité"        ,"20+2d10","15+2d10","30+2d10","20+2d10","10+2d10"],
+        ["Caractéristique"          ,"Elfe"   ,"Gnôme"  ,"Halfling","Humain" ,"Nain"],
+        ["CC - Capacité de Combat"  ,"20+2d10","20+2d10","10+2d10" ,"20+2d10","30+2d10"],
+        ["CT - Capacité de Tir"     ,"30+2d10","21+2d10","30+2d10" ,"20+2d10","20+2d10"],
+        ["F  - Force"               ,"20+2d10","21+2d10","10+2d10" ,"20+2d10","20+2d10"],
+        ["E  - Endurance"           ,"20+2d10","15+2d10","10+2d10" ,"20+2d10","30+2d10"],
+        ["I - Initiative"           ,"40+2d10","30+2d10","20+2d10" ,"20+2d10","20+2d10"],
+        ["Ag - Agilité"             ,"30+2d10","30+2d10","30+2d10" ,"20+2d10","10+2d10"],
+        ["Dex - Dexterité"          ,"30+2d10","30+2d10","30+2d10" ,"20+2d10","30+2d10"],
+        ["Int - Intelligence"       ,"20+2d10","20+2d10","20+2d10" ,"20+2d10","20+2d10"],
+        ["FM - Force Mentale"       ,"20+2d10","40+2d10","20+2d10" ,"20+2d10","20+2d10"],
+        ["Soc - Sociabilité"        ,"20+2d10","15+2d10","30+2d10" ,"20+2d10","10+2d10"],
         ["B - Points de Blessures","BF+(2xBE)+BFM","(2xBE)+BFM","(2xBE)+BFM","BF+(2xBE)+BFM","BF+(2xBE)+BFM"],
         ["M - Mouvement","5","3","4","4","3"]
       ]
@@ -171,15 +171,15 @@
       "lignes":[
         ["","Coût",""],
         ["Acheter une compétence","De base","Avancée"],
-        ["- 1ère fois (acquise)","50 xp","100 xp"],
-        ["- 2nd fois (+10%)","100 xp","100 xp"],
-        ["- 3ème fois (+20%)","125 xp","150 xp"],
+        ["- 1ère fois (acquise)","75 xp","100 xp"],
+        ["- 2nd fois (+10%)","100 xp","150 xp"],
+        ["- 3ème fois (+20%)","150 xp","200 xp"],
         ["Acheter un talent","",""],
         ["- 1ère fois (niveau 1)","100 xp",""],
-        ["- Nième fois (niveau N)","N x 50 xp",""],
+        ["- Nième fois (niveau N)","N x 75 xp",""],
         ["Acheter un talent ou une compétence...","",""],
-        ["- via le 2ème choix dans une carrière","+ 50 xp",""],
-        ["- via un instructeur ou une formation","+ 100 xp","Accord du MJ requis"],
+        ["- via le 2ème choix dans une carrière","+50 xp",""],
+        ["- via un instructeur ou une formation","+100 xp","Accord du MJ requis"],
         ["Choisir une nouvelle carrière de base","200 xp","100 xp si carrière actuelle complétée"],
         ["Choisir une carrière parmi ses débouchés","100 xp","gratuit si carrière actuelle complétée"]
       ]
@@ -425,9 +425,22 @@
         ["A","Attaquer au contact","Un adversaire à portée de votre arme si vous êtes engagé, de charge sinon."],
         ["A","Attaquer à distance","Un adversaire à portée de vue et de votre arme, et si votre arme est chargée, sans quoi vous devrez la recharger."],
         ["A","Prendre une posture défensive","Se préparer à esquiver ou parer, tenir une position défensive, or use language magick to deploy an array of dispels. Choisissez une compétence Défensive pour laquelle vous bénéficierez de +20 aux tests défensifs jusqu'au début de votre prochain Tour."],
-        ["A","Utiliser une compétence",""],
+        ["A","Utiliser une compétence","Voir la liste des compétences Offensives"],
         ["A","Fouiller votre sac","Si vous n'êtes pas engagé, vous pouvez extirper un objet de votre sac. Le MJ peut exiger un jet de Dextérité ou d'Initiative pour déterminer si le personnage pourra faire d'autres petites actions."],
         ["-","Ne rien faire","...et attendre le Round suivant."]
+      ]
+    },
+    {"id":66,"titre":"Taille",
+      "description": "",
+      "lignes":[
+        ["Taille","Exemples","Blessures"],
+        ["Minuscule","Papillon, Souris, Pigeon","1"],
+        ["Tout petit","Chat, Faucon, Bébé humain","BE"],
+        ["Petit","Rat géant, Halfling, Enfant humain","(2 x BE) + BFM"],
+        ["Moyen","Elfe, Humain, Nain","BF + (2 x BE) + BFM"],
+        ["Large","Cheval, Ogre, Troll","2 x (BF + (2 x BE) + BFM)"],
+        ["Enorme","Griffon, Wyverne, Manticore","4 x (BF + (2 x BE) + BFM)"],
+        ["Monstrueux","Dragon, Géant, Démon majeur","8 x (BF + (2 x BE) + BFM)"]
       ]
     }
   ]
