@@ -184,6 +184,9 @@
             }
         }
         
+        public ArmeAttributDto AttributDamaging => GetAttributDArme(81);
+        public ArmeAttributDto AttributPercutant => GetAttributDArme(15);
+        
         #endregion
     }
 }

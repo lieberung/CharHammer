@@ -235,6 +235,9 @@
         public TalentDto TalentMaitriseFléaux => GetTalent(61);
         public List<TalentDto> TalentsMaitriseAuContact => new() {TalentMaitriseArmesDEscrime,TalentMaitriseArmesDeCavalerie,TalentMaitriseArmesDeParade,TalentMaitriseArmesLourdes,TalentMaitriseArmesParalisantes,TalentMaitriseFléaux}; 
         public TalentDto TalentPresenceImposante => GetTalent(217);
+        public TalentDto TalentDechainement => GetTalent(237);
+        public TalentDto TalentTueur => GetTalent(232);
+
         
         // Martial Distance
         public CompetenceDto CompetenceMetierArquebusier => GetCompetence(59);

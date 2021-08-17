@@ -287,6 +287,9 @@
                 || c == _competencesEtTalentsService.TalentLutte
                 || c == _competencesEtTalentsService.TalentResistanceAccrue
                 || c == _competencesEtTalentsService.TalentRobuste
+                || c == _competencesEtTalentsService.TalentDechainement
+                || c == _competencesEtTalentsService.TalentPresenceImposante
+                || c == _competencesEtTalentsService.TalentTueur
                 || c.Parent == _competencesEtTalentsService.TalentGroupeVertu
                 || (c.Parent == _competencesEtTalentsService.TalentGroupeMaitrise &&
                     _competencesEtTalentsService.TalentsMaitriseAuContact.Contains(c))

@@ -1,7 +1,7 @@
 ﻿@page "/regles/combat/"
 
 @using BlazorWjdr.Components.Competence
-@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
@@ -13,6 +13,7 @@
 @inject TablesService _tablesService
 @inject TraitsService _traitsService
 @inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject ArmesService _armesService
 
 <MainTopRow>
     <h3 class="card-title">Déroulement d'une bataille</h3>
@@ -87,7 +88,7 @@
                 </p>
                 <p class="card-text">
                     Le MJ décrit votre situation - ou se trouve chaque combattant et ce qui vous entoure - et vous pouvez poser des questions supplémentaires pour planifier votre Tour.
-                    <br/>>
+                    <br/>
                     On détermine si le personnage actif est en supériorité numérique, en prenant en compte l'évetuelle <TalentItem Item="_competencesEtTalentsService.TalentPresenceImposante"/> de ses adversaires :
                     <ul>
                         <li>à raison de 2 contre 1, l'attaquant gagne un bonus de +20 en CC.</li>
@@ -97,9 +98,32 @@
                     Vous pouvez effectuer votre Déplacement et votre Action dans l'ordre souhaité, ou en même temps en décrivant comment vous combinez les deux.
                 </p>
             </div>
+            <TableDetail Item="@_tablesService.GetTable(65)"></TableDetail>
         </div>
-        <div class="col-8">
-            
+        <div class="col-4">
+            <TableDetail Item="@_tablesService.GetTable(66)"></TableDetail>
+            <div class="card-body">
+                <p class="card-text">
+                    Si un combattant est <strong>plus petit</strong> que son adversaire :
+                    <ul>
+                        <li>en attaque, il gagne un bonus de +10 en CC pour toucher (uniquement).</li>
+                        <li>en défense, il subit un malus de -2 BS pour chaque écart de taille quand il utilise sa CC pour un Test Opposé.</li>
+                        <li>pour remporter un Test Opposé de Force, il doit faire une Réussite Critique s'il n'a qu'une taille de moins ; au delà l'échec est automatique.</li>
+                    </ul>
+                </p>
+                <p class="card-text">
+                    Si un combattant est <strong>plus grand</strong> que son adversaire :
+                    <ul>
+                        <li>son arme devient <AttributDArmeItem Item="@_armesService.AttributDamaging"/> s'il est <strong>plus grand d'une taille</strong>.</li>
+                        <li>son arme devient <AttributDArmeItem Item="@_armesService.AttributPercutant"/> s'il est <strong>plus grand de deux tailles</strong> ou plus.</li>
+                        <li>ses dégâts sont multipliés par l'écart de taille - Large vs Moyen = normaux ; Enorme vs Moyen = x2 ; Monstrueux vs Moyen = x3.</li>
+                        <li>tous ses coups qui touchent une cible plus petite déclenchent la règle du <em>Coup Fatal</em>, même si la cible survit.</li>
+                        <li>il cause la <em>Peur</em> à ses adversaires <strong>plus petits d'une taille</strong>, et au delà la <em>Terreur</em> avec un Taux égal à l'écart de taille.</li>
+                        <li>une fois par Round, il peut dépenser 1 Avantage pour effectuer un Pietinement en attaque gratuite (inflige BS+0 en utilisant ses poings/pieds/armes naturelles).</li>
+                        <li>il ignore la nécessité de se Désengager pour quitter le combat ; il se contente de se déplacer où il veut en balayant devant lui.</li>
+                    </ul>
+                </p>
+            </div>
         </div>
     </div>
     <div class="row">

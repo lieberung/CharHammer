@@ -217,6 +217,8 @@
     {"id":215,"parent":128,"carac":"Dex","nom":"Musicien","spe":"violon","resume":"Votre habileté à jouer d'un instrument, espérons-le suffisamment bien pour impressionner les autres. Un test réussi pour permet de divertir qui peut vous voir et vous entendre ; le BS indique la qualité de votre prestation."},
     {"id":216,"parent":1,"carac":"Int","nom":"Alphabet secret","spe":"Ordre Gris","resume":"...Grey Wizards. The secretive Greys use a complex array of signs, many only perceptible to wizards. They mark the land for their wandering wizards, highlighting safe houses, places of danger, areas where wizards are unwelcome, and much more besides."},
     {"id":217,"parent":1,"carac":"Int","nom":"Alphabet secret","spe":"vagabond","resume":"...wandering vagabonds and pedlars. Vagabond signs are mostly used to identify safe places to sleep, villages to avoid, and sources of food and water."},
-    {"id":218,"parent":1,"carac":"Int","nom":"Alphabet secret","spe":"guilde","resume":"...guilders. Many of the larger guilds, from masons to stevedores, have an array of marks and signs used to identify matters of importance to their members."}
+    {"id":218,"parent":1,"carac":"Int","nom":"Alphabet secret","spe":"guilde","resume":"...guilders. Many of the larger guilds, from masons to stevedores, have an array of marks and signs used to identify matters of importance to their members."},
+    {"id":219,"parent":1,"carac":"FM","nom":"Sang-froid (v4)","resume":""},
+    {"id":220,"parent":1,"carac":"E","nom":"Résistance (v4)","resume":""}
   ]
 }
