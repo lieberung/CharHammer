@@ -32,7 +32,6 @@ namespace BlazorWjdr
             services.AddSingleton<ChronologieService>();
             services.AddSingleton<ProfilsService>();
             services.AddSingleton<CompetencesEtTalentsService>();
-            services.AddSingleton<ChoixCompetencesEtTalentsService>();
             services.AddSingleton<CarrieresService>();
             services.AddSingleton<TablesService>();
             services.AddSingleton<ReglesService>();

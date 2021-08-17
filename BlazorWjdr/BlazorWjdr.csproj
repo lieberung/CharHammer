@@ -26,8 +26,6 @@
   <ItemGroup>
     <None Include="json-data\bestiole.json" />
     <None Include="json-data\carriere.json" />
-    <None Include="json-data\choixcompetence.json" />
-    <None Include="json-data\choixtalent.json" />
     <None Include="json-data\chrono.json" />
     <None Include="json-data\competence.json" />
     <None Include="json-data\dieu.json" />
