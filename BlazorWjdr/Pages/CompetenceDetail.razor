@@ -22,18 +22,6 @@
                 <h1 class="card-title" style="font-size: xxx-large;">@Competence.Nom</h1>
                 <CompetenceDescription Item="@Competence"/>
 
-                <h3 class="card-title">Talents liés</h3>
-                <p class="card-text">
-                    @if (Competence.TalentsLies.Any())
-                    {
-                        <TalentItemList Items="@Competence.TalentsLies.ToArray()"/>    
-                    }
-                    else
-                    {
-                        <em>Aucun</em>
-                    }
-                </p>
-                
             </div>
         </div>
 

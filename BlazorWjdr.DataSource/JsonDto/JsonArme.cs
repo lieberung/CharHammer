@@ -5,7 +5,7 @@
     public class JsonArme
     {
         public int id { get; set; }
-        public List<int> talents { get; set; } = null!;
+        public List<int> competences { get; set; } = null!;
         public List<int> groupes { get; set; } = null!;
         public List<int> attributs { get; set; } = null!;
         public string nom { get; set; } = null!;

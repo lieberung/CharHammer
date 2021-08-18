@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Services
 
 @inject CarrieresService _carrieresService
@@ -14,9 +14,9 @@
         @Item.Nom
     </td>
     <td>
-        @if (Item.TalentsDeMaitrise.Any())
+        @if (Item.CompetencesDeMaitrise.Any())
         {
-            <TalentItem Item="@Item.TalentsDeMaitrise.First()"/>
+            <CompetenceItem Item="@Item.CompetencesDeMaitrise.First()"/>
         }
     </td>
     <td>@Item.Degats</td>

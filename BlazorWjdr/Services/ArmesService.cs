@@ -35,6 +35,12 @@
 
         public List<ArmeAttributDto> AllGroupesDArmes => AllAttributsDArme.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToList();
 
+        public List<CompetenceDto> AllMeleeSpecialisations =>
+            _competencesEtTalentsService.CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
+        public List<CompetenceDto> AllTirSpecialisations =>
+            _competencesEtTalentsService.CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
+        
+
         private List<ArmeDto> AllArmes
         {
             get
@@ -61,8 +67,8 @@
 #pragma warning restore CS8602 // DeArme of a possibly null Arme.
         }
 
-        public IEnumerable<ArmeDto> GetArmesDeMaitrise(TalentDto maitrise) =>
-            AllArmes.Where(a => a.TalentsDeMaitrise.Contains(maitrise)).OrderBy(a => a.Nom).ToArray();
+        public IEnumerable<ArmeDto> GetArmesDeMaitrise(CompetenceDto maitrise) =>
+            AllArmes.Where(a => a.CompetencesDeMaitrise.Contains(maitrise)).OrderBy(a => a.Nom).ToArray();
 
         public IEnumerable<ArmeDto> GetArmes(IEnumerable<int> ids) => ids.Select(GetArme).ToArray();
 
@@ -105,7 +111,7 @@
                     Portee = l.portee ?? "",
                     Prix = l.prix,
                     Rechargement = l.rechargement ?? "",
-                    TalentsDeMaitrise = l.talents.Select(id => _competencesEtTalentsService.GetTalent(id)).ToList()
+                    CompetencesDeMaitrise = l.competences.Select(id => _competencesEtTalentsService.GetCompetence(id)).ToList()
                 })
                 .ToDictionary(k => k.Id, v => v);
             

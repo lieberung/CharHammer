@@ -11,9 +11,11 @@
 <MainTopRow>
     <h3 class="card-title" style="display:inline-block;">Armes</h3>
     <span style="margin-left: 160px;">
-        <a style="width:120px; margin-top:-10px;" href="/equipement/armes-liste/@Groupe/toutes/" class="mr-2 btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
-        <a style="width:120px; margin-top:-10px;" href="/equipement/armes-liste/@Groupe/corps-a-corps/" class="mr-2 btn btn-sm @(Filtre == "corps-a-corps" ? "btn-primary" : "btn-secondary")">Corps à corps</a>
-        <a style="width:120px; margin-top:-10px;" href="/equipement/armes-liste/@Groupe/tir/" class="mr-2 btn btn-sm @(Filtre == "tir" ? "btn-primary" : "btn-secondary")">Tir</a>
+        <a style="width:120px; margin-top:-10px;" href="/equipement/armes-liste/toutes/@Groupe/" class="mr-2 btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+        <a style="width:120px; margin-top:-10px;" href="/equipement/armes-liste/melee/@Groupe/" class="mr-2 btn btn-sm @(Filtre == "melee" ? "btn-primary" : "btn-secondary")">Mélee</a>
+        <a style="width:120px; margin-top:-10px;" href="/equipement/armes-liste/tir/@Groupe/" class="mr-2 btn btn-sm @(Filtre == "tir" ? "btn-primary" : "btn-secondary")">Tir</a>
+        <a style="width:120px; margin-top:-10px;" href="/equipement/armes-liste/boucliers/toutes/" class="mr-2 btn btn-sm @(Filtre == "boucliers" ? "btn-primary" : "btn-secondary")">Boucliers</a>
+        <a style="width:120px; margin-top:-10px;" href="/equipement/armes-liste/munitions/toutes/" class="mr-2 btn btn-sm @(Filtre == "munitions" ? "btn-primary" : "btn-secondary")">Munitions</a>
     </span>
 </MainTopRow>
 
@@ -24,13 +26,33 @@
             <div class="col-1">
                 <a href="/equipement/armes-liste/toutes/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
             </div>
-            <div class="col-11">
+            <div class="col-5">
+                @if (Filtre == "toutes" || Filtre == "melee" || Filtre == "boucliers")
+                {
+                    @foreach (var skillMelee in _armesService.AllMeleeSpecialisations)
+                    {
+                        <a href="/equipement/armes-liste/@skillMelee.Specialisation/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillMelee.Specialisation ? "btn-primary" : "btn-secondary")">@skillMelee.Specialisation</a>    
+                    }
+                }
+            </div>
+            <div class="col-5">
+                @if (Filtre == "toutes" || Filtre == "tir" || Filtre == "munitions")
+                {
+                    @foreach (var skillTir in _armesService.AllTirSpecialisations)
+                    {
+                        <a href="/equipement/armes-liste/@skillTir.Specialisation/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillTir.Specialisation ? "btn-primary" : "btn-secondary")">@skillTir.Specialisation</a>    
+                    }
+                }
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 @foreach (var groupeDArmes in _armesService.AllGroupesDArmes)
                 {
                     var groupeDArme = GetGroupe(groupeDArmes.Nom);
                     <a href="/equipement/armes-liste/@groupeDArme/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == groupeDArme ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
                 }
-            </div>
+            </div>    
         </div>
     </div>
 
@@ -44,6 +66,11 @@
                 <ArmeGroupeTable Armes="@groupe.Value" Groupe="@groupe.Key" ArmesDeTir="@false"/>
             }
         }
+    }
+    @if (_boucliers.Any())
+    {
+        <h5 class="card-title">Boucliers</h5>
+        <ArmeGroupeTable Armes="_boucliers" Groupe="Boucliers" ArmesDeTir="@false"/>
     }
     @if (_armesDeTir.Any())
     {
@@ -86,6 +113,7 @@
     private List<ArmeDto> _armesLines = null!;
     private List<ArmeDto> _armesDeCaC = null!;
     private List<ArmeDto> _armesDeTir = null!;
+    private List<ArmeDto> _boucliers = null!;
     private List<ArmeDto> _munitions = null!;
 
     private string GetGroupe(string specialisation)
@@ -96,13 +124,19 @@
     protected override async Task OnParametersSetAsync()
     {
         var armes = await _armesService.Items();
-        _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC).ToList();
-        _armesDeTir = armes.Where(a => a.EstUneArmeDeTir).ToList();
-        _munitions = armes.Where(a => a.EstUneMunition).ToList();
+        _armesDeCaC = new();
+        _armesDeTir = new();
+        _boucliers = new();
+        _munitions = new();
 
-        // définie les sections qui organiseront les armes dans les tableaux
-        var sectionsCaC = new List<string> { "Ordinaires",  }; 
-        var sectionsTir = new List<string> { "Arbalètes","Arcs","Poudre","Frondes","Paralysantes","Armes de jet" };
+        if (Filtre == "toutes" || Filtre == "melee")
+            _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC).ToList();
+        if (Filtre == "toutes" || Filtre == "tir")
+            _armesDeTir = armes.Where(a => a.EstUneArmeDeTir).ToList();
+        if (Filtre == "toutes" || Filtre == "boucliers")
+            _boucliers = armes.Where(a => a.Groupes.Contains(_armesService.GroupeBouclier)).ToList();
+        if (Filtre == "toutes" || Filtre == "munitions")
+            _munitions = armes.Where(a => a.EstUneMunition).ToList();
 
         if (Groupe != "toutes")
         {
@@ -114,11 +148,6 @@
             GroupeActuel = null;
             _armesLines = armes.ToList();
         }
-
-        if (Filtre == "corps-a-corps")
-            _armesLines = _armesDeCaC;
-        if (Filtre == "tir")
-            _armesLines = _armesDeTir;
 
     }
 }

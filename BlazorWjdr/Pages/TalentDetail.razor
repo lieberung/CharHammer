@@ -24,17 +24,6 @@
                 </p>
                 <h3 class="card-title">Description</h3>
                 <CardParagraphes Text="@Talent.Description"/>
-
-                @if (Talent?.Parent == _competencesEtTalentsService.TalentGroupeMaitrise)
-                {
-                    <h3 class="card-title">Armes liées</h3>
-                    @foreach (var arme in _armesService.GetArmesDeMaitrise(Talent))
-                    {
-                        <p class="card-text">
-                            <strong>• @arme.Nom : </strong><span>@arme.Description</span>
-                        </p>
-                    }
-                }
                 
                 <h3 class="card-title">Compétences liées</h3>
                 <p class="card-text">

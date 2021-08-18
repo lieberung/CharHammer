@@ -1,4 +1,10 @@
 ﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
+
+@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject ArmesService _armesService
 
 <p style="font-size: large">
     <em>Caractéristique associée :</em> <strong>@Item.CaracteristiqueAssociee</strong>
@@ -8,11 +14,46 @@
     <p class="card-text" style="text-align:justify;">
         @paragraphe
     </p>
+    
+    <h3 class="card-title">Talents liés</h3>
+    <p class="card-text">
+        @if (_talentsLies.Any())
+        {
+            <TalentItemList Items="@_talentsLies.ToArray()"/>    
+        }
+        else
+        {
+            <em>Aucun</em>
+        }
+    </p>
+    
+    @if (Item.SousElements.Any())
+    {
+        <h3 class="card-title">Spécialisations</h3>
+        <p class="card-text">
+            <CompetenceItemList Items="@Item.SousElements.ToArray()"/>    
+        </p>
+    }
+
+    @if (Item?.Parent == _competencesEtTalentsService.CompetenceGroupeMelee ||
+         Item?.Parent == _competencesEtTalentsService.CompetenceGroupeTir ||
+         Item == _competencesEtTalentsService.CompetenceGroupeExplosifs)
+    {
+        <h3 class="card-title">Armes liées</h3>
+        @foreach (var arme in _armesService.GetArmesDeMaitrise(Item))
+        {
+            <p class="card-text">
+                <strong>• @arme.Nom : </strong><span>@arme.Description</span>
+            </p>
+        }
+    }
 }
 @code{
     [Parameter]
     public CompetenceDto Item { get; set; } = null!;
 
+    private List<TalentDto> _talentsLies = new();
+    
     private string[] _paragraphes = null!;
 
     protected override void OnParametersSet()
@@ -21,6 +62,9 @@
             .Replace('\r', '\n')
             .Replace("\n\n", "\n")
             .Split('\n');
+
+        _talentsLies = _competencesEtTalentsService.AllTalents.Where(t => t.CompetencesLiees.Contains(Item)).ToList();
+        
         base.OnParametersSet();
     }
 }

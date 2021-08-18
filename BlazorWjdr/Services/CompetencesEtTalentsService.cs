@@ -64,7 +64,7 @@
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
         
-        private IEnumerable<TalentDto> AllTalents
+        public IEnumerable<TalentDto> AllTalents
         {
             get
             {
@@ -119,7 +119,7 @@
                     CaracteristiqueAssociee = c.carac,
                     EstUneCompetenceDeBase = c.de_base,
                     CompetenceMereId = c.parent,
-                    TalentsLies = (c.fk_talentslies ?? Array.Empty<int>())
+                    TalentsLies = (c.talents ?? Array.Empty<int>())
                         .Select(id => _cacheTalents[id])
                         .OrderBy(t => t.Nom)
                         .ToList()
@@ -203,7 +203,6 @@
         public CompetenceDto CompetenceLangSecretBataille => GetCompetence(148);
         public TalentDto TalentAmbidextrie => GetTalent(5);
         public TalentDto TalentCoupsPrécis => GetTalent(20);
-        public TalentDto TalentGroupeMaitrise => GetTalent(50);
         public TalentDto TalentSurSesGardes => GetTalent(85);
         public TalentDto TalentTroublant => GetTalent(91);
         public TalentDto TalentMaitriseUneAuChoix => GetTalent(153);
@@ -211,6 +210,7 @@
         public TalentDto TalentReflexesDeCombat => GetTalent(218);
         
         // Martial CaC
+        public CompetenceDto CompetenceGroupeMelee => GetCompetence(600);
         public CompetenceDto CompetenceEsquive => GetCompetence(26);
         public TalentDto TalentCombatADeuxArmes => GetTalent(155);
         public TalentDto TalentCombatDeRue => GetTalent(14);
@@ -227,38 +227,37 @@
         public TalentDto TalentRobuste => GetTalent(74);
         public TalentDto TalentValeureux => GetTalent(92);
         public TalentDto TalentGroupeVertu => GetTalent(206);
-        public TalentDto TalentMaitriseArmesDEscrime => GetTalent(57);
-        public TalentDto TalentMaitriseArmesDeCavalerie => GetTalent(54);
-        public TalentDto TalentMaitriseArmesDeParade => GetTalent(56);
-        public TalentDto TalentMaitriseArmesLourdes => GetTalent(58);
-        public TalentDto TalentMaitriseArmesParalisantes => GetTalent(60);
-        public TalentDto TalentMaitriseFléaux => GetTalent(61);
-        public List<TalentDto> TalentsMaitriseAuContact => new() {TalentMaitriseArmesDEscrime,TalentMaitriseArmesDeCavalerie,TalentMaitriseArmesDeParade,TalentMaitriseArmesLourdes,TalentMaitriseArmesParalisantes,TalentMaitriseFléaux}; 
         public TalentDto TalentPresenceImposante => GetTalent(217);
         public TalentDto TalentDechainement => GetTalent(237);
         public TalentDto TalentTueur => GetTalent(232);
 
+        public CompetenceDto CompetenceMeleeArmesDEscrime => GetCompetence(611);
+        public CompetenceDto CompetenceMeleeArmesDeCavalerie => GetCompetence(609);
+        public CompetenceDto CompetenceMeleeArmesDeParade => GetCompetence(607);
+        public CompetenceDto CompetenceMeleeArmesLourdes => GetCompetence(612);
+        public CompetenceDto CompetenceMeleeArmesParalisantes => GetCompetence(605);
+        public CompetenceDto CompetenceMeleeFléaux => GetCompetence(614);
+
         
         // Martial Distance
+        public CompetenceDto CompetenceTirArbaletes => GetCompetence(604);
+        public CompetenceDto CompetenceTirArcsLongs => GetCompetence(615);
+        public CompetenceDto CompetenceTirArmesAFeu => GetCompetence(616);
+        public CompetenceDto CompetenceTirArmesDeJet => GetCompetence(610);
+        public CompetenceDto CompetenceTirArmesMecaniques => GetCompetence(606);
+        public CompetenceDto CompetenceTirLancePierres => GetCompetence(608);
+        public CompetenceDto CompetenceGroupeExplosifs => GetCompetence(617);
+        public CompetenceDto CompetenceGroupeTir => GetCompetence(620);
         public CompetenceDto CompetenceMetierArquebusier => GetCompetence(59);
         public TalentDto TalentAdresseAuTir => GetTalent(4);
         public TalentDto TalentRechergementRapide => GetTalent(67);
         public TalentDto TalentTirDePrecision => GetTalent(88);
         public TalentDto TalentTirEnPuissance => GetTalent(89);
         public TalentDto TalentMaitreArtilleur => GetTalent(49);
-        public TalentDto TalentMaitriseArbaletes => GetTalent(51);
-        public TalentDto TalentMaitriseArcsLongs => GetTalent(52);
-        public TalentDto TalentMaitriseArmesAFeu => GetTalent(53);
-        public TalentDto TalentMaitriseArmesDeJet => GetTalent(55);
-        public TalentDto TalentMaitriseArmesMecaniques => GetTalent(59);
-        public TalentDto TalentMaitriseLancePierres => GetTalent(62);
-        public TalentDto TalentMaitriseExplosifs => GetTalent(208);
         public TalentDto TalentTirEclair => GetTalent(220);
-        public List<TalentDto> TalentsMaitriseADistance => new() {TalentMaitriseArbaletes, TalentMaitriseArcsLongs, TalentMaitriseArmesAFeu, TalentMaitriseArmesDeJet, TalentMaitriseArmesMecaniques, TalentMaitriseLancePierres, TalentMaitriseExplosifs };
         
         // De l'ombre
         public CompetenceDto CompetenceAlphSecretVoleurs => GetCompetence(89);
-        public CompetenceDto CompetenceLangSecretVoleurs => GetCompetence(147);
         public CompetenceDto CompetenceDeplacementSilencieux => GetCompetence(19);
         public CompetenceDto CompetenceDissimulation => GetCompetence(20);
         public CompetenceDto CompetenceFouille => GetCompetence(32);
@@ -333,7 +332,7 @@
         //          , CompetencePerception, CompetenceFouille, CompetenceEscalade, TalentLinguistique, TalentConnaissanceDesPieges
         public CompetenceDto CompetenceBraconnage => GetCompetence(5);
         public CompetenceDto CompetenceAlphabetSecretPisteurs => GetCompetence(86);
-        public CompetenceDto CompetenceLangageSecretRodeurs => GetCompetence(149);
+        public CompetenceDto CompetenceLangageSecretRodeurs => GetCompetence(87);
         public CompetenceDto CompetenceLangageSecretTroisAuChoix => GetCompetence(38);
         public CompetenceDto CompetenceOrientation => GetCompetence(47);
         public CompetenceDto CompetenceMetierCartographe => GetCompetence(63);
@@ -348,8 +347,8 @@
         public CompetenceDto CompetenceCanotage => GetCompetence(7);
         public CompetenceDto CompetenceNatation => GetCompetence(45);
         public CompetenceDto CompetenceNavigation => GetCompetence(46);
-        public CompetenceDto CompetenceConnaissancesAcademiquesAstronomie => GetCompetence(103);
-        public CompetenceDto CompetenceConnaissancesAcademiquesPotamologie => GetCompetence(189);
+        public CompetenceDto CompetenceEruditionAstronomie => GetCompetence(103);
+        public CompetenceDto CompetenceEruditionPotamologie => GetCompetence(189);
         public CompetenceDto CompetenceMetierCharpentierNaval => GetCompetence(65);
         
         // Poudre noire  + CompetenceMetierArquebusier, TalentMaitriseArmesAFeu

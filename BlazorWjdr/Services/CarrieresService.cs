@@ -328,38 +328,6 @@
                 list.AddRange(images.Where(img => img.StartsWith($"{carriere.Id}-")));
                 carriere.Images = list.ToArray();
             }
-/*
-            var nouveauJson = _allCarrieres.Select(c => new JsonCarriereNew
-                {
-                    id = c.Id,
-                    parent = c.Parent?.Id,
-                    avancee = c.EstUneCarriereAvancee,
-                    plan = c.PlanDeCarriere.Id,
-                    debouch = c.DebouchesIds,
-                    competences = c.Competences.Any()
-                        ? c.Competences.Select(comp => comp.Id).ToArray() : null,
-                    talents = c.Talents.Any()
-                        ? c.Talents.Select(tal => tal.Id).ToArray() : null,
-                    competenceschoix = c.ChoixCompetences.Any()
-                        ? c.ChoixCompetences.Select(choix => choix.Select(choix_item => choix_item.Id).ToArray()).ToArray() : null,
-                    talentschoix = c.ChoixTalents.Any()
-                        ? c.ChoixTalents.Select(choix => choix.Select(choix_item => choix_item.Id).ToArray()).ToArray() : null,
-                    source_livre = c.SourceLivre?.Id,
-                    source_page = c.Source,
-                    groupe = string.IsNullOrEmpty(c.Groupe) ? null : c.Groupe,
-                    nom = c.Nom,
-                    dotations = c.Dotations,
-                    restriction = string.IsNullOrEmpty(c.Restriction) ? null : c.Restriction,
-                    description = c.Description,
-                    ambiance = c.Ambiance.Any() ? c.Ambiance : null,
-                }
-            ).OrderBy(c => c.id)
-                .ToArray();
-
-            var test = JsonConvert.SerializeObject(nouveauJson);
-
-            var toto = "new ";
-*/
         }
 
         #region Calcul Bonus de Caractéristique
@@ -475,7 +443,10 @@
         {
             var score = CalculScoreMartial(carriere);
 
-            score += carriere.CompetencesPourScore.Count(c => c == _competencesEtTalentsService.CompetenceEsquive) * 2;
+            score += carriere.CompetencesPourScore.Count(c =>
+                c == _competencesEtTalentsService.CompetenceEsquive ||
+                c.Parent == _competencesEtTalentsService.CompetenceGroupeMelee
+            ) * 2;
 
             score += carriere.TalentsPourScore.Count(c =>
                 c == _competencesEtTalentsService.TalentCombatADeuxArmes
@@ -496,8 +467,6 @@
                 || c == _competencesEtTalentsService.TalentPresenceImposante
                 || c == _competencesEtTalentsService.TalentTueur
                 || c.Parent == _competencesEtTalentsService.TalentGroupeVertu
-                || (c.Parent == _competencesEtTalentsService.TalentGroupeMaitrise &&
-                    _competencesEtTalentsService.TalentsMaitriseAuContact.Contains(c))
             ) * 2;
 
             score += (carriere.PlanDeCarriere.Cc / 10) * (carriere.EstUneCarriereAvancee ? 1 : 2);
@@ -514,8 +483,10 @@
         {
             var score = CalculScoreMartial(carriere);
 
-            score += carriere.CompetencesPourScore.Count(c
-                => c == _competencesEtTalentsService.CompetenceMetierArquebusier) * 2;
+            score += carriere.CompetencesPourScore.Count(c =>
+                c == _competencesEtTalentsService.CompetenceMetierArquebusier ||
+                c.Parent == _competencesEtTalentsService.CompetenceGroupeTir
+            ) * 2;
 
             score += carriere.TalentsPourScore.Count(c
                 => c == _competencesEtTalentsService.TalentRechergementRapide
@@ -523,8 +494,6 @@
                    || c == _competencesEtTalentsService.TalentTirDePrecision
                    || c == _competencesEtTalentsService.TalentTirEnPuissance
                    || c == _competencesEtTalentsService.TalentMaitreArtilleur
-                   || (c.Parent == _competencesEtTalentsService.TalentGroupeMaitrise &&
-                       !_competencesEtTalentsService.TalentsMaitriseAuContact.Contains(c))
             ) * 2;
 
             score += CalculBonusCapaciteDeTir(carriere) * 3;
@@ -549,11 +518,11 @@
                 || c == _competencesEtTalentsService.CompetenceMetierGarconDEcurie
                 || c == _competencesEtTalentsService.CompetenceMetierVendeurDeChevaux
                 || c == _competencesEtTalentsService.CompetenceDressage
+                || c == _competencesEtTalentsService.CompetenceMeleeArmesDeCavalerie
             ) * 2;
             
             score += carriere.TalentsPourScore.Count(c
-                => c == _competencesEtTalentsService.TalentMaitriseArmesDeCavalerie
-                || c == _competencesEtTalentsService.TalentMaitriseUneAuChoix
+                => c == _competencesEtTalentsService.TalentMaitriseUneAuChoix
                 || c == _competencesEtTalentsService.TalentMaitriseDeuxAuChoix
                 || c == _competencesEtTalentsService.TalentAcrobateEquestre
             ) * 4;
@@ -709,7 +678,6 @@
             var score = 0;
             score += carriere.CompetencesPourScore.Count(c
                 => c == _competencesEtTalentsService.CompetenceAlphSecretVoleurs
-                   || c == _competencesEtTalentsService.CompetenceLangSecretVoleurs
                    || c == _competencesEtTalentsService.CompetenceDeplacementSilencieux
                    || c == _competencesEtTalentsService.CompetenceDissimulation
                    || c == _competencesEtTalentsService.CompetenceFouille
@@ -774,21 +742,21 @@
                 || c == _competencesEtTalentsService.CompetenceFouille
                 || c == _competencesEtTalentsService.CompetenceMetierCartographe
                 || c == _competencesEtTalentsService.CompetenceSoinsDesAnimaux
+                || c == _competencesEtTalentsService.CompetenceTirArcsLongs
+                || c == _competencesEtTalentsService.CompetenceMeleeArmesParalisantes
             );
 
             score += carriere.TalentsPourScore.Count(c
-                => c == _competencesEtTalentsService.TalentSensAiguises
-                   || c == _competencesEtTalentsService.TalentAccuiteAuditive
-                   || c == _competencesEtTalentsService.TalentAccuiteVisuelle
-                   || c == _competencesEtTalentsService.TalentSensDeLOrientation
-                   || c == _competencesEtTalentsService.TalentCamouflageRural
-                   || c == _competencesEtTalentsService.TalentGrandVoyageur
-                   || c == _competencesEtTalentsService.TalentLinguistique
-                   || c == _competencesEtTalentsService.TalentConnaissanceDesPieges
-                   || c == _competencesEtTalentsService.TalentSixiemeSens
-                   || c == _competencesEtTalentsService.TalentMaitriseArcsLongs
-                   || c == _competencesEtTalentsService.TalentMaitriseArmesParalisantes
-                   || c == _competencesEtTalentsService.TalentTireurDElite
+               => c == _competencesEtTalentsService.TalentSensAiguises
+               || c == _competencesEtTalentsService.TalentAccuiteAuditive
+               || c == _competencesEtTalentsService.TalentAccuiteVisuelle
+               || c == _competencesEtTalentsService.TalentSensDeLOrientation
+               || c == _competencesEtTalentsService.TalentCamouflageRural
+               || c == _competencesEtTalentsService.TalentGrandVoyageur
+               || c == _competencesEtTalentsService.TalentLinguistique
+               || c == _competencesEtTalentsService.TalentConnaissanceDesPieges
+               || c == _competencesEtTalentsService.TalentSixiemeSens
+               || c == _competencesEtTalentsService.TalentTireurDElite
             ) * 2;
 
             if (carriere.TalentsPourScore.Contains(_competencesEtTalentsService.TalentCourseAPied))
@@ -842,8 +810,8 @@
                 => c == _competencesEtTalentsService.CompetenceCanotage
                 || c == _competencesEtTalentsService.CompetenceNatation
                 || c == _competencesEtTalentsService.CompetenceNavigation
-                || c == _competencesEtTalentsService.CompetenceConnaissancesAcademiquesAstronomie
-                || c == _competencesEtTalentsService.CompetenceConnaissancesAcademiquesPotamologie
+                || c == _competencesEtTalentsService.CompetenceEruditionAstronomie
+                || c == _competencesEtTalentsService.CompetenceEruditionPotamologie
                 || c == _competencesEtTalentsService.CompetenceOrientation
                 || c == _competencesEtTalentsService.CompetenceMetierCartographe
                 || c == _competencesEtTalentsService.CompetenceMetierCharpentierNaval
@@ -859,24 +827,26 @@
 
         private int CalculScorePoudreNoire(CarriereDto carriere)
         {
-            if (!carriere.TalentsPourScore.Any(c
-                => c == _competencesEtTalentsService.TalentMaitreArtilleur
-                || c == _competencesEtTalentsService.TalentMaitriseArmesAFeu
-                || c == _competencesEtTalentsService.TalentMaitriseExplosifs
-                || c == _competencesEtTalentsService.TalentMaitriseArmesMecaniques
+            if (!carriere.CompetencesPourScore.Any(c
+               => c == _competencesEtTalentsService.CompetenceTirArmesAFeu
+               || c == _competencesEtTalentsService.CompetenceGroupeExplosifs
+               || c == _competencesEtTalentsService.CompetenceTirArmesMecaniques
             ))
+                return 0;
+            
+            if (!carriere.TalentsPourScore.Contains(_competencesEtTalentsService.TalentMaitreArtilleur))
                 return 0;
             
             var score = 0;
             score += carriere.CompetencesPourScore.Count(c
                 => c == _competencesEtTalentsService.CompetenceMetierArquebusier
+                || c == _competencesEtTalentsService.CompetenceTirArmesAFeu
+                || c == _competencesEtTalentsService.CompetenceTirArmesMecaniques
+                || c == _competencesEtTalentsService.CompetenceGroupeExplosifs
             );
 
             score += carriere.TalentsPourScore.Count(c
                 => c == _competencesEtTalentsService.TalentMaitreArtilleur
-                || c == _competencesEtTalentsService.TalentMaitriseArmesAFeu
-                || c == _competencesEtTalentsService.TalentMaitriseArmesMecaniques
-                || c == _competencesEtTalentsService.TalentMaitriseExplosifs
                 || c == _competencesEtTalentsService.TalentAdresseAuTir
                 || c == _competencesEtTalentsService.TalentRechergementRapide
                 || c == _competencesEtTalentsService.TalentSurSesGardes
