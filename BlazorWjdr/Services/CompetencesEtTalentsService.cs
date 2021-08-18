@@ -333,9 +333,8 @@
         //          , CompetencePerception, CompetenceFouille, CompetenceEscalade, TalentLinguistique, TalentConnaissanceDesPieges
         public CompetenceDto CompetenceBraconnage => GetCompetence(5);
         public CompetenceDto CompetenceAlphabetSecretPisteurs => GetCompetence(86);
-        public CompetenceDto CompetenceAlphabetSecretDeuxAuChoix => GetCompetence(2);
         public CompetenceDto CompetenceLangageSecretRodeurs => GetCompetence(149);
-        public CompetenceDto CompetenceLangageSecretDeuxAuChoix => GetCompetence(38);
+        public CompetenceDto CompetenceLangageSecretTroisAuChoix => GetCompetence(38);
         public CompetenceDto CompetenceOrientation => GetCompetence(47);
         public CompetenceDto CompetenceMetierCartographe => GetCompetence(63);
         public CompetenceDto CompetenceSurvie => GetCompetence(55);

@@ -751,9 +751,8 @@
 
             score += carriere.CompetencesPourScore.Count(c
                 => c == _competencesEtTalentsService.CompetenceAlphabetSecretPisteurs
-                || c == _competencesEtTalentsService.CompetenceAlphabetSecretDeuxAuChoix
                 || c == _competencesEtTalentsService.CompetenceLangageSecretRodeurs
-                || c == _competencesEtTalentsService.CompetenceLangageSecretDeuxAuChoix
+                || c == _competencesEtTalentsService.CompetenceLangageSecretTroisAuChoix
                 || c == _competencesEtTalentsService.CompetenceSurvie
                 || c == _competencesEtTalentsService.CompetencePistage
             ) * 4;
