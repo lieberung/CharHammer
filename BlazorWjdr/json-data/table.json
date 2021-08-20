@@ -430,10 +430,10 @@
         ["-","Ne rien faire","...et attendre le Round suivant."]
       ]
     },
-    {"id":66,"titre":"Taille",
+    {"id":66,"titre":"Gabarit",
       "description": "",
       "lignes":[
-        ["Taille","Exemples","Blessures"],
+        ["Gabarits","Exemples","Blessures"],
         ["Minuscule","Papillon, Souris, Pigeon","1"],
         ["Tout petit","Chat, Faucon, Bébé humain","BE"],
         ["Petit","Rat géant, Halfling, Enfant humain","(2 x BE) + BFM"],
@@ -441,6 +441,23 @@
         ["Large","Cheval, Ogre, Troll","2 x (BF + (2 x BE) + BFM)"],
         ["Enorme","Griffon, Wyverne, Manticore","4 x (BF + (2 x BE) + BFM)"],
         ["Monstrueux","Dragon, Géant, Démon majeur","8 x (BF + (2 x BE) + BFM)"]
+      ]
+    },
+    {"id":67,"titre":"Mouvement et distances",
+      "description": "Indique combien de mètres vous pouvez parcourir en un seul Tour, sans sprinter (compétence Athlétisme). Faire cela utilisera votre Déplacement.",
+      "lignes":[
+        ["M","Marche","Course"],
+        ["0","0 m","0 m"],
+        ["1","2 m","4 m"],
+        ["2","4 m","8 m"],
+        ["3","6 m","12 m"],
+        ["4","8 m","16 m"],
+        ["5","10 m","20 m"],
+        ["6","12 m","24 m"],
+        ["7","14 m","28 m"],
+        ["8","16 m","32 m"],
+        ["9","18 m","36 m"],
+        ["10","20 m","40 m"]
       ]
     }
   ]

@@ -82,7 +82,7 @@ namespace BlazorWjdr.Services
                     Id = c.id,
                     EstUnPersonnage = cachePersonnage.ContainsKey(c.id),
                     EstUnPersonnageJoueur = cachePj.ContainsKey(c.id),
-                    Userid = c.fk_userid,
+                    Userid = c.user,
                     MembreDe = c.membrede,
                     Age = c.age,
                     Commentaire = c.comment,
@@ -90,15 +90,15 @@ namespace BlazorWjdr.Services
                     Nom = c.nom,
                     Poids = c.poids,
                     Psychologie = c.psycho,
-                    Race = _racesService.GetRace(c.fk_raceid),
+                    Race = _racesService.GetRace(c.race),
                     Sexe = c.sexe,
                     Taille = c.taille,
-                    ProfilActuel = _profilsService.GetProfil(c.fk_profilactuelid),
+                    ProfilActuel = _profilsService.GetProfil(c.profil_actuel),
                     CompetencesAcquises = CompetenceAcquise.GetList(
-                        (c.fk_competences ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetCompetence(id)).ToArray()
+                        (c.competences ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetCompetence(id)).ToArray()
                     ),
-                    Talents = (c.fk_talents ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetTalent(id)).ToArray(),
-                    Origines = (c.fk_origines ?? Array.Empty<int>()).Select(id => _lieuxService.GetLieu(id)).ToArray(),
+                    Talents = (c.talents ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetTalent(id)).ToArray(),
+                    Origines = (c.origines ?? Array.Empty<int>()).Select(id => _lieuxService.GetLieu(id)).ToArray(),
                     Traits = (c.traits ?? Array.Empty<int>()).Select(id => _traitsService.GetTrait(id)).ToArray(),
                     // Personnage
                     fk_signeastralid = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].fk_signeastralid : null,

@@ -125,7 +125,73 @@
                 </p>
             </div>
         </div>
+        <div class="col-4">
+            <h3 class="card-title">Avantages</h3>
+            <p class="card-text">
+                Les Avantages représentent vos moments de gloire en combat, quand vous surpassez vos adversaires. On les mémorise avec des jetons, ou avec un d10. Le maximum pour un personnage est capé sur son Bonus d'Initiative.
+            </p>
+            <p class="card-text">
+                Chaque Avantage confère un <strong>bonus de +10</strong> aux tests de combat (attaquer, défendre, résister) et de psychologie (peur, terreur) appropriés.
+            </p>
+            <h5 class="card-title">Gagner des Avantages</h5>
+            <p class="card-text">
+                <ul>
+                    <li>attaquer un ennemi <TraitItem Item="@_traitsService.ConditionSurpris"/> confère +1 Avantage</li>
+                    <li><strong>charger</strong> un adversaire confère +1 Avantage</li>
+                    <li>remporter un <strong>Test Opposé</strong> confère +1 Avantage</li>
+                    <li>blesser un adversaire sans recourir à un Test Opposé confère +1 Avantage</li>
+                    <li>certaines <strong>compétences</strong> et certains <strong>talents</strong> vous donnent un avantage tactique</li>
+                    <li><strong>vaincre</strong> un chef de groupe confère +1 Avantage, voir +2 s'il est particulièrement puissant</li>
+                </ul> 
+            </p>
+            <h5 class="card-title">Perdre ou dépenser son Avantage</h5>
+            <p class="card-text">
+                <ul>
+                    <li>perdre un Test Opposé, subir une <em>Condition</em> ou être blessé vous fait perdre tous vos Avantages</li>
+                    <li>si à la fin d'un Round vous n'avez gagné aucun Avantage, ou que vous êtes en infériorité numérique, vous perdez 1 Avantage</li>
+                    <li>vous pouvez dépenser des Avantages pour vous Désengager d'un combat</li>
+                    <li>des compétences, talents et attributs d'armes permettent de dépenser des Avantages en échange d'une capacité</li>
+                </ul> 
+            </p>
+        </div>
     </div>
+    
+    <div class="row">
+        <div class="col-4">
+            <h4 class="card-title">Charger</h4>
+            <p class="card-text">
+                Si vous n'êtes pas déjà engagé, vous pouvez utiliser votre Déplacement pour charger.
+                Votre Action sera un test de Mélée pour attaquer votre adversaire.
+                Si votre adversaire est à une distance comprise entre votre valeur de Mouvement et votre valeur de Course, vous gagnez un Avantage avant de frapper.                 
+            </p>
+            <h4 class="card-title">Se Désengager ou Fuir</h4>
+            <p class="card-text">
+                Si vous êtes engagé, vous avez ces deux options pour quitter le combat en sécurité :
+                <ul>
+                    <li>Utiliser votre <strong>Avantage</strong> : si vous avez plus d'Avantage que vos adversaire (cumulés), vous êtes en position supérieur et pouvez facilement vous mettre hors de portée. Votre Avantage retombe à 0 mais vous pourrez vous éloigner, puis charger à nouveau, fuir, ou prendre un peu de recul pour tirer sur un adversaire.</li>
+                    <li>
+                        Utiliser l'<CompetenceItem Item="@_competencesEtTalentsService.CompetenceEsquive"/> : si vous n'avez pas l'Avantage ou souhaitez le conserver, vous êtes contraint d'utiliser votre Action pour un <strong>Test Opposé d'Esquive / Mélée</strong>.
+                        Sur une réussite vous gagnez 1 Avantage et pouvez utiliser votre Deplacement pour vous éloigner. Sinon, chaque adversaire qui l'emporte gagne 1 Avantage et à droit à une attaque d'opportunité.
+                    </li>
+                    <li>
+                        Vous pouvez délibéremment ou non <strong>Fuir</strong> auquel cas tous vos adversaires gagnent immédiatement 1 Avantage et ont droit à une attaque d'opportunité (test non opposé de Mélée) avec un bonus de +20.
+                        Si vous êtes touché, chaque adversaire gagne 1 Avantage et vous devez réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSangFroid"/> ou gagner une Condition <TraitItem Item="@_traitsService.ConditionDemoralise"/>, plus une supplémentaire par BS en dessous de 0.
+                        Cela résolu, vous pouvez vous éloigner de votre Mouvement de Course si vous en êtes encore capable.
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-4">
+            <h4 class="card-title">Mouvement et distances</h4>
+            <p class="card-text">
+                Indique combien de mètres vous pouvez parcourir en un seul Tour.
+                Vous pouvez utiliser <CompetenceItem Item="@_competencesEtTalentsService.CompetenceAthletisme"/> pour augmenter cette distance en sprintant. 
+            </p>
+            <TableDetail Item="@_tablesService.GetTable(67)" FixedColSize="35" MasquerTitre="@true" MasquerDescription="@true"/>
+        </div>
+        
+    </div>
+    
     <div class="row">
         <div class="col-5">
             <h5 class="card-title">Fin du Round</h5>

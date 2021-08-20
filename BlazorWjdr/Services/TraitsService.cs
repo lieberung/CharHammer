@@ -76,6 +76,7 @@ namespace BlazorWjdr.Services
         public List<TraitDto> Conditions => AllTraits.Where(t => t.Groupe == "condition").OrderBy(t => t.NomComplet).ToList();
 
         public TraitDto ConditionSurpris => GetTrait(460);
+        public TraitDto ConditionDemoralise => GetTrait(453);
         
         public List<TraitDto> TroublesMineurs()
         {

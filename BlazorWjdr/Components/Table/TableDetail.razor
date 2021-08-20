@@ -4,7 +4,7 @@
 {
     <h5 class="card-title">@Item.Titre</h5>
 }
-@if (!string.IsNullOrWhiteSpace(Item.Description))
+@if (MasquerDescription == false && !string.IsNullOrWhiteSpace(Item.Description))
 {
     <p class="card-text">@Item.Description</p>
 }
@@ -47,6 +47,8 @@
     public TableDto Item { get; set; } = null!;
     [Parameter]
     public bool MasquerTitre { get; set; }
+    [Parameter]
+    public bool MasquerDescription { get; set; }    
     [Parameter]
     public int FixedColSize { get; set; }
 }

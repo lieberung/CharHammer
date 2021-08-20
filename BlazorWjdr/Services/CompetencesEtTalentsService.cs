@@ -362,6 +362,9 @@
         public CompetenceDto CompetenceConduiteDAttelage => GetCompetence(12);
         
         public CompetenceDto CompetenceIntuition => GetCompetence(210);
+        public CompetenceDto CompetenceSangFroid => GetCompetence(219);
+        public CompetenceDto CompetenceResistance => GetCompetence(220);
+        public CompetenceDto CompetenceAthletisme => GetCompetence(209);
         
         public TalentDto TalentChance => GetTalent(11);
         public TalentDto TalentResistanceALaMagie => GetTalent(70);
