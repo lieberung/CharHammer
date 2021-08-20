@@ -1,0 +1,245 @@
+/* _content/BlazorWjdr/Components/Regle/TraitsRaciauxHumains.razor.rz.scp.css */
+button[b-33fbycr4ot] {
+    width:120px;
+}
+button.btn-sm[b-33fbycr4ot] {
+    width:100px;
+}
+/* _content/BlazorWjdr/Pages/PageEquipementArmes.razor.rz.scp.css */
+.table tbody[b-yysym0f57h] { font-size: 14px; }
+[b-yysym0f57h] .btn.btn-item { font-size: 14px; }
+/* _content/BlazorWjdr/Shared/GalleryImage.razor.rz.scp.css */
+.gallery[b-j8354ca0xp] {
+    display: flex;
+    padding: 2px;
+    transition: .3s;
+}
+.gallery:hover .gallery__image[b-j8354ca0xp] { filter: grayscale(1); }
+
+.gallery__column[b-j8354ca0xp] {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.gallery__link[b-j8354ca0xp] {
+    margin: 2px;
+    overflow: hidden;
+}
+
+        /*.gallery__link:hover {*/
+.gallery__link:hover .gallery__image[b-j8354ca0xp] { filter: grayscale(0); }
+
+.gallery__link:hover .gallery__caption[b-j8354ca0xp] { opacity: 1; }
+        /*}*/
+
+.gallery__thumb[b-j8354ca0xp] { position: relative; }
+
+.gallery__image[b-j8354ca0xp] {
+    display: block;
+    width: 100%;
+    transition: .3s;
+}
+
+.gallery__image:hover[b-j8354ca0xp] { transform: scale(1.1); }
+
+.gallery__caption[b-j8354ca0xp] {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 25px 15px 15px;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    color: white;
+    opacity: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: .3s;
+}
+/* _content/BlazorWjdr/Shared/MainLayout.razor.rz.scp.css */
+.page[b-ptappyth0t] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.main[b-ptappyth0t] {
+    flex: 1;
+}
+
+.sidebar[b-ptappyth0t] {
+    background-image: linear-gradient(180deg, #270404 0%, #5d342d 70%);
+}
+
+@media (min-width: 641px) {
+    .page[b-ptappyth0t] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-ptappyth0t] {
+        width: 250px;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .main > div[b-ptappyth0t] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+/* _content/BlazorWjdr/Shared/MainTopRow.razor.rz.scp.css */
+.top-row[b-krtw6lgy92] {
+    background-color: #cf8d42;
+    border-bottom: 1px solid #dbcfc8;
+    justify-content: flex-start;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.top-row[b-krtw6lgy92]  a, .top-row .btn-link[b-krtw6lgy92] {
+    white-space: nowrap;
+}
+
+.top-row a:first-child[b-krtw6lgy92] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* _content/BlazorWjdr/Shared/NavMenu.razor.rz.scp.css */
+.navbar-toggler[b-8z4xj9u50d] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-row[b-8z4xj9u50d] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-8z4xj9u50d] {
+    font-size: 1.1rem;
+}
+
+@media (min-width: 641px) {
+    .navbar-toggler[b-8z4xj9u50d] {
+        display: none;
+    }
+
+    .collapse[b-8z4xj9u50d] {
+        /* Never collapse the sidebar for wide screens */
+        display: block;
+    }
+}
+/* _content/BlazorWjdr/Shared/NavMenuItem.razor.rz.scp.css */
+.oi[b-jgtm1nbo5r] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+
+.nav-item[b-jgtm1nbo5r] {
+    font-size: 0.9rem;
+    padding-bottom: 0.5rem;
+}
+
+.nav-item:first-of-type[b-jgtm1nbo5r] {
+    padding-top: 1rem;
+}
+
+.nav-item:last-of-type[b-jgtm1nbo5r] {
+    padding-bottom: 1rem;
+}
+
+.nav-item[b-jgtm1nbo5r]  a {
+    color: #d7d7d7;
+    border-radius: 4px;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    line-height: 3rem;
+}
+
+.nav-item[b-jgtm1nbo5r]  a.active {
+    background-color: rgba(255,255,255,0.25);
+    color: white;
+}
+
+.nav-item[b-jgtm1nbo5r]  a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+}
+/* _content/BlazorWjdr/Shared/PageSectionRowTitle.razor.rz.scp.css */
+/* _content/BlazorWjdr/Shared/Tooltip.razor.rz.scp.css */
+.tooltip-wrapper[b-n0eqg1tdss] {
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;*/
+    /*cursor: help;*/
+}
+
+span[b-n0eqg1tdss] {
+    visibility: hidden;
+    position: absolute;
+    width: 480px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    background-color: #363636;
+    color: #fff;
+    text-align: justify;
+    padding: 5px 7px;
+    border-radius: 6px;
+    z-index: 10;
+}
+
+span[b-n0eqg1tdss]::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip-wrapper:hover span[b-n0eqg1tdss] {
+    visibility: visible;
+}
+/* _content/BlazorWjdr/Shared/TooltipImage.razor.rz.scp.css */
+.tooltip-wrapper[b-0uhmj2bgg2] {
+    position: relative;
+    display: inline-block;
+    /*border-bottom: 1px dotted black;*/
+    /*cursor: help;*/
+}
+
+img[b-0uhmj2bgg2] {
+    visibility: hidden;
+    position: absolute;
+    width: 480px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+    background-color: #363636;
+    color: #fff;
+    padding: 5px 7px;
+    border-radius: 6px;
+    z-index: 1;
+}
+
+img[b-0uhmj2bgg2]::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip-wrapper:hover img[b-0uhmj2bgg2] {
+    visibility: visible;
+}
