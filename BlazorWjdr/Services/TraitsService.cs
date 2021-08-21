@@ -77,6 +77,9 @@ namespace BlazorWjdr.Services
 
         public TraitDto ConditionSurpris => GetTrait(460);
         public TraitDto ConditionDemoralise => GetTrait(453);
+        public TraitDto ConditionATerre => GetTrait(458);
+        public TraitDto ConditionEtourdi => GetTrait(459);
+        public TraitDto ConditionInconscient => GetTrait(461);
         
         public List<TraitDto> TroublesMineurs()
         {

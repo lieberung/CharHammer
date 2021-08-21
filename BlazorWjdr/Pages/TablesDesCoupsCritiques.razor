@@ -22,6 +22,16 @@
     <div class="row">
         <div class="col-9">
             <div class="card-body">
+                <h4 class="card-title">Critiques (11,22,33,...,88,99)</h4>
+                <p class="card-text">
+                    Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Coups Critiques</strong> de la zone appropriée.<br/>
+                    De même, les échecs critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Maladresses Critiques</strong>.<br/>
+                    Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br/>
+                    <br/>
+                    Pour connaître la <strong>gravité</strong>, on calcule <BlessuresEffectives/> + (3 x <BlessuresCritiques/>) + <strong>1d4</strong>.<br/>
+                    Le talent <TalentItem Item="@_competencesEtTalentsService.TalentCoupsPrécis"/> augmente cette valeur de 2.<br/>
+                    On consulte alors le résultat et la victime <strong>perd le nombre de Blessures indiqué et gagne 1 Point de Folie</strong>.
+                </p>
                 <RegleDetail Item="_reglesService.GetRegle(214)" MasquerTitre="true" MasquerTables="true"/>
                 <p class="card-text">
                     <LinkLocalisation Actif="@(Zone == "tete")" Zone="tete"/>

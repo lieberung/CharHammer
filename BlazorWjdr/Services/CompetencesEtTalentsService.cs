@@ -230,6 +230,9 @@
         public TalentDto TalentPresenceImposante => GetTalent(217);
         public TalentDto TalentDechainement => GetTalent(237);
         public TalentDto TalentTueur => GetTalent(232);
+        public TalentDto TalentCombatRapproche => GetTalent(228);
+        public TalentDto TalentHommeBouclier => GetTalent(231);
+        public TalentDto TalentAssautBrutal => GetTalent(223);
 
         public CompetenceDto CompetenceMeleeArmesDEscrime => GetCompetence(611);
         public CompetenceDto CompetenceMeleeArmesDeCavalerie => GetCompetence(609);
@@ -365,7 +368,9 @@
         public CompetenceDto CompetenceSangFroid => GetCompetence(219);
         public CompetenceDto CompetenceResistance => GetCompetence(220);
         public CompetenceDto CompetenceAthletisme => GetCompetence(209);
+        public CompetenceDto CompetenceSoins => GetCompetence(53);
         
+        public TalentDto TalentChirurgie => GetTalent(12);
         public TalentDto TalentChance => GetTalent(11);
         public TalentDto TalentResistanceALaMagie => GetTalent(70);
         public TalentDto TalentResistanceAuxMaladies => GetTalent(72);

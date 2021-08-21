@@ -158,11 +158,36 @@
     
     <div class="row">
         <div class="col-4">
+            <h4 class="card-title">Attaquer au corps à corps</h4>
+            <p class="card-text">
+                L'attaquant fait un Test <strong>Opposé de Mélée</strong> avec son adversaire.<br/>
+                Celui qui a le plus gros BS l'emporte et gagne +1 Avantage. Si les BS sont identiques, on ajoute le dé des unités.<br/>
+                Si c'est l'attaquant il frappe son adversaire et calcule ses dégâts et leur localisation.<br/>
+                L'Action de l'attaquant est ensuite terminée.<br/>
+            </p>
+            <h4 class="card-title">Attaquer à distance</h4>
+            <p class="card-text">
+                L'attaquant fait un Test <strong>de Tir</strong>.<br/>
+                S'il réussi il gagne +1 Avantage, touche son adversaire et calcule ses dégâts et leur localisation.<br/>
+                L'Action de l'attaquant est ensuite terminée.<br/>
+            </p>
+            <h4 class="card-title">Critiques (11,22,33,...,88,99)</h4>
+            <p class="card-text">
+                Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <a href="/table-coups-critiques/torse/">Table des Coups Critiques</a> (zone appropriée).<br/>
+                De même, les échecs critiques entraînent un effet supplémentaire sur la <a href="/table-coups-critiques/fumbles/">Table des Maladresses Critiques</a>.<br/>
+                Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br/>
+                <br/>
+                On calcule <Tooltip Text="Blessures perdues = Dégâts reçus - (Bonsu d'Endurance + Armure sur la zone touchée) ; min. 1, sauf arme Undamaging min. 0"><strong>Blessures effectives</strong></Tooltip> + 3 x <Tooltip Text="Si les Blessures effectives vous amènent à 0, toutes les Blessures supplémentaires sont des Blessures Critiques"><strong>Blessures Critiques</strong></Tooltip> + <strong>1d4</strong>.<br/>
+                Le talent <TalentItem Item="@_competencesEtTalentsService.TalentCoupsPrécis"/> augmente cette valeur de 2.<br/>
+                On consulte alors le résultat dans la <a href="/table-coups-critiques/torse/" class="mb-1 btn btn-sm btn-light">Table des Coups Critiques</a> (zone appropriée).<br/>
+            </p>
+        </div>
+        <div class="col-4">
             <h4 class="card-title">Charger</h4>
             <p class="card-text">
                 Si vous n'êtes pas déjà engagé, vous pouvez utiliser votre Déplacement pour charger.
                 Votre Action sera un test de Mélée pour attaquer votre adversaire.
-                Si votre adversaire est à une distance comprise entre votre valeur de Mouvement et votre valeur de Course, vous gagnez un Avantage avant de frapper.                 
+                Si votre adversaire est à une distance comprise entre votre valeur de Mouvement et votre valeur de Course, vous gagnez un Avantage avant de frapper.
             </p>
             <h4 class="card-title">Se Désengager ou Fuir</h4>
             <p class="card-text">
@@ -182,14 +207,25 @@
             </p>
         </div>
         <div class="col-4">
+            <h4 class="card-title">Localisation des coups/tirs</h4>
+            <p class="card-text">
+                Le talent <TalentItem Item="@_competencesEtTalentsService.TalentCoupsPrécis"/> peut modifier la jet.
+            </p>
+            <TableDetail Item="@_tablesService.GetTable(64)" MasquerTitre="@true" MasquerDescription="@true"/>
+            
             <h4 class="card-title">Mouvement et distances</h4>
             <p class="card-text">
                 Indique combien de mètres vous pouvez parcourir en un seul Tour.
-                Vous pouvez utiliser <CompetenceItem Item="@_competencesEtTalentsService.CompetenceAthletisme"/> pour augmenter cette distance en sprintant. 
+                Vous pouvez utiliser <CompetenceItem Item="@_competencesEtTalentsService.CompetenceAthletisme"/> pour augmenter cette distance en sprintant.
             </p>
             <TableDetail Item="@_tablesService.GetTable(67)" FixedColSize="35" MasquerTitre="@true" MasquerDescription="@true"/>
+            
+            <h4 class="card-title">Conditions</h4>
+            <p class="card-text">
+                <TraitItemList Items="_traitsService.Conditions.ToArray()"/>
+            </p>
         </div>
-        
+
     </div>
     
     <div class="row">

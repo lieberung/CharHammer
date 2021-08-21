@@ -1,0 +1,103 @@
+﻿@page "/regles/blessures/"
+
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Arme
+@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Regle
+@using BlazorWjdr.Components.Table
+@using BlazorWjdr.Components.Trait
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject ReglesService _reglesService
+@inject TablesService _tablesService
+@inject TraitsService _traitsService
+@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject ArmesService _armesService
+
+<MainTopRow>
+    <h3 class="card-title">Blessures</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="row">
+        <div class="col-4">
+            <PageSectionRowTitle Title="1. Blessures, Blessures Critiques et Mort"/>
+            <div class="card-body">
+                    
+                <p class="card-text">
+                    Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <TraitItem Item="@_traitsService.ConditionATerre"/>.
+                    <br/>
+                    Pire, si vous n'êtes pas soigné avant un nombre de Round égale à votre <BonusDeCarac Carac="E"/>, vous perdez connaissance, gagnant ainsi une Condition <TraitItem Item="@_traitsService.ConditionInconscient"/>.
+                    <br/>
+                    Dans les deux cas, vous ne pourrez pas perdre ces Conditions tant que vous n'avez pas récupéré au moins 1 Blessure.
+                </p>
+                <p class="card-text">
+                    Si vous encaissez un coup qui vous fait perdre d'avantage de Blessures qu'il ne vous ne restait, vous subissez des <BlessuresCritiques/>. Ces Blessures comptent triple lorsque vous calculez les conséquences d'un Coup Critique sur la <a href="/table-coups-critiques/torse/">Table des Coups Critiques</a>.
+                    <br/>
+                    Par exemple, si suite à un coup vous perdez 5 Blessures alors qu'il ne vous en restait que 2, vous subissez 3 (5 - 2) <BlessuresCritiques/>, et obtiendrez l'effet sur la table correspondant à la valeur :
+                    <br/>>
+                    2 <BlessuresEffectives/> + (3 x 3 <BlessuresCritiques/>) + 1d4, soit un chiffre compris entre 12 et 15.
+                </p>
+                <p class="card-text">
+                    Pour gagner du temps, ou d'une manière générale, on peut considérer qu'un personnage subissant un nombre de <BlessuresCritiques/> supérieur à son <BonusDeCarac Carac="E"/> est tué sur le coup.
+                </p>
+            </div>
+        </div>
+        
+        <div class="col-4">
+        
+            <h4 class="card-title">Fracture Mineure</h4>
+            <p class="card-text">
+                Un de vos os est fracturé, mais il est toujours aligné, ce qui signifie qu'il pourra guérir naturellement sans soins médicaux.
+                En revanche la zone touchée est inutilisable jusqu'à ce que l'os se ressoude.
+                <ul>
+                    <li><strong>bras ou jambe</strong> : vous avez probablement besoin d'une attèle ; consultez la partie Amputations pour connaître les conséquences.</li>
+                    <li><strong>tête</strong> : vous êtes condamné à un régime liquide et subissez un malus de -30 pour tous les tests relatifs au <CompetenceItem Item="@_competencesEtTalentsService.CompetenceGroupeLangue"/>.</li>
+                    <li><strong>torse</strong> : votre Force et votre Agilité sont sévèrement compromises, vous subissez un malus de -30 dans ces caractéristiques, et divisez par 2 votre Mouvement.</li>
+                </ul>
+                <strong>Soins</strong> : un os fracturé se réparera au bout de 30+1d10 jours. Suite à cela, un test réussi de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> Moyen (+20) signifie que l'os s'est bien remis et ne laissera aucune séquelle.
+                Sur un échec, vous subirez des séquelles permanentes (voir tableau).
+                <br/>
+                Un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> Moyen (+20) réussi dans la semaine qui suit l'obtention de la fracture annule le besoin de faire le test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> mais la zone devra rester bandée et maintenue en place jusqu'à guérison.
+                Si le bandage est retiré avant, un nouveau test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> sera nécessaire.
+            </p>
+            
+            <h4 class="card-title">Fracture Majeure</h4>
+            <p class="card-text">
+                Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <TalentItem Item="@_competencesEtTalentsService.TalentChirurgie"/> pour être soigné.
+                <br/>
+                La zone touchée est inutilisable jusqu'à guérison. Utilisez les mêmes règles que pour une Fracture Mineure avec ces ajustements :
+                <ul>
+                    <li>le temps de guérison prendra 10 jours de plus</li>
+                    <li>les tests associés de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> et <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> sont effectués à +0</li>
+                    <li>les séquelles permanentes sont plus handicapantes (voir tableau)</li>
+                </ul>
+            </p>
+            
+            <h4 class="card-title">Séquelles permanentes suite à une fracture mal guérie</h4>
+            <p class="card-text">
+                <table>
+                    <thead>
+                    <tr><th>Zone</th><th>Fracture Mineure</th><th>Fracture Majeure</th></tr>
+                    </thead>
+                    <tbody>
+                    <tr><td>Bras</td><td>-5 en Agilité avec ce membre</td><td>-15 en Agilité avec ce membre</td></tr>
+                    <tr><td>Jambe et Torse</td><td>-5 en Agilité</td><td>-15 en Agilité</td></tr>
+                    <tr><td>Tête</td><td>-5 en <CompetenceItem Item="@_competencesEtTalentsService.CompetenceGroupeLangue"/></td><td>-15 en <CompetenceItem Item="@_competencesEtTalentsService.CompetenceGroupeLangue"/></td></tr>
+                    </tbody>
+                </table>
+            </p>
+
+        </div>
+
+        <div class="col-4">
+            <h4 class="card-title">Muscles froissés ou déchirés</h4>
+            <p class="card-text"></p>
+            <h4 class="card-title">membres amputés</h4>
+            <p class="card-text"></p>
+        </div>
+    </div>
+
+</div>

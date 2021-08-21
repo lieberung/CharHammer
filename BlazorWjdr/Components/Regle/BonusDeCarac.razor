@@ -1,0 +1,49 @@
+﻿<Tooltip Text="@_toolTip">
+    <strong>@_bonusDeCarac</strong>
+</Tooltip>
+
+@code {
+
+    [Parameter]
+    public string Carac { get; set; } = null!;
+
+    private string _caracNom = "";
+    private string _bonusDeCarac = "";
+    private string _toolTip = "";
+
+    protected override void OnParametersSet()
+    {
+        switch (Carac)
+        {
+            case "F":
+                _caracNom = "Force";
+                _bonusDeCarac = $"Bonus de Force";
+                break;
+            case "E":
+                _caracNom = "Endurance";
+                _bonusDeCarac = "Bonus d'Endurance";
+                break;
+            case "I":
+                _caracNom = "Initiative";
+                _bonusDeCarac = "Bonus d'Initiative";
+                break;
+            case "Ag":
+                _caracNom = "Agilité";
+                _bonusDeCarac = "Bonus d'Agilité";
+                break;
+            case "FM":
+                _caracNom = "Force Mentale";
+                _bonusDeCarac = "Bonus de Force Mentale";
+                break;
+            case "Soc":
+                _caracNom = "Sociabilité";
+                _bonusDeCarac = "Bonus de Sociabilité";
+                break;
+        }
+
+        _toolTip = "C'est le chiffre des dizaines de votre score dans cette caractétistique.\nPar exemple, si vous avez 37 en @(_caracNom), votre @(_bonusDeCarac) est de 3.";
+        
+        base.OnParametersSet();
+    }
+
+}
