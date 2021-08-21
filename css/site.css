@@ -51,6 +51,10 @@ a, .btn-link {
 .main { background-color: #f3e3c1; } /* #f3e3c1 #dbcfc8 */
 .top-row { box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05),inset 0 -1px 0 rgba(0,0,0,0.15); }
 
+.tooltip-wrapper { cursor:help; }
+a:-webkit-any-link .tooltip-wrapper { cursor:pointer; }
+
+
 .bulle { padding: 8px; background-color: #fff7f2; border: 1px dotted #80390f; border-radius: .75em; } /* bg-c: #cebfb5 */
 .bulle > .table { margin-bottom: 0; }
 
