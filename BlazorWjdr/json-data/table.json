@@ -460,6 +460,37 @@
         ["9","18 m","36 m"],
         ["10","20 m","40 m"]
       ]
+    },
+    {"id":70,"titre":"Chirurgie psychiatrique",
+      "description": "",
+      "lignes":[
+        ["Difficulté","Effets si succés"],
+        ["-10%","Le patient perd 1 PF"],
+        ["-20%","Le patient perd 1d10 PF"],
+        ["-30%","Le patient est guéri d'une folie"]
+      ]
+    },
+    {"id":71,"titre":"Complications chirurgicales",
+      "description": "Dans ce contexte le BS est toujours négatif ou nul (au mieux) et vient donc augmenter le résultat du d10.",
+      "lignes":[
+        ["d10-BS","Complication",""],
+        ["3-","Triomphe chirurgical","L'opération est infructueuse mais le patient en ressort indemne."],
+        ["4-5","Vous ne sentirez rien !","Le patient reçoit 1d10 pts de folie."],
+        ["6-7","Oups !","Le patient perd 1d10 pts d'Intelligence de manière permanente."],
+        ["8-9","Pourquoi il s'agite comme ça ?","Le patient doit réussir un Test de Résistance ou mourrir pendant l'opération.\nS'il survit, il perd 1d10 pts d'Intelligence et reçoit 1d10 pts de folie."],
+        ["9+","Docteur, c'est normal la flaque de sang ?","Le patient meurt sur la table d'opération, le cerveau en bouillie et vidé de son sang."]
+      ]
+    },
+    {"id":72,"titre":"Remèdes de charlatan",
+      "description": "Dans ce contexte le BS est toujours négatif ou nul (au mieux) et vient donc augmenter le résultat du d10.",
+      "lignes":[
+        ["d10-BS","Présentation du remède",""],
+        ["3-","Guérison garantie","Le médicament n'a pas le moindre effet et l'apothicaire la sait."],
+        ["4-5","Fortifiant","Le médicament n'a d'autre effet que celui d'une boisson alcoolisée."],
+        ["6-7","Risques de somnolence","Absorber le remède rend inconscient pendant 1d10 heures."],
+        ["8-9","Solution de mercure","Absorber le remède octroie 1 point de folie."],
+        ["9+","Purge médicinale","Poison. Le consommateur doit réussir un Test de Résistance sous peine de recevoir une Condition Empoisonné."]
+      ]
     }
   ]
 }

@@ -4,6 +4,7 @@
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
+@using System.ComponentModel
 
 @inject CompetencesEtTalentsService _competencesEtTalentsService
 @inject CarrieresService _carrieresService
@@ -19,6 +20,18 @@
             <div class="card-body" style="padding-top: 0; padding-right: 0;">
                 
                 <h1 class="card-title" style="font-size: xxx-large;">@Talent.Nom</h1>
+                @if (!string.IsNullOrEmpty(Talent.Max))
+                {
+                    <p class="card-text">
+                        <strong>Maximum</strong> : @Talent.Max
+                    </p>
+                }
+                @if (!string.IsNullOrEmpty(Talent.Tests))
+                {
+                    <p class="card-text">
+                        <strong>Tests</strong> : @Talent.Tests
+                    </p>
+                }
                 <p class="card-text" style="text-align:justify;">
                     @Talent.Resume
                 </p>

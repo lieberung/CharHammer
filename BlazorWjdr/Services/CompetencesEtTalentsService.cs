@@ -90,7 +90,9 @@
                     Resume = t.resume,
                     Specialisation = t.spe ?? "",
                     TalentParentId = t.parent_id,
-                    Trait = t.trait
+                    Trait = t.trait,
+                    Max = t.max ?? "",
+                    Tests = t.tests ?? ""
                 })
                 .OrderBy(t => t.Nom)
                 .ToList();
@@ -369,7 +371,8 @@
         public CompetenceDto CompetenceResistance => GetCompetence(220);
         public CompetenceDto CompetenceAthletisme => GetCompetence(209);
         public CompetenceDto CompetenceSoins => GetCompetence(53);
-        
+        public CompetenceDto CompetenceMetierApothicaire => GetCompetence(58);
+            
         public TalentDto TalentChirurgie => GetTalent(12);
         public TalentDto TalentChance => GetTalent(11);
         public TalentDto TalentResistanceALaMagie => GetTalent(70);

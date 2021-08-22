@@ -81,6 +81,9 @@ namespace BlazorWjdr.Services
         public TraitDto ConditionEtourdi => GetTrait(459);
         public TraitDto ConditionInconscient => GetTrait(461);
         
+        public TraitDto TraitPsychoHaine => GetTrait(217);
+        public TraitDto TraitPsychoAnimosite => GetTrait(215);
+        
         public List<TraitDto> TroublesMineurs()
         {
             var list = new List<TraitDto>();

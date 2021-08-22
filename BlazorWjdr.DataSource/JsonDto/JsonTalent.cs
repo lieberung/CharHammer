@@ -12,6 +12,8 @@
         public string resume { get; set; } = null!;
         public string description { get; set; } = null!;
         public string? spe { get; set; }
+        public string? max { get; set; }
+        public string? tests { get; set; }
     }
 
     public class RootTalent
