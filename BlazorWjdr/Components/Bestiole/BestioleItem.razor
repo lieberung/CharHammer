@@ -6,7 +6,7 @@
     {
         <span>, @Item.CarriereActuelle?.Nom</span>
     }
-    <strong class="ml-2">@(Item.Sexe == 0 ? Item.Race.NomMasculin : Item.Race.NomFeminin)</strong>
+    <strong class="ml-2">@(Item.Sexe == 1 ? Item.Race.NomMasculin : Item.Race.NomFeminin)</strong>
     @if (!string.IsNullOrWhiteSpace(Item.Joueur))
     {
         <em class="ml-2">(@Item.Joueur)</em>

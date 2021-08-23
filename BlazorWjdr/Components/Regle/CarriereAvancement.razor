@@ -1,0 +1,12 @@
+﻿@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Models
+
+<Tooltip Text="@_toolTip">
+    <strong>Avancement</strong> de <CarriereItem Item="@Carriere" HideIndicatorBase="@true" HideIndicatorRestriction="@true" Special="@true"/>
+</Tooltip>
+@code{
+    [Parameter]
+    public CarriereDto Carriere { get; set; } = null!;
+
+    private string _toolTip = "Techniquement ou philosophiquement, il s'agit toujours de la même carrière, mais à un grade ou niveau d'investissement plus poussé.\nEn conséquence, toutes les compétences et talent de la carrière d'origine sont accessibles depuis cette carrière, et peuvent donc être acheté une nouvelle fois. Il n'est cependant pas nécessaire de les acheter pour que la carrière actuelle soit considérée comme complétée.";
+}

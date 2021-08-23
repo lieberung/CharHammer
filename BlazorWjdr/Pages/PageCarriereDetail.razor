@@ -3,6 +3,7 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Trait
 
 <MainTopRow/>
 
@@ -40,6 +41,14 @@
                         <TalentItemList Items="@Carriere.Talents.ToArray()" ItemsChoix="@Carriere.ChoixTalents.ToArray()"/>
                     </p>
 
+                    @if (Carriere.Traits.Any())
+                    {
+                        <h5 class="card-title">Traits</h5>
+                        <p class="card-text">
+                            <TraitItemList Items="@Carriere.Traits.ToArray()"/>
+                        </p>
+                    }
+
                     <h5 class="card-title">Dotations</h5>
                     <p class="card-text">
                         <CarriereDotations Item="@Carriere"/>
@@ -49,14 +58,16 @@
                 <div class="card-body mt-2">
                     <h5 class="card-title">Débouchés</h5>
                     <p class="card-text">
-                        <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
+                        <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false" 
+                                          SpecialCarriereId="@Carriere.Debouches.Where(d => d.Avancement == Carriere).Select(d => d.Id).ToArray()"/>
                     </p>
 
                     <h5 class="card-title">Filières</h5>
                     <p class="card-text">
                         @if (Carriere.Filieres.Any())
                         {
-                            <CarriereItemList Items="@Carriere.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"/>
+                            <CarriereItemList Items="@Carriere.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"
+                                              SpecialCarriereId="@(Carriere.Avancement != null ? new [] { Carriere.Avancement.Id } : Array.Empty<int>())"/>
                         }
                         @if (Carriere.EstUneCarriereAvancee == false)
                         {

@@ -7,6 +7,7 @@
         public int id { get; set; }
         public string nom { get; set; } = null!;
         public int? parent { get; set; }
+        public int? avancement { get; set; }
         public bool avancee { get; set; }
         public int plan { get; set; }
         public int[]? debouch { get; set; }
@@ -14,6 +15,7 @@
         public int[][]? competenceschoix { get; set; }
         public int[]? talents { get; set; }
         public int[][]? talentschoix { get; set; }
+        public int[]? traits { get; set; }
         public string? groupe { get; set; }
         public int? source_livre { get; set; }
         public string? source_page { get; set; }

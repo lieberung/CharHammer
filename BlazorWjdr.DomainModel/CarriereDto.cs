@@ -20,17 +20,21 @@ namespace BlazorWjdr.Models
         public int[] DebouchesIds { get; init; } = null!;
         public string Dotations { get; init; } = null!;
         public int? CarriereMereId { get; init; }
+        public int? AvancementId { get; init; }
 
         public string[] Images { get; set; } = Array.Empty<string>();
 
         public ProfilDto PlanDeCarriere { get; init; } = null!;
-        
+        public CarriereDto? Avancement { get; set; }
+
         public List<TalentDto> Talents { get; init; } = null!;
         public List<CompetenceDto> Competences { get; init; } = null!;
 
         public List<TalentDto[]> ChoixTalents { get; init; } = null!;
         public List<CompetenceDto[]> ChoixCompetences { get; init; } = null!;
 
+        public List<TraitDto> Traits { get; init; } = null!;
+        
         public CarriereDto? Parent { get; set; }
         public List<CarriereDto> Debouches = new();
         public List<CarriereDto> Filieres = new();

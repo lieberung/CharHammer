@@ -1,12 +1,15 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Components.Reference
-
-@if (Item.SourceLivre != null || !string.IsNullOrWhiteSpace(Item.Source))
-{
-    <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
-}
+@using BlazorWjdr.Components.Regle
 
 <img class="career-img" src="..@Item.Image" alt="@Item.Nom" style="max-width: 300px; max-height: 450px;"/>
+
+@if (Item.Avancement != null)
+{
+    <p class="card-text">
+        <CarriereAvancement Carriere="@Item.Avancement"/>
+    </p>
+}
 
 @foreach (var paragraphe in _paragraphes)
 {
@@ -18,7 +21,10 @@
 {
     <CarriereCitations Items="@Item.Ambiance"/>
 }
-
+@if (Item.SourceLivre != null || !string.IsNullOrWhiteSpace(Item.Source))
+{
+    <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
+}
 @code{
     [Parameter]
     public CarriereDto Item { get; set; } = null!;

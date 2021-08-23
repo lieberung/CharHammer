@@ -153,7 +153,7 @@
       ]
     },
     {"id":20,"titre":"Coût d'amélioration d'une caractéristique",
-      "description": "",
+      "description": "Si la promotion n'est pas comprise dans votre profil de carrière, le coup en xp est doublé.",
       "lignes":[
         ["Promotion","Caractéristique"],
         ["+5%","50 xp"],
@@ -171,9 +171,10 @@
       "lignes":[
         ["","Coût",""],
         ["Acheter une compétence","De base","Avancée"],
-        ["- 1ère fois (acquise)","75 xp","100 xp"],
+        ["- 1ère fois (+5%)","75 xp","100 xp"],
         ["- 2nd fois (+10%)","100 xp","150 xp"],
-        ["- 3ème fois (+20%)","150 xp","200 xp"],
+        ["- 3ème fois (+15%)","150 xp","200 xp"],
+        ["- 4ème fois (+20%)","200 xp","250 xp"],
         ["Acheter un talent","",""],
         ["- 1ère fois (niveau 1)","100 xp",""],
         ["- Nième fois (niveau N)","N x 75 xp",""],

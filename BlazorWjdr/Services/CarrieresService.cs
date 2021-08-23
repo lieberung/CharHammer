@@ -6,7 +6,6 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
 
     public class CarrieresService
     {
@@ -16,15 +15,18 @@
         private readonly ProfilsService _profilsService;
         private readonly CompetencesEtTalentsService _competencesEtTalentsService;
         private readonly ReferencesService _referencesService;
+        private readonly TraitsService _traitsService;
 
         public CarrieresService(
             ProfilsService profilsService,
             CompetencesEtTalentsService competencesEtTalentsService,
-            ReferencesService referencesService)
+            ReferencesService referencesService,
+            TraitsService traitsService)
         {
             _profilsService = profilsService;
             _competencesEtTalentsService = competencesEtTalentsService;
             _referencesService = referencesService;
+            _traitsService = traitsService;
         }
 
         private List<CarriereDto> AllCarrieres
@@ -72,183 +74,6 @@
 
         private void Initialize()
         {
-            var toto = DataSource.JsonLoader.GetRootCarriere().items;
-            foreach (var carr in toto)
-            {
-                if (carr.competences == null || carr.talents == null)
-                    continue;
-                if (carr.talents.Contains(153))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(601);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(153);
-                    carr.talents = lst.ToArray();
-                }
-                if (carr.talents.Contains(152))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(602);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(152);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(189))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(603);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(189);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(51))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(604);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(51);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(60))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(605);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(60);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(59))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(606);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(59);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(56))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(607);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(56);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(62))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(608);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(62);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(54))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(609);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(54);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(55))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(610);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(55);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(57))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(611);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(57);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(58))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(612);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(58);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(207))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(613);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(207);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(61))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(614);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(61);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(52))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(615);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(52);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(53))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(616);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(53);
-                    carr.talents = lst.ToArray();
-
-                }
-                if (carr.talents.Contains(208))
-                {
-                    var lst = new List<int>(carr.competences);
-                    lst.Add(617);
-                    carr.competences = lst.ToArray();
-                    lst = new List<int>(carr.talents);
-                    lst.Remove(208);
-                    carr.talents = lst.ToArray();
-                }
-            }
-
-            var tata = Newtonsoft.Json.JsonConvert.SerializeObject(toto);
-            
             _allCarrieres = DataSource.JsonLoader
                 .GetRootCarriere()
                 .items
@@ -257,6 +82,7 @@
                     Id = c.id,
                     Groupe = c.groupe ?? "",
                     Nom = c.nom,
+                    AvancementId = c.avancement,
                     MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
                     Description = c.description,
                     Ambiance = c.ambiance ?? Array.Empty<string>(),
@@ -280,7 +106,10 @@
                         : new List<CompetenceDto[]>(),
                     ChoixTalents = c.talentschoix != null
                         ? c.talentschoix.Select(choix => _competencesEtTalentsService.GetTalents(choix).ToArray()).ToList()
-                        : new List<TalentDto[]>()
+                        : new List<TalentDto[]>(),
+                    Traits = c.traits != null
+                        ? c.traits.Select(id => _traitsService.GetTrait(id)).ToList()
+                        : new List<TraitDto>(),
                 })
                 .OrderBy(t => t.Nom)
                 .ToList();
@@ -304,6 +133,9 @@
                 carriere.SousElements.AddRange(_allCarrieres
                     .Where(c => c.Parent == carriere)
                     .OrderBy(c => c.Nom));
+
+                if (carriere.AvancementId.HasValue)
+                    carriere.Avancement = _cacheCarrieres[carriere.AvancementId.Value];
 
                 carriere.ScoreAcademique = CalculScoreAcademique(carriere);
                 carriere.ScoreArcanique = CalculScoreArcanique(carriere);
