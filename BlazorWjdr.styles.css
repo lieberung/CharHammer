@@ -1,14 +1,14 @@
-/* _content/BlazorWjdr/Components/Regle/TraitsRaciauxHumains.razor.rz.scp.css */
+/* /Components/Regle/TraitsRaciauxHumains.razor.rz.scp.css */
 button[b-33fbycr4ot] {
     width:120px;
 }
 button.btn-sm[b-33fbycr4ot] {
     width:100px;
 }
-/* _content/BlazorWjdr/Pages/PageEquipementArmes.razor.rz.scp.css */
+/* /Pages/PageEquipementArmes.razor.rz.scp.css */
 .table tbody[b-yysym0f57h] { font-size: 14px; }
 [b-yysym0f57h] .btn.btn-item { font-size: 14px; }
-/* _content/BlazorWjdr/Shared/GalleryImage.razor.rz.scp.css */
+/* /Shared/GalleryImage.razor.rz.scp.css */
 .gallery[b-j8354ca0xp] {
     display: flex;
     padding: 2px;
@@ -56,7 +56,7 @@ button.btn-sm[b-33fbycr4ot] {
     background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255, 255, 0) 100%);
     transition: .3s;
 }
-/* _content/BlazorWjdr/Shared/MainLayout.razor.rz.scp.css */
+/* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-ptappyth0t] {
     position: relative;
     display: flex;
@@ -88,7 +88,7 @@ button.btn-sm[b-33fbycr4ot] {
         padding-right: 1.5rem !important;
     }
 }
-/* _content/BlazorWjdr/Shared/MainTopRow.razor.rz.scp.css */
+/* /Shared/MainTopRow.razor.rz.scp.css */
 .top-row[b-krtw6lgy92] {
     background-color: #cf8d42;
     border-bottom: 1px solid #dbcfc8;
@@ -106,7 +106,7 @@ button.btn-sm[b-33fbycr4ot] {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-/* _content/BlazorWjdr/Shared/NavMenu.razor.rz.scp.css */
+/* /Shared/NavMenu.razor.rz.scp.css */
 .navbar-toggler[b-8z4xj9u50d] {
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -130,7 +130,7 @@ button.btn-sm[b-33fbycr4ot] {
         display: block;
     }
 }
-/* _content/BlazorWjdr/Shared/NavMenuItem.razor.rz.scp.css */
+/* /Shared/NavMenuItem.razor.rz.scp.css */
 .oi[b-jgtm1nbo5r] {
     width: 2rem;
     font-size: 1.1rem;
@@ -169,8 +169,8 @@ button.btn-sm[b-33fbycr4ot] {
     background-color: rgba(255,255,255,0.1);
     color: white;
 }
-/* _content/BlazorWjdr/Shared/PageSectionRowTitle.razor.rz.scp.css */
-/* _content/BlazorWjdr/Shared/Tooltip.razor.rz.scp.css */
+/* /Shared/PageSectionRowTitle.razor.rz.scp.css */
+/* /Shared/Tooltip.razor.rz.scp.css */
 .tooltip-wrapper[b-n0eqg1tdss] {
     position: relative;
     display: inline-block;
@@ -207,7 +207,7 @@ span[b-n0eqg1tdss]::after {
 .tooltip-wrapper:hover span[b-n0eqg1tdss] {
     visibility: visible;
 }
-/* _content/BlazorWjdr/Shared/TooltipImage.razor.rz.scp.css */
+/* /Shared/TooltipImage.razor.rz.scp.css */
 .tooltip-wrapper[b-0uhmj2bgg2] {
     position: relative;
     display: inline-block;

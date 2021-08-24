@@ -1,0 +1,497 @@
+﻿{
+  "items": [
+     {"id":10,"titre":"Déterminer votre race",
+      "description": "",
+      "lignes":[
+        ["d100","Proba.","Race"  ,"Choisir"],
+        ["01-89","89%","Humain"       ,"50 xp"],
+        ["90-93","4%" ,"Halfling"     ,"100 xp"],
+        ["94-97","4%" ,"Nain"         ,"100 xp"],
+        ["98"   ,"1%" ,"Gnôme"        ,"200 xp"],
+        ["99"   ,"1%" ,"Elfe sylvain" ,"200 xp"],
+        ["100"  ,"1%" ,"Mutant"       ,"NA"]
+      ]
+    },
+    {"id":11,"titre":"Détermination des caractéristiques",
+      "description": "",
+      "lignes":[
+        ["Caractéristique"          ,"Elfe"   ,"Gnôme"  ,"Halfling","Humain" ,"Nain"],
+        ["CC - Capacité de Combat"  ,"20+2d10","20+2d10","10+2d10" ,"20+2d10","30+2d10"],
+        ["CT - Capacité de Tir"     ,"30+2d10","21+2d10","30+2d10" ,"20+2d10","20+2d10"],
+        ["F  - Force"               ,"20+2d10","21+2d10","10+2d10" ,"20+2d10","20+2d10"],
+        ["E  - Endurance"           ,"20+2d10","15+2d10","10+2d10" ,"20+2d10","30+2d10"],
+        ["I - Initiative"           ,"40+2d10","30+2d10","20+2d10" ,"20+2d10","20+2d10"],
+        ["Ag - Agilité"             ,"30+2d10","30+2d10","30+2d10" ,"20+2d10","10+2d10"],
+        ["Dex - Dexterité"          ,"30+2d10","30+2d10","30+2d10" ,"20+2d10","30+2d10"],
+        ["Int - Intelligence"       ,"20+2d10","20+2d10","20+2d10" ,"20+2d10","20+2d10"],
+        ["FM - Force Mentale"       ,"20+2d10","40+2d10","20+2d10" ,"20+2d10","20+2d10"],
+        ["Soc - Sociabilité"        ,"20+2d10","15+2d10","30+2d10" ,"20+2d10","10+2d10"],
+        ["B - Points de Blessures","BF+(2xBE)+BFM","(2xBE)+BFM","(2xBE)+BFM","BF+(2xBE)+BFM","BF+(2xBE)+BFM"],
+        ["M - Mouvement","5","3","4","4","3"]
+      ]
+    },
+    {"id":12,"titre":"Points de Blessures de départ",
+      "description": "Régles de la v2 - référez-vous au tableau des caractéristiques pour les règles de la v4.",
+      "lignes":[
+        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
+        ["1-3","9","8","8","10","11"],
+        ["4-6","10","9","9","11","12"],
+        ["7-9","11","10","10","12","13"],
+        ["10","12","11","11","13","14"]
+      ]
+    },
+    {"id":13,"titre":"Points de Destin de départ",
+      "description": "Le meneur de jeu peut décider de faire ce jet pour vous et de garder le résultat secret, auquel cas les Points de Fortune sont basés sur une valeur fixe en fonction de votre race.\nSi vous êtes un mutant, faite un jet pour votre race et soustrayez 1 (1 minimum).",
+      "lignes":[
+        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
+        ["1-4","1","2","2","2","1"],
+        ["5-7","2","3","2","3","2"],
+        ["8-10","2","3","3","3","3"]
+      ]
+    },
+    {"id":14,"titre":"Age, poids et taille",
+      "description": "Choisissez ou déterminez aléatoirement en utilisant la table.",
+      "lignes":[
+        [""                 ,"Elfe"         ,"Gnôme"        ,"Halfling"     ,"Humain"       ,"Nain"],
+        ["Espérance de vie" ,"~ 1000 ans"   ,"~ 300 ans"    ,"~ 120 ans"    ,"~ 60 ans"     ,"~ 200 ans"],
+        ["Age"              ,"30+10d10"     ,"30+5d10"      ,"25+7d6"       ,"13+3d10"      ,"35+5d10"],
+        ["Poids"            ,"30+5d10"      ,"30+5d10"      ,"25+7d6"       ,"40+6d10"      ,"35+5d10"],
+        ["Taille (femme)"   ,"1m50+3d10cm"  ,"1m10+3d10cm"  ,"0m91+3d10cm"  ,"1m50+3d10cm"  ,"1m21+3d10cm"],
+        ["Taille (homme)"   ,"1m50+3d10cm"  ,"1m15+3d10cm"  ,"0m96+3d10cm"  ,"1m60+3d10cm"  ,"1m26+3d10cm"]
+      ]
+    },
+    {"id":15,"titre":"Couleur des cheveux et des yeux (Elfes)",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux"      ,"Yeux"      ],
+        ["2"         ,"Argenté"      ,"Ivoire"    ],
+        ["3"         ,"Blond cendré" ,"Fusain"    ],
+        ["4"         ,"Paille"       ,"Emeraude"  ],
+        ["5-7"       ,"Blond"        ,"Vert"      ],
+        ["8-11"      ,"Châtain clair","Châtain"   ],
+        ["12-14"     ,"Chataîn"      ,"Châtain"   ],
+        ["15-17"     ,"Auburn"       ,"Brun"      ],
+        ["18"        ,"Brun"         ,"Brun roux" ],
+        ["19"        ,"Noir"         ,"Brun clair"],
+        ["20"        ,"Gris"         ,"Violet"    ]
+      ]
+    },
+    {"id":16,"titre":"Couleur des cheveux et des yeux (Gnômes) [Alpha]",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux"      ,"Yeux"      ],
+        ["2"         ,"Argenté"      ,"Ivoire"    ],
+        ["3"         ,"Blond cendré" ,"Fusain"    ],
+        ["4"         ,"Paille"       ,"Emeraude"  ],
+        ["5-7"       ,"Blond"        ,"Vert"      ],
+        ["8-11"      ,"Châtain clair","Châtain"   ],
+        ["12-14"     ,"Chataîn"      ,"Châtain"   ],
+        ["15-17"     ,"Auburn"       ,"Brun"      ],
+        ["18"        ,"Brun"         ,"Brun roux" ],
+        ["19"        ,"Noir"         ,"Brun clair"],
+        ["20"        ,"Gris"         ,"Violet"    ]
+      ]
+    },
+    {"id":17,"titre":"Couleur des cheveux et des yeux (Halflings)",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux"      ,"Yeux"],
+        ["2"         ,"Gris"         ,"Gris clair"],
+        ["3"         ,"Auburn"       ,"Gris"],
+        ["4"         ,"Roux"         ,"Bleu pâle"],
+        ["5-7"       ,"Blond"        ,"Bleu"],
+        ["8-11"      ,"Blond"        ,"Vert"],
+        ["12-14"     ,"Châtain clair","Noisette"],
+        ["15-17"     ,"Châtain"      ,"Marron"],
+        ["18"        ,"Brun"         ,"Cuivre"],
+        ["19"        ,"Noir"         ,"Marron"],
+        ["20"        ,"Noir"         ,"Marron"]
+      ]
+    },
+    {"id":18,"titre":"Couleur des cheveux et des yeux (Reiklanders)",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux"      ,"Yeux"],
+        ["2"         ,"Gris clair"   ,"Blond cendré"],
+        ["3"         ,"Gris"         ,"Paille"],
+        ["4"         ,"Auburn"       ,"Bleu clair"],
+        ["5-7"       ,"Brun"         ,"Bleu"],
+        ["8-11"      ,"Châtain"      ,"Gris pâle"],
+        ["12-14"     ,"Châtain"      ,"Gris"],
+        ["15-17"     ,"Châtain clair","Marron"],
+        ["18"        ,"Roux"         ,"Noisette"],
+        ["19"        ,"Brun"         ,"Marron"],
+        ["20"        ,"Noir"         ,"Noir"]
+      ]
+    },
+    {"id":19,"titre":"Couleur des cheveux et des yeux (Nains)",
+      "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
+      "lignes":[
+        ["d10"      ,"Cheveux" ,"Yeux"],
+        ["2"         ,"Blanc"   ,"Charbon"],
+        ["3"         ,"Gris"    ,"Plomb"],
+        ["4"         ,"Blond cendré","Acier"],
+        ["5-7"       ,"Doré"    ,"Bleu"],
+        ["8-11"      ,"Cuivré"  ,"Marron terre"],
+        ["12-14"     ,"Bronze"  ,"Brun"],
+        ["15-17"     ,"Châtain" ,"Noisette"],
+        ["18"        ,"Brun"    ,"Vert"],
+        ["19"        ,"Auburn"  ,"Cuivre"],
+        ["20"        ,"Noir"    ,"Or"]
+      ]
+    },
+    {"id":22,"titre":"Frères et soeurs",
+      "description": "Choisissez ou déterminez aléatoirement en faisant un jet.",
+      "lignes":[
+        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
+        ["1"  ,"0","0","1","0","0"],
+        ["2-3","1","0","2","1","0"],
+        ["4-5","1","0","3","2","1"],
+        ["6-7","2","1","4","3","1"],
+        ["8-9","2","1","5","4","2"],
+        ["10" ,"3","2","6","5","3"]
+      ]
+    },
+    {"id":20,"titre":"Coût d'amélioration d'une caractéristique",
+      "description": "Si la promotion n'est pas comprise dans votre profil de carrière, le coup en xp est doublé.",
+      "lignes":[
+        ["Promotion","Caractéristique"],
+        ["+5%","50 xp"],
+        ["+10%","100 xp"],
+        ["+15%","150 xp"],
+        ["+20%","200 xp"],
+        ["+25%","250 xp"],
+        ["+30%","300 xp"],
+        ["+35%","350 xp"],
+        ["+40%","400 xp"]
+      ]
+    },
+    {"id":21,"titre":"Dépenser ses XP (points d'expérience)",
+      "description": "",
+      "lignes":[
+        ["","Coût",""],
+        ["Acheter une compétence","De base","Avancée"],
+        ["- 1ère fois (+5%)","75 xp","100 xp"],
+        ["- 2nd fois (+10%)","100 xp","150 xp"],
+        ["- 3ème fois (+15%)","150 xp","200 xp"],
+        ["- 4ème fois (+20%)","200 xp","250 xp"],
+        ["Acheter un talent","",""],
+        ["- 1ère fois (niveau 1)","100 xp",""],
+        ["- Nième fois (niveau N)","N x 75 xp",""],
+        ["Acheter un talent ou une compétence...","",""],
+        ["- via le 2ème choix dans une carrière","+50 xp",""],
+        ["- via un instructeur ou une formation","+100 xp","Accord du MJ requis"],
+        ["Choisir une nouvelle carrière de base","200 xp","100 xp si carrière actuelle complétée"],
+        ["Choisir une carrière parmi ses débouchés","100 xp","gratuit si carrière actuelle complétée"]
+      ]
+    },
+    {"id":25,"titre":"Lieu de naissance (Elfes)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-20","Cité d'Altdorf"],
+        ["21-40","Cité de Marienburg"],
+        ["41-70","Forêt de Laurelorn"],
+        ["71-85","Grande Forêt"],
+        ["86-00","Forêt de Raikwald"]
+      ]
+    },
+    {"id":26,"titre":"Lieu de naissance (Gnômes)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-00","Retirez sur la table des humains (Empire)"]
+      ]
+    },
+    {"id":27,"titre":"Lieu de naissance (Halfelings)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-50","Le Moot"],
+        ["51-00","Retirez sur la table des humains (Empire)"]
+      ]
+    },
+    {"id":28,"titre":"Lieu de naissance (Humains de l'Empire)",
+      "description": "Si vos jets vous donnent un résultat vraiment incohérent (ex : un noble dans un taudis), retirez ou montrez-vous inventif dans le développement de votre histoire.",
+      "lignes":[
+        ["d10","Province","d10","Environnement"],
+        ["1","Averland","1","Cité"],
+        ["2","Hochland","2","Ville prospère"],
+        ["3","Middenland","3","Bourg"],
+        ["4","Nordland","4","Ville fortifiée"],
+        ["5","Ostermark","5","Village agricole"],
+        ["6","Ostland","6","Village pauvre"],
+        ["7","Reikland","7","Petite communauté"],
+        ["8","Stirland","8","Ferme (élevage)"],
+        ["9","Talabecland","9","Ferme (culture)"],
+        ["10","Wissenland","10","Taudis"]
+        
+      ]
+    },
+    {"id":29,"titre":"Lieu de naissance (Nains)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-30","Retirez sur la table des humains (Empire)"],
+        ["31-40","Karak Norn (Montagnes Grises)"],
+        ["41-50","Karak Izor (la Voûte)"],
+        ["51-60","Karak Hirn (Montagnes Noires)"],
+        ["61-70","Karak Kadrin (Montagnes du Bord du Monde)"],
+        ["71-80","Karak-a-Karak Norn (Montagnes du Bord du Monde)"],
+        ["81-90","Zhufbar (Montagnes du Bord du Monde)"],
+        ["91-00","Barak Var (Golfe Noir)"]
+        
+      ]
+    },
+    {"id":50,"titre":"Marchand : Traits aléatoires",
+      "description": "",
+      "lignes":[
+        ["1d10","Trait","Effet"],
+        ["1","Bureaucrate","ce marchand s'assure que ses transactions s'accompagnent de tous les actes et documents légaux, en triple exemplaire si nécessaire. Chaque transaction demande donc 1d10 jours."],
+        ["2","D'une honnêteté scrupuleuse","le marchand fait toujours de justes propositions d'achat et de vente, si bien qu'aucun test d'Évaluation n'est nécessaire. En revanche, il refuse de marchander."],
+        ["3","Profondément pieux","le marchand appartient à une société secrète de Händrich ou de Ranald le Bonimenteur (cf. Le compagnon p.32 pour plus de détails sur l'influence que cela peut avoir sur les transactions)."],
+        ["4","Habile","le marchand à la compétence Marchandage +10%."],
+        ["5","Cupide","le marchand sous-estime toujours la valeur des biens des P) tout en gonflant celle de ses propres articles. Des tests d'Évaluation sont nécessaires pour réaliser des alfaires honnêtes."],
+        ["6","Entrepreneur","le marchand accepte aussi de prêter de l'argent aux habitants de la ville ou fait le commerce de produits locaux pour arrondir ses fins de mois."],
+        ["7","Relations criminelles","le marchand est impliqué dans le commerce de biens illicites, si bien qu'il est possible de lui demander d'en rechercher. Lorsqu'il s'agit de déterminer la disponibilité de biens illicites, les joueurs bénéficient d'un bonus de +10%."],
+        ["8","Grand voyageur","le marchand a des contacts dans remouille de l'Empire et les personnages joueurs qui ont affaire à lui ont droit à un jet de spéculation (cf Le compagnon p.31)."],
+        ["9","Charlatan","le marchand est un charlatan. S'il en a l'occasion il n'hésitera pas à vendre des caisses vides ou à filer avec la marchandise des sans les payer. Des tests d'Évaluation sont nécessaires pour réaliser des affaires hommes."],
+        ["10","Bourré d'oseille","le marchand est en mesure d'acheter bien plus que tous ses concurrents. Les joueurs pourront lui vendre toutes leurs UC en réussissant un test de demande, quelle que soit la quantité indiquée par les dés."]
+      ]
+    },
+    {"id":51,"titre":"Les avantages - perte et gain",
+      "description": "",
+      "lignes":[
+        ["Condition","Conséquence"],
+        ["Vous êtes affublé d'une Condition","Perte de tous les Avantages"]
+      ]
+    },
+    {"id":52,"titre":"Tir - Taille de la cible",
+      "description": "Size is an important factor when shooting at a target: it is far easier to hit a barn door than an apple. For more on Size, refer to Traits in Chapter 12: Bestiary. If this modifier allows you to hit when the Test would otherwise have failed, you succeed with +0 SL.",
+      "lignes":[
+        ["Taille","Hauteur/Longueur","Exemples","Modificateur"],
+        ["Tiny","Less than a foot","Butterfly, Mouse, Pigeon","–30"],
+        ["Little","Up to 2 feet","Cat, Hawk, Human Baby","–20"],
+        ["Small","Up to 4 feet","Giant Rat, Halfling, Human Child","–10"],
+        ["Average","Up to 7 feet","Dwarf, Elf, Human","0"],
+        ["Large","Up to 12 feet","Horse, Ogre, Troll","+20"],
+        ["Enormous","Up to 20 feet","Griffon, Wyvern, Manticore","+40"],
+        ["Monstrous","20 feet+","Dragon, Giant, Daemon Prince","+60"]      ]
+    },
+    {"id":53,"titre":"Echecs critiques (combat)",
+      "description": "Tout test de combat échoué qui est aussi un multiple de 11 est un échec critique, qui se traduit par un jet sur cette table.",
+      "styles_th":["width:55px;"],
+      "lignes":[
+        ["d100","Résultat"],
+        ["01–20","You catch a part of your anatomy (we recommend you play this for laughs) — lose 1 Wound, ignoring Toughness Bonus or Armour Points."],
+        ["21–40","Your melee weapon jars badly, or ranged weapon malfunctions or slightly breaks – your weapon suffers 1 Damage. Next round, you will act last regardless of Initiative order, Talents, or special rules as you recover (see page 156)."],
+        ["41–60","Your manoeuvre was misjudged, leaving you out of position, or you lose grip of a ranged weapon. Next round, your Action suffers a penalty of –10."],
+        ["61–70","You stumble badly, finding it hard to right yourself. Lose your next Move."],
+        ["71–80","You mishandle your weapon, or you drop your ammunition. Miss your next Action."],
+        ["81–90","You overextend yourself or stumble and twist your ankle. Suffer a Torn Muscle (Minor) injury (see page 179). This counts as a Critical Wound."],
+        ["91–00","You completely mess up, hitting 1 random ally in range using your rolled units die to determine the SL of the hit. If that’s not possible, you somehow hit yourself in the face and gain a Stunned Condition (see page 169)."]      ]
+    },
+    {"id":60,"titre":"Coups critiques (Tête)",
+      "description": "",
+      "styles_th":["width:55px;","width:130px;","",""],
+      "styles_td":["","","text-align:center;",""],
+      "lignes":[
+        ["d100","Description","Blessures","Effets supplémentaires"],
+        ["01–10","Dramatic Injury","1","A fine wound across the forehead and cheek. Subissez 1 Condition Saignement. Once the wound is healed, the impressive scar it leaves provides a bonus of +1 SL to appropriate social Tests. You can only gain this benefit once."],
+        ["11–20","Minor Cut","1","The strike opens your cheek and blood flies. Subissez 1 Condition Saignement."],
+        ["21–25","Poked Eye","1","The blow glances across your eye socket. Gain 1 Blinded condition."],
+        ["26–30","Ear Bash","1","After a sickening impact, your ear is left ringing. Gain 1 Deafened Condition."],
+        ["31–35","Rattling Blow","2","The blow floods your vision with flashing lights. Gain 1 Stunned Condition."],
+        ["36–40","Black Eye","2","A solid blow hits your eye, leaving tears and pain. Gain 2 Blinded Conditions."],
+        ["41–45","Sliced Ear","2","Your side of your head takes a hard blow, cutting deep into your ear. Gain 2 Deafened and 1 Bleeding Condition."],
+        ["46–50","Struck Forehead","2","A solid blow hits your forehead. Subissez 2 Conditions Saignement and a Blinded Condition that cannot be removed until all Bleeding Conditions are removed."],
+        ["51–55","Fractured Jaw","3","With a sickening crunch, pain fills your face as the blow fractures your jaw. Gain 2 Stunned Conditions. Suffer a Broken Bone (Minor) injury."],
+        ["56–60","Major Eye Wound","3","The blow cracks across your eye socket. Subissez 1 Condition Saignement. Also gain 1 Blinded Condition that cannot be removed until you receive Medical Attention."],
+        ["61–65","Major Ear Wound","3","The blow strikes deep into one ear. Suffer a permanent –20 penalty on all Tests relating to hearing. If you suffer this result again, your hearing is permanently lost as the second ear falls quiet. Only magic can heal this."],
+        ["66–70","Broken Nose","3","A solid blow to the centre of your face causing blood to pour. Subissez 2 Conditions Saignement. Make a Challenging (+0) Endurance Test, or also gain a Stunned Condition. After this wound has healed, gain +1/–1 SL on social rolls, depending on context, unless Surgery is used to reset the nose."],
+        ["71–75","Broken Jaw","4","The crack is sickening as the blow hits you under the chin, breaking your jaw. Gain 3 Stunned Conditions. Make a Challenging (+0) Endurance Test or gain an Unconscious Condition. Suffer a Broken Bone (Major) injury."],
+        ["76–80","Concussive Blow","4","Your brain rattles in your skull as blood spurts from your nose and ears. Take 1 Deafened, 2 Bleeding, and 1d10 Stunned Conditions. Gain a Fatigued Condition that lasts for 1d10 days. If you receive another Critical Wound to your head while suffering this Fatigued Condition, make an Average (+20) Endurance Test or also gain an Unconscious Condition."],
+        ["81–85","Smashed Mouth","4","With a sickening crunch, your mouth is suddenly filled with broken teeth and blood. Subissez 2 Conditions Saignement. Lose 1d10 teeth — Amputation (Easy)."],
+        ["86–90","Mangled Ear","4","Little is left of your ear as the blow tears it apart. You gain 3 Deafened and 2 Bleeding Conditions. Lose your ear —Amputation (Average)."],
+        ["91–93","Devastated Eye","5","A strike to your eye completely bursts it, causing extraordinary pain. Gain 3 Blinded, 2 Bleeding, and 1 Stunned Condition. Lose your eye — Amputation (Difficult)."],
+        ["94–96","Disfiguring Blow","5","The blow smashes your entire face, destroying your eye and nose in a cloud of blood. Gain 3 Bleeding, 3 Blinded and 2 Stunned Conditions. Lose your eye and nose — Amputation (Hard)."],
+        ["97–99","Mangled Jaw","5","The blow almost removes your jaw as it utterly destroys your tongue, sending teeth flying in a shower of blood. Gain 4 Bleeding and 3 Stunned Conditions. Make a Very Hard (–30) Endurance Test or gain an Unconscious Condition. Suffer a Broken Bone (Major) injury and lose your tongue and 1d10 teeth — Amputation (Hard)."],
+        ["00","Decapitated","Mort","Your head is entirely severed from your neck and soars through the air, landing 1d4 mètres away in a random direction (see Scatter). Your body collapses, instantly dead."]
+      ]
+    },
+    {"id":61,"titre":"Coups critiques (Bras)",
+      "description": "",
+      "styles_th":["width:55px;","width:130px;","",""],
+      "styles_td":["","","text-align:center;",""],
+      "lignes":[
+        ["d100","Description","Blessures","Effets supplémentaires"],
+        ["01–10","Jarred Arm","1","Your arm is jarred in the attack. Drop whatever was held in that hand."],
+        ["11–20","Minor cut","1","Subissez une Condition Saignement as your upper arm is cut badly."],
+        ["21–25","Sprain","1","You sprain your arm, suffering a Torn Muscle (Minor) injury."],
+        ["26–30","Badly Jarred Arm","2","Your arm is badly jarred in the attack. Drop whatever was held in that hand, which is useless for 1d10 – Toughness Bonus Rounds (minimum 1). For this time, treat the hand as lost (see Amputated Parts)."],
+        ["31–35","Torn Muscles","2","The blow slams into your forearm. Subissez une Condition Saignement and a Torn Muscle (Minor) injury."],
+        ["36–40","Bleeding Hand","2","Your hand is cut badly, making your grip slippery. Take 1 Bleeding Condition. While suffering from that Bleeding Condition, make an Average (+20) Dexterity Test before taking any Action that requires something being held in that hand; if you fail, the item slips from your grip."],
+        ["41–45","Wrenched Arm","2","Your arm is almost pulled from its socket. Drop whatever is held in the associated hand; the arm is useless for 1d10 Rounds (see Amputated Parts)."],
+        ["46–50","Gaping Wound","3","The blow opens a deep, gaping wound. Subissez 2 Conditions Saignement. Until you receive Surgery to stitch up the cut, any associated Arm Damage you receive will also inflict 1 Bleeding Condition as the wound reopens."],
+        ["51–55","Clean Break","3","An audible crack resounds as the blow strikes your arm. Drop whatever was held in the associated hand and gain a Broken Bone (Minor) injury. Pass a Difficult (–10) Endurance Test or gain a Stunned Condition."],
+        ["56–60","Ruptured Ligament","3","You immediately drop whatever was held in that hand. Suffer a Torn Muscle (Major) injury."],
+        ["61–65","Deep Cut","3","Subissez 2 Conditions Saignement as your arm is mangled. Gain 1 Stunned Condition and suffer a Torn Muscle (Minor) injury. Take a Hard (–20) Endurance Test or gain the Unconscious Condition."],
+        ["66–70","Damaged Artery","4","Subissez 4 Conditions Saignement. Until you receive Surgery, every time you take Damage to this Arm Hit Location Subissez 2 Conditions Saignement."],
+        ["71–75","Crushed Elbow","4","The blow crushes your elbow, splintering bone and cartilage. You immediately drop whatever was held in that hand and gain a Broken Bone (Major) injury."],
+        ["76–80","Dislocated Shoulder","4","Your arm is wrenched out of its socket. Pass a Hard (–20) Endurance Test or gain the Stunned and Prone Condition. Drop whatever is held in that hand: the arm is useless and counts as lost (see Amputated Part). Gain 1 Stunned Condition until you receive Medical Attention. After this initial Medical Attention, an Extended Average (+20) Heal Test needing 6 SL is required to reset the arm, at which point you regain its use. Tests made using this arm suffer a –10 penalty for 1d10 days."],
+        ["81–85","Severed Finger","4","You gape in horror as a finger flies — Amputation (Average). Subissez une Condition Saignement."],
+        ["86–90","Cleft Hand","5","Your hand splays open from the blow. Lose 1 finger —Amputation (Difficult). Gain 2 Bleeding and 1 Stunned Condition.  For every succeeding Round in which you don't receive Medical Attention, you lose another finger as the wound tears; if you run out of fingers, you lose the hand — Amputation (Difficult)."],
+        ["91–93","Mauled Bicep","5","The blow almost separates bicep and tendon from bone, leaving an ugly wound that sprays blood over you and your opponent. You automatically drop anything held in the associated hand and suffers a Torn Muscle (Major) injury and 2 Bleeding and 1 Stunned Condition."],
+        ["94–96","Mangled Hand","5","Your hand is left a mauled, bleeding mess. You lose your hand —Amputation (Hard). Gain 2 Bleeding Condition. Take a Hard (–20) Endurance Test or gain the Stunned and Prone Conditions."],
+        ["97–99","Sliced Tendons","5","Your tendons are cut by the blow, leaving your arm hanging useless — Amputation (Very Hard). Gain 3 Bleeding, 1 Prone, and 1 Stunned Condition. Pass a Hard (–20) Endurance Test or gain the Unconscious Condition."],
+        ["00","Brutal Dismemberment","Mort","Your arm is severed, spraying arterial blood 1d10 feet in a random direction (see Scatter), before the blow follows through to your chest."]
+      ]
+    },
+    {"id":62,"titre":"Coups critiques (Torse)",
+      "description": "",
+      "styles_th":["width:55px;","width:130px;","",""],
+      "styles_td":["","","text-align:center;",""],
+      "lignes":[
+        ["Violence","Description","Blessures","Effets supplémentaires"],
+        ["03-","A peine une égratinure","1","Subissez 1 Condition Saignement."],
+        ["04","Dans le bide !","1","Subissez 1 Condition Etourdi. Réussisez un test de Résistance Facile (+40) ou vomissez et subissez la Condition A Terre."],
+        ["05","Dans les parties !","1","Réussisez un test de Résistance Difficile (-20), ou subissez 3 Conditions Etourdi."],
+        ["06","Dos tordu","1","Vous subissez une blessure Muscle froissé (Mineure)."],
+        ["07","Souffle coupé","2","Subissez 1 Condition Etourdi. Réussisez un test de Résistance Moyen (+20), ou subissez la Condition A Terre. Votre Mouvement est divisé par deux pour 1d10 rounds le temps que vous retrouviez votre souffle."],
+        ["08","Côtes meurtries","2","Tous vos tests basés sur l'Agilité subissent un malus de -10 pour 1d10 jours."],
+        ["09","Clavicule arclée","2","Sélectionnez un bras aléatoirement. Vous lâchez ce que vous teniez en main ; le bras est inutilisable pour 1d10 rounds (voir Membres amputés)."],
+        ["10","Déchiqueté","2","Subissez 2 Conditions Saignement."],
+        ["11","Côtes félées","3","Le coup vous brise une ou plusieurs côtes. Subissez une Condition Etourdi et une Blessure Os brisé (Mineure)."],
+        ["12","Blessure ouverte","3","Subissez 3 Conditions Saignement. Jusqu'à ce que vous receviez des soins, toute Blessure supplémentaire reçue au Torse vous inflige une Condition Saignement Supplémentaire car la plaie se réouvre."],
+        ["13","Painful Cut","3","Subissez 2 Conditions Saignement and 1 Condition Etourdi. Réussissez un test de Résistance Difficile (-20) ou subissez une Condition Inconscient à cause de la douleur. A moins que vous n'obteniez un BS de 4+, vous criez à l'agonie."],
+        ["14","Artère endomagée","3","Subissez 4 Conditions Saignement. Until you receive Surgery, every time you receive Damage to the Body Hit Location, Subissez 2 Conditions Saignement."],
+        ["15","Pulled Back","4","Une horrible douleur parcours votre dos alors qu'un de vos muscles se déchire. Subissez une Blessure Muscle froissé (Majeure)."],
+        ["16","Fractured Hip","4","Subissez 1 Condition Etourdi. Take a Challenging (+0) Endurance Test or also gain the Prone Condition. Suffer a Broken Bone (Minor) injury."],
+        ["17","Major Chest Wound","4","You take a significant wound to your chest, flensing skin from muscle and sinew. Take 4 Bleeding Conditions. Until you receive Surgery, to stitch the wound together, any Wounds you receive to the Body Hit Location will also inflict 2 Bleeding Conditions as the tears reopen."],
+        ["18","Gut Wound","4","Contract a Festering Wound (see Disease and Infection) and Subissez 2 Conditions Saignement."],
+        ["19","Smashed Rib Cage","5","Gain a Stunned Condition that can only be removed through Medical Attention, and suffer a Broken Bone (Major) injury."],
+        ["20","Broken Collar Bone","5","Gain the Unconscious Condition until you receive Medical Attention, and suffer a Broken Bone (Major) injury."],
+        ["21","Lésion interne","5","Subissez 1 Condition Saignement qui ne peut être stoppée que par des Soins. Contract Blood Rot (see Disease and Infection)."],
+        ["22+","Tranché","Mort","Vous êtes coupé en deux. La moitié supérieur tombe dans une direction aléatoire, et tous les personnages dans un rayon de 2 mètres sont éclaboussés par votre sang."]
+      ]
+    },
+    {"id":63,"titre":"Coups critiques (Jambe)",
+      "description": "",
+      "styles_th":["width:55px;","width:130px;","",""],
+      "styles_td":["","","text-align:center;",""],
+      "lignes":[
+        ["1d100","Description","Blessures","Effets supplémentaires"],
+        ["01–10","Stubbed Toe","1","In the scuffle, you stub your toe. Pass a Routine (+20) Endurance Test or suffer –10 on Agility Tests until the end of the next turn."],
+        ["11–20","Twisted Ankle","1","You go over your ankle, hurting it. Agility Tests suffer a –10  penalty for 1d10 rounds."],
+        ["21–25","Minor Cut","1","Subissez 1 Condition Saignement."],
+        ["26–30","Lost Footing","1","In the scuffle you lose your footing. Pass a Challenging (+0) Endurance Test or gain the Prone Condition."],
+        ["31–35","Thigh Strike","2","A painful blow slams into your upper thigh. Subissez une Condition Saignement and take an Average (+20) Endurance Test or stumble, gaining the Prone Condition."],
+        ["36–40","Sprained Ankle","2","You sprain your ankle, giving you a Torn Muscle (Minor) injury."],
+        ["41–45","Twisted Knee","2","You twist your knee too far. Agility Tests suffer a –20 penalty for 1d10 rounds."],
+        ["46–50","Badly Cut Toe","2","Subissez 1 Condition Saignement. After the encounter, make a Challenging (+0) Endurance Test. If you fail, lose 1 toe —Amputation (Average)."],
+        ["51–55","Bad Cut 3 Subissez 2 Conditions Saignement as a deep wound opens up your shin. Pass a Challenging (+0) Endurance Test or gain the Prone Condition."],
+        ["56–60","Badly Twisted Knee","3","You badly twist your knee trying to avoid your opponent. Gain a Torn Muscle (Major) injury."],
+        ["61–65 Hacked Leg 3 A cut bites down into the hip. Gain 1 Prone and 2 Bleeding Conditions, and suffer a Broken Bone (Minor) injury. Further, take a Hard (–20) Endurance Test or also gain a Stunned condition from the pain."],
+        ["66–70","Torn Thigh","3","Subissez 3 Conditions Saignement as the weapon opens up your upper thigh. Pass a Challenging (+0) Endurance Test or gain the Prone Condition. Until you receive Surgery to stitch up the wound, each time you receive Damage to this Leg, also receive 1 Bleeding Condition."],
+        ["71–75","Ruptured Tendon","4","Gain a Prone and Stunned Condition as one of your tendons tears badly. Pass a Hard (–20) Endurance Test or gain the Unconscious Condition. Your leg is useless (see Amputated Parts). Suffer a Torn Muscle (Major) injury."],
+        ["76–80","Carved Shin","4","The weapon drives clean through your leg by the knee, slicing into bone and through tendons. Gain a Stunned and Prone Condition. Further, suffer a Torn Muscle (Major) and Broken Bone (Minor) injury."],
+        ["81–85","Broken Knee","4","The blow hacks into your kneecap, shattering it into several pieces. You gain 1 Bleeding, 1 Prone, and 1 Stunned Condition, and a Broken Bone (Major) Injury as you fall to the ground, clutching your ruined leg."],
+        ["86–90","Dislocated Knee","4","Your knee is wrenched out of its socket. Gain the Prone Condition. Pass a Hard (–20) Endurance Test, or gain the Stunned Condition, which is not removed until you receive Medical Attention. After this initial Medical Attention, an Extended Average (+20) Heal Test needing 6 SL is required to reset the knee at which point you regain its use. Movement is halved, and Tests made using this leg suffer a –10 penalty for d10 days."],
+        ["91–93","Crushed Foot","5","The blow crushes your foot. Make an Average (+20) Endurance Test; if you fail, gain the Prone condition and lose 1 toe, plus 1 additional toe for each SL below 0 — Amputation (Average). Subissez 2 Conditions Saignement. If you don't receive Surgery within 1d10 days, you will lose the foot entirely."],
+        ["94–96","Severed Foot","5","Your foot is severed at the ankle and lands 1d10 feet away in a random direction — Amputation (Hard) (see Scatter). You gain 3 Bleeding, 2 Stunned, and 1 Prone Condition."],
+        ["97–99","Cut Tendon","5","A major tendon at the back of your leg is cut, causing you to scream out in pain as your leg collapses. Gain 2 Bleeding, 2 Stunned, and 1 Prone Condition and look on in horror as your leg never works again — Amputation (Very Hard)."],
+        ["00","Shattered Pelvis","Mort","The blow shatters your pelvis, severing one leg then driving through to the next. Vous mourrez instantanément sous la violence du coup."]      ]
+    },
+    {"id":64,"titre":"Localisation des coups (humanoïdes)",
+      "description": "Creatures with different body shapes may use different hit location tables.",
+      "styles_th":["width:55px;",""],
+      "styles_td":["text-align:center;",""],
+      "lignes":[
+        ["d100","Localisation"],
+        ["01-09","Tête"],
+        ["10-24","Bras gauche/secondaire"],
+        ["25-44","Bras droit/principal"],
+        ["45-79","Torse"],
+        ["80-89","Jambe gauche"],
+        ["90-00","Jambe droite"]
+      ]
+    },
+    {"id":65,"titre":"Combat - Action (A) et Déplacement (D)",
+      "description": "",
+      "lignes":[
+        ["Coût","Vous pouvez...","Effets"],
+        ["D","Vous déplacer","Distance maximum en fonction de votre caractéristique Mouvement."],
+        ["D+A","Sprinter","Vous pouvez utiliser votre Action en plus de votre Déplacement pour effectuer un test d'Athléthisme et dépasser la distance maximum."],
+        ["-","Retarder votre tour","Pour ce tour, vous pouvez retarder votre Tour de 10+2d10. Si aucun autre personnage ne joue entre-temps, vous jouerez après le prochain."],
+        ["A","Attaquer au contact","Un adversaire à portée de votre arme si vous êtes engagé, de charge sinon."],
+        ["D","Viser avec concentration","Si vous enchaîner une attaque à distance, vous bénéficiez d'un bonus de +10 pour toucher (+20 avec le talent Coups au but)."],
+        ["A","Attaquer à distance","Un adversaire à portée de vue et de votre arme, et si votre arme est chargée, sans quoi vous devrez la recharger."],
+        ["A","Prendre une posture défensive","Se préparer à esquiver ou parer, tenir une position défensive, or use language magick to deploy an array of dispels. Choisissez une compétence Défensive pour laquelle vous bénéficierez de +20 aux tests défensifs jusqu'au début de votre prochain Tour."],
+        ["A","Utiliser une compétence","Voir la liste des compétences Offensives"],
+        ["A","Fouiller votre sac","Si vous n'êtes pas engagé, vous pouvez extirper un objet de votre sac. Le MJ peut exiger un jet de Dextérité ou d'Initiative pour déterminer si le personnage pourra faire d'autres petites actions."],
+        ["-","Ne rien faire","...et attendre le Round suivant."]
+      ]
+    },
+    {"id":66,"titre":"Gabarit",
+      "description": "",
+      "lignes":[
+        ["Gabarits","Exemples","Blessures"],
+        ["Minuscule","Papillon, Souris, Pigeon","1"],
+        ["Tout petit","Chat, Faucon, Bébé humain","BE"],
+        ["Petit","Rat géant, Halfling, Enfant humain","(2 x BE) + BFM"],
+        ["Moyen","Elfe, Humain, Nain","BF + (2 x BE) + BFM"],
+        ["Large","Cheval, Ogre, Troll","2 x (BF + (2 x BE) + BFM)"],
+        ["Enorme","Griffon, Wyverne, Manticore","4 x (BF + (2 x BE) + BFM)"],
+        ["Monstrueux","Dragon, Géant, Démon majeur","8 x (BF + (2 x BE) + BFM)"]
+      ]
+    },
+    {"id":67,"titre":"Mouvement et distances",
+      "description": "Indique combien de mètres vous pouvez parcourir en un seul Tour, sans sprinter (compétence Athlétisme). Faire cela utilisera votre Déplacement.",
+      "lignes":[
+        ["M","Marche","Course"],
+        ["0","0 m","0 m"],
+        ["1","2 m","4 m"],
+        ["2","4 m","8 m"],
+        ["3","6 m","12 m"],
+        ["4","8 m","16 m"],
+        ["5","10 m","20 m"],
+        ["6","12 m","24 m"],
+        ["7","14 m","28 m"],
+        ["8","16 m","32 m"],
+        ["9","18 m","36 m"],
+        ["10","20 m","40 m"]
+      ]
+    },
+    {"id":70,"titre":"Chirurgie psychiatrique",
+      "description": "",
+      "lignes":[
+        ["Difficulté","Effets si succés"],
+        ["-10%","Le patient perd 1 PF"],
+        ["-20%","Le patient perd 1d10 PF"],
+        ["-30%","Le patient est guéri d'une folie"]
+      ]
+    },
+    {"id":71,"titre":"Complications chirurgicales",
+      "description": "Dans ce contexte le BS est toujours négatif ou nul (au mieux) et vient donc augmenter le résultat du d10.",
+      "lignes":[
+        ["d10-BS","Complication",""],
+        ["3-","Triomphe chirurgical","L'opération est infructueuse mais le patient en ressort indemne."],
+        ["4-5","Vous ne sentirez rien !","Le patient reçoit 1d10 pts de folie."],
+        ["6-7","Oups !","Le patient perd 1d10 pts d'Intelligence de manière permanente."],
+        ["8-9","Pourquoi il s'agite comme ça ?","Le patient doit réussir un Test de Résistance ou mourrir pendant l'opération.\nS'il survit, il perd 1d10 pts d'Intelligence et reçoit 1d10 pts de folie."],
+        ["9+","Docteur, c'est normal la flaque de sang ?","Le patient meurt sur la table d'opération, le cerveau en bouillie et vidé de son sang."]
+      ]
+    },
+    {"id":72,"titre":"Remèdes de charlatan",
+      "description": "Dans ce contexte le BS est toujours négatif ou nul (au mieux) et vient donc augmenter le résultat du d10.",
+      "lignes":[
+        ["d10-BS","Présentation du remède",""],
+        ["3-","Guérison garantie","Le médicament n'a pas le moindre effet et l'apothicaire la sait."],
+        ["4-5","Fortifiant","Le médicament n'a d'autre effet que celui d'une boisson alcoolisée."],
+        ["6-7","Risques de somnolence","Absorber le remède rend inconscient pendant 1d10 heures."],
+        ["8-9","Solution de mercure","Absorber le remède octroie 1 point de folie."],
+        ["9+","Purge médicinale","Poison. Le consommateur doit réussir un Test de Résistance sous peine de recevoir une Condition Empoisonné."]
+      ]
+    }
+  ]
+}
