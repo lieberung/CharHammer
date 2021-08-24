@@ -37,10 +37,10 @@
 </div>
 
 @code {
-    private TalentDto[] _talentsLines = null!;
+    private IEnumerable<TalentDto> _talentsLines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _talentsLines = await _competencesEtTalentsService.ItemsTalents();
+        _talentsLines = _competencesEtTalentsService.AllTalents.ToList();
     }
 }

@@ -2,7 +2,6 @@
 
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Competence
-@using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
@@ -47,9 +46,9 @@
     
     private CarriereDto[] _carrieres = null!;
 
-    protected override async Task OnParametersSetAsync()
+    protected override void OnParametersSet()
     {
         Competence = _competencesEtTalentsService.GetCompetence(int.Parse(CompetenceId));
-        _carrieres = await _carrieresService.GetCarrieresProposant(Competence);
+        _carrieres = _carrieresService.GetCarrieresProposant(Competence);
     }
 }

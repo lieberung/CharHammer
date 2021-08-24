@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace BlazorWjdr.Services
 {
+    using BlazorWjdr.DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
@@ -15,11 +17,13 @@ namespace BlazorWjdr.Services
         private readonly TablesService _tablesService;
         private readonly LieuxService _lieuxService;
 
+        private readonly List<JsonRegle> _dataRegles;
         private Dictionary<int, RegleDto>? _cacheRegle;
         private List<RegleDto>? _allRegles;
 
-        public ReglesService(CarrieresService carrieresService, CompetencesEtTalentsService competencesEtTalentsService, BestiolesService bestiolesService, TablesService tablesService, LieuxService lieuxService)
+        public ReglesService(List<JsonRegle> dataRegles, CarrieresService carrieresService, CompetencesEtTalentsService competencesEtTalentsService, BestiolesService bestiolesService, TablesService tablesService, LieuxService lieuxService)
         {
+            _dataRegles = dataRegles;
             _carrieresService = carrieresService;
             _competencesEtTalentsService = competencesEtTalentsService;
             _bestiolesService = bestiolesService;
@@ -27,37 +31,28 @@ namespace BlazorWjdr.Services
             _lieuxService = lieuxService;
         }
 
-        private List<RegleDto> AllRegles
+        public List<RegleDto> AllRegles
         {
             get
             {
                 if (_allRegles == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Regle return.
+                Debug.Assert(_allRegles != null, nameof(_allRegles) + " != null");
                 return _allRegles;
-#pragma warning restore CS8603 // Possible null Regle return.
             }
-        }
-        
-        public Task<RegleDto[]> Items()
-        {
-            return Task.FromResult(AllRegles.ToArray());
         }
 
         public RegleDto GetRegle(int id)
         {
             if (_cacheRegle == null)
                 Initialize();
-#pragma warning disable CS8602 // DeRegle of a possibly null Regle.
+            Debug.Assert(_cacheRegle != null, nameof(_cacheRegle) + " != null");
             return _cacheRegle[id];
-#pragma warning restore CS8602 // DeRegle of a possibly null Regle.
         }
 
         private void Initialize()
         {
-            _cacheRegle = DataSource.JsonLoader
-                .GetRootRegle()
-                .items
+            _cacheRegle = _dataRegles
                 .Select(r => new RegleDto
                 {
                     Id = r.id,
@@ -86,6 +81,8 @@ namespace BlazorWjdr.Services
             {
                 regle.SousRegles = regle.ReglesId.Select(id => GetRegle(id)).ToArray();
             }
+
+            //_dataRegles.Clear();
         }
     }
 }

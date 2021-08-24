@@ -33,10 +33,10 @@
 
 
 @code {
-    private RaceDto[] _lines = null!;
+    private List<RaceDto> _lines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _lines = await _racesService.Items();
+        _lines =  _racesService.AllRaces;
     }
 }

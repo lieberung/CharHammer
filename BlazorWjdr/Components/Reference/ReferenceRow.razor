@@ -18,7 +18,7 @@
 </tr>
 @if (AfficherCarrieres)
 {
-    <tr><td colspan="3"><CarriereItemList Items="_carrieresLiees"/></td></tr>
+    <tr><td colspan="3"><CarriereItemList Items="@_carrieresLiees"/></td></tr>
 }
 @code
 {
@@ -29,8 +29,8 @@
 
     private CarriereDto[] _carrieresLiees = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _carrieresLiees = await _carrieresService.GetCarrieresParuesDans(Item);
+        _carrieresLiees = _carrieresService.GetCarrieresParuesDans(Item);
     }
 }

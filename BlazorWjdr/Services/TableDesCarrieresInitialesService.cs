@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using BlazorWjdr.Models;
 using System.Linq;
+using BlazorWjdr.DataSource.JsonDto;
 
 namespace BlazorWjdr.Services
 {
     public class TableDesCarrieresInitialesService
     {
+        private List<JsonTableCarriereInitiale> _data;
         private readonly RacesService _racesService;
         private readonly CarrieresService _carrieresService;
         
         private Dictionary<int, List<LigneDeCarriereInitialeDto>>? _allLignes;
         
-        public TableDesCarrieresInitialesService(RacesService racesService, CarrieresService carrieresService)
+        public TableDesCarrieresInitialesService(List<JsonTableCarriereInitiale> data, RacesService racesService, CarrieresService carrieresService)
         {
+            _data = data;
             _racesService = racesService;
             _carrieresService = carrieresService;
         }
@@ -32,9 +35,7 @@ namespace BlazorWjdr.Services
 
         private void Initialize()
         {
-            var lignesEnVrac = DataSource.JsonLoader
-                .GetRootTableCarriereInitiale()
-                .items
+            var lignesEnVrac = _data
                 .Select(l => new LigneDeCarriereInitialeDto
                 {
                     Carriere = _carrieresService.GetCarriere(l.carriere),
@@ -56,6 +57,8 @@ namespace BlazorWjdr.Services
                     .ThenBy(l => l.Carriere.Nom)
                 );
             }
+
+            //_data.Clear();
         }
 
         public CarriereDto GetRandomStartingCareer(int raceId)

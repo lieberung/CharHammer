@@ -1,4 +1,7 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Diagnostics;
+using BlazorWjdr.DataSource.JsonDto;
+
+namespace BlazorWjdr.Services
 {
     using Models;
     using System.Collections.Generic;
@@ -7,37 +10,38 @@
 
     public class LieuxService
     {
+        private readonly List<JsonLieuType> _dataLieuxTypes;
+        private readonly List<JsonLieu> _dataLieux;
         private Dictionary<int, LieuTypeDto>? _cacheLieuType;
         private Dictionary<int, LieuDto>? _cacheLieu;
         private List<LieuDto>? _allLieux;
 
+        public LieuxService(List<JsonLieuType> dataLieuxTypes, List<JsonLieu> dataLieux)
+        {
+            _dataLieux = dataLieux;
+            _dataLieuxTypes = dataLieuxTypes;
+        }
+        
         protected Dictionary<int, LieuTypeDto> AllTypesDeLieu
         {
             get
             {
                 if (_cacheLieuType == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Lieu return.
+                Debug.Assert(_cacheLieuType != null, nameof(_cacheLieuType) + " != null");
                 return _cacheLieuType;
-#pragma warning restore CS8603 // Possible null Lieu return.
             }
         }
         
-        protected List<LieuDto> AllLieux
+        public List<LieuDto> AllLieux
         {
             get
             {
                 if (_allLieux == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Lieu return.
+                Debug.Assert(_allLieux != null, nameof(_allLieux) + " != null");
                 return _allLieux;
-#pragma warning restore CS8603 // Possible null Lieu return.
             }
-        }
-        
-        public Task<LieuDto[]> Items()
-        {
-            return Task.FromResult(AllLieux.ToArray());
         }
 
         public LieuTypeDto GetTypeDeLieu(int id)
@@ -54,16 +58,13 @@
         {
             if (_cacheLieu == null)
                 Initialize();
-#pragma warning disable CS8602 // DeLieu of a possibly null Lieu.
+            Debug.Assert(_cacheLieu != null, nameof(_cacheLieu) + " != null");
             return _cacheLieu[id];
-#pragma warning restore CS8602 // DeLieu of a possibly null Lieu.
         }
 
         private void Initialize()
         {
-            _cacheLieuType = DataSource.JsonLoader
-                .GetRootLieuType()
-                .items
+            _cacheLieuType = _dataLieuxTypes
                 .Select(t => new LieuTypeDto
                 {
                     Id = t.id,
@@ -76,9 +77,7 @@
                 lieuType.Parent = _cacheLieuType[lieuType.ParentId!.Value];
             }
             
-            _cacheLieu = DataSource.JsonLoader
-                .GetRootLieu()
-                .items
+            _cacheLieu = _dataLieux
                 .Select(l => new LieuDto
                 {
                     Id = l.id,

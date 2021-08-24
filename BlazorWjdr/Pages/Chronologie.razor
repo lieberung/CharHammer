@@ -33,8 +33,8 @@
 @code {
     private ChronologieDto[] _lines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _lines = await _chronologieService.GetLines();
+        _lines = _chronologieService.AllChronologie();
     }
 }

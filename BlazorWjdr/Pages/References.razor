@@ -43,10 +43,10 @@
 </div>
 
 @code {
-    private ReferenceDto[] _lines = null!;
+    private List<ReferenceDto> _lines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _lines = await _referencesService.Items();
+        _lines = _referencesService.AllReferences;
     }
 }

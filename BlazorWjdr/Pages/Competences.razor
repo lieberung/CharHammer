@@ -51,7 +51,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (var competence in _competencesLines)
+        @foreach (var competence in _competencesLines.Where(c => c.Ignore == false && c.Parent == null))
         {
             <CompetenceRow Item="@competence"/>
         }
@@ -60,12 +60,11 @@
 </div>
 
 @code {
-    private List<CompetenceDto> _competencesLines = null!;
+    private IEnumerable<CompetenceDto> _competencesLines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        var competences = await _competenceService.ItemsCompetences();
-        _competencesLines = competences.ToList();
-        _competencesLines.RemoveAll(c => c.Ignore || c.Parent != null);
+        _competencesLines = _competenceService.AllCompetences;
+        base.OnInitialized();
     }
 }

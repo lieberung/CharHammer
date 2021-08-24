@@ -94,15 +94,15 @@
 
     private List<CarriereDto> _carrieresLines = null!;
 
-    protected override async Task OnParametersSetAsync()
+    protected override void OnParametersSet()
     {
-        var carrieres = await _carrieresService.ItemsCarrieres();
+        var carrieres = _carrieresService.AllCarrieres;
 
         _carrieresLines = Theme switch
         {
             "toutes" => carrieres
-                .Except(_carrieresService.CarrieresSkaven)
-                .Except(_carrieresService.CarrieresChaos)
+                .Where(c => !_carrieresService.CarrieresChaos.Contains(c.Id))
+                .Where(c => !_carrieresService.CarrieresSkaven.Contains(c.Id))
                 .ToList(),
             "academiques" => carrieres.Where(c => c.ScoreAcademique > 5).OrderByDescending(c => c.ScoreAcademique).ToList(),
             "arcaniques" => carrieres.Where(c => c.ScoreArcanique > 9).OrderByDescending(c => c.ScoreArcanique).ToList(),
@@ -125,8 +125,8 @@
             "bretonnie" => _carrieresService.CarrieresDeBretonnie.OrderBy(c => c.Nom).ToList(),
             "kislev" => _carrieresService.CarrieresDuKislev.OrderBy(c => c.Nom).ToList(),
             "norsca" => _carrieresService.CarrieresDeNorsca.OrderBy(c => c.Nom).ToList(),
-            "skavens" => _carrieresService.CarrieresSkaven.OrderBy(c => c.Nom).ToList(),
-            "chaos" => _carrieresService.CarrieresChaos.OrderBy(c => c.Nom).ToList(),
+            "skavens" => carrieres.Where(c => _carrieresService.CarrieresSkaven.Contains(c.Id)).OrderBy(c => c.Nom).ToList(),
+            "chaos" => carrieres.Where(c => _carrieresService.CarrieresChaos.Contains(c.Id)).OrderBy(c => c.Nom).ToList(),
             _ => _carrieresLines
         };
         if (Filtre != "toutes")

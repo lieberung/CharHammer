@@ -1,27 +1,33 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Diagnostics;
+
+namespace BlazorWjdr.Services
 {
+    using BlazorWjdr.DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
 
     public class ProfilsService
     {
+        private readonly List<JsonProfil> _dataProfils;
         private Dictionary<int, ProfilDto>? _cacheProfils;
+
+        public ProfilsService(List<JsonProfil> dataProfils)
+        {
+            _dataProfils = dataProfils;
+        }
 
         public ProfilDto GetProfil(int id)
         {
             if (_cacheProfils == null)
                 Initialize();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            Debug.Assert(_cacheProfils != null, nameof(_cacheProfils) + " != null");
             return _cacheProfils[id];
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void Initialize()
         {
-            _cacheProfils = DataSource.JsonLoader
-                .GetRootProfil()
-                .items
+            _cacheProfils = _dataProfils
                 .Select(c => new ProfilDto
                 {
                     Id = c.id,
@@ -43,6 +49,8 @@
                     Soc = c.soc
                 })
                 .ToDictionary(k => k.Id, v => v);
+
+            //_dataProfils.Clear();
         }
     }
 }

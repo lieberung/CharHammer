@@ -15,14 +15,12 @@ namespace BlazorWjdr.Components.Carriere
         private CompetenceDto[][] _competencesChoix = null!;
         private TalentDto[][] _talentsChoix = null!;
 
-        protected override Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
             _competences = Carriere.Competences.ToArray();
             _talents = Carriere.Talents.ToArray();
             _competencesChoix = Carriere.ChoixCompetences.ToArray();
             _talentsChoix = Carriere.ChoixTalents.ToArray();
-
-            return base.OnInitializedAsync();
         }
     }
 }

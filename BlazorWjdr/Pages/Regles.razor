@@ -28,10 +28,10 @@
 </div>
 
 @code {
-    private RegleDto[] _lines = null!;
+    private List<RegleDto> _lines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _lines = await _reglesService.Items();
+        _lines = _reglesService.AllRegles;
     }
 }

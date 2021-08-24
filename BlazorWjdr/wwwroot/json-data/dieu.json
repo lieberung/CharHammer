@@ -16,6 +16,6 @@
 {"id":14,"patron_id":null,"nom":"Tzench","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
 {"id":15,"patron_id":null,"nom":"Khaine","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
 {"id":17,"patron_id":null,"nom":"Haendrik","domaines":"Les marchands, la prospérité, le commerce","fideles":"","symboles":"Disque d'or, poignée de main","symboles_image":"","histoire":"","comment":""},
-{"id":16,"patron_id":null,"nom":"Stromfels","domaines":"Les mers déchaînées, les ","fideles":"Les pirates, les naufrageurs","symboles":"Un immense requin, trident ensanglanté, un éclair","symboles_image":"","histoire":"","comment":""},
+{"id":16,"patron_id":null,"nom":"Stromfels","domaines":"Les mers déchaînées, les ","fideles":"Les pirates, les naufrageurs","symboles":"Un immense requin, trident ensanglanté, un éclair","symboles_image":"","histoire":"","comment":""}
 	]
 }

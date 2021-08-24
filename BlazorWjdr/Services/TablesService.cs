@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace BlazorWjdr.Services
 {
+    using BlazorWjdr.DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
@@ -9,40 +11,37 @@ namespace BlazorWjdr.Services
 
     public class TablesService
     {
+        private readonly List<JsonTable> _dataTables;
         private Dictionary<int, TableDto>? _cacheTable;
         private List<TableDto>? _allTables;
 
-        private List<TableDto> AllTables
+        public TablesService(List<JsonTable> dataTables)
+        {
+            _dataTables = dataTables;
+        }
+
+        public List<TableDto> AllTables
         {
             get
             {
                 if (_allTables == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Table return.
+                Debug.Assert(_allTables != null, nameof(_allTables) + " != null");
                 return _allTables;
-#pragma warning restore CS8603 // Possible null Table return.
             }
-        }
-        
-        public Task<TableDto[]> Items()
-        {
-            return Task.FromResult(AllTables.ToArray());
         }
 
         public TableDto GetTable(int id)
         {
             if (_cacheTable == null)
                 Initialize();
-#pragma warning disable CS8602 // DeTable of a possibly null Table.
+            Debug.Assert(_cacheTable != null, nameof(_cacheTable) + " != null");
             return _cacheTable[id];
-#pragma warning restore CS8602 // DeTable of a possibly null Table.
         }
 
         private void Initialize()
         {
-            _cacheTable = DataSource.JsonLoader
-                .GetRootTable()
-                .items
+            _cacheTable = _dataTables
                 .Select(c => new TableDto
                 {
                     Id = c.id,
@@ -53,7 +52,10 @@ namespace BlazorWjdr.Services
                     Lignes = c.lignes
                 })
                 .ToDictionary(k => k.Id, v => v);
+
             _allTables = _cacheTable.Values.ToList();
+
+            //_dataTables.Clear();
         }
     }
 }

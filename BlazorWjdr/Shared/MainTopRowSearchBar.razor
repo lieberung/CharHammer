@@ -62,11 +62,11 @@
     [Inject] private CarrieresService CarrieresService { get; set; } = null!;
     [Inject] private CompetencesEtTalentsService CompetencesEtTalentsService { get; set; } = null!;
         
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        AllCarrieres = await CarrieresService.ItemsCarrieres();
-        AllCompetences = await CompetencesEtTalentsService.ItemsCompetences();
-        AllTalents = await CompetencesEtTalentsService.ItemsTalents();
+        AllCarrieres = CarrieresService.AllCarrieres;
+        AllCompetences = CompetencesEtTalentsService.AllCompetences;
+        AllTalents = CompetencesEtTalentsService.AllTalents;
     }
 
     protected override void OnParametersSet()

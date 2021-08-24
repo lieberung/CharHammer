@@ -1,5 +1,8 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Diagnostics;
+
+namespace BlazorWjdr.Services
 {
+    using BlazorWjdr.DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
@@ -8,16 +11,21 @@
     public class ArmesService
     {
         private readonly CompetencesEtTalentsService _competencesEtTalentsService;
-        
+
+        private readonly List<JsonArmeAttribut> _dataArmesAttributs;
         private Dictionary<int, ArmeAttributDto>? _cacheArmeAttribut;
+
+        private readonly List<JsonArme> _dataArmes;
         private Dictionary<int, ArmeDto>? _cacheArme;
         private List<ArmeDto>? _allArmes;
 
         private Dictionary<string, List<ArmeDto>>? _armesDeContactPourTable;
         private Dictionary<string, List<ArmeDto>>? _armesADistancePourTable;
 
-        public ArmesService(CompetencesEtTalentsService competencesEtTalentsService)
+        public ArmesService(List<JsonArmeAttribut> dataArmesAttributs, List<JsonArme> dataArmes, CompetencesEtTalentsService competencesEtTalentsService)
         {
+            _dataArmesAttributs = dataArmesAttributs;
+            _dataArmes = dataArmes;
             _competencesEtTalentsService = competencesEtTalentsService;
         }
 
@@ -27,9 +35,8 @@
             {
                 if (_cacheArmeAttribut == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Arme return.
+                Debug.Assert(_cacheArmeAttribut != null, nameof(_cacheArmeAttribut) + " != null");
                 return _cacheArmeAttribut;
-#pragma warning restore CS8603 // Possible null Arme return.
             }
         }
 
@@ -41,30 +48,23 @@
             _competencesEtTalentsService.CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
         
 
-        private List<ArmeDto> AllArmes
+        public List<ArmeDto> AllArmes
         {
             get
             {
                 if (_allArmes == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Arme return.
+                Debug.Assert(_allArmes != null, nameof(_allArmes) + " != null");
                 return _allArmes;
-#pragma warning restore CS8603 // Possible null Arme return.
             }
         }
         
-        public Task<ArmeDto[]> Items()
-        {
-            return Task.FromResult(AllArmes.ToArray());
-        }
-
         private ArmeAttributDto GetAttributDArme(int id)
         {
             if (_cacheArmeAttribut == null)
                 Initialize();
-#pragma warning disable CS8602 // DeArme of a possibly null Arme.
+            Debug.Assert(_cacheArmeAttribut != null, nameof(_cacheArmeAttribut) + " != null");
             return _cacheArmeAttribut[id];
-#pragma warning restore CS8602 // DeArme of a possibly null Arme.
         }
 
         public IEnumerable<ArmeDto> GetArmesDeMaitrise(CompetenceDto maitrise) =>
@@ -76,16 +76,13 @@
         {
             if (_cacheArme == null)
                 Initialize();
-#pragma warning disable CS8602 // DeArme of a possibly null Arme.
+            Debug.Assert(_cacheArme != null, nameof(_cacheArme) + " != null");
             return _cacheArme[id];
-#pragma warning restore CS8602 // DeArme of a possibly null Arme.
         }
 
         private void Initialize()
         {
-            _cacheArmeAttribut = DataSource.JsonLoader
-                .GetRootArmeAttribut()
-                .items
+            _cacheArmeAttribut = _dataArmesAttributs
                 .Select(t => new ArmeAttributDto
                 {
                     Id = t.id,
@@ -94,9 +91,7 @@
                     Description = t.description
                 }).ToDictionary(k => k.Id, v => v);
             
-            _cacheArme = DataSource.JsonLoader
-                .GetRootArme()
-                .items
+            _cacheArme = _dataArmes
                 .Select(l => new ArmeDto
                 {
                     Id = l.id,
@@ -116,6 +111,9 @@
                 .ToDictionary(k => k.Id, v => v);
             
             _allArmes = _cacheArme.Values.OrderBy(a => a.Nom).ToList();
+
+            //_dataArmes.Clear();
+            //_dataArmesAttributs.Clear();
         }
 
         #region Regroupements pour table

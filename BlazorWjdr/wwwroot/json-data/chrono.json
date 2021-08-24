@@ -352,6 +352,6 @@
 {"id":355,"fk_userid":null,"debut":17,"fin":null,"resume":"Sigmar détruit une horde de skavens dans les Monts du Milieu de l’Empire.","titre":"","comment":"","sources":[17],"domaines":[15,19]},
 {"id":356,"fk_userid":null,"debut":100,"fin":null,"resume":"Des assassins du clan Eshin reviennent du Cathay pour servir le conseil des Treize. Bien des clans sont rapidement soumis une fois que leurs seigneurs ont été assassinés.","titre":"","comment":"","sources":[17],"domaines":[19]},
 {"id":357,"fk_userid":null,"debut":200,"fin":null,"resume":"Après  avoir  réduit  en  esclava ge  ou\r\nd é t r u i t   p l u s i e u r s   a u t re s   cl a n s ,  d é va s t é   l e s\r\nTer res du Sud par l’inter médiaire d’épidémies\r\nmagiques  et  tué  les  Seigneurs  de  la  Ruine  en\r\ncombat rituel, Nurglitch, Seigneur de la Peste du clan Pestilens, gagne une place au conseil des Treize.","titre":"","comment":"","sources":[17],"domaines":[19]},
-{"id":358,"fk_userid":null,"debut":700,"fin":null,"resume":"Les technomages du clan Skryre perfectionnent le lance-feu. On prend les récits qui parlent de ces armes terrifiantes pour les élucubrations d’esprits malades.","titre":"","comment":"","sources":[17],"domaines":[19]},
+{"id":358,"fk_userid":null,"debut":700,"fin":null,"resume":"Les technomages du clan Skryre perfectionnent le lance-feu. On prend les récits qui parlent de ces armes terrifiantes pour les élucubrations d’esprits malades.","titre":"","comment":"","sources":[17],"domaines":[19]}
 	]
 }

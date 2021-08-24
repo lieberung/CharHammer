@@ -6,28 +6,32 @@
 
     public static class JsonLoader
     {
+        //const string jsonDataPath = "wwwroot/json-data";
+        //const string jsonDataPath = "../json-data";
+        const string jsonDataPath = "../json-data";
+
         private static T LoadRootFromJson<T>(string path) => JsonConvert.DeserializeObject<T>(File.ReadAllText(path))
             ?? throw new System.Exception($"Impossible de désérialiser '{path}' avec la class '{typeof(T)}'");
 
-        public static RootBestiole GetRootBestiole() => LoadRootFromJson<RootBestiole>("./json-data/bestiole.json");
-        public static RootCarriere GetRootCarriere() => LoadRootFromJson<RootCarriere>("./json-data/carriere.json");
-        public static RootChrono GetRootChrono() => LoadRootFromJson<RootChrono>("./json-data/chrono.json");
-        public static RootCompetence GetRootCompetence() => LoadRootFromJson<RootCompetence>("./json-data/competence.json");
-        public static RootDieu GetRootDieu() => LoadRootFromJson<RootDieu>("./json-data/dieu.json");
-        public static RootDomaine GetRootDomaine() => LoadRootFromJson<RootDomaine>("./json-data/domaine.json");
-        public static RootLieu GetRootLieu() => LoadRootFromJson<RootLieu>("./json-data/lieu.json");
-        public static RootLieuType GetRootLieuType() => LoadRootFromJson<RootLieuType>("./json-data/lieutype.json");
-        public static RootArme GetRootArme() => LoadRootFromJson<RootArme>("./json-data/arme.json");
-        public static RootArmeAttribut GetRootArmeAttribut() => LoadRootFromJson<RootArmeAttribut>("./json-data/armeattribut.json");
-        public static RootPersonnage GetRootPersonnage() => LoadRootFromJson<RootPersonnage>("./json-data/personnage.json");
-        public static RootPj GetRootPj() => LoadRootFromJson<RootPj>("./json-data/pj.json");
-        public static RootProfil GetRootProfil() => LoadRootFromJson<RootProfil>("./json-data/profil.json");
-        public static RootRace GetRootRace() => LoadRootFromJson<RootRace>("./json-data/race.json");
-        public static RootReference GetRootReference() => LoadRootFromJson<RootReference>("./json-data/reference.json");
-        public static RootTable GetRootTable() => LoadRootFromJson<RootTable>("./json-data/table.json");
-        public static RootRegle GetRootRegle() => LoadRootFromJson<RootRegle>("./json-data/regle.json");
-        public static RootTableCarriereInitiale GetRootTableCarriereInitiale() => LoadRootFromJson<RootTableCarriereInitiale>("./json-data/tablecarriereinitiale.json");
-        public static RootTalent GetRootTalent() => LoadRootFromJson<RootTalent>("./json-data/talent.json");
-        public static RootTrait GetRootTrait() => LoadRootFromJson<RootTrait>("./json-data/trait.json");
+        public static RootBestiole GetRootBestiole() => LoadRootFromJson<RootBestiole>($"{jsonDataPath}/bestiole.json");
+        public static RootCarriere GetRootCarriere() => LoadRootFromJson<RootCarriere>($"{jsonDataPath}/carriere.json");
+        public static RootChrono GetRootChrono() => LoadRootFromJson<RootChrono>($"{jsonDataPath}/chrono.json");
+        public static RootCompetence GetRootCompetence() => LoadRootFromJson<RootCompetence>($"{jsonDataPath}/competence.json");
+        public static RootDieu GetRootDieu() => LoadRootFromJson<RootDieu>($"{jsonDataPath}/dieu.json");
+        public static RootDomaine GetRootDomaine() => LoadRootFromJson<RootDomaine>($"{jsonDataPath}/domaine.json");
+        public static RootLieu GetRootLieu() => LoadRootFromJson<RootLieu>($"{jsonDataPath}/lieu.json");
+        public static RootLieuType GetRootLieuType() => LoadRootFromJson<RootLieuType>($"{jsonDataPath}/lieutype.json");
+        public static RootArme GetRootArme() => LoadRootFromJson<RootArme>($"{jsonDataPath}/arme.json");
+        public static RootArmeAttribut GetRootArmeAttribut() => LoadRootFromJson<RootArmeAttribut>($"{jsonDataPath}/armeattribut.json");
+        public static RootPersonnage GetRootPersonnage() => LoadRootFromJson<RootPersonnage>($"{jsonDataPath}/personnage.json");
+        public static RootPj GetRootPj() => LoadRootFromJson<RootPj>($"{jsonDataPath}/pj.json");
+        public static RootProfil GetRootProfil() => LoadRootFromJson<RootProfil>($"{jsonDataPath}/profil.json");
+        public static RootRace GetRootRace() => LoadRootFromJson<RootRace>($"{jsonDataPath}/race.json");
+        public static RootReference GetRootReference() => LoadRootFromJson<RootReference>($"{jsonDataPath}/reference.json");
+        public static RootTable GetRootTable() => LoadRootFromJson<RootTable>($"{jsonDataPath}/table.json");
+        public static RootRegle GetRootRegle() => LoadRootFromJson<RootRegle>($"{jsonDataPath}/regle.json");
+        public static RootTableCarriereInitiale GetRootTableCarriereInitiale() => LoadRootFromJson<RootTableCarriereInitiale>($"{jsonDataPath}/tablecarriereinitiale.json");
+        public static RootTalent GetRootTalent() => LoadRootFromJson<RootTalent>($"{jsonDataPath}/talent.json");
+        public static RootTrait GetRootTrait() => LoadRootFromJson<RootTrait>($"{jsonDataPath}/trait.json");
     }
 }

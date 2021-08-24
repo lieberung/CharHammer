@@ -121,9 +121,9 @@
         return GenericService.ConvertirCaracteres(specialisation).Replace(" ", "-");
     }
 
-    protected override async Task OnParametersSetAsync()
+    protected override void OnParametersSet()
     {
-        var armes = await _armesService.Items();
+        var armes = _armesService.AllArmes;
         _armesDeCaC = new();
         _armesDeTir = new();
         _boucliers = new();

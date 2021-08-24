@@ -1,14 +1,16 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Diagnostics;
+
+namespace BlazorWjdr.Services
 {
     using Models;
     using System;
-    using System.IO;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
+    using DataSource.JsonDto;
 
     public class CarrieresService
     {
+        private readonly List<JsonCarriere> _dataCarrieres;
         private List<CarriereDto>? _allCarrieres;
         private Dictionary<int, CarriereDto>? _cacheCarrieres;
 
@@ -18,26 +20,29 @@
         private readonly TraitsService _traitsService;
 
         public CarrieresService(
+            List<JsonCarriere> dataCarrieres,
             ProfilsService profilsService,
             CompetencesEtTalentsService competencesEtTalentsService,
             ReferencesService referencesService,
             TraitsService traitsService)
         {
+            _dataCarrieres = dataCarrieres;
             _profilsService = profilsService;
             _competencesEtTalentsService = competencesEtTalentsService;
             _referencesService = referencesService;
             _traitsService = traitsService;
+            
+            Initialize();
         }
 
-        private List<CarriereDto> AllCarrieres
+        public List<CarriereDto> AllCarrieres
         {
             get
             {
                 if (_allCarrieres == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null reference return.
+                Debug.Assert(_allCarrieres != null, nameof(_allCarrieres) + " != null");
                 return _allCarrieres;
-#pragma warning restore CS8603 // Possible null reference return.
             }
         }
 
@@ -47,36 +52,28 @@
         {
             if (_cacheCarrieres == null)
                 Initialize();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            Debug.Assert(_cacheCarrieres != null, nameof(_cacheCarrieres) + " != null");
             return _cacheCarrieres[id];
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
-        public Task<CarriereDto[]> GetCarrieresProposant(CompetenceDto competence)
-            => Task.FromResult(AllCarrieres
+        public CarriereDto[] GetCarrieresProposant(CompetenceDto competence)
+            => AllCarrieres
                 .Where(c => c.CompetencesPourScore.Contains(competence))
-                .ToArray());
+                .ToArray();
 
-        public Task<CarriereDto[]> GetCarrieresProposant(TalentDto talent)
-            => Task.FromResult(AllCarrieres
+        public CarriereDto[] GetCarrieresProposant(TalentDto talent)
+            => AllCarrieres
                 .Where(c => c.TalentsPourScore.Contains(talent))
-                .ToArray());
+                .ToArray();
 
-        public Task<CarriereDto[]> GetCarrieresParuesDans(ReferenceDto reference)
-            => Task.FromResult(AllCarrieres
+        public CarriereDto[] GetCarrieresParuesDans(ReferenceDto reference)
+            => AllCarrieres
                 .Where(c => c.SourceLivre == reference)
-                .ToArray());
-
-        public Task<CarriereDto[]> ItemsCarrieres()
-        {
-            return Task.FromResult(AllCarrieres.ToArray());
-        }
+                .ToArray();
 
         private void Initialize()
         {
-            _allCarrieres = DataSource.JsonLoader
-                .GetRootCarriere()
-                .items
+            _allCarrieres = _dataCarrieres
                 .Select(c => new CarriereDto
                 {
                     Id = c.id,
@@ -117,9 +114,10 @@
             _cacheCarrieres = _allCarrieres.ToDictionary(k => k.Id, v => v);
 
             foreach (var carriere in _allCarrieres.Where(c => c.CarriereMereId.HasValue))
-#pragma warning disable CS8629 // Nullable value type may be null.
+            {
+                Debug.Assert(carriere.CarriereMereId != null, "carriere.CarriereMereId != null");
                 carriere.Parent = _cacheCarrieres[carriere.CarriereMereId.Value];
-#pragma warning restore CS8629 // Nullable value type may be null.
+            }
 
             foreach (var carriere in _allCarrieres.Where(c => c.DebouchesIds.Any()))
                 carriere.Debouches = GetCarrieres(carriere.DebouchesIds).ToList();
@@ -152,14 +150,16 @@
                 carriere.ScoreAmiDesBetes = CalculScoreAmiDesBetes(carriere);
             }
 
-            DirectoryInfo d = new DirectoryInfo("./wwwroot/images/careers/");
-            var images = d.GetFiles("*-*.png").Select(f => f.Name);
-            foreach (var carriere in _allCarrieres)
-            {
-                var list = new List<string> { $"{carriere.Id}.png" };
-                list.AddRange(images.Where(img => img.StartsWith($"{carriere.Id}-")));
-                carriere.Images = list.ToArray();
-            }
+            //DirectoryInfo d = new DirectoryInfo("./wwwroot/images/careers/");
+            //var images = d.GetFiles("*-*.png").Select(f => f.Name);
+            //foreach (var carriere in _allCarrieres)
+            //{
+            //    var list = new List<string> { $"{carriere.Id}.png" };
+            //    list.AddRange(images.Where(img => img.StartsWith($"{carriere.Id}-")));
+            //    carriere.Images = list.ToArray();
+            //}
+
+            //_dataCarrieres.Clear();
         }
 
         #region Calcul Bonus de Caractéristique
@@ -738,14 +738,15 @@
             .Where(c => c.Id == 53 || c.SourceLivre == _referencesService.LivreLaReineDesGlaces)
             .ToList();
 
-        public IEnumerable<CarriereDto> CarrieresSkaven => AllCarrieres
+        public List<int> CarrieresSkaven => AllCarrieres
             .Where(c => c.SourceLivre == _referencesService.LivreLesFilsDuRatCornu)
+            .Select(c => c.Id)
             .ToList();
 
         // Tueur de morts, Fouet de dieu, Flagellant, Fanatique, Pénitent, Prêcheur de rue, Tueur de démons/géants/trolls, Exécuteur, Mystique, Cénobite
         public IEnumerable<CarriereDto> CarrieresFanatiques => GetCarrieres(new[] {209, 213, 170, 45, 212, 88, 198, 199, 77, 87, 268, 267, 194, 1, 314 });
         public IEnumerable<CarriereDto> CarrieresDeNorsca => GetCarrieres(new [] { 26, 89, 302, 303, 90, 91, 92, 93, 94, 95, 304 });
-        public IEnumerable<CarriereDto> CarrieresChaos => GetCarrieres(new [] { 305, 307, 309, 311, 306, 308, 310, 312, 293, 294 });
+        public List<int> CarrieresChaos => new() { 305, 307, 309, 311, 306, 308, 310, 312, 293, 294 };
         public IEnumerable<CarriereDto> CarrieresCriminelles => GetCarrieres(new [] { 21, 141, 149, 151, 152, 158, 37, 38, 165, 43, 168, 280, 111, 51, 265, 183, 127, 145, 295, 66, 188, 191, 192, 193, 258, 76, 80 });
         public IEnumerable<CarriereDto> CarrieresBureaucratie => GetCarrieres(new [] { 315, 201, 251, 35, 86, 87, 97, 125, 46, 129, 49, 175, 281, 177, 58, 59, 63, 128, 146, 147, 69, 70 });
         public IEnumerable<CarriereDto> CarrieresMilitaires => GetCarrieres(new [] { 296, 316, 297, 154, 155, 319, 156, 161, 252, 162, 253, 254, 286, 36, 274, 40, 41, 301, 171, 46, 129, 48, 203, 112, 256, 53, 54, 185, 187, 197, 73, 259 });
@@ -785,7 +786,7 @@
             }
         }
 
-        public string[] GallerieComplete()
+        public IEnumerable<string> GallerieComplete()
         {
             Random rnd = new ();
             return AllCarrieres.SelectMany(c => c.Images).OrderBy(x => rnd.Next()).ToArray();

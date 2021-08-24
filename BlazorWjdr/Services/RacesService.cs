@@ -1,5 +1,8 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Diagnostics;
+
+namespace BlazorWjdr.Services
 {
+    using BlazorWjdr.DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
@@ -9,31 +12,27 @@
     {
         private readonly LieuxService _lieuxService;
         private readonly ProfilsService _profilsService;
-        
+
+        private readonly List<JsonRace> _dataRaces;
         private Dictionary<int, RaceDto>? _cacheRace;
         private List<RaceDto>? _allRaces;
 
-        public RacesService(LieuxService lieuxService, ProfilsService profilsService)
+        public RacesService(List<JsonRace> dataRaces, LieuxService lieuxService, ProfilsService profilsService)
         {
+            _dataRaces = dataRaces;
             _lieuxService = lieuxService;
             _profilsService = profilsService;
         }
 
-        private List<RaceDto> AllRaces
+        public List<RaceDto> AllRaces
         {
             get
             {
                 if (_allRaces == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Race return.
+                Debug.Assert(_allRaces != null, nameof(_allRaces) + " != null");
                 return _allRaces;
-#pragma warning restore CS8603 // Possible null Race return.
             }
-        }
-        
-        public Task<RaceDto[]> Items()
-        {
-            return Task.FromResult(AllRaces.ToArray());
         }
 
         public RaceDto Elfes => GetRace(25);
@@ -47,16 +46,13 @@
         {
             if (_cacheRace == null)
                 Initialize();
-#pragma warning disable CS8602 // DeRace of a possibly null Race.
+            Debug.Assert(_cacheRace != null, nameof(_cacheRace) + " != null");
             return _cacheRace[id];
-#pragma warning restore CS8602 // DeRace of a possibly null Race.
         }
 
         private void Initialize()
         {
-            _cacheRace = DataSource.JsonLoader
-                .GetRootRace()
-                .items
+            _cacheRace = _dataRaces
                 .Select(r => new RaceDto
                 {
                     Id = r.id,
@@ -84,6 +80,8 @@
                     .Where(c=>c.Parent == lieu)
                     .OrderBy(c => c.NomMasculin));                
             }
+
+            //_dataRaces.Clear();
         }
     }
 }

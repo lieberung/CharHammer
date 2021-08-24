@@ -1,5 +1,8 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Diagnostics;
+
+namespace BlazorWjdr.Services
 {
+    using BlazorWjdr.DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
@@ -7,40 +10,37 @@
 
     public class ReferencesService
     {
+        private readonly List<JsonReference> _dataRefernces;
         private Dictionary<int, ReferenceDto>? _cacheReference;
         private List<ReferenceDto>? _allReferences;
 
-        private List<ReferenceDto> AllReferences
+        public ReferencesService(List<JsonReference> dataReferences)
+        {
+            _dataRefernces = dataReferences;
+        }
+
+        public List<ReferenceDto> AllReferences
         {
             get
             {
                 if (_allReferences == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null reference return.
+                Debug.Assert(_allReferences != null, nameof(_allReferences) + " != null");
                 return _allReferences;
-#pragma warning restore CS8603 // Possible null reference return.
             }
-        }
-        
-        public Task<ReferenceDto[]> Items()
-        {
-            return Task.FromResult(AllReferences.ToArray());
         }
 
         public ReferenceDto GetReference(int id)
         {
             if (_cacheReference == null)
                 Initialize();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            Debug.Assert(_cacheReference != null, nameof(_cacheReference) + " != null");
             return _cacheReference[id];
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
         private void Initialize()
         {
-            _cacheReference = DataSource.JsonLoader
-                .GetRootReference()
-                .items
+            _cacheReference = _dataRefernces
                 .Select(c => new ReferenceDto
                 {
                     Id = c.id,
@@ -50,7 +50,10 @@
                     Version = c.version
                 })
                 .ToDictionary(k => k.Id, v => v);
+
             _allReferences = _cacheReference.Values.ToList();
+
+            //_dataRefernces.Clear();
         }
 
         public ReferenceDto LivreLesChevaliersDuGraal => GetReference(15);

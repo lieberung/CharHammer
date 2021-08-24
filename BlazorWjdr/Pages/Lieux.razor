@@ -31,11 +31,11 @@
 
 
 @code {
-    private LieuDto[] _lines = null!;
+    private List<LieuDto> _lines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _lines = await _lieuxService.Items();
+        _lines = _lieuxService.AllLieux;
     }
 
 }

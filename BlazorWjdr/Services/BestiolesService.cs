@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using BlazorWjdr.DataSource.JsonDto;
 using BlazorWjdr.Pages;
 
@@ -11,6 +12,10 @@ namespace BlazorWjdr.Services
 
     public class BestiolesService
     {
+        private readonly List<JsonBestiole> _dataBestioles;
+        private readonly List<JsonPj> _dataPjs;
+        private readonly List<JsonPersonnage> _dataPersonnages;
+
         private readonly RacesService _racesService;
         private readonly CompetencesEtTalentsService _competencesEtTalentsService;
         private readonly LieuxService _lieuxService;
@@ -19,6 +24,9 @@ namespace BlazorWjdr.Services
         private readonly TraitsService _traitsService;
 
         public BestiolesService(
+            List<JsonBestiole> dataBestioles,
+            List<JsonPj> dataPjs,
+            List<JsonPersonnage> dataPersonnages,
             RacesService racesService,
             CompetencesEtTalentsService competencesEtTalentsService,
             LieuxService lieuxService,
@@ -26,6 +34,10 @@ namespace BlazorWjdr.Services
             CarrieresService carrieresService,
             TraitsService traitsService)
         {
+            _dataBestioles = dataBestioles;
+            _dataPersonnages = dataPersonnages;
+            _dataPjs = dataPjs;
+
             _racesService = racesService;
             _competencesEtTalentsService = competencesEtTalentsService;
             _lieuxService = lieuxService;
@@ -37,46 +49,32 @@ namespace BlazorWjdr.Services
         private Dictionary<int, BestioleDto>? _cacheBestiole;
         private List<BestioleDto>? _allBestioles;
 
-        private List<BestioleDto> AllBestioles
+        public List<BestioleDto> AllBestioles
         {
             get
             {
                 if (_allBestioles == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Bestiole return.
+                Debug.Assert(_allBestioles != null, nameof(_allBestioles) + " != null");
                 return _allBestioles;
-#pragma warning restore CS8603 // Possible null Bestiole return.
+
             }
         }
         
-        public Task<BestioleDto[]> Items()
-        {
-            return Task.FromResult(AllBestioles.ToArray());
-        }
-
         public BestioleDto GetBestiole(int id)
         {
             if (_cacheBestiole == null)
                 Initialize();
-#pragma warning disable CS8602 // DeBestiole of a possibly null Bestiole.
+            Debug.Assert(_cacheBestiole != null, nameof(_cacheBestiole) + " != null");
             return _cacheBestiole[id];
-#pragma warning restore CS8602 // DeBestiole of a possibly null Bestiole.
         }
 
         private void Initialize()
         {
-            var cachePersonnage = DataSource.JsonLoader
-                .GetRootPersonnage()
-                .items
-                .ToDictionary(k => k.id);
-            var cachePj = DataSource.JsonLoader
-                .GetRootPj()
-                .items
-                .ToDictionary(k => k.id);
+            var cachePersonnage = _dataPersonnages.ToDictionary(k => k.id);
+            var cachePj = _dataPjs.ToDictionary(k => k.id);
 
-            _cacheBestiole = DataSource.JsonLoader
-                .GetRootBestiole()
-                .items
+            _cacheBestiole = _dataBestioles
                 .Select(c => new BestioleDto
                 {
                     Id = c.id,
@@ -126,6 +124,10 @@ namespace BlazorWjdr.Services
                 .ToDictionary(k => k.Id);
             
             _allBestioles = _cacheBestiole.Values.ToList();
+
+            //_dataBestioles.Clear();
+            //_dataPersonnages.Clear();
+            //_dataPjs.Clear();
         }
     }
 }

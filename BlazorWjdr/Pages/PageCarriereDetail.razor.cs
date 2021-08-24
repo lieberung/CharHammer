@@ -15,11 +15,9 @@
         [Inject]
         public CarrieresService CarrieresService { get; set; } = null!;
 
-        protected override Task OnParametersSetAsync()
+        protected override void OnParametersSet()
         {
             Carriere = CarrieresService.GetCarriere(int.Parse(CarriereId));
-
-            return base.OnParametersSetAsync();
         }
     }
 }

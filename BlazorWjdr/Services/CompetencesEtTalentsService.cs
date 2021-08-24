@@ -1,47 +1,48 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Diagnostics;
+using BlazorWjdr.DataSource.JsonDto;
+
+namespace BlazorWjdr.Services
 {
     using Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class CompetencesEtTalentsService
     {
+        private readonly List<JsonCompetence> _dataCompetences;
         private List<CompetenceDto>? _allCompetences;
         private Dictionary<int, CompetenceDto>? _cacheCompetences;
 
+        private readonly List<JsonTalent> _dataTalents;
         private List<TalentDto>? _allTalents;
         private Dictionary<int, TalentDto>? _cacheTalents;
 
+        public CompetencesEtTalentsService(List<JsonCompetence> dataCompetences, List<JsonTalent> dataTalents)
+        {
+            _dataCompetences = dataCompetences;
+            _dataTalents = dataTalents;
+            
+            Initialize();
+        }
+        
         public IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int> ids) => ids.Select(GetCompetence).OrderBy(c => c.Nom).ToArray();
         public CompetenceDto GetCompetence(int id)
         {
             if (_cacheCompetences == null)
                 Initialize();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            Debug.Assert(_cacheCompetences != null, nameof(_cacheCompetences) + " != null");
             return _cacheCompetences[id];
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
-        public Task<CompetenceDto[]> ItemsCompetences()
-        {
-            if (_allCompetences == null)
-                Initialize();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            return Task.FromResult(_allCompetences.ToArray());
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-        }
-        
-        private IEnumerable<CompetenceDto> AllCompetences
+        public IEnumerable<CompetenceDto> AllCompetences
         {
             get
             {
                 if (_allCompetences == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null reference return.
+                Debug.Assert(_allCompetences != null, nameof(_allCompetences) + " != null");
                 return _allCompetences;
-#pragma warning restore CS8603 // Possible null reference return.
             }
         }
 
@@ -50,37 +51,25 @@
         {
             if (_cacheTalents == null)
                 Initialize();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
+            Debug.Assert(_cacheTalents != null, nameof(_cacheTalents) + " != null");
             return _cacheTalents[id];
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
         }
 
-        public Task<TalentDto[]> ItemsTalents()
-        {
-            if (_allTalents == null)
-                Initialize();
-#pragma warning disable CS8602 // Dereference of a possibly null reference.
-            return Task.FromResult(_allTalents.ToArray());
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-        }
-        
         public IEnumerable<TalentDto> AllTalents
         {
             get
             {
                 if (_allTalents == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null reference return.
+                Debug.Assert(_allTalents != null, nameof(_allTalents) + " != null");
                 return _allTalents;
-#pragma warning restore CS8603 // Possible null reference return.
             }
         }
 
         private void Initialize()
         {
-            _allTalents = DataSource.JsonLoader
-                .GetRootTalent()
-                .items
+            if (_dataCompetences.Count == 0) throw new System.Exception("tototototototototototototototot");
+            _allTalents = _dataTalents
                 .Select(t => new TalentDto
                 {
                     Id = t.id,
@@ -100,17 +89,17 @@
             _cacheTalents = _allTalents.ToDictionary(k => k.Id, v => v);
 
             foreach (var talent in _allTalents.Where(t => t.TalentParentId.HasValue))
-#pragma warning disable CS8629 // Nullable value type may be null.
-                talent.Parent = GetTalent(talent.TalentParentId.Value);
-#pragma warning restore CS8629 // Nullable value type may be null.
+            {
+                Debug.Assert(talent.TalentParentId != null, "talent.TalentParentId != null");
+                talent.Parent = _cacheTalents[talent.TalentParentId.Value];
+            }
+
             foreach (var talent in _allTalents)
                 talent.SousElements.AddRange(_allTalents
                     .Where(c=>c.Parent == talent)
                     .OrderBy(c => c.Nom));
 
-            _allCompetences = DataSource.JsonLoader
-                .GetRootCompetence()
-                .items
+            _allCompetences = _dataCompetences
                 .Select(c => new CompetenceDto
                 {
                     Id = c.id,
@@ -132,9 +121,10 @@
             _cacheCompetences = _allCompetences.ToDictionary(k => k.Id, v => v);
 
             foreach (var competence in _allCompetences.Where(c => c.CompetenceMereId.HasValue))
-#pragma warning disable CS8629 // Nullable value type may be null.
-                competence.Parent = GetCompetence(competence.CompetenceMereId.Value);
-#pragma warning restore CS8629 // Nullable value type may be null.
+            {
+                Debug.Assert(competence.CompetenceMereId != null, "competence.CompetenceMereId != null");
+                competence.Parent = _cacheCompetences[competence.CompetenceMereId.Value];
+            }
 
             foreach (var competence in _allCompetences)
             {
@@ -154,6 +144,9 @@
                     .Where(c => c.TalentsLies.Contains(talent))
                     .ToList();
             }
+
+            //_dataCompetences.Clear();
+            //_dataTalents.Clear();
         }
 
         #region Competences & Talents

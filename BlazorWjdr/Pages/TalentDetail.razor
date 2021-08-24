@@ -75,9 +75,9 @@
     
     private CarriereDto[] _carrieres = null!;
 
-    protected override async Task OnParametersSetAsync()
+    protected override void OnParametersSet()
     {
         Talent = _competencesEtTalentsService.GetTalent(int.Parse(TalentId));
-        _carrieres = await _carrieresService.GetCarrieresProposant(Talent);
+        _carrieres = _carrieresService.GetCarrieresProposant(Talent);
     }
 }

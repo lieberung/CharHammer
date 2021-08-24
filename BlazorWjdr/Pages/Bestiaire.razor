@@ -26,9 +26,9 @@
 @code {
     private List<BestioleDto> _bestiolesLines = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        var bestioles = await _bestiolesService.Items();
+        var bestioles = _bestiolesService.AllBestioles;
         _bestiolesLines = bestioles.Where(b => b.EstUnPersonnage == false).OrderBy(b => b.Nom).ToList();
     }
 }

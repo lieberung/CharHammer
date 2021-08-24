@@ -15,9 +15,9 @@ namespace BlazorWjdr.Components.Competence
         
         private CarriereDto[] _carrieresLiees = null!;
 
-        protected override async Task OnInitializedAsync()
+        protected override void OnInitialized()
         {
-            _carrieresLiees = await CarrieresService.GetCarrieresProposant(Item);
+            _carrieresLiees = CarrieresService.GetCarrieresProposant(Item);
         }
     }
 }

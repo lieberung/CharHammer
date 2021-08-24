@@ -13,6 +13,6 @@
 {"id":7,"date_creation":null,"nom_joueur":"Alex","xp_actuel":0,"xp_total":325,"fk_profilinitialid":226},
 {"id":8,"date_creation":null,"nom_joueur":"Jimmy","xp_actuel":0,"xp_total":325,"fk_profilinitialid":227},
 {"id":9,"date_creation":null,"nom_joueur":"Christophe","xp_actuel":0,"xp_total":325,"fk_profilinitialid":228},
-{"id":27,"date_creation":null,"nom_joueur":"Laurent (MJ)","xp_actuel":25,"xp_total":1325,"fk_profilinitialid":261},
+{"id":27,"date_creation":null,"nom_joueur":"Laurent (MJ)","xp_actuel":25,"xp_total":1325,"fk_profilinitialid":261}
 	]
 }

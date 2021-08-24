@@ -28,16 +28,16 @@
         {
             <SousElement/>
         }
-        <TalentItem Item="Item"/>
+        <TalentItem Item="@Item"/>
     </td>
-    <td><CheckedIfTrue Condition="Item.Trait"></CheckedIfTrue></td>
+    <td><CheckedIfTrue Condition="@Item.Trait"/></td>
     <td><CompetenceItemList Items="@Item.CompetencesLiees.ToArray()"/></td>
 </tr>
 @if (AfficherCarrieres)
 {
     <tr class="zone-detail">
         <td colspan="5" class="p-3">
-            <CarriereItemList Items="_carrieresLiees"/>
+            <CarriereItemList Items="@_carrieresLiees"/>
         </td>
     </tr>
 }
@@ -56,8 +56,8 @@
 
     private CarriereDto[] _carrieresLiees = null!;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        _carrieresLiees = await _carrieresService.GetCarrieresProposant(Item);
+        _carrieresLiees = _carrieresService.GetCarrieresProposant(Item);
     }
 }

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace BlazorWjdr.Services
 {
+    using BlazorWjdr.DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
@@ -9,8 +11,14 @@ namespace BlazorWjdr.Services
 
     public class TraitsService
     {
+        private readonly List<JsonTrait> _dataTraits;
         private Dictionary<int, TraitDto>? _cacheTrait;
         private List<TraitDto>? _allTraits;
+
+        public TraitsService(List<JsonTrait> dataTraits)
+        {
+            _dataTraits = dataTraits;
+        }
 
         private List<TraitDto> AllTraits
         {
@@ -18,15 +26,9 @@ namespace BlazorWjdr.Services
             {
                 if (_allTraits == null)
                     Initialize();
-#pragma warning disable CS8603 // Possible null Trait return.
+                Debug.Assert(_allTraits != null, nameof(_allTraits) + " != null");
                 return _allTraits;
-#pragma warning restore CS8603 // Possible null Trait return.
             }
-        }
-        
-        public Task<TraitDto[]> Items()
-        {
-            return Task.FromResult(AllTraits.ToArray());
         }
 
         public TraitDto GetTrait(int id)
@@ -40,9 +42,7 @@ namespace BlazorWjdr.Services
 
         private void Initialize()
         {
-            _cacheTrait = DataSource.JsonLoader
-                .GetRootTrait()
-                .items
+            _cacheTrait = _dataTraits
                 .Select(c => new TraitDto
                 {
                     Id = c.id,
