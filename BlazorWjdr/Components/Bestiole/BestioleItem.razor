@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Models
-<a href="/bestioles/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="bestioles/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <span class="oi oi-@(Item.EstUnPersonnage ? "person" : "bug") item-icon mr-1" aria-hidden="true"></span>
     <span>@Item.Nom</span>
     @if (Item.CheminementPro.Any())

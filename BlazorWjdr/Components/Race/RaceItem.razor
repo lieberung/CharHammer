@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Models
-<a href="/races/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="races/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <span class="oi oi-droplet item-icon mr-1" aria-hidden="true"></span>
     @Item.NomMasculin @(string.IsNullOrWhiteSpace(Item.NomFeminin) ? "" : " / " + Item.NomFeminin)
 </a>
