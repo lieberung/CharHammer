@@ -87,7 +87,7 @@ namespace BlazorWjdr.Services
                     DebouchesIds = c.debouch ?? Array.Empty<int>(),
                     Dotations = c.dotations,
                     EstUneCarriereAvancee = c.avancee,
-                    Image = $"/images/careers/{c.id}.png",
+                    Image = $"images/careers/{c.id}.png",
                     PlanDeCarriere = _profilsService.GetProfil(c.plan),
                     Restriction = c.restriction ?? "",
                     Source = c.source_page ?? "",
