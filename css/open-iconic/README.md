@@ -69,7 +69,7 @@ You can find our Bootstrap stylesheets in `font/css/open-iconic-bootstrap.{css, 
 
 
 ```
-<link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+<link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 ```
 
 
@@ -82,7 +82,7 @@ You can find our Bootstrap stylesheets in `font/css/open-iconic-bootstrap.{css, 
 You can find our Foundation stylesheets in `font/css/open-iconic-foundation.{css, less, scss, styl}`
 
 ```
-<link href="/open-iconic/font/css/open-iconic-foundation.css" rel="stylesheet">
+<link href="open-iconic/font/css/open-iconic-foundation.css" rel="stylesheet">
 ```
 
 
@@ -95,7 +95,7 @@ You can find our Foundation stylesheets in `font/css/open-iconic-foundation.{css
 You can find our default stylesheets in `font/css/open-iconic.{css, less, scss, styl}`
 
 ```
-<link href="/open-iconic/font/css/open-iconic.css" rel="stylesheet">
+<link href="open-iconic/font/css/open-iconic.css" rel="stylesheet">
 ```
 
 ```
