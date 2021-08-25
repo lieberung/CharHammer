@@ -8,54 +8,6 @@ button.btn-sm[b-33fbycr4ot] {
 /* /Pages/PageEquipementArmes.razor.rz.scp.css */
 .table tbody[b-yysym0f57h] { font-size: 14px; }
 [b-yysym0f57h] .btn.btn-item { font-size: 14px; }
-/* /Shared/GalleryImage.razor.rz.scp.css */
-.gallery[b-j8354ca0xp] {
-    display: flex;
-    padding: 2px;
-    transition: .3s;
-}
-.gallery:hover .gallery__image[b-j8354ca0xp] { filter: grayscale(1); }
-
-.gallery__column[b-j8354ca0xp] {
-    display: flex;
-    flex-direction: column;
-    width: 25%;
-}
-
-.gallery__link[b-j8354ca0xp] {
-    margin: 2px;
-    overflow: hidden;
-}
-
-        /*.gallery__link:hover {*/
-.gallery__link:hover .gallery__image[b-j8354ca0xp] { filter: grayscale(0); }
-
-.gallery__link:hover .gallery__caption[b-j8354ca0xp] { opacity: 1; }
-        /*}*/
-
-.gallery__thumb[b-j8354ca0xp] { position: relative; }
-
-.gallery__image[b-j8354ca0xp] {
-    display: block;
-    width: 100%;
-    transition: .3s;
-}
-
-.gallery__image:hover[b-j8354ca0xp] { transform: scale(1.1); }
-
-.gallery__caption[b-j8354ca0xp] {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 25px 15px 15px;
-    width: 100%;
-    font-family: 'Raleway', sans-serif;
-    font-size: 16px;
-    color: white;
-    opacity: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255, 255, 0) 100%);
-    transition: .3s;
-}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-ptappyth0t] {
     position: relative;
@@ -196,7 +148,7 @@ span[b-n0eqg1tdss] {
 span[b-n0eqg1tdss]::after {
     content: "";
     position: absolute;
-    top: 100%;
+    top: 200%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
@@ -205,41 +157,5 @@ span[b-n0eqg1tdss]::after {
 }
 
 .tooltip-wrapper:hover span[b-n0eqg1tdss] {
-    visibility: visible;
-}
-/* /Shared/TooltipImage.razor.rz.scp.css */
-.tooltip-wrapper[b-0uhmj2bgg2] {
-    position: relative;
-    display: inline-block;
-    /*border-bottom: 1px dotted black;*/
-    /*cursor: help;*/
-}
-
-img[b-0uhmj2bgg2] {
-    visibility: hidden;
-    position: absolute;
-    width: 480px;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
-    background-color: #363636;
-    color: #fff;
-    padding: 5px 7px;
-    border-radius: 6px;
-    z-index: 1;
-}
-
-img[b-0uhmj2bgg2]::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-.tooltip-wrapper:hover img[b-0uhmj2bgg2] {
     visibility: visible;
 }
