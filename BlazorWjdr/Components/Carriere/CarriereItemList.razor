@@ -1,10 +1,10 @@
 ﻿@using BlazorWjdr.Models
 <ul class="list-inline">
-    @foreach (var carriere in Items.Where(c => SpecialCarriereId.Contains(c.Id)))
+    @foreach (var carriere in Items.Where(c => SpecialCarriereId.Contains(c.Id)).OrderBy(c=>c.Nom))
     {
         <li class="@ItemClass"><CarriereItem Item="@carriere" HideIndicatorBase="@HideIndicatorBase" HideIndicatorRestriction="@HideIndicatorRestriction" Special="@true"/></li>
     }
-    @foreach (var carriere in Items.Where(c => !SpecialCarriereId.Contains(c.Id)))
+    @foreach (var carriere in Items.Where(c => !SpecialCarriereId.Contains(c.Id)).OrderBy(c=>c.Nom))
     {
         <li class="@ItemClass"><CarriereItem Item="@carriere" HideIndicatorBase="@HideIndicatorBase" HideIndicatorRestriction="@HideIndicatorRestriction"/></li>
     }
