@@ -1,12 +1,10 @@
-﻿@page "/blazor-wjdr/regles/combat/"
+﻿@page "/regles/combat/"
 
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Talent
-@using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
 @using BlazorWjdr.Components.Trait
-@using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject ReglesService _reglesService
@@ -35,13 +33,15 @@
 
                 <p class="card-text">
                     Prendre l'ennemi par surprise confère un énorme avantage. Si l'un des camps prépare une attaque, il peut tenter de profiter de l'effet de suprise en :
-                    <ul>
-                        <li><strong>Dissimulation : </strong>réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceDissimulation"/> approprié. Les victimes peuvent y opposer un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> s'il sont sur leurs gardes ou selon l'humeur du MJ.</li>
-                        <li><strong>Attaque sournoise : </strong>attaque dans le dos, dans l'ombre, à travers un épais brouillard ou depuis le ciel ! Selon les conditions et l'humeur du MJ, les victimes peuvent y opposer un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> s'il sont sur leurs gardes.</li>
-                        <li><strong>Diversion : </strong>forte détonation, foule de pénitents menée par un sermon particulièrement engageant sont des exemples qui peuvent couvrir une attaque surprise.</li>
-                        <li><strong>Pris au dépourvu : </strong>s'il l'ennemi n'est particulièrement pas préparé à une attaque, l'effet de surprise est automatique.</li>
-                        <li><strong>Autre chose : </strong>tout autre plan sournois ou ingénieux concoté par des joueurs méticuleux.</li>
-                    </ul>
+                </p>
+                <ul>
+                    <li><strong>Dissimulation : </strong>réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceDissimulation"/> approprié. Les victimes peuvent y opposer un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> s'il sont sur leurs gardes ou selon l'humeur du MJ.</li>
+                    <li><strong>Attaque sournoise : </strong>attaque dans le dos, dans l'ombre, à travers un épais brouillard ou depuis le ciel ! Selon les conditions et l'humeur du MJ, les victimes peuvent y opposer un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> s'il sont sur leurs gardes.</li>
+                    <li><strong>Diversion : </strong>forte détonation, foule de pénitents menée par un sermon particulièrement engageant sont des exemples qui peuvent couvrir une attaque surprise.</li>
+                    <li><strong>Pris au dépourvu : </strong>s'il l'ennemi n'est particulièrement pas préparé à une attaque, l'effet de surprise est automatique.</li>
+                    <li><strong>Autre chose : </strong>tout autre plan sournois ou ingénieux concoté par des joueurs méticuleux.</li>
+                </ul>
+                <p class="card-text">
                     S'il y a une chance pour que les embusqués soient repérés, le MJ appèlera un test opposé <CompetenceItem Item="@_competencesEtTalentsService.CompetenceDissimulation"/> <strong>vs</strong> <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/>, généralement avec le personnage qui a la plus faible valeur en Dissimultion opposé à toutes les sentinelles potentielles.
                     Ceux qui échouent sont <TraitItem Item="@_traitsService.ConditionSurpris"/>.
                     <br/>
@@ -55,8 +55,11 @@
             <div class="card-body">
                 <p class="card-text">
                     Chaque combattant lance 1d10 et y ajoute son bonus d'Initiative et son bonus d'Agilité.<br/>
-                    Les combattants disposant de <TalentItem Item="@_competencesEtTalentsService.TalentReflexesDeCombat"/> ont un bonus supplémentaire.
                 </p>
+                <ul>
+                    <li>Les combattants disposant de <TalentItem Item="@_competencesEtTalentsService.TalentReflexesDeCombat"/> ont un bonus supplémentaire.</li>
+                    <li>Les combattant utilisant une arme dotée de l'attribut <AttributDArmeItem Item="@_armesService.AttributLent"/> Lente jouent en dernier.</li>
+                </ul>
                 <p class="card-text">
                     Durant chaque Round, les combatants joueront leur Tour dans l'ordre du score le plus fort au plus faible.
                 </p>
@@ -66,11 +69,10 @@
             <div class="card-body">
                 <p class="card-text">
                     Si des règles s'appliquent au début du Round, elles s'appliquent maintenant.
-                    <br/>
-                    <ul>
-                        <li><TalentItem Item="@_competencesEtTalentsService.TalentTirEclair"/></li>
-                    </ul>
                 </p>
+                <ul>
+                    <li><TalentItem Item="@_competencesEtTalentsService.TalentTirEclair"/></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -90,39 +92,40 @@
                     Le MJ décrit votre situation - ou se trouve chaque combattant et ce qui vous entoure - et vous pouvez poser des questions supplémentaires pour planifier votre Tour.
                     <br/>
                     On détermine si le personnage actif est en supériorité numérique, en prenant en compte l'évetuelle <TalentItem Item="_competencesEtTalentsService.TalentPresenceImposante"/> de ses adversaires :
-                    <ul>
-                        <li>à raison de 2 contre 1, l'attaquant gagne un bonus de +20 en CC.</li>
-                        <li>à raison de 3 contre 1, l'attaquant gagne un bonus de +40 en CC.</li>
-                    </ul>
-                    <br/>
+                </p>
+                <ul>
+                    <li>à raison de 2 contre 1, l'attaquant gagne un bonus de +20 en CC.</li>
+                    <li>à raison de 3 contre 1, l'attaquant gagne un bonus de +40 en CC.</li>
+                </ul>
+                <p class="card-text">
                     Vous pouvez effectuer votre Déplacement et votre Action dans l'ordre souhaité, ou en même temps en décrivant comment vous combinez les deux.
                 </p>
             </div>
-            <TableDetail Item="@_tablesService.GetTable(65)"></TableDetail>
+            <TableDetail Item="@_tablesService.GetTable(65)"/>
         </div>
         <div class="col-4">
-            <TableDetail Item="@_tablesService.GetTable(66)"></TableDetail>
+            <TableDetail Item="@_tablesService.GetTable(66)"/>
             <div class="card-body">
                 <p class="card-text">
                     Si un combattant est <strong>plus petit</strong> que son adversaire :
-                    <ul>
-                        <li>en attaque, il gagne un bonus de +10 en CC pour toucher (uniquement).</li>
-                        <li>en défense, il subit un malus de -2 BS pour chaque écart de taille quand il utilise sa CC pour un Test Opposé.</li>
-                        <li>pour remporter un Test Opposé de Force, il doit faire une Réussite Critique s'il n'a qu'une taille de moins ; au delà l'échec est automatique.</li>
-                    </ul>
                 </p>
+                <ul>
+                    <li>en attaque, il gagne un bonus de +10 en CC pour toucher (uniquement).</li>
+                    <li>en défense, il subit un malus de -2 BS pour chaque écart de taille quand il utilise sa CC pour un Test Opposé.</li>
+                    <li>pour remporter un Test Opposé de Force, il doit faire une Réussite Critique s'il n'a qu'une taille de moins ; au delà l'échec est automatique.</li>
+                </ul>
                 <p class="card-text">
                     Si un combattant est <strong>plus grand</strong> que son adversaire :
-                    <ul>
-                        <li>son arme devient <AttributDArmeItem Item="@_armesService.AttributDamaging"/> s'il est <strong>plus grand d'une taille</strong>.</li>
-                        <li>son arme devient <AttributDArmeItem Item="@_armesService.AttributPercutant"/> s'il est <strong>plus grand de deux tailles</strong> ou plus.</li>
-                        <li>ses dégâts sont multipliés par l'écart de taille - Large vs Moyen = normaux ; Enorme vs Moyen = x2 ; Monstrueux vs Moyen = x3.</li>
-                        <li>tous ses coups qui touchent une cible plus petite déclenchent la règle du <em>Coup Fatal</em>, même si la cible survit.</li>
-                        <li>il cause la <em>Peur</em> à ses adversaires <strong>plus petits d'une taille</strong>, et au delà la <em>Terreur</em> avec un Taux égal à l'écart de taille.</li>
-                        <li>une fois par Round, il peut dépenser 1 Avantage pour effectuer un Pietinement en attaque gratuite (inflige BS+0 en utilisant ses poings/pieds/armes naturelles).</li>
-                        <li>il ignore la nécessité de se Désengager pour quitter le combat ; il se contente de se déplacer où il veut en balayant devant lui.</li>
-                    </ul>
                 </p>
+                <ul>
+                    <li>son arme devient <AttributDArmeItem Item="@_armesService.AttributDamaging"/> s'il est <strong>plus grand d'une taille</strong>.</li>
+                    <li>son arme devient <AttributDArmeItem Item="@_armesService.AttributPercutant"/> s'il est <strong>plus grand de deux tailles</strong> ou plus.</li>
+                    <li>ses dégâts sont multipliés par l'écart de taille - Large vs Moyen = normaux ; Enorme vs Moyen = x2 ; Monstrueux vs Moyen = x3.</li>
+                    <li>tous ses coups qui touchent une cible plus petite déclenchent la règle du <em>Coup Fatal</em>, même si la cible survit.</li>
+                    <li>il cause la <em>Peur</em> à ses adversaires <strong>plus petits d'une taille</strong>, et au delà la <em>Terreur</em> avec un Taux égal à l'écart de taille.</li>
+                    <li>une fois par Round, il peut dépenser 1 Avantage pour effectuer un Pietinement en attaque gratuite (inflige BS+0 en utilisant ses poings/pieds/armes naturelles).</li>
+                    <li>il ignore la nécessité de se Désengager pour quitter le combat ; il se contente de se déplacer où il veut en balayant devant lui.</li>
+                </ul>
             </div>
         </div>
         <div class="col-4">
@@ -134,25 +137,21 @@
                 Chaque Avantage confère un <strong>bonus de +10</strong> aux tests de combat (attaquer, défendre, résister) et de psychologie (peur, terreur) appropriés.
             </p>
             <h5 class="card-title">Gagner des Avantages</h5>
-            <p class="card-text">
-                <ul>
-                    <li>attaquer un ennemi <TraitItem Item="@_traitsService.ConditionSurpris"/> confère +1 Avantage</li>
-                    <li><strong>charger</strong> un adversaire confère +1 Avantage</li>
-                    <li>remporter un <strong>Test Opposé</strong> confère +1 Avantage</li>
-                    <li>blesser un adversaire sans recourir à un Test Opposé confère +1 Avantage</li>
-                    <li>certaines <strong>compétences</strong> et certains <strong>talents</strong> vous donnent un avantage tactique</li>
-                    <li><strong>vaincre</strong> un chef de groupe confère +1 Avantage, voir +2 s'il est particulièrement puissant</li>
-                </ul> 
-            </p>
+            <ul>
+                <li>attaquer un ennemi <TraitItem Item="@_traitsService.ConditionSurpris"/> confère +1 Avantage</li>
+                <li><strong>charger</strong> un adversaire confère +1 Avantage</li>
+                <li>remporter un <strong>Test Opposé</strong> confère +1 Avantage</li>
+                <li>blesser un adversaire sans recourir à un Test Opposé confère +1 Avantage</li>
+                <li>certaines <strong>compétences</strong> et certains <strong>talents</strong> vous donnent un avantage tactique</li>
+                <li><strong>vaincre</strong> un chef de groupe confère +1 Avantage, voir +2 s'il est particulièrement puissant</li>
+            </ul> 
             <h5 class="card-title">Perdre ou dépenser son Avantage</h5>
-            <p class="card-text">
-                <ul>
-                    <li>perdre un Test Opposé, subir une <em>Condition</em> ou être blessé vous fait perdre tous vos Avantages</li>
-                    <li>si à la fin d'un Round vous n'avez gagné aucun Avantage, ou que vous êtes en infériorité numérique, vous perdez 1 Avantage</li>
-                    <li>vous pouvez dépenser des Avantages pour vous Désengager d'un combat</li>
-                    <li>des compétences, talents et attributs d'armes permettent de dépenser des Avantages en échange d'une capacité</li>
-                </ul> 
-            </p>
+            <ul>
+                <li>perdre un Test Opposé, subir une <em>Condition</em> ou être blessé vous fait perdre tous vos Avantages</li>
+                <li>si à la fin d'un Round vous n'avez gagné aucun Avantage, ou que vous êtes en infériorité numérique, vous perdez 1 Avantage</li>
+                <li>vous pouvez dépenser des Avantages pour vous Désengager d'un combat</li>
+                <li>des compétences, talents et attributs d'armes permettent de dépenser des Avantages en échange d'une capacité</li>
+            </ul> 
         </div>
     </div>
     
@@ -192,19 +191,20 @@
             <h4 class="card-title">Se Désengager ou Fuir</h4>
             <p class="card-text">
                 Si vous êtes engagé, vous avez ces deux options pour quitter le combat en sécurité :
-                <ul>
-                    <li>Utiliser votre <strong>Avantage</strong> : si vous avez plus d'Avantage que vos adversaire (cumulés), vous êtes en position supérieur et pouvez facilement vous mettre hors de portée. Votre Avantage retombe à 0 mais vous pourrez vous éloigner, puis charger à nouveau, fuir, ou prendre un peu de recul pour tirer sur un adversaire.</li>
-                    <li>
-                        Utiliser l'<CompetenceItem Item="@_competencesEtTalentsService.CompetenceEsquive"/> : si vous n'avez pas l'Avantage ou souhaitez le conserver, vous êtes contraint d'utiliser votre Action pour un <strong>Test Opposé d'Esquive / Mélée</strong>.
-                        Sur une réussite vous gagnez 1 Avantage et pouvez utiliser votre Deplacement pour vous éloigner. Sinon, chaque adversaire qui l'emporte gagne 1 Avantage et à droit à une attaque d'opportunité.
-                    </li>
-                    <li>
-                        Vous pouvez délibéremment ou non <strong>Fuir</strong> auquel cas tous vos adversaires gagnent immédiatement 1 Avantage et ont droit à une attaque d'opportunité (test non opposé de Mélée) avec un bonus de +20.
-                        Si vous êtes touché, chaque adversaire gagne 1 Avantage et vous devez réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSangFroid"/> ou gagner une Condition <TraitItem Item="@_traitsService.ConditionDemoralise"/>, plus une supplémentaire par BS en dessous de 0.
-                        Cela résolu, vous pouvez vous éloigner de votre Mouvement de Course si vous en êtes encore capable.
-                    </li>
-                </ul>
+
             </p>
+            <ul>
+                <li>Utiliser votre <strong>Avantage</strong> : si vous avez plus d'Avantage que vos adversaire (cumulés), vous êtes en position supérieur et pouvez facilement vous mettre hors de portée. Votre Avantage retombe à 0 mais vous pourrez vous éloigner, puis charger à nouveau, fuir, ou prendre un peu de recul pour tirer sur un adversaire.</li>
+                <li>
+                    Utiliser l'<CompetenceItem Item="@_competencesEtTalentsService.CompetenceEsquive"/> : si vous n'avez pas l'Avantage ou souhaitez le conserver, vous êtes contraint d'utiliser votre Action pour un <strong>Test Opposé d'Esquive / Mélée</strong>.
+                    Sur une réussite vous gagnez 1 Avantage et pouvez utiliser votre Deplacement pour vous éloigner. Sinon, chaque adversaire qui l'emporte gagne 1 Avantage et à droit à une attaque d'opportunité.
+                </li>
+                <li>
+                    Vous pouvez délibéremment ou non <strong>Fuir</strong> auquel cas tous vos adversaires gagnent immédiatement 1 Avantage et ont droit à une attaque d'opportunité (test non opposé de Mélée) avec un bonus de +20.
+                    Si vous êtes touché, chaque adversaire gagne 1 Avantage et vous devez réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSangFroid"/> ou gagner une Condition <TraitItem Item="@_traitsService.ConditionDemoralise"/>, plus une supplémentaire par BS en dessous de 0.
+                    Cela résolu, vous pouvez vous éloigner de votre Mouvement de Course si vous en êtes encore capable.
+                </li>
+            </ul>
         </div>
         <div class="col-4">
             <h4 class="card-title">Localisation des coups/tirs</h4>
@@ -231,10 +231,11 @@
     <div class="row">
         <div class="col-5">
             <h5 class="card-title">Fin du Round</h5>
-            <p class="card-text">
-                Les personnages en infériorité numérique perdent 1 Avantage.
-                
-            </p>
+            <ul>
+                <li>un combattant qui n'a gagné aucun point d'Avantage durant ce round perd 1 point d'Avantage</li>
+                <li>un combatant en infériorité numérique perd 1 point d'Avantage</li>
+                <li>pour chaque combattant neutralisé ce round, chacun de ses ennemis gagne 1 point d'avantage</li>
+            </ul>
         </div>
         <div class="col-1">
         </div>

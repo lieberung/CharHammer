@@ -103,6 +103,9 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
+    <_ContentIncludedByDefault Remove="wwwroot\font\caslon-antique-regular.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\font\caslon-antique-regular.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\font\caslon-antique-regular.woff2" />
   </ItemGroup>
 
 </Project>

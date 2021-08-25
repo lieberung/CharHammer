@@ -40,25 +40,25 @@ namespace BlazorWjdr.Services
         }
 
         public RootBestiole? Bestioles { get; private set; }
-        public RootCarriere Carrieres { get; private set; }
-        public RootChrono Chrono { get; private set; }
-        public RootCompetence Competences { get; private set; }
-        public RootDieu Dieux { get; private set; }
-        public RootDomaine Domaines { get; private set; }
-        public RootLieu Lieux { get; private set; }
-        public RootLieuType LieuxTypes { get; private set; }
-        public RootArme Armes { get; private set; }
-        public RootArmeAttribut ArmesAttributs { get; private set; }
-        public RootPersonnage Personnages { get; private set; }
-        public RootPj Pjs { get; private set; }
-        public RootProfil Profils { get; private set; }
-        public RootRace Races { get; private set; }
-        public RootReference References { get; private set; }
-        public RootTable Tables { get; private set; }
-        public RootRegle Regles { get; private set; }
-        public RootTableCarriereInitiale CarrieresInitiales { get; private set; }
-        public RootTalent Talents { get; private set; }
-        public RootTrait Traits { get; private set; }
+        public RootCarriere? Carrieres { get; private set; }
+        public RootChrono? Chrono { get; private set; }
+        public RootCompetence? Competences { get; private set; }
+        public RootDieu? Dieux { get; private set; }
+        public RootDomaine? Domaines { get; private set; }
+        public RootLieu? Lieux { get; private set; }
+        public RootLieuType? LieuxTypes { get; private set; }
+        public RootArme? Armes { get; private set; }
+        public RootArmeAttribut? ArmesAttributs { get; private set; }
+        public RootPersonnage? Personnages { get; private set; }
+        public RootPj? Pjs { get; private set; }
+        public RootProfil? Profils { get; private set; }
+        public RootRace? Races { get; private set; }
+        public RootReference? References { get; private set; }
+        public RootTable? Tables { get; private set; }
+        public RootRegle? Regles { get; private set; }
+        public RootTableCarriereInitiale? CarrieresInitiales { get; private set; }
+        public RootTalent? Talents { get; private set; }
+        public RootTrait? Traits { get; private set; }
 
         private const string JsonDataPath = "json-data";
 
