@@ -58,17 +58,17 @@ namespace BlazorWjdr.Services
 
         public CarriereDto[] GetCarrieresProposant(CompetenceDto competence)
             => AllCarrieres
-                .Where(c => c.CompetencesPourScore.Contains(competence))
+                .Where(c => c.CompetencesPourScore.Any(c => c.Id == competence.Id))
                 .ToArray();
 
         public CarriereDto[] GetCarrieresProposant(TalentDto talent)
             => AllCarrieres
-                .Where(c => c.TalentsPourScore.Contains(talent))
+                .Where(c => c.TalentsPourScore.Any(t => t.Id == talent.Id))
                 .ToArray();
 
         public CarriereDto[] GetCarrieresParuesDans(ReferenceDto reference)
             => AllCarrieres
-                .Where(c => c.SourceLivre == reference)
+                .Where(c => c.SourceLivre?.Id == reference.Id)
                 .ToArray();
 
         private void Initialize()
@@ -730,16 +730,16 @@ namespace BlazorWjdr.Services
         }
 
         public IEnumerable<CarriereDto> CarrieresDeBretonnie => AllCarrieres
-            .Where(c => c.SourceLivre == _referencesService.LivreLesChevaliersDuGraal
-                        || c.SourceLivre == _referencesService.LivreLeDucheDesDamnes)
+            .Where(c => c.SourceLivre?.Id == _referencesService.LivreLesChevaliersDuGraal.Id
+                        || c.SourceLivre?.Id == _referencesService.LivreLeDucheDesDamnes.Id)
             .ToList();
 
         public IEnumerable<CarriereDto> CarrieresDuKislev => AllCarrieres
-            .Where(c => c.Id == 53 || c.SourceLivre == _referencesService.LivreLaReineDesGlaces)
+            .Where(c => c.Id == 53 || c.SourceLivre?.Id == _referencesService.LivreLaReineDesGlaces.Id)
             .ToList();
 
         public List<int> CarrieresSkaven => AllCarrieres
-            .Where(c => c.SourceLivre == _referencesService.LivreLesFilsDuRatCornu)
+            .Where(c => c.SourceLivre?.Id == _referencesService.LivreLesFilsDuRatCornu.Id)
             .Select(c => c.Id)
             .ToList();
 

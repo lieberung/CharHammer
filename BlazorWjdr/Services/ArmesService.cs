@@ -67,8 +67,8 @@ namespace BlazorWjdr.Services
             return _cacheArmeAttribut[id];
         }
 
-        public IEnumerable<ArmeDto> GetArmesDeMaitrise(CompetenceDto maitrise) =>
-            AllArmes.Where(a => a.CompetencesDeMaitrise.Contains(maitrise)).OrderBy(a => a.Nom).ToArray();
+        public List<ArmeDto> GetArmesDeMaitrise(CompetenceDto maitrise) =>
+            AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == maitrise.Id)).OrderBy(a => a.Nom).ToList();
 
         public IEnumerable<ArmeDto> GetArmes(IEnumerable<int> ids) => ids.Select(GetArme).ToArray();
 

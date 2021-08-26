@@ -34,12 +34,10 @@
     </p>
 }
 
-@if (Item?.Parent == _competencesEtTalentsService.CompetenceGroupeMelee ||
-     Item?.Parent == _competencesEtTalentsService.CompetenceGroupeTir ||
-     Item == _competencesEtTalentsService.CompetenceGroupeExplosifs)
+@if (_armesLiees.Any())
 {
     <h3 class="card-title">Armes liées</h3>
-    @foreach (var arme in _armesService.GetArmesDeMaitrise(Item))
+    @foreach (var arme in _armesLiees)
     {
         <p class="card-text">
             <strong>• @arme.Nom : </strong><span>@arme.Description</span>
@@ -52,6 +50,8 @@
     public CompetenceDto Item { get; set; } = null!;
 
     private List<TalentDto> _talentsLies = new();
+
+    private List<ArmeDto> _armesLiees = new();
     
     private string[] _paragraphes = null!;
 
@@ -63,7 +63,14 @@
             .Split('\n');
 
         _talentsLies = _competencesEtTalentsService.AllTalents.Where(t => t.CompetencesLiees.Contains(Item)).ToList();
-        
+
+        if (Item.Parent == _competencesEtTalentsService.CompetenceGroupeMelee ||
+            Item.Parent == _competencesEtTalentsService.CompetenceGroupeTir ||
+            Item == _competencesEtTalentsService.CompetenceGroupeExplosifs)
+        {
+            _armesLiees = _armesService.GetArmesDeMaitrise(Item);
+        }
+
         base.OnParametersSet();
     }
 }
