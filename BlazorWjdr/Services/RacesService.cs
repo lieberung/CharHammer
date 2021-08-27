@@ -15,7 +15,6 @@ namespace BlazorWjdr.Services
 
         private readonly List<JsonRace> _dataRaces;
         private Dictionary<int, RaceDto>? _cacheRace;
-        private List<RaceDto>? _allRaces;
 
         public RacesService(List<JsonRace> dataRaces, LieuxService lieuxService, ProfilsService profilsService)
         {
@@ -28,10 +27,10 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_allRaces == null)
+                if (_cacheRace == null)
                     Initialize();
-                Debug.Assert(_allRaces != null, nameof(_allRaces) + " != null");
-                return _allRaces;
+                Debug.Assert(_cacheRace != null, nameof(_cacheRace) + " != null");
+                return _cacheRace.Values.ToList();
             }
         }
 
@@ -66,17 +65,15 @@ namespace BlazorWjdr.Services
                     PourPj = r.pj
                 })
                 .ToDictionary(k => k.Id, v => v);
-            
-            _allRaces = _cacheRace.Values.ToList();
-            
-            foreach (var race in _allRaces.Where(d => d.ParentId.HasValue))
+
+            foreach (var race in _cacheRace.Values.Where(d => d.ParentId.HasValue))
             {
                 race.Parent = _cacheRace[race.ParentId!.Value];
             }
             
-            foreach (var lieu in _allRaces)
+            foreach (var lieu in _cacheRace.Values)
             {
-                lieu.SousElements.AddRange(_allRaces
+                lieu.SousElements.AddRange(_cacheRace.Values
                     .Where(c=>c.Parent == lieu)
                     .OrderBy(c => c.NomMasculin));                
             }

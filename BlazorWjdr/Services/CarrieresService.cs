@@ -11,7 +11,6 @@ namespace BlazorWjdr.Services
     public class CarrieresService
     {
         private readonly List<JsonCarriere> _dataCarrieres;
-        private List<CarriereDto>? _allCarrieres;
         private Dictionary<int, CarriereDto>? _cacheCarrieres;
 
         private readonly ProfilsService _profilsService;
@@ -31,18 +30,16 @@ namespace BlazorWjdr.Services
             _competencesEtTalentsService = competencesEtTalentsService;
             _referencesService = referencesService;
             _traitsService = traitsService;
-            
-            Initialize();
         }
 
         public List<CarriereDto> AllCarrieres
         {
             get
             {
-                if (_allCarrieres == null)
+                if (_cacheCarrieres == null)
                     Initialize();
-                Debug.Assert(_allCarrieres != null, nameof(_allCarrieres) + " != null");
-                return _allCarrieres;
+                Debug.Assert(_cacheCarrieres != null, nameof(_cacheCarrieres) + " != null");
+                return _cacheCarrieres.Values.OrderBy(t => t.Nom).ToList();
             }
         }
 
@@ -73,7 +70,7 @@ namespace BlazorWjdr.Services
 
         private void Initialize()
         {
-            _allCarrieres = _dataCarrieres
+            _cacheCarrieres = _dataCarrieres
                 .Select(c => new CarriereDto
                 {
                     Id = c.id,
@@ -108,27 +105,24 @@ namespace BlazorWjdr.Services
                         ? c.traits.Select(id => _traitsService.GetTrait(id)).ToList()
                         : new List<TraitDto>(),
                 })
-                .OrderBy(t => t.Nom)
-                .ToList();
+                .ToDictionary(k => k.Id, v => v);
 
-            _cacheCarrieres = _allCarrieres.ToDictionary(k => k.Id, v => v);
-
-            foreach (var carriere in _allCarrieres.Where(c => c.CarriereMereId.HasValue))
+            foreach (var carriere in _cacheCarrieres.Values.Where(c => c.CarriereMereId.HasValue))
             {
                 Debug.Assert(carriere.CarriereMereId != null, "carriere.CarriereMereId != null");
                 carriere.Parent = _cacheCarrieres[carriere.CarriereMereId.Value];
             }
 
-            foreach (var carriere in _allCarrieres.Where(c => c.DebouchesIds.Any()))
+            foreach (var carriere in _cacheCarrieres.Values.Where(c => c.DebouchesIds.Any()))
                 carriere.Debouches = GetCarrieres(carriere.DebouchesIds).ToList();
 
-            foreach (var carriere in _allCarrieres)
+            foreach (var carriere in _cacheCarrieres.Values)
             {
-                carriere.Filieres = _allCarrieres
+                carriere.Filieres = _cacheCarrieres.Values
                     .Where(c => c.Debouches.Contains(carriere))
                     .OrderBy(c => c.Nom)
                     .ToList();
-                carriere.SousElements.AddRange(_allCarrieres
+                carriere.SousElements.AddRange(_cacheCarrieres.Values
                     .Where(c => c.Parent == carriere)
                     .OrderBy(c => c.Nom));
 

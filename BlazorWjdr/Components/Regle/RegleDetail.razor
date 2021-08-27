@@ -3,6 +3,7 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Trait
 @using BlazorWjdr.Components.Table
 
 @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
@@ -21,6 +22,10 @@
 @if (Item.Talents.Any())
 {
     <TalentItemList Items="@Item.Talents" ItemsChoix="@Item.ChoixTalents.ToArray()"/>
+}
+@if (Item.Traits.Any())
+{
+    <TraitItemList Items="@Item.Traits"/>
 }
 
 @if (Item.Bestioles.Any())

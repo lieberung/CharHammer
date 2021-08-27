@@ -1,31 +1,35 @@
-﻿using System;
-using System.Diagnostics;
-
-namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.DataSource.JsonDto;
+    using System;
+    using System.Diagnostics;
+    using DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class ReglesService
     {
         private readonly CarrieresService _carrieresService;
         private readonly CompetencesEtTalentsService _competencesEtTalentsService;
+        private readonly TraitsService _traitsService;
         private readonly BestiolesService _bestiolesService;
         private readonly TablesService _tablesService;
         private readonly LieuxService _lieuxService;
 
         private readonly List<JsonRegle> _dataRegles;
         private Dictionary<int, RegleDto>? _cacheRegle;
-        private List<RegleDto>? _allRegles;
 
-        public ReglesService(List<JsonRegle> dataRegles, CarrieresService carrieresService, CompetencesEtTalentsService competencesEtTalentsService, BestiolesService bestiolesService, TablesService tablesService, LieuxService lieuxService)
+        public ReglesService(List<JsonRegle> dataRegles, CarrieresService carrieresService,
+            CompetencesEtTalentsService competencesEtTalentsService,
+            TraitsService traitsService,
+            BestiolesService bestiolesService, 
+            TablesService tablesService, 
+            LieuxService lieuxService)
         {
             _dataRegles = dataRegles;
             _carrieresService = carrieresService;
             _competencesEtTalentsService = competencesEtTalentsService;
+            _traitsService = traitsService;
             _bestiolesService = bestiolesService;
             _tablesService = tablesService;
             _lieuxService = lieuxService;
@@ -35,10 +39,10 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_allRegles == null)
+                if (_cacheRegle == null)
                     Initialize();
-                Debug.Assert(_allRegles != null, nameof(_allRegles) + " != null");
-                return _allRegles;
+                Debug.Assert(_cacheRegle != null, nameof(_cacheRegle) + " != null");
+                return _cacheRegle.Values.ToList();
             }
         }
 
@@ -65,6 +69,7 @@ namespace BlazorWjdr.Services
                         ? r.choixcompetences.Select(choix => _competencesEtTalentsService.GetCompetences(choix).ToArray()).ToList()
                         : new List<CompetenceDto[]>(),
                     Talents = (r.talents ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetTalent(id)).ToArray(),
+                    Traits = (r.traits ?? Array.Empty<int>()).Select(id => _traitsService.GetTrait(id)).ToArray(),
                     ChoixTalents = r.choixtalents != null
                         ? r.choixtalents.Select(choix => _competencesEtTalentsService.GetTalents(choix).ToArray()).ToList()
                         : new List<TalentDto[]>(),
@@ -74,12 +79,10 @@ namespace BlazorWjdr.Services
                     Regle = r.regle
                 })
                 .ToDictionary(k => k.Id, v => v);
-            
-            _allRegles = _cacheRegle.Values.ToList();
 
-            foreach (var regle in _allRegles)
+            foreach (var regle in _cacheRegle.Values)
             {
-                regle.SousRegles = regle.ReglesId.Select(id => GetRegle(id)).ToArray();
+                regle.SousRegles = regle.ReglesId.Select(id => _cacheRegle[id]).ToArray();
             }
 
             //_dataRegles.Clear();

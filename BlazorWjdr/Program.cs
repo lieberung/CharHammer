@@ -57,7 +57,7 @@ namespace BlazorWjdr
 
             var bestiolesService = builder.Services.BuildServiceProvider().GetRequiredService<BestiolesService>();
             var tablesService = builder.Services.BuildServiceProvider().GetRequiredService<TablesService>();
-            builder.Services.AddSingleton(s => new ReglesService(data.Regles!.items, carrieresService, competencesEtTalentsService, bestiolesService, tablesService, lieuxService));
+            builder.Services.AddSingleton(s => new ReglesService(data.Regles!.items, carrieresService, competencesEtTalentsService, traitsService, bestiolesService, tablesService, lieuxService));
 
             builder.RootComponents.Add<App>("#app");
 

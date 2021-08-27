@@ -12,7 +12,6 @@ namespace BlazorWjdr.Services
     {
         private readonly List<JsonDieu> _dataDieux;
         private Dictionary<int, DieuDto>? _cacheDieu;
-        private List<DieuDto>? _allDieux;
 
         public DieuxService(List<JsonDieu> dataDieux)
         {
@@ -23,10 +22,10 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_allDieux == null)
+                if (_cacheDieu == null)
                     Initialize();
-                Debug.Assert(_allDieux != null, nameof(_allDieux) + " != null");
-                return _allDieux;
+                Debug.Assert(_cacheDieu != null, nameof(_cacheDieu) + " != null");
+                return _cacheDieu.Values.ToList();
             }
         }
 
@@ -34,9 +33,8 @@ namespace BlazorWjdr.Services
         {
             if (_cacheDieu == null)
                 Initialize();
-#pragma warning disable CS8602 // DeDieu of a possibly null Dieu.
+            Debug.Assert(_cacheDieu != null, nameof(_cacheDieu) + " != null");
             return _cacheDieu[id];
-#pragma warning restore CS8602 // DeDieu of a possibly null Dieu.
         }
 
         private void Initialize()
@@ -55,9 +53,7 @@ namespace BlazorWjdr.Services
                 })
                 .ToDictionary(k => k.Id, v => v);
 
-            _allDieux = _cacheDieu.Values.ToList();
-
-            foreach (var dieu in _allDieux.Where(d => d.PatronId.HasValue))
+            foreach (var dieu in _cacheDieu.Values.Where(d => d.PatronId.HasValue))
             {
                 dieu.Patron = _cacheDieu[dieu.PatronId!.Value];
             }

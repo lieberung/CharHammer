@@ -14,7 +14,6 @@ namespace BlazorWjdr.Services
         private readonly List<JsonLieu> _dataLieux;
         private Dictionary<int, LieuTypeDto>? _cacheLieuType;
         private Dictionary<int, LieuDto>? _cacheLieu;
-        private List<LieuDto>? _allLieux;
 
         public LieuxService(List<JsonLieuType> dataLieuxTypes, List<JsonLieu> dataLieux)
         {
@@ -37,10 +36,10 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_allLieux == null)
+                if (_cacheLieu == null)
                     Initialize();
-                Debug.Assert(_allLieux != null, nameof(_allLieux) + " != null");
-                return _allLieux;
+                Debug.Assert(_cacheLieu != null, nameof(_cacheLieu) + " != null");
+                return _cacheLieu.Values.ToList();
             }
         }
 
@@ -48,9 +47,8 @@ namespace BlazorWjdr.Services
         {
             if (_cacheLieuType == null)
                 Initialize();
-#pragma warning disable CS8602 // DeLieu of a possibly null Lieu.
+            Debug.Assert(_cacheLieuType != null, nameof(_cacheLieuType) + " != null");
             return _cacheLieuType[id];
-#pragma warning restore CS8602 // DeLieu of a possibly null Lieu.
         }
 
         public IEnumerable<LieuDto> GetLieux(IEnumerable<int> ids) => ids.Select(GetLieu).ToArray();
@@ -87,17 +85,15 @@ namespace BlazorWjdr.Services
                     TypeDeLieu = _cacheLieuType[l.fk_typeid]
                 })
                 .ToDictionary(k => k.Id, v => v);
-            
-            _allLieux = _cacheLieu.Values.ToList();
-            
-            foreach (var lieu in _allLieux.Where(t => t.ParentId.HasValue))
+
+            foreach (var lieu in _cacheLieu.Values.Where(t => t.ParentId.HasValue))
             {
                 lieu.Parent = _cacheLieu[lieu.ParentId!.Value];
             }
 
-            foreach (var lieu in _allLieux)
+            foreach (var lieu in _cacheLieu.Values)
             {
-                lieu.SousElements.AddRange(_allLieux
+                lieu.SousElements.AddRange(_cacheLieu.Values
                     .Where(c=>c.Parent == lieu)
                     .OrderBy(c => c.Nom));                
             }

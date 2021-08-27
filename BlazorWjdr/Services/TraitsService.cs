@@ -13,7 +13,6 @@ namespace BlazorWjdr.Services
     {
         private readonly List<JsonTrait> _dataTraits;
         private Dictionary<int, TraitDto>? _cacheTrait;
-        private List<TraitDto>? _allTraits;
 
         public TraitsService(List<JsonTrait> dataTraits)
         {
@@ -24,10 +23,10 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_allTraits == null)
+                if (_cacheTrait == null)
                     Initialize();
-                Debug.Assert(_allTraits != null, nameof(_allTraits) + " != null");
-                return _allTraits;
+                Debug.Assert(_cacheTrait != null, nameof(_cacheTrait) + " != null");
+                return _cacheTrait.Values.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ThenBy(t => t.Spe).ToList();
             }
         }
 
@@ -35,9 +34,8 @@ namespace BlazorWjdr.Services
         {
             if (_cacheTrait == null)
                 Initialize();
-#pragma warning disable CS8602 // DeTrait of a possibly null Trait.
+            Debug.Assert(_cacheTrait != null, nameof(_cacheTrait) + " != null");
             return _cacheTrait[id];
-#pragma warning restore CS8602 // DeTrait of a possibly null Trait.
         }
 
         private void Initialize()
@@ -56,12 +54,10 @@ namespace BlazorWjdr.Services
                     Incompatible = c.incompatible ?? Array.Empty<int>()
                 })
                 .ToDictionary(k => k.Id, v => v);
-            
-            _allTraits = _cacheTrait.Values.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ToList();
 
-            foreach (var trait in _allTraits)
+            foreach (var trait in _cacheTrait.Values)
             {
-                trait.TraitsIncompatibles = trait.Incompatible.Select(id => GetTrait(id)).ToList();
+                trait.TraitsIncompatibles = trait.Incompatible.Select(id => _cacheTrait[id]).ToList();
             }
         }
 

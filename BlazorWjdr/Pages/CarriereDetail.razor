@@ -5,14 +5,16 @@
 @using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Trait
 @using BlazorWjdr.Components.Profil
-
+@using Models
+@using Services
+@using Microsoft.AspNetCore.Components
 <MainTopRow/>
 
 <div class="content px-4">
     <div class="_container">
-        
+
         <div class="row">
-            
+
             <div class="col-5" style="padding-right: 0;">
 
                 <div class="card-body" style="padding-top: 0; padding-right: 0;">
@@ -23,7 +25,7 @@
                 <CarriereRestriction Item="@Carriere"/>
 
             </div>
-            
+
             <div class="col-7">
 
                 <div class="card-body">
@@ -59,7 +61,7 @@
                 <div class="card-body mt-2">
                     <h5 class="card-title">Débouchés</h5>
                     <p class="card-text">
-                        <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false" 
+                        <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"
                                           SpecialCarriereId="@Carriere.Debouches.Where(d => d.Avancement == Carriere).Select(d => d.Id).ToArray()"/>
                     </p>
 
@@ -68,7 +70,7 @@
                         @if (Carriere.Filieres.Any())
                         {
                             <CarriereItemList Items="@Carriere.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"
-                                              SpecialCarriereId="@(Carriere.Avancement != null ? new [] { Carriere.Avancement.Id } : Array.Empty<int>())"/>
+                                              SpecialCarriereId="@(Carriere.Avancement != null ? new[] { Carriere.Avancement.Id } : Array.Empty<int>())"/>
                         }
                         @if (Carriere.EstUneCarriereAvancee == false)
                         {
@@ -78,7 +80,23 @@
                 </div>
 
             </div>
-            
+
         </div>
     </div>
 </div>
+
+@code
+{
+    [Parameter]
+    public string CarriereId { get; set; } = null!;
+
+    private CarriereDto Carriere { get; set; } = null!;
+
+    [Inject]
+    public CarrieresService CarrieresService { get; set; } = null!;
+
+    protected override void OnParametersSet()
+    {
+        Carriere = CarrieresService.GetCarriere(int.Parse(CarriereId));
+    }
+}

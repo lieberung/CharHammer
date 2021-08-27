@@ -17,7 +17,6 @@ namespace BlazorWjdr.Services
 
         private readonly List<JsonArme> _dataArmes;
         private Dictionary<int, ArmeDto>? _cacheArme;
-        private List<ArmeDto>? _allArmes;
 
         private Dictionary<string, List<ArmeDto>>? _armesDeContactPourTable;
         private Dictionary<string, List<ArmeDto>>? _armesADistancePourTable;
@@ -52,10 +51,10 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_allArmes == null)
+                if (_cacheArme == null)
                     Initialize();
-                Debug.Assert(_allArmes != null, nameof(_allArmes) + " != null");
-                return _allArmes;
+                Debug.Assert(_cacheArme != null, nameof(_cacheArme) + " != null");
+                return _cacheArme.Values.ToList();
             }
         }
         
@@ -109,8 +108,6 @@ namespace BlazorWjdr.Services
                     CompetencesDeMaitrise = l.competences.Select(id => _competencesEtTalentsService.GetCompetence(id)).ToList()
                 })
                 .ToDictionary(k => k.Id, v => v);
-            
-            _allArmes = _cacheArme.Values.OrderBy(a => a.Nom).ToList();
 
             //_dataArmes.Clear();
             //_dataArmesAttributs.Clear();

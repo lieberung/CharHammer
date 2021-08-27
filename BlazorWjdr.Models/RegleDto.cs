@@ -13,6 +13,7 @@ namespace BlazorWjdr.Models
         public CompetenceDto[] Competences { get; init; } = null!;
         public List<CompetenceDto[]> ChoixCompetences { get; init; } = null!;
         public TalentDto[] Talents { get; init; } = null!;
+        public TraitDto[] Traits { get; init; } = null!;
         public List<TalentDto[]> ChoixTalents { get; init; } = null!;
         public BestioleDto[] Bestioles { get; init; } = null!;
         public TableDto[] Tables { get; init; } = null!;

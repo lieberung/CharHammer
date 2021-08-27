@@ -1,0 +1,69 @@
+﻿@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Services
+
+@inject CarrieresService _carrSvc
+@inject CompetencesEtTalentsService _ctSvc;
+
+<h4 class="card-title">Avancement de carrière</h4>
+<p class="card-text">
+    Lorsqu'il est indiqué pour une carrière qu'il s'agit d'un Avancement d'une autre carrière - appelée ici carrière d'Origine, c'est que techniquement ou philosophiquement il s'agit toujours de la même carrière, mais à un grade ou niveau d'investissement plus poussé.
+    <br/>>
+    En conséquence, les compétences et les talents de la carrière d'Origine sont accessibles depuis cette carrière, et peuvent donc être acheté une nouvelle fois.
+    Il n'est cependant pas nécessaire de les acheter pour que votre carrière actuelle soit considérée comme complétée.
+    Les débouchés de (ou des) carrière(s) d'Origines restent également disponibles, en addition à vos nouveaux débouchés.
+</p>
+<p class="card-text">
+    Dans la liste qui suit, chaque carrière est un Avancement de la précédente, et par conséquent l'Origine de la suivante.
+</p>
+<div class="row">
+    <div class="col">
+        <ul>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(73)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(333)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(197)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(154)"/></li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(77)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(199)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(667)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(198)"/></li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(80)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(183)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(191)"/></li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(52)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(189)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(204)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(154)"/></li>
+        </ul>
+    </div>
+    <div class="col">
+        <ul>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(41)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(110)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(254)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(252)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(253)"/></li>
+        </ul>
+    </div>
+</div>
+<p class="card-text">
+    Par exemple, si vous étiez <CarriereItem Item="@_carrSvc.GetCarriere(73)"/> et que vous devenez <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>, vous pouvez acheter une seconde fois la compétence <CompetenceItem Item="@_ctSvc.CompetenceEscalade"/>, même si elle ne figure plus dans la carrière de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>.
+    <br/>
+    En devenant <CarriereItem Item="@_carrSvc.GetCarriere(197)"/>, vous pourrez acheter <CompetenceItem Item="@_ctSvc.CompetenceEscalade"/> une troisième fois, et les compétences de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/> une seconde fois, et ainsi de suite.
+</p>
+<h4 class="card-title">Theory crafting</h4>
+<p class="card-text">
+    Votre personnage, Georges, dispose d'une Capacité de Combat de 31 et a tiré le carrière initiale de <CarriereItem Item="@_carrSvc.GetCarriere(73)"/>. Il complète soigneusement sa carrière  
+</p>

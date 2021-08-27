@@ -13,22 +13,10 @@ namespace BlazorWjdr.Services
     {
         private readonly List<JsonTable> _dataTables;
         private Dictionary<int, TableDto>? _cacheTable;
-        private List<TableDto>? _allTables;
 
         public TablesService(List<JsonTable> dataTables)
         {
             _dataTables = dataTables;
-        }
-
-        public List<TableDto> AllTables
-        {
-            get
-            {
-                if (_allTables == null)
-                    Initialize();
-                Debug.Assert(_allTables != null, nameof(_allTables) + " != null");
-                return _allTables;
-            }
         }
 
         public TableDto GetTable(int id)
@@ -52,8 +40,6 @@ namespace BlazorWjdr.Services
                     Lignes = c.lignes
                 })
                 .ToDictionary(k => k.Id, v => v);
-
-            _allTables = _cacheTable.Values.ToList();
 
             //_dataTables.Clear();
         }

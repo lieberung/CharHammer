@@ -47,16 +47,15 @@ namespace BlazorWjdr.Services
         }
         
         private Dictionary<int, BestioleDto>? _cacheBestiole;
-        private List<BestioleDto>? _allBestioles;
 
         public List<BestioleDto> AllBestioles
         {
             get
             {
-                if (_allBestioles == null)
+                if (_cacheBestiole == null)
                     Initialize();
-                Debug.Assert(_allBestioles != null, nameof(_allBestioles) + " != null");
-                return _allBestioles;
+                Debug.Assert(_cacheBestiole != null, nameof(_cacheBestiole) + " != null");
+                return _cacheBestiole.Values.ToList();
 
             }
         }
@@ -122,8 +121,6 @@ namespace BlazorWjdr.Services
                     XpTotal = cachePj.ContainsKey(c.id) ? cachePj[c.id].xp_total : 0,
                 })
                 .ToDictionary(k => k.Id);
-            
-            _allBestioles = _cacheBestiole.Values.ToList();
 
             //_dataBestioles.Clear();
             //_dataPersonnages.Clear();

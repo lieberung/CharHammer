@@ -12,7 +12,6 @@ namespace BlazorWjdr.Services
     {
         private readonly List<JsonReference> _dataRefernces;
         private Dictionary<int, ReferenceDto>? _cacheReference;
-        private List<ReferenceDto>? _allReferences;
 
         public ReferencesService(List<JsonReference> dataReferences)
         {
@@ -23,10 +22,10 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_allReferences == null)
+                if (_cacheReference == null)
                     Initialize();
-                Debug.Assert(_allReferences != null, nameof(_allReferences) + " != null");
-                return _allReferences;
+                Debug.Assert(_cacheReference != null, nameof(_cacheReference) + " != null");
+                return _cacheReference.Values.ToList();
             }
         }
 
@@ -50,8 +49,6 @@ namespace BlazorWjdr.Services
                     Version = c.version
                 })
                 .ToDictionary(k => k.Id, v => v);
-
-            _allReferences = _cacheReference.Values.ToList();
 
             //_dataRefernces.Clear();
         }
