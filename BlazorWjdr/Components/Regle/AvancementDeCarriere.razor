@@ -5,11 +5,11 @@
 @inject CarrieresService _carrSvc
 @inject CompetencesEtTalentsService _ctSvc;
 
-<h4 class="card-title">Avancement de carrière</h4>
+<h3 class="card-title">Avancement de carrière</h3>
 <p class="card-text">
-    Lorsqu'il est indiqué pour une carrière qu'il s'agit d'un Avancement d'une autre carrière - appelée ici carrière d'Origine, c'est que techniquement ou philosophiquement il s'agit toujours de la même carrière, mais à un grade ou niveau d'investissement plus poussé.
-    <br/>>
-    En conséquence, les compétences et les talents de la carrière d'Origine sont accessibles depuis cette carrière, et peuvent donc être acheté une nouvelle fois.
+    Lorsqu'il est indiqué pour une carrière qu'il s'agit d'un <strong>Avancement</strong> d'une autre carrière - dîte <strong>Carrière d'Origine</strong>, c'est que techniquement ou philosophiquement il s'agit toujours de la même carrière, mais à un grade ou niveau d'investissement plus poussé.
+    <br/>
+    En conséquence, les compétences et les talents de la Carrière d'Origine sont accessibles depuis cette carrière, et peuvent donc être acheté une nouvelle fois.
     Il n'est cependant pas nécessaire de les acheter pour que votre carrière actuelle soit considérée comme complétée.
     Les débouchés de (ou des) carrière(s) d'Origines restent également disponibles, en addition à vos nouveaux débouchés.
 </p>
@@ -44,8 +44,8 @@
         <ul>
             <li><CarriereItem Item="@_carrSvc.GetCarriere(52)"/></li>
             <li><CarriereItem Item="@_carrSvc.GetCarriere(189)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(204)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(154)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(190)"/></li>
+            <li><CarriereItem Item="@_carrSvc.GetCarriere(172)"/></li>
         </ul>
     </div>
     <div class="col">
