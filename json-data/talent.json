@@ -333,6 +333,9 @@
       {"id":257,"nom":"Imperturbable","max":"Bonus de Force Mentale","nom_en":"Unshakable","tests":"Tests de Sang-froid pour résister à la panique causée par les armes à feu",
         "description":"You are a jaded veteran who has survived more than one hail of shots from Blackpowder weapons. You need only take a Cool Test to resist a Broken Condition if you are successfully wounded by a Blackpowder weapon, not just if you are shot at."},
       {"id":258,"nom":"Stout-hearted","max":"Bonus de Force Mentale","nom_en":"Stout-hearted","tests":"Tests de Sang-froid pour supprimer la Condition Démoralisé",
-        "description":"Peu importe la tournure des évènements, vous n'avez pas dit votre dernier mot. Vous pouvez tenter un jet Sang-froid pour supprimer une Condition Démoralisé à la fin de chaquun de vos Tours ainsi qu'à la fin de chaque Round."}
+        "description":"Peu importe la tournure des évènements, vous n'avez pas dit votre dernier mot. Vous pouvez tenter un jet Sang-froid pour supprimer une Condition Démoralisé à la fin de chaquun de vos Tours ainsi qu'à la fin de chaque Round."},
+      {"id":259,"nom":"Etiquette","spe":"marchands",
+        "resume":"+10% en Charisme et Commérage face aux hommes d'affaires et marchands. S’applique aussi aux situations où la connaissance du commerce et de l'économie importe (ex : se faire passer pour un grand négociateur avec Déguisement).",
+        "description":""}
     ]
 }
