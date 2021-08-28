@@ -23,7 +23,7 @@ span {
 span::after {
     content: "";
     position: absolute;
-    top: 200%;
+    top: 100%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
