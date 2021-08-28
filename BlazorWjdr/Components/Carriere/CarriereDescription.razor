@@ -10,13 +10,14 @@
         <CarriereAvancement Carriere="@Item.Avancement"/>
     </p>
 }
-
+<div style="min-height:350px;">
 @foreach (var paragraphe in _paragraphes)
 {
-    <p class="card-text pr-3" style="text-align:justify; min-height:350px;">
+    <p class="card-text pr-3" style="text-align:justify;">
         @paragraphe
     </p>
 }
+</div>
 @if (AfficherCitations && Item.Ambiance.Any())
 {
     <CarriereCitations Items="@Item.Ambiance"/>
