@@ -988,7 +988,7 @@
         "description":"",
         "dotations":"sifflet"},
       {"id":340,"nom":"Ultra de rotzball","avancee":true,"avancement":339,"plan":340,"debouch":[82],
-        "competences":[43,209,53,220,618],"competenceschoix":[[8,9],[4,10],[34,35],[50,35]],"talents":[82,214,617,153],"talentschoix":[[31,82],[39,83],[13,28],[7,25]],"traits":[732],"source_livre":null,
+        "competences":[43,209,53,220,618,617],"competenceschoix":[[8,9],[4,10],[34,35],[50,35]],"talents":[82,214,153],"talentschoix":[[31,82],[39,83],[13,28],[7,25]],"traits":[732],"source_livre":null,
         "description":"",
         "dotations":"sifflet"},
       {"id":241,"nom":"Chef de clan","avancee":true,"plan":17,"debouch":[],
