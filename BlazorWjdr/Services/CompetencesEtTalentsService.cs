@@ -131,7 +131,7 @@ namespace BlazorWjdr.Services
                 talent.NomPourRecherche = GenericService.ConvertirCaracteres(talent.Nom);
                 talent.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(talent.NomPourRecherche);
                 talent.CompetencesLiees = _cacheCompetences.Values
-                    .Where(c => c.TalentsLies.Contains(talent))
+                    .Where(c => c.TalentsLies.Contains(talent) && c.Ignore == false)
                     .ToList();
             }
 

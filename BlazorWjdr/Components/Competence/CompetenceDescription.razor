@@ -62,7 +62,7 @@
             .Replace("\n\n", "\n")
             .Split('\n');
 
-        _talentsLies = _competencesEtTalentsService.AllTalents.Where(t => t.CompetencesLiees.Contains(Item)).ToList();
+        _talentsLies = _competencesEtTalentsService.AllTalents.Where(t => t.CompetencesLiees.Contains(Item) && t.Ignore == false).ToList();
 
         if (Item.Parent == _competencesEtTalentsService.CompetenceGroupeMelee ||
             Item.Parent == _competencesEtTalentsService.CompetenceGroupeTir ||
