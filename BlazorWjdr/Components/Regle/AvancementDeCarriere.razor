@@ -16,48 +16,52 @@
 <p class="card-text">
     Dans la liste qui suit, chaque carrière est un Avancement de la précédente, et par conséquent l'Origine de la suivante.
 </p>
-<div class="row">
-    <div class="col">
-        <ul>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(73)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(333)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(197)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(154)"/></li>
-        </ul>
-    </div>
-    <div class="col">
-        <ul>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(77)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(199)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(667)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(198)"/></li>
-        </ul>
-    </div>
-    <div class="col">
-        <ul>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(80)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(183)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(191)"/></li>
-        </ul>
-    </div>
-    <div class="col">
-        <ul>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(52)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(189)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(190)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(172)"/></li>
-        </ul>
-    </div>
-    <div class="col">
-        <ul>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(41)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(110)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(254)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(252)"/></li>
-            <li><CarriereItem Item="@_carrSvc.GetCarriere(253)"/></li>
-        </ul>
-    </div>
-</div>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <ul>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(73)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(333)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(197)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(154)"/></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(77)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(199)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(667)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(198)"/></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(80)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(183)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(191)"/></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(52)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(189)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(190)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(172)"/></li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(41)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(110)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(254)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(252)"/></li>
+                    <li><CarriereItem Item="@_carrSvc.GetCarriere(253)"/></li>
+                </ul>
+            </td>            
+        </tr>
+    </tbody>
+</table>
 <p class="card-text">
     Par exemple, si vous étiez <CarriereItem Item="@_carrSvc.GetCarriere(73)"/> et que vous devenez <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>, vous pouvez acheter une seconde fois la compétence <CompetenceItem Item="@_ctSvc.CompetenceEscalade"/>, même si elle ne figure plus dans la carrière de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>.
     <br/>

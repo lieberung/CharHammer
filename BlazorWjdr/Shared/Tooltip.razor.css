@@ -8,10 +8,10 @@
 span {
     visibility: hidden;
     position: absolute;
-    width: 480px;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
+    width: 300px;
+    top: -5px;
+    right: 100%;
+    margin-left: -150px;
     background-color: #363636;
     color: #fff;
     text-align: justify;
@@ -23,12 +23,12 @@ span {
 span::after {
     content: "";
     position: absolute;
-    top: 100%;
+    bottom: 110%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    border-color: transparent transparent transparent #555;
 }
 
 .tooltip-wrapper:hover span {

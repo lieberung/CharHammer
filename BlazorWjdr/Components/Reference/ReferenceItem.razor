@@ -1,8 +1,6 @@
 ﻿@using BlazorWjdr.Models
 <a href="references/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <TooltipImage Path="@Item.Image" Alt="@Item.Titre">
-        <span class="oi oi-book item-icon mr-1" aria-hidden="true"></span>
-    </TooltipImage>
+    <span class="oi oi-book item-icon mr-1" aria-hidden="true"></span>
     <em>@Item.AnneeDePublication</em>
     @Item.Titre
     <!--em class="ml-2">(@Item.VersionStr)</em-->

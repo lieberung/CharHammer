@@ -1,0 +1,11 @@
+﻿<div class="tooltip">@TextToHover
+  <span class="tooltiptext">@ToolTipContent</span>
+</div>
+@code{
+
+  [Parameter]
+  public string TextToHover { get; set; } = null!;
+  [Parameter]
+  public string ToolTipContent { get; set; } = null!;
+
+}
