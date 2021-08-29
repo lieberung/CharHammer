@@ -92,7 +92,7 @@
       "regle":"Un personnage Moussionnais reçoit les compétences ci dessous, ainsi qu'1 talent aléatoire supplémentaire sur la table concernée."},
     {"id":83,"titre":"Traits raciaux - Parravonais(e)","lieux":[20],"competences":[10,90,129],"choixcompetences":[[33,82]],"talents":[203],
       "regle":"Un personnage Parravonais reçoit les compétences ci dessous, ainsi qu'1 talent aléatoire supplémentaire sur la table concernée."},
-    {"id":84,"titre":"Traits raciaux - Quenellois(e)","lieux":[21],"competences":[10,90,129],"talents":[32,203],
+    {"id":84,"titre":"Traits raciaux - Quenellois(e)","lieux":[21],"competences":[10,90,129],"talents":[203],"traits":[701],
       "regle":"Un personnage Quenellois reçoit les compétences ci dessous, ainsi qu'1 talent aléatoire supplémentaire sur la table concernée."},
     
     {"id":85,"titre":"Traits raciaux - Sylvanien(e)s","lieux":[61],"competences":[136],"choixcompetences":[[10,55],[90,194]],"talents":[203],

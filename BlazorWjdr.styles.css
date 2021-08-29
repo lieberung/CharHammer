@@ -133,10 +133,10 @@ button.btn-sm[b-33fbycr4ot] {
 span[b-n0eqg1tdss] {
     visibility: hidden;
     position: absolute;
-    width: 480px;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -60px;
+    width: 300px;
+    top: -5px;
+    right: 100%;
+    margin-left: -150px;
     background-color: #363636;
     color: #fff;
     text-align: justify;
@@ -148,14 +148,41 @@ span[b-n0eqg1tdss] {
 span[b-n0eqg1tdss]::after {
     content: "";
     position: absolute;
-    top: 100%;
+    bottom: 110%;
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    border-color: transparent transparent transparent #555;
 }
 
 .tooltip-wrapper:hover span[b-n0eqg1tdss] {
+    visibility: visible;
+}
+/* /Shared/TooltipText.razor.rz.scp.css */
+/* Tooltip container */
+.tooltip[b-fsg8vkck8p] {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext[b-fsg8vkck8p] {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext[b-fsg8vkck8p] {
     visibility: visible;
 }
