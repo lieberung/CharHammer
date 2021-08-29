@@ -236,6 +236,7 @@
     {"id":521,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Géants","resume":""},
     {"id":522,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Dragons","resume":""},
     {"id":523,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Chaos","resume":""},
+    {"id":524,"talents":[],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Rotzball","resume":""},
     
     {"id":600,"de_base":true,"talent":50,"carac":"CC","nom":"Mélée","resume":"Vous êtes capable d’utiliser un type d’arme de mélée nécessitant une formation particulière. Lorsqu'il s'agit d'une compétence de base, si vous n'avez jamais acquis la compétence, les armes de la catégorie perdent leurs avantages tout en conservant leurs défauts. Ex : armes ordinaires, de cavalerie, de parade, d’escrime, lourdes, paralysantes et fléaux.","description":""},
     {"id":621,"de_base":true,"carac":"CC","parent":600,"ignorer":true,"nom":"Mélée (une au choix)","resume":"","description":""},
