@@ -177,7 +177,7 @@
     {"id":181,"talents":[33],"parent":14,"carac":"Variable","nom":"Connaissances","spe":"Pays des Trolls","resume":""},
     {"id":182,"parent":37,"carac":"Int","nom":"Langage secret","spe":"bagnards","resume":""},
     {"id":183,"parent":37,"carac":"Int","nom":"Langage secret","spe":"culte","resume":""},
-    {"id":184,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances (quatre au choix)","resume":""},
+    {"id":184,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances (quatre au choix)","ignorer":true,"resume":""},
     {"id":185,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Lustrie","resume":""},
     {"id":186,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Terres du Sud","resume":""},
     {"id":177,"parent":44,"carac":"Int","nom":"Métier","spe":"vendeur de chevaux","resume":""},
