@@ -4,10 +4,10 @@
 
 <img class="career-img" src="@Item.Image" alt="@Item.Nom" style="max-width: 300px; max-height: 450px;"/>
 
-@if (Item.Avancement != null)
+@if (Item.Origines.Any())
 {
     <p class="card-text">
-        <CarriereAvancement Carriere="@Item.Avancement"/>
+        <CarriereAvancement Origines="@Item.Origines"/>
     </p>
 }
 <div style="min-height:400px;">

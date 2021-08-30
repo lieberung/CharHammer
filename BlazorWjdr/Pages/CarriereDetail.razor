@@ -62,7 +62,7 @@
                     <h5 class="card-title">Débouchés</h5>
                     <p class="card-text">
                         <CarriereItemList Items="@Carriere.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"
-                                          SpecialCarriereId="@Carriere.Debouches.Where(d => d.Avancement == Carriere).Select(d => d.Id).ToArray()"/>
+                                          SpecialCarriereId="@Carriere.Avancements.Select(a => a.Id).ToArray()"/>
                     </p>
 
                     <h5 class="card-title">Filières</h5>
@@ -70,7 +70,7 @@
                         @if (Carriere.Filieres.Any())
                         {
                             <CarriereItemList Items="@Carriere.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"
-                                              SpecialCarriereId="@(Carriere.Avancement != null ? new[] { Carriere.Avancement.Id } : Array.Empty<int>())"/>
+                                              SpecialCarriereId="@Carriere.Origines.Select(a => a.Id).ToArray()"/>
                         }
                         @if (Carriere.EstUneCarriereAvancee == false)
                         {

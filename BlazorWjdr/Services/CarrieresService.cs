@@ -36,8 +36,7 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_cacheCarrieres == null)
-                    Initialize();
+                Initialize();
                 Debug.Assert(_cacheCarrieres != null, nameof(_cacheCarrieres) + " != null");
                 return _cacheCarrieres.Values.OrderBy(t => t.Nom).ToList();
             }
@@ -47,8 +46,7 @@ namespace BlazorWjdr.Services
 
         public CarriereDto GetCarriere(int id)
         {
-            if (_cacheCarrieres == null)
-                Initialize();
+            Initialize();
             Debug.Assert(_cacheCarrieres != null, nameof(_cacheCarrieres) + " != null");
             return _cacheCarrieres[id];
         }
@@ -70,18 +68,20 @@ namespace BlazorWjdr.Services
 
         private void Initialize()
         {
+            if (_cacheCarrieres != null)
+                return;
             _cacheCarrieres = _dataCarrieres
                 .Select(c => new CarriereDto
                 {
                     Id = c.id,
                     Groupe = c.groupe ?? "",
                     Nom = c.nom,
-                    AvancementId = c.avancement,
                     MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
                     Description = c.description,
                     Ambiance = c.ambiance ?? Array.Empty<string>(),
                     CarriereMereId = c.parent,
                     DebouchesIds = c.debouch ?? Array.Empty<int>(),
+                    AvancementsIds = c.avancements ?? Array.Empty<int>(),
                     Dotations = c.dotations,
                     EstUneCarriereAvancee = c.avancee,
                     Image = $"images/careers/{c.id}.png",
@@ -115,6 +115,8 @@ namespace BlazorWjdr.Services
 
             foreach (var carriere in _cacheCarrieres.Values.Where(c => c.DebouchesIds.Any()))
                 carriere.Debouches = GetCarrieres(carriere.DebouchesIds).ToList();
+            foreach (var carriere in _cacheCarrieres.Values.Where(c => c.AvancementsIds.Any()))
+                carriere.Avancements = GetCarrieres(carriere.AvancementsIds).ToList();
 
             foreach (var carriere in _cacheCarrieres.Values)
             {
@@ -122,13 +124,17 @@ namespace BlazorWjdr.Services
                     .Where(c => c.Debouches.Contains(carriere))
                     .OrderBy(c => c.Nom)
                     .ToList();
+                carriere.Origines = _cacheCarrieres.Values
+                    .Where(c => c.Avancements.Contains(carriere))
+                    .OrderBy(c => c.Nom)
+                    .ToList();
                 carriere.SousElements.AddRange(_cacheCarrieres.Values
                     .Where(c => c.Parent == carriere)
                     .OrderBy(c => c.Nom));
-
+                /*
                 if (carriere.AvancementId.HasValue)
                     carriere.Avancement = _cacheCarrieres[carriere.AvancementId.Value];
-
+                */
                 carriere.ScoreAcademique = CalculScoreAcademique(carriere);
                 carriere.ScoreArcanique = CalculScoreArcanique(carriere);
                 carriere.ScoreArtisanat = CalculScoreArtisanat(carriere);

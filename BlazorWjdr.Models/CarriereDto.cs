@@ -18,14 +18,14 @@ namespace BlazorWjdr.Models
         public string Restriction { get; init; } = null!;
         public string Source { get; init; } = null!;
         public int[] DebouchesIds { get; init; } = null!;
+        public int[] AvancementsIds { get; init; } = null!;
         public string Dotations { get; init; } = null!;
         public int? CarriereMereId { get; init; }
-        public int? AvancementId { get; init; }
 
         public string[] Images { get; set; } = Array.Empty<string>();
 
         public ProfilDto PlanDeCarriere { get; init; } = null!;
-        public CarriereDto? Avancement { get; set; }
+        //public CarriereDto? Avancement { get; set; }
 
         public List<TalentDto> Talents { get; init; } = null!;
         public List<CompetenceDto> Competences { get; init; } = null!;
@@ -36,9 +36,13 @@ namespace BlazorWjdr.Models
         public List<TraitDto> Traits { get; init; } = null!;
         
         public CarriereDto? Parent { get; set; }
+        public readonly List<CarriereDto> SousElements = new();
+
         public List<CarriereDto> Debouches = new();
         public List<CarriereDto> Filieres = new();
-        public readonly List<CarriereDto> SousElements = new();
+        
+        public List<CarriereDto> Avancements = new();
+        public List<CarriereDto> Origines = new();
 
         public ReferenceDto? SourceLivre { get; init; }
 

@@ -7,10 +7,10 @@
         public int id { get; set; }
         public string nom { get; set; } = null!;
         public int? parent { get; set; }
-        public int? avancement { get; set; }
         public bool avancee { get; set; }
         public int plan { get; set; }
         public int[]? debouch { get; set; }
+        public int[]? avancements { get; set; }
         public int[]? competences { get; set; }
         public int[][]? competenceschoix { get; set; }
         public int[]? talents { get; set; }
