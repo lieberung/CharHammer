@@ -87,7 +87,7 @@ namespace BlazorWjdr.Services
                 talent.Parent = _cacheTalents[talent.TalentParentId.Value];
             }
 
-            foreach (var talent in _cacheTalents.Values)
+            foreach (var talent in _cacheTalents.Values.Where(t => t.Parent != null).Select(t => t.Parent))
                 talent.SousElements.AddRange(_cacheTalents.Values
                     .Where(c=>c.Parent == talent)
                     .OrderBy(c => c.Nom));
@@ -120,10 +120,14 @@ namespace BlazorWjdr.Services
             {
                 competence.NomPourRecherche = GenericService.ConvertirCaracteres(competence.Nom);
                 competence.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(competence.NomPourRecherche);
+                competence.SetResume();
+            }
+
+            foreach (var competence in _cacheCompetences.Values.Where(t => t.Parent != null).Select(t => t.Parent))
+            {
                 competence.SousElements.AddRange(_cacheCompetences.Values
                     .Where(c=>c.Parent == competence)
                     .OrderBy(c => c.Nom));
-                competence.SetResume();
             }
 
             foreach (var talent in _cacheTalents.Values)
