@@ -229,6 +229,6 @@
     {"id":900,"severite":1,"type":"capacite","nom":"Vol","description":"Vous savez voler."},
     {"id":901,"severite":1,"type":"capacite","nom":"Mort-vivant","description":"Immunité peur, terreur coup assomants, poison, maladies, et sorts, compétences, effets relatifs à la manipulation des émotions et de l'esprit.\",\"description\":\"Vous êtes un mort-vivant ramené à la vie par la nécromancie (cf. Chapitre 7 : La magie). Vous êtes immunisé contre la Peur, la Terreur, les coups assommants, le poison, les maladies et tous les sorts, compétences et effets relatifs à la manipulation des émotions et de l’esprit."},
     {"id":902,"severite":1,"type":"capacite","nom":"Combat caudal","description":"Vous pouvez manier une arme à l'aide de votre queue."},
-    {"id":903,"severite":1,"type":"capacite","nom":"Vol","description":"Vous savez voler."}
+    {"id":903,"severite":1,"type":"capacite","nom":"Vision nocturne","description":"Vous y voyez parfaitement clair dans l’obscurité naturelle à 30m. Ne fonctionne pas dans l’obscurité totale, nécessite au moins l’équivalent de la lumière des étoiles.\",\"description\":\"Vous voyez parfaitement clair dans l’obscurité naturelle jusqu’à une distance de 30 mètres. Ce talent ne fonctionne pas dans l’obscurité totale et requiert l’équivalent de la lumière des étoiles au moins."}
   ]
 }
