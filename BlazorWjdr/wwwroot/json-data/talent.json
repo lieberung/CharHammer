@@ -46,7 +46,6 @@
 
 {"id":50,"nom":"Maître d'arme (variable)","resume":"Vous avez une arme de prédilection. Ce Talent ne peut être acheter qu'une seule fois, alors c'est une question de goût !","description":""},
 {"id":153,"parent_id":50,"nom":"Maître de l'Arrache","resume":"","description":"Dans vos mains, les Armes improvisées infligent BF+BS+3 et disposent de l'Attribut Rapide et Assomante. En revanche elles cassent à la première utilisation."},
-{"id":26,"nom":"MYSTERE","resume":"","description":""},
 {"id":152,"parent_id":50,"nom":"Maîtrise (deux au choix)","resume":"","description":""},
 {"id":189,"parent_id":50,"nom":"Maîtrise (trois au choix)","resume":"","description":""},
 {"id":51,"parent_id":50,"nom":"Maîtrise","spe":"arbalètes","resume":"Arbalète de poing, Arbalète à répétition","description":"Bien que n'importe qui puisse tirer à l'arbalète avec une habileté raisonnable, de récents progrès technologiques ont permis d'amé-liorer le modèle de base et de modifier l'arbalète ordinaire de façon notable. Inventés à l'école des Ingénieurs de Nuln, ces spécimens particuliers d'arbalètes se sont rapidement répandus dans l'Empire et en Tilée, mais n'ont pas vraiment été ,adoptés dans les régions voisines comme la Bretonnie et l'Estalie. A la différence des autres, ces arbalètes particulières sont toujours au moins de qualité moyenne, mais la plupart sont de bonne qualité ou de qualité exceptionnelle."},
@@ -303,8 +302,6 @@
         "description":"Vous êtes un buveur chevronné et savez comment vous la mettre sévère. Pour les tests de Résistance à l'alcool, vous pouvez inverser votre jet si cela le transforme en succès. C'est également valable pour les tests de Charisme et Commérage, mais uniquement lors de festivités."},
       {"id":237,"nom":"Déchainement","max":"3","nom_en":"Death Blow","resume":"",
         "description":"Si lors de votre Tour, vous attaquez un adversaire en mélée et le tuez, vous pouvez vous déplacer gratuitement là où il se trouvait, et vous disposez d'une attaque gratuite supplémentaire si un ennemi est à portée. Dans le même Round, vous pouvez déclencher cet effet au maximum une fois par niveau dans ce talent.\nNiveau 1 : ne fonctionne que si l'adversaire tué est plus petit que vous.\nNiveau 2 : ne fonctionne pas si l'adversaire tué est plus grand que vous.\nNiveau 3 : si, lors d'une attaque gratuite ainsi obtenue, votre test de CC réussi avec un BS inférieur à l'attaque précédente, vous conservez le BS précédent.\nNotez bien que la soudaineté du Déchainement ne permet pas de bénéficier des bonus d'une éventuelle supériorité numérique en découlant."},
-      {"id":238,"nom":"Petit gabarit","max":"1","nom_en":"Small","resume":"",
-        "description":"Vous êtes plus petit que la plupart des gens du Vieux Monde.\nConsultez la section Combat - Gabarits pour connaître les détails."},
       {"id":239,"nom":"Dos d'acier","max":"Bonus de Force","nom_en":"Strong Back",
         "description":"Vous avez le dos musclé, habitué à la besogne. Vous pouvez ajouter votre Niveau en Dos d'acier à votre BS pour tout Test Opposé de Force, et pouvez porter 1 point d'Encombrement supplémentaire par Niveau."},
       {"id":240,"nom":"Scarifications","max":"Bonus d'Endurance","tests":"Tout test pour résister aux Puissances de la Ruine","nom_en":"Flagellant",
