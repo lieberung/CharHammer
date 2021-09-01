@@ -16,7 +16,7 @@
       "regle":""},
     {"id":17,"titre":"Traits raciaux - Elfes sylvains","competences":[91,130,136],"talents":[21],"choixtalents":[[35,52],[39,76]],"traits":[903],
       "regle":"Un personnage elfe sylvain reçoit les compétences, talents et traits suivants :"},
-    {"id":18,"titre":"Traits raciaux - Halflings","competences":[10,106,94,132,136],"talents":[62,71,238],"choixcompetences":[[68,74]],"traits":[831,903],
+    {"id":18,"titre":"Traits raciaux - Halflings","competences":[10,106,94,132,136],"talents":[62,71],"choixcompetences":[[68,74]],"traits":[831,903],
       "regle":"Un personnage halfling reçoit les compétences et les talents ci-dessous, ainsi qu'un talent aléatoire supplémentaire sur la table concernée."},
     {"id":19,"titre":"Traits raciaux - Empire (humains)","lieux":[2],"competences":[10,92,136],
       "regle":"Un personnage humain reçoit les compétences ci dessous, ainsi que deux talents aléatoires supplémentaires sur la table concernée."},
