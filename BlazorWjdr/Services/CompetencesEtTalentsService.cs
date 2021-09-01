@@ -212,7 +212,6 @@ namespace BlazorWjdr.Services
         public TalentDto TalentFrenesie => GetTalent(30);
         public TalentDto TalentParadeEclair => GetTalent(65);
         public TalentDto TalentLutte => GetTalent(43);
-        public TalentDto TalentEffrayant => GetTalent(26);
         public TalentDto TalentRobuste => GetTalent(74);
         public TalentDto TalentValeureux => GetTalent(92);
         public TalentDto TalentGroupeVertu => GetTalent(206);

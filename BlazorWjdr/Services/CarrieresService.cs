@@ -251,7 +251,6 @@ namespace BlazorWjdr.Services
                 => c == _competencesEtTalentsService.TalentAmbidextrie
                    || c == _competencesEtTalentsService.TalentCoupsPrécis
                    || c == _competencesEtTalentsService.TalentDurACuir
-                   || c == _competencesEtTalentsService.TalentEffrayant
                    || c == _competencesEtTalentsService.TalentSurSesGardes
                    || c == _competencesEtTalentsService.TalentValeureux
                    || c == _competencesEtTalentsService.TalentTroublant
