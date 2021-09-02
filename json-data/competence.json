@@ -188,7 +188,6 @@
     {"id":189,"parent":13,"carac":"Int","nom":"Erudition","spe":"potamologie","resume":"Connaissance des fleuves"},
     {"id":190,"talents":[42],"parent":39,"carac":"Int","nom":"Langue","spe":"ghassally (gnômes)","resume":""},
     {"id":191,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Gnômes","resume":""},
-    {"id":192,"parent":29,"de_base":true,"carac":"Int","nom":"Art (un au choix)","resume":""},
     {"id":193,"parent":36,"carac":"Int","nom":"Langage mystique","spe":"haut nehekharéen","resume":"Les maîtres de la nuit p.113"},
     {"id":194,"talents":[42],"parent":39,"carac":"Int","nom":"Langue","spe":"sylvanien (Sylvanie)","resume":""},
     {"id":195,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"strigany","resume":""},
