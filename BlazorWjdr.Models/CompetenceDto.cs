@@ -18,7 +18,8 @@ namespace BlazorWjdr.Models
         public string ResumeComplet { get; private set; } = "";
         public bool EstUneCompetenceDeBase { get; init; }
         public string CaracteristiqueAssociee { get; init; } = null!;
-        public List<TalentDto> TalentsLies { get; init; } = new();
+        public List<int> TalentsLiesIds { get; init; } = new();
+        public List<TalentDto> TalentsLies { get; set; } = new();
         public bool Ignore { get; init; }
 
         public int? CompetenceMereId { get; init; }

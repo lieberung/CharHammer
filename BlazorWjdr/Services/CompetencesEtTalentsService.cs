@@ -10,24 +10,18 @@ namespace BlazorWjdr.Services
 
     public class CompetencesEtTalentsService
     {
-        private readonly List<JsonCompetence> _dataCompetences;
-        private Dictionary<int, CompetenceDto>? _cacheCompetences;
+        private readonly Dictionary<int, CompetenceDto> _cacheCompetences;
+        private readonly Dictionary<int, TalentDto> _cacheTalents;
 
-        private readonly List<JsonTalent> _dataTalents;
-        private Dictionary<int, TalentDto>? _cacheTalents;
-
-        public CompetencesEtTalentsService(List<JsonCompetence> dataCompetences, List<JsonTalent> dataTalents)
+        public CompetencesEtTalentsService(Dictionary<int, CompetenceDto> dataCompetences, Dictionary<int, TalentDto> dataTalents)
         {
-            _dataCompetences = dataCompetences;
-            _dataTalents = dataTalents;
+            _cacheCompetences = dataCompetences;
+            _cacheTalents = dataTalents;
         }
         
         public IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int> ids) => ids.Select(GetCompetence).OrderBy(c => c.Nom).ToArray();
         public CompetenceDto GetCompetence(int id)
         {
-            if (_cacheCompetences == null)
-                Initialize();
-            Debug.Assert(_cacheCompetences != null, nameof(_cacheCompetences) + " != null");
             return _cacheCompetences[id];
         }
 
@@ -35,9 +29,6 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_cacheCompetences == null)
-                    Initialize();
-                Debug.Assert(_cacheCompetences != null, nameof(_cacheCompetences) + " != null");
                 return _cacheCompetences.Values.OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
             }
         }
@@ -45,9 +36,6 @@ namespace BlazorWjdr.Services
         public IEnumerable<TalentDto> GetTalents(IEnumerable<int> ids) => ids.Select(GetTalent).OrderBy(t => t.Nom).ToArray();
         public TalentDto GetTalent(int id)
         {
-            if (_cacheTalents == null)
-                Initialize();
-            Debug.Assert(_cacheTalents != null, nameof(_cacheTalents) + " != null");
             return _cacheTalents[id];
         }
 
@@ -55,16 +43,14 @@ namespace BlazorWjdr.Services
         {
             get
             {
-                if (_cacheTalents == null)
-                    Initialize();
-                Debug.Assert(_cacheTalents != null, nameof(_cacheTalents) + " != null");
                 return _cacheTalents.Values.OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
             }
         }
 
         private void Initialize()
         {
-            if (_dataCompetences.Count == 0) throw new System.Exception("tototototototototototototototot");
+            //if (_dataCompetences.Count == 0) throw new System.Exception("tototototototototototototototot");
+            /*
             _cacheTalents = _dataTalents
                 .Select(t => new TalentDto
                 {
@@ -83,12 +69,11 @@ namespace BlazorWjdr.Services
 
             foreach (var talent in _cacheTalents.Values.Where(t => t.TalentParentId.HasValue))
             {
-                Debug.Assert(talent.TalentParentId != null, "talent.TalentParentId != null");
-                talent.Parent = _cacheTalents[talent.TalentParentId.Value];
+                talent.Parent = _cacheTalents[talent.TalentParentId!.Value];
             }
 
             foreach (var talent in _cacheTalents.Values.Where(t => t.Parent != null).Select(t => t.Parent))
-                talent.SousElements.AddRange(_cacheTalents.Values
+                talent!.SousElements.AddRange(_cacheTalents.Values
                     .Where(c=>c.Parent == talent)
                     .OrderBy(c => c.Nom));
 
@@ -112,8 +97,8 @@ namespace BlazorWjdr.Services
 
             foreach (var competence in _cacheCompetences.Values.Where(c => c.CompetenceMereId.HasValue))
             {
-                Debug.Assert(competence.CompetenceMereId != null, "competence.CompetenceMereId != null");
-                competence.Parent = _cacheCompetences[competence.CompetenceMereId.Value];
+                competence.TalentsLies = competence.TalentsLiesIds.Select(id => _cacheTalents[id]).ToList();
+                competence.Parent = _cacheCompetences[competence.CompetenceMereId!.Value];
             }
 
             foreach (var competence in _cacheCompetences.Values)
@@ -125,7 +110,7 @@ namespace BlazorWjdr.Services
 
             foreach (var competence in _cacheCompetences.Values.Where(t => t.Parent != null).Select(t => t.Parent))
             {
-                competence.SousElements.AddRange(_cacheCompetences.Values
+                competence!.SousElements.AddRange(_cacheCompetences.Values
                     .Where(c=>c.Parent == competence)
                     .OrderBy(c => c.Nom));
             }
@@ -138,7 +123,8 @@ namespace BlazorWjdr.Services
                     .Where(c => c.TalentsLies.Contains(talent) && c.Ignore == false)
                     .ToList();
             }
-
+            */
+            
             //_dataCompetences.Clear();
             //_dataTalents.Clear();
         }
