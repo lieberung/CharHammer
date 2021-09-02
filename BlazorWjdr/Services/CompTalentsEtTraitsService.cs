@@ -282,7 +282,7 @@
         public TalentDto TalentResistanceAuxMaladies => GetTalent(72);
         public TalentDto TalentResistanceAuxPoisons => GetTalent(73);
         public TalentDto TalentSainDEsprit => GetTalent(75);
-        public TalentDto TalentVisionNocturne => GetTalent(93);
+        public TraitDto TraitVisionNocturne => GetTrait(903);
         public TalentDto TalentSensAiguisés => GetTalent(80);
         
         #endregion
@@ -340,7 +340,7 @@
              TalentSixiemeSens,
              TalentSociable,
              TalentTireurDElite,
-             TalentVisionNocturne,
+             //TraitVisionNocturne,
              TalentVivacite
         };
         

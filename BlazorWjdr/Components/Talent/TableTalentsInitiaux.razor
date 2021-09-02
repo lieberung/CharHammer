@@ -1,4 +1,5 @@
 ﻿@using BlazorWjdr.Services
+@using BlazorWjdr.Components.Trait
 
 @inject CompTalentsEtTraitsService _ctService
 
@@ -29,7 +30,7 @@
 <tr><td><TalentItem Item="@_ctService.TalentSixiemeSens"/>                  </td><td>92-96</td><td>86-90</td></tr>
 <tr><td><TalentItem Item="@_ctService.TalentSociable"/>                     </td><td>31-35</td><td>27-30</td></tr>
 <tr><td><TalentItem Item="@_ctService.TalentTireurDElite"/>                 </td><td>97-00</td><td>91-95</td></tr>
-<tr><td><TalentItem Item="@_ctService.TalentVisionNocturne"/>               </td><td>  -  </td><td>96-00</td></tr>
+<tr><td><TraitItem Item="@_ctService.TraitVisionNocturne"/>               </td><td>  -  </td><td>96-00</td></tr>
 <tr><td><TalentItem Item="@_ctService.TalentVivacite"/>                     </td><td>36-39</td><td>31-35</td></tr>
     </tbody>
 </table>
