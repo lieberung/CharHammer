@@ -517,6 +517,7 @@ namespace BlazorWjdr.Services
                    || c == _competencesEtTalentsService.CompetenceCrochetage
                    || c == _competencesEtTalentsService.CompetenceDeguisement
                    || c == _competencesEtTalentsService.CompetenceEscamotage
+                   || c == _competencesEtTalentsService.CompetenceLectureSurLesLevres
                    || c == _competencesEtTalentsService.CompetencePreparationDePoisons
             );
             if (score < 2)
@@ -533,7 +534,6 @@ namespace BlazorWjdr.Services
                    || c == _competencesEtTalentsService.TalentAccuiteAuditive
                    || c == _competencesEtTalentsService.TalentAccuiteVisuelle
                    || c == _competencesEtTalentsService.TalentFilature
-                   || c == _competencesEtTalentsService.TalentLectureSurLesLevres
                    || c == _competencesEtTalentsService.TalentPistage
             );
             if (score < 4)

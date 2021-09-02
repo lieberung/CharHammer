@@ -258,6 +258,7 @@ namespace BlazorWjdr.Services
         public CompetenceDto CompetenceDeguisement => GetCompetence(18);
         public CompetenceDto CompetenceEscamotage => GetCompetence(25);
         public CompetenceDto CompetencePreparationDePoisons => GetCompetence(50);
+        public CompetenceDto CompetenceLectureSurLesLevres => GetCompetence(41);
         public TalentDto TalentConnaissanceDesPieges => GetTalent(16);
         public TalentDto TalentCamouflageRural => GetTalent(8);
         public TalentDto TalentCamouflageSouterrain => GetTalent(9);
@@ -269,7 +270,6 @@ namespace BlazorWjdr.Services
         public TalentDto TalentAccuiteGustativeEtOlfactive => GetTalent(209);
         public TalentDto TalentAccuiteVisuelle => GetTalent(3);
         public TalentDto TalentFilature => GetTalent(30);
-        public TalentDto TalentLectureSurLesLevres => GetTalent(41);
         public TalentDto TalentPistage => GetTalent(49);
         
         // Sociales ( + TalentCodeDeLaRue)
