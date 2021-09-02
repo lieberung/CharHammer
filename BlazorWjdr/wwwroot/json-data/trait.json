@@ -1,5 +1,20 @@
 ﻿{
   "items": [
+    {"id":10,"max":"1","nom":"Guerrier né","resume":"+5% en CC permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Capacité de Combat. Modifiez votre profil de départ en conséquence."},
+    {"id":11,"max":"1","nom":"Tireur d'élite","resume":"+5% en CT permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Capacité de Tir. Modifiez votre profil de départ en conséquence."},
+    {"id":12,"max":"1","nom":"Force accrue","resume":"Vous bénéficiez d’un bonus permanent de +5% en Force. Modifiez votre profil de départ en conséquence.","description":"Vous bénéficiez d’un bonus permanent de +5% en Force. Modifiez votre profil de départ en conséquence."},
+    {"id":13,"max":"1","nom":"Résistance accrue","resume":"+5% en E permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Endurance. Modifiez votre profil de départ en conséquence."},
+    {"id":14,"max":"1","nom":"Vivacité","resume":"+5% en I permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Initiative. Modifiez votre profil de départ en conséquence."},
+    {"id":15,"max":"1","nom":"Réflexes éclairs","resume":"+5% en Ag permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Agilité. Modifiez votre profil de départ en conséquence."},
+    {"id":16,"max":"1","nom":"Doigts vifs","resume":"+5% en Dex permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Dextérité. Modifiez votre profil de départ en conséquence."},
+    {"id":17,"max":"1","nom":"Intelligent","resume":"+5% en Int permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Intelligence. Modifiez votre profil de départ en conséquence."},
+    {"id":18,"max":"1","nom":"Calme","resume":"+5% en FM permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Force Mentale. Modifiez votre profil de départ en conséquence."},
+    {"id":19,"max":"1","nom":"Sociable","resume":"+5% en Soc permanent","description":"Vous bénéficiez d’un bonus permanent de +5% en Sociabilité. Modifiez votre profil de départ en conséquence."},
+    {"id":20,"max":"1","nom":"Course à pied","resume":"+1 en M permanent.","description":"Vous bénéficiez d’un bonus permanent de +1 en Mouvement. Modifiez votre profil de départ en conséquence."},
+    {"id":21,"max":"1","nom":"Dur à cuir","nom_en":"Hardy","resume":"+BE en B permanent.",
+      "description":"Vous bénéficiez d’un bonus permanent en Blessures égal à votre Bonus d'Endurance. Si celui ci devait varier au fil du temps, il en va de même pour ce bonus. Modifiez votre profil de départ en conséquence.",
+      "description_v2":"Vous bénéficiez d’un bonus permanent de +1 en Blessures. Modifiez votre profil de départ en conséquence."},
+
     {"id":100,"severite":1,"type":"trait_TODO","nom":"*Cordon bleu","description":"Vous parvenez à régaler votre entourage avec très peu d'ingrédients et votre imagination. +10% au jets de Métier (cuisine) et +5% aux jets de Survie visant à trouver de la nourriture."},
     {"id":101,"severite":1,"type":"trait","nom":"Traumatisme","description":"Vous avez vécu un traumatisme (à votre discréation avec l'accord du meneur de jeu). Vous gagnez 1d6 points de folie. Si vous obtenez 6, réferrez vous au livre de base p.200."},
     {"id":102,"severite":1,"type":"trait_TODO","nom":"*Mauvaise habitude","description":"Cela dépend de votre carrière initiale.\nGuerrière : Vous avez pris la mauvaise habitude de toujours viser au même endroits. Faite un jet de localisation. Action Viser : +10% sur la loc, -10% sur les autres. Après 2 frappes succésives au même endroit vos adversaires bénéficient de +10% en parade."},
