@@ -27,18 +27,18 @@ namespace BlazorWjdr
             await data.InitializeDataAsync();
 
             // Sans dépendances
+            var dataTraits = InitializeTraits(data.Traits!.items);
             var dataTalents = InitializeTalents(data.Talents!.items);
-            var dataCompetences = InitializeCompetences(data.Competences!.items, dataTalents);
-            builder.Services.AddSingleton(s => new CompetencesEtTalentsService(dataCompetences, dataTalents));
+            var dataCompetences = InitializeCompetences(data.Competences!.items, dataTalents, dataTraits);
+            builder.Services.AddSingleton(s => new CompTalentsEtTraitsService(dataCompetences, dataTalents, dataTraits));
             builder.Services.AddSingleton(s => new LieuxService(data.LieuxTypes!.items, data.Lieux!.items));
             builder.Services.AddSingleton(s => new DieuxService(data.Dieux!.items));
-            builder.Services.AddSingleton(s => new TraitsService(data.Traits!.items));
             builder.Services.AddSingleton(s => new ReferencesService(data.References!.items));
             builder.Services.AddSingleton(s => new ProfilsService(data.Profils!.items));
             builder.Services.AddSingleton(s => new TablesService(data.Tables!.items));
 
             // Avec dépendances sans dépendance
-            var competencesEtTalentsService = builder.Services.BuildServiceProvider().GetRequiredService<CompetencesEtTalentsService>();
+            var competencesEtTalentsService = builder.Services.BuildServiceProvider().GetRequiredService<CompTalentsEtTraitsService>();
             builder.Services.AddSingleton(s => new ArmesService(data.ArmesAttributs!.items, data.Armes!.items, competencesEtTalentsService));
 
             var referencesService = builder.Services.BuildServiceProvider().GetRequiredService<ReferencesService>();
@@ -49,18 +49,17 @@ namespace BlazorWjdr
             var profilsService = builder.Services.BuildServiceProvider().GetRequiredService<ProfilsService>();
             builder.Services.AddSingleton(s => new RacesService(data.Races!.items, lieuxService, profilsService));
 
-            var traitsService = builder.Services.BuildServiceProvider().GetRequiredService<TraitsService>();
-            builder.Services.AddSingleton(s => new CarrieresService(data.Carrieres!.items, profilsService, competencesEtTalentsService, referencesService, traitsService));
+            builder.Services.AddSingleton(s => new CarrieresService(data.Carrieres!.items, profilsService, competencesEtTalentsService, referencesService));
 
             var carrieresService = builder.Services.BuildServiceProvider().GetRequiredService<CarrieresService>();
             var racesService = builder.Services.BuildServiceProvider().GetRequiredService<RacesService>();
             builder.Services.AddSingleton(s => new TableDesCarrieresInitialesService(data.CarrieresInitiales!.items, racesService, carrieresService));
 
-            builder.Services.AddSingleton(s => new BestiolesService(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items, racesService, competencesEtTalentsService, lieuxService, profilsService, carrieresService, traitsService));
+            builder.Services.AddSingleton(s => new BestiolesService(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items, racesService, competencesEtTalentsService, lieuxService, profilsService, carrieresService));
 
             var bestiolesService = builder.Services.BuildServiceProvider().GetRequiredService<BestiolesService>();
             var tablesService = builder.Services.BuildServiceProvider().GetRequiredService<TablesService>();
-            builder.Services.AddSingleton(s => new ReglesService(data.Regles!.items, carrieresService, competencesEtTalentsService, traitsService, bestiolesService, tablesService, lieuxService));
+            builder.Services.AddSingleton(s => new ReglesService(data.Regles!.items, carrieresService, competencesEtTalentsService, bestiolesService, tablesService, lieuxService));
 
             builder.RootComponents.Add<App>("#app");
 
@@ -104,7 +103,10 @@ namespace BlazorWjdr
             return result;
         }
 
-        private static Dictionary<int, CompetenceDto> InitializeCompetences(List<JsonCompetence> competences, Dictionary<int, TalentDto> cacheTalents)
+        private static Dictionary<int, CompetenceDto> InitializeCompetences(
+            List<JsonCompetence> competences, 
+            Dictionary<int, TalentDto> cacheTalents,
+            Dictionary<int, TraitDto> cacheTraits)
         {
             var result = competences
                 .Select(c => new CompetenceDto
@@ -119,14 +121,16 @@ namespace BlazorWjdr
                     CompetenceMereId = c.parent,
                     TalentsLies = (c.talents ?? Array.Empty<int>())
                         .Select(id => cacheTalents[id])
-                        .OrderBy(t => t.Nom)
-                        .ToList()
-                })
+                        .OrderBy(t => t.Nom).ThenBy(t => t.Specialisation)
+                        .ToList(),
+                    TraitsLies = (c.traits ?? Array.Empty<int>())
+                    .Select(id => cacheTraits[id])
+                    .OrderBy(t => t.Nom).ThenBy(t => t.Spe)
+                    .ToList()                })
                 .ToDictionary(k => k.Id, v => v);
 
             foreach (var competence in result.Values.Where(c => c.CompetenceMereId.HasValue))
             {
-                competence.TalentsLies = competence.TalentsLiesIds.Select(id => cacheTalents[id]).ToList();
                 competence.Parent = result[competence.CompetenceMereId!.Value];
             }
 
@@ -152,6 +156,31 @@ namespace BlazorWjdr
             }
 
             return result;
+        }
+
+        private static Dictionary<int, TraitDto> InitializeTraits(List<JsonTrait> traits)
+        {
+            var cacheTrait = traits
+                .Select(c => new TraitDto
+                {
+                    Id = c.id,
+                    Nom = c.nom,
+                    Spe = c.spe ?? "",
+                    Groupe = c.type,
+                    Description = c.description,
+                    Contagieux = c.contagieux,
+                    Guerison = c.guerison,
+                    Severite = c.severite,
+                    Incompatible = c.incompatible ?? Array.Empty<int>()
+                })
+                .ToDictionary(k => k.Id, v => v);
+
+            foreach (var trait in cacheTrait.Values)
+            {
+                trait.TraitsIncompatibles = trait.Incompatible.Select(id => cacheTrait[id]).ToList();
+            }
+
+            return cacheTrait;
         }
     }
 }

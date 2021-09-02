@@ -10,7 +10,7 @@ namespace BlazorWjdr.Services
 
     public class ArmesService
     {
-        private readonly CompetencesEtTalentsService _competencesEtTalentsService;
+        private readonly CompTalentsEtTraitsService _compTalentsEtTraitsService;
 
         private readonly List<JsonArmeAttribut> _dataArmesAttributs;
         private Dictionary<int, ArmeAttributDto>? _cacheArmeAttribut;
@@ -21,11 +21,11 @@ namespace BlazorWjdr.Services
         private Dictionary<string, List<ArmeDto>>? _armesDeContactPourTable;
         private Dictionary<string, List<ArmeDto>>? _armesADistancePourTable;
 
-        public ArmesService(List<JsonArmeAttribut> dataArmesAttributs, List<JsonArme> dataArmes, CompetencesEtTalentsService competencesEtTalentsService)
+        public ArmesService(List<JsonArmeAttribut> dataArmesAttributs, List<JsonArme> dataArmes, CompTalentsEtTraitsService compTalentsEtTraitsService)
         {
             _dataArmesAttributs = dataArmesAttributs;
             _dataArmes = dataArmes;
-            _competencesEtTalentsService = competencesEtTalentsService;
+            _compTalentsEtTraitsService = compTalentsEtTraitsService;
         }
 
         private Dictionary<int, ArmeAttributDto> AllAttributsDArme
@@ -42,9 +42,9 @@ namespace BlazorWjdr.Services
         public List<ArmeAttributDto> AllGroupesDArmes => AllAttributsDArme.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToList();
 
         public List<CompetenceDto> AllMeleeSpecialisations =>
-            _competencesEtTalentsService.CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
+            _compTalentsEtTraitsService.CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
         public List<CompetenceDto> AllTirSpecialisations =>
-            _competencesEtTalentsService.CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
+            _compTalentsEtTraitsService.CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
         
 
         public List<ArmeDto> AllArmes
@@ -105,7 +105,7 @@ namespace BlazorWjdr.Services
                     Portee = l.portee ?? "",
                     Prix = l.prix,
                     Rechargement = l.rechargement ?? "",
-                    CompetencesDeMaitrise = l.competences.Select(id => _competencesEtTalentsService.GetCompetence(id)).ToList()
+                    CompetencesDeMaitrise = l.competences.Select(id => _compTalentsEtTraitsService.GetCompetence(id)).ToList()
                 })
                 .ToDictionary(k => k.Id, v => v);
 

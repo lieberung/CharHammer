@@ -3,7 +3,7 @@
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
 
-@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CompTalentsEtTraitsService _compTalentsEtTraitsService
 @inject ArmesService _armesService
 
 <p style="font-size: large">
@@ -19,6 +19,18 @@
     @if (_talentsLies.Any())
     {
         <TalentItemList Items="@_talentsLies.ToArray()"/>    
+    }
+    else
+    {
+        <em>Aucun</em>
+    }
+</p>
+
+<h3 class="card-title">Traits liés</h3>
+<p class="card-text">
+    @if (_traitsLies.Any())
+    {
+        <TraitItemList Items="@_traitsLies.ToArray()"/>    
     }
     else
     {
@@ -50,6 +62,7 @@
     public CompetenceDto Item { get; set; } = null!;
 
     private List<TalentDto> _talentsLies = new();
+    private List<TraitDto> _traitsLies = new();
 
     private List<ArmeDto> _armesLiees = new();
     
@@ -62,11 +75,12 @@
             .Replace("\n\n", "\n")
             .Split('\n');
 
-        _talentsLies = _competencesEtTalentsService.AllTalents.Where(t => t.CompetencesLiees.Contains(Item) && t.Ignore == false).ToList();
+        _talentsLies = Item.TalentsLies;
+        _traitsLies = Item.TraitsLies;
 
-        if (Item.Parent == _competencesEtTalentsService.CompetenceGroupeMelee ||
-            Item.Parent == _competencesEtTalentsService.CompetenceGroupeTir ||
-            Item == _competencesEtTalentsService.CompetenceGroupeExplosifs)
+        if (Item.Parent == _compTalentsEtTraitsService.CompetenceGroupeMelee ||
+            Item.Parent == _compTalentsEtTraitsService.CompetenceGroupeTir ||
+            Item == _compTalentsEtTraitsService.CompetenceGroupeExplosifs)
         {
             _armesLiees = _armesService.GetArmesDeMaitrise(Item);
         }

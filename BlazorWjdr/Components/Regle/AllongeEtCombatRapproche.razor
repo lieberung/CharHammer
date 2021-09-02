@@ -1,7 +1,7 @@
 ﻿@using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Services
 
-@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CompTalentsEtTraitsService _compTalentsEtTraitsService
 
 <h4>Allonge des armes & Combat rapproché</h4>
 <ul>
@@ -17,5 +17,5 @@
      Lorsque vous vous défendez en Melée contre un adversaire ayant une <strong>allonge de deux crans inférieure</strong> à la votre, vous disposez d'un <strong>bonus de +10</strong> car vous le tenez plus facilement à distance (ex: défendre avec une hallebarde contre une épée à une main).<br/>>
     Si à votre Tour vous n'êtes pas en infériorité numérique et que vous disposez d'une Allonge inférieur à celle de votre adversaire, vous pouvez utiliser votre Action pour tenter de passer les défenses de votre adversaire. Pour cela faites un Test Opposé de Mélée : si vous l'emportez vous entrez en <strong>Combat Rapproché</strong> avec cet ennemi.<br/>
     En <strong>Combat rapproché</strong>, toute arme ayant une allonge supérieur à <strong>Courte</strong> est considérée comme une <strong>Arme improvisée</strong>. Cet état s'interromp dès que l'adversaire remporte un Test Opposé de Mélée.
-    Le Talent <TalentItem Item="@_competencesEtTalentsService.TalentCombatRapproche"/> influe sur ce genre de manoeuvre.
+    Le Talent <TalentItem Item="@_compTalentsEtTraitsService.TalentCombatRapproche"/> influe sur ce genre de manoeuvre.
 </p>

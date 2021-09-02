@@ -8,8 +8,7 @@
 
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
-@inject TraitsService _traitsService
-@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CompTalentsEtTraitsService _cttService
 
 <MainTopRow>
     <h3 class="card-title">Psychologie et Folies</h3>
@@ -37,11 +36,11 @@
 
                 <h4 class="card-title">Dérapage et conséquences</h4>
                 <p>
-                    Dès qu'un personnage atteint le seuil des <strong>6 Points de Folie</strong>, il tester son <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSangFroid"/>.
+                    Dès qu'un personnage atteint le seuil des <strong>6 Points de Folie</strong>, il tester son <CompetenceItem Item="@_cttService.CompetenceSangFroid"/>.
                     S'il réussit rien ne se passe mais il devra refaire un test à chaque nouveau point obtenu.
                     S'il échoue, le personnage souffre d'un <strong>Trouble Psychologique</strong>, et retombe à Points de Folie.
                     <br/>
-                    Le seuil des 6 points peut varier si le personnage possède le Talent <TalentItem Item="@_competencesEtTalentsService.TalentSainDEsprit"/>
+                    Le seuil des 6 points peut varier si le personnage possède le Talent <TalentItem Item="@_cttService.TalentSainDEsprit"/>
                 </p>
                 <p>
                     Le mJ devra alors déterminer avec soin le trouble développé par le personnage.
@@ -70,15 +69,15 @@
                 <h4 class="card-title">Chirurgie</h4>
                 <p class="card-text">
                     La première technique reste la chirurgie. Il s'agit de méthodes expérimentales rudimentaires, très dangereuses pour le patient.
-                    Pour simplement s'y essayer, le médecin doit disposer à la fois de la compétence <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> et du talent <TalentItem Item="@_competencesEtTalentsService.TalentChirurgie"/>.
-                    L'opération demande 1d10 heures et donne lieu à un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/>, la difficulté variant selon ce que le chirurgien tente de réaliser : guérir réellement une forme de folie est Très difficile.
+                    Pour simplement s'y essayer, le médecin doit disposer à la fois de la compétence <CompetenceItem Item="@_cttService.CompetenceSoins"/> et du talent <TalentItem Item="@_cttService.TalentChirurgie"/>.
+                    L'opération demande 1d10 heures et donne lieu à un test de <CompetenceItem Item="@_cttService.CompetenceSoins"/>, la difficulté variant selon ce que le chirurgien tente de réaliser : guérir réellement une forme de folie est Très difficile.
                     Toute chirurgie de ce type réduit les points de Blessures du patient à 0 (c'est le cerveau qui est opéré !). La guérison normale peut commencer une fois la chirurgie terminée.
                     La <strong>table Chirurgie psychiatrique</strong> résume ce qu'il est permis de faire. Si le test échoue, on se réfère à la <strong>Table Complications chirurgicales</strong>.
                 </p>
                 <h4 class="card-title">Remèdes</h4>
                 <p class="card-text">
                     Les préparations chimiques ou à base d'herbes ne peuvent réellement soigner la folie. Au mieux peuvent-elles en diminuer les effets pendant quelque temps.
-                    Celles qui affectent l'esprit n'ont qu'une chance limitée de fonctionner. Chaque décoction doit être préparée spécialement pour son bénéficiaire, si elle veut avoir une chance de contrer la démence. Un tel remède demande des outils d'apothicaire, 10 + 3d10 pistoles d'ingrédients et 1d10 heures. Si un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceMetierApothicaire"/> à -30% est réussi, le remède est efficace et peut suspendre la folie du personnage pendant une semaine. En cas d'échec, la mixture n'est pas adaptée et s'avère même potentiellement dangereuse. On détermine alors selon la <strong>Table Remèdes de charlatan</strong> quels sont les effets réels sur le buveur. Le préparateur du remède est toujours persuadé de son succès, à moins que la table ne dise le contraire.
+                    Celles qui affectent l'esprit n'ont qu'une chance limitée de fonctionner. Chaque décoction doit être préparée spécialement pour son bénéficiaire, si elle veut avoir une chance de contrer la démence. Un tel remède demande des outils d'apothicaire, 10 + 3d10 pistoles d'ingrédients et 1d10 heures. Si un test de <CompetenceItem Item="@_cttService.CompetenceMetierApothicaire"/> à -30% est réussi, le remède est efficace et peut suspendre la folie du personnage pendant une semaine. En cas d'échec, la mixture n'est pas adaptée et s'avère même potentiellement dangereuse. On détermine alors selon la <strong>Table Remèdes de charlatan</strong> quels sont les effets réels sur le buveur. Le préparateur du remède est toujours persuadé de son succès, à moins que la table ne dise le contraire.
                 </p>
                 <h4 class="card-title">Soins magiques</h4>
                 <p class="card-text">

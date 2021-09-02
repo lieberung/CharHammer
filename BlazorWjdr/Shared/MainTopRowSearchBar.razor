@@ -60,13 +60,13 @@
     private string _searchText = "";
 
     [Inject] private CarrieresService CarrieresService { get; set; } = null!;
-    [Inject] private CompetencesEtTalentsService CompetencesEtTalentsService { get; set; } = null!;
+    [Inject] private CompTalentsEtTraitsService CompTalentsEtTraitsService { get; set; } = null!;
         
     protected override void OnInitialized()
     {
         AllCarrieres = CarrieresService.AllCarrieres;
-        AllCompetences = CompetencesEtTalentsService.AllCompetences;
-        AllTalents = CompetencesEtTalentsService.AllTalents;
+        AllCompetences = CompTalentsEtTraitsService.AllCompetences;
+        AllTalents = CompTalentsEtTraitsService.AllTalents;
     }
 
     protected override void OnParametersSet()
@@ -83,9 +83,9 @@
     
     private CompetenceDto[] FilteredCompetences => _searchText.Length < 3
         ?  new CompetenceDto[0]
-        : CompetencesEtTalentsService.RechercheCompetences(_searchText);
+        : CompTalentsEtTraitsService.RechercheCompetences(_searchText);
 
     private TalentDto[] FilteredTalents => _searchText.Length < 3
         ?  new TalentDto[0]
-        : CompetencesEtTalentsService.RechercheTalents(_searchText);
+        : CompTalentsEtTraitsService.RechercheTalents(_searchText);
 }

@@ -4,7 +4,7 @@
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
-@inject TraitsService _traitsService;
+@inject CompTalentsEtTraitsService _cttService;
 @inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
 
 <MainTopRow>
@@ -70,25 +70,25 @@
         switch (GroupeActif)
         {
             case "traits":
-                _traits = _traitsService.SignesDistinctifs;
+                _traits = _cttService.SignesDistinctifs;
                 _nbColonnes = 5;
                 _determinant = "un";
                 _typeDeTrait = "signe distinctif";
                 break;
             case "troubles-mineurs":
-                _traits = _traitsService.TroublesMineurs();
+                _traits = _cttService.TroublesMineurs();
                 _nbColonnes = 3;
                 _determinant = "un";
                 _typeDeTrait = "trouble mineur";
                 break;
             case "folies":
-                _traits = _traitsService.Folies;
+                _traits = _cttService.Folies;
                 _nbColonnes = 3;
                 _determinant = "une";
                 _typeDeTrait = "folie";
                 break;
             case "maladies":
-                _traits = _traitsService.Maladies;
+                _traits = _cttService.Maladies;
                 _nbColonnes = 3;
                 _determinant = "une";
                 _typeDeTrait = "maladie";

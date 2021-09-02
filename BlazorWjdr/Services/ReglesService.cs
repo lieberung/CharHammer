@@ -10,8 +10,7 @@
     public class ReglesService
     {
         private readonly CarrieresService _carrieresService;
-        private readonly CompetencesEtTalentsService _competencesEtTalentsService;
-        private readonly TraitsService _traitsService;
+        private readonly CompTalentsEtTraitsService _compTalentsEtTraitsService;
         private readonly BestiolesService _bestiolesService;
         private readonly TablesService _tablesService;
         private readonly LieuxService _lieuxService;
@@ -20,16 +19,14 @@
         private Dictionary<int, RegleDto>? _cacheRegle;
 
         public ReglesService(List<JsonRegle> dataRegles, CarrieresService carrieresService,
-            CompetencesEtTalentsService competencesEtTalentsService,
-            TraitsService traitsService,
+            CompTalentsEtTraitsService compTalentsEtTraitsService,
             BestiolesService bestiolesService, 
             TablesService tablesService, 
             LieuxService lieuxService)
         {
             _dataRegles = dataRegles;
             _carrieresService = carrieresService;
-            _competencesEtTalentsService = competencesEtTalentsService;
-            _traitsService = traitsService;
+            _compTalentsEtTraitsService = compTalentsEtTraitsService;
             _bestiolesService = bestiolesService;
             _tablesService = tablesService;
             _lieuxService = lieuxService;
@@ -64,14 +61,14 @@
                     Titre = r.titre,
                     ReglesId = r.regles ?? Array.Empty<int>(),
                     Carrieres = (r.carrieres ?? Array.Empty<int>()).Select(id => _carrieresService.GetCarriere(id)).ToArray(),
-                    Competences = (r.competences ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetCompetence(id)).ToArray(),
+                    Competences = (r.competences ?? Array.Empty<int>()).Select(id => _compTalentsEtTraitsService.GetCompetence(id)).ToArray(),
                     ChoixCompetences = r.choixcompetences != null
-                        ? r.choixcompetences.Select(choix => _competencesEtTalentsService.GetCompetences(choix).ToArray()).ToList()
+                        ? r.choixcompetences.Select(choix => _compTalentsEtTraitsService.GetCompetences(choix).ToArray()).ToList()
                         : new List<CompetenceDto[]>(),
-                    Talents = (r.talents ?? Array.Empty<int>()).Select(id => _competencesEtTalentsService.GetTalent(id)).ToArray(),
-                    Traits = (r.traits ?? Array.Empty<int>()).Select(id => _traitsService.GetTrait(id)).ToArray(),
+                    Talents = (r.talents ?? Array.Empty<int>()).Select(id => _compTalentsEtTraitsService.GetTalent(id)).ToArray(),
+                    Traits = (r.traits ?? Array.Empty<int>()).Select(id => _compTalentsEtTraitsService.GetTrait(id)).ToArray(),
                     ChoixTalents = r.choixtalents != null
-                        ? r.choixtalents.Select(choix => _competencesEtTalentsService.GetTalents(choix).ToArray()).ToList()
+                        ? r.choixtalents.Select(choix => _compTalentsEtTraitsService.GetTalents(choix).ToArray()).ToList()
                         : new List<TalentDto[]>(),
                     Bestioles = (r.bestioles ?? Array.Empty<int>()).Select(id => _bestiolesService.GetBestiole(id)).ToArray(),
                     Tables = (r.tables ?? Array.Empty<int>()).Select(id => _tablesService.GetTable(id)).ToArray(),

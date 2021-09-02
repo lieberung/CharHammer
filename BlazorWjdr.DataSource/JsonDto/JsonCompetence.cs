@@ -6,6 +6,7 @@
     {
         public int id { get; set; }
         public int[]? talents { get; set; }
+        public int[]? traits { get; set; }
         public int? parent { get; set; }
         public bool ignorer { get; set; }
         public bool de_base { get; set; }

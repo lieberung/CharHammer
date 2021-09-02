@@ -4,7 +4,7 @@
 @using BlazorWjdr.Services
 @using BlazorWjdr.Components.Competence
 
-@inject CompetencesEtTalentsService _competenceService
+@inject CompTalentsEtTraitsService _cttService
 
 <MainTopRow>
     <h3 class="card-title">Compétences</h3>
@@ -64,7 +64,7 @@
 
     protected override void OnInitialized()
     {
-        _competencesLines = _competenceService.AllCompetences;
+        _competencesLines = _cttService.AllCompetences;
         base.OnInitialized();
     }
 }

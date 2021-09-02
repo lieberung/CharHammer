@@ -12,8 +12,8 @@
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
 @inject RacesService _racesService
-@inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
-@inject TraitsService _traitsService
+@inject CompTalentsEtTraitsService _cttService;
+@inject TableDesCarrieresInitialesService _tablesCarrInitService
 
 <MainTopRow>
     <h3 class="card-title">Création de personnage</h3>
@@ -213,7 +213,7 @@ else
         <div class="card-body">
             <h5 class="card-title">5-1. Table des signes distinctifs</h5>
             <p class="card-text">
-                <TableTraits Traits="_traitsService.SignesDistinctifs.ToArray()" NbColonnes="5"/>
+                <TableTraits Traits="_cttService.SignesDistinctifs.ToArray()" NbColonnes="5"/>
             </p>
         </div>
     </div>
@@ -417,7 +417,7 @@ else
             return;
         }
 
-        TraitDto ta = _traitsService.TirerUnSigneAleatoire(_traitsObtenus);
+        TraitDto ta = _cttService.TirerUnSigneAleatoire(_traitsObtenus);
         _traitsObtenus.Add(ta);
     }
 
@@ -431,7 +431,7 @@ else
 
         CarriereDto? ca = null;
         while (ca == null || _carrieresObtenues.Contains(ca))
-            ca = _tableDesCarrieresInitialesService.GetRandomStartingCareer(int.Parse(RaceId));
+            ca = _tablesCarrInitService.GetRandomStartingCareer(int.Parse(RaceId));
         _carrieresObtenues.Add(ca);
     }
 

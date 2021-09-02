@@ -6,7 +6,7 @@
 @using BlazorWjdr.Services
 @using System.ComponentModel
 
-@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CompTalentsEtTraitsService _cttService
 @inject CarrieresService _carrieresService
 @inject ArmesService _armesService
 
@@ -77,7 +77,7 @@
 
     protected override void OnParametersSet()
     {
-        Talent = _competencesEtTalentsService.GetTalent(int.Parse(TalentId));
+        Talent = _cttService.GetTalent(int.Parse(TalentId));
         _carrieres = _carrieresService.GetCarrieresProposant(Talent);
     }
 }

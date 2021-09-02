@@ -1,22 +1,21 @@
-﻿using System.Diagnostics;
-using BlazorWjdr.DataSource.JsonDto;
-
-namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services
 {
     using Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    public class CompetencesEtTalentsService
+    public class CompTalentsEtTraitsService
     {
         private readonly Dictionary<int, CompetenceDto> _cacheCompetences;
         private readonly Dictionary<int, TalentDto> _cacheTalents;
+        private readonly Dictionary<int, TraitDto> _cacheTraits;
 
-        public CompetencesEtTalentsService(Dictionary<int, CompetenceDto> dataCompetences, Dictionary<int, TalentDto> dataTalents)
+        public CompTalentsEtTraitsService(Dictionary<int, CompetenceDto> dataCompetences, Dictionary<int, TalentDto> dataTalents, Dictionary<int, TraitDto> dataTraits)
         {
             _cacheCompetences = dataCompetences;
             _cacheTalents = dataTalents;
+            _cacheTraits = dataTraits;
         }
         
         public IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int> ids) => ids.Select(GetCompetence).OrderBy(c => c.Nom).ToArray();
@@ -46,89 +45,21 @@ namespace BlazorWjdr.Services
                 return _cacheTalents.Values.OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
             }
         }
-
-        private void Initialize()
+        
+        public IEnumerable<TraitDto> GetTraits(IEnumerable<int> ids) => ids.Select(GetTrait).OrderBy(t => t.Nom).ToArray();
+        public TraitDto GetTrait(int id)
         {
-            //if (_dataCompetences.Count == 0) throw new System.Exception("tototototototototototototototot");
-            /*
-            _cacheTalents = _dataTalents
-                .Select(t => new TalentDto
-                {
-                    Id = t.id,
-                    Nom = $"{t.nom}{(!string.IsNullOrWhiteSpace(t.spe) ? $" : {t.spe}" : "")}",
-                    Description = t.description,
-                    Ignore = t.ignorer,
-                    Resume = t.resume,
-                    Specialisation = t.spe ?? "",
-                    TalentParentId = t.parent_id,
-                    Trait = t.trait,
-                    Max = t.max ?? "",
-                    Tests = t.tests ?? ""
-                })
-                .ToDictionary(k => k.Id, v => v);
-
-            foreach (var talent in _cacheTalents.Values.Where(t => t.TalentParentId.HasValue))
-            {
-                talent.Parent = _cacheTalents[talent.TalentParentId!.Value];
-            }
-
-            foreach (var talent in _cacheTalents.Values.Where(t => t.Parent != null).Select(t => t.Parent))
-                talent!.SousElements.AddRange(_cacheTalents.Values
-                    .Where(c=>c.Parent == talent)
-                    .OrderBy(c => c.Nom));
-
-            _cacheCompetences = _dataCompetences
-                .Select(c => new CompetenceDto
-                {
-                    Id = c.id,
-                    Ignore = c.ignorer,
-                    Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.spe) ? $" : {c.spe}" : "")}",
-                    Resume = c.resume,
-                    Specialisation = c.spe ?? "",
-                    CaracteristiqueAssociee = c.carac,
-                    EstUneCompetenceDeBase = c.de_base,
-                    CompetenceMereId = c.parent,
-                    TalentsLies = (c.talents ?? Array.Empty<int>())
-                        .Select(id => _cacheTalents[id])
-                        .OrderBy(t => t.Nom)
-                        .ToList()
-                })
-                .ToDictionary(k => k.Id, v => v);
-
-            foreach (var competence in _cacheCompetences.Values.Where(c => c.CompetenceMereId.HasValue))
-            {
-                competence.TalentsLies = competence.TalentsLiesIds.Select(id => _cacheTalents[id]).ToList();
-                competence.Parent = _cacheCompetences[competence.CompetenceMereId!.Value];
-            }
-
-            foreach (var competence in _cacheCompetences.Values)
-            {
-                competence.NomPourRecherche = GenericService.ConvertirCaracteres(competence.Nom);
-                competence.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(competence.NomPourRecherche);
-                competence.SetResume();
-            }
-
-            foreach (var competence in _cacheCompetences.Values.Where(t => t.Parent != null).Select(t => t.Parent))
-            {
-                competence!.SousElements.AddRange(_cacheCompetences.Values
-                    .Where(c=>c.Parent == competence)
-                    .OrderBy(c => c.Nom));
-            }
-
-            foreach (var talent in _cacheTalents.Values)
-            {
-                talent.NomPourRecherche = GenericService.ConvertirCaracteres(talent.Nom);
-                talent.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(talent.NomPourRecherche);
-                talent.CompetencesLiees = _cacheCompetences.Values
-                    .Where(c => c.TalentsLies.Contains(talent) && c.Ignore == false)
-                    .ToList();
-            }
-            */
-            
-            //_dataCompetences.Clear();
-            //_dataTalents.Clear();
+            return _cacheTraits[id];
         }
 
+        public IEnumerable<TraitDto> AllTraits
+        {
+            get
+            {
+                return _cacheTraits.Values.OrderBy(c => c.Nom).ThenBy(c => c.Spe);
+            }
+        }
+        
         #region Competences & Talents
         
         // Caractéristiques
@@ -412,5 +343,53 @@ namespace BlazorWjdr.Services
              TalentVisionNocturne,
              TalentVivacite
         };
+        
+        #region Traits
+        
+        public List<TraitDto> SignesDistinctifs => AllTraits.Where(t => t.Groupe == "trait").OrderBy(t => t.NomComplet).ToList();
+        public List<TraitDto> Folies => AllTraits.Where(t => t.Groupe == "folie").ToList();
+        public List<TraitDto> Maladies => AllTraits.Where(t => t.Groupe == "maladie").ToList();
+        public List<TraitDto> Mutations => AllTraits.Where(t => t.Groupe == "mutation").ToList();
+        public List<TraitDto> Nevroses => AllTraits.Where(t => t.Groupe == "nevrose").ToList();
+        public List<TraitDto> Addictions => AllTraits.Where(t => t.Groupe == "addiction").ToList();
+        public List<TraitDto> Alergies => AllTraits.Where(t => t.Groupe == "allergie").ToList();
+        public List<TraitDto> Phobies => AllTraits.Where(t => t.Groupe == "phobie").ToList();
+        public List<TraitDto> Conditions => AllTraits.Where(t => t.Groupe == "condition").OrderBy(t => t.NomComplet).ToList();
+
+        public TraitDto ConditionSurpris => GetTrait(460);
+        public TraitDto ConditionDemoralise => GetTrait(453);
+        public TraitDto ConditionATerre => GetTrait(458);
+        public TraitDto ConditionEtourdi => GetTrait(459);
+        public TraitDto ConditionInconscient => GetTrait(461);
+        
+        public TraitDto TraitPsychoHaine => GetTrait(217);
+        public TraitDto TraitPsychoAnimosite => GetTrait(215);
+        public TraitDto TraitEffrayant => GetTrait(199);
+
+        public List<TraitDto> TroublesMineurs()
+        {
+            var list = new List<TraitDto>();
+            list.AddRange(Alergies.Where(t => t.Severite == 1));
+            list.AddRange(Nevroses.Where(t => t.Severite == 1));
+            list.AddRange(Phobies.Where(t => t.Severite == 1));
+            return list.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ToList();
+        }
+
+        public TraitDto TirerUnSigneAleatoire(List<TraitDto> traitsDejaObtenus)
+        {
+            TraitDto? ta = null;
+            while (ta == null
+                   || traitsDejaObtenus.Contains(ta)
+                   || ta.TraitsIncompatibles.Intersect(traitsDejaObtenus).Any()
+                   || traitsDejaObtenus.Any(to => to.TraitsIncompatibles.Contains(ta))
+            ) {
+                var sd = SignesDistinctifs;
+                var i = new Random().Next(0, sd.Count);
+                ta = sd[i];
+            }
+            return ta;            
+        }
+        
+        #endregion
     }
 }

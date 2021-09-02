@@ -8,8 +8,7 @@
 
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
-@inject TraitsService _traitsService
-@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CompTalentsEtTraitsService _cttService
 
 <MainTopRow>
     <h3 class="card-title">Corruption et Mutations</h3>
@@ -27,9 +26,9 @@
 
                 <h4 class="card-title">Blessures Superficielles</h4>
                 <p class="card-text">
-                    Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <TraitItem Item="@_traitsService.ConditionATerre"/>.
+                    Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <TraitItem Item="@_cttService.ConditionATerre"/>.
                     <br/>
-                    Pire, si vous n'êtes pas soigné avant un nombre de Round égale à votre <BonusDeCarac Carac="E"/>, vous perdez connaissance, gagnant ainsi une Condition <TraitItem Item="@_traitsService.ConditionInconscient"/>.
+                    Pire, si vous n'êtes pas soigné avant un nombre de Round égale à votre <BonusDeCarac Carac="E"/>, vous perdez connaissance, gagnant ainsi une Condition <TraitItem Item="@_cttService.ConditionInconscient"/>.
                     <br/>
                     Dans les deux cas, vous ne pourrez pas perdre ces Conditions tant que vous n'avez pas récupéré au moins 1 Blessure.
                 </p>
@@ -60,12 +59,12 @@
                     Vous êtes <strong>Légèrement Blessé</strong> dès lors que vous avez perdu 1 Blessure.
                 </p>
                 <p class="card-text">
-                    Sans soins médicaux, vous pouvez tenter un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> Moyen (+20) après une bonne nuit de sommeil une fois par jour.
+                    Sans soins médicaux, vous pouvez tenter un test de <CompetenceItem Item="@_cttService.CompetenceResistance"/> Moyen (+20) après une bonne nuit de sommeil une fois par jour.
                     Echec ou réussite, vous récupérez un nombre de Blessures égal à votre BS + votre <BonusDeCarac Carac="E"/>.
                     Si ensuite vous passez une journée calme et reposante, vous récupérez un nombre de Blessures supplémentaire égal à votre <BonusDeCarac Carac="E"/>.  
                 </p>
                 <p class="card-text">
-                    L'utilisation de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> peut vous guérir davantage, ou encore l'accès à des bandages et à une trousse de soins.
+                    L'utilisation de <CompetenceItem Item="@_cttService.CompetenceSoins"/> peut vous guérir davantage, ou encore l'accès à des bandages et à une trousse de soins.
                 </p>
                 
                 <h4 class="card-title">Blessures Critiques</h4>
@@ -73,13 +72,13 @@
                     Vous êtes <strong>Gravement Blessé</strong> dès lors que vous avez reçu des Blessures Critiques.
                 </p>
                 <p class="card-text">
-                    L'utilisation de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> est généralement toujours possible, mais cela dépend des conséquences du Coup Critique.
+                    L'utilisation de <CompetenceItem Item="@_cttService.CompetenceSoins"/> est généralement toujours possible, mais cela dépend des conséquences du Coup Critique.
                     Ces Blessures ne sont considérées comme soignées que lorsque tous les effets négatifs associés ont disparu, à l'exception d'éentuelles séquelles permanentes.
                 </p>
                 
                 <h4 class="card-title">Soins médicaux et Chirugie</h4>
                 <p class="card-text">
-                    Pour certaines Blessures, il sera précisé que des Soins médicaux ou de la Chirurgie sont requis, en l'occurence du matériel médical et les compétences <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> et <TalentItem Item="@_competencesEtTalentsService.TalentChirurgie"/>.  
+                    Pour certaines Blessures, il sera précisé que des Soins médicaux ou de la Chirurgie sont requis, en l'occurence du matériel médical et les compétences <CompetenceItem Item="@_cttService.CompetenceSoins"/> et <TalentItem Item="@_cttService.TalentChirurgie"/>.  
                 </p>
             </div>
             
@@ -111,7 +110,7 @@
                     If prepared, you can hold your breath for Toughness Bonus x 10 seconds without a Test. After that, you may start to suffocate or drown. If you are unprepared and suddenly deprived of air, you will start to suffocate immediately.    
                 </p>
                 <p class="card-text">
-                    Each Round you are being suffocated you lose 1 Wound. Should you reach 0 Wounds, you immediately receive the <TraitItem Item="@_traitsService.ConditionInconscient"/> Condition. After that, you will die of suffocation or drowning in Toughness Bonus Rounds.
+                    Each Round you are being suffocated you lose 1 Wound. Should you reach 0 Wounds, you immediately receive the <TraitItem Item="@_cttService.ConditionInconscient"/> Condition. After that, you will die of suffocation or drowning in Toughness Bonus Rounds.
                 </p>
             </div>
             
@@ -126,7 +125,7 @@
                 <p class="card-text">
                     Une entorse ou un muscle froissé réduit vos capacités en plus d'être très douloureux. Vous subissez un malus de -10 à tous les jets impliquant la zone meurtrie. Si c'est une jambe, divisez également par 2 votre <strong>Mouvement</strong>.
                     <br/>
-                    <strong>Soins</strong> : une Déchirure Mineure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E"/>) jours. Utiliser <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> réduit cette durée de 1+BS jours (appliquable une seule fois).
+                    <strong>Soins</strong> : une Déchirure Mineure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E"/>) jours. Utiliser <CompetenceItem Item="@_cttService.CompetenceSoins"/> réduit cette durée de 1+BS jours (appliquable une seule fois).
                 </p>
                 <h4 class="card-title">Déchirure Majeure</h4>
                 <p class="card-text">
@@ -136,7 +135,7 @@
                     <br/>
                     <strong>Soins</strong> : une Déchirure Majeure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E"/>) jours, suite à quoi les malus passeront à -10.
                     Il faudra à nouveau patienter ce même délai pour un rétablissement complet.
-                    La Compétence <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> n'y peut pas grand chose mais vous conseille de ne pas utiliser le membre impliqué !
+                    La Compétence <CompetenceItem Item="@_cttService.CompetenceSoins"/> n'y peut pas grand chose mais vous conseille de ne pas utiliser le membre impliqué !
                 </p>
             </div>
 
@@ -151,24 +150,24 @@
                     En revanche la zone touchée est inutilisable jusqu'à ce que l'os se ressoude.
                     <ul>
                         <li><strong>bras ou jambe</strong> : vous avez probablement besoin d'une attèle ; consultez la partie Amputations pour connaître les conséquences.</li>
-                        <li><strong>tête</strong> : vous êtes condamné à un régime liquide et subissez un malus de -30 pour tous les tests relatifs au <CompetenceItem Item="@_competencesEtTalentsService.CompetenceGroupeLangue"/>.</li>
+                        <li><strong>tête</strong> : vous êtes condamné à un régime liquide et subissez un malus de -30 pour tous les tests relatifs au <CompetenceItem Item="@_cttService.CompetenceGroupeLangue"/>.</li>
                         <li><strong>torse</strong> : votre Force et votre Agilité sont sévèrement compromises, vous subissez un malus de -30 dans ces caractéristiques, et divisez par 2 votre Mouvement.</li>
                     </ul>
-                    <strong>Soins</strong> : un os fracturé se réparera au bout de 30+1d10 jours. Suite à cela, un test réussi de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> Moyen (+20) signifie que l'os s'est bien remis et ne laissera aucune séquelle.
+                    <strong>Soins</strong> : un os fracturé se réparera au bout de 30+1d10 jours. Suite à cela, un test réussi de <CompetenceItem Item="@_cttService.CompetenceResistance"/> Moyen (+20) signifie que l'os s'est bien remis et ne laissera aucune séquelle.
                     Sur un échec, vous subirez des séquelles permanentes (voir tableau).
                     <br/>
-                    Un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> Moyen (+20) réussi dans la semaine qui suit l'obtention de la fracture annule le besoin de faire le test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> mais la zone devra rester bandée et maintenue en place jusqu'à guérison.
-                    Si le bandage est retiré avant, un nouveau test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> sera nécessaire.
+                    Un test de <CompetenceItem Item="@_cttService.CompetenceSoins"/> Moyen (+20) réussi dans la semaine qui suit l'obtention de la fracture annule le besoin de faire le test de <CompetenceItem Item="@_cttService.CompetenceResistance"/> mais la zone devra rester bandée et maintenue en place jusqu'à guérison.
+                    Si le bandage est retiré avant, un nouveau test de <CompetenceItem Item="@_cttService.CompetenceSoins"/> sera nécessaire.
                 </p>
 
                 <h4 class="card-title">Fracture Majeure</h4>
                 <p class="card-text">
-                    Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <TalentItem Item="@_competencesEtTalentsService.TalentChirurgie"/> pour être soigné.
+                    Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <TalentItem Item="@_cttService.TalentChirurgie"/> pour être soigné.
                     <br/>
                     La zone touchée est inutilisable jusqu'à guérison. Utilisez les mêmes règles que pour une Fracture Mineure avec ces ajustements :
                     <ul>
                         <li>le temps de guérison prendra 10 jours de plus</li>
-                        <li>les tests associés de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> et <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSoins"/> sont effectués à +0</li>
+                        <li>les tests associés de <CompetenceItem Item="@_cttService.CompetenceResistance"/> et <CompetenceItem Item="@_cttService.CompetenceSoins"/> sont effectués à +0</li>
                         <li>les séquelles permanentes sont plus handicapantes (voir tableau)</li>
                     </ul>
                 </p>
@@ -181,7 +180,7 @@
                         <tbody>
                         <tr><td>Bras</td><td>-5 en Agilité avec ce membre</td><td>-15 en Agilité avec ce membre</td></tr>
                         <tr><td>Jambe et Torse</td><td>-5 en Agilité</td><td>-15 en Agilité</td></tr>
-                        <tr><td>Tête</td><td>-5 en <CompetenceItem Item="@_competencesEtTalentsService.CompetenceGroupeLangue"/></td><td>-15 en <CompetenceItem Item="@_competencesEtTalentsService.CompetenceGroupeLangue"/></td></tr>
+                        <tr><td>Tête</td><td>-5 en <CompetenceItem Item="@_cttService.CompetenceGroupeLangue"/></td><td>-15 en <CompetenceItem Item="@_cttService.CompetenceGroupeLangue"/></td></tr>
                         </tbody>
                     </table>
                 </p>
@@ -192,17 +191,17 @@
             <div class="card-body">
                 <h3 class="card-title">Privation d'eau et de nourriture</h3>
                 <p class="card-text">
-                    Running out of provisions can be bad. Running out of water is worse. <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
+                    Running out of provisions can be bad. Running out of water is worse. <CompetenceItem Item="@_cttService.CompetenceResistance"/> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
                 </p>
                 
                 <h4 class="card-title">Mourrir de soif</h4>
                 <p class="card-text">
-                    Every day without water requires you make an <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> test. The first failed Test causes a penalty of –10 Intelligence, Willpower, and Fellowship. Second and subsequent failures reduce all Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.    
+                    Every day without water requires you make an <CompetenceItem Item="@_cttService.CompetenceResistance"/> test. The first failed Test causes a penalty of –10 Intelligence, Willpower, and Fellowship. Second and subsequent failures reduce all Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.    
                 </p>
                 
                 <h4 class="card-title">Mourrir de faim</h4>
                 <p class="card-text">
-                    Every 2 days without food require an <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> Test. The first failed Tests causes a penalty of –10 Strength and Toughness. Second and subsequent failures reduce all other Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
+                    Every 2 days without food require an <CompetenceItem Item="@_cttService.CompetenceResistance"/> Test. The first failed Tests causes a penalty of –10 Strength and Toughness. Second and subsequent failures reduce all other Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
                 </p>
             </div>
             
@@ -215,15 +214,15 @@
                 <p class="card-text">
                     L'amputation d'un membre, qu'elle soit due à un (très) mauvais coup ou une intervention chirurgicale peut-être compensée par une prothèse (voir le Guide du consommateur).
                     <br/>
-                    Quand vous subissez un Coup Critique dont l'effet est <strong>Amputation (difficulté)</strong>, vous devez réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceResistance"/> avec la difficulté spécifiée ou immédiatetement subir la Condition <TraitItem Item="@_traitsService.ConditionATerre"/>.
+                    Quand vous subissez un Coup Critique dont l'effet est <strong>Amputation (difficulté)</strong>, vous devez réussir un test de <CompetenceItem Item="@_cttService.CompetenceResistance"/> avec la difficulté spécifiée ou immédiatetement subir la Condition <TraitItem Item="@_cttService.ConditionATerre"/>.
                     <br/>
-                    Sur un BS de -2 ou -3, vous subissez également la Condition <TraitItem Item="@_traitsService.ConditionEtourdi"/>, et au delà la Condition <TraitItem Item="@_traitsService.ConditionInconscient"/>.
+                    Sur un BS de -2 ou -3, vous subissez également la Condition <TraitItem Item="@_cttService.ConditionEtourdi"/>, et au delà la Condition <TraitItem Item="@_cttService.ConditionInconscient"/>.
                     <br/>
-                    Toute membre amputé requiert de la <TalentItem Item="@_competencesEtTalentsService.TalentChirurgie"/> pour guérrir correctement, et aucune Blessure ne pourra être récupérée sans cela. Voir Chirurgie p.181.
+                    Toute membre amputé requiert de la <TalentItem Item="@_cttService.TalentChirurgie"/> pour guérrir correctement, et aucune Blessure ne pourra être récupérée sans cela. Voir Chirurgie p.181.
                 </p>
                 <h4 class="card-title">Oreille</h4>
                 <p class="card-text">
-                    Douloureux mais vous apprendrez rapidement à vivre avec. Si par malheur c'était votre dernière, vous subissez un malus permanent de -20 à tous les tests de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> liés à l'ouïe.
+                    Douloureux mais vous apprendrez rapidement à vivre avec. Si par malheur c'était votre dernière, vous subissez un malus permanent de -20 à tous les tests de <CompetenceItem Item="@_cttService.CompetencePerception"/> liés à l'ouïe.
                     De plus vous subissez un malus de -5 par oreille à tout test de Sociabilité quand leur absence est visible.
                 </p>
                 <h4 class="card-title">Oeil</h4>
@@ -245,7 +244,7 @@
                 </p>
                 <h4 class="card-title">Langue</h4>
                 <p class="card-text">
-                    La perte de votre langue vous empêche de vous exprimer autrement qu'en grognant et marmonant. Apprendre le langage des signes est votre seule option. Vous ne pouvez plus utiliser <CompetenceItem Item="@_competencesEtTalentsService.CompetenceGroupeLangue"/>. 
+                    La perte de votre langue vous empêche de vous exprimer autrement qu'en grognant et marmonant. Apprendre le langage des signes est votre seule option. Vous ne pouvez plus utiliser <CompetenceItem Item="@_cttService.CompetenceGroupeLangue"/>. 
                 </p>
                 <h4 class="card-title">Doigts</h4>
                 <p class="card-text">
@@ -269,12 +268,12 @@
                 </p>
                 <h4 class="card-title">Pied</h4>
                 <p class="card-text">
-                    Divisez votre Mouvement par 2 de manière permanente et subissez un malus de -20 à tous les tests basés sur la mobilité, comme <CompetenceItem Item="@_competencesEtTalentsService.CompetenceEsquive"/>.
+                    Divisez votre Mouvement par 2 de manière permanente et subissez un malus de -20 à tous les tests basés sur la mobilité, comme <CompetenceItem Item="@_cttService.CompetenceEsquive"/>.
                     Perdre le deuxième pied va compliquer les choses. Peut-être pouvez-vous recruter un porteur ? 
                 </p>
                 <h4 class="card-title">Jambe</h4>
                 <p class="card-text">
-                    Idem que pour le pied, mais vous ne pouvez plus utiliser <CompetenceItem Item="@_competencesEtTalentsService.CompetenceEsquive"/>.
+                    Idem que pour le pied, mais vous ne pouvez plus utiliser <CompetenceItem Item="@_cttService.CompetenceEsquive"/>.
                 </p>
                 
             </div>

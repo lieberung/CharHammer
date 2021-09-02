@@ -5,7 +5,7 @@
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
-@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CompTalentsEtTraitsService _compTalentsEtTraitsService
 @inject CarrieresService _carrieresService
 
 <MainTopRow>
@@ -48,7 +48,7 @@
 
     protected override void OnParametersSet()
     {
-        Competence = _competencesEtTalentsService.GetCompetence(int.Parse(CompetenceId));
+        Competence = _compTalentsEtTraitsService.GetCompetence(int.Parse(CompetenceId));
         _carrieres = _carrieresService.GetCarrieresProposant(Competence);
     }
 }

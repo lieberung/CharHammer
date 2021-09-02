@@ -9,8 +9,7 @@
 
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
-@inject TraitsService _traitsService
-@inject CompetencesEtTalentsService _competencesEtTalentsService
+@inject CompTalentsEtTraitsService _cttService
 @inject ArmesService _armesService
 
 <MainTopRow>
@@ -28,24 +27,24 @@
                 
                 <p class="card-text">
                     Le MJ détermine si certains combattants sont <em>Supris</em>. Cela ne peut normalement arriver qu'au premier Round.<br/>
-                    Les combattants qui possèdent le talent <TalentItem Item="@_competencesEtTalentsService.TalentSurSesGardes"/> ont une chance d'éviter d'être <TraitItem Item="@_traitsService.ConditionSurpris"/>.
+                    Les combattants qui possèdent le talent <TalentItem Item="@_cttService.TalentSurSesGardes"/> ont une chance d'éviter d'être <TraitItem Item="@_cttService.ConditionSurpris"/>.
                 </p>
 
                 <p class="card-text">
                     Prendre l'ennemi par surprise confère un énorme avantage. Si l'un des camps prépare une attaque, il peut tenter de profiter de l'effet de suprise en :
                 </p>
                 <ul>
-                    <li><strong>Dissimulation : </strong>réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceDissimulation"/> approprié. Les victimes peuvent y opposer un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> s'il sont sur leurs gardes ou selon l'humeur du MJ.</li>
-                    <li><strong>Attaque sournoise : </strong>attaque dans le dos, dans l'ombre, à travers un épais brouillard ou depuis le ciel ! Selon les conditions et l'humeur du MJ, les victimes peuvent y opposer un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/> s'il sont sur leurs gardes.</li>
+                    <li><strong>Dissimulation : </strong>réussir un test de <CompetenceItem Item="@_cttService.CompetenceDissimulation"/> approprié. Les victimes peuvent y opposer un test de <CompetenceItem Item="@_cttService.CompetencePerception"/> s'il sont sur leurs gardes ou selon l'humeur du MJ.</li>
+                    <li><strong>Attaque sournoise : </strong>attaque dans le dos, dans l'ombre, à travers un épais brouillard ou depuis le ciel ! Selon les conditions et l'humeur du MJ, les victimes peuvent y opposer un test de <CompetenceItem Item="@_cttService.CompetencePerception"/> s'il sont sur leurs gardes.</li>
                     <li><strong>Diversion : </strong>forte détonation, foule de pénitents menée par un sermon particulièrement engageant sont des exemples qui peuvent couvrir une attaque surprise.</li>
                     <li><strong>Pris au dépourvu : </strong>s'il l'ennemi n'est particulièrement pas préparé à une attaque, l'effet de surprise est automatique.</li>
                     <li><strong>Autre chose : </strong>tout autre plan sournois ou ingénieux concoté par des joueurs méticuleux.</li>
                 </ul>
                 <p class="card-text">
-                    S'il y a une chance pour que les embusqués soient repérés, le MJ appèlera un test opposé <CompetenceItem Item="@_competencesEtTalentsService.CompetenceDissimulation"/> <strong>vs</strong> <CompetenceItem Item="@_competencesEtTalentsService.CompetencePerception"/>, généralement avec le personnage qui a la plus faible valeur en Dissimultion opposé à toutes les sentinelles potentielles.
-                    Ceux qui échouent sont <TraitItem Item="@_traitsService.ConditionSurpris"/>.
+                    S'il y a une chance pour que les embusqués soient repérés, le MJ appèlera un test opposé <CompetenceItem Item="@_cttService.CompetenceDissimulation"/> <strong>vs</strong> <CompetenceItem Item="@_cttService.CompetencePerception"/>, généralement avec le personnage qui a la plus faible valeur en Dissimultion opposé à toutes les sentinelles potentielles.
+                    Ceux qui échouent sont <TraitItem Item="@_cttService.ConditionSurpris"/>.
                     <br/>
-                    Le MJ peut également effectuer un test d'<CompetenceItem Item="@_competencesEtTalentsService.CompetenceIntuition"/> pour les personnages possédant un <TalentItem Item="_competencesEtTalentsService.TalentSixiemeSens"/> qui éviteront de justesse d'être Surpris, sans pour autant avoir le temps de prévenir les autres.
+                    Le MJ peut également effectuer un test d'<CompetenceItem Item="@_cttService.CompetenceIntuition"/> pour les personnages possédant un <TalentItem Item="_cttService.TalentSixiemeSens"/> qui éviteront de justesse d'être Surpris, sans pour autant avoir le temps de prévenir les autres.
                 </p>
 
             </div>
@@ -57,7 +56,7 @@
                     Chaque combattant lance 1d10 et y ajoute son bonus d'Initiative et son bonus d'Agilité.<br/>
                 </p>
                 <ul>
-                    <li>Les combattants disposant de <TalentItem Item="@_competencesEtTalentsService.TalentReflexesDeCombat"/> ont un bonus supplémentaire.</li>
+                    <li>Les combattants disposant de <TalentItem Item="@_cttService.TalentReflexesDeCombat"/> ont un bonus supplémentaire.</li>
                     <li>Les combattant utilisant une arme dotée de l'attribut <AttributDArmeItem Item="@_armesService.AttributLent"/> Lente jouent en dernier.</li>
                 </ul>
                 <p class="card-text">
@@ -71,7 +70,7 @@
                     Si des règles s'appliquent au début du Round, elles s'appliquent maintenant.
                 </p>
                 <ul>
-                    <li><TalentItem Item="@_competencesEtTalentsService.TalentTirEclair"/></li>
+                    <li><TalentItem Item="@_cttService.TalentTirEclair"/></li>
                 </ul>
             </div>
         </div>
@@ -91,7 +90,7 @@
                 <p class="card-text">
                     Le MJ décrit votre situation - ou se trouve chaque combattant et ce qui vous entoure - et vous pouvez poser des questions supplémentaires pour planifier votre Tour.
                     <br/>
-                    On détermine si le personnage actif est en supériorité numérique, en prenant en compte l'évetuelle <TalentItem Item="_competencesEtTalentsService.TalentPresenceImposante"/> de ses adversaires :
+                    On détermine si le personnage actif est en supériorité numérique, en prenant en compte l'évetuelle <TalentItem Item="_cttService.TalentPresenceImposante"/> de ses adversaires :
                 </p>
                 <ul>
                     <li>à raison de 2 contre 1, l'attaquant gagne un bonus de +20 en CC.</li>
@@ -138,7 +137,7 @@
             </p>
             <h5 class="card-title">Gagner des Avantages</h5>
             <ul>
-                <li>attaquer un ennemi <TraitItem Item="@_traitsService.ConditionSurpris"/> confère +1 Avantage</li>
+                <li>attaquer un ennemi <TraitItem Item="@_cttService.ConditionSurpris"/> confère +1 Avantage</li>
                 <li><strong>charger</strong> un adversaire confère +1 Avantage</li>
                 <li>remporter un <strong>Test Opposé</strong> confère +1 Avantage</li>
                 <li>blesser un adversaire sans recourir à un Test Opposé confère +1 Avantage</li>
@@ -177,7 +176,7 @@
                 Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br/>
                 <br/>
                 On calcule <Tooltip Text="Blessures perdues = Dégâts reçus - (Bonsu d'Endurance + Armure sur la zone touchée) ; min. 1, sauf arme Inoffensive min. 0"><strong>Blessures effectives</strong></Tooltip> + 3 x <Tooltip Text="Si les Blessures effectives vous amènent à 0, toutes les Blessures supplémentaires sont des Blessures Critiques"><strong>Blessures Critiques</strong></Tooltip> + <strong>1d4</strong>.<br/>
-                Le talent <TalentItem Item="@_competencesEtTalentsService.TalentCoupsPrécis"/> augmente cette valeur de 2.<br/>
+                Le talent <TalentItem Item="@_cttService.TalentCoupsPrécis"/> augmente cette valeur de 2.<br/>
                 On consulte alors le résultat dans la <a href="table-coups-critiques/torse/" class="mb-1 btn btn-sm btn-light">Table des Coups Critiques</a> (zone appropriée).<br/>
             </p>
         </div>
@@ -196,12 +195,12 @@
             <ul>
                 <li>Utiliser votre <strong>Avantage</strong> : si vous avez plus d'Avantage que vos adversaire (cumulés), vous êtes en position supérieur et pouvez facilement vous mettre hors de portée. Votre Avantage retombe à 0 mais vous pourrez vous éloigner, puis charger à nouveau, fuir, ou prendre un peu de recul pour tirer sur un adversaire.</li>
                 <li>
-                    Utiliser l'<CompetenceItem Item="@_competencesEtTalentsService.CompetenceEsquive"/> : si vous n'avez pas l'Avantage ou souhaitez le conserver, vous êtes contraint d'utiliser votre Action pour un <strong>Test Opposé d'Esquive / Mélée</strong>.
+                    Utiliser l'<CompetenceItem Item="@_cttService.CompetenceEsquive"/> : si vous n'avez pas l'Avantage ou souhaitez le conserver, vous êtes contraint d'utiliser votre Action pour un <strong>Test Opposé d'Esquive / Mélée</strong>.
                     Sur une réussite vous gagnez 1 Avantage et pouvez utiliser votre Deplacement pour vous éloigner. Sinon, chaque adversaire qui l'emporte gagne 1 Avantage et à droit à une attaque d'opportunité.
                 </li>
                 <li>
                     Vous pouvez délibéremment ou non <strong>Fuir</strong> auquel cas tous vos adversaires gagnent immédiatement 1 Avantage et ont droit à une attaque d'opportunité (test non opposé de Mélée) avec un bonus de +20.
-                    Si vous êtes touché, chaque adversaire gagne 1 Avantage et vous devez réussir un test de <CompetenceItem Item="@_competencesEtTalentsService.CompetenceSangFroid"/> ou gagner une Condition <TraitItem Item="@_traitsService.ConditionDemoralise"/>, plus une supplémentaire par BS en dessous de 0.
+                    Si vous êtes touché, chaque adversaire gagne 1 Avantage et vous devez réussir un test de <CompetenceItem Item="@_cttService.CompetenceSangFroid"/> ou gagner une Condition <TraitItem Item="@_cttService.ConditionDemoralise"/>, plus une supplémentaire par BS en dessous de 0.
                     Cela résolu, vous pouvez vous éloigner de votre Mouvement de Course si vous en êtes encore capable.
                 </li>
             </ul>
@@ -209,20 +208,20 @@
         <div class="col-4">
             <h4 class="card-title">Localisation des coups/tirs</h4>
             <p class="card-text">
-                Le talent <TalentItem Item="@_competencesEtTalentsService.TalentCoupsPrécis"/> peut modifier la jet.
+                Le talent <TalentItem Item="@_cttService.TalentCoupsPrécis"/> peut modifier la jet.
             </p>
             <TableDetail Item="@_tablesService.GetTable(64)" MasquerTitre="@true" MasquerDescription="@true"/>
             
             <h4 class="card-title">Mouvement et distances</h4>
             <p class="card-text">
                 Indique combien de mètres vous pouvez parcourir en un seul Tour.
-                Vous pouvez utiliser <CompetenceItem Item="@_competencesEtTalentsService.CompetenceAthletisme"/> pour augmenter cette distance en sprintant.
+                Vous pouvez utiliser <CompetenceItem Item="@_cttService.CompetenceAthletisme"/> pour augmenter cette distance en sprintant.
             </p>
             <TableDetail Item="@_tablesService.GetTable(67)" FixedColSize="35" MasquerTitre="@true" MasquerDescription="@true"/>
             
             <h4 class="card-title">Conditions</h4>
             <p class="card-text">
-                <TraitItemList Items="_traitsService.Conditions.ToArray()"/>
+                <TraitItemList Items="_cttService.Conditions.ToArray()"/>
             </p>
         </div>
 
