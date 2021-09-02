@@ -25,7 +25,8 @@ namespace BlazorWjdr
             
             var data = new ADataClassToRuleThemAllService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await data.InitializeDataAsync();
-
+            Console.WriteLine("await data.InitializeDataAsync();");
+            
             // Sans dépendances
             var dataTraits = InitializeTraits(data.Traits!.items);
             var dataTalents = InitializeTalents(data.Talents!.items);
