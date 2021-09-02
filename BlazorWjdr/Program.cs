@@ -89,7 +89,7 @@ namespace BlazorWjdr
                 talent.Parent = result[talent.TalentParentId!.Value];
             }
 
-            foreach (var talent in result.Values.Where(t => t.Parent != null).Select(t => t.Parent))
+            foreach (var talent in result.Values.Where(t => t.Parent != null).Select(t => t.Parent).Distinct())
                 talent!.SousElements.AddRange(result.Values
                     .Where(c=>c.Parent == talent)
                     .OrderBy(c => c.Nom));
@@ -141,7 +141,7 @@ namespace BlazorWjdr
                 competence.SetResume();
             }
 
-            foreach (var competence in result.Values.Where(t => t.Parent != null).Select(t => t.Parent))
+            foreach (var competence in result.Values.Where(t => t.Parent != null).Select(t => t.Parent).Distinct())
             {
                 competence!.SousElements.AddRange(result.Values
                     .Where(c=>c.Parent == competence)
