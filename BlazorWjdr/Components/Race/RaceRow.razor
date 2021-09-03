@@ -8,14 +8,6 @@
 @inject CarrieresService _carrieresService
 <tr>
     <td>
-        @if (@Item.Profil != null)
-        {
-            <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherProfil = !AfficherProfil">
-                <span class="oi oi-grid-four-up" aria-hidden="true"></span>
-            </span>
-        }
-    </td>
-    <td>
         @if (Item.SousElements.Any())
         {
             <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
@@ -40,17 +32,6 @@
         }
     </td>
 </tr>
-@if (AfficherProfil && @Item.Profil != null)
-{
-    <tr>
-        <td colspan="7" class="p-3">
-            <div class="bulle">
-                <h6 class="card-title">Caractéristiques (2d10)</h6>
-                <Profil CaracteristiqueDeDepart="@Item.Profil"/>
-            </div>
-        </td>
-    </tr>
-}
 @if (AfficherSousElements && Item.SousElements.Any())
 {
     @foreach (var sousElement in Item.SousElements)
@@ -63,5 +44,4 @@
     [Parameter]
     public RaceDto Item { get; set; } = null!;
     private bool AfficherSousElements { get; set; } = false;
-    private bool AfficherProfil { get; set; } = false;
 }

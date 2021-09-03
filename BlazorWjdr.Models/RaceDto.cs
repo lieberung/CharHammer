@@ -5,7 +5,6 @@ namespace BlazorWjdr.Models
     public class RaceDto
     {
         public int Id { get; init; }
-        public ProfilDto? Profil { get; init; }
         public LieuDto[] Lieux { get; init; } = null!;
         public bool PourPj { get; init; }
         public bool GroupOnly { get; init; }

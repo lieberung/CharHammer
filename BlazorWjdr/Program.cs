@@ -47,9 +47,9 @@ namespace BlazorWjdr
 
             // Avec dépendances de baisé
             var lieuxService = builder.Services.BuildServiceProvider().GetRequiredService<LieuxService>();
-            var profilsService = builder.Services.BuildServiceProvider().GetRequiredService<ProfilsService>();
-            builder.Services.AddSingleton(s => new RacesService(data.Races!.items, lieuxService, profilsService));
+            builder.Services.AddSingleton(s => new RacesService(data.Races!.items, lieuxService));
 
+            var profilsService = builder.Services.BuildServiceProvider().GetRequiredService<ProfilsService>();
             builder.Services.AddSingleton(s => new CarrieresService(data.Carrieres!.items, profilsService, competencesEtTalentsService, referencesService));
 
             var carrieresService = builder.Services.BuildServiceProvider().GetRequiredService<CarrieresService>();

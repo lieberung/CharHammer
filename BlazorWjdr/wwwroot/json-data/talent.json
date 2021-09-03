@@ -351,6 +351,12 @@
         "description":"Vous êtes entraîné à distraire ou surprendre votre adversaire par des mouvements simples, détournant son regard de vos réelles intentions. Vous pouvez utiliser votre Déplecement pour créer une diversion. Faites un Test Opposé Athlétisme/Sang-froid. Si vous l'emportez, votre adversaire ne gagnera aucun Avantage jusqu'à la fin du prochain Round."},
       {"id":263,"nom":"Sprinter","max":"Bonus d'Agilité","nom_en":"Sprinter",
         "resume":"+1 en Mouvement quand vous courez.",
-        "description":"Vous êtes un coureur véloce. Quand vous courrez, considérez que votre caractéristique de Mouvement vaut 1 de plus."}
+        "description":"Vous êtes un coureur véloce. Quand vous courrez, considérez que votre caractéristique de Mouvement vaut 1 de plus."},
+      {"id":264,"nom":"Visions sacrées","max":"Bonus d'Initiative","nom_en":"Holy Visions","tests":"Tests d'Intuition dans les lieux sacrés",
+        "resume":"",
+        "description":"You clearly see the great works of the Gods all around you. You automatically know when you enter Holy Ground, and may take an Intuition Test to receive visions (often obscure, and seen through the paradigm of your cult or individual belief-system) regarding the local area if significant events have occurred there in the past."},
+      {"id":265,"nom":"Etiquette","spe":"cultistes","parent":260,
+        "resume":"+10% en Charisme et Commérage face aux membres des ordres sacrés, initiés, novices, prêtres et autres templiers. S’applique aussi aux situations où la connaissance du culte importe.",
+        "description":""}
     ]
 }

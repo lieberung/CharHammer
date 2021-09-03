@@ -1,26 +1,21 @@
-﻿using System.Diagnostics;
-
-namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.DataSource.JsonDto;
+    using DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class RacesService
     {
         private readonly LieuxService _lieuxService;
-        private readonly ProfilsService _profilsService;
 
         private readonly List<JsonRace> _dataRaces;
         private Dictionary<int, RaceDto>? _cacheRace;
 
-        public RacesService(List<JsonRace> dataRaces, LieuxService lieuxService, ProfilsService profilsService)
+        public RacesService(List<JsonRace> dataRaces, LieuxService lieuxService)
         {
             _dataRaces = dataRaces;
             _lieuxService = lieuxService;
-            _profilsService = profilsService;
         }
 
         public List<RaceDto> AllRaces
@@ -29,8 +24,7 @@ namespace BlazorWjdr.Services
             {
                 if (_cacheRace == null)
                     Initialize();
-                Debug.Assert(_cacheRace != null, nameof(_cacheRace) + " != null");
-                return _cacheRace.Values.ToList();
+                return _cacheRace!.Values.ToList();
             }
         }
 
@@ -45,19 +39,16 @@ namespace BlazorWjdr.Services
         {
             if (_cacheRace == null)
                 Initialize();
-            Debug.Assert(_cacheRace != null, nameof(_cacheRace) + " != null");
-            return _cacheRace[id];
+            return _cacheRace![id];
         }
 
         private void Initialize()
         {
             _cacheRace = _dataRaces
-                .Select(r => new RaceDto
-                {
+                .Select(r => new RaceDto {
                     Id = r.id,
                     Description = r.description,
                     Lieux = (r.lieux_ids ?? System.Array.Empty<int>()).Select(id => _lieuxService.GetLieu(id)).ToArray(),
-                    Profil = r.profil_id.HasValue ? _profilsService.GetProfil(r.profil_id.Value) : null,
                     GroupOnly = r.group_only,
                     NomFeminin = r.nom_feminin,
                     NomMasculin = r.nom_masculin,

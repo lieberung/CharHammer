@@ -9,7 +9,7 @@
     {"id":16,"type":"nature_avantageuse","nom":"Doigts vifs","resume":"+5% en Dex permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Dextérité. Modifiez votre profil de départ en conséquence."},
     {"id":17,"type":"nature_avantageuse","nom":"Intelligent","resume":"+5% en Int permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Intelligence. Modifiez votre profil de départ en conséquence."},
     {"id":18,"type":"nature_avantageuse","nom":"Calme","resume":"+5% en FM permanent.","description":"Vous bénéficiez d’un bonus permanent de +5% en Force Mentale. Modifiez votre profil de départ en conséquence."},
-    {"id":19,"type":"nature_avantageuse","nom":"Sociable","resume":"+5% en Soc permanent","description":"Vous bénéficiez d’un bonus permanent de +5% en Sociabilité. Modifiez votre profil de départ en conséquence."},
+    {"id":19,"type":"nature_avantageuse","nom":"Sociable","nom_en":"Suave","resume":"+5% en Soc permanent","description":"Vous bénéficiez d’un bonus permanent de +5% en Sociabilité. Modifiez votre profil de départ en conséquence."},
     {"id":20,"type":"nature_avantageuse","nom":"Course à pied","resume":"+1 en M permanent.","description":"Vous bénéficiez d’un bonus permanent de +1 en Mouvement. Modifiez votre profil de départ en conséquence."},
     {"id":21,"type":"nature_avantageuse","nom":"Dur à cuir","nom_en":"Hardy","resume":"+BE en B permanent.",
       "description":"Vous bénéficiez d’un bonus permanent en Blessures égal à votre Bonus d'Endurance. Si celui ci devait varier au fil du temps, il en va de même pour ce bonus. Modifiez votre profil de départ en conséquence.",
