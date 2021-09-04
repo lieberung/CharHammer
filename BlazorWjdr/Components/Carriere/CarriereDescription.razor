@@ -28,6 +28,7 @@
 }
 @if (Item.SousElements.Any())
 {
+    <h5 class="card-title mt-4">Variantes</h5>
     <p class="card-text">
         <CarriereItemList Items="@Item.SousElements.ToArray()"/>
     </p>

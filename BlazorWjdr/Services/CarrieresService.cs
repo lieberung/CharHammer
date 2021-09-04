@@ -1,56 +1,29 @@
-﻿using System.Diagnostics;
-
-namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services
 {
     using Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using DataSource.JsonDto;
 
     public class CarrieresService
     {
-        private readonly List<JsonCarriere> _dataCarrieres;
-        private Dictionary<int, CarriereDto>? _cacheCarrieres;
+        private Dictionary<int, CarriereDto> _cacheCarrieres;
 
-        private readonly ProfilsService _profilsService;
-        private readonly CompTalentsEtTraitsService _compTalentsEtTraitsService;
-        private readonly ReferencesService _referencesService;
-
-        public CarrieresService(
-            List<JsonCarriere> dataCarrieres,
-            ProfilsService profilsService,
-            CompTalentsEtTraitsService compTalentsEtTraitsService,
-            ReferencesService referencesService)
+        public CarrieresService(Dictionary<int, CarriereDto> dataCarrieres)
         {
-            _dataCarrieres = dataCarrieres;
-            _profilsService = profilsService;
-            _compTalentsEtTraitsService = compTalentsEtTraitsService;
-            _referencesService = referencesService;
+            _cacheCarrieres = dataCarrieres;
+            //Initialize();
         }
 
-        public List<CarriereDto> AllCarrieres
-        {
-            get
-            {
-                Initialize();
-                Debug.Assert(_cacheCarrieres != null, nameof(_cacheCarrieres) + " != null");
-                return _cacheCarrieres.Values.OrderBy(t => t.Nom).ToList();
-            }
-        }
+        public List<CarriereDto> AllCarrieres => _cacheCarrieres.Values.OrderBy(t => t.Nom).ToList();
 
         public IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int> ids) => ids.Select(GetCarriere).ToArray();
 
-        public CarriereDto GetCarriere(int id)
-        {
-            Initialize();
-            Debug.Assert(_cacheCarrieres != null, nameof(_cacheCarrieres) + " != null");
-            return _cacheCarrieres[id];
-        }
+        public CarriereDto GetCarriere(int id) => _cacheCarrieres[id];
 
         public CarriereDto[] GetCarrieresProposant(CompetenceDto competence)
             => AllCarrieres
-                .Where(c => c.CompetencesPourScore.Any(c => c.Id == competence.Id))
+                .Where(c => c.CompetencesPourScore.Any(comp => comp.Id == competence.Id))
                 .ToArray();
 
         public CarriereDto[] GetCarrieresProposant(TalentDto talent)
@@ -65,73 +38,9 @@ namespace BlazorWjdr.Services
 
         private void Initialize()
         {
-            if (_cacheCarrieres != null)
-                return;
-            _cacheCarrieres = _dataCarrieres
-                .Select(c => new CarriereDto
-                {
-                    Id = c.id,
-                    Groupe = c.groupe ?? "",
-                    Nom = c.nom,
-                    MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
-                    Description = c.description,
-                    Ambiance = c.ambiance ?? Array.Empty<string>(),
-                    CarriereMereId = c.parent,
-                    DebouchesIds = c.debouch ?? Array.Empty<int>(),
-                    AvancementsIds = c.avancements ?? Array.Empty<int>(),
-                    Dotations = c.dotations,
-                    EstUneCarriereAvancee = c.avancee,
-                    Image = $"images/careers/{c.id}.png",
-                    PlanDeCarriere = _profilsService.GetProfil(c.plan),
-                    Restriction = c.restriction ?? "",
-                    Source = c.source_page ?? "",
-                    SourceLivre = c.source_livre == null ? null : _referencesService.GetReference(c.source_livre.Value),
-                    Competences = c.competences != null
-                        ? _compTalentsEtTraitsService.GetCompetences(c.competences).ToList()
-                        : new List<CompetenceDto>(),
-                    Talents = c.talents != null
-                        ? _compTalentsEtTraitsService.GetTalents(c.talents).ToList()
-                        : new List<TalentDto>(),
-                    ChoixCompetences = c.competenceschoix != null
-                        ? c.competenceschoix.Select(choix => _compTalentsEtTraitsService.GetCompetences(choix).ToArray()).ToList()
-                        : new List<CompetenceDto[]>(),
-                    ChoixTalents = c.talentschoix != null
-                        ? c.talentschoix.Select(choix => _compTalentsEtTraitsService.GetTalents(choix).ToArray()).ToList()
-                        : new List<TalentDto[]>(),
-                    Traits = c.traits != null
-                        ? c.traits.Select(id => _compTalentsEtTraitsService.GetTrait(id)).ToList()
-                        : new List<TraitDto>(),
-                })
-                .ToDictionary(k => k.Id, v => v);
-
-            foreach (var carriere in _cacheCarrieres.Values.Where(c => c.CarriereMereId.HasValue))
-            {
-                Debug.Assert(carriere.CarriereMereId != null, "carriere.CarriereMereId != null");
-                carriere.Parent = _cacheCarrieres[carriere.CarriereMereId.Value];
-            }
-
-            foreach (var carriere in _cacheCarrieres.Values.Where(c => c.DebouchesIds.Any()))
-                carriere.Debouches = GetCarrieres(carriere.DebouchesIds).ToList();
-            foreach (var carriere in _cacheCarrieres.Values.Where(c => c.AvancementsIds.Any()))
-                carriere.Avancements = GetCarrieres(carriere.AvancementsIds).ToList();
-
+            /*
             foreach (var carriere in _cacheCarrieres.Values)
             {
-                carriere.Filieres = _cacheCarrieres.Values
-                    .Where(c => c.Debouches.Contains(carriere))
-                    .OrderBy(c => c.Nom)
-                    .ToList();
-                carriere.Origines = _cacheCarrieres.Values
-                    .Where(c => c.Avancements.Contains(carriere))
-                    .OrderBy(c => c.Nom)
-                    .ToList();
-                carriere.SousElements.AddRange(_cacheCarrieres.Values
-                    .Where(c => c.Parent == carriere)
-                    .OrderBy(c => c.Nom));
-                /*
-                if (carriere.AvancementId.HasValue)
-                    carriere.Avancement = _cacheCarrieres[carriere.AvancementId.Value];
-                */
                 carriere.ScoreAcademique = CalculScoreAcademique(carriere);
                 carriere.ScoreArcanique = CalculScoreArcanique(carriere);
                 carriere.ScoreArtisanat = CalculScoreArtisanat(carriere);
@@ -146,7 +55,8 @@ namespace BlazorWjdr.Services
                 carriere.ScorePoudreNoire = CalculScorePoudreNoire(carriere);
                 carriere.ScoreAmiDesBetes = CalculScoreAmiDesBetes(carriere);
             }
-
+            */
+            
             //DirectoryInfo d = new DirectoryInfo("./wwwroot/images/careers/");
             //var images = d.GetFiles("*-*.png").Select(f => f.Name);
             //foreach (var carriere in _allCarrieres)
@@ -155,12 +65,10 @@ namespace BlazorWjdr.Services
             //    list.AddRange(images.Where(img => img.StartsWith($"{carriere.Id}-")));
             //    carriere.Images = list.ToArray();
             //}
-
-            //_dataCarrieres.Clear();
         }
 
         #region Calcul Bonus de Caractéristique
-
+/*
         private int CalculBonusCapaciteDeTir(CarriereDto carriere)
         {
             var capaciteDeTir = carriere.PlanDeCarriere.Ct;
@@ -710,7 +618,7 @@ namespace BlazorWjdr.Services
 
             return score;
         }
-
+*/
         #endregion
 
         public CarriereDto[] Recherche(string searchText)
@@ -726,16 +634,15 @@ namespace BlazorWjdr.Services
         }
 
         public IEnumerable<CarriereDto> CarrieresDeBretonnie => AllCarrieres
-            .Where(c => c.SourceLivre?.Id == _referencesService.LivreLesChevaliersDuGraal.Id
-                        || c.SourceLivre?.Id == _referencesService.LivreLeDucheDesDamnes.Id)
+            .Where(c => c.SourceLivre?.Id == 15 || c.SourceLivre?.Id == 16)
             .ToList();
 
         public IEnumerable<CarriereDto> CarrieresDuKislev => AllCarrieres
-            .Where(c => c.Id == 53 || c.SourceLivre?.Id == _referencesService.LivreLaReineDesGlaces.Id)
+            .Where(c => c.Id == 53 || c.SourceLivre?.Id == 14)
             .ToList();
 
         public List<int> CarrieresSkaven => AllCarrieres
-            .Where(c => c.SourceLivre?.Id == _referencesService.LivreLesFilsDuRatCornu.Id)
+            .Where(c => c.SourceLivre?.Id == 17)
             .Select(c => c.Id)
             .ToList();
 
@@ -770,9 +677,7 @@ namespace BlazorWjdr.Services
                 {
                     CarriereInitie, CarrierePretre, CarriereGrandPretre, CarrierePretreConsacre, CarriereChevalierDeLEmpire
                 };
-                list.AddRange(AllCarrieres.Where(c 
-                    => (c.SourceLivre == _referencesService.LivreLeTomeDeLaRedemption) 
-                    || (c.Parent != null && list.Contains(c.Parent))));
+                list.AddRange(AllCarrieres.Where(c => c.SourceLivre?.Id == 13 || c.Parent != null && list.Contains(c.Parent)));
                 list.AddRange(new []
                 {
                     CarriereFanatique, CarriereFlagellant, CarriereAnachorete, CarriereMystique, CarriereExorciste, CarriereLayPriest, CarrierePrelat

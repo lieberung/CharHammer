@@ -31,11 +31,15 @@ namespace BlazorWjdr
             var dataTraits = InitializeTraits(data.Traits!.items);
             var dataTalents = InitializeTalents(data.Talents!.items);
             var dataCompetences = InitializeCompetences(data.Competences!.items, dataTalents, dataTraits);
+            var dataProfils = InitializeProfils(data.Profils!.items);
+            var dataReferences = InitializeReferences(data.References!.items);
+            var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataCompetences, dataTalents, dataTraits, dataReferences);
+            
             builder.Services.AddSingleton(s => new CompTalentsEtTraitsService(dataCompetences, dataTalents, dataTraits));
             builder.Services.AddSingleton(s => new LieuxService(data.LieuxTypes!.items, data.Lieux!.items));
             builder.Services.AddSingleton(s => new DieuxService(data.Dieux!.items));
             builder.Services.AddSingleton(s => new ReferencesService(data.References!.items));
-            builder.Services.AddSingleton(s => new ProfilsService(data.Profils!.items));
+            builder.Services.AddSingleton(s => new ProfilsService(dataProfils));
             builder.Services.AddSingleton(s => new TablesService(data.Tables!.items));
 
             // Avec dépendances sans dépendance
@@ -50,7 +54,7 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(s => new RacesService(data.Races!.items, lieuxService));
 
             var profilsService = builder.Services.BuildServiceProvider().GetRequiredService<ProfilsService>();
-            builder.Services.AddSingleton(s => new CarrieresService(data.Carrieres!.items, profilsService, competencesEtTalentsService, referencesService));
+            builder.Services.AddSingleton(s => new CarrieresService(dataCarrieres));
 
             var carrieresService = builder.Services.BuildServiceProvider().GetRequiredService<CarrieresService>();
             var racesService = builder.Services.BuildServiceProvider().GetRequiredService<RacesService>();
@@ -65,6 +69,20 @@ namespace BlazorWjdr
             builder.RootComponents.Add<App>("#app");
 
             await builder.Build().RunAsync();
+        }
+
+        private static Dictionary<int, ReferenceDto> InitializeReferences(List<JsonReference> items)
+        {
+            return items
+                .Select(c => new ReferenceDto
+                {
+                    Id = c.id,
+                    AnneeDePublication = c.publishyear ?? 6666,
+                    Code = c.code,
+                    Titre = c.titre,
+                    Version = c.version
+                })
+                .ToDictionary(k => k.Id, v => v);
         }
 
         private static Dictionary<int, TalentDto> InitializeTalents(List<JsonTalent> talents)
@@ -182,6 +200,112 @@ namespace BlazorWjdr
             }
 
             return cacheTrait;
+        }
+
+        private static Dictionary<int, ProfilDto> InitializeProfils(List<JsonProfil> profils)
+        {
+            return profils
+                .Select(c => new ProfilDto
+                {
+                    Id = c.id,
+                    A = c.a,
+                    Ag = c.ag,
+                    //B = c.b,
+                    Cc = c.cc,
+                    Ct = c.ct,
+                    Dex = c.dex,
+                    E = c.e,
+                    F = c.f,
+                    Fm = c.fm,
+                    I = c.i,
+                    Int = c.intel,
+                    //M = c.m,
+                    //Mag = c.mag,
+                    //Pd = c.pd,
+                    //Pf = c.pf,
+                    Soc = c.soc
+                })
+                .ToDictionary(k => k.Id, v => v);
+        }
+
+        private static IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int>? ids, Dictionary<int, CompetenceDto> cache)
+            => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
+        private static IEnumerable<TalentDto> GetTalents(IEnumerable<int>? ids, Dictionary<int, TalentDto> cache)
+            => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(t => t.Nom).ThenBy(t => t.Specialisation);
+        private static IEnumerable<TraitDto> GetTraits(IEnumerable<int>? ids, Dictionary<int, TraitDto> cache)
+            => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(t => t.Nom).ThenBy(t => t.Spe);
+        private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids, Dictionary<int, CarriereDto> cache)
+            => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(c => c.Nom);
+
+        private static Dictionary<int, CarriereDto> InitializeCarrieres(
+            List<JsonCarriere> carrieres, 
+            Dictionary<int, ProfilDto> cacheProfils, 
+            Dictionary<int, CompetenceDto> cacheCompetences,
+            Dictionary<int, TalentDto> cacheTalents,
+            Dictionary<int, TraitDto> cacheTraits,
+            Dictionary<int, ReferenceDto> cacheReferences)
+        {
+            var cacheCarrieres = carrieres
+                .Select(c => new CarriereDto
+                {
+                    Id = c.id,
+                    Groupe = c.groupe ?? "",
+                    Nom = c.nom,
+                    MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
+                    Description = c.description,
+                    Ambiance = c.ambiance ?? Array.Empty<string>(),
+                    CarriereMereId = c.parent,
+                    DebouchesIds = c.debouch ?? Array.Empty<int>(),
+                    AvancementsIds = c.avancements ?? Array.Empty<int>(),
+                    Dotations = c.dotations,
+                    EstUneCarriereAvancee = c.avancee,
+                    Image = $"images/careers/{c.id}.png",
+                    PlanDeCarriere = cacheProfils[c.plan],
+                    Restriction = c.restriction ?? "",
+                    Source = c.source_page ?? "",
+                    SourceLivre = c.source_livre == null ? null : cacheReferences[c.source_livre.Value],
+                    Competences = GetCompetences(c.competences, cacheCompetences).ToList(),
+                    Talents = GetTalents(c.talents, cacheTalents).ToList(),
+                    ChoixCompetences = c.competenceschoix != null
+                        ? c.competenceschoix.Select(choix => GetCompetences(choix, cacheCompetences).ToArray()).ToList()
+                        : new List<CompetenceDto[]>(),
+                    ChoixTalents = c.talentschoix != null
+                        ? c.talentschoix.Select(choix => GetTalents(choix, cacheTalents).ToArray()).ToList()
+                        : new List<TalentDto[]>(),
+                    Traits = GetTraits(c.traits, cacheTraits).ToList(),
+                })
+                .ToDictionary(k => k.Id, v => v);
+
+            foreach (var carriere in cacheCarrieres.Values.Where(c => c.CarriereMereId.HasValue))
+            {
+                carriere.Parent = cacheCarrieres[carriere.CarriereMereId!.Value];
+            }
+
+            foreach (var carriere in cacheCarrieres.Values.Where(c => c.DebouchesIds.Any()))
+                carriere.Debouches = GetCarrieres(carriere.DebouchesIds, cacheCarrieres).ToList();
+            foreach (var carriere in cacheCarrieres.Values.Where(c => c.AvancementsIds.Any()))
+                carriere.Avancements = GetCarrieres(carriere.AvancementsIds, cacheCarrieres).ToList();
+
+            foreach (var carriere in cacheCarrieres.Values.Where(c => c.Parent != null).Select(c => c.Parent).Distinct())
+            {
+                carriere!.SousElements.AddRange(cacheCarrieres.Values
+                    .Where(c => c.Parent == carriere)
+                    .OrderBy(c => c.Nom));                
+            }
+            
+            foreach (var carriere in cacheCarrieres.Values)
+            {
+                carriere.Filieres = cacheCarrieres.Values
+                    .Where(c => c.Debouches.Contains(carriere))
+                    .OrderBy(c => c.Nom)
+                    .ToList();
+                carriere.Origines = cacheCarrieres.Values
+                    .Where(c => c.Avancements.Contains(carriere))
+                    .OrderBy(c => c.Nom)
+                    .ToList();
+            }
+
+            return cacheCarrieres;
         }
     }
 }
