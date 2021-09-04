@@ -360,6 +360,9 @@
         "description":""},
       {"id":266,"nom":"Apprentissage",
         "resume":"Vous bénéficiez d'une réduction du coup en xp pour acquérir les compétences de Connaissances et d'Erudition.",
-        "description":"Vous avez une bonne compréhension générale du monde et de ses concepts et disposez de facilités d'apprentissage. Le coût d'acquisition des compétences de Connaissances et d'Erudition est réduit par votre bonus d'Intelligence multiplié par 10."}
+        "description":"Vous avez une bonne compréhension générale du monde et de ses concepts et disposez de facilités d'apprentissage. Le coût d'acquisition des compétences de Connaissances et d'Erudition est réduit par votre bonus d'Intelligence multiplié par 10."},
+      {"id":267,"nom":"Jambes puissantes","nom_en":"Strong Legs","max":"Bonus de Force",
+        "resume":"",
+        "description":"You have strong legs able to carry you great distances when you jump. Add your Strong Legs level to your SL in any Athletics Tests involving Leaping.\n\nBondir / Sauter\nYou can leap your Movement in feet without having to make a Test. If you want to jump farther, this takes an Average (+20) Athletics Test if you have a run up of at least your Movement in yards; if you do not, the Test is Challenging (+0). On a success, each SL adds an extra foot to the leap. If you succeeded with +0 SL, you manage an extra 6 inches with your jump."}
     ]
 }
