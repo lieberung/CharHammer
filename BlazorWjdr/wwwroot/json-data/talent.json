@@ -40,7 +40,7 @@
 {"id":32,"nom":"Séduction","max":"Bonus de Sociabilité","resume":"","description":"Ce sont peut-être vos yeux de loups, votre teint halé ou l'éclat de vos dents parfaites, mais vous savez comment faire le meilleur usage de ce que la nature vous a donné. Quand vous réussissez un jet de Charisme envers une personne succeptible de tomber sous votre charme, vous pouvez utiliser le dé des unités de votre jet en lieu et place de votre BS."},
 {"id":33,"nom":"Grand voyageur","resume":"+10% aux tests de Connaissances et de Langue.","description":"Vos longs voyage ont façonné votre expérience. Vous bénéficiez d’un bonus de +10% aux tests de Connaissances et de Langue."},
 {"id":37,"nom":"Incantation de bataille","resume":"-3 au malus des jets d’incantation des sorts divins quand vous portez une armure.","description":"vos prières vous aident à lancer des sorts facilement même si vous portez une armure. Le malus au jet d’incantation est réduit de 3 points quand vous lancez des sorts divins tout en portant une armure. Par exemple, vous subissez habituellement un malus de –3 quand vous portez un gilet de mailles, mais avec le talent Incantation de bataille, ce malus passe à 0."},
-{"id":42,"nom":"Linguistique","resume":"+10% aux tests de Lire/écrire et Langue.","description":"Vous avez une affinité particulière pour les langues étrangères. Vous bénéficiez d’un bonus de +10% aux tests de Lire/écrire et de Langue."},
+{"id":42,"nom":"Linguistique","resume":"+10% aux tests de Lire/écrire et Langue. Coût réduit pour l'acquisition de compétences de Langue.","description":"Vous avez une affinité particulière pour les langues étrangères. Vous bénéficiez d’un bonus de +10% aux tests de Lire/écrire et de Langue. De plus, le coût d'acquisition des compétences de Langue est réduit par votre bonus d'Intelligence multiplié par 10."},
 {"id":48,"nom":"Mains agiles","resume":"+20% en CC pour les sorts de contact.","description":"Vous êtes passé maître dans l’art de toucher des adversaires au corps à corps lorsque vous lancez des sorts.\nVous bénéficiez d’un bonus de +20% en Capacité de Combat quand vous lancez des sorts de contact."},
 
 {"id":50,"nom":"Maître d'arme (variable)","resume":"Vous avez une arme de prédilection. Ce Talent ne peut être acheter qu'une seule fois, alors c'est une question de goût !","description":""},
@@ -357,6 +357,9 @@
         "description":"You clearly see the great works of the Gods all around you. You automatically know when you enter Holy Ground, and may take an Intuition Test to receive visions (often obscure, and seen through the paradigm of your cult or individual belief-system) regarding the local area if significant events have occurred there in the past."},
       {"id":265,"nom":"Etiquette","spe":"cultistes","parent":260,
         "resume":"+10% en Charisme et Commérage face aux membres des ordres sacrés, initiés, novices, prêtres et autres templiers. S’applique aussi aux situations où la connaissance du culte importe.",
-        "description":""}
+        "description":""},
+      {"id":266,"nom":"Apprentissage",
+        "resume":"Vous bénéficiez d'une réduction du coup en xp pour acquérir les compétences de Connaissances et d'Erudition.",
+        "description":"Vous avez une bonne compréhension générale du monde et de ses concepts et disposez de facilités d'apprentissage. Le coût d'acquisition des compétences de Connaissances et d'Erudition est réduit par votre bonus d'Intelligence multiplié par 10."}
     ]
 }

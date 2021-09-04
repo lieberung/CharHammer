@@ -2,6 +2,10 @@
 assistant de création de creature
 assistant de création d'ennemi
 
+ajouter blasons empire / bretonnie / kislev sur les carrières
+
+Apprentissage : BFM + BInt * 2 + nb conn distinctes + nb éruditions * 2 
+
 00-1 et 00-0 sont toujours des réussites/échecs mais non critiques
 
 => coups critiques : 
