@@ -237,6 +237,7 @@
 
     {"id":800,"parent":257,"severite":1,"type":"nevrose","nom":"Animosité","spe":"Elfes","guerison":"","description":"Vous êtes sujet à une antipathie irraisonnée envers les elfes."},
     {"id":801,"parent":257,"severite":1,"type":"nevrose","nom":"Animosité","spe":"Supporters des équipes adverses","guerison":"","description":"Vous êtes sujet à une antipathie irraisonnée envers les elfes."},
+    {"id":802,"parent":257,"severite":1,"type":"nevrose","nom":"Animosité","spe":"Sigmarites","guerison":"","description":"Vous êtes sujet à une antipathie irraisonnée envers les membres du culte de Sigmar."},
 
     {"id":830,"severite":1,"type":"gabarit","nom":"Gabarit (variable)","spe":"Elfes","guerison":"","description":"Vous êtes sujet à une antipathie irraisonnée envers les elfes."},
     {"id":831,"parent":830,"severite":1,"type":"gabarit","nom":"Petit","description":""},
