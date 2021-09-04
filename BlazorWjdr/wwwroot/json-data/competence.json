@@ -220,7 +220,10 @@
     {"id":220,"de_base":true,"talents":[72,73],"carac":"E","nom":"Résistance","resume":"Vous permet d'endurer l'adversité, la privation, de devoir rester assis ou caché sans bouger pendant une longue période, ou encore de survivre dans des conditions extrêmes.\nVous testerez souvent votre Résistance pour résister ou récupérer de diverses afffections et pour récupérer des Blessures."},
     {"id":221,"parent":29,"de_base":true,"carac":"Dex","nom":"Art","spe":"Icônes","resume":"Réaliser des oeuvres d'art religieuses."},
     {"id":224,"parent":13,"carac":"Int","nom":"Erudition","spe":"métallurgie","resume":"La métallurgie est la science des matériaux qui étudie les métaux, leurs élaborations, leurs propriétés, leurs traitements."},
-    
+    {"id":225,"nom":"Prière","carac":"Soc",
+      "resume":"Votre capacité à invoquer, ou communier avec, une divinité.",
+      "description":"Votre capacité à invoquer, ou communier avec, une divinité. Pour plus d’informations sur l’utilisation de la compétence Prier pour obtenir une intervention divine, se référer au Chapitre 7 : Religion et Croyance.\nEn combat, si votre MJ estime que c’est approprié suivant les circonstances et votre foi, vous pouvez utiliser Prier pour méditer et concentrer votre esprit. Chaque tour que vous passez à prier lors d’un combat — en réussissant un Test de Prière — vous donne +1 en Avantage (pour un rappel sur l’Avantage, voir l’article sur le Combat). Vous pouvez accumuler plusieurs fois de l’Avantage ainsi, jusqu’à un maximum correspondant à votre Bonus en Sociabilité.\nDe plus, si vos ennemis comprennent votre langue et reconnaissent (et craignent) votre divinité, le MJ peut vous accorder l’utilisation de Prier à la place de la compétence Intimider."},
+
     {"id":500,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Culte de Sigmar","resume":""},
     {"id":501,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Culte de Myrmidia","resume":""},
     {"id":502,"talents":[33],"parent":14,"carac":"Int","nom":"Connaissances","spe":"Culte de Morr","resume":""},

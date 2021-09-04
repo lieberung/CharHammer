@@ -1,4 +1,5 @@
-﻿namespace BlazorWjdr.DataSource
+﻿/*
+namespace BlazorWjdr.DataSource
 {
     using JsonDto;
     using Newtonsoft.Json;
@@ -6,8 +7,6 @@
 
     public static class JsonLoader
     {
-        //const string jsonDataPath = "wwwroot/json-data";
-        //const string jsonDataPath = "../json-data";
         const string jsonDataPath = "../json-data";
 
         private static T LoadRootFromJson<T>(string path) => JsonConvert.DeserializeObject<T>(File.ReadAllText(path))
@@ -35,3 +34,4 @@
         public static RootTrait GetRootTrait() => LoadRootFromJson<RootTrait>($"{jsonDataPath}/trait.json");
     }
 }
+*/

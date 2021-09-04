@@ -9,14 +9,14 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string type { get; set; } = null!;
         public string nom { get; set; } = null!;
         public string? spe { get; set; } = null;
-        public string guerison { get; set; }
-        public string description { get; set; }
+        public string? guerison { get; set; }
+        public string? description { get; set; }
         public bool? contagieux { get; set; }
         public int[]? incompatible { get; set; }
 
     }
     public class RootTrait
     {
-        public List<JsonTrait> items { get; set; }
+        public List<JsonTrait> items { get; set; } = null!;
     }
 }

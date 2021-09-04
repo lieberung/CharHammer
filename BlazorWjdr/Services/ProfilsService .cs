@@ -33,7 +33,7 @@ namespace BlazorWjdr.Services
                     Id = c.id,
                     A = c.a,
                     Ag = c.ag,
-                    B = c.b,
+                    //B = c.b,
                     Cc = c.cc,
                     Ct = c.ct,
                     Dex = c.dex,
@@ -42,10 +42,10 @@ namespace BlazorWjdr.Services
                     Fm = c.fm,
                     I = c.i,
                     Int = c.intel,
-                    M = c.m,
-                    Mag = c.mag,
-                    Pd = c.pd,
-                    Pf = c.pf,
+                    //M = c.m,
+                    //Mag = c.mag,
+                    //Pd = c.pd,
+                    //Pf = c.pf,
                     Soc = c.soc
                 })
                 .ToDictionary(k => k.Id, v => v);

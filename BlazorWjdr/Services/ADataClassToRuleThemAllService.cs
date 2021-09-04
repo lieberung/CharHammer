@@ -22,7 +22,7 @@ namespace BlazorWjdr.Services
             Bestioles = await GetRootBestiole();
             Carrieres = await GetRootCarriere();
             CarrieresInitiales = await GetRootTableCarriereInitiale();
-            Chrono = new RootChrono(); //await GetRootChrono();
+            Chrono = await GetRootChrono();
             Competences = await GetRootCompetence();
             Dieux = await GetRootDieu();
             Domaines = await GetRootDomaine();

@@ -16,13 +16,13 @@
         public int fm { get; set; }
         public int soc { get; set; }
         public int a { get; set; }
-        public int b { get; set; }
-        public int bf { get; set; }
-        public int be { get; set; }
-        public int m { get; set; }
-        public int mag { get; set; }
-        public int pf { get; set; }
-        public int pd { get; set; }
+        //public int b { get; set; }
+        //public int bf { get; set; }
+        //public int be { get; set; }
+        //public int m { get; set; }
+        //public int mag { get; set; }
+        //public int pf { get; set; }
+        //public int pd { get; set; }
     }
 
     public class RootProfil

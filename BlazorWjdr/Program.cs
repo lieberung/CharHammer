@@ -168,9 +168,9 @@ namespace BlazorWjdr
                     Nom = c.nom,
                     Spe = c.spe ?? "",
                     Groupe = c.type,
-                    Description = c.description,
+                    Description = c.description ?? "",
                     Contagieux = c.contagieux,
-                    Guerison = c.guerison,
+                    Guerison = c.guerison ?? "",
                     Severite = c.severite,
                     Incompatible = c.incompatible ?? Array.Empty<int>()
                 })

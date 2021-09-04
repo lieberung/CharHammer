@@ -26,6 +26,12 @@
 {
     <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
 }
+@if (Item.SousElements.Any())
+{
+    <p class="card-text">
+        <CarriereItemList Items="@Item.SousElements.ToArray()"/>
+    </p>
+}
 @code{
     [Parameter]
     public CarriereDto Item { get; set; } = null!;
