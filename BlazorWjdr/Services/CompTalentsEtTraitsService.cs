@@ -67,8 +67,8 @@
         public TalentDto TalentTireurDElite => GetTalent(90);
         public TalentDto TalentForceAccrue => GetTalent(29);
         public TalentDto TalentResistanceAccrue => GetTalent(69);
-        public TalentDto TalentVivacite => GetTalent(216);
-        public TalentDto TalentDoigtsVifs => GetTalent(233);
+        public TraitDto TraitVivacite => GetTrait(14);
+        public TraitDto TraitHabileDeSesMains => GetTrait(16);
         public TalentDto TalentReflexesEclairs => GetTalent(68);
         public TalentDto TalentIntelligent => GetTalent(39);
         public TalentDto TalentSangFroid => GetTalent(76);
@@ -322,26 +322,28 @@
              TalentAmbidextrie,
              TalentCalculMental,
              TalentChance,
+             TalentRobuste,
+             TalentSainDEsprit,
+             TalentImitation,
+             TalentResistanceALaMagie,
+             TalentResistanceAuxMaladies,
+             TalentResistanceAuxPoisons,
+             TalentSixiemeSens,
+             /*
              TalentCourseAPied,
              TalentDoigtsVifs,    
              TalentDurACuir,
              TalentForceAccrue,
              TalentGuerrierNe,
-             TalentImitation,
              TalentIntelligent,
              TalentReflexesEclairs,
-             TalentResistanceALaMagie,
              TalentResistanceAccrue,
-             TalentResistanceAuxMaladies,
-             TalentResistanceAuxPoisons,
-             TalentRobuste,
-             TalentSainDEsprit,
              TalentSangFroid,
-             TalentSixiemeSens,
              TalentSociable,
              TalentTireurDElite,
              //TraitVisionNocturne,
              TalentVivacite
+             */
         };
         
         #region Traits
