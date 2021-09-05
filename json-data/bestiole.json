@@ -1,6 +1,6 @@
 {
     "items": [
-      {"id":1,"profil_actuel":134,"user":4,"nom":"Blastt","histoire":"Sosie de KL","comment":"","competences":[19,30,32,34,45,48,49,53,55,76],"talents":[21,8,19,34,90,29],"race":2,"membrede":[1],"poids":70,"taille":180,"age":23,"sexe":1,"psycho":"[ToDo]"},
+      {"id":1,"profil_actuel":134,"user":4,"nom":"Blastt","histoire":"Sosie de KL","comment":"","competences":[19,30,32,34,45,48,49,53,55,76],"talents":[21,8,19,90,29],"traits":[10],"race":2,"membrede":[1],"poids":70,"taille":180,"age":23,"sexe":1,"psycho":"[ToDo]"},
       {"id":2,"profil_actuel":135,"user":5,"nom":"Théo","histoire":"Ami de Joseph","comment":"","competences":[8,10,27,32,48,54,92,92,68,106,116,122,25,25,132,136,610,608],"talents":[4,7,71,90],"traits":[903,182],"race":26,"membrede":[1],"poids":49,"taille":125,"age":40,"sexe":1,"psycho":"[ToDo]"},
       {"id":3,"profil_actuel":136,"user":6,"nom":"Tatalia","histoire":"Collègue de Rolf Hurtsis","comment":"","competences":[19,24,27,32,42,46,47,48,48,55,79,89,92,16,136],"talents":[7,11,16,81,82],"origines":[92],"race":46,"membrede":[1],"poids":70,"taille":163,"age":25,"sexe":2,"psycho":"[ToDo]"},
       {"id":4,"profil_actuel":137,"user":7,"nom":"Yorek","histoire":"Garde du corps de Dame Isolde","comment":"","competences":[34,48,75,96,133,136,26,53,53,42,610,607],"talents":[32,70,74,78,14,19,85,29,39,69],"traits":[903,906],"origines":[79],"race":27,"membrede":[1],"poids":63,"taille":135,"age":105,"sexe":1,"psycho":"[ToDo]"},
