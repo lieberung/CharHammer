@@ -63,16 +63,19 @@
         #region Competences & Talents
         
         // Caractéristiques
-        public TalentDto TalentGuerrierNe => GetTalent(34);
-        public TalentDto TalentTireurDElite => GetTalent(90);
-        public TalentDto TalentForceAccrue => GetTalent(29);
-        public TalentDto TalentResistanceAccrue => GetTalent(69);
+        public TraitDto TraitGuerrierNe => GetTrait(10);
+        public TraitDto TraitTireurDElite => GetTrait(11);
+        public TraitDto TraitForceAccrue => GetTrait(12);
+        public TraitDto TraitResistanceAccrue => GetTrait(13);
         public TraitDto TraitVivacite => GetTrait(14);
         public TraitDto TraitHabileDeSesMains => GetTrait(16);
-        public TalentDto TalentReflexesEclairs => GetTalent(68);
-        public TalentDto TalentIntelligent => GetTalent(39);
-        public TalentDto TalentSangFroid => GetTalent(76);
-        public TalentDto TalentSociable => GetTalent(83);
+        public TraitDto TraitReflexesEclairs => GetTrait(15);
+        public TraitDto TraitIntelligent => GetTrait(17);
+        public TraitDto TraitSangFroid => GetTrait(18);
+        public TraitDto TraitSociable => GetTrait(19);
+        
+        public TraitDto TraitCourseAPied => GetTrait(20);
+        public TraitDto TraitDurACuir => GetTrait(21);
         
 
         // Académique
@@ -249,7 +252,6 @@
         public TalentDto TalentSensDeLOrientation => GetTalent(81);
         public TalentDto TalentGrandVoyageur => GetTalent(33);
         public TalentDto TalentSixiemeSens => GetTalent(82);
-        public TalentDto TalentCourseAPied => GetTalent(22);
 
         // Maritimes  + CompetenceOrientation, CompetenceMetierCartographe, TalentGrandVoyageur
         public CompetenceDto CompetenceCanotage => GetCompetence(7);
@@ -330,19 +332,19 @@
              TalentResistanceAuxPoisons,
              TalentSixiemeSens,
              /*
-             TalentCourseAPied,
-             TalentDoigtsVifs,    
-             TalentDurACuir,
-             TalentForceAccrue,
-             TalentGuerrierNe,
-             TalentIntelligent,
-             TalentReflexesEclairs,
-             TalentResistanceAccrue,
-             TalentSangFroid,
-             TalentSociable,
-             TalentTireurDElite,
+             TraitCourseAPied,
+             TraitHabileDeSesMains,    
+             TraitDurACuir,
+             TraitForceAccrue,
+             TraitGuerrierNe,
+             TraitIntelligent,
+             TraitReflexesEclairs,
+             TraitResistanceAccrue,
+             TraitSangFroid,
+             TraitSociable,
+             TraitTireurDElite,
              //TraitVisionNocturne,
-             TalentVivacite
+             TraitVivacite
              */
         };
         
