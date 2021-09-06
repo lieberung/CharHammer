@@ -141,6 +141,11 @@
         public TalentDto TalentCombatRapproche => GetTalent(228);
         public TalentDto TalentHommeBouclier => GetTalent(231);
         public TalentDto TalentAssautBrutal => GetTalent(223);
+        public TalentDto TalentChargeBerserk => GetTalent(245);
+        public TalentDto TalentDetermine => GetTalent(273);
+        public TalentDto TalentRiposte => GetTalent(241);
+        public TalentDto TalentFrappeReactive => GetTalent(213);
+        public TalentDto TalentRetournement => GetTalent(242);
 
         public CompetenceDto CompetenceMeleeArmesDEscrime => GetCompetence(611);
         public CompetenceDto CompetenceMeleeArmesDeCavalerie => GetCompetence(609);

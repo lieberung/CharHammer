@@ -156,18 +156,30 @@
     
     <div class="row">
         <div class="col-4">
-            <h4 class="card-title">Attaquer au corps à corps</h4>
+            <h3 class="card-title">Attaquer au corps à corps</h3>
             <p class="card-text">
-                L'attaquant fait un Test <strong>Opposé de Mélée</strong> avec son adversaire.<br/>
+                L'attaquant fait un <strong>Test Opposé</strong> de <CompetenceItem Item="@_cttService.CompetenceGroupeMelee"/> / <CompetenceItem Item="@_cttService.CompetenceGroupeMelee"/> ou <CompetenceItem Item="@_cttService.CompetenceEsquive"/> avec son adversaire.<br/>
                 Celui qui a le plus gros BS l'emporte et gagne +1 Avantage. Si les BS sont identiques, on ajoute le dé des unités.<br/>
-                Si c'est l'attaquant il frappe son adversaire et calcule ses dégâts et leur localisation.<br/>
+                Si c'est l'attaquant il frappe son adversaire et calcule ses dégâts et leur localisation. Il peut ensuite utiliser les talents <TalentItem Item="@_cttService.TalentAssautBrutal"/> ou <TalentItem Item="@_cttService.TalentDechainement"/>.<br/>
                 L'Action de l'attaquant est ensuite terminée.<br/>
+                Notez qu'en tant attaquant, vous pouvez ainsi toucher même en ratant votre jet. Cependant, votre BS sera alors négatif (BS -10) et viendra réduire vos dégâts.<br/>
+                La seule exception est un <strong>Echec Critique</strong>, auquel cas le Test Opposé est considéré comme échoué : vous perdez donc tout vos Avantages et faites un jet sur la <a href="table-coups-critiques/fumbles/">Table des Maladresses</a>.
+                <br/>
+                <em class="mt-1">Exemple :<br/>
+                    Vous frappez votre adversaire avec un score de Mélée de 42 et faites 84. Votre bonus de succès est donc de -2 (10 - 8, chiffre des dizaines du jet).<br/>
+                    Votre adversaire, avec un score de Mélée de 62 oppose un jet de 67. Son bonus de succès est donc de -4 (10 - 6).<br/>
+                    Vous emportez donc le Test Opposé, et en tant qu'attaquant vous portez un coup de BF + dégâts de l'arme - 4. 
+                </em>
             </p>
-            <h4 class="card-title">Attaquer à distance</h4>
+            <h4 class="card-title">Charger</h4>
             <p class="card-text">
-                L'attaquant fait un Test <strong>de Tir</strong>.<br/>
-                S'il réussi il gagne +1 Avantage, touche son adversaire et calcule ses dégâts et leur localisation.<br/>
-                L'Action de l'attaquant est ensuite terminée.<br/>
+                Si vous n'êtes pas déjà engagé, vous pouvez utiliser votre Déplacement pour <strong>Charger</strong>.
+                Votre Action sera un test de <CompetenceItem Item="@_cttService.CompetenceGroupeMelee"/> pour attaquer votre adversaire.
+                Si votre adversaire est à une distance comprise entre votre valeur de Mouvement et votre valeur de Course, vous gagnez un Avantage avant de frapper.
+                <br/>
+                Les compétences <TalentItem Item="@_cttService.TalentChargeBerserk"/> et <TalentItem Item="@_cttService.TalentDetermine"/> viennent augmentez vos dégâts.
+                <br/>
+                Un personnage ciblé par une Charge peut se défendre en opposant un jet de <CompetenceItem Item="@_cttService.CompetenceGroupeMelee"/>, d'<CompetenceItem Item="@_cttService.CompetenceEsquive"/> ou en utilisant le talent  <TalentItem Item="@_cttService.TalentFrappeReactive"/>.
             </p>
             <h4 class="card-title">Critiques (11,22,33,...,88,99)</h4>
             <p class="card-text">
@@ -177,15 +189,21 @@
                 <br/>
                 On calcule <Tooltip Text="Blessures perdues = Dégâts reçus - (Bonsu d'Endurance + Armure sur la zone touchée) ; min. 1, sauf arme Inoffensive min. 0"><strong>Blessures effectives</strong></Tooltip> + 3 x <Tooltip Text="Si les Blessures effectives vous amènent à 0, toutes les Blessures supplémentaires sont des Blessures Critiques"><strong>Blessures Critiques</strong></Tooltip> + <strong>1d4</strong>.<br/>
                 Le talent <TalentItem Item="@_cttService.TalentCoupsPrécis"/> augmente cette valeur de 2.<br/>
-                On consulte alors le résultat dans la <a href="table-coups-critiques/torse/" class="mb-1 btn btn-sm btn-light">Table des Coups Critiques</a> (zone appropriée).<br/>
+                On consulte alors le résultat dans la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> de la zone appropriée.<br/>
             </p>
         </div>
         <div class="col-4">
-            <h4 class="card-title">Charger</h4>
+            <h3 class="card-title">Se défendre</h3>
             <p class="card-text">
-                Si vous n'êtes pas déjà engagé, vous pouvez utiliser votre Déplacement pour charger.
-                Votre Action sera un test de Mélée pour attaquer votre adversaire.
-                Si votre adversaire est à une distance comprise entre votre valeur de Mouvement et votre valeur de Course, vous gagnez un Avantage avant de frapper.
+                Chaque fois que vous êtes attaqué en Mélée, généralement au Tour d'un des adversaires, vous pouvez vous défendre ainsi : 
+            </p>
+            <ul>
+                <li>en opposant un jet de <CompetenceItem Item="@_cttService.CompetenceGroupeMelee"/> (approrié à l'arme avec laquelle vous vous défendez)</li>
+                <li>en opposant un jet d'<CompetenceItem Item="@_cttService.CompetenceEsquive"/></li>
+            </ul>
+            <p class="card-text">
+                En remportant le test opposé avec un jet de Mélée en tant que Défenseur, vous n'infligez pas de dégâts - à moins que vous ne disposiez du talent <TalentItem Item="@_cttService.TalentRiposte"/>.
+                En revanche, l'attaquant perd ses Avantages et vous en gagnez 1 - ou plus, avec le talent <TalentItem Item="@_cttService.TalentRetournement"/>.
             </p>
             <h4 class="card-title">Se Désengager ou Fuir</h4>
             <p class="card-text">
@@ -226,10 +244,21 @@
         </div>
 
     </div>
-    
+
+<div class="row">
+    <div class="col-4">
+        <h3 class="card-title">Attaquer à distance</h3>
+        <p class="card-text">
+            L'attaquant fait un Test <strong>de Tir</strong>.<br/>
+            S'il réussi il gagne +1 Avantage, touche son adversaire et calcule ses dégâts et leur localisation.<br/>
+            L'Action de l'attaquant est ensuite terminée.<br/>
+        </p>
+    </div>
+</div>
+
     <div class="row">
         <div class="col-5">
-            <h5 class="card-title">Fin du Round</h5>
+            <h3 class="card-title">Fin du Round</h3>
             <ul>
                 <li>un combattant qui n'a gagné aucun point d'Avantage durant ce round perd 1 point d'Avantage</li>
                 <li>un combatant en infériorité numérique perd 1 point d'Avantage</li>
@@ -239,7 +268,7 @@
         <div class="col-1">
         </div>
         <div class="col-5">
-            
+
         </div>
     </div>
 </div>
