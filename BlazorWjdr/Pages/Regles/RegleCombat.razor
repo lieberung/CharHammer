@@ -181,16 +181,6 @@
                 <br/>
                 Un personnage ciblé par une Charge peut se défendre en opposant un jet de <CompetenceItem Item="@_cttService.CompetenceGroupeMelee"/>, d'<CompetenceItem Item="@_cttService.CompetenceEsquive"/> ou en utilisant le talent  <TalentItem Item="@_cttService.TalentFrappeReactive"/>.
             </p>
-            <h4 class="card-title">Critiques (11,22,33,...,88,99)</h4>
-            <p class="card-text">
-                Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> (zone appropriée).<br/>
-                De même, les échecs critiques entraînent un effet supplémentaire sur la <a href="table-coups-critiques/fumbles/">Table des Maladresses Critiques</a>.<br/>
-                Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br/>
-                <br/>
-                On calcule <Tooltip Text="Blessures perdues = Dégâts reçus - (Bonsu d'Endurance + Armure sur la zone touchée) ; min. 1, sauf arme Inoffensive min. 0"><strong>Blessures effectives</strong></Tooltip> + 3 x <Tooltip Text="Si les Blessures effectives vous amènent à 0, toutes les Blessures supplémentaires sont des Blessures Critiques"><strong>Blessures Critiques</strong></Tooltip> + <strong>1d4</strong>.<br/>
-                Le talent <TalentItem Item="@_cttService.TalentCoupsPrécis"/> augmente cette valeur de 2.<br/>
-                On consulte alors le résultat dans la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> de la zone appropriée.<br/>
-            </p>
         </div>
         <div class="col-4">
             <h3 class="card-title">Se défendre</h3>
@@ -224,19 +214,29 @@
             </ul>
         </div>
         <div class="col-4">
+            <h4 class="card-title">Critiques (11,22,33,...,88,99)</h4>
+            <p class="card-text">
+                Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> (zone appropriée).<br/>
+                De même, les échecs critiques entraînent un effet supplémentaire sur la <a href="table-coups-critiques/fumbles/">Table des Maladresses Critiques</a>.<br/>
+                Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br/>
+                <br/>
+                On calcule <Tooltip Text="Blessures perdues = Dégâts reçus - (Bonsu d'Endurance + Armure sur la zone touchée) ; min. 1, sauf arme Inoffensive min. 0"><strong>Blessures effectives</strong></Tooltip> + 3 x <Tooltip Text="Si les Blessures effectives vous amènent à 0, toutes les Blessures supplémentaires sont des Blessures Critiques"><strong>Blessures Critiques</strong></Tooltip> + <strong>1d4</strong>.<br/>
+                Le talent <TalentItem Item="@_cttService.TalentCoupsPrécis"/> augmente cette valeur de 2.<br/>
+                On consulte alors le résultat dans la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> de la zone appropriée.<br/>
+            </p>
             <h4 class="card-title">Localisation des coups/tirs</h4>
             <p class="card-text">
                 Le talent <TalentItem Item="@_cttService.TalentCoupsPrécis"/> peut modifier la jet.
             </p>
             <TableDetail Item="@_tablesService.GetTable(64)" MasquerTitre="@true" MasquerDescription="@true"/>
-            
+
             <h4 class="card-title">Mouvement et distances</h4>
             <p class="card-text">
                 Indique combien de mètres vous pouvez parcourir en un seul Tour.
                 Vous pouvez utiliser <CompetenceItem Item="@_cttService.CompetenceAthletisme"/> pour augmenter cette distance en sprintant.
             </p>
             <TableDetail Item="@_tablesService.GetTable(67)" FixedColSize="35" MasquerTitre="@true" MasquerDescription="@true"/>
-            
+
             <h4 class="card-title">Conditions</h4>
             <p class="card-text">
                 <TraitItemList Items="_cttService.Conditions.ToArray()"/>
@@ -245,16 +245,23 @@
 
     </div>
 
-<div class="row">
-    <div class="col-4">
-        <h3 class="card-title">Attaquer à distance</h3>
-        <p class="card-text">
-            L'attaquant fait un Test <strong>de Tir</strong>.<br/>
-            S'il réussi il gagne +1 Avantage, touche son adversaire et calcule ses dégâts et leur localisation.<br/>
-            L'Action de l'attaquant est ensuite terminée.<br/>
-        </p>
+    <div class="row">
+        <div class="col-4">
+            <h3 class="card-title">Attaquer à distance</h3>
+            <p class="card-text">
+                L'attaquant fait un Test <strong>de Tir</strong>.<br/>
+                S'il réussi il gagne +1 Avantage, touche son adversaire et calcule ses dégâts et leur localisation.<br/>
+                L'Action de l'attaquant est ensuite terminée.<br/>
+            </p>
+        </div>
+        <div class="col-4">
+            <h3 class="card-title">Lancer un sort</h3>
+            <p class="card-text">
+            </p>
+        </div>
     </div>
-</div>
+
+    <PageSectionDivider/>
 
     <div class="row">
         <div class="col-5">
