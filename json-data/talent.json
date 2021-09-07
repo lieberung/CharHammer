@@ -386,6 +386,12 @@
         "description":"Your soul is pure, quite resistant to the depredations of Chaos. You may gain extra Corruption points equal to your level of Pure Soul before having to Test to see if you become corrupt."},
       {"id":276,"nom":"Sainte colère","nom_en":"Holy Hatred","max":"Bonus de Sociabilité",
         "resume":"You deal +1 Damage with Miracles for each level in this Talent.",
-        "description":"Your prayers drip with the hatred you feel for your blasphemous enemies. You deal +1 Damage with Miracles for each level in this Talent."}
+        "description":"Your prayers drip with the hatred you feel for your blasphemous enemies. You deal +1 Damage with Miracles for each level in this Talent."},
+      {"id":277,"nom":"Bénédiction","nom_en":"Bless (Divine Lore)","max":"1",
+        "resume":"Vous pouvez apprendre et disposer de certaines bénédictions de votre domaine divin.",
+        "description":"You are watched over by one of the Gods and can empower simple prayers. You can now deploy the Blessings of your deity as listed in Chapter 7: Religion and Belief, en utilisant votre Compétence Prière. Vous pouvez choisir et apprendre un nombre de bénédictions égal à votre Bonus de Sociabilité. Under normal circumstances, you may only ever know one Divine Lore for the Bless Talent."},
+      {"id":278,"nom":"Inspiration divine","nom_en":"Invoke (Divine Lore)","max":"1",
+        "resume":"Vous pouvez apprendre et disposer de certains miracles de votre domaine divin.",
+        "description":"Vous êtes béni par l'un des dieux et pouvez produire un des miracles de votre culte. Vous pouvez apprendre d'autres miracles pour 100 xp par miracle que vous connaissez actuellement. Donc, si vous en avez déjà appris 3, le 4ème vous coûtera 300 xp.\nSauf circonstances exceptionnelles, vous ne pourrez jamais apprendre ce talent une seconde fois pour accéder à un autre domaine divin. De plus, vous ne pouvez plus apprendre de talents de Magie à moins de préallablement dés-apprendre ce talent pour 100 xp - perdant ainsi tous vos miracles, recueillant ainsi l'extrême défaveur de votre dieu, avec des conséquences à la discrétion du MJ."}
     ]
 }
