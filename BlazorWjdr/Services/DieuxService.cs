@@ -1,12 +1,10 @@
-﻿using System.Diagnostics;
-
-namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.DataSource.JsonDto;
+    using System.Diagnostics;
+    using DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class DieuxService
     {

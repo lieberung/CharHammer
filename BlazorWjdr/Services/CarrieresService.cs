@@ -36,9 +36,9 @@
                 .Where(c => c.SourceLivre?.Id == reference.Id)
                 .ToArray();
 
-        private void Initialize()
+        /*
+        private void InitializeScores()
         {
-            /*
             foreach (var carriere in _cacheCarrieres.Values)
             {
                 carriere.ScoreAcademique = CalculScoreAcademique(carriere);
@@ -55,7 +55,6 @@
                 carriere.ScorePoudreNoire = CalculScorePoudreNoire(carriere);
                 carriere.ScoreAmiDesBetes = CalculScoreAmiDesBetes(carriere);
             }
-            */
             
             //DirectoryInfo d = new DirectoryInfo("./wwwroot/images/careers/");
             //var images = d.GetFiles("*-*.png").Select(f => f.Name);
@@ -66,7 +65,8 @@
             //    carriere.Images = list.ToArray();
             //}
         }
-
+        */
+        
         #region Calcul Bonus de Caractéristique
 /*
         private int CalculBonusCapaciteDeTir(CarriereDto carriere)
@@ -690,7 +690,7 @@
         public IEnumerable<string> GallerieComplete()
         {
             Random rnd = new ();
-            return AllCarrieres.SelectMany(c => c.Images).OrderBy(x => rnd.Next()).ToArray();
+            return AllCarrieres.SelectMany(c => c.Images).OrderBy(_ => rnd.Next()).ToArray();
         }
     }
 }

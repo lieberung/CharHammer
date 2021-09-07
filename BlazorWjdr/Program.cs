@@ -1,8 +1,6 @@
 using BlazorWjdr.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -34,44 +32,101 @@ namespace BlazorWjdr
             var dataProfils = InitializeProfils(data.Profils!.items);
             var dataReferences = InitializeReferences(data.References!.items);
             var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataCompetences, dataTalents, dataTraits, dataReferences);
+            var dataChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
+            var dataLieuxTypes = InitializeLieuxTypes(data.LieuxTypes!.items);
+            var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
             
-            builder.Services.AddSingleton(s => new CompTalentsEtTraitsService(dataCompetences, dataTalents, dataTraits));
-            builder.Services.AddSingleton(s => new LieuxService(data.LieuxTypes!.items, data.Lieux!.items));
-            builder.Services.AddSingleton(s => new DieuxService(data.Dieux!.items));
-            builder.Services.AddSingleton(s => new ReferencesService(data.References!.items));
-            builder.Services.AddSingleton(s => new ProfilsService(dataProfils));
-            builder.Services.AddSingleton(s => new TablesService(data.Tables!.items));
+            builder.Services.AddSingleton(_ => new CompTalentsEtTraitsService(dataCompetences, dataTalents, dataTraits));
+            builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
+            builder.Services.AddSingleton(_ => new DieuxService(data.Dieux!.items));
+            builder.Services.AddSingleton(_ => new ReferencesService(dataReferences));
+            builder.Services.AddSingleton(_ => new ProfilsService(dataProfils));
+            builder.Services.AddSingleton(_ => new TablesService(data.Tables!.items));
+            builder.Services.AddSingleton(_ => new ChronologieService(dataChrono));
 
             // Avec dépendances sans dépendance
             var competencesEtTalentsService = builder.Services.BuildServiceProvider().GetRequiredService<CompTalentsEtTraitsService>();
-            builder.Services.AddSingleton(s => new ArmesService(data.ArmesAttributs!.items, data.Armes!.items, competencesEtTalentsService));
+            builder.Services.AddSingleton(_ => new ArmesService(data.ArmesAttributs!.items, data.Armes!.items, competencesEtTalentsService));
 
-            var referencesService = builder.Services.BuildServiceProvider().GetRequiredService<ReferencesService>();
-            builder.Services.AddSingleton(s => new ChronologieService(data.Chrono!.items, referencesService));
 
             // Avec dépendances de baisé
             var lieuxService = builder.Services.BuildServiceProvider().GetRequiredService<LieuxService>();
-            builder.Services.AddSingleton(s => new RacesService(data.Races!.items, lieuxService));
+            builder.Services.AddSingleton(_ => new RacesService(data.Races!.items, lieuxService));
 
             var profilsService = builder.Services.BuildServiceProvider().GetRequiredService<ProfilsService>();
-            builder.Services.AddSingleton(s => new CarrieresService(dataCarrieres));
+            builder.Services.AddSingleton(_ => new CarrieresService(dataCarrieres));
 
             var carrieresService = builder.Services.BuildServiceProvider().GetRequiredService<CarrieresService>();
             var racesService = builder.Services.BuildServiceProvider().GetRequiredService<RacesService>();
-            builder.Services.AddSingleton(s => new TableDesCarrieresInitialesService(data.CarrieresInitiales!.items, racesService, carrieresService));
+            builder.Services.AddSingleton(_ => new TableDesCarrieresInitialesService(data.CarrieresInitiales!.items, racesService, carrieresService));
 
-            builder.Services.AddSingleton(s => new BestiolesService(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items, racesService, competencesEtTalentsService, lieuxService, profilsService, carrieresService));
+            builder.Services.AddSingleton(_ => new BestiolesService(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items, racesService, competencesEtTalentsService, lieuxService, profilsService, carrieresService));
 
             var bestiolesService = builder.Services.BuildServiceProvider().GetRequiredService<BestiolesService>();
             var tablesService = builder.Services.BuildServiceProvider().GetRequiredService<TablesService>();
-            builder.Services.AddSingleton(s => new ReglesService(data.Regles!.items, carrieresService, competencesEtTalentsService, bestiolesService, tablesService, lieuxService));
+            builder.Services.AddSingleton(_ => new ReglesService(data.Regles!.items, carrieresService, competencesEtTalentsService, bestiolesService, tablesService, lieuxService));
 
             builder.RootComponents.Add<App>("#app");
 
             await builder.Build().RunAsync();
         }
 
-        private static Dictionary<int, ReferenceDto> InitializeReferences(List<JsonReference> items)
+        private static Dictionary<int, LieuTypeDto> InitializeLieuxTypes(IEnumerable<JsonLieuType> items)
+        {
+            var result = items
+                .Select(t => new LieuTypeDto
+                {
+                    Id = t.id,
+                    Nom = t.libelle,
+                    ParentId = t.parentid
+                }).ToDictionary(k => k.Id, v => v);
+            
+            foreach (var lieuType in result.Values.Where(t => t.ParentId.HasValue))
+            {
+                lieuType.Parent = result[lieuType.ParentId!.Value];
+            }
+
+            return result;
+        }
+
+        private static Dictionary<int, LieuDto> InitializeLieux(IEnumerable<JsonLieu> items, IReadOnlyDictionary<int, LieuTypeDto> cacheTypesDeLieu)
+        {
+            var result = items
+                .Select(l => new LieuDto
+                {
+                    Id = l.id,
+                    Nom = l.nom,
+                    Description = l.description ?? "",
+                    ParentId = l.fk_parentid,
+                    TypeDeLieu = cacheTypesDeLieu[l.fk_typeid]
+                })
+                .ToDictionary(k => k.Id);
+
+            var parents = new List<int>();
+            foreach (var lieu in result.Values.Where(t => t.ParentId.HasValue))
+            {
+                var parentId = lieu.ParentId!.Value;
+                if (!parents.Contains(parentId))
+                    parents.Add(parentId);
+                lieu.Parent = result[parentId];
+                lieu.Parent.SousElements.Add(lieu);
+            }
+
+            //foreach (var lieu in result.Values.Where(l => l.ParentId == null))
+            foreach (var lieuId in (parents))
+            {
+                result[lieuId].SousElements = result[lieuId].SousElements.OrderBy(c => c.Nom).ToList();
+                    /*
+                    .AddRange(result.Values
+                    .Where(c=>c.Parent == lieu)
+                    .OrderBy(c => c.Nom));
+                    */                
+            }
+
+            return result;
+        }
+
+        private static Dictionary<int, ReferenceDto> InitializeReferences(IEnumerable<JsonReference> items)
         {
             return items
                 .Select(c => new ReferenceDto
@@ -85,7 +140,7 @@ namespace BlazorWjdr
                 .ToDictionary(k => k.Id, v => v);
         }
 
-        private static Dictionary<int, TalentDto> InitializeTalents(List<JsonTalent> talents)
+        private static Dictionary<int, TalentDto> InitializeTalents(IEnumerable<JsonTalent> talents)
         {
             var result = talents
                 .Select(t => new TalentDto
@@ -123,9 +178,9 @@ namespace BlazorWjdr
         }
 
         private static Dictionary<int, CompetenceDto> InitializeCompetences(
-            List<JsonCompetence> competences, 
+            IEnumerable<JsonCompetence> competences, 
             Dictionary<int, TalentDto> cacheTalents,
-            Dictionary<int, TraitDto> cacheTraits)
+            IReadOnlyDictionary<int, TraitDto> cacheTraits)
         {
             var result = competences
                 .Select(c => new CompetenceDto
@@ -177,7 +232,7 @@ namespace BlazorWjdr
             return result;
         }
 
-        private static Dictionary<int, TraitDto> InitializeTraits(List<JsonTrait> traits)
+        private static Dictionary<int, TraitDto> InitializeTraits(IEnumerable<JsonTrait> traits)
         {
             var cacheTrait = traits
                 .Select(c => new TraitDto
@@ -202,7 +257,7 @@ namespace BlazorWjdr
             return cacheTrait;
         }
 
-        private static Dictionary<int, ProfilDto> InitializeProfils(List<JsonProfil> profils)
+        private static Dictionary<int, ProfilDto> InitializeProfils(IEnumerable<JsonProfil> profils)
         {
             return profils
                 .Select(c => new ProfilDto
@@ -228,22 +283,22 @@ namespace BlazorWjdr
                 .ToDictionary(k => k.Id, v => v);
         }
 
-        private static IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int>? ids, Dictionary<int, CompetenceDto> cache)
+        private static IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int>? ids, IReadOnlyDictionary<int, CompetenceDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
-        private static IEnumerable<TalentDto> GetTalents(IEnumerable<int>? ids, Dictionary<int, TalentDto> cache)
+        private static IEnumerable<TalentDto> GetTalents(IEnumerable<int>? ids, IReadOnlyDictionary<int, TalentDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(t => t.Nom).ThenBy(t => t.Specialisation);
-        private static IEnumerable<TraitDto> GetTraits(IEnumerable<int>? ids, Dictionary<int, TraitDto> cache)
+        private static IEnumerable<TraitDto> GetTraits(IEnumerable<int>? ids, IReadOnlyDictionary<int, TraitDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(t => t.Nom).ThenBy(t => t.Spe);
-        private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids, Dictionary<int, CarriereDto> cache)
+        private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids, IReadOnlyDictionary<int, CarriereDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(c => c.Nom);
 
         private static Dictionary<int, CarriereDto> InitializeCarrieres(
-            List<JsonCarriere> carrieres, 
-            Dictionary<int, ProfilDto> cacheProfils, 
-            Dictionary<int, CompetenceDto> cacheCompetences,
-            Dictionary<int, TalentDto> cacheTalents,
-            Dictionary<int, TraitDto> cacheTraits,
-            Dictionary<int, ReferenceDto> cacheReferences)
+            IEnumerable<JsonCarriere> carrieres, 
+            IReadOnlyDictionary<int, ProfilDto> cacheProfils, 
+            IReadOnlyDictionary<int, CompetenceDto> cacheCompetences,
+            IReadOnlyDictionary<int, TalentDto> cacheTalents,
+            IReadOnlyDictionary<int, TraitDto> cacheTraits,
+            IReadOnlyDictionary<int, ReferenceDto> cacheReferences)
         {
             var cacheCarrieres = carrieres
                 .Select(c => new CarriereDto
@@ -306,6 +361,21 @@ namespace BlazorWjdr
             }
 
             return cacheCarrieres;
+        }
+
+        private static IEnumerable<ChronologieDto> InitializeChronologie(IEnumerable<JsonChrono> chrono, IReadOnlyDictionary<int, ReferenceDto> cache)
+        {
+            return chrono
+                .Select(c => new ChronologieDto(
+                    c.debut,
+                    c.fin,
+                    c.resume,
+                    c.titre ?? "",
+                    c.comment ?? "",
+                    c.sources.Select(id => cache[id]).ToArray()
+                ))
+                .OrderBy(c => c.Debut).ThenBy(c => c.Fin)
+                .ToArray();
         }
     }
 }

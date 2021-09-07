@@ -1,13 +1,11 @@
-﻿using System.Diagnostics;
-
-namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services
 {
-    using BlazorWjdr.DataSource.JsonDto;
+    using DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
-
+    using System.Diagnostics;
+    
     public class ArmesService
     {
         private readonly CompTalentsEtTraitsService _compTalentsEtTraitsService;

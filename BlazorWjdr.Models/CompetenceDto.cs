@@ -1,8 +1,6 @@
-﻿using System.Linq;
-using System.Threading.Channels;
-
-namespace BlazorWjdr.Models
+﻿namespace BlazorWjdr.Models
 {
+    using System.Linq;
     using System.Collections.Generic;
 
     public class CompetenceDto

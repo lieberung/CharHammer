@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-8">
             <div class="card-body">
-                <TableTraits Traits="@_traits.ToArray()" NbColonnes="_nbColonnes"/>
+                <TableTraits Traits="@Traits.ToArray()" NbColonnes="_nbColonnes"/>
             </div>
         </div>
 
@@ -59,7 +59,7 @@
     [Parameter]
     public string GroupeActif { get; set; } = null!;
     
-    private List<TraitDto> _traits { get; set; } = null!;
+    private List<TraitDto> Traits { get; set; } = null!;
     private TraitDto? _traitAleatoire;
     private int _nbColonnes;
     private string _determinant = "";
@@ -70,39 +70,39 @@
         switch (GroupeActif)
         {
             case "traits":
-                _traits = _cttService.SignesDistinctifs;
+                Traits = _cttService.SignesDistinctifs;
                 _nbColonnes = 5;
                 _determinant = "un";
                 _typeDeTrait = "signe distinctif";
                 break;
             case "troubles-mineurs":
-                _traits = _cttService.TroublesMineurs();
+                Traits = _cttService.TroublesMineurs();
                 _nbColonnes = 3;
                 _determinant = "un";
                 _typeDeTrait = "trouble mineur";
                 break;
             case "folies":
-                _traits = _cttService.Folies;
+                Traits = _cttService.Folies;
                 _nbColonnes = 3;
                 _determinant = "une";
                 _typeDeTrait = "folie";
                 break;
             case "maladies":
-                _traits = _cttService.Maladies;
+                Traits = _cttService.Maladies;
                 _nbColonnes = 3;
                 _determinant = "une";
                 _typeDeTrait = "maladie";
                 break;
         }
         
-        base.StateHasChanged();
+        StateHasChanged();
         
         base.OnParametersSet();
     }
 
     private void TirerUnTraitAleatoire()
     {
-        var i = new Random().Next(0, _traits.Count);
-        _traitAleatoire = _traits[i];
+        var i = new Random().Next(0, Traits.Count);
+        _traitAleatoire = Traits[i];
     }
 }

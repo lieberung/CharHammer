@@ -3,7 +3,6 @@
 @using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
-@using System.Diagnostics.Contracts
 
 @inject ArmesService _armesService
 @inject CompTalentsEtTraitsService _compTalentsEtTraitsService
@@ -109,8 +108,7 @@
     public string Filtre { get; set; } = "";
 
     private ArmeAttributDto? GroupeActuel { get; set; }
-
-    private List<ArmeDto> _armesLines = null!;
+    
     private List<ArmeDto> _armesDeCaC = null!;
     private List<ArmeDto> _armesDeTir = null!;
     private List<ArmeDto> _boucliers = null!;
@@ -141,12 +139,12 @@
         if (Groupe != "toutes")
         {
             GroupeActuel = _armesService.AllGroupesDArmes.Single(g => GetGroupe(g.Nom) == Groupe);
-            _armesLines = armes.Where(a => a.Groupes.Contains(GroupeActuel)).ToList();
+            //_armesLines = armes.Where(a => a.Groupes.Contains(GroupeActuel)).ToList();
         }
         else
         {
             GroupeActuel = null;
-            _armesLines = armes.ToList();
+            //_armesLines = armes.ToList();
         }
 
     }

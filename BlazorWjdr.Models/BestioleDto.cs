@@ -29,7 +29,7 @@ namespace BlazorWjdr.Models
         // Personnage
         public CarriereDto? CarriereDuPere { get; set; }
         public CarriereDto? CarriereDeLaMere { get; set; }
-        public int? fk_signeastralid { get; set; }
+        public int? SigneAstralId { get; set; }
         public string? FreresEtSoeurs { get; set; }
         public int MainDirectrice { get; set; }
         public bool Mort { get; set; }

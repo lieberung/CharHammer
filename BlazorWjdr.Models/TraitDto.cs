@@ -12,7 +12,7 @@ namespace BlazorWjdr.Models
         public string Guerison { get; init; } = null!;
         public string Description { get; init; } = null!;
         public bool? Contagieux { get; init; }
-        public int[] Incompatible { get; set; }
+        public int[] Incompatible { get; set; } = null!;
         public List<TraitDto> TraitsIncompatibles { get; set; } = new ();
 
         public string NomComplet => Nom + (string.IsNullOrWhiteSpace(Spe) ? "" : $" : {Spe}");

@@ -1,4 +1,5 @@
 ﻿@using BlazorWjdr.Models
+
 <ul class="list-inline">
     @foreach (var item in Items)
     {
@@ -9,7 +10,8 @@
         <li class="list-inline-item"><ChoixDeCompetenceItem Choix="@choix"/></li>
     }
 </ul>
+
 @code{
     [Parameter] public CompetenceDto[] Items { get; set; } = null!;
-    [Parameter] public CompetenceDto[][] ItemsChoix { get; set; } = System.Array.Empty<CompetenceDto[]>();
+    [Parameter] public CompetenceDto[][] ItemsChoix { get; set; } = Array.Empty<CompetenceDto[]>();
 }

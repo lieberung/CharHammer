@@ -10,7 +10,7 @@ namespace BlazorWjdr.Models
         
         public int? ParentId { get; init; }
         public LieuDto? Parent { get; set; }
-        public readonly List<LieuDto> SousElements = new();
+        public List<LieuDto> SousElements = new();
         
         public string Nom { get; init; } = null!;
         public string Description { get; init; } = null!;

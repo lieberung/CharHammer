@@ -20,7 +20,7 @@
 </div>
 <div class="row px-4 mt-2">
     <div class="col-12 pl-1">
-        @if (EmpireProvinces.Contains(ProvinceActive))
+        @if (_empireProvinces.Contains(ProvinceActive))
         {
             <button type="button" @onclick="@((e) => Selectionner(e, "Averland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Averland" ? "btn-primary" : "btn-secondary")">
                 Averland
@@ -62,7 +62,7 @@
                 Mutant
             </button>
         }
-        else if (BretonnieDuches.Contains(ProvinceActive))
+        else if (_bretonnieDuches.Contains(ProvinceActive))
         {
             <button type="button" @onclick="@((e) => Selectionner(e, "L'Anguille"))" class="mr-1 btn btn-sm @(ProvinceActive == "L'Anguille" ? "btn-primary" : "btn-secondary")">
                 L'Anguille
@@ -132,8 +132,8 @@
 
     private int _regleId;
 
-    private List<string> EmpireProvinces = new List<string> {"Empire","Averland","Hochland","Middenland","Nordland","Ostermark","Ostland","Reikland","Stirland","Talabecland","Wissenland","Sylvanie","Strigany","Mutant"};
-    private List<string> BretonnieDuches = new List<string> {"Bretonnie","L'Anguille","Aquitanie","Artenois","Bastogne","Bordeleaux","Brionne","Couronne","Gasconnie","Gisoreux","Lyonesse","Monfort","Mousillon","Parravon","Quenelles"};
+    private List<string> _empireProvinces = new List<string> {"Empire","Averland","Hochland","Middenland","Nordland","Ostermark","Ostland","Reikland","Stirland","Talabecland","Wissenland","Sylvanie","Strigany","Mutant"};
+    private List<string> _bretonnieDuches = new List<string> {"Bretonnie","L'Anguille","Aquitanie","Artenois","Bastogne","Bordeleaux","Brionne","Couronne","Gasconnie","Gisoreux","Lyonesse","Monfort","Mousillon","Parravon","Quenelles"};
     protected override void OnParametersSet()
     {
         _regleId = ProvinceActive switch

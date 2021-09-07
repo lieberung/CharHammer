@@ -1,14 +1,11 @@
-﻿using System;
-using System.Diagnostics;
-using BlazorWjdr.DataSource.JsonDto;
-using BlazorWjdr.Pages;
-
-namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services
 {
+    using System;
+    using System.Diagnostics;
+    using DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
 
     public class BestiolesService
     {
@@ -95,7 +92,7 @@ namespace BlazorWjdr.Services
                     Origines = (c.origines ?? Array.Empty<int>()).Select(id => _lieuxService.GetLieu(id)).ToArray(),
                     Traits = (c.traits ?? Array.Empty<int>()).Select(id => _compTalentsEtTraitsService.GetTrait(id)).ToArray(),
                     // Personnage
-                    fk_signeastralid = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].fk_signeastralid : null,
+                    SigneAstralId = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].fk_signeastralid : null,
                     Cheveux = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].cheveux : "",
                     Yeux = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].yeux : "",
                     FreresEtSoeurs = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].freres_et_soeurs : "",
@@ -118,10 +115,6 @@ namespace BlazorWjdr.Services
                     XpTotal = cachePj.ContainsKey(c.id) ? cachePj[c.id].xp_total : 0,
                 })
                 .ToDictionary(k => k.Id);
-
-            //_dataBestioles.Clear();
-            //_dataPersonnages.Clear();
-            //_dataPjs.Clear();
         }
     }
 }
