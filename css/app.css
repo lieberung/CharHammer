@@ -75,6 +75,7 @@ a:-webkit-any-link .tooltip-wrapper { cursor:pointer; }
 }
 .btn.btn-item.btn-special { color:white; background-color:#80390f; }
 .btn.btn-item.btn-special .item-icon { color:white; }
+.btn-sm { font-size: .675rem; }
 
 .alert-danger{
     padding: .12rem .60rem;

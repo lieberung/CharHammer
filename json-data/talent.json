@@ -380,7 +380,7 @@
         "description":"Comme Charge Berserk mais augmente le BF ce qui revient au même, donc sûrement une erreur... à voir ce qu'on en fait."},
       {"id":274,"nom":"Pêcheur","nom_en":"Fisherman","max":"Bonus d'Initiative",
         "resume":"",
-        "description":"You are a very capable fisherman and know all the best ways to land  fish.  Assuming  a  large  enough  body  of  water  is  available, you are automatically assumed to be able to fish enough to feed yourself and a number of others equal to your level in Fisherman, assuming you choose to spend at least an hour or so with a line and bait. You may secure more fish in addition to this using the normal rules for foraging (see page 127)."},
+        "description":"You are a very capable fisherman and know all the best ways to land fish. Assuming a large enough body of water is available, you are automatically assumed to be able to fish enough to feed yourself and a number of others equal to your level in Fisherman, assuming you choose to spend at least an hour or so with a line and bait. You may secure more fish in addition to this using the normal rules for foraging (see page 127)."},
       {"id":275,"nom":"Ame pûre","nom_en":"Pure Soul","max":"Bonus de Force Mentale",
         "resume":"",
         "description":"Your soul is pure, quite resistant to the depredations of Chaos. You may gain extra Corruption points equal to your level of Pure Soul before having to Test to see if you become corrupt."},
