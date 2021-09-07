@@ -61,6 +61,8 @@ namespace BlazorWjdr
             await builder.Build().RunAsync();
         }
 
+        #region Initialize
+        
         private static Dictionary<int, RegleDto> InitializeRegles(
             IEnumerable<JsonRegle> items,
             IReadOnlyDictionary<int, TableDto> tables,
@@ -71,7 +73,7 @@ namespace BlazorWjdr
             IReadOnlyDictionary<int, LieuDto> lieux,
             IReadOnlyDictionary<int, CarriereDto> carrieres)
         {
-            var _cacheRegle = items
+            var cacheRegle = items
                 .Select(r => new RegleDto
                 {
                     Id = r.id,
@@ -95,12 +97,12 @@ namespace BlazorWjdr
                 })
                 .ToDictionary(k => k.Id, v => v);
 
-            foreach (var regle in _cacheRegle.Values)
+            foreach (var regle in cacheRegle.Values)
             {
-                regle.SousRegles = regle.ReglesId.Select(id => _cacheRegle[id]).ToArray();
+                regle.SousRegles = regle.ReglesId.Select(id => cacheRegle[id]).ToArray();
             }
 
-            return _cacheRegle;
+            return cacheRegle;
         }
         
         private static Dictionary<int, BestioleDto> InitializeBestioles(
@@ -199,7 +201,6 @@ namespace BlazorWjdr
             return allLignes;
         }
 
-        
         private static Dictionary<int, RaceDto> InitializeRaces(IEnumerable<JsonRace> items, Dictionary<int, LieuDto> lieux)
         {
             var cache = items
@@ -612,5 +613,7 @@ namespace BlazorWjdr
                 .OrderBy(c => c.Debut).ThenBy(c => c.Fin)
                 .ToArray();
         }
+        
+        #endregion
     }
 }
