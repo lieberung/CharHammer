@@ -35,13 +35,15 @@ namespace BlazorWjdr
             var dataChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
             var dataLieuxTypes = InitializeLieuxTypes(data.LieuxTypes!.items);
             var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
+            var dataDieux = InitializeDieux(data.Dieux!.items);
+            var dataTables = InitializeTables(data.Tables!.items);
             
             builder.Services.AddSingleton(_ => new CompTalentsEtTraitsService(dataCompetences, dataTalents, dataTraits));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
-            builder.Services.AddSingleton(_ => new DieuxService(data.Dieux!.items));
+            builder.Services.AddSingleton(_ => new DieuxService(dataDieux));
             builder.Services.AddSingleton(_ => new ReferencesService(dataReferences));
             builder.Services.AddSingleton(_ => new ProfilsService(dataProfils));
-            builder.Services.AddSingleton(_ => new TablesService(data.Tables!.items));
+            builder.Services.AddSingleton(_ => new TablesService(dataTables));
             builder.Services.AddSingleton(_ => new ChronologieService(dataChrono));
 
             // Avec dépendances sans dépendance
@@ -70,7 +72,46 @@ namespace BlazorWjdr
 
             await builder.Build().RunAsync();
         }
+        
+        private static Dictionary<int, TableDto> InitializeTables(IEnumerable<JsonTable> items)
+        {
+            return items
+                .Select(c => new TableDto
+                {
+                    Id = c.id,
+                    Titre = c.titre,
+                    Description = c.description,
+                    StylesHeader = c.styles_th ?? Array.Empty<string>(),
+                    StylesRows = c.styles_td ?? Array.Empty<string>(),
+                    Lignes = c.lignes
+                })
+                .ToDictionary(k => k.Id, v => v);
+        }
+        
+        private static Dictionary<int, DieuDto> InitializeDieux(IEnumerable<JsonDieu> items)
+        {
+            var cache = items
+                .Select(c => new DieuDto
+                {
+                    Id = c.id,
+                    Nom = c.nom,
+                    Commentaire = c.comment,
+                    Domaines = c.domaines,
+                    Fideles = c.fideles,
+                    Histoire = c.histoire,
+                    Symboles = c.symboles,
+                    SymbolesImages = c.symboles_image
+                })
+                .ToDictionary(k => k.Id, v => v);
 
+            foreach (var dieu in cache.Values.Where(d => d.PatronId.HasValue))
+            {
+                dieu.Patron = cache[dieu.PatronId!.Value];
+            }
+
+            return cache;
+        }
+        
         private static Dictionary<int, LieuTypeDto> InitializeLieuxTypes(IEnumerable<JsonLieuType> items)
         {
             var result = items
