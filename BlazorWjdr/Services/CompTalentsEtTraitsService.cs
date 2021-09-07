@@ -33,33 +33,20 @@
         }
 
         public IEnumerable<TalentDto> GetTalents(IEnumerable<int> ids) => ids.Select(GetTalent).OrderBy(t => t.Nom).ToArray();
-        public TalentDto GetTalent(int id)
-        {
-            return _cacheTalents[id];
-        }
+        public TalentDto GetTalent(int id) => _cacheTalents[id];
 
-        public IEnumerable<TalentDto> AllTalents
-        {
-            get
-            {
-                return _cacheTalents.Values.OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
-            }
-        }
+        public IEnumerable<TalentDto> AllTalents => _cacheTalents.Values.OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
         
         public IEnumerable<TraitDto> GetTraits(IEnumerable<int> ids) => ids.Select(GetTrait).OrderBy(t => t.Nom).ToArray();
-        public TraitDto GetTrait(int id)
-        {
-            return _cacheTraits[id];
-        }
+        public TraitDto GetTrait(int id) => _cacheTraits[id];
 
-        public IEnumerable<TraitDto> AllTraits
-        {
-            get
-            {
-                return _cacheTraits.Values.OrderBy(c => c.Nom).ThenBy(c => c.Spe);
-            }
-        }
+        public IEnumerable<TraitDto> AllTraits => _cacheTraits.Values.OrderBy(c => c.Nom).ThenBy(c => c.Spe);
         
+        public List<CompetenceDto> AllMeleeSpecialisations =>
+            CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
+        public List<CompetenceDto> AllTirSpecialisations =>
+            CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
+
         #region Competences & Talents
         
         // Caractéristiques

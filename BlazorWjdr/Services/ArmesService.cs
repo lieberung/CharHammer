@@ -1,115 +1,36 @@
 ﻿namespace BlazorWjdr.Services
 {
-    using DataSource.JsonDto;
     using Models;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Diagnostics;
     
     public class ArmesService
     {
-        private readonly CompTalentsEtTraitsService _compTalentsEtTraitsService;
+        private readonly Dictionary<int, ArmeAttributDto> _cacheArmeAttribut;
 
-        private readonly List<JsonArmeAttribut> _dataArmesAttributs;
-        private Dictionary<int, ArmeAttributDto>? _cacheArmeAttribut;
-
-        private readonly List<JsonArme> _dataArmes;
-        private Dictionary<int, ArmeDto>? _cacheArme;
+        private readonly Dictionary<int, ArmeDto> _cacheArme;
 
         private Dictionary<string, List<ArmeDto>>? _armesDeContactPourTable;
         private Dictionary<string, List<ArmeDto>>? _armesADistancePourTable;
 
-        public ArmesService(List<JsonArmeAttribut> dataArmesAttributs, List<JsonArme> dataArmes, CompTalentsEtTraitsService compTalentsEtTraitsService)
+        public ArmesService(Dictionary<int, ArmeAttributDto> dataArmesAttributs, Dictionary<int, ArmeDto> dataArmes)
         {
-            _dataArmesAttributs = dataArmesAttributs;
-            _dataArmes = dataArmes;
-            _compTalentsEtTraitsService = compTalentsEtTraitsService;
+            _cacheArmeAttribut = dataArmesAttributs;
+            _cacheArme = dataArmes;
         }
 
-        private Dictionary<int, ArmeAttributDto> AllAttributsDArme
-        {
-            get
-            {
-                if (_cacheArmeAttribut == null)
-                    Initialize();
-                Debug.Assert(_cacheArmeAttribut != null, nameof(_cacheArmeAttribut) + " != null");
-                return _cacheArmeAttribut;
-            }
-        }
+        public List<ArmeAttributDto> AllGroupesDArmes => _cacheArmeAttribut.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToList();
 
-        public List<ArmeAttributDto> AllGroupesDArmes => AllAttributsDArme.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToList();
-
-        public List<CompetenceDto> AllMeleeSpecialisations =>
-            _compTalentsEtTraitsService.CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
-        public List<CompetenceDto> AllTirSpecialisations =>
-            _compTalentsEtTraitsService.CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
+        public List<ArmeDto> AllArmes => _cacheArme.Values.ToList();
         
-
-        public List<ArmeDto> AllArmes
-        {
-            get
-            {
-                if (_cacheArme == null)
-                    Initialize();
-                Debug.Assert(_cacheArme != null, nameof(_cacheArme) + " != null");
-                return _cacheArme.Values.ToList();
-            }
-        }
-        
-        private ArmeAttributDto GetAttributDArme(int id)
-        {
-            if (_cacheArmeAttribut == null)
-                Initialize();
-            Debug.Assert(_cacheArmeAttribut != null, nameof(_cacheArmeAttribut) + " != null");
-            return _cacheArmeAttribut[id];
-        }
+        private ArmeAttributDto GetAttributDArme(int id) => _cacheArmeAttribut[id];
 
         public List<ArmeDto> GetArmesDeMaitrise(CompetenceDto maitrise) =>
             AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == maitrise.Id)).OrderBy(a => a.Nom).ToList();
 
         public IEnumerable<ArmeDto> GetArmes(IEnumerable<int> ids) => ids.Select(GetArme).ToArray();
 
-        private ArmeDto GetArme(int id)
-        {
-            if (_cacheArme == null)
-                Initialize();
-            Debug.Assert(_cacheArme != null, nameof(_cacheArme) + " != null");
-            return _cacheArme[id];
-        }
-
-        private void Initialize()
-        {
-            _cacheArmeAttribut = _dataArmesAttributs
-                .Select(t => new ArmeAttributDto
-                {
-                    Id = t.id,
-                    Type = t.type,
-                    Nom = t.nom,
-                    Description = t.description
-                }).ToDictionary(k => k.Id, v => v);
-            
-            _cacheArme = _dataArmes
-                .Select(l => new ArmeDto
-                {
-                    Id = l.id,
-                    Nom = l.nom,
-                    Description = l.description ?? "",
-                    Attributs = l.attributs.Select(id => _cacheArmeAttribut[id]).ToList(),
-                    Degats = l.degats,
-                    Disponibilite = l.dispo,
-                    Encombrement = l.enc,
-                    Groupes = l.groupes.Select(id => _cacheArmeAttribut[id]).ToList(),
-                    Allonge = l.allonge ?? "",
-                    Portee = l.portee ?? "",
-                    Prix = l.prix,
-                    Rechargement = l.rechargement ?? "",
-                    CompetencesDeMaitrise = l.competences.Select(id => _compTalentsEtTraitsService.GetCompetence(id)).ToList()
-                })
-                .ToDictionary(k => k.Id, v => v);
-
-            //_dataArmes.Clear();
-            //_dataArmesAttributs.Clear();
-        }
+        private ArmeDto GetArme(int id) => _cacheArme[id];
 
         #region Regroupements pour table
 

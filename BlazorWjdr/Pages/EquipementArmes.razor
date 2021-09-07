@@ -28,7 +28,7 @@
             <div class="col-5">
                 @if (Filtre == "toutes" || Filtre == "melee" || Filtre == "boucliers")
                 {
-                    @foreach (var skillMelee in _armesService.AllMeleeSpecialisations)
+                    @foreach (var skillMelee in _compTalentsEtTraitsService.AllMeleeSpecialisations)
                     {
                         <a href="equipement/armes-liste/@skillMelee.Specialisation/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillMelee.Specialisation ? "btn-primary" : "btn-secondary")">@skillMelee.Specialisation</a>    
                     }
@@ -37,7 +37,7 @@
             <div class="col-5">
                 @if (Filtre == "toutes" || Filtre == "tir" || Filtre == "munitions")
                 {
-                    @foreach (var skillTir in _armesService.AllTirSpecialisations)
+                    @foreach (var skillTir in _compTalentsEtTraitsService.AllTirSpecialisations)
                     {
                         <a href="equipement/armes-liste/@skillTir.Specialisation/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillTir.Specialisation ? "btn-primary" : "btn-secondary")">@skillTir.Specialisation</a>    
                     }

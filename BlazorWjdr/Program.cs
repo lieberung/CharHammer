@@ -17,10 +17,6 @@ namespace BlazorWjdr
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-            //builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            
-            //builder.Services.AddSingleton<ADataClassToRuleThemAllService>();
-            
             var data = new ADataClassToRuleThemAllService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await data.InitializeDataAsync();
             Console.WriteLine("await data.InitializeDataAsync();");
@@ -37,6 +33,14 @@ namespace BlazorWjdr
             var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
             var dataDieux = InitializeDieux(data.Dieux!.items);
             var dataTables = InitializeTables(data.Tables!.items);
+            var dataArmesAttributs = InitializeArmesAttributs(data.ArmesAttributs!.items);
+            var dataArmes = InitializeArmes(data.Armes!.items, dataArmesAttributs, dataCompetences);
+            var dataRaces = InitializeRaces(data.Races!.items, dataLieux);
+            var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
+            var dataBestioles = InitializeBestioles(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items,
+                dataRaces, dataProfils, dataCompetences, dataTalents, dataTraits, dataLieux, dataCarrieres);
+            var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataCompetences, dataTalents,
+                dataTraits, dataLieux, dataCarrieres); 
             
             builder.Services.AddSingleton(_ => new CompTalentsEtTraitsService(dataCompetences, dataTalents, dataTraits));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
@@ -45,32 +49,222 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new ProfilsService(dataProfils));
             builder.Services.AddSingleton(_ => new TablesService(dataTables));
             builder.Services.AddSingleton(_ => new ChronologieService(dataChrono));
-
-            // Avec dépendances sans dépendance
-            var competencesEtTalentsService = builder.Services.BuildServiceProvider().GetRequiredService<CompTalentsEtTraitsService>();
-            builder.Services.AddSingleton(_ => new ArmesService(data.ArmesAttributs!.items, data.Armes!.items, competencesEtTalentsService));
-
-
-            // Avec dépendances de baisé
-            var lieuxService = builder.Services.BuildServiceProvider().GetRequiredService<LieuxService>();
-            builder.Services.AddSingleton(_ => new RacesService(data.Races!.items, lieuxService));
-
-            var profilsService = builder.Services.BuildServiceProvider().GetRequiredService<ProfilsService>();
+            builder.Services.AddSingleton(_ => new ArmesService(dataArmesAttributs, dataArmes));
             builder.Services.AddSingleton(_ => new CarrieresService(dataCarrieres));
-
-            var carrieresService = builder.Services.BuildServiceProvider().GetRequiredService<CarrieresService>();
-            var racesService = builder.Services.BuildServiceProvider().GetRequiredService<RacesService>();
-            builder.Services.AddSingleton(_ => new TableDesCarrieresInitialesService(data.CarrieresInitiales!.items, racesService, carrieresService));
-
-            builder.Services.AddSingleton(_ => new BestiolesService(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items, racesService, competencesEtTalentsService, lieuxService, profilsService, carrieresService));
-
-            var bestiolesService = builder.Services.BuildServiceProvider().GetRequiredService<BestiolesService>();
-            var tablesService = builder.Services.BuildServiceProvider().GetRequiredService<TablesService>();
-            builder.Services.AddSingleton(_ => new ReglesService(data.Regles!.items, carrieresService, competencesEtTalentsService, bestiolesService, tablesService, lieuxService));
+            builder.Services.AddSingleton(_ => new RacesService(dataRaces));
+            builder.Services.AddSingleton(_ => new TableDesCarrieresInitialesService(dataTablesCarrInit));
+            builder.Services.AddSingleton(_ => new BestiolesService(dataBestioles));
+            builder.Services.AddSingleton(_ => new ReglesService(dataRegles));
 
             builder.RootComponents.Add<App>("#app");
 
             await builder.Build().RunAsync();
+        }
+
+        private static Dictionary<int, RegleDto> InitializeRegles(
+            IEnumerable<JsonRegle> items,
+            IReadOnlyDictionary<int, TableDto> tables,
+            IReadOnlyDictionary<int, BestioleDto> bestioles,
+            IReadOnlyDictionary<int, CompetenceDto> competences,
+            IReadOnlyDictionary<int, TalentDto> talents,
+            IReadOnlyDictionary<int, TraitDto> traits,
+            IReadOnlyDictionary<int, LieuDto> lieux,
+            IReadOnlyDictionary<int, CarriereDto> carrieres)
+        {
+            var _cacheRegle = items
+                .Select(r => new RegleDto
+                {
+                    Id = r.id,
+                    Html = r.html,
+                    Titre = r.titre,
+                    ReglesId = r.regles ?? Array.Empty<int>(),
+                    Carrieres = (r.carrieres ?? Array.Empty<int>()).Select(id => carrieres[id]).ToArray(),
+                    Competences = (r.competences ?? Array.Empty<int>()).Select(id =>competences[id]).ToArray(),
+                    ChoixCompetences = r.choixcompetences != null
+                        ? r.choixcompetences.Select(choix => choix.Select(id => competences[id]).ToArray()).ToList()
+                        : new List<CompetenceDto[]>(),
+                    Talents = (r.talents ?? Array.Empty<int>()).Select(id => talents[id]).ToArray(),
+                    Traits = (r.traits ?? Array.Empty<int>()).Select(id => traits[id]).ToArray(),
+                    ChoixTalents = r.choixtalents != null
+                        ? r.choixtalents.Select(choix => choix.Select(id => talents[id]).ToArray()).ToList()
+                        : new List<TalentDto[]>(),
+                    Bestioles = (r.bestioles ?? Array.Empty<int>()).Select(id => bestioles[id]).ToArray(),
+                    Tables = (r.tables ?? Array.Empty<int>()).Select(id => tables[id]).ToArray(),
+                    Lieux = (r.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    Regle = r.regle
+                })
+                .ToDictionary(k => k.Id, v => v);
+
+            foreach (var regle in _cacheRegle.Values)
+            {
+                regle.SousRegles = regle.ReglesId.Select(id => _cacheRegle[id]).ToArray();
+            }
+
+            return _cacheRegle;
+        }
+        
+        private static Dictionary<int, BestioleDto> InitializeBestioles(
+            IEnumerable<JsonBestiole> items,
+            IEnumerable<JsonPj> pjs,
+            IEnumerable<JsonPersonnage> personnages,
+            IReadOnlyDictionary<int, RaceDto> races,
+            IReadOnlyDictionary<int, ProfilDto> profils,
+            IReadOnlyDictionary<int, CompetenceDto> competences,
+            IReadOnlyDictionary<int, TalentDto> talents,
+            IReadOnlyDictionary<int, TraitDto> traits,
+            IReadOnlyDictionary<int, LieuDto> lieux,
+            IReadOnlyDictionary<int, CarriereDto> carrieres)
+        {
+            var cachePersonnage = personnages.ToDictionary(k => k.id);
+            var cachePj = pjs.ToDictionary(k => k.id);
+
+            return items
+                .Select(c => new BestioleDto
+                {
+                    Id = c.id,
+                    EstUnPersonnage = cachePersonnage.ContainsKey(c.id),
+                    EstUnPersonnageJoueur = cachePj.ContainsKey(c.id),
+                    Userid = c.user,
+                    MembreDe = c.membrede,
+                    Age = c.age,
+                    Commentaire = c.comment,
+                    Histoire = c.histoire,
+                    Nom = c.nom,
+                    Poids = c.poids,
+                    Psychologie = c.psycho,
+                    Race = races[c.race],
+                    Sexe = c.sexe,
+                    Taille = c.taille,
+                    ProfilActuel = profils[c.profil_actuel],
+                    CompetencesAcquises = CompetenceAcquise.GetList(
+                        (c.competences ?? Array.Empty<int>()).Select(id => competences[id]).ToArray()
+                    ),
+                    Talents = (c.talents ?? Array.Empty<int>()).Select(id => talents[id]).ToArray(),
+                    Origines = (c.origines ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    Traits = (c.traits ?? Array.Empty<int>()).Select(id => traits[id]).ToArray(),
+                    // Personnage
+                    SigneAstralId = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].fk_signeastralid : null,
+                    Cheveux = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].cheveux : "",
+                    Yeux = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].yeux : "",
+                    FreresEtSoeurs = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].freres_et_soeurs : "",
+                    MainDirectrice = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].main_directrice : 0,
+                    Mort = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].mort,
+                    CarriereDuPere = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].fk_carrierepereid.HasValue ?
+                        carrieres[cachePersonnage[c.id].fk_carrierepereid!.Value] : null,
+                    CarriereDeLaMere = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].fk_carrieremereid.HasValue ?
+                        carrieres[cachePersonnage[c.id].fk_carrieremereid!.Value] : null,
+                    // PJ
+                    Joueur = cachePj.ContainsKey(c.id) ? cachePj[c.id].nom_joueur : "",
+                    CheminementPro = cachePersonnage.ContainsKey(c.id) ?
+                        cachePersonnage[c.id].fk_cheminprofess != null ?
+                            cachePersonnage[c.id].fk_cheminprofess!.Select(id => carrieres[id]) .ToArray()
+                            : Array.Empty<CarriereDto>()
+                        : Array.Empty<CarriereDto>(),
+                    
+                    ProfilInitial = cachePj.ContainsKey(c.id) ? profils[cachePj[c.id].fk_profilinitialid] : null,
+                    XpActuel = cachePj.ContainsKey(c.id) ? cachePj[c.id].xp_actuel : 0,
+                    XpTotal = cachePj.ContainsKey(c.id) ? cachePj[c.id].xp_total : 0,
+                })
+                .ToDictionary(k => k.Id);
+        }
+        
+        private static Dictionary<int, List<LigneDeCarriereInitialeDto>> InitializeTablesCarrieresInitiales(
+            IEnumerable<JsonTableCarriereInitiale> items,
+            IReadOnlyDictionary<int, RaceDto> races,
+            IReadOnlyDictionary<int, CarriereDto> carrieres)
+        {
+            var lignesEnVrac = items
+                .Select(l => new LigneDeCarriereInitialeDto
+                {
+                    Carriere = carrieres[l.carriere],
+                    Facteur = l.facteur,
+                    Race = races[l.race]
+                })
+                .ToList();
+
+            var allLignes = lignesEnVrac
+                .Select(l => l.Race.Id)
+                .Distinct()
+                .ToDictionary(k => k, _ => new List<LigneDeCarriereInitialeDto>());
+
+            foreach (var raceId in allLignes.Keys)
+            {
+                allLignes[raceId].AddRange(lignesEnVrac
+                    .Where(l => l.Race.Id == raceId)
+                    .OrderBy(l => l.Carriere.Groupe)
+                    .ThenBy(l => l.Carriere.Nom)
+                );
+            }
+
+            return allLignes;
+        }
+
+        
+        private static Dictionary<int, RaceDto> InitializeRaces(IEnumerable<JsonRace> items, Dictionary<int, LieuDto> lieux)
+        {
+            var cache = items
+                .Select(r => new RaceDto {
+                    Id = r.id,
+                    Description = r.description,
+                    Lieux = (r.lieux_ids ?? System.Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    GroupOnly = r.group_only,
+                    NomFeminin = r.nom_feminin,
+                    NomMasculin = r.nom_masculin,
+                    ParentId = r.parent_id,
+                    PourPj = r.pj
+                })
+                .ToDictionary(k => k.Id);
+
+            foreach (var race in cache.Values.Where(d => d.ParentId.HasValue))
+            {
+                race.Parent = cache[race.ParentId!.Value];
+            }
+            
+            foreach (var lieu in cache.Values)
+            {
+                lieu.SousElements.AddRange(cache.Values
+                    .Where(c=>c.Parent == lieu)
+                    .OrderBy(c => c.NomMasculin));                
+            }
+
+            return cache;
+        }
+        
+        private static Dictionary<int, ArmeAttributDto> InitializeArmesAttributs(IEnumerable<JsonArmeAttribut> items)
+        {
+            return items
+                .Select(t => new ArmeAttributDto
+                {
+                    Id = t.id,
+                    Type = t.type,
+                    Nom = t.nom,
+                    Description = t.description
+                }).ToDictionary(k => k.Id);
+        }
+        
+        private static Dictionary<int, ArmeDto> InitializeArmes(
+            IEnumerable<JsonArme> items, 
+            IReadOnlyDictionary<int, ArmeAttributDto> cacheAttributs, 
+            IReadOnlyDictionary<int, CompetenceDto> cacheCompetences)
+        {
+            return items
+                .Select(l => new ArmeDto
+                {
+                    Id = l.id,
+                    Nom = l.nom,
+                    Description = l.description ?? "",
+                    Attributs = l.attributs.Select(id => cacheAttributs[id]).ToList(),
+                    Degats = l.degats,
+                    Disponibilite = l.dispo,
+                    Encombrement = l.enc,
+                    Groupes = l.groupes.Select(id => cacheAttributs[id]).ToList(),
+                    Allonge = l.allonge ?? "",
+                    Portee = l.portee ?? "",
+                    Prix = l.prix,
+                    Rechargement = l.rechargement ?? "",
+                    CompetencesDeMaitrise = l.competences.Select(id => cacheCompetences[id]).ToList()
+                })
+                .ToDictionary(k => k.Id);
         }
         
         private static Dictionary<int, TableDto> InitializeTables(IEnumerable<JsonTable> items)
