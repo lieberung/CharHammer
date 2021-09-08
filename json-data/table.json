@@ -492,6 +492,17 @@
         ["8-9","Solution de mercure","Absorber le remède octroie 1 point de folie."],
         ["9+","Purge médicinale","Poison. Le consommateur doit réussir un Test de Résistance sous peine de recevoir une Condition Empoisonné."]
       ]
+    },
+    {"id":666,"titre":"Colère Divine !",
+      "description": "Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.\nAprès avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.",
+      "lignes":[
+        ["Score","Conséquences"],
+        ["01-05","Holy Visions: Visions of your god plague your senses. Attempt an Average (+20) Endurance Test. If you fail gain one Stunned Condition. The GM determines what the visions may be."],
+        ["06-10","Think Over Your Deeds: Any successful Pray test cannot achieve more than +0 SL for the next week."],
+        ["11-15","Heed My Lessons: You suffer a penalty of –10 to your Pray Skill for the next 1d10+Sin points Rounds."],
+        ["16-20","Prove Your Devotion: Gain the Prone Condition. This Condition is not removed until you score a Success with an Average (+20) Pray Test."],
+        ["21-25","You Try My Patience: You cannot enact any Pray Tests for 1d10 Rounds."]
+      ]
     }
   ]
 }
