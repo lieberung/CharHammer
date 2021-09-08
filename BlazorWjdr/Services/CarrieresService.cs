@@ -655,7 +655,8 @@
         public IEnumerable<CarriereDto> CarrieresMilitaires => GetCarrieres(new [] { 296, 316, 297, 154, 155, 319, 156, 161, 252, 162, 253, 254, 286, 36, 274, 40, 41, 301, 171, 46, 129, 48, 203, 112, 256, 53, 54, 185, 187, 197, 73, 259 });
 
 
-        private CarriereDto CarriereInitie => GetCarriere(52);
+        public CarriereDto CarriereInitie => GetCarriere(52);
+        public CarriereDto CarriereNovice => GetCarriere(133);
         private CarriereDto CarrierePretre => GetCarriere(189);
         private CarriereDto CarrierePretreConsacre => GetCarriere(190);
         private CarriereDto CarriereGrandPretre => GetCarriere(172);

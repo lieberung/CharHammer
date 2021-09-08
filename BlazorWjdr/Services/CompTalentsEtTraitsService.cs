@@ -279,6 +279,10 @@
         public TraitDto TraitVisionNocturne => GetTrait(903);
         public TalentDto TalentSensAiguisés => GetTalent(80);
         
+        public CompetenceDto CompetencePriere => GetCompetence(225);
+        public TalentDto TalentBenediction => GetTalent(277);
+        public TalentDto TalentInspirationDivine => GetTalent(278);
+        
         #endregion
         
         public CompetenceDto[] RechercheCompetences(string searchText)

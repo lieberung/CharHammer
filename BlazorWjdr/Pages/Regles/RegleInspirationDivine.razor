@@ -1,0 +1,102 @@
+﻿@page "/regles/inspiration-divine/"
+
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Table
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Services
+
+@inject CarrieresService _carrSvc
+@inject TablesService _tableSvc
+@inject CompTalentsEtTraitsService _cttSvc
+
+<MainTopRow>
+    <h3 class="card-title">Cheminement professionnel</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="row">
+        <div class="col-4">
+            <div class="card-bis">
+                <div class="card-body">
+                    
+                    <h3 class="card-title">Prières, Bénédictions et Miracles</h3>
+                    
+                    <p class="card-text">
+                        Un petit nombre de fidèles se démarquent de leurs pairs, apparemment en mesure de faire appel à l'intervention directe de leur divinité dans la forme de miracles. Ceux qui accomplissent de tels exploits sont connus par de nombreux noms dans différentes parties du Vieux Monde - y compris : Saints vivants, serviteurs des dieux, les volontés divines sanctifiées - mais, dans l'Empire, ils sont le plus souvent appelé « Bienheureux », qui est souvent utilisé comme titre.
+                    </p>
+                    
+                    <p class="card-text">
+                        Un personnage qui souhaite lancer des sorts divins doit montrer un intérêt certain pour les préceptes d'un dieu et généralement entamer une carrière d'<CarriereItem Item="@_carrSvc.CarriereInitie"/> ou de <CarriereItem Item="@_carrSvc.CarriereNovice"/>, qui lui permettront d'apprendre la Compétence <CompetenceItem Item="@_cttSvc.CompetencePriere"/>.
+                        <br/>
+                        C'est ensuite l'acquisition du talent <TalentItem Item="@_cttSvc.TalentBenediction"/> qui lui permettra d'accéder aux six Bénédictions proposées par son Domaine Divin, sans avoir à dépenser d'expérience supplémentaire.
+                        <br/>
+                        Enfin, l'acquisition du talent <TalentItem Item="@_cttSvc.TalentInspirationDivine"/> lui permettra d'acquérir un premier Miracle parmi ceux disponibles dans son Domaine Divin, puis dépenser des xp pour en acquérir d'autres.
+                    </p>
+                    
+                    <h4 class="card-title">Lancer un sort</h4>
+                    <p class="card-text">
+                        Pour lancer une Bénédiction ou un Miracle, le personnage doit énoncer une prière. Cela ce traduit par un Test de <CompetenceItem Item="@_cttSvc.CompetencePriere"/>.
+                        <br/>
+                        Sur un succès, la Bénédiction ou le Miracle se manifeste conformément à sa description, et un BS élevé pourra même en amplifier les effets.
+                        <br/>
+                        Sur un échec votre dieu, pour une raison ou une autre, refuse de vous entendre. Sur un Echec Critique, vous avez offensé votre dieu et devez effectuer un jet sur la <strong>Table de la Colère Divine</strong>. 
+                    </p>
+                    <p>
+                        <strong>Limitations</strong><br/>
+                        <ul>
+                            <li>Vous devez être capable de parler pour entonner la prière, le rite ou le chant requis pour accomplir une Bénédiction ou un Miracle.</li>
+                            <li>Chacun de vos sort (bénédiction ou miracle) ne peut être effectif qu'une seule fois à un moment donné : vous devez donc attendre que l'un d'eux se termine pour pouvoir le lancer à nouveau.</li>
+                            <li>De plus si deux personnages lance le même sort sur la même cible, leur effet n'est pas cumulatif.</li>
+                        </ul>
+                    </p>
+                    
+                    <h3 class="card-title">Points de Péché</h3>
+                    <p class="card-text">
+                        Les bienheureux sont surveillés de près par les dieux et risquent de gagner leur
+                        défaveur s'ils devaient agir contrairement à leurs préceptes ou à leur volonté.
+                        Dans le jeu, cela est représenté par des Points de Péché.
+                        Si vous violez l'une des restrictions de votre culte, le MJ vous attribuera un ou plusieurs Points de Péché.
+                        Chaque fois que vous recevez un Point de Péché, il est ajouté à votre total cumulé.
+                        Il y a pas de maximum au nombre de points de péché que vous pouvez gagner.
+                        PLus vous en avez, plus votre dieu est susceptible d'être contrarié lorsque vous lui faites appel via vos prières.
+                    </p>
+                    <h4 class="card-title"><em>Tu es dans le péché !</em></h4>
+                    <p class="card-text">
+                        <em>
+                            Les prêtres bénis peuvent briser leur restrictions à de nombreuses occasions ;
+                            Le MJ doit tenir compte de l'ampleur de l'infraction lors de l'attribution des points de péché, et les allouer en conséquence, généralement de 1 à 3.
+                            Par exemple, l'une des préceptes du culte de Myrmidia est de respecter les prisonniers de guerre.
+                            Si un prêtre myrmidien devaient refuser à un prisonnier de guerre assoiffé de boire de l'eau, cela peut rapporter un seul point de péché.
+                            Battre un prisonnier serait une grande infraction, procurant peut-être 2 points.
+                            Torturer ou tuer un prisonnier sans défense est inacceptable à Myrmidia, garantissant 3 points voir plus.
+                        </em>
+                    </p>
+                    <h4 class="card-title">Conséquences</h4>
+                    <p class="card-text">
+                        Faire appel à votre divinité lorsque vous avez agi contrairement à sa volonté est risqué.
+                        Chaque fois que vous faites un Test de <CompetenceItem Item="@_cttSvc.CompetencePriere"/>, si le dé des unités du jet est égal ou inférieur à votre Score de Péché actuel, vous subirez la Colère des Dieux, même si le test est réussi.
+                    </p>
+                </div>
+                
+                <div class="col-8">
+                    <h3 class="card-title">La Colère Divine</h3>
+                    <p class="card-text">
+                        Un jet sur la Table de la Colère Divine est effectué chaque fois que vous faites un Echec Critique sur un Test de <CompetenceItem Item="@_cttSvc.CompetencePriere"/>,
+                        ou lorsque le dé des unités du jet est égal ou inférieur à vos Points de Péché actuels.
+                        Le MJ peut aussi y faire un jet ou choisir une conséquence chaque fois qu'un personnage insultez bêtement l'un des dieux.
+                    </p>
+                    <p class="card-text">
+                        Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.
+                        <br/>
+                        Après avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.
+                    </p>
+                    <TableDetail Item="@_tableSvc.GetTable(666)" MasquerDescription="@true"/>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>

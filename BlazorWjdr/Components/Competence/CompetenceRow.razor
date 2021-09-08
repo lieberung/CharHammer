@@ -6,7 +6,7 @@
     <td>
         @if (_carrieresLiees.Any())
         {
-            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
+            <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
                 <span class="oi oi-badge" aria-hidden="true"></span>
             </span>
         }
@@ -14,7 +14,7 @@
     <td>
         @if (Item.SousElements.Any())
         {
-            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+            <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
                 <span class="oi oi-layers" aria-hidden="true"></span>
             </span>
         }
