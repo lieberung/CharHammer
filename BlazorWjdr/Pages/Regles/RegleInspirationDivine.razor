@@ -16,7 +16,7 @@
 
 <div class="content px-4">
 
-    <div class="row">
+    <div class="row mb-3">
         <div class="col-4">
             <!--div class="card-body"-->
 
@@ -40,7 +40,7 @@
         </div>
 
         <div class="col-4">
-            <h4 class="card-title">Lancer un sort</h4>
+            <h3 class="card-title">Lancer un sort</h3>
             <p class="card-text">
                 Pour lancer une Bénédiction ou un Miracle, le personnage doit énoncer une prière. Cela ce traduit par un Test de <CompetenceItem Item="@_cttSvc.CompetencePriere"/>.
                 <br/>
@@ -108,17 +108,19 @@
 
 <div class="row">
     <div class="col-12">
-        <h3 class="card-title">La Colère Divine</h3>
-        <p class="card-text">
-            Un jet sur la Table de la Colère Divine est effectué chaque fois que vous faites un Echec Critique sur un Test de <CompetenceItem Item="@_cttSvc.CompetencePriere"/>,
-            ou lorsque le dé des unités du jet est égal ou inférieur à vos Points de Péché actuels.
-            Le MJ peut aussi y faire un jet ou choisir une conséquence chaque fois qu'un personnage insultez bêtement l'un des dieux.
-        </p>
-        <p class="card-text">
-            Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.
-            <br/>
-            Après avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.
-        </p>
-        <TableDetail Item="@_tableSvc.GetTable(666)" MasquerDescription="@true"/>
+        <div class="card-body">
+            <h3 class="card-title">La Colère Divine</h3>
+            <p class="card-text">
+                Un jet sur la Table de la Colère Divine est effectué chaque fois que vous faites un Echec Critique sur un Test de <CompetenceItem Item="@_cttSvc.CompetencePriere"/>,
+                ou lorsque le dé des unités du jet est égal ou inférieur à vos Points de Péché actuels.
+                Le MJ peut aussi y faire un jet ou choisir une conséquence chaque fois qu'un personnage insultez bêtement l'un des dieux.
+            </p>
+            <p class="card-text">
+                Lorsqu'un personnage fait un jet sur la table, <strong>ajoutez +10</strong> au résultat pour <strong>chacun de ses Points de Péché</strong>.
+                <br/>
+                Après avoir considéré les conséquences, <strong>réduisez ses Points de Péché de 1</strong>, jusqu'à un minimum de 0.
+            </p>
+            <TableDetail Item="@_tableSvc.GetTable(666)" MasquerDescription="@true"/>
+        </div>
     </div>
 </div>
