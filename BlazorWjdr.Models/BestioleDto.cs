@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+// ReSharper disable UnusedAutoPropertyAccessor.Global
 
 namespace BlazorWjdr.Models
 {
@@ -50,7 +51,6 @@ namespace BlazorWjdr.Models
         {
             get
             {
-                //if (!CheminementPro.Any()) return "";
                 return string.Join(", ",  
                     CheminementPro.SelectMany(c => c.Dotations.Split(", ")).Distinct().OrderBy(s => s).ToArray()
                 );

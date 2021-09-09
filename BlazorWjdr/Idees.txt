@@ -2,6 +2,8 @@
 assistant de création de creature
 assistant de création d'ennemi
 
+assistant de création de scénar
+
 ajouter blasons empire / bretonnie / kislev sur les carrières
 
 Apprentissage : BFM + BInt * 2 + nb conn distinctes + nb éruditions * 2 

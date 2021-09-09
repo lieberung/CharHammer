@@ -12,7 +12,7 @@
         public List<string> MotsClefDeRecherche { get; set; } = new();
 
         public string? Specialisation { get; init; }
-        public string Resume { private get; init; } = null!;
+        public string Resume { get; init; } = null!;
         public string ResumeComplet { get; private set; } = "";
         public bool EstUneCompetenceDeBase { get; init; }
         public string CaracteristiqueAssociee { get; init; } = null!;
@@ -50,9 +50,9 @@
         public CompetenceDto Competence { get; private init; }
         private int Niveau { get; set; }
 
-        public string Detail => Competence.Nom + (Niveau == 1 ? "" : $" (+{Niveau - 1}0%)");
+        public string Detail => $"{Competence.Nom} (+{Niveau * 5}%)";
 
-        public static CompetenceAcquise[] GetList(CompetenceDto[] competences)
+        public static CompetenceAcquise[] GetList(IEnumerable<CompetenceDto> competences)
         {
             var liste = new List<CompetenceAcquise>();
             foreach (var competence in competences)

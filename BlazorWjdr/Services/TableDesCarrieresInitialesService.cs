@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using BlazorWjdr.Models;
 using System.Linq;
-using BlazorWjdr.DataSource.JsonDto;
 
 namespace BlazorWjdr.Services
 {
     public class TableDesCarrieresInitialesService
     {
-        private Dictionary<int, List<LigneDeCarriereInitialeDto>> _allLignes;
-        
         public TableDesCarrieresInitialesService(Dictionary<int, List<LigneDeCarriereInitialeDto>> data)
         {
-            _allLignes = data;
+            AllLignes = data;
         }
 
-        public Dictionary<int, List<LigneDeCarriereInitialeDto>> AllLignes => _allLignes;
+        public Dictionary<int, List<LigneDeCarriereInitialeDto>> AllLignes { get; }
 
         public CarriereDto GetRandomStartingCareer(int raceId)
         {

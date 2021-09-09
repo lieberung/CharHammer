@@ -6,15 +6,15 @@
 
     public class RacesService
     {
-        private Dictionary<int, RaceDto> _cacheRace;
+        private readonly Dictionary<int, RaceDto> _cacheRace;
 
         public RacesService(Dictionary<int, RaceDto> races)
         {
             _cacheRace = races;
         }
 
-        public List<RaceDto> AllRaces => _cacheRace!.Values.ToList();
-        public RaceDto GetRace(int id) => _cacheRace![id];
+        public List<RaceDto> AllRaces => _cacheRace.Values.ToList();
+        public RaceDto GetRace(int id) => _cacheRace[id];
 
         public RaceDto Elfes => GetRace(25);
         public RaceDto Humains => GetRace(1);

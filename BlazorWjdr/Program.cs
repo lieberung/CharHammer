@@ -40,7 +40,7 @@ namespace BlazorWjdr
             var dataBestioles = InitializeBestioles(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items,
                 dataRaces, dataProfils, dataCompetences, dataTalents, dataTraits, dataLieux, dataCarrieres);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataCompetences, dataTalents,
-                dataTraits, dataLieux, dataCarrieres); 
+                dataTraits, dataLieux, dataCarrieres);
             
             builder.Services.AddSingleton(_ => new CompTalentsEtTraitsService(dataCompetences, dataTalents, dataTraits));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
@@ -59,6 +59,113 @@ namespace BlazorWjdr
             builder.RootComponents.Add<App>("#app");
 
             await builder.Build().RunAsync();
+        }
+
+        private void RefonteJson(IEnumerable<CompetenceDto> skills, IEnumerable<TalentDto> talents,
+            IEnumerable<TraitDto> traits, IEnumerable<JsonCarriere> carrieres, IEnumerable<BestioleDto> bestioles)
+        {
+            var aptitudes = new List<JsonAptitude>();
+            aptitudes.AddRange(skills
+                .Select(c => new JsonAptitude
+                {
+                    id = 1000 + c.Id,
+                    id_old = c.Id,
+                    parent = c.Parent?.Id,
+                    carac = c.CaracteristiqueAssociee,
+                    categ = "skill",
+                    categ_spe = c.EstUneCompetenceDeBase ? "bas" : "adv",
+                    description = c.Resume,
+                    ignorer = c.Ignore,
+                    nom = c.Nom,
+                    spe = c.Specialisation,
+                    talents = c.TalentsLies.Select(t => t.Id + 2000).ToArray(),
+                    traits = c.TraitsLies.Select(t => t.Id + 3000).ToArray()
+                }));
+            
+                aptitudes.AddRange(talents.Select(t => new JsonAptitude
+                {
+                    id = 2000 + t.Id,
+                    id_old = t.Id,
+                    parent = t.TalentParentId,
+                    categ = "talent",
+                    categ_spe = t.Trait ? "trait" : "",
+                    description = t.Description,
+                    ignorer = t.Ignore,
+                    max = t.Max,
+                    nom = t.Nom,
+                    spe = t.Specialisation,
+                    resume = t.Resume,
+                    tests = t.Tests,
+                    skills = t.CompetencesLiees.Select(c => 1000 + c.Id).ToArray()
+                }));
+                
+                aptitudes.AddRange(traits.Select(t => new JsonAptitude
+                {
+                    id = 3000 + t.Id,
+                    id_old = t.Id,
+                    categ = "trait",
+                    categ_spe = t.Groupe,
+                    contagieux = t.Contagieux,
+                    description = t.Description,
+                    guerison = t.Guerison,
+                    ignorer = false,
+                    incompatibles = t.Incompatible.Select(id => 3000 + id).ToArray(),
+                    nom = t.Nom,
+                    severite = t.Severite,
+                    spe = t.Spe,
+                }));
+
+                foreach (var apt in aptitudes)
+                {
+                    var list = new List<int>();
+                    list.AddRange(apt.skills ?? Array.Empty<int>());
+                    list.AddRange(apt.talents ?? Array.Empty<int>());
+                    list.AddRange(apt.traits ?? Array.Empty<int>());
+                    apt.aptitudes = list.ToArray();
+                }
+
+                var carrieresFix = carrieres.Select(c => new JsonCarriere
+                {
+                    ambiance = c.ambiance,
+                    aptitudes = GetAptitudes(c.competences ?? Array.Empty<int>(), c.talents ?? Array.Empty<int>(), c.traits ?? Array.Empty<int>()),
+                    aptitudes_choix = GetAptitudesChoix(c.competenceschoix ?? Array.Empty<int[]>(), c.talentschoix ?? Array.Empty<int[]>()),
+                    avancee = c.avancee,
+                    avancements = c.avancements,
+                    competences = c.competences,
+                    competenceschoix = c.competenceschoix,
+                    debouch = c.debouch,
+                    description = c.description,
+                    dotations = c.dotations,
+                    groupe = c.groupe,
+                    id = c.id,
+                    nom = c.nom,
+                    parent = c.parent,
+                    plan = c.plan,
+                    restriction = c.restriction,
+                    source_livre = c.source_livre,
+                    source_page = c.source_page,
+                    talents = c.talents,
+                    talentschoix = c.talentschoix,
+                    traits = c.traits
+                });
+        }
+
+        private int[] GetAptitudes(int[] skills, int[] talents, int[] traits)
+        {
+            var result = new List<int>();
+            result.AddRange(skills.Select(id => 1000 + id));
+            result.AddRange(talents.Select(id => 2000 + id));
+            result.AddRange(traits.Select(id => 3000 + id));
+            return result.ToArray();
+        }
+
+        private int[][] GetAptitudesChoix(IEnumerable<int[]> skills, IEnumerable<int[]> talents)
+        {
+            var result = new List<int[]>();
+            result.AddRange(skills.Select(ids => ids.Select(id => 1000 + id).ToArray()).ToList());
+            result.AddRange(talents.Select(ids => ids.Select(id => 2000 + id).ToArray()).ToList());
+            //result.AddRange(traits.Select(ids => ids.Select(id => 3000 + id).ToArray()).ToList());
+            return result.ToArray();
         }
 
         #region Initialize
@@ -207,7 +314,7 @@ namespace BlazorWjdr
                 .Select(r => new RaceDto {
                     Id = r.id,
                     Description = r.description,
-                    Lieux = (r.lieux_ids ?? System.Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    Lieux = (r.lieux_ids ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                     GroupOnly = r.group_only,
                     NomFeminin = r.nom_feminin,
                     NomMasculin = r.nom_masculin,
