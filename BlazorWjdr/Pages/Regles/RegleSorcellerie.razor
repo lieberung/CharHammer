@@ -1,0 +1,150 @@
+﻿@page "/regles/sorcellerie/"
+
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Table
+@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Services
+
+@inject CarrieresService _carrSvc
+@inject TablesService _tableSvc
+@inject CompTalentsEtTraitsService _cttSvc
+
+<MainTopRow>
+    <h3 class="card-title">Sorcellerie</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="row mb-3">
+        <div class="col-4">
+
+            <p class="card-text">
+                Magical abilities mark you as a figure of terror and awe in the
+                Empire. Prior to the establishment of the Colleges of Magic
+                in Altdorf, those able to wield magic were reviled outlaws.
+                Nowadays being a witch is not illegal, but casting magic without
+                a licence is. Spellcasters within the Empire must either study at
+                the Colleges of Magic, refrain from casting spells, or hope no-one
+                notices their illicit activity. Even licenced wizards are generally
+                feared and avoided — legal status has done nothing to reduce the
+                superstitious dread of the common folk.
+            </p>
+            <p class="card-text">
+                Magic is seen as unnatural and is notorious for its darker
+                elements: the crippling hexes of witchcraft, the raising of the
+                dead, and the summoning of Daemonic entities. Even when
+                practiced according to the teaching of the Colleges, magic can
+                be the cause of trouble. The very source of magic is unstable, and
+                even the most experienced spellcaster can lose focus, resulting in
+                dangerous accidents and unexpected side-effects.
+            </p>
+
+            <h4 class="card-title">L'Aethyr</h4>
+            <p class="card-text">
+                Scholars of magic derive their learning from the Elves, who
+                explained the source of all magical power is the Aethyr. This
+                infinite dimension, said to be the spawning ground of daemons
+                and spirits, exists beyond the physical world. The Elves taught
+                that far to the north of the Empire, a great ragged wound was
+                torn through the fabric of the world to the Aethyr, and it bleeds
+                raw magic. These roiling energies — known as the Winds of
+                Magic — blow throughout the world, gathering and eddying in
+                great heavenly whorls, only to rain down and permeate the land
+                and the creatures dwelling upon it. It is these powerful winds that
+                wizards and witches use to fuel their spells.
+            </p>
+        </div>
+        
+        <div class="col-4">
+            <h4 class="card-title">Les Vents de Magie</h4>
+            <p class="card-text">
+                As magical power bursts into the mortal realm and sweeps
+                down from the north, it splinters and separates, like light splitting
+                through a prism. The Colleges of Magic state this creates eight
+                discrete Winds referred to by colour, each with its own character
+                and strengths. The Elves support this, teaching the same eight
+                winds to their apprentices before moving on to more powerful magics.
+            </p>
+            <p class="card-text">
+                Only a small minority of Humans can perceive the Winds, and
+                even fewer can bend them to their will. Most Elves are sensitive
+                to them, and many possess the ability to see the Winds clearly
+                — commonly known as Second Sight, or just the Sight — with
+                many also able to learn how to cast magic. Dwarfs disdain magic,
+                perhaps because they are partially immune to it, and no Dwarf
+                wizards are known. Halflings are largely indifferent towards magic:
+                except when it delivers impressive or entertaining spectacles.
+                The Elves directed (as a condition of their tuition) that Human
+                spellcasters should each only use a single Wind of Magic. They
+                argued that while it is possible to cast spells by drawing from
+                multiple winds, doing so is a risky proposition for the feeble,
+                corruptible Human mind. This wisdom has been adopted by the
+                Colleges, and each specialises in a single colour.
+                Some witches outside the College system consider these
+                restrictions ludicrous, an attempt by the Elves to keep the most
+                powerful magics to themselves. Drawing on multiple winds is a
+                quick route to power, but also to damnation. Many an unlicensed
+                witch has proved unable to resist this temptation, a practice usually
+                called Dark Magic, only to be brought low by Witch Hunters.
+                Others believe magical energies are not so easily categorised.
+                Many different types of ‘wizard’ and ‘witch’ can be found
+                throughout the Old World, with some practicing magic that
+                seems to lie outside colour magic, such as the cold-hearted Ice
+                Witches of Kislev, or the shamans and sorcerers found amongst
+                some of the other species besetting the Empire, such as the Greenskins.
+            </p>
+        </div>
+        
+        <div class="col-4">
+            <h4 class="card-title">
+                <em>Qu'est-ce que l'Aethyr ?</em>
+            </h4>
+            <p class="card-text">
+                <em>
+                    there is much heated debate between ‘experts’ on the nature of magic. the lecture halls of the empire’s most learned institutions
+                    often see ambitious scholars expound on their latest theories. some liken magic to the backstage of a theatre, a mass of mechanisms,
+                    props, and hidden pulleys responsible for the drama viewed by the audience. others resort to mathematical metaphors, complete with
+                    incomprehensible esoteric diagrams. Although such may end with an air of confident finality, it will only be met with polite coughs,
+                    raised hands, and a litany of objections and exceptions.
+                </em>
+            </p>
+            <h4 class="card-title">La Langue Mystique de la Magie</h4>
+            <p class="card-text">
+                The Winds of Magic may blow through all things incessantly, but
+                they are relatively harmless until harnessed by the Language of
+                Magick. For reasons not fully understood, when certain sounds
+                are uttered by those attuned to magic, the Winds answer. The
+                Colleges of Magic teach a complex language called the lingua
+                praestantia which form the basis of their spells, originally taught
+                to Humanity by the Elves. Although extraordinarily difficult
+                to correctly annunciate, it is a significant simplification of the
+                Elven tongue Anoqeyån, the language used by the Elves to shape
+                their own, more powerful magics. Wizards of the Colleges and
+                the Elves are not alone in their knowledge of the Language of
+                Magick. Its complex forms are also spoken by many magical
+                creatures found across the Old World, including Spirits and
+                Daemons. Many witches seem to instinctively understand the
+                language, almost as if it somehow wormed inside them, begging
+                to be spoken as a spell.
+            </p>
+        </div>
+    </div>
+</div>
+
+<PageSectionDivider/>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card-body">
+            <h3 class="card-title">Les Huit Domaines</h3>
+            <p class="card-text">
+                Each of the eight Winds of Magic has an associated Lore, a
+                body of spells and knowledge its adepts use. Each of the eight
+                Colleges of Magic is dedicated to the study of a single Lore, and
+                their buildings are constructed to focus their Wind to facilitate
+                relatively safe tuition.
+            </p>
+        </div>
+    </div>
+</div>
