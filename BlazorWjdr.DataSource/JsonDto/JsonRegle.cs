@@ -13,6 +13,8 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string regle { get; set; } = null!;
         public int[]? regles { get; set; }
         public int[]? carrieres { get; set; }
+        public int[]? aptitudes { get; set; }
+        public int[][]? aptitudes_choix { get; set; }
         public int[]? competences { get; set; }
         public int[][]? choixcompetences { get; set; }
         public int[]? talents { get; set; }

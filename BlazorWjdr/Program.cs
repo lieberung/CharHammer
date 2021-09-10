@@ -3,11 +3,15 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Linq;
 using System.Threading.Tasks;
 using BlazorWjdr.DataSource.JsonDto;
 using BlazorWjdr.Models;
+using System.Text.Json;
+
 
 namespace BlazorWjdr
 {
@@ -17,11 +21,11 @@ namespace BlazorWjdr
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
-            var data = new ADataClassToRuleThemAllService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            var data = new ADataClassToRuleThemAllService(new HttpClient
+                { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await data.InitializeDataAsync();
-            Console.WriteLine("await data.InitializeDataAsync();");
+            Debug.WriteLine("await data.InitializeDataAsync();");
             
-            // Sans dépendances
             var dataTraits = InitializeTraits(data.Traits!.items);
             var dataTalents = InitializeTalents(data.Talents!.items);
             var dataCompetences = InitializeCompetences(data.Competences!.items, dataTalents, dataTraits);
@@ -37,10 +41,11 @@ namespace BlazorWjdr
             var dataArmes = InitializeArmes(data.Armes!.items, dataArmesAttributs, dataCompetences);
             var dataRaces = InitializeRaces(data.Races!.items, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
-            var dataBestioles = InitializeBestioles(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items,
-                dataRaces, dataProfils, dataCompetences, dataTalents, dataTraits, dataLieux, dataCarrieres);
-            var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataCompetences, dataTalents,
-                dataTraits, dataLieux, dataCarrieres);
+            var dataBestioles = InitializeBestioles(data.Bestioles!.items, data.Pjs!.items, data.Personnages!.items, dataRaces, dataProfils, dataCompetences, dataTalents, dataTraits, dataLieux, dataCarrieres);
+            var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataCompetences, dataTalents, dataTraits, dataLieux, dataCarrieres);
+
+            //throw new Exception("dfdddddddddddddd");
+            string json = RefonteJson(dataCompetences.Values.ToArray(), dataTalents.Values.ToArray(),dataTraits.Values.ToArray(),data.Carrieres!.items, dataBestioles.Values.ToArray(),data.Regles!.items);
             
             builder.Services.AddSingleton(_ => new CompTalentsEtTraitsService(dataCompetences, dataTalents, dataTraits));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
@@ -53,7 +58,7 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new CarrieresService(dataCarrieres));
             builder.Services.AddSingleton(_ => new RacesService(dataRaces));
             builder.Services.AddSingleton(_ => new TableDesCarrieresInitialesService(dataTablesCarrInit));
-            builder.Services.AddSingleton(_ => new BestiolesService(dataBestioles));
+            builder.Services.AddSingleton(_ => new BestiolesService(dataBestioles, json));
             builder.Services.AddSingleton(_ => new ReglesService(dataRegles));
 
             builder.RootComponents.Add<App>("#app");
@@ -61,8 +66,9 @@ namespace BlazorWjdr
             await builder.Build().RunAsync();
         }
 
-        private void RefonteJson(IEnumerable<CompetenceDto> skills, IEnumerable<TalentDto> talents,
-            IEnumerable<TraitDto> traits, IEnumerable<JsonCarriere> carrieres, IEnumerable<BestioleDto> bestioles)
+        private static string RefonteJson(IEnumerable<CompetenceDto> skills, IEnumerable<TalentDto> talents,
+            IEnumerable<TraitDto> traits, IEnumerable<JsonCarriere> carrieres,
+            IEnumerable<BestioleDto> bestioles, IEnumerable<JsonRegle> regles)
         {
             var aptitudes = new List<JsonAptitude>();
             aptitudes.AddRange(skills
@@ -81,76 +87,149 @@ namespace BlazorWjdr
                     talents = c.TalentsLies.Select(t => t.Id + 2000).ToArray(),
                     traits = c.TraitsLies.Select(t => t.Id + 3000).ToArray()
                 }));
+
+            aptitudes.AddRange(talents.Select(t => new JsonAptitude
+            {
+                id = 2000 + t.Id,
+                id_old = t.Id,
+                parent = t.TalentParentId,
+                categ = "talent",
+                categ_spe = t.Trait ? "trait" : "",
+                description = t.Description,
+                ignorer = t.Ignore,
+                max = t.Max,
+                nom = t.Nom,
+                spe = t.Specialisation,
+                resume = t.Resume,
+                tests = t.Tests,
+                skills = t.CompetencesLiees.Select(c => 1000 + c.Id).ToArray()
+            }));
+
+            aptitudes.AddRange(traits.Select(t => new JsonAptitude
+            {
+                id = 3000 + t.Id,
+                id_old = t.Id,
+                categ = "trait",
+                categ_spe = t.Groupe,
+                contagieux = t.Contagieux,
+                description = t.Description,
+                guerison = t.Guerison,
+                ignorer = false,
+                incompatibles = t.Incompatible.Select(id => 3000 + id).ToArray(),
+                nom = t.Nom,
+                severite = t.Severite,
+                spe = t.Spe,
+            }));
+
+            foreach (var apt in aptitudes)
+            {
+                var list = new List<int>();
+                list.AddRange(apt.skills ?? Array.Empty<int>());
+                list.AddRange(apt.talents ?? Array.Empty<int>());
+                list.AddRange(apt.traits ?? Array.Empty<int>());
+                apt.aptitudes = list.ToArray();
+            }
+
+            foreach (var carr in carrieres)
+            {
+                carr.aptitudes = GetAptitudes(carr.competences ?? Array.Empty<int>(),
+                    carr.talents ?? Array.Empty<int>(),
+                    carr.traits ?? Array.Empty<int>());
+                carr.aptitudes_choix = GetAptitudesChoix(carr.competenceschoix ?? Array.Empty<int[]>(),
+                    carr.talentschoix ?? Array.Empty<int[]>());
+            }
+
+            foreach (var regle in regles)
+            {
+                regle.aptitudes = GetAptitudes(
+                    regle.competences ?? Array.Empty<int>(),
+                    regle.talents ?? Array.Empty<int>(),
+                    regle.traits ?? Array.Empty<int>());
+                regle.aptitudes_choix = GetAptitudesChoix(regle.choixcompetences ?? Array.Empty<int[]>(),
+                    regle.choixtalents ?? Array.Empty<int[]>());
+            }
+
+            var creatures = bestioles.Select(b => new JsonCreature
+            {
+                id = b.Id,
+                age = b.Age,
+                cheveux = b.Cheveux,
+                competences = GetCompetencesAcquises(b.CompetencesAcquises),
+                talents = b.Talents.Select(t => t.Id).ToArray(),
+                traits = b.Traits.Select(t => t.Id).ToArray(),
+                date_creation = b.DateDeCreation,
+                description = b.Commentaire,
+                fk_carrieremereid = b.CarriereDeLaMere?.Id,
+                fk_carrierepereid = b.CarriereDuPere?.Id,
+                fk_cheminprofess = b.CheminementPro.Select(c => c.Id).ToArray(),
+                fk_profilinitialid = b.ProfilInitial?.Id,
+                fk_signeastralid = b.SigneAstralId,
+                freres_et_soeurs = b.FreresEtSoeurs,
+                histoire = b.Histoire,
+                main_directrice = b.MainDirectrice,
+                membrede = b.MembreDe,
+                mort = b.Mort,
+                nom = b.Nom,
+                nom_joueur = b.Joueur,
+                origines = b.Origines.Select(o => o.Id).ToArray(),
+                poids = b.Poids,
+                profil_actuel = b.ProfilActuel.Id,
+                psycho = b.Psychologie,
+                race = b.Race.Id,
+                sexe = b.Sexe,
+                taille = b.Taille,
+                user = b.Userid,
+                xp_actuel = b.XpActuel,
+                xp_total = b.XpTotal,
+                yeux = b.Yeux
+            });
+
+            string jsonAptitudes = JsonSerializer.Serialize(new RootAptitude { items = aptitudes.ToList() });
+            string jsonCarrieres = JsonSerializer.Serialize(new RootCarriere { items = carrieres.ToList() });
+            string jsonRegles = JsonSerializer.Serialize(new RootRegle { items = regles.ToList() });
+            string jsonCreatures = JsonSerializer.Serialize(new RootCreature { items = creatures.ToList() });
             
-                aptitudes.AddRange(talents.Select(t => new JsonAptitude
-                {
-                    id = 2000 + t.Id,
-                    id_old = t.Id,
-                    parent = t.TalentParentId,
-                    categ = "talent",
-                    categ_spe = t.Trait ? "trait" : "",
-                    description = t.Description,
-                    ignorer = t.Ignore,
-                    max = t.Max,
-                    nom = t.Nom,
-                    spe = t.Specialisation,
-                    resume = t.Resume,
-                    tests = t.Tests,
-                    skills = t.CompetencesLiees.Select(c => 1000 + c.Id).ToArray()
-                }));
-                
-                aptitudes.AddRange(traits.Select(t => new JsonAptitude
-                {
-                    id = 3000 + t.Id,
-                    id_old = t.Id,
-                    categ = "trait",
-                    categ_spe = t.Groupe,
-                    contagieux = t.Contagieux,
-                    description = t.Description,
-                    guerison = t.Guerison,
-                    ignorer = false,
-                    incompatibles = t.Incompatible.Select(id => 3000 + id).ToArray(),
-                    nom = t.Nom,
-                    severite = t.Severite,
-                    spe = t.Spe,
-                }));
+            
+/*            File.WriteAllText(@"C:\Users\lbernard\Desktop\aptitudes-fix.json", jsonAptitudes);
+            File.WriteAllText(@"C:\Users\Public\carrieres-fix.json", jsonCarrieres);
+            File.WriteAllText("C:\\Users\\lbernard\\Desktop\\regles-fix.json", jsonRegles);
+            File.WriteAllText("C:\\Users\\lbernard\\Desktop\\creatures.json", jsonCreatures);
 
-                foreach (var apt in aptitudes)
-                {
-                    var list = new List<int>();
-                    list.AddRange(apt.skills ?? Array.Empty<int>());
-                    list.AddRange(apt.talents ?? Array.Empty<int>());
-                    list.AddRange(apt.traits ?? Array.Empty<int>());
-                    apt.aptitudes = list.ToArray();
-                }
+            File.WriteAllText("/json-data/fix-aptitudes.json", jsonAptitudes);
+            File.WriteAllText("/json-data/fix-carrieres.json", jsonCarrieres);
+            File.WriteAllText("/json-data/fix-regles-fix.json", jsonRegles);
+            File.WriteAllText("/json-data/fix-creatures.json", jsonCreatures);
 
-                var carrieresFix = carrieres.Select(c => new JsonCarriere
-                {
-                    ambiance = c.ambiance,
-                    aptitudes = GetAptitudes(c.competences ?? Array.Empty<int>(), c.talents ?? Array.Empty<int>(), c.traits ?? Array.Empty<int>()),
-                    aptitudes_choix = GetAptitudesChoix(c.competenceschoix ?? Array.Empty<int[]>(), c.talentschoix ?? Array.Empty<int[]>()),
-                    avancee = c.avancee,
-                    avancements = c.avancements,
-                    competences = c.competences,
-                    competenceschoix = c.competenceschoix,
-                    debouch = c.debouch,
-                    description = c.description,
-                    dotations = c.dotations,
-                    groupe = c.groupe,
-                    id = c.id,
-                    nom = c.nom,
-                    parent = c.parent,
-                    plan = c.plan,
-                    restriction = c.restriction,
-                    source_livre = c.source_livre,
-                    source_page = c.source_page,
-                    talents = c.talents,
-                    talentschoix = c.talentschoix,
-                    traits = c.traits
-                });
+            //File.WriteAllText("C:/Users/lbernard/Desktop/fix-aptitudes.json", jsonAptitudes);
+            File.WriteAllText("./wwwroot/json-data/fix-aptitudes.json", jsonAptitudes);
+            File.WriteAllText("json-data/fix-aptitudes.json", jsonAptitudes);
+            File.WriteAllText("json-data/fix-carrieres.json", jsonCarrieres);
+            File.WriteAllText("json-data/fix-regles-fix.json", jsonRegles);
+            File.WriteAllText("json-data/fix-creatures.json", jsonCreatures);
+*/
+            return jsonAptitudes + "\n" + jsonCarrieres + "\n" + jsonCreatures + "\n" + jsonRegles;
         }
 
-        private int[] GetAptitudes(int[] skills, int[] talents, int[] traits)
+        private static int[]? GetCompetencesAcquises(CompetenceAcquise[] argCompetencesAcquises)
+        {
+            if (!argCompetencesAcquises.Any())
+                return null;
+            List<int> result = new ();
+            foreach (var ca in argCompetencesAcquises)
+            {
+                result.Add(ca.Competence.Id);
+                if (ca.Detail.Contains("10"))
+                    result.Add(ca.Competence.Id);
+                if (ca.Detail.Contains("20"))
+                {
+                    result.Add(ca.Competence.Id);
+                    result.Add(ca.Competence.Id);
+                }
+            }
+            return result.ToArray();
+        }
+
+        private static int[] GetAptitudes(int[] skills, int[] talents, int[] traits)
         {
             var result = new List<int>();
             result.AddRange(skills.Select(id => 1000 + id));
@@ -159,7 +238,7 @@ namespace BlazorWjdr
             return result.ToArray();
         }
 
-        private int[][] GetAptitudesChoix(IEnumerable<int[]> skills, IEnumerable<int[]> talents)
+        private static int[][] GetAptitudesChoix(IEnumerable<int[]> skills, IEnumerable<int[]> talents)
         {
             var result = new List<int[]>();
             result.AddRange(skills.Select(ids => ids.Select(id => 1000 + id).ToArray()).ToList());
@@ -169,7 +248,7 @@ namespace BlazorWjdr
         }
 
         #region Initialize
-        
+
         private static Dictionary<int, RegleDto> InitializeRegles(
             IEnumerable<JsonRegle> items,
             IReadOnlyDictionary<int, TableDto> tables,
@@ -188,7 +267,7 @@ namespace BlazorWjdr
                     Titre = r.titre,
                     ReglesId = r.regles ?? Array.Empty<int>(),
                     Carrieres = (r.carrieres ?? Array.Empty<int>()).Select(id => carrieres[id]).ToArray(),
-                    Competences = (r.competences ?? Array.Empty<int>()).Select(id =>competences[id]).ToArray(),
+                    Competences = (r.competences ?? Array.Empty<int>()).Select(id => competences[id]).ToArray(),
                     ChoixCompetences = r.choixcompetences != null
                         ? r.choixcompetences.Select(choix => choix.Select(id => competences[id]).ToArray()).ToList()
                         : new List<CompetenceDto[]>(),
@@ -211,7 +290,7 @@ namespace BlazorWjdr
 
             return cacheRegle;
         }
-        
+
         private static Dictionary<int, BestioleDto> InitializeBestioles(
             IEnumerable<JsonBestiole> items,
             IEnumerable<JsonPj> pjs,
@@ -258,25 +337,29 @@ namespace BlazorWjdr
                     FreresEtSoeurs = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].freres_et_soeurs : "",
                     MainDirectrice = cachePersonnage.ContainsKey(c.id) ? cachePersonnage[c.id].main_directrice : 0,
                     Mort = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].mort,
-                    CarriereDuPere = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].fk_carrierepereid.HasValue ?
-                        carrieres[cachePersonnage[c.id].fk_carrierepereid!.Value] : null,
-                    CarriereDeLaMere = cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].fk_carrieremereid.HasValue ?
-                        carrieres[cachePersonnage[c.id].fk_carrieremereid!.Value] : null,
+                    CarriereDuPere =
+                        cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].fk_carrierepereid.HasValue
+                            ? carrieres[cachePersonnage[c.id].fk_carrierepereid!.Value]
+                            : null,
+                    CarriereDeLaMere =
+                        cachePersonnage.ContainsKey(c.id) && cachePersonnage[c.id].fk_carrieremereid.HasValue
+                            ? carrieres[cachePersonnage[c.id].fk_carrieremereid!.Value]
+                            : null,
                     // PJ
                     Joueur = cachePj.ContainsKey(c.id) ? cachePj[c.id].nom_joueur : "",
-                    CheminementPro = cachePersonnage.ContainsKey(c.id) ?
-                        cachePersonnage[c.id].fk_cheminprofess != null ?
-                            cachePersonnage[c.id].fk_cheminprofess!.Select(id => carrieres[id]) .ToArray()
-                            : Array.Empty<CarriereDto>()
+                    CheminementPro = cachePersonnage.ContainsKey(c.id)
+                        ? cachePersonnage[c.id].fk_cheminprofess != null ? cachePersonnage[c.id].fk_cheminprofess!
+                            .Select(id => carrieres[id]).ToArray()
+                        : Array.Empty<CarriereDto>()
                         : Array.Empty<CarriereDto>(),
-                    
+
                     ProfilInitial = cachePj.ContainsKey(c.id) ? profils[cachePj[c.id].fk_profilinitialid] : null,
                     XpActuel = cachePj.ContainsKey(c.id) ? cachePj[c.id].xp_actuel : 0,
                     XpTotal = cachePj.ContainsKey(c.id) ? cachePj[c.id].xp_total : 0,
                 })
                 .ToDictionary(k => k.Id);
         }
-        
+
         private static Dictionary<int, List<LigneDeCarriereInitialeDto>> InitializeTablesCarrieresInitiales(
             IEnumerable<JsonTableCarriereInitiale> items,
             IReadOnlyDictionary<int, RaceDto> races,
@@ -308,10 +391,12 @@ namespace BlazorWjdr
             return allLignes;
         }
 
-        private static Dictionary<int, RaceDto> InitializeRaces(IEnumerable<JsonRace> items, Dictionary<int, LieuDto> lieux)
+        private static Dictionary<int, RaceDto> InitializeRaces(IEnumerable<JsonRace> items,
+            Dictionary<int, LieuDto> lieux)
         {
             var cache = items
-                .Select(r => new RaceDto {
+                .Select(r => new RaceDto
+                {
                     Id = r.id,
                     Description = r.description,
                     Lieux = (r.lieux_ids ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
@@ -327,17 +412,17 @@ namespace BlazorWjdr
             {
                 race.Parent = cache[race.ParentId!.Value];
             }
-            
+
             foreach (var lieu in cache.Values)
             {
                 lieu.SousElements.AddRange(cache.Values
-                    .Where(c=>c.Parent == lieu)
-                    .OrderBy(c => c.NomMasculin));                
+                    .Where(c => c.Parent == lieu)
+                    .OrderBy(c => c.NomMasculin));
             }
 
             return cache;
         }
-        
+
         private static Dictionary<int, ArmeAttributDto> InitializeArmesAttributs(IEnumerable<JsonArmeAttribut> items)
         {
             return items
@@ -349,10 +434,10 @@ namespace BlazorWjdr
                     Description = t.description
                 }).ToDictionary(k => k.Id);
         }
-        
+
         private static Dictionary<int, ArmeDto> InitializeArmes(
-            IEnumerable<JsonArme> items, 
-            IReadOnlyDictionary<int, ArmeAttributDto> cacheAttributs, 
+            IEnumerable<JsonArme> items,
+            IReadOnlyDictionary<int, ArmeAttributDto> cacheAttributs,
             IReadOnlyDictionary<int, CompetenceDto> cacheCompetences)
         {
             return items
@@ -374,7 +459,7 @@ namespace BlazorWjdr
                 })
                 .ToDictionary(k => k.Id);
         }
-        
+
         private static Dictionary<int, TableDto> InitializeTables(IEnumerable<JsonTable> items)
         {
             return items
@@ -389,7 +474,7 @@ namespace BlazorWjdr
                 })
                 .ToDictionary(k => k.Id, v => v);
         }
-        
+
         private static Dictionary<int, DieuDto> InitializeDieux(IEnumerable<JsonDieu> items)
         {
             var cache = items
@@ -413,7 +498,7 @@ namespace BlazorWjdr
 
             return cache;
         }
-        
+
         private static Dictionary<int, LieuTypeDto> InitializeLieuxTypes(IEnumerable<JsonLieuType> items)
         {
             var result = items
@@ -423,7 +508,7 @@ namespace BlazorWjdr
                     Nom = t.libelle,
                     ParentId = t.parentid
                 }).ToDictionary(k => k.Id, v => v);
-            
+
             foreach (var lieuType in result.Values.Where(t => t.ParentId.HasValue))
             {
                 lieuType.Parent = result[lieuType.ParentId!.Value];
@@ -432,7 +517,8 @@ namespace BlazorWjdr
             return result;
         }
 
-        private static Dictionary<int, LieuDto> InitializeLieux(IEnumerable<JsonLieu> items, IReadOnlyDictionary<int, LieuTypeDto> cacheTypesDeLieu)
+        private static Dictionary<int, LieuDto> InitializeLieux(IEnumerable<JsonLieu> items,
+            IReadOnlyDictionary<int, LieuTypeDto> cacheTypesDeLieu)
         {
             var result = items
                 .Select(l => new LieuDto
@@ -459,11 +545,11 @@ namespace BlazorWjdr
             foreach (var lieuId in (parents))
             {
                 result[lieuId].SousElements = result[lieuId].SousElements.OrderBy(c => c.Nom).ToList();
-                    /*
-                    .AddRange(result.Values
-                    .Where(c=>c.Parent == lieu)
-                    .OrderBy(c => c.Nom));
-                    */                
+                /*
+                .AddRange(result.Values
+                .Where(c=>c.Parent == lieu)
+                .OrderBy(c => c.Nom));
+                */
             }
 
             return result;
@@ -508,7 +594,7 @@ namespace BlazorWjdr
 
             foreach (var talent in result.Values.Where(t => t.Parent != null).Select(t => t.Parent).Distinct())
                 talent!.SousElements.AddRange(result.Values
-                    .Where(c=>c.Parent == talent)
+                    .Where(c => c.Parent == talent)
                     .OrderBy(c => c.Nom));
 
             foreach (var talent in result.Values)
@@ -516,12 +602,12 @@ namespace BlazorWjdr
                 talent.NomPourRecherche = GenericService.ConvertirCaracteres(talent.Nom);
                 talent.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(talent.NomPourRecherche);
             }
-            
+
             return result;
         }
 
         private static Dictionary<int, CompetenceDto> InitializeCompetences(
-            IEnumerable<JsonCompetence> competences, 
+            IEnumerable<JsonCompetence> competences,
             Dictionary<int, TalentDto> cacheTalents,
             IReadOnlyDictionary<int, TraitDto> cacheTraits)
         {
@@ -541,9 +627,10 @@ namespace BlazorWjdr
                         .OrderBy(t => t.Nom).ThenBy(t => t.Specialisation)
                         .ToList(),
                     TraitsLies = (c.traits ?? Array.Empty<int>())
-                    .Select(id => cacheTraits[id])
-                    .OrderBy(t => t.Nom).ThenBy(t => t.Spe)
-                    .ToList()                })
+                        .Select(id => cacheTraits[id])
+                        .OrderBy(t => t.Nom).ThenBy(t => t.Spe)
+                        .ToList()
+                })
                 .ToDictionary(k => k.Id, v => v);
 
             foreach (var competence in result.Values.Where(c => c.CompetenceMereId.HasValue))
@@ -561,10 +648,10 @@ namespace BlazorWjdr
             foreach (var competence in result.Values.Where(t => t.Parent != null).Select(t => t.Parent).Distinct())
             {
                 competence!.SousElements.AddRange(result.Values
-                    .Where(c=>c.Parent == competence)
+                    .Where(c => c.Parent == competence)
                     .OrderBy(c => c.Nom));
             }
-            
+
             foreach (var talent in cacheTalents.Values)
             {
                 talent.CompetencesLiees = result.Values
@@ -626,18 +713,24 @@ namespace BlazorWjdr
                 .ToDictionary(k => k.Id, v => v);
         }
 
-        private static IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int>? ids, IReadOnlyDictionary<int, CompetenceDto> cache)
+        private static IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int>? ids,
+            IReadOnlyDictionary<int, CompetenceDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
-        private static IEnumerable<TalentDto> GetTalents(IEnumerable<int>? ids, IReadOnlyDictionary<int, TalentDto> cache)
+
+        private static IEnumerable<TalentDto> GetTalents(IEnumerable<int>? ids,
+            IReadOnlyDictionary<int, TalentDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(t => t.Nom).ThenBy(t => t.Specialisation);
+
         private static IEnumerable<TraitDto> GetTraits(IEnumerable<int>? ids, IReadOnlyDictionary<int, TraitDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(t => t.Nom).ThenBy(t => t.Spe);
-        private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids, IReadOnlyDictionary<int, CarriereDto> cache)
+
+        private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids,
+            IReadOnlyDictionary<int, CarriereDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(c => c.Nom);
 
         private static Dictionary<int, CarriereDto> InitializeCarrieres(
-            IEnumerable<JsonCarriere> carrieres, 
-            IReadOnlyDictionary<int, ProfilDto> cacheProfils, 
+            IEnumerable<JsonCarriere> carrieres,
+            IReadOnlyDictionary<int, ProfilDto> cacheProfils,
             IReadOnlyDictionary<int, CompetenceDto> cacheCompetences,
             IReadOnlyDictionary<int, TalentDto> cacheTalents,
             IReadOnlyDictionary<int, TraitDto> cacheTraits,
@@ -649,7 +742,8 @@ namespace BlazorWjdr
                     Id = c.id,
                     Groupe = c.groupe ?? "",
                     Nom = c.nom,
-                    MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
+                    MotsClefDeRecherche =
+                        GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
                     Description = c.description,
                     Ambiance = c.ambiance ?? Array.Empty<string>(),
                     CarriereMereId = c.parent,
@@ -684,13 +778,14 @@ namespace BlazorWjdr
             foreach (var carriere in cacheCarrieres.Values.Where(c => c.AvancementsIds.Any()))
                 carriere.Avancements = GetCarrieres(carriere.AvancementsIds, cacheCarrieres).ToList();
 
-            foreach (var carriere in cacheCarrieres.Values.Where(c => c.Parent != null).Select(c => c.Parent).Distinct())
+            foreach (var carriere in cacheCarrieres.Values.Where(c => c.Parent != null).Select(c => c.Parent)
+                .Distinct())
             {
                 carriere!.SousElements.AddRange(cacheCarrieres.Values
                     .Where(c => c.Parent == carriere)
-                    .OrderBy(c => c.Nom));                
+                    .OrderBy(c => c.Nom));
             }
-            
+
             foreach (var carriere in cacheCarrieres.Values)
             {
                 carriere.Filieres = cacheCarrieres.Values
@@ -706,7 +801,8 @@ namespace BlazorWjdr
             return cacheCarrieres;
         }
 
-        private static IEnumerable<ChronologieDto> InitializeChronologie(IEnumerable<JsonChrono> chrono, IReadOnlyDictionary<int, ReferenceDto> cache)
+        private static IEnumerable<ChronologieDto> InitializeChronologie(IEnumerable<JsonChrono> chrono,
+            IReadOnlyDictionary<int, ReferenceDto> cache)
         {
             return chrono
                 .Select(c => new ChronologieDto(
@@ -720,7 +816,7 @@ namespace BlazorWjdr
                 .OrderBy(c => c.Debut).ThenBy(c => c.Fin)
                 .ToArray();
         }
-        
+
         #endregion
     }
 }

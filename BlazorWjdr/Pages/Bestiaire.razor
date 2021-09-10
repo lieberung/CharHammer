@@ -11,13 +11,16 @@
 </MainTopRow>
 
 <div class="content px-4">
+    <div class="card">
+        <textarea>@_bestiolesService.GetJson</textarea>
+    </div>
     <table class="table">
         <thead></thead>
         <tbody>
-            @foreach (var bestiole in _bestiolesLines)
-            {
-                <BestioleRow Item="bestiole" />
-            }
+        @foreach (var bestiole in _bestiolesLines)
+        {
+            <BestioleRow Item="bestiole"/>
+        }
         </tbody>
     </table>
 </div>
