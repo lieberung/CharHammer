@@ -4,8 +4,6 @@
 @using BlazorWjdr.Services
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
-@using BlazorWjdr.Components.Competence
-@using BlazorWjdr.Components.Talent
 
 <div class="header-menu">
     <div class="btn-group" >
@@ -68,12 +66,12 @@
     private string _searchText = "";
 
     [Inject] private CarrieresService CarrieresService { get; set; } = null!;
-    [Inject] private CompTalentsEtTraitsService CompTalentsEtTraitsService { get; set; } = null!;
+    [Inject] private AptitudesService AptitudesService { get; set; } = null!;
         
     protected override void OnInitialized()
     {
         AllCarrieres = CarrieresService.AllCarrieres;
-        AllAptitudes = CompTalentsEtTraitsService.AllCompetences;
+        AllAptitudes = AptitudesService.AllCompetences;
     }
 
     protected override void OnParametersSet()
@@ -90,5 +88,5 @@
     
     private AptitudeDto[] FilteredAptitudes => _searchText.Length < 3
         ?  new AptitudeDto[0]
-        : CompTalentsEtTraitsService.RechercheAptitudes(_searchText);
+        : AptitudesService.RechercheAptitudes(_searchText);
 }

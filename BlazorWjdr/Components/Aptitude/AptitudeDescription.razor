@@ -1,40 +1,67 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
-@inject CompTalentsEtTraitsService _compTalentsEtTraitsService
+@inject AptitudesService _aptitudesService
 @inject ArmesService _armesService
 
-<p style="font-size: large">
-    <em>Caractéristique associée :</em> <strong>@Item.CaracteristiqueAssociee</strong>
-</p> 
+@if (!string.IsNullOrWhiteSpace(Item.CaracteristiqueAssociee))
+{
+    <p class="card-text">
+        <strong>Caractéristique associée</strong> : @Item.CaracteristiqueAssociee
+    </p>
+} 
+@if (!string.IsNullOrWhiteSpace(Item.Max))
+{
+    <p class="card-text">
+        <strong>Maximum</strong> : @Item.Max
+    </p>
+}
+@if (!string.IsNullOrWhiteSpace(Item.Tests))
+{
+    <p class="card-text">
+        <strong>Tests</strong> : @Item.Tests
+    </p>
+}
+
 @foreach (var paragraphe in _paragraphes)
 {
     <p class="card-text" style="text-align:justify;">@paragraphe</p>
 }
 
-<h3 class="card-title">Talents liés</h3>
-<p class="card-text">
-    @if (_talentsLies.Any())
-    {
-        <AptitudeItemList Items="@_talentsLies.ToArray()"/>    
-    }
-    else
-    {
-        <em>Aucun</em>
-    }
-</p>
+@if (Item.Contagieux != null)
+{
+    <p class="card-text">
+        <strong>Contagieux : </strong>@(Item.Contagieux ?? false ? "oui" : "non")
+    </p>
+}
+@if (!string.IsNullOrWhiteSpace(Item.Guerison))
+{
+    <p class="card-text">
+        <strong>Guérison : </strong>@Item.Guerison
+    </p>
+}
 
-<h3 class="card-title">Traits liés</h3>
-<p class="card-text">
-    @if (_traitsLies.Any())
-    {
-        <AptitudeItemList Items="@_traitsLies.ToArray()"/>    
-    }
-    else
-    {
-        <em>Aucun</em>
-    }
-</p>
+@if (_competencesLiees.Any())
+{
+    <h3 class="card-title">Compétences liées</h3>
+    <p class="card-text">
+        <AptitudeItemList Items="@_competencesLiees.ToArray()"/>
+    </p>
+}
+@if (_talentsLies.Any())
+{
+    <h3 class="card-title">Talents liés</h3>
+    <p class="card-text">
+        <AptitudeItemList Items="@_talentsLies.ToArray()"/>
+    </p>
+}
+@if (_traitsLies.Any())
+{
+    <h3 class="card-title">Traits liés</h3>
+    <p class="card-text">
+        <AptitudeItemList Items="@_traitsLies.ToArray()"/>
+    </p>
+}
 
 @if (Item.SousElements.Any())
 {
@@ -59,6 +86,7 @@
     [Parameter]
     public AptitudeDto Item { get; set; } = null!;
 
+    private List<AptitudeDto> _competencesLiees = new();
     private List<AptitudeDto> _talentsLies = new();
     private List<AptitudeDto> _traitsLies = new();
 
@@ -68,17 +96,19 @@
 
     protected override void OnParametersSet()
     {
-        _paragraphes = Item.ResumeComplet
+        var description = string.IsNullOrWhiteSpace(Item.DescriptionComplete) ? Item.ResumeComplet : Item.DescriptionComplete;
+        _paragraphes = description
             .Replace('\r', '\n')
             .Replace("\n\n", "\n")
             .Split('\n');
 
+        _competencesLiees = Item.CompetencesLiees;
         _talentsLies = Item.TalentsLies;
         _traitsLies = Item.TraitsLies;
 
-        if (Item.Parent == _compTalentsEtTraitsService.CompetenceGroupeMelee ||
-            Item.Parent == _compTalentsEtTraitsService.CompetenceGroupeTir ||
-            Item == _compTalentsEtTraitsService.CompetenceGroupeExplosifs)
+        if (Item.Parent == _aptitudesService.CompetenceGroupeMelee ||
+            Item.Parent == _aptitudesService.CompetenceGroupeTir ||
+            Item == _aptitudesService.CompetenceGroupeExplosifs)
         {
             _armesLiees = _armesService.GetArmesDeMaitrise(Item);
         }

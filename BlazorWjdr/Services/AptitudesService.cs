@@ -5,11 +5,11 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class CompTalentsEtTraitsService
+    public class AptitudesService
     {
         private readonly Dictionary<int, AptitudeDto> _cacheAptitudes;
 
-        public CompTalentsEtTraitsService(Dictionary<int, AptitudeDto> dataAptitudes)
+        public AptitudesService(Dictionary<int, AptitudeDto> dataAptitudes)
         {
             _cacheAptitudes = dataAptitudes;
         }

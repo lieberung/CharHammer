@@ -1,15 +1,15 @@
-﻿@page "/competences/{CompetenceId}/"
+﻿@page "/talents/{TalentId}/"
 
 @using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
-@inject CompTalentsEtTraitsService _compTalentsEtTraitsService
+@inject AptitudesService _cttService
 @inject CarrieresService _carrieresService
+@inject ArmesService _armesService
 
-<MainTopRow>
-</MainTopRow>
+<MainTopRow/>
 
 <div class="content px-4">
 
@@ -18,16 +18,16 @@
         <div class="col-6" style="padding-right: 0;">
             <div class="card-body" style="padding-top: 0; padding-right: 0;">
                 
-                <h1 class="card-title" style="font-size: xxx-large;">@Competence.Nom</h1>
-                <CompetenceDescription Item="@Competence"/>
-
+                <h1 class="card-title" style="font-size: xxx-large;">@Item.Nom</h1>
+                <AptitudeDescription Item="@Item"/>               
+                
             </div>
         </div>
 
         <div class="col-6">
             <div class="card-body" style="padding-top: 0; padding-right: 0;">
                 
-                <h5 class="card-title title-primary">Carrières proposant cette compétence</h5>
+                <h3 class="card-title">Carrières proposant ce talent</h3>
                 <p class="card-text">
                     <CarriereItemList Items="@_carrieres"/>
                 </p>
@@ -40,15 +40,15 @@
 </div>
 @code {
     [Parameter]
-    public string CompetenceId { get; set; } = null!;
+    public string TalentId { get; set; } = null!;
 
-    private AptitudeDto Competence { get; set; } = null!;
+    private AptitudeDto Item { get; set; } = null!;
     
     private CarriereDto[] _carrieres = null!;
 
     protected override void OnParametersSet()
     {
-        Competence = _compTalentsEtTraitsService.GetAptitude(int.Parse(CompetenceId));
-        _carrieres = _carrieresService.GetCarrieresProposant(Competence);
+        Item = _cttService.GetTalent(int.Parse(TalentId));
+        _carrieres = _carrieresService.GetCarrieresProposant(Item);
     }
 }

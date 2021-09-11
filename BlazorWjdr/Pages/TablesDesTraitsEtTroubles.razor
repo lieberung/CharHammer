@@ -1,10 +1,10 @@
 ﻿@page "/tables-traits-et-troubles/{GroupeActif}/"
 
-@using BlazorWjdr.Components.Trait
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
-@inject CompTalentsEtTraitsService _cttService;
+@inject AptitudesService _cttService;
 @inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
 
 <MainTopRow>
@@ -46,7 +46,8 @@
             @if (_traitAleatoire != null)
             {
                 <div class="card-body">
-                    <TraitDetail Trait="_traitAleatoire"/>
+                    <h3 class="card-title">@_traitAleatoire.NomComplet <em>(@_traitAleatoire.CategSpeSexy)</em></h3>
+                    <AptitudeDescription Item="_traitAleatoire"/>
                 </div>
             }
         </div>

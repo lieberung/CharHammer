@@ -5,7 +5,7 @@
 @using BlazorWjdr.Services
 
 @inject ArmesService _armesService
-@inject CompTalentsEtTraitsService _compTalentsEtTraitsService
+@inject AptitudesService _aptitudesService
 
 <MainTopRow>
     <h3 class="card-title" style="display:inline-block;">Armes</h3>
@@ -28,7 +28,7 @@
             <div class="col-5">
                 @if (Filtre == "toutes" || Filtre == "melee" || Filtre == "boucliers")
                 {
-                    @foreach (var skillMelee in _compTalentsEtTraitsService.AllMeleeSpecialisations)
+                    @foreach (var skillMelee in _aptitudesService.AllMeleeSpecialisations)
                     {
                         <a href="equipement/armes-liste/@skillMelee.Spe/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillMelee.Spe ? "btn-primary" : "btn-secondary")">@skillMelee.Spe</a>    
                     }
@@ -37,7 +37,7 @@
             <div class="col-5">
                 @if (Filtre == "toutes" || Filtre == "tir" || Filtre == "munitions")
                 {
-                    @foreach (var skillTir in _compTalentsEtTraitsService.AllTirSpecialisations)
+                    @foreach (var skillTir in _aptitudesService.AllTirSpecialisations)
                     {
                         <a href="equipement/armes-liste/@skillTir.Spe/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillTir.Spe ? "btn-primary" : "btn-secondary")">@skillTir.Spe</a>    
                     }

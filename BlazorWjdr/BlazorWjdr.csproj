@@ -554,8 +554,4 @@
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\town.jpg" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\Aptitude" />
-  </ItemGroup>
-
 </Project>

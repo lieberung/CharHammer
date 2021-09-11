@@ -38,7 +38,7 @@ namespace BlazorWjdr
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataProfils, dataAptitudes, dataLieux, dataCarrieres);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
             
-            builder.Services.AddSingleton(_ => new CompTalentsEtTraitsService(dataAptitudes));
+            builder.Services.AddSingleton(_ => new AptitudesService(dataAptitudes));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
             builder.Services.AddSingleton(_ => new DieuxService(dataDieux));
             builder.Services.AddSingleton(_ => new ReferencesService(dataReferences));
@@ -384,6 +384,7 @@ namespace BlazorWjdr
                 apt.NomPourRecherche = GenericService.ConvertirCaracteres(apt.Nom);
                 apt.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(apt.NomPourRecherche);
                 apt.SetResume();
+                apt.SetDescription();
                 apt.AptitudesLiees = apt.AptitudesLieesIds.Select(id => result[id]).ToList();
                 apt.Incompatibles = apt.IncompatiblesIds.Select(id => result[id]).ToList();
             }

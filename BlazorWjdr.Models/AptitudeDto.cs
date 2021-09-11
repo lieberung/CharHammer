@@ -19,6 +19,7 @@
         public string Resume { get; init; } = null!;
         public string Description { get; init; } = null!;
         public string ResumeComplet { get; private set; } = "";
+        public string DescriptionComplete { get; private set; } = "";
 
         public bool EstUneCompetence => Categ == "skill";
         public bool EstUneCompetenceDeBase => EstUneCompetence && CategSpe == "bas";
@@ -51,15 +52,17 @@
         public string CategSpeSexy {
             get
             {
+                if (string.IsNullOrWhiteSpace(CategSpe))
+                    return "non classé";
                 return CategSpe switch
                 {
                     "trait" => "signe distinctif",
                     "nevrose" => "névrose",
-                    "addiction" => "addiction",
-                    "allergie" => "allergie",
-                    "folie" => "folie",
-                    "maladie" => "maladie",
-                    _ => "non classé"
+                    "capacite" => "capacité",
+                    "nature_avantageuse" => "prédisposition",
+                    "resistance" => "résistance",
+                    "animosite" => "animosité",
+                    _ => CategSpe
                 };
             }
         }
@@ -76,6 +79,20 @@
             if (Parent == null || string.IsNullOrWhiteSpace(Parent.Resume))
                 return "";
             return Parent.Resume;
+        }
+        
+        public void SetDescription()
+        {
+            DescriptionComplete = GetDescription();
+        }
+
+        private string GetDescription()
+        {
+            if (!string.IsNullOrWhiteSpace(Description))
+                return Description;
+            if (Parent == null || string.IsNullOrWhiteSpace(Parent.Description))
+                return "";
+            return Parent.Description;
         }
     }
 
