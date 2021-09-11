@@ -1,9 +1,7 @@
 ﻿@page "/carrieres/{CarriereId}/"
 
 @using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Components.Competence
-@using BlazorWjdr.Components.Talent
-@using BlazorWjdr.Components.Trait
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Profil
 @using Models
 @using Services
@@ -36,19 +34,19 @@
 
                     <h5 class="card-title">Compétences</h5>
                     <p class="card-text">
-                        <CompetenceItemList Items="@Carriere.Competences.ToArray()" ItemsChoix="@Carriere.ChoixCompetences.ToArray()"/>
+                        <AptitudeItemList Items="@Carriere.Competences.ToArray()" ItemsChoix="@Carriere.ChoixCompetences.ToArray()"/>
                     </p>
 
                     <h5 class="card-title">Talents</h5>
                     <p class="card-text">
-                        <TalentItemList Items="@Carriere.Talents.ToArray()" ItemsChoix="@Carriere.ChoixTalents.ToArray()"/>
+                        <AptitudeItemList Items="@Carriere.Talents.ToArray()" ItemsChoix="@Carriere.ChoixTalents.ToArray()"/>
                     </p>
 
                     @if (Carriere.Traits.Any())
                     {
                         <h5 class="card-title">Traits</h5>
                         <p class="card-text">
-                            <TraitItemList Items="@Carriere.Traits.ToArray()"/>
+                            <AptitudeItemList Items="@Carriere.Traits.ToArray()"/>
                         </p>
                     }
 

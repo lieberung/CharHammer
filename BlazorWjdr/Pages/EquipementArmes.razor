@@ -30,7 +30,7 @@
                 {
                     @foreach (var skillMelee in _compTalentsEtTraitsService.AllMeleeSpecialisations)
                     {
-                        <a href="equipement/armes-liste/@skillMelee.Specialisation/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillMelee.Specialisation ? "btn-primary" : "btn-secondary")">@skillMelee.Specialisation</a>    
+                        <a href="equipement/armes-liste/@skillMelee.Spe/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillMelee.Spe ? "btn-primary" : "btn-secondary")">@skillMelee.Spe</a>    
                     }
                 }
             </div>
@@ -39,7 +39,7 @@
                 {
                     @foreach (var skillTir in _compTalentsEtTraitsService.AllTirSpecialisations)
                     {
-                        <a href="equipement/armes-liste/@skillTir.Specialisation/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillTir.Specialisation ? "btn-primary" : "btn-secondary")">@skillTir.Specialisation</a>    
+                        <a href="equipement/armes-liste/@skillTir.Spe/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == skillTir.Spe ? "btn-primary" : "btn-secondary")">@skillTir.Spe</a>    
                     }
                 }
             </div>
@@ -136,16 +136,7 @@
         if (Filtre == "toutes" || Filtre == "munitions")
             _munitions = armes.Where(a => a.EstUneMunition).ToList();
 
-        if (Groupe != "toutes")
-        {
-            GroupeActuel = _armesService.AllGroupesDArmes.Single(g => GetGroupe(g.Nom) == Groupe);
-            //_armesLines = armes.Where(a => a.Groupes.Contains(GroupeActuel)).ToList();
-        }
-        else
-        {
-            GroupeActuel = null;
-            //_armesLines = armes.ToList();
-        }
+        GroupeActuel = Groupe != "toutes" ? _armesService.AllGroupesDArmes.Single(g => GetGroupe(g.Nom) == Groupe) : null;
 
     }
 }

@@ -1,6 +1,9 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
+
+using Newtonsoft.Json;
+
 namespace BlazorWjdr.DataSource.JsonDto
 {
     using System.Collections.Generic;
@@ -12,12 +15,19 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string nom { get; set; } = null!;
         public bool avancee { get; set; }
         public int plan { get; set; }
-        public int[]? debouch { get; set; }
         public int[]? avancements { get; set; }
+        public int[]? debouch { get; set; }
+        public int[]? aptitudes { get; set; }
+        public int[][]? aptitudes_choix { get; set; }
+        [JsonIgnore]
         public int[]? competences { get; set; }
+        [JsonIgnore]
         public int[][]? competenceschoix { get; set; }
+        [JsonIgnore]
         public int[]? talents { get; set; }
+        [JsonIgnore]
         public int[][]? talentschoix { get; set; }
+        [JsonIgnore]
         public int[]? traits { get; set; }
         public string? groupe { get; set; }
         public int? source_livre { get; set; }
@@ -26,9 +36,6 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string[]? ambiance { get; set; }
         public string? restriction { get; set; }
         public string dotations { get; set; } = null!;
-        
-        public int[]? aptitudes { get; set; }
-        public int[][]? aptitudes_choix { get; set; }
     }
     
     public class RootCarriere

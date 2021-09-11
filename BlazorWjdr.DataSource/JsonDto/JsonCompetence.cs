@@ -15,7 +15,9 @@ namespace BlazorWjdr.DataSource.JsonDto
         public bool de_base { get; set; }
         public string carac { get; set; } = null!;
         public string nom { get; set; } = null!;
+        public string? nom_en { get; set; }
         public string resume { get; set; } = null!;
+        public string? resume_v2 { get; set; }
         public string? spe { get; set; }
     }
 

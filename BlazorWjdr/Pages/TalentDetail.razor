@@ -1,7 +1,7 @@
 ﻿@page "/talents/{TalentId}/"
 
 @using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
@@ -41,7 +41,7 @@
                 <p class="card-text">
                     @if (Talent.CompetencesLiees.Any())
                     {
-                        <CompetenceItemList Items="@Talent.CompetencesLiees.ToArray()"/>    
+                        <AptitudeItemList Items="@Talent.CompetencesLiees.ToArray()"/>    
                     }
                     else
                     {
@@ -70,7 +70,7 @@
     [Parameter]
     public string TalentId { get; set; } = null!;
 
-    private TalentDto Talent { get; set; } = null!;
+    private AptitudeDto Talent { get; set; } = null!;
     
     private CarriereDto[] _carrieres = null!;
 

@@ -1,0 +1,44 @@
+﻿@using BlazorWjdr.Models
+
+<a href="competences/@Item.Id.ToString()/" class="btn btn-light btn-item">
+    <span class="oi oi-@(_oiIcon) item-icon mr-1" aria-hidden="true"></span>
+    @if (string.IsNullOrWhiteSpace(_toolTipText)) {
+        @_itemName
+    } else {
+        <Tooltip Text="@(_toolTipText)">@_itemName</Tooltip>
+    }
+</a>
+
+@code{
+    [Parameter]
+    public AptitudeDto Item { get; set; } = null!;
+
+    private string _oiIcon = null!;
+    private string _toolTipText = null!;
+    private string _itemName = null!;
+
+    protected override void OnParametersSet()
+    {
+        if (Item.EstUneCompetence)
+        {
+            _oiIcon = "target";
+            _itemName = Item.Nom;
+            _toolTipText = "["+Item.CaracteristiqueAssociee+"] " + Item.ResumeComplet;
+        }
+        else if (Item.EstUnTalent)
+        {
+            _oiIcon = "brush";
+            _itemName = Item.Nom;
+            _toolTipText = Item.Resume;
+        }
+        else if (Item.EstUnTrait)
+        {
+            _oiIcon = "droplet";
+            _itemName = Item.Nom;
+            _toolTipText = Item.Resume;
+        }
+        
+        base.OnParametersSet();
+    }
+
+}

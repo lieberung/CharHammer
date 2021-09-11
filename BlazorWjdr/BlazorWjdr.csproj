@@ -28,16 +28,7 @@
     <Content Update="wwwroot\json-data\armure.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\json-data\bestiole.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\carriere.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\json-data\chrono.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\competence.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\json-data\dieu.json">
@@ -58,12 +49,6 @@
     <Content Update="wwwroot\json-data\lieutype.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\json-data\personnage.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\pj.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\json-data\plante.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -76,9 +61,6 @@
     <Content Update="wwwroot\json-data\reference.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\json-data\regle.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\json-data\seance.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -88,13 +70,7 @@
     <Content Update="wwwroot\json-data\tablecarriereinitiale.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="wwwroot\json-data\talent.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Update="wwwroot\json-data\team.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\trait.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="wwwroot\json-data\user.json">
@@ -576,6 +552,10 @@
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\races\63m.png" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\races\63S.png" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\town.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\Aptitude" />
   </ItemGroup>
 
 </Project>

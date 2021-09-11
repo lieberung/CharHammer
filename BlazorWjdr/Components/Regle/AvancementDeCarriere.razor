@@ -1,4 +1,5 @@
 ﻿@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Services
 
@@ -63,9 +64,9 @@
     </tbody>
 </table>
 <p class="card-text">
-    Par exemple, si vous étiez <CarriereItem Item="@_carrSvc.GetCarriere(73)"/> et que vous devenez <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>, vous pouvez acheter une seconde fois la compétence <CompetenceItem Item="@_ctSvc.CompetenceEscalade"/>, même si elle ne figure plus dans la carrière de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>.
+    Par exemple, si vous étiez <CarriereItem Item="@_carrSvc.GetCarriere(73)"/> et que vous devenez <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>, vous pouvez acheter une seconde fois la compétence <AptitudeItem Item="@_ctSvc.CompetenceEscalade"/>, même si elle ne figure plus dans la carrière de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>.
     <br/>
-    En devenant <CarriereItem Item="@_carrSvc.GetCarriere(197)"/>, vous pourrez acheter <CompetenceItem Item="@_ctSvc.CompetenceEscalade"/> une troisième fois, et les compétences de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/> une seconde fois, et ainsi de suite.
+    En devenant <CarriereItem Item="@_carrSvc.GetCarriere(197)"/>, vous pourrez acheter <AptitudeItem Item="@_ctSvc.CompetenceEscalade"/> une troisième fois, et les compétences de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/> une seconde fois, et ainsi de suite.
 </p>
 <h4 class="card-title">Theory crafting</h4>
 <p class="card-text">

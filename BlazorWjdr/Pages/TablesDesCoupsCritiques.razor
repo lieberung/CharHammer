@@ -1,7 +1,6 @@
 ﻿@page "/table-coups-critiques/{Zone}/"
 
-@using BlazorWjdr.Components.Trait
-@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
 @using BlazorWjdr.Services
@@ -29,7 +28,7 @@
                     <br/>
                     On consulte alors le résultat et la victime <strong>perd le nombre de Blessures indiqué et gagne 1 Point de Folie</strong>.
                     <br/>
-                    Le talent <TalentItem Item="@_cttService.TalentCoupsPrécis"/> augmente ce nombre de Blessures.
+                    Le talent <AptitudeItem Item="@_cttService.TalentCoupsPrécis"/> augmente ce nombre de Blessures.
                 </p>
                 <RegleDetail Item="_reglesService.GetRegle(214)" MasquerTitre="true" MasquerTables="true"/>
                 <p class="card-text">
@@ -41,7 +40,7 @@
                 </p>
                 <h5 class="card-title">Conditions</h5>
                 <p class="card-text">
-                    <TraitItemList Items="_cttService.Conditions.ToArray()"/>
+                    <AptitudeItemList Items="_cttService.Conditions.ToArray()"/>
                 </p>
             </div>
         </div>

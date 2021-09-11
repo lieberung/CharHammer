@@ -1,4 +1,5 @@
 ﻿@using BlazorWjdr.Components.Reference
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Profil
@@ -55,11 +56,11 @@
                 </p>
                 <h6 class="card-title">Compétences</h6>
                 <p>
-                    <CompetenceItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()" />
+                    <AptitudeItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()" />
                 </p>
                 <h6 class="card-title">Talents</h6>
                 <p>
-                    <TalentItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()" />
+                    <AptitudeItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()" />
                 </p>
             </div>
         </td>

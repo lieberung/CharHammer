@@ -1,4 +1,5 @@
-﻿@using BlazorWjdr.Models
+﻿@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject CompTalentsEtTraitsService _cttService
@@ -10,7 +11,7 @@
             <tr>
             @for (var x = 0; x < NbColonnes; x++)
             {
-                <td>@if (y < _colonnes[x].Count) { <TraitItem Item="@_colonnes[x][y]"/> }</td>
+                <td>@if (y < _colonnes[x].Count) { <AptitudeItem Item="@_colonnes[x][y]"/> }</td>
             }
             </tr>
         }
@@ -21,10 +22,10 @@
     [Parameter]
     public int NbColonnes { get; set; }
     [Parameter]
-    public TraitDto[] Traits { get; set; } = null!;
+    public AptitudeDto[] Traits { get; set; } = null!;
 
     private int _colonneLength;
-    private List<TraitDto>[] _colonnes = null!;
+    private List<AptitudeDto>[] _colonnes = null!;
 
     protected override void OnParametersSet()
     {
@@ -32,9 +33,9 @@
         if (Traits.Length % NbColonnes != 0)
             _colonneLength++;
         
-        _colonnes = new List<TraitDto>[NbColonnes];
+        _colonnes = new List<AptitudeDto>[NbColonnes];
         for (var i = 0; i < NbColonnes; i++)
-            _colonnes[i] = new List<TraitDto>();
+            _colonnes[i] = new List<AptitudeDto>();
        
         for (var i = 0; i < Traits.Length; i++)
             _colonnes[i / _colonneLength].Add(Traits[i]);

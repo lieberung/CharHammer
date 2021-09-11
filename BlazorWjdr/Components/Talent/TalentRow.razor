@@ -1,5 +1,6 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Services
 @using BlazorWjdr.Shared.Oi
@@ -28,10 +29,10 @@
         {
             <SousElement/>
         }
-        <TalentItem Item="@Item"/>
+        <AptitudeItem Item="@Item"/>
     </td>
-    <td><CheckedIfTrue Condition="@Item.Trait"/></td>
-    <td><CompetenceItemList Items="@Item.CompetencesLiees.ToArray()"/></td>
+    <td></td>
+    <td><AptitudeItemList Items="@Item.CompetencesLiees.ToArray()"/></td>
 </tr>
 @if (AfficherCarrieres)
 {
@@ -50,7 +51,7 @@
 }
 @code {
     [Parameter]
-    public TalentDto Item { get; set; } = null!;
+    public AptitudeDto Item { get; set; } = null!;
     private bool AfficherSousElements { get; set; } = false;
     private bool AfficherCarrieres { get; set; } = false;
 

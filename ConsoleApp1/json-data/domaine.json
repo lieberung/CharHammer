@@ -1,0 +1,30 @@
+{
+    "items": [
+{"id":12,"nom":"Le Culte de Manaan","comment":""},
+{"id":13,"nom":"Le Culte de Myrmidia","comment":""},
+{"id":14,"nom":"Le Culte de Shallya","comment":""},
+{"id":15,"nom":"Le Culte de Sigmar","comment":""},
+{"id":22,"nom":"La Norsca","comment":""},
+{"id":21,"nom":"Les Elfes","comment":""},
+{"id":20,"nom":"Les peuples gobelinoïdes","comment":""},
+{"id":19,"nom":"Les Skavens","comment":""},
+{"id":18,"nom":"La Tilée","comment":""},
+{"id":17,"nom":"Les Nains","comment":""},
+{"id":16,"nom":"Le Kislev","comment":""},
+{"id":11,"nom":"L'Arabie","comment":""},
+{"id":10,"nom":"Le Moot","comment":""},
+{"id":9,"nom":"Middenheim","comment":""},
+{"id":8,"nom":"La Bretonnie","comment":""},
+{"id":7,"nom":"Marienburg","comment":""},
+{"id":6,"nom":"La Lustrie","comment":""},
+{"id":5,"nom":"Le Vieux Monde","comment":""},
+{"id":4,"nom":"L'Empire","comment":""},
+{"id":3,"nom":"La Sylvanie","comment":""},
+{"id":2,"nom":"Les Royaumes Estaliens","comment":""},
+{"id":1,"nom":"Les vampires","comment":""},
+{"id":23,"nom":"Le culte d'Ulric","comment":""},
+{"id":24,"nom":"Les principautés frontalières","comment":""},
+{"id":25,"nom":"Les Terres Arides (Badlands)","comment":""},
+{"id":26,"nom":"Sartosa","comment":""}
+	]
+}

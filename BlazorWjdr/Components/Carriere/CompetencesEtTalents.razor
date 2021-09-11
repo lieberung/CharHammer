@@ -1,7 +1,26 @@
-﻿@using BlazorWjdr.Components.Competence
-@using BlazorWjdr.Components.Talent
+﻿@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Models
 
 <h3 class="card-title">Compétences</h3>
-<CompetenceItemList Items="_competences" ItemsChoix="_competencesChoix" />
+<AptitudeItemList Items="_competences" ItemsChoix="_competencesChoix" />
 <h3 class="card-title">Talents</h3>
-<TalentItemList Items="_talents" ItemsChoix="_talentsChoix" />
+<AptitudeItemList Items="_talents" ItemsChoix="_talentsChoix" />
+
+@code{
+    [Parameter]
+    public CarriereDto Carriere { get; set; } = null!;
+
+    private AptitudeDto[] _competences = null!;
+    private AptitudeDto[] _talents = null!;
+        
+    private AptitudeDto[][] _competencesChoix = null!;
+    private AptitudeDto[][] _talentsChoix = null!;
+
+    protected override void OnInitialized()
+    {
+        _competences = Carriere.Competences.ToArray();
+        _talents = Carriere.Talents.ToArray();
+        _competencesChoix = Carriere.ChoixCompetences.ToArray();
+        _talentsChoix = Carriere.ChoixTalents.ToArray();
+    }
+}
