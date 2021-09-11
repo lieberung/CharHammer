@@ -19,16 +19,6 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int[]? debouch { get; set; }
         public int[]? aptitudes { get; set; }
         public int[][]? aptitudes_choix { get; set; }
-        [JsonIgnore]
-        public int[]? competences { get; set; }
-        [JsonIgnore]
-        public int[][]? competenceschoix { get; set; }
-        [JsonIgnore]
-        public int[]? talents { get; set; }
-        [JsonIgnore]
-        public int[][]? talentschoix { get; set; }
-        [JsonIgnore]
-        public int[]? traits { get; set; }
         public string? groupe { get; set; }
         public int? source_livre { get; set; }
         public string? source_page { get; set; }

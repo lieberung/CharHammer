@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Models
-<a href="carrieres/@Item.Id.ToString()/" class="btn btn-light btn-item@(Special ? " btn-special" : "")">
+<a href="carrieres/@Item.Id.ToString()/" class="btn btn-light btn-item@(Special ? " btn-special mr-1" : "")">
     <span class="oi oi-badge item-icon mr-1" aria-hidden="true"></span>
     @Item.Nom
     @if (!HideIndicatorBase && !Item.EstUneCarriereAvancee)
