@@ -14,36 +14,39 @@
 <div class="content px-4">
 
     <div class="row">
-        
+
         <div class="col-6" style="padding-right: 0;">
             <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                
+
                 <h1 class="card-title" style="font-size: xxx-large;">@Item.Nom</h1>
-                <AptitudeDescription Item="@Item"/>               
-                
+                <AptitudeDescription Item="@Item"/>
+
             </div>
         </div>
 
         <div class="col-6">
-            <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                
-                <h3 class="card-title">Carrières proposant ce talent</h3>
-                <p class="card-text">
-                    <CarriereItemList Items="@_carrieres"/>
-                </p>
-                
-            </div>
+            @if (_carrieres.Any())
+            {
+                <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                    <h3 class="card-title">Carrières proposant ce talent</h3>
+                    <p class="card-text">
+                        <CarriereItemList Items="@_carrieres"/>
+                    </p>
+                </div>
+            }
         </div>
 
     </div>
 
 </div>
+
 @code {
+
     [Parameter]
     public string TalentId { get; set; } = null!;
 
     private AptitudeDto Item { get; set; } = null!;
-    
+
     private CarriereDto[] _carrieres = null!;
 
     protected override void OnParametersSet()
@@ -51,4 +54,5 @@
         Item = _cttService.GetTalent(int.Parse(TalentId));
         _carrieres = _carrieresService.GetCarrieresProposant(Item);
     }
+
 }

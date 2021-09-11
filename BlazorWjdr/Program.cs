@@ -385,8 +385,8 @@ namespace BlazorWjdr
                 apt.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(apt.NomPourRecherche);
                 apt.SetResume();
                 apt.SetDescription();
-                apt.AptitudesLiees = apt.AptitudesLieesIds.Select(id => result[id]).ToList();
-                apt.Incompatibles = apt.IncompatiblesIds.Select(id => result[id]).ToList();
+                apt.AptitudesLiees = apt.AptitudesLieesIds.Select(id => result[id]).OrderBy(a => a.NomComplet).ToList();
+                apt.Incompatibles = apt.IncompatiblesIds.Select(id => result[id]).OrderBy(a => a.NomComplet).ToList();
             }
             
             // Compléter
