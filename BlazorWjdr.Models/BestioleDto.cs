@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
 namespace BlazorWjdr.Models
@@ -14,11 +15,14 @@ namespace BlazorWjdr.Models
         public string Nom { get; init; } = null!;
         public string Histoire { get; init; } = null!;
         public string Commentaire { get; init; } = "";
-        public CompetenceAcquise[] CompetencesAcquises { get; init; } = null!;
+        
+        public AptitudeAcquise[] AptitudesAcquises { get; init; } = null!;
+        
+        public AptitudeAcquise[] Competences => AptitudesAcquises.Where(a => a.Aptitude.EstUneCompetence).ToArray();
+        public AptitudeAcquise[] Talents => AptitudesAcquises.Where(a => a.Aptitude.EstUnTalent).ToArray();
+        public AptitudeAcquise[] Traits => AptitudesAcquises.Where(a => a.Aptitude.EstUnTrait).ToArray();
 
-        public TalentDto[] Talents { get; init; } = null!;
         public LieuDto[] Origines { get; init; } = null!;
-        public TraitDto[] Traits { get; init; } = null!;
         public RaceDto Race { get; init; } = null!;
         public int[] MembreDe { get; init; } = null!;
         public int? Poids { get; init; }

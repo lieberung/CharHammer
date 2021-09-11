@@ -12,8 +12,11 @@ namespace BlazorWjdr.DataSource.JsonDto
         public bool ignorer { get; set; }
         public bool trait { get; set; }
         public string nom { get; set; } = null!;
+        public string? nom_en { get; set; }
         public string resume { get; set; } = null!;
+        public string? resume_v2 { get; set; }
         public string description { get; set; } = null!;
+        public string? description_v2 { get; set; }
         public string? spe { get; set; }
         public string? max { get; set; }
         public string? tests { get; set; }

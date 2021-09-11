@@ -1,6 +1,6 @@
 ﻿@page "/regles/caracteristiques/"
 
-@using BlazorWjdr.Components.Competence
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
@@ -18,22 +18,22 @@
             <div class="card-body">
                 <h4 class="card-title">CC - Capacité de combat</h4>
                 <p class="card-text">Your skill at fighting hand-to-hand, your ability to land a measured blow, and effectiveness in the free-for-all of a massed melee. It is also used for unarmed combat, where your body is the weapon!</p>
-                <CompetenceItemList Items="@GetByCarac("CC")"/>
+                <AptitudeItemList Items="@GetByCarac("CC")"/>
             </div>
             <div class="card-body">
                 <h4 class="card-title">CT - Capacité de tir</h4>
                 <p class="card-text">Your effectiveness at hitting with ranged weapons like bows and throwing knives, and for throwing things generally. It is also used as the basis for other ranged attacks like Trolls vomiting.</p>
-                <CompetenceItemList Items="@GetByCarac("CT")"/>
+                <AptitudeItemList Items="@GetByCarac("CT")"/>
             </div>
             <div class="card-body">
                 <h4 class="card-title">F - Force</h4>
                 <p class="card-text">How much damage you do in melee, how much you can lift, and how good you are at things like swimming and climbing.</p>
-                <CompetenceItemList Items="@GetByCarac("F")"/>
+                <AptitudeItemList Items="@GetByCarac("F")"/>
             </div>
             <div class="card-body">
                 <h4 class="card-title">E - Endurance</h4>
                 <p class="card-text">Your physical hardiness. It helps you survive damage in combat but will also help with things like surviving harsh conditions and standing up to poison.</p>
-                <CompetenceItemList Items="@GetByCarac("E")"/>
+                <AptitudeItemList Items="@GetByCarac("E")"/>
             </div>
         </div>
 
@@ -41,17 +41,17 @@
             <div class="card-body">
                 <h4 class="card-title">I - Initiative</h4>
                 <p class="card-text">Speed of thought and reaction, especially in the heat of battle and when under pressure. It determines combat order, and helps you be the first to react to danger. It also determines your powers of intuition and perception.</p>
-                <CompetenceItemList Items="@GetByCarac("I")"/>
+                <AptitudeItemList Items="@GetByCarac("I")"/>
             </div>
             <div class="card-body">
                 <h4 class="card-title">Ag - Agilité</h4>
                 <p class="card-text">Physical coordination and natural athleticism, and the basis for things like running, riding, and hiding. Agility is also used for dodging blows in combat.</p>
-                <CompetenceItemList Items="@GetByCarac("Ag")"/>
+                <AptitudeItemList Items="@GetByCarac("Ag")"/>
             </div>
             <div class="card-body">
                 <h4 class="card-title">Dex - Dextérité</h4>
                 <p class="card-text">Your affinity for performing fine and delicate manual tasks like playing a musical instrument or skilled manufacturing. It will also help you with things like sleight of hand and picking pockets.</p>
-                <CompetenceItemList Items="@GetByCarac("Dex")"/>
+                <AptitudeItemList Items="@GetByCarac("Dex")"/>
             </div>
         </div>
 
@@ -59,24 +59,24 @@
             <div class="card-body">
                 <h4 class="card-title">Int - Intelligence</h4>
                 <p class="card-text">Votre capacité à vous adapter, à réfléchir, analyser et comprendre. Useful for healing, evaluating, and general knowledge, and vital for the understanding and casting of magical spells.</p>
-                <CompetenceItemList Items="@GetByCarac("Int")"/>
+                <AptitudeItemList Items="@GetByCarac("Int")"/>
             </div>
             <div class="card-body">
                 <h4 class="card-title">FM - Force mentale</h4>
                 <p class="card-text">General strength of mind, and your ability to shrug off difficulty and plough on with the job in hand. It helps with resisting all sorts of influence and coercion, and guards against fear and terror.</p>
-                <CompetenceItemList Items="@GetByCarac("FM")"/>
+                <AptitudeItemList Items="@GetByCarac("FM")"/>
             </div>
             <div class="card-body">
                 <h4 class="card-title">Soc - Sociabilité</h4>
                 <p class="card-text">Your ability to get on with people and come across as generally pleasant and acceptable. It will help you when chatting to locals or commanding people in battle, charming the guards or attempting to bribe them, and, for pious characters, communicating with your deity.</p>
-                <CompetenceItemList Items="@GetByCarac("Soc")"/>
+                <AptitudeItemList Items="@GetByCarac("Soc")"/>
             </div>
         </div>
 
     </div>
 </div>
 @code{
-    private CompetenceDto[] GetByCarac(string carac) =>
+    private AptitudeDto[] GetByCarac(string carac) =>
         _service.AllCompetences.Where(c =>
             (c.CaracteristiqueAssociee == carac || c.CaracteristiqueAssociee.StartsWith($"{carac}/") || c.CaracteristiqueAssociee.EndsWith($"/{carac}"))
             && c.Parent == null).ToArray();

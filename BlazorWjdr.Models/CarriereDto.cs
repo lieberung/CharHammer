@@ -25,15 +25,16 @@ namespace BlazorWjdr.Models
         public string[] Images { get; set; } = Array.Empty<string>();
 
         public ProfilDto PlanDeCarriere { get; init; } = null!;
-        //public CarriereDto? Avancement { get; set; }
 
-        public List<TalentDto> Talents { get; init; } = null!;
-        public List<CompetenceDto> Competences { get; init; } = null!;
+        public List<AptitudeDto> Aptitudes { get; set; } = new();
+        public List<AptitudeDto[]> AptitudesChoix { get; set; } = new();
 
-        public List<TalentDto[]> ChoixTalents { get; init; } = null!;
-        public List<CompetenceDto[]> ChoixCompetences { get; init; } = null!;
+        public List<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).ToList();
+        public List<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).ToList();
+        public List<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).ToList();
 
-        public List<TraitDto> Traits { get; init; } = null!;
+        public List<AptitudeDto[]> ChoixCompetences => AptitudesChoix.Where(choix => choix.First().EstUneCompetence).ToList();
+        public List<AptitudeDto[]> ChoixTalents => AptitudesChoix.Where(choix => choix.First().EstUnTalent).ToList();
         
         public CarriereDto? Parent { get; set; }
         public readonly List<CarriereDto> SousElements = new();
@@ -60,22 +61,12 @@ namespace BlazorWjdr.Models
         public int ScorePoudreNoire { get; set; }
         public int ScoreAmiDesBetes { get; set; }
 
-        public List<CompetenceDto> CompetencesPourScore {
+        public List<AptitudeDto> AptitudesPourScore {
             get
             {
-                var list = new List<CompetenceDto>();
-                list.AddRange(Competences);
-                list.AddRange(ChoixCompetences.SelectMany(c => c));
-                return list;
-            }
-        }
-        
-        public List<TalentDto> TalentsPourScore {
-            get
-            {
-                var list = new List<TalentDto>();
-                list.AddRange(Talents);
-                list.AddRange(ChoixTalents.SelectMany(c => c));
+                var list = new List<AptitudeDto>();
+                list.AddRange(Aptitudes);
+                list.AddRange(AptitudesChoix.SelectMany(c => c));
                 return list;
             }
         }

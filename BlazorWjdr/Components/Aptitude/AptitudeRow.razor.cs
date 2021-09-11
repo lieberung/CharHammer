@@ -1,17 +1,16 @@
-﻿using System.Threading.Tasks;
-using BlazorWjdr.Models;
+﻿using BlazorWjdr.Models;
 using BlazorWjdr.Services;
 using Microsoft.AspNetCore.Components;
 
-namespace BlazorWjdr.Components.Competence
+namespace BlazorWjdr.Components.Aptitude
 {
-    public partial class CompetenceRow
+    public partial class AptitudeRow
     {
         [Inject] private CarrieresService CarrieresService { get; set; } = null!;
 
-        [Parameter] public CompetenceDto Item { get; set; } = null!;
-        private bool AfficherSousElements { get; set; } = false;
-        private bool AfficherCarrieres { get; set; } = false;
+        [Parameter] public AptitudeDto Item { get; set; } = null!;
+        private bool AfficherSousElements { get; set; }
+        private bool AfficherCarrieres { get; set; }
         
         private CarriereDto[] _carrieresLiees = null!;
 

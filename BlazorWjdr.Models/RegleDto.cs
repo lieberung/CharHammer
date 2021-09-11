@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BlazorWjdr.Models
 {
@@ -10,14 +11,19 @@ namespace BlazorWjdr.Models
         public int[] ReglesId { get; init; } = null!;
         public RegleDto[] SousRegles { get; set; } = null!;
         public CarriereDto[] Carrieres { get; init; } = null!;
-        public CompetenceDto[] Competences { get; init; } = null!;
-        public List<CompetenceDto[]> ChoixCompetences { get; init; } = null!;
-        public TalentDto[] Talents { get; init; } = null!;
-        public TraitDto[] Traits { get; init; } = null!;
-        public List<TalentDto[]> ChoixTalents { get; init; } = null!;
         public BestioleDto[] Bestioles { get; init; } = null!;
         public TableDto[] Tables { get; init; } = null!;
         public LieuDto[] Lieux { get; init; } = null!;
         public string Regle { get; init; } = null!;
+        
+        public List<AptitudeDto> Aptitudes { get; init; } = null!;
+        public List<AptitudeDto[]> AptitudesChoix { get; set; } = null!;
+
+        public List<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).ToList();
+        public List<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).ToList();
+        public List<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).ToList();
+
+        public List<AptitudeDto[]> ChoixCompetences => AptitudesChoix.Where(choix => choix.First().EstUneCompetence).ToList();
+        public List<AptitudeDto[]> ChoixTalents => AptitudesChoix.Where(choix => choix.First().EstUnTalent).ToList();
     }
 }

@@ -1,0 +1,12 @@
+﻿@using BlazorWjdr.Models
+
+<ul class="list-inline">
+    @foreach (var item in Items)
+    {
+        <li class="list-inline-item"><AptitudeAcquiseItem Item="@item"/></li>
+    }
+</ul>
+
+@code{
+    [Parameter] public AptitudeAcquise[] Items { get; set; } = null!;
+}

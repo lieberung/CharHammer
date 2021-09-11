@@ -2,6 +2,7 @@
 
 @using BlazorWjdr.Components.Race
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
@@ -204,7 +205,7 @@ else
                         Tirer un signe aléatoire
                     </button>
                 </div>
-                <TraitItemList Items="@_traitsObtenus.ToArray()"/>
+                <AptitudeItemList Items="@_traitsObtenus.ToArray()"/>
             </p>
         </div>
 
@@ -398,7 +399,7 @@ else
 
     private RaceDto _race = null!;
 
-    private List<TraitDto> _traitsObtenus = new();
+    private List<AptitudeDto> _traitsObtenus = new();
     private List<CarriereDto> _carrieresObtenues = new();
 
     protected override void OnParametersSet()
@@ -417,7 +418,7 @@ else
             return;
         }
 
-        TraitDto ta = _cttService.TirerUnSigneAleatoire(_traitsObtenus);
+        AptitudeDto ta = _cttService.TirerUnSigneAleatoire(_traitsObtenus);
         _traitsObtenus.Add(ta);
     }
 

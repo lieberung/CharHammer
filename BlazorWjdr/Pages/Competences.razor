@@ -2,6 +2,7 @@
 
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Competence
 
 @inject CompTalentsEtTraitsService _cttService
@@ -27,12 +28,12 @@
     <div class="row">
         <div class="col">
             <p class="card-text">
-                <CompetenceItemList Items="@_competencesLines.Where(c => c.EstUneCompetenceDeBase && c.Parent == null).ToArray()"/>
+                <AptitudeItemList Items="@_competencesLines.Where(c => c.EstUneCompetenceDeBase && c.Parent == null).ToArray()"/>
             </p>
         </div>
         <div class="col">
             <p class="card-text">
-                <CompetenceItemList Items="@_competencesLines.Where(c => !c.EstUneCompetenceDeBase && c.Parent == null).ToArray()"/>
+                <AptitudeItemList Items="@_competencesLines.Where(c => !c.EstUneCompetenceDeBase && c.Parent == null).ToArray()"/>
             </p>
         </div>
     </div>
@@ -60,7 +61,7 @@
 </div>
 
 @code {
-    private IEnumerable<CompetenceDto> _competencesLines = null!;
+    private IEnumerable<AptitudeDto> _competencesLines = null!;
 
     protected override void OnInitialized()
     {

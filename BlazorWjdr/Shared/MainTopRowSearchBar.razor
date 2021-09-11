@@ -3,6 +3,7 @@
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
 
@@ -28,19 +29,19 @@
                     </div>
                 }
 
-                @if (FilteredCompetences.Any())
+                @if (FilteredAptitudes.Where(a => a.EstUneCompetence).Any())
                 {
                     <div class="mb-3">
                         <h6 class="card-title">Compétences</h6>
-                        <CompetenceItemList Items="FilteredCompetences"/>
+                        <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUneCompetence).ToArray()"/>
                     </div>
                 }
                 
-                @if (FilteredTalents.Any())
+                @if (FilteredAptitudes.Where(a =>a.EstUnTalent).Any())
                 {
                     <div class="mb-3">
                         <h6 class="card-title">Talents</h6>
-                        <TalentItemList Items="FilteredTalents"/>
+                        <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTalent).ToArray()"/>
                     </div>
                 }
             </div>
@@ -51,8 +52,7 @@
 
 @code {
     private IEnumerable<CarriereDto> AllCarrieres { get; set; } = new List<CarriereDto>();
-    private IEnumerable<CompetenceDto> AllCompetences { get; set; } = new List<CompetenceDto>();
-    private IEnumerable<TalentDto> AllTalents { get; set; } = new List<TalentDto>();
+    private IEnumerable<AptitudeDto> AllAptitudes { get; set; } = new List<AptitudeDto>();
 
     [Parameter]
     public string Text { get; set; } = "";
@@ -65,8 +65,7 @@
     protected override void OnInitialized()
     {
         AllCarrieres = CarrieresService.AllCarrieres;
-        AllCompetences = CompTalentsEtTraitsService.AllCompetences;
-        AllTalents = CompTalentsEtTraitsService.AllTalents;
+        AllAptitudes = CompTalentsEtTraitsService.AllCompetences;
     }
 
     protected override void OnParametersSet()
@@ -75,17 +74,13 @@
         base.OnParametersSet();
     }
 
-    private bool ResultFound => FilteredCarrieres.Any() || FilteredCompetences.Any() || FilteredTalents.Any();
+    private bool ResultFound => FilteredCarrieres.Any() || FilteredAptitudes.Any();
 
     private CarriereDto[] FilteredCarrieres => _searchText.Length < 3
         ? new CarriereDto[0]
         : CarrieresService.Recherche(_searchText);
     
-    private CompetenceDto[] FilteredCompetences => _searchText.Length < 3
-        ?  new CompetenceDto[0]
-        : CompTalentsEtTraitsService.RechercheCompetences(_searchText);
-
-    private TalentDto[] FilteredTalents => _searchText.Length < 3
-        ?  new TalentDto[0]
-        : CompTalentsEtTraitsService.RechercheTalents(_searchText);
+    private AptitudeDto[] FilteredAptitudes => _searchText.Length < 3
+        ?  new AptitudeDto[0]
+        : CompTalentsEtTraitsService.RechercheAptitudes(_searchText);
 }

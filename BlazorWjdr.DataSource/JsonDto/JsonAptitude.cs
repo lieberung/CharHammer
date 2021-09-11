@@ -1,7 +1,7 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable ClassNeverInstantiated.Global
 
-using System;
+using Newtonsoft.Json;
 
 namespace BlazorWjdr.DataSource.JsonDto
 {
@@ -10,25 +10,32 @@ namespace BlazorWjdr.DataSource.JsonDto
     public class JsonAptitude
     {
         public int id { get; set; }
+        [JsonIgnore]
         public int id_old { get; set; }
         public int? parent { get; set; }
 
         public string categ { get; set; } = null!; // skill / talent / trait
         public string categ_spe { get; set; } = null!;
         public string nom { get; set; } = null!;
+        public string? nom_en { get; set; }
         public string? spe { get; set; }
 
-        public int[] aptitudes { get; set; } = Array.Empty<int>();
-        public int[]? incompatibles { get; set; }
+        public List<int> aptitudes { get; set; } = new();
+        public List<int> incompatibles { get; init; } = null!;
 
+        [JsonIgnore]
         public int[]? skills { get; set; }
+        [JsonIgnore]
         public int[]? talents { get; set; }
+        [JsonIgnore]
         public int[]? traits { get; set; }
 
         public bool ignorer { get; set; }
         public string? carac { get; set; }
         public string resume { get; set; } = null!;
         public string description { get; set; } = null!;
+        public string? resume_v2 { get; set; }
+        public string? description_v2 { get; set; }
         
         public string? max { get; set; }
         public string? tests { get; set; }

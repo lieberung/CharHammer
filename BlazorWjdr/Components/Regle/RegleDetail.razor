@@ -1,6 +1,7 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Competence
 @using BlazorWjdr.Components.Talent
 @using BlazorWjdr.Components.Trait
@@ -17,15 +18,15 @@
 }
 @if (Item.Competences.Any())
 {
-    <CompetenceItemList Items="@Item.Competences" ItemsChoix="@Item.ChoixCompetences.ToArray()"/>
+    <AptitudeItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()"/>
 }
 @if (Item.Talents.Any())
 {
-    <TalentItemList Items="@Item.Talents" ItemsChoix="@Item.ChoixTalents.ToArray()"/>
+    <AptitudeItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()"/>
 }
 @if (Item.Traits.Any())
 {
-    <TraitItemList Items="@Item.Traits"/>
+    <AptitudeItemList Items="@Item.Traits.ToArray()"/>
 }
 
 @if (Item.Bestioles.Any())

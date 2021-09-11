@@ -1,0 +1,21 @@
+{
+    "items": [
+{"id":1,"patron_id":null,"nom":"Manann","domaines":"Les océans, les mers et les marées","fideles":"Les pêcheurs, les marins, les voyageurs","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":2,"patron_id":null,"nom":"Morr","domaines":"La mort et les rêves","fideles":"Le deuil, les rêveurs, les sorciers d'Améthyste","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":10,"patron_id":null,"nom":"Verena","domaines":"L'apprentissage et la justice","fideles":"Les scribes, les sorciers Célestes, les magistrats","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":9,"patron_id":null,"nom":"Ulric","domaines":"Les batailles, les loups et l'hiver","fideles":"Les guerriers, la population de Middenheim","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":8,"patron_id":null,"nom":"Taal","domaines":"La nature et les contrées sauvages","fideles":"Les sorciers d'Ambre, les paysans, les forestiers","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":7,"patron_id":null,"nom":"Sigmar","domaines":"L'Empire, la protection","fideles":"Les citoyens de l'Empire, la noblesse, l'armée","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":6,"patron_id":null,"nom":"Shallya","domaines":"La guérison, la compassion, la naissance","fideles":"Les pauvres, les malades, les femmes","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":5,"patron_id":null,"nom":"Rhya","domaines":"La fertilité de la terre, l'amour","fideles":"Les fermiers, les sorciers de Jade, les paysans","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":4,"patron_id":null,"nom":"Ranald","domaines":"Les voleurs, les escrocs, la chance","fideles":"Les voyous, les joueurs, les opprimés","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":3,"patron_id":null,"nom":"Myrmidia","domaines":"La science de la guerre, l'Estalie, la Tilée","fideles":"Les soldats, les stratèges, les officiers","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":11,"patron_id":null,"nom":"Khorne","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":12,"patron_id":null,"nom":"Nurgle","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":13,"patron_id":null,"nom":"Slaanesh","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":14,"patron_id":null,"nom":"Tzench","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":15,"patron_id":null,"nom":"Khaine","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
+{"id":17,"patron_id":null,"nom":"Haendrik","domaines":"Les marchands, la prospérité, le commerce","fideles":"","symboles":"Disque d'or, poignée de main","symboles_image":"","histoire":"","comment":""},
+{"id":16,"patron_id":null,"nom":"Stromfels","domaines":"Les mers déchaînées, les ","fideles":"Les pirates, les naufrageurs","symboles":"Un immense requin, trident ensanglanté, un éclair","symboles_image":"","histoire":"","comment":""}
+	]
+}

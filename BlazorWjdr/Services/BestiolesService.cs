@@ -6,7 +6,7 @@
 
     public class BestiolesService
     {
-        private Dictionary<int, BestioleDto> _cacheBestiole;
+        private readonly Dictionary<int, BestioleDto> _cacheBestiole;
 
         public BestiolesService(Dictionary<int, BestioleDto> data)
         {

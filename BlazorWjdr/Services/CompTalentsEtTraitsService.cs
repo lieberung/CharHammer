@@ -7,290 +7,285 @@
 
     public class CompTalentsEtTraitsService
     {
-        private readonly Dictionary<int, CompetenceDto> _cacheCompetences;
-        private readonly Dictionary<int, TalentDto> _cacheTalents;
-        private readonly Dictionary<int, TraitDto> _cacheTraits;
+        private readonly Dictionary<int, AptitudeDto> _cacheAptitudes;
 
-        public CompTalentsEtTraitsService(Dictionary<int, CompetenceDto> dataCompetences, Dictionary<int, TalentDto> dataTalents, Dictionary<int, TraitDto> dataTraits)
+        public CompTalentsEtTraitsService(Dictionary<int, AptitudeDto> dataAptitudes)
         {
-            _cacheCompetences = dataCompetences;
-            _cacheTalents = dataTalents;
-            _cacheTraits = dataTraits;
+            _cacheAptitudes = dataAptitudes;
         }
         
-        public IEnumerable<CompetenceDto> GetCompetences(IEnumerable<int> ids) => ids.Select(GetCompetence).OrderBy(c => c.Nom).ToArray();
-        public CompetenceDto GetCompetence(int id)
-        {
-            return _cacheCompetences[id];
-        }
+        public IEnumerable<AptitudeDto> GetAptitudes(IEnumerable<int> ids) => ids.Select(GetAptitude).OrderBy(c => c.Nom).ToArray();
+        public AptitudeDto GetAptitude(int id) => _cacheAptitudes[id];
+        public IEnumerable<AptitudeDto> AllAptitudes => _cacheAptitudes.Values
+            .OrderBy(c => c.Nom).ThenBy(c => c.Spe);
 
-        public IEnumerable<CompetenceDto> AllCompetences
-        {
-            get
-            {
-                return _cacheCompetences.Values.OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
-            }
-        }
+        public IEnumerable<AptitudeDto> AllCompetences => _cacheAptitudes.Values
+            .Where(a => a.EstUneCompetence)
+            .OrderBy(c => c.Nom).ThenBy(c => c.Spe);
 
-        public IEnumerable<TalentDto> GetTalents(IEnumerable<int> ids) => ids.Select(GetTalent).OrderBy(t => t.Nom).ToArray();
-        public TalentDto GetTalent(int id) => _cacheTalents[id];
+        public IEnumerable<AptitudeDto> GetTalents(IEnumerable<int> ids) => ids.Select(GetTalent).OrderBy(t => t.Nom).ToArray();
+        public AptitudeDto GetTalent(int id) => _cacheAptitudes[id];
 
-        public IEnumerable<TalentDto> AllTalents => _cacheTalents.Values.OrderBy(c => c.Nom).ThenBy(c => c.Specialisation);
+        public IEnumerable<AptitudeDto> AllTalents => _cacheAptitudes.Values
+            .Where(a => a.EstUnTalent)
+            .OrderBy(c => c.Nom).ThenBy(c => c.Spe);
         
-        public IEnumerable<TraitDto> GetTraits(IEnumerable<int> ids) => ids.Select(GetTrait).OrderBy(t => t.Nom).ToArray();
-        public TraitDto GetTrait(int id) => _cacheTraits[id];
+        public IEnumerable<AptitudeDto> GetTraits(IEnumerable<int> ids) => ids.Select(GetTrait).OrderBy(t => t.Nom).ToArray();
+        public AptitudeDto GetTrait(int id) => _cacheAptitudes[id];
 
-        public IEnumerable<TraitDto> AllTraits => _cacheTraits.Values.OrderBy(c => c.Nom).ThenBy(c => c.Spe);
+        public IEnumerable<AptitudeDto> AllTraits => _cacheAptitudes.Values
+            .Where(a => a.EstUnTrait)
+            .OrderBy(c => c.Nom).ThenBy(c => c.Spe);
         
-        public List<CompetenceDto> AllMeleeSpecialisations =>
+        public List<AptitudeDto> AllMeleeSpecialisations =>
             CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
-        public List<CompetenceDto> AllTirSpecialisations =>
+        public List<AptitudeDto> AllTirSpecialisations =>
             CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
 
-        #region Competences & Talents
+        #region Aptitudes & Talents
         
         // Caractéristiques
-        public TraitDto TraitGuerrierNe => GetTrait(10);
-        public TraitDto TraitTireurDElite => GetTrait(11);
-        public TraitDto TraitForceAccrue => GetTrait(12);
-        public TraitDto TraitResistanceAccrue => GetTrait(13);
-        public TraitDto TraitVivacite => GetTrait(14);
-        public TraitDto TraitHabileDeSesMains => GetTrait(16);
-        public TraitDto TraitReflexesEclairs => GetTrait(15);
-        public TraitDto TraitIntelligent => GetTrait(17);
-        public TraitDto TraitSangFroid => GetTrait(18);
-        public TraitDto TraitSociable => GetTrait(19);
+        public AptitudeDto TraitGuerrierNe => GetTrait(3010);
+        public AptitudeDto TraitTireurDElite => GetTrait(3011);
+        public AptitudeDto TraitForceAccrue => GetTrait(3012);
+        public AptitudeDto TraitResistanceAccrue => GetTrait(3013);
+        public AptitudeDto TraitVivacite => GetTrait(3014);
+        public AptitudeDto TraitHabileDeSesMains => GetTrait(3016);
+        public AptitudeDto TraitReflexesEclairs => GetTrait(3015);
+        public AptitudeDto TraitIntelligent => GetTrait(3017);
+        public AptitudeDto TraitSangFroid => GetTrait(3018);
+        public AptitudeDto TraitSociable => GetTrait(3019);
         
-        public TraitDto TraitCourseAPied => GetTrait(20);
-        public TraitDto TraitDurACuir => GetTrait(21);
+        public AptitudeDto TraitCourseAPied => GetTrait(3020);
+        public AptitudeDto TraitDurACuir => GetTrait(3021);
         
 
         // Académique
-        public CompetenceDto CompetenceGroupeConnaissancesAcademiques => GetCompetence(13);
-        public CompetenceDto CompetenceGroupeConnaissancesGenerales => GetCompetence(14);
-        public CompetenceDto CompetenceGroupeLangue => GetCompetence(39);
-        public CompetenceDto CompetenceConnaissancesAcademiquesDeuxAuChoix => GetCompetence(169);
-        public CompetenceDto CompetenceConnaissancesAcademiquesTroisAuChoix => GetCompetence(166);
-        public CompetenceDto CompetenceLireEcrire => GetCompetence(42);
-        public TalentDto TalentCalculMental => GetTalent(7);
-        public TalentDto TalentLinguistique => GetTalent(42);
+        public AptitudeDto CompetenceGroupeConnaissancesAcademiques => GetAptitude(1013);
+        public AptitudeDto CompetenceGroupeConnaissancesGenerales => GetAptitude(1014);
+        public AptitudeDto CompetenceGroupeLangue => GetAptitude(1039);
+        public AptitudeDto CompetenceConnaissancesAcademiquesDeuxAuChoix => GetAptitude(10169);
+        public AptitudeDto CompetenceConnaissancesAcademiquesTroisAuChoix => GetAptitude(10166);
+        public AptitudeDto CompetenceLireEcrire => GetAptitude(1042);
+        public AptitudeDto TalentCalculMental => GetTalent(207);
+        public AptitudeDto TalentLinguistique => GetTalent(2042);
 
         // Arcanique
-        public CompetenceDto CompetenceConnaissanceAcademiqueEsprits => GetCompetence(141);
-        public CompetenceDto CompetenceConnaissanceAcademiqueMagie => GetCompetence(109);
-        public CompetenceDto CompetenceConnaissanceAcademiqueNecromancie => GetCompetence(110);
-        public CompetenceDto CompetenceFocalisation => GetCompetence(31);
-        public CompetenceDto CompetenceLangageMystique => GetCompetence(36);
-        public CompetenceDto CompetenceLangageMystiqueMagick => GetCompetence(162);
-        public CompetenceDto CompetenceLangageMystiqueDemoniaque => GetCompetence(170);
-        public CompetenceDto CompetenceLangageMystiqueElfeMystique => GetCompetence(171);
-        public CompetenceDto CompetenceLangueClassique => GetCompetence(142);
-        public CompetenceDto CompetenceSensDeLaMagie => GetCompetence(52);
-        public TalentDto TalentHarmonieAethyrique => GetTalent(35);
-        public TalentDto TalentMainsAgiles => GetTalent(48);
-        public TalentDto TalentMeditation => GetTalent(63);
-        public TalentDto TalentProjectilePuissant => GetTalent(66);
-        public TalentDto TalentGroupeMagieCommune => GetTalent(44);
-        public TalentDto TalentGroupeMagieMineure => GetTalent(45);
-        public TalentDto TalentMagieNoire => GetTalent(46);
-        public TalentDto TalentMagieVulgaire => GetTalent(47);
+        public AptitudeDto CompetenceConnaissanceAcademiqueEsprits => GetAptitude(10141);
+        public AptitudeDto CompetenceConnaissanceAcademiqueMagie => GetAptitude(10109);
+        public AptitudeDto CompetenceConnaissanceAcademiqueNecromancie => GetAptitude(10110);
+        public AptitudeDto CompetenceFocalisation => GetAptitude(1031);
+        public AptitudeDto CompetenceLangageMystique => GetAptitude(1036);
+        public AptitudeDto CompetenceLangageMystiqueMagick => GetAptitude(10162);
+        public AptitudeDto CompetenceLangageMystiqueDemoniaque => GetAptitude(10170);
+        public AptitudeDto CompetenceLangageMystiqueElfeMystique => GetAptitude(10171);
+        public AptitudeDto CompetenceLangueClassique => GetAptitude(10142);
+        public AptitudeDto CompetenceSensDeLaMagie => GetAptitude(1052);
+        public AptitudeDto TalentHarmonieAethyrique => GetTalent(2035);
+        public AptitudeDto TalentMainsAgiles => GetTalent(2048);
+        public AptitudeDto TalentMeditation => GetTalent(2063);
+        public AptitudeDto TalentProjectilePuissant => GetTalent(2066);
+        public AptitudeDto TalentGroupeMagieCommune => GetTalent(2044);
+        public AptitudeDto TalentGroupeMagieMineure => GetTalent(2045);
+        public AptitudeDto TalentMagieNoire => GetTalent(2046);
+        public AptitudeDto TalentMagieVulgaire => GetTalent(2047);
 
         // Martial
-        public CompetenceDto CompetenceLangSecretBataille => GetCompetence(148);
-        public TalentDto TalentAmbidextrie => GetTalent(5);
-        public TalentDto TalentCoupsPrécis => GetTalent(20);
-        public TalentDto TalentSurSesGardes => GetTalent(85);
-        public TalentDto TalentTroublant => GetTalent(91);
-        public TalentDto TalentMaitriseUneAuChoix => GetTalent(153);
-        public TalentDto TalentMaitriseDeuxAuChoix => GetTalent(152);
-        public TalentDto TalentReflexesDeCombat => GetTalent(218);
+        public AptitudeDto CompetenceLangSecretBataille => GetAptitude(10148);
+        public AptitudeDto TalentAmbidextrie => GetTalent(205);
+        public AptitudeDto TalentCoupsPrécis => GetTalent(2020);
+        public AptitudeDto TalentSurSesGardes => GetTalent(2085);
+        public AptitudeDto TalentTroublant => GetTalent(2091);
+        public AptitudeDto TalentMaitriseUneAuChoix => GetTalent(20153);
+        public AptitudeDto TalentMaitriseDeuxAuChoix => GetTalent(20152);
+        public AptitudeDto TalentReflexesDeCombat => GetTalent(20218);
         
         // Martial CaC
-        public CompetenceDto CompetenceGroupeMelee => GetCompetence(600);
-        public CompetenceDto CompetenceEsquive => GetCompetence(26);
-        public TalentDto TalentCombatADeuxArmes => GetTalent(155);
-        public TalentDto TalentCombatDeRue => GetTalent(14);
-        public TalentDto TalentCombattantVirevoltant => GetTalent(15);
-        public TalentDto TalentCoupsAuBut => GetTalent(18);
-        public TalentDto TalentCoupsPuissants => GetTalent(21);
-        public TalentDto TalentCoupsAssomants => GetTalent(19);
-        public TalentDto TalentDesarmement => GetTalent(23);
-        public TalentDto TalentDurACuir => GetTalent(24);
-        public TalentDto TalentFrenesie => GetTalent(30);
-        public TalentDto TalentParadeEclair => GetTalent(65);
-        public TalentDto TalentLutte => GetTalent(43);
-        public TalentDto TalentRobuste => GetTalent(74);
-        public TalentDto TalentValeureux => GetTalent(92);
-        public TalentDto TalentGroupeVertu => GetTalent(206);
-        public TalentDto TalentPresenceImposante => GetTalent(217);
-        public TalentDto TalentDechainement => GetTalent(237);
-        public TalentDto TalentTueur => GetTalent(232);
-        public TalentDto TalentCombatRapproche => GetTalent(228);
-        public TalentDto TalentHommeBouclier => GetTalent(231);
-        public TalentDto TalentAssautBrutal => GetTalent(223);
-        public TalentDto TalentChargeBerserk => GetTalent(245);
-        public TalentDto TalentDetermine => GetTalent(273);
-        public TalentDto TalentRiposte => GetTalent(241);
-        public TalentDto TalentFrappeReactive => GetTalent(213);
-        public TalentDto TalentRetournement => GetTalent(242);
+        public AptitudeDto CompetenceGroupeMelee => GetAptitude(10600);
+        public AptitudeDto CompetenceEsquive => GetAptitude(1026);
+        public AptitudeDto TalentCombatADeuxArmes => GetTalent(20155);
+        public AptitudeDto TalentCombatDeRue => GetTalent(2014);
+        public AptitudeDto TalentCombattantVirevoltant => GetTalent(2015);
+        public AptitudeDto TalentCoupsAuBut => GetTalent(2018);
+        public AptitudeDto TalentCoupsPuissants => GetTalent(2021);
+        public AptitudeDto TalentCoupsAssomants => GetTalent(2019);
+        public AptitudeDto TalentDesarmement => GetTalent(2023);
+        public AptitudeDto TalentDurACuir => GetTalent(2024);
+        public AptitudeDto TalentFrenesie => GetTalent(20);
+        public AptitudeDto TalentParadeEclair => GetTalent(2065);
+        public AptitudeDto TalentLutte => GetTalent(2043);
+        public AptitudeDto TalentRobuste => GetTalent(2074);
+        public AptitudeDto TalentValeureux => GetTalent(2092);
+        public AptitudeDto TalentGroupeVertu => GetTalent(20206);
+        public AptitudeDto TalentPresenceImposante => GetTalent(20217);
+        public AptitudeDto TalentDechainement => GetTalent(20237);
+        public AptitudeDto TalentTueur => GetTalent(20232);
+        public AptitudeDto TalentCombatRapproche => GetTalent(20228);
+        public AptitudeDto TalentHommeBouclier => GetTalent(20231);
+        public AptitudeDto TalentAssautBrutal => GetTalent(20223);
+        public AptitudeDto TalentChargeBerserk => GetTalent(20245);
+        public AptitudeDto TalentDetermine => GetTalent(20273);
+        public AptitudeDto TalentRiposte => GetTalent(20241);
+        public AptitudeDto TalentFrappeReactive => GetTalent(20213);
+        public AptitudeDto TalentRetournement => GetTalent(20242);
 
-        public CompetenceDto CompetenceMeleeArmesDEscrime => GetCompetence(611);
-        public CompetenceDto CompetenceMeleeArmesDeCavalerie => GetCompetence(609);
-        public CompetenceDto CompetenceMeleeArmesDeParade => GetCompetence(607);
-        public CompetenceDto CompetenceMeleeArmesLourdes => GetCompetence(612);
-        public CompetenceDto CompetenceMeleeArmesParalisantes => GetCompetence(605);
-        public CompetenceDto CompetenceMeleeFléaux => GetCompetence(614);
+        public AptitudeDto CompetenceMeleeArmesDEscrime => GetAptitude(10611);
+        public AptitudeDto CompetenceMeleeArmesDeCavalerie => GetAptitude(10609);
+        public AptitudeDto CompetenceMeleeArmesDeParade => GetAptitude(10607);
+        public AptitudeDto CompetenceMeleeArmesLourdes => GetAptitude(10612);
+        public AptitudeDto CompetenceMeleeArmesParalisantes => GetAptitude(10605);
+        public AptitudeDto CompetenceMeleeFléaux => GetAptitude(10614);
 
         
         // Martial Distance
-        public CompetenceDto CompetenceTirArbaletes => GetCompetence(604);
-        public CompetenceDto CompetenceTirArcsLongs => GetCompetence(615);
-        public CompetenceDto CompetenceTirArmesAFeu => GetCompetence(616);
-        public CompetenceDto CompetenceTirArmesDeJet => GetCompetence(610);
-        public CompetenceDto CompetenceTirArmesMecaniques => GetCompetence(606);
-        public CompetenceDto CompetenceTirLancePierres => GetCompetence(608);
-        public CompetenceDto CompetenceGroupeExplosifs => GetCompetence(617);
-        public CompetenceDto CompetenceGroupeTir => GetCompetence(620);
-        public CompetenceDto CompetenceMetierArquebusier => GetCompetence(59);
-        public TalentDto TalentAdresseAuTir => GetTalent(4);
-        public TalentDto TalentRechergementRapide => GetTalent(67);
-        public TalentDto TalentTirDePrecision => GetTalent(88);
-        public TalentDto TalentTirEnPuissance => GetTalent(89);
-        public TalentDto TalentMaitreArtilleur => GetTalent(49);
-        public TalentDto TalentTirEclair => GetTalent(220);
+        public AptitudeDto CompetenceTirArbaletes => GetAptitude(1604);
+        public AptitudeDto CompetenceTirArcsLongs => GetAptitude(1615);
+        public AptitudeDto CompetenceTirArmesAFeu => GetAptitude(1616);
+        public AptitudeDto CompetenceTirArmesDeJet => GetAptitude(1610);
+        public AptitudeDto CompetenceTirArmesMecaniques => GetAptitude(1606);
+        public AptitudeDto CompetenceTirLancePierres => GetAptitude(1608);
+        public AptitudeDto CompetenceGroupeExplosifs => GetAptitude(1617);
+        public AptitudeDto CompetenceGroupeTir => GetAptitude(1620);
+        public AptitudeDto CompetenceMetierArquebusier => GetAptitude(1059);
+        public AptitudeDto TalentAdresseAuTir => GetTalent(2004);
+        public AptitudeDto TalentRechergementRapide => GetTalent(2067);
+        public AptitudeDto TalentTirDePrecision => GetTalent(2088);
+        public AptitudeDto TalentTirEnPuissance => GetTalent(2089);
+        public AptitudeDto TalentMaitreArtilleur => GetTalent(2049);
+        public AptitudeDto TalentTirEclair => GetTalent(2220);
         
         // De l'ombre
-        public CompetenceDto CompetenceAlphSecretVoleurs => GetCompetence(89);
-        public CompetenceDto CompetenceDeplacementSilencieux => GetCompetence(19);
-        public CompetenceDto CompetenceDissimulation => GetCompetence(20);
-        public CompetenceDto CompetenceFouille => GetCompetence(32);
-        public CompetenceDto CompetencePerception => GetCompetence(48);
-        public CompetenceDto CompetenceEscalade => GetCompetence(24);
-        public CompetenceDto CompetenceCrochetage => GetCompetence(16);
-        public CompetenceDto CompetenceDeguisement => GetCompetence(18);
-        public CompetenceDto CompetenceEscamotage => GetCompetence(25);
-        public CompetenceDto CompetencePreparationDePoisons => GetCompetence(50);
-        public CompetenceDto CompetenceLectureSurLesLevres => GetCompetence(41);
-        public TalentDto TalentConnaissanceDesPieges => GetTalent(16);
-        public TalentDto TalentCamouflageRural => GetTalent(8);
-        public TalentDto TalentCamouflageSouterrain => GetTalent(9);
-        public TalentDto TalentCamouflageUrbain => GetTalent(10);
-        public TalentDto TalentCodeDeLaRue => GetTalent(13);
-        public TalentDto TalentImitation => GetTalent(36);
-        public TalentDto TalentSensAiguises => GetTalent(80);
-        public TalentDto TalentAccuiteAuditive => GetTalent(2);
-        public TalentDto TalentAccuiteGustativeEtOlfactive => GetTalent(209);
-        public TalentDto TalentAccuiteVisuelle => GetTalent(3);
-        public TalentDto TalentFilature => GetTalent(30);
-        public TalentDto TalentPistage => GetTalent(49);
+        public AptitudeDto CompetenceAlphSecretVoleurs => GetAptitude(1089);
+        public AptitudeDto CompetenceDeplacementSilencieux => GetAptitude(1019);
+        public AptitudeDto CompetenceDissimulation => GetAptitude(1020);
+        public AptitudeDto CompetenceFouille => GetAptitude(1032);
+        public AptitudeDto CompetencePerception => GetAptitude(1048);
+        public AptitudeDto CompetenceEscalade => GetAptitude(1024);
+        public AptitudeDto CompetenceCrochetage => GetAptitude(1016);
+        public AptitudeDto CompetenceDeguisement => GetAptitude(1018);
+        public AptitudeDto CompetenceEscamotage => GetAptitude(1025);
+        public AptitudeDto CompetencePreparationDePoisons => GetAptitude(1050);
+        public AptitudeDto CompetenceLectureSurLesLevres => GetAptitude(1041);
+        public AptitudeDto TalentConnaissanceDesPieges => GetTalent(2016);
+        public AptitudeDto TalentCamouflageRural => GetTalent(2008);
+        public AptitudeDto TalentCamouflageSouterrain => GetTalent(2009);
+        public AptitudeDto TalentCamouflageUrbain => GetTalent(2010);
+        public AptitudeDto TalentCodeDeLaRue => GetTalent(2013);
+        public AptitudeDto TalentImitation => GetTalent(2036);
+        public AptitudeDto TalentSensAiguises => GetTalent(2080);
+        public AptitudeDto TalentAccuiteAuditive => GetTalent(2002);
+        public AptitudeDto TalentAccuiteGustativeEtOlfactive => GetTalent(2209);
+        public AptitudeDto TalentAccuiteVisuelle => GetTalent(2003);
+        public AptitudeDto TalentFilature => GetTalent(2020);
+        public AptitudeDto TalentPistage => GetTalent(2049);
         
         // Sociales ( + TalentCodeDeLaRue)
-        public CompetenceDto CompetenceBaratin => GetCompetence(4);
-        public CompetenceDto CompetenceCharisme => GetCompetence(8);
-        public CompetenceDto CompetenceCommandement => GetCompetence(9);
-        public CompetenceDto CompetenceCommérage => GetCompetence(10);
-        public CompetenceDto CompetenceIntimidation => GetCompetence(34);
-        public TalentDto TalentEloquence => GetTalent(27);
-        public TalentDto TalentOrateurNe => GetTalent(64);
-        public TalentDto TalentPolitique => GetTalent(174);
-        public TalentDto TalentEtiquette => GetTalent(28);
-        public TalentDto TalentIntriguant => GetTalent(40);
+        public AptitudeDto CompetenceBaratin => GetAptitude(1004);
+        public AptitudeDto CompetenceCharisme => GetAptitude(1008);
+        public AptitudeDto CompetenceCommandement => GetAptitude(1009);
+        public AptitudeDto CompetenceCommérage => GetAptitude(1010);
+        public AptitudeDto CompetenceIntimidation => GetAptitude(1034);
+        public AptitudeDto TalentEloquence => GetTalent(2027);
+        public AptitudeDto TalentOrateurNe => GetTalent(2064);
+        public AptitudeDto TalentPolitique => GetTalent(2174);
+        public AptitudeDto TalentEtiquette => GetTalent(2028);
+        public AptitudeDto TalentIntriguant => GetTalent(2040);
         
         // Commerce  + TalentCalculMental
-        public CompetenceDto CompetenceMarchandage => GetCompetence(43);
-        public CompetenceDto CompetenceMetierMarchand => GetCompetence(78);
-        public CompetenceDto CompetenceEvaluation => GetCompetence(179);
-        public CompetenceDto CompetenceExpressionArtistiqueConteur => GetCompetence(123);
-        public TalentDto TalentDurEnAffaires => GetTalent(25);
+        public AptitudeDto CompetenceMarchandage => GetAptitude(1043);
+        public AptitudeDto CompetenceMetierMarchand => GetAptitude(1078);
+        public AptitudeDto CompetenceEvaluation => GetAptitude(1179);
+        public AptitudeDto CompetenceExpressionArtistiqueConteur => GetAptitude(1123);
+        public AptitudeDto TalentDurEnAffaires => GetTalent(2025);
 
-        // Cavalerie  + CompetenceMetierVendeurDeChevaux, TalentMaitriseArmesDeCavalerie
-        public CompetenceDto CompetenceEquitation => GetCompetence(23);
-        public CompetenceDto CompetenceEquitationCochonDeGuerre => GetCompetence(152);
-        public CompetenceDto CompetenceExpressionArtistiqueAcrobatEquestre => GetCompetence(153);
-        public CompetenceDto CompetenceEmpriseSurLesAnimaux => GetCompetence(22);
-        public CompetenceDto CompetenceSoinsDesAnimaux => GetCompetence(54);
-        public CompetenceDto CompetenceMetierGarconDEcurie => GetCompetence(180);
-        public CompetenceDto CompetenceDressage => GetCompetence(21);
-        public TalentDto TalentAcrobateEquestre => GetTalent(1);
+        // Cavalerie  + AptitudeMetierVendeurDeChevaux, TalentMaitriseArmesDeCavalerie
+        public AptitudeDto CompetenceEquitation => GetAptitude(1023);
+        public AptitudeDto CompetenceEquitationCochonDeGuerre => GetAptitude(1152);
+        public AptitudeDto CompetenceExpressionArtistiqueAcrobatEquestre => GetAptitude(1153);
+        public AptitudeDto CompetenceEmpriseSurLesAnimaux => GetAptitude(1022);
+        public AptitudeDto CompetenceSoinsDesAnimaux => GetAptitude(1054);
+        public AptitudeDto CompetenceMetierGarconDEcurie => GetAptitude(1180);
+        public AptitudeDto CompetenceDressage => GetAptitude(1021);
+        public AptitudeDto TalentAcrobateEquestre => GetTalent(2001);
 
-        // Artisanat  + CompetencePreparationDePoisons, CompetenceEvaluation
-        public CompetenceDto CompetenceLangageSecretGuilde => GetCompetence(158);
-        public CompetenceDto CompetenceGroupeMetier => GetCompetence(44);
-        public CompetenceDto CompetenceMetierDeuxAuChoix => GetCompetence(159);
-        public CompetenceDto CompetenceMetierTroisAuChoix => GetCompetence(172);
-        public CompetenceDto CompetenceConnaissancesAcademiquesArts => GetCompetence(102);
-        public CompetenceDto CompetenceConnaissancesAcademiquesIngénierie => GetCompetence(108);
-        public CompetenceDto CompetenceConnaissancesAcademiquesRunes => GetCompetence(112);
-        public CompetenceDto CompetenceConnaissancesAcademiquesSciences => GetCompetence(113);
-        public CompetenceDto CompetenceLangageMystiqueNain => GetCompetence(3);
-        public TalentDto TalentRuneDeuxAuChoix => GetTalent(170);
-        public TalentDto TalentRuneSixAuChoix => GetTalent(171);
-        public TalentDto TalentRuneDixAuChoix => GetTalent(173);
-        public TalentDto TalentRuneMajeureDeuxAuChoix => GetTalent(172);
-        public CompetenceDto CompetenceCreationDeRunes => GetCompetence(6);
-        public TalentDto TalentSavoirFaireNain => GetTalent(78);
-        public TalentDto TalentTalentArtistique => GetTalent(86);
+        // Artisanat  + AptitudePreparationDePoisons, AptitudeEvaluation
+        public AptitudeDto CompetenceLangageSecretGuilde => GetAptitude(1158);
+        public AptitudeDto CompetenceGroupeMetier => GetAptitude(1044);
+        public AptitudeDto CompetenceMetierDeuxAuChoix => GetAptitude(1159);
+        public AptitudeDto CompetenceMetierTroisAuChoix => GetAptitude(1172);
+        public AptitudeDto CompetenceConnaissancesAcademiquesArts => GetAptitude(1102);
+        public AptitudeDto CompetenceConnaissancesAcademiquesIngénierie => GetAptitude(1108);
+        public AptitudeDto CompetenceConnaissancesAcademiquesRunes => GetAptitude(1112);
+        public AptitudeDto CompetenceConnaissancesAcademiquesSciences => GetAptitude(1113);
+        public AptitudeDto CompetenceLangageMystiqueNain => GetAptitude(1003);
+        public AptitudeDto TalentRuneDeuxAuChoix => GetTalent(2170);
+        public AptitudeDto TalentRuneSixAuChoix => GetTalent(2171);
+        public AptitudeDto TalentRuneDixAuChoix => GetTalent(2173);
+        public AptitudeDto TalentRuneMajeureDeuxAuChoix => GetTalent(2172);
+        public AptitudeDto CompetenceCreationDeRunes => GetAptitude(1006);
+        public AptitudeDto TalentSavoirFaireNain => GetTalent(2078);
+        public AptitudeDto TalentTalentArtistique => GetTalent(2086);
         
-        // Rôdeurs  + CompetenceDeplacementSilencieux, CompetenceDissimulation, CompetenceEmpriseSurLesAnimaux, CompetenceGroupeLangue
-        //          , CompetencePerception, CompetenceFouille, CompetenceEscalade, TalentLinguistique, TalentConnaissanceDesPieges
-        public CompetenceDto CompetenceBraconnage => GetCompetence(5);
-        public CompetenceDto CompetenceAlphabetSecretPisteurs => GetCompetence(86);
-        public CompetenceDto CompetenceLangageSecretRodeurs => GetCompetence(87);
-        public CompetenceDto CompetenceLangageSecretTroisAuChoix => GetCompetence(38);
-        public CompetenceDto CompetenceOrientation => GetCompetence(47);
-        public CompetenceDto CompetenceMetierCartographe => GetCompetence(63);
-        public CompetenceDto CompetenceSurvie => GetCompetence(55);
-        public CompetenceDto CompetencePistage => GetCompetence(49);
-        public TalentDto TalentSensDeLOrientation => GetTalent(81);
-        public TalentDto TalentGrandVoyageur => GetTalent(33);
-        public TalentDto TalentSixiemeSens => GetTalent(82);
+        // Rôdeurs  + AptitudeDeplacementSilencieux, AptitudeDissimulation, AptitudeEmpriseSurLesAnimaux, AptitudeGroupeLangue
+        //          , AptitudePerception, AptitudeFouille, AptitudeEscalade, TalentLinguistique, TalentConnaissanceDesPieges
+        public AptitudeDto CompetenceBraconnage => GetAptitude(105);
+        public AptitudeDto CompetenceAlphabetSecretPisteurs => GetAptitude(1086);
+        public AptitudeDto CompetenceLangageSecretRodeurs => GetAptitude(1087);
+        public AptitudeDto CompetenceLangageSecretTroisAuChoix => GetAptitude(1038);
+        public AptitudeDto CompetenceOrientation => GetAptitude(1047);
+        public AptitudeDto CompetenceMetierCartographe => GetAptitude(1063);
+        public AptitudeDto CompetenceSurvie => GetAptitude(1055);
+        public AptitudeDto CompetencePistage => GetAptitude(1049);
+        public AptitudeDto TalentSensDeLOrientation => GetTalent(2081);
+        public AptitudeDto TalentGrandVoyageur => GetTalent(2033);
+        public AptitudeDto TalentSixiemeSens => GetTalent(2082);
 
-        // Maritimes  + CompetenceOrientation, CompetenceMetierCartographe, TalentGrandVoyageur
-        public CompetenceDto CompetenceCanotage => GetCompetence(7);
-        public CompetenceDto CompetenceNatation => GetCompetence(45);
-        public CompetenceDto CompetenceNavigation => GetCompetence(46);
-        public CompetenceDto CompetenceEruditionAstronomie => GetCompetence(103);
-        public CompetenceDto CompetenceEruditionPotamologie => GetCompetence(189);
-        public CompetenceDto CompetenceMetierCharpentierNaval => GetCompetence(65);
+        // Maritimes  + AptitudeOrientation, AptitudeMetierCartographe, TalentGrandVoyageur
+        public AptitudeDto CompetenceCanotage => GetAptitude(1007);
+        public AptitudeDto CompetenceNatation => GetAptitude(1045);
+        public AptitudeDto CompetenceNavigation => GetAptitude(1046);
+        public AptitudeDto CompetenceEruditionAstronomie => GetAptitude(10103);
+        public AptitudeDto CompetenceEruditionPotamologie => GetAptitude(10189);
+        public AptitudeDto CompetenceMetierCharpentierNaval => GetAptitude(1065);
         
-        // Poudre noire  + CompetenceMetierArquebusier, TalentMaitriseArmesAFeu
+        // Poudre noire  + AptitudeMetierArquebusier, TalentMaitriseArmesAFeu
 
-        // Ami des bêtes  + CompetenceMetierGarconDEcurie
-        public CompetenceDto CompetenceMetierVendeurDeChevaux => GetCompetence(177);
-        public CompetenceDto CompetenceMetierMaitreChien => GetCompetence(178);
-        public CompetenceDto CompetenceMetierFauconnerie => GetCompetence(179);
-        public CompetenceDto CompetenceConnaissancesAcademiquesZoologie => GetCompetence(188);
-        public CompetenceDto CompetenceMetierFermier => GetCompetence(74);
-        public CompetenceDto CompetenceConduiteDAttelage => GetCompetence(12);
+        // Ami des bêtes  + AptitudeMetierGarconDEcurie
+        public AptitudeDto CompetenceMetierVendeurDeChevaux => GetAptitude(1177);
+        public AptitudeDto CompetenceMetierMaitreChien => GetAptitude(1178);
+        public AptitudeDto CompetenceMetierFauconnerie => GetAptitude(1179);
+        public AptitudeDto CompetenceConnaissancesAcademiquesZoologie => GetAptitude(1188);
+        public AptitudeDto CompetenceMetierFermier => GetAptitude(1074);
+        public AptitudeDto CompetenceConduiteDAttelage => GetAptitude(1012);
         
-        public CompetenceDto CompetenceIntuition => GetCompetence(210);
-        public CompetenceDto CompetenceSangFroid => GetCompetence(219);
-        public CompetenceDto CompetenceResistance => GetCompetence(220);
-        public CompetenceDto CompetenceAthletisme => GetCompetence(209);
-        public CompetenceDto CompetenceSoins => GetCompetence(53);
-        public CompetenceDto CompetenceMetierApothicaire => GetCompetence(58);
+        public AptitudeDto CompetenceIntuition => GetAptitude(1210);
+        public AptitudeDto CompetenceSangFroid => GetAptitude(1219);
+        public AptitudeDto CompetenceResistance => GetAptitude(1220);
+        public AptitudeDto CompetenceAthletisme => GetAptitude(1209);
+        public AptitudeDto CompetenceSoins => GetAptitude(1053);
+        public AptitudeDto CompetenceMetierApothicaire => GetAptitude(1058);
             
-        public TalentDto TalentChirurgie => GetTalent(12);
-        public TalentDto TalentChance => GetTalent(11);
-        public TalentDto TalentResistanceALaMagie => GetTalent(70);
-        public TalentDto TalentResistanceAuxMaladies => GetTalent(72);
-        public TalentDto TalentResistanceAuxPoisons => GetTalent(73);
-        public TalentDto TalentSainDEsprit => GetTalent(75);
-        public TraitDto TraitVisionNocturne => GetTrait(903);
-        public TalentDto TalentSensAiguisés => GetTalent(80);
+        public AptitudeDto TalentChirurgie => GetTalent(2012);
+        public AptitudeDto TalentChance => GetTalent(2011);
+        public AptitudeDto TalentResistanceALaMagie => GetTalent(2070);
+        public AptitudeDto TalentResistanceAuxMaladies => GetTalent(2072);
+        public AptitudeDto TalentResistanceAuxPoisons => GetTalent(2073);
+        public AptitudeDto TalentSainDEsprit => GetTalent(2075);
+        public AptitudeDto TraitVisionNocturne => GetTrait(3903);
+        public AptitudeDto TalentSensAiguisés => GetTalent(2080);
         
-        public CompetenceDto CompetencePriere => GetCompetence(225);
-        public TalentDto TalentBenediction => GetTalent(277);
-        public TalentDto TalentInspirationDivine => GetTalent(278);
+        public AptitudeDto CompetencePriere => GetAptitude(1225);
+        public AptitudeDto TalentBenediction => GetTalent(2277);
+        public AptitudeDto TalentInspirationDivine => GetTalent(2278);
         
         #endregion
         
-        public CompetenceDto[] RechercheCompetences(string searchText)
+        public AptitudeDto[] RechercheAptitudes(string searchText)
         {
             searchText = GenericService.ConvertirCaracteres(searchText);
             var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
 
-            return AllCompetences
+            return AllAptitudes
                 .Where(c => c.Ignore == false && (
                             c.NomPourRecherche.Contains(searchText) || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any()
                     )
@@ -299,21 +294,7 @@
                 .ToArray();
         }
         
-        public TalentDto[] RechercheTalents(string searchText)
-        {
-            searchText = GenericService.ConvertirCaracteres(searchText);
-            var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
-
-            return AllTalents
-                .Where(t => t.Ignore == false && (
-                        t.NomPourRecherche.Contains(searchText) || t.MotsClefDeRecherche.Intersect(motsClefRecherches).Any()
-                    )
-                )
-                .OrderByDescending(t => t.MotsClefDeRecherche.Intersect(motsClefRecherches).Count())
-                .ToArray();
-        }
-        
-        public List<TalentDto> TalentsInitiaux => new List<TalentDto> {
+        public List<AptitudeDto> TalentsInitiaux => new List<AptitudeDto> {
              TalentAccuiteAuditive,
              TalentAccuiteGustativeEtOlfactive,
              TalentAccuiteVisuelle,
@@ -346,42 +327,42 @@
         
         #region Traits
         
-        public List<TraitDto> SignesDistinctifs => AllTraits.Where(t => t.Groupe == "trait").OrderBy(t => t.NomComplet).ToList();
-        public List<TraitDto> Folies => AllTraits.Where(t => t.Groupe == "folie").ToList();
-        public List<TraitDto> Maladies => AllTraits.Where(t => t.Groupe == "maladie").ToList();
-        public List<TraitDto> Mutations => AllTraits.Where(t => t.Groupe == "mutation").ToList();
-        public List<TraitDto> Nevroses => AllTraits.Where(t => t.Groupe == "nevrose").ToList();
-        public List<TraitDto> Addictions => AllTraits.Where(t => t.Groupe == "addiction").ToList();
-        public List<TraitDto> Alergies => AllTraits.Where(t => t.Groupe == "allergie").ToList();
-        public List<TraitDto> Phobies => AllTraits.Where(t => t.Groupe == "phobie").ToList();
-        public List<TraitDto> Conditions => AllTraits.Where(t => t.Groupe == "condition").OrderBy(t => t.NomComplet).ToList();
+        public List<AptitudeDto> SignesDistinctifs => AllTraits.Where(t => t.CategSpe == "trait").OrderBy(t => t.NomComplet).ToList();
+        public List<AptitudeDto> Folies => AllTraits.Where(t => t.CategSpe == "folie").ToList();
+        public List<AptitudeDto> Maladies => AllTraits.Where(t => t.CategSpe == "maladie").ToList();
+        public List<AptitudeDto> Mutations => AllTraits.Where(t => t.CategSpe == "mutation").ToList();
+        public List<AptitudeDto> Nevroses => AllTraits.Where(t => t.CategSpe == "nevrose").ToList();
+        public List<AptitudeDto> Addictions => AllTraits.Where(t => t.CategSpe == "addiction").ToList();
+        public List<AptitudeDto> Alergies => AllTraits.Where(t => t.CategSpe == "allergie").ToList();
+        public List<AptitudeDto> Phobies => AllTraits.Where(t => t.CategSpe == "phobie").ToList();
+        public List<AptitudeDto> Conditions => AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.NomComplet).ToList();
 
-        public TraitDto ConditionSurpris => GetTrait(460);
-        public TraitDto ConditionDemoralise => GetTrait(453);
-        public TraitDto ConditionATerre => GetTrait(458);
-        public TraitDto ConditionEtourdi => GetTrait(459);
-        public TraitDto ConditionInconscient => GetTrait(461);
+        public AptitudeDto ConditionSurpris => GetTrait(303460);
+        public AptitudeDto ConditionDemoralise => GetTrait(303453);
+        public AptitudeDto ConditionATerre => GetTrait(303458);
+        public AptitudeDto ConditionEtourdi => GetTrait(303459);
+        public AptitudeDto ConditionInconscient => GetTrait(303461);
         
-        public TraitDto TraitPsychoHaine => GetTrait(217);
-        public TraitDto TraitPsychoAnimosite => GetTrait(215);
-        public TraitDto TraitEffrayant => GetTrait(199);
+        public AptitudeDto TraitPsychoHaine => GetTrait(303217);
+        public AptitudeDto TraitPsychoAnimosite => GetTrait(303215);
+        public AptitudeDto TraitEffrayant => GetTrait(303199);
 
-        public List<TraitDto> TroublesMineurs()
+        public List<AptitudeDto> TroublesMineurs()
         {
-            var list = new List<TraitDto>();
+            var list = new List<AptitudeDto>();
             list.AddRange(Alergies.Where(t => t.Severite == 1));
             list.AddRange(Nevroses.Where(t => t.Severite == 1));
             list.AddRange(Phobies.Where(t => t.Severite == 1));
-            return list.OrderBy(t => t.Groupe).ThenBy(t => t.Nom).ToList();
+            return list.OrderBy(t => t.CategSpe).ThenBy(t => t.Nom).ToList();
         }
 
-        public TraitDto TirerUnSigneAleatoire(List<TraitDto> traitsDejaObtenus)
+        public AptitudeDto TirerUnSigneAleatoire(List<AptitudeDto> traitsDejaObtenus)
         {
-            TraitDto? ta = null;
+            AptitudeDto? ta = null;
             while (ta == null
                    || traitsDejaObtenus.Contains(ta)
-                   || ta.TraitsIncompatibles.Intersect(traitsDejaObtenus).Any()
-                   || traitsDejaObtenus.Any(to => to.TraitsIncompatibles.Contains(ta))
+                   || ta.Incompatibles.Intersect(traitsDejaObtenus).Any()
+                   || traitsDejaObtenus.Any(to => to.Incompatibles.Contains(ta))
             ) {
                 var sd = SignesDistinctifs;
                 var i = new Random().Next(0, sd.Count);

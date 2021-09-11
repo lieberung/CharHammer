@@ -25,7 +25,7 @@
         
         private ArmeAttributDto GetAttributDArme(int id) => _cacheArmeAttribut[id];
 
-        public List<ArmeDto> GetArmesDeMaitrise(CompetenceDto maitrise) =>
+        public List<ArmeDto> GetArmesDeMaitrise(AptitudeDto maitrise) =>
             AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == maitrise.Id)).OrderBy(a => a.Nom).ToList();
 
         public IEnumerable<ArmeDto> GetArmes(IEnumerable<int> ids) => ids.Select(GetArme).ToArray();

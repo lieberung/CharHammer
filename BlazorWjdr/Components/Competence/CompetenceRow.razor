@@ -1,5 +1,7 @@
 ﻿@using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Components.Talent
+@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
 @using BlazorWjdr.Shared.Oi
 
 <tr>
@@ -24,11 +26,11 @@
         {
             <SousElement/>
         }
-        <CompetenceItem Item="Item"/>
+        <AptitudeItem Item="Item"/>
     </td>
     <td>@Item.CaracteristiqueAssociee</td>
     <td><CheckedIfTrue Condition="@Item.EstUneCompetenceDeBase"/> </td>
-    <td><TalentItemList Items="@Item.TalentsLies.ToArray()"/></td>
+    <td><AptitudeItemList Items="@Item.TalentsLies.ToArray()"/></td>
 </tr>
 @if (AfficherCarrieres && _carrieresLiees.Any())
 {
@@ -43,5 +45,21 @@
     @foreach (var sousElement in Item.SousElements)
     {
         <CompetenceRow Item="@sousElement" />
+    }
+}
+
+@code{
+    [Inject] private CarrieresService CarrieresService { get; set; } = null!;
+
+    [Parameter] public AptitudeDto Item { get; set; } = null!;
+    private bool AfficherSousElements { get; set; } = false;
+    private bool AfficherCarrieres { get; set; } = false;
+    
+    private CarriereDto[] _carrieresLiees = null!;
+
+    protected override void OnParametersSet()
+    {
+        _carrieresLiees = CarrieresService.GetCarrieresProposant(Item);
+        base.OnParametersSet();
     }
 }

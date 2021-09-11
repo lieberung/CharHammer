@@ -1,8 +1,6 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Services
-@using BlazorWjdr.Components.Competence
-@using BlazorWjdr.Components.Talent
-@using BlazorWjdr.Components.Trait
+@using BlazorWjdr.Components.Aptitude
 
 @inject CompTalentsEtTraitsService _compTalentsEtTraitsService
 @inject ArmesService _armesService
@@ -19,7 +17,7 @@
 <p class="card-text">
     @if (_talentsLies.Any())
     {
-        <TalentItemList Items="@_talentsLies.ToArray()"/>    
+        <AptitudeItemList Items="@_talentsLies.ToArray()"/>    
     }
     else
     {
@@ -31,7 +29,7 @@
 <p class="card-text">
     @if (_traitsLies.Any())
     {
-        <TraitItemList Items="@_traitsLies.ToArray()"/>    
+        <AptitudeItemList Items="@_traitsLies.ToArray()"/>    
     }
     else
     {
@@ -43,7 +41,7 @@
 {
     <h3 class="card-title">Spécialisations</h3>
     <p class="card-text">
-        <CompetenceItemList Items="@Item.SousElements.ToArray()"/>    
+        <AptitudeItemList Items="@Item.SousElements.ToArray()"/>    
     </p>
 }
 
@@ -60,10 +58,10 @@
 
 @code{
     [Parameter]
-    public CompetenceDto Item { get; set; } = null!;
+    public AptitudeDto Item { get; set; } = null!;
 
-    private List<TalentDto> _talentsLies = new();
-    private List<TraitDto> _traitsLies = new();
+    private List<AptitudeDto> _talentsLies = new();
+    private List<AptitudeDto> _traitsLies = new();
 
     private List<ArmeDto> _armesLiees = new();
     

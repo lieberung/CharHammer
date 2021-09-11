@@ -42,13 +42,13 @@
     [Parameter]
     public string CompetenceId { get; set; } = null!;
 
-    private CompetenceDto Competence { get; set; } = null!;
+    private AptitudeDto Competence { get; set; } = null!;
     
     private CarriereDto[] _carrieres = null!;
 
     protected override void OnParametersSet()
     {
-        Competence = _compTalentsEtTraitsService.GetCompetence(int.Parse(CompetenceId));
+        Competence = _compTalentsEtTraitsService.GetAptitude(int.Parse(CompetenceId));
         _carrieres = _carrieresService.GetCarrieresProposant(Competence);
     }
 }

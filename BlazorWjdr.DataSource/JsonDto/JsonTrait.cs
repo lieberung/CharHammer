@@ -11,9 +11,11 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int severite { get; set; }
         public string type { get; set; } = null!;
         public string nom { get; set; } = null!;
+        public string? nom_en { get; set; }
         public string? spe { get; set; } = null;
         public string? guerison { get; set; }
         public string? description { get; set; }
+        public string? description_v2 { get; set; }
         public bool? contagieux { get; set; }
         public int[]? incompatible { get; set; }
 

@@ -21,14 +21,9 @@
 
         public CarriereDto GetCarriere(int id) => _cacheCarrieres[id];
 
-        public CarriereDto[] GetCarrieresProposant(CompetenceDto competence)
+        public CarriereDto[] GetCarrieresProposant(AptitudeDto aptitude)
             => AllCarrieres
-                .Where(c => c.CompetencesPourScore.Any(comp => comp.Id == competence.Id))
-                .ToArray();
-
-        public CarriereDto[] GetCarrieresProposant(TalentDto talent)
-            => AllCarrieres
-                .Where(c => c.TalentsPourScore.Any(t => t.Id == talent.Id))
+                .Where(c => c.AptitudesPourScore.Any(comp => comp.Id == aptitude.Id))
                 .ToArray();
 
         public CarriereDto[] GetCarrieresParuesDans(ReferenceDto reference)
