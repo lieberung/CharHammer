@@ -126,8 +126,8 @@
         public AptitudeDto TalentChargeBerserk => GetTalent(2245);
         public AptitudeDto TalentDetermine => GetTalent(2273);
         public AptitudeDto TalentRiposte => GetTalent(2241);
-        public AptitudeDto TalentFrappeReactive => GetTalent(20213);
-        public AptitudeDto TalentRetournement => GetTalent(20242);
+        public AptitudeDto TalentFrappeReactive => GetTalent(2213);
+        public AptitudeDto TalentRetournement => GetTalent(2242);
 
         public AptitudeDto CompetenceMeleeArmesDEscrime => GetAptitude(1611);
         public AptitudeDto CompetenceMeleeArmesDeCavalerie => GetAptitude(1609);
