@@ -337,15 +337,15 @@
         public List<AptitudeDto> Phobies => AllTraits.Where(t => t.CategSpe == "phobie").ToList();
         public List<AptitudeDto> Conditions => AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.NomComplet).ToList();
 
-        public AptitudeDto ConditionSurpris => GetTrait(303460);
-        public AptitudeDto ConditionDemoralise => GetTrait(303453);
-        public AptitudeDto ConditionATerre => GetTrait(303458);
-        public AptitudeDto ConditionEtourdi => GetTrait(303459);
-        public AptitudeDto ConditionInconscient => GetTrait(303461);
+        public AptitudeDto ConditionSurpris => GetTrait(3460);
+        public AptitudeDto ConditionDemoralise => GetTrait(3453);
+        public AptitudeDto ConditionATerre => GetTrait(3458);
+        public AptitudeDto ConditionEtourdi => GetTrait(3459);
+        public AptitudeDto ConditionInconscient => GetTrait(3461);
 
-        public AptitudeDto TraitPsychoHaine => GetTrait(303217);
-        public AptitudeDto TraitPsychoAnimosite => GetTrait(303215);
-        public AptitudeDto TraitEffrayant => GetTrait(303199);
+        public AptitudeDto TraitPsychoHaine => GetTrait(3217);
+        public AptitudeDto TraitPsychoAnimosite => GetTrait(3215);
+        public AptitudeDto TraitEffrayant => GetTrait(3199);
 
         public List<AptitudeDto> TroublesMineurs()
         {
