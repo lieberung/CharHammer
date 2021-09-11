@@ -29,7 +29,7 @@
                     </div>
                 }
 
-                @if (FilteredAptitudes.Where(a => a.EstUneCompetence).Any())
+                @if (FilteredAptitudes.Any(a => a.EstUneCompetence))
                 {
                     <div class="mb-3">
                         <h6 class="card-title">Compétences</h6>
@@ -37,11 +37,19 @@
                     </div>
                 }
                 
-                @if (FilteredAptitudes.Where(a =>a.EstUnTalent).Any())
+                @if (FilteredAptitudes.Any(a => a.EstUnTalent))
                 {
                     <div class="mb-3">
                         <h6 class="card-title">Talents</h6>
                         <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTalent).ToArray()"/>
+                    </div>
+                }
+                
+                @if (FilteredAptitudes.Any(a => a.EstUnTrait))
+                {
+                    <div class="mb-3">
+                        <h6 class="card-title">Traits</h6>
+                        <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTrait).ToArray()"/>
                     </div>
                 }
             </div>
