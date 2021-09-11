@@ -2,8 +2,6 @@
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
-using Newtonsoft.Json;
-
 namespace BlazorWjdr.DataSource.JsonDto
 {
     using System.Collections.Generic;

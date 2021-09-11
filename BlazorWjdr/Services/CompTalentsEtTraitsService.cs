@@ -92,7 +92,7 @@
 
         // Martial
         public AptitudeDto CompetenceLangSecretBataille => GetAptitude(1148);
-        public AptitudeDto TalentAmbidextrie => GetTalent(205);
+        public AptitudeDto TalentAmbidextrie => GetTalent(2005);
         public AptitudeDto TalentCoupsPrécis => GetTalent(2020);
         public AptitudeDto TalentSurSesGardes => GetTalent(2085);
         public AptitudeDto TalentTroublant => GetTalent(2091);
@@ -111,11 +111,11 @@
         public AptitudeDto TalentCoupsAssomants => GetTalent(2019);
         public AptitudeDto TalentDesarmement => GetTalent(2023);
         public AptitudeDto TalentDurACuir => GetTalent(2024);
-        public AptitudeDto TalentFrenesie => GetTalent(20);
+        public AptitudeDto TalentFrenesie => GetTalent(2020);
         public AptitudeDto TalentParadeEclair => GetTalent(2065);
         public AptitudeDto TalentLutte => GetTalent(2043);
         public AptitudeDto TalentRobuste => GetTalent(2074);
-        public AptitudeDto TalentValeureux => GetTalent(292);
+        public AptitudeDto TraitValeureux => GetTalent(3906);
         public AptitudeDto TalentGroupeVertu => GetTalent(2206);
         public AptitudeDto TalentPresenceImposante => GetTalent(2217);
         public AptitudeDto TalentDechainement => GetTalent(2237);

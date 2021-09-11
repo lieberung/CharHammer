@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
 using System.Linq;
-// ReSharper disable UnusedAutoPropertyAccessor.Global
 
 namespace BlazorWjdr.Models
 {

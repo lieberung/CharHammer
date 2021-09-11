@@ -361,7 +361,7 @@ namespace BlazorWjdr
                     Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.spe) ? $" : {c.spe}" : "")}",
                     Spe = c.spe ?? "",
                     Categ = c.categ,
-                    CategSpe = c.categ_spe,
+                    CategSpe = c.categ_spe ?? "",
                     Resume = c.resume,
                     Description = c.description,
                     CaracteristiqueAssociee = c.carac ?? "",
@@ -369,8 +369,8 @@ namespace BlazorWjdr
                     Contagieux = c.contagieux,
                     Guerison = c.guerison ?? "",
                     Severite = c.severite ?? 0,
-                    IncompatiblesIds = c.incompatibles,
-                    AptitudesLieesIds = c.aptitudes,
+                    IncompatiblesIds = c.incompatibles ?? new List<int>(),
+                    AptitudesLieesIds = c.aptitudes ?? new List<int>(),
                 })
                 .ToDictionary(k => k.Id, v => v);
 
@@ -385,7 +385,7 @@ namespace BlazorWjdr
                 apt.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(apt.NomPourRecherche);
                 apt.SetResume();
                 apt.AptitudesLiees = apt.AptitudesLieesIds.Select(id => result[id]).ToList();
-                apt.Incompatibles = (apt.IncompatiblesIds ?? new List<int>()).Select(id => result[id]).ToList();
+                apt.Incompatibles = apt.IncompatiblesIds.Select(id => result[id]).ToList();
             }
             
             // Compléter

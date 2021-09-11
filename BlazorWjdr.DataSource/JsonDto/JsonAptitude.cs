@@ -1,7 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable ClassNeverInstantiated.Global
-
-using Newtonsoft.Json;
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
 namespace BlazorWjdr.DataSource.JsonDto
