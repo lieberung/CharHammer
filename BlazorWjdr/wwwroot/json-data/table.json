@@ -493,6 +493,17 @@
         ["9+","Purge médicinale","Poison. Le consommateur doit réussir un Test de Résistance sous peine de recevoir une Condition Empoisonné."]
       ]
     },
+    {"id":73,"titre":"Fluctuation des vents",
+      "description": "Dans ce contexte le BS est toujours négatif ou nul (au mieux) et vient donc augmenter le résultat du d10.",
+      "lignes":[
+        ["d10","Modificateur"],
+        ["1","-30"],
+        ["2-3","-10"],
+        ["4-7-","-"],
+        ["8-9-","+10"],
+        ["10","+30"]
+      ]
+    },
     {"id":666,"titre":"Colère Divine !",
       "description": "Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.\nAprès avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.",
       "lignes":[

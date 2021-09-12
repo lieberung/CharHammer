@@ -2,14 +2,14 @@
 @using BlazorWjdr.Components.Reference
 @using BlazorWjdr.Components.Regle
 
-<img class="career-img" src="@Item.Image" alt="@Item.Nom" style="max-width: 300px; max-height: 450px;"/>
-
 @if (Item.Origines.Any())
 {
     <p class="card-text">
         <CarriereAvancement Origines="@Item.Origines"/>
     </p>
 }
+<img class="career-img" src="@Item.Image" alt="@Item.Nom" style="max-width: 300px; max-height: 450px;"/>
+
 <div style="min-height:400px;">
 @foreach (var paragraphe in _paragraphes)
 {

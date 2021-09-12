@@ -1,10 +1,12 @@
 ﻿@page "/regles/sorcellerie/"
 
+@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Table
 @using BlazorWjdr.Services
 
 @inject CarrieresService _carrSvc
 @inject TablesService _tableSvc
-@inject AptitudesService _cttSvc
+@inject AptitudesService _aptSvc
 
 <MainTopRow>
     <h3 class="card-title">Sorcellerie</h3>
@@ -51,7 +53,7 @@
                 wizards and witches use to fuel their spells.
             </p>
         </div>
-        
+
         <div class="col-4">
             <h4 class="card-title">Les Vents de Magie</h4>
             <p class="card-text">
@@ -91,7 +93,7 @@
                 some of the other species besetting the Empire, such as the Greenskins.
             </p>
         </div>
-        
+
         <div class="col-4">
             <h4 class="card-title">
                 <em>Qu'est-ce que l'Aethyr ?</em>
@@ -129,6 +131,349 @@
 </div>
 
 <PageSectionDivider/>
+
+<div class="row">
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Sortilèges</h3>
+            <p class="card-text">
+                There are four types of spell: Petty, Arcane, Lore, and Chaos
+                spells. Petty spells are simple tricks that use negligible amounts
+                of magic. Arcane Spells are generic spells open to those studying
+                any Lore of Magic or Chaos Magic. Lore spells are those you
+                can only learn if you know that Lore; i.e. to learn spells from the
+                Lore of Fire, you need the Arcane Magic (Fire) Talent. Chaos
+                spells are those practiced by those who’ve lost their souls to
+                Chaos.
+            </p>
+
+            <h4 class="card-title">Mémoriser des sorts</h4>
+            <p class="card-text">
+                Holding the complex linguistic structures of Language (Magick)
+                in mind is a challenging task, so simply transcribing a spell into
+                your grimoire does not allow you learn a spell.
+                To memorise a spell — and therefore be able to cast it without
+                access to your grimoire — you typically need to spend the amount
+                of XP noted in your spellcasting Talent (see Chapter 4: Skills
+                and Talents). Once a spell has been memorised, a spellcaster
+                knows it permanently, barring special circumstances.
+            </p>
+            <h4 class="card-title">Lancer des sorts</h4>
+            <p class="card-text">
+                To cast a spell, make a <AptitudeItem Item="@_aptSvc.CompetenceLangageMystiqueMagick"/> Test. If you succeed,
+                match your SL to the Casting Number (CN) of the spell (listed in
+                the individual spell description). If your SL is equal to or higher than
+                the CN of the spell, it is cast as explained in the spell’s description.
+                If failed, the spell attempt fails, and nothing else happens.
+            </p>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card-body">
+
+            <h4 class="card-title">Jets Critiques</h4>
+            <p class="card-text">
+                If the casting roll is a Critical, the Winds of Magic
+                have flared dangerously high, granting you extra power, but at
+                a cost. Unless you have the Instinctive Diction Talent, you roll
+                on the Minor Miscast Table as the power moves beyond your
+                control, but you may also choose one of the following effects:
+            </p>
+            <ul>
+                <li><strong>Critical Cast:</strong> If the spell causes Damage, it also inflicts a Critical Wound. See page 172 for details.</li>
+                <li><strong>Total Power:</strong> The spell is cast, no matter its CN and your rolled SL, but can be Dispelled.</li>
+                <li><strong>Unstoppable Force:</strong> If you scored enough SL to cast your spell, it cannot be Dispelled.</li>
+            </ul>
+            <h4 class="card-title">Maladresses Critiques</h4>
+            <p class="card-text">
+                If you lose control of the magical energy you are channelling,
+                things invariably go awry. If you Fumble your Casting Test, you
+                suffer a Miscast. Roll 1d100 and consult the Minor Miscast Table.
+            </p>
+            <h4 class="card-title">Overcasting</h4>
+            <p class="card-text">
+                For every +2 SL you achieve in a Casting Test, you may add
+                additional Range, Area of Effect, Duration, or Targets equal to
+                the initial value listed in the spell. Spells with a Range and Target
+                of ‘You’ may only ever target the spellcaster making the Casting
+                Test. Spells with a Range of ‘Touch’ may not be extended. If the
+                Spell has no Duration, you cannot extend it.
+            </p>
+            <p class="card-text">
+                You may choose the same option more than once. For instance, if
+                you achieved + 4 SL above your Casting Number on a spell with
+                a Target of 1, you may now Target 3 individuals. Certain Spells
+                may have additional, optional benefits for additional SL noted in
+                their description.
+            </p>
+
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card-body">
+            <div class="bulle">
+                <h4 class="card-title">Avantages en combat</h4>
+                <p class="card-text">
+                    L'Advantage en combat s'applique aux tests de Lancer de sorts, mais pas à la <AptitudeItem Item="@_aptSvc.CompetenceFocalisation"/>. When casting magic, you can also gain advantage in
+                    the following way: If the target has already had a spell from the same lore cast upon it in that round, gain +1 advantage
+                    as you cast, as the upswelling of your Wind aids channelling magic. see page 164 for advantage rules.
+                </p>
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Fluctuation des vents</h3>
+            <p class="card-text">
+                The Winds of Magic swirl in unfathomable patterns and unpredictable gusts. Before every scene — or even every round
+                in magically turbulent areas — the gM can roll for the strength of the Winds relevant to the scene, to see whether they are
+                blowing strongly or weakly. The modifier can be added to your casting and channelling tests. the gM could decide to do
+                this only in areas where the Winds of Magic are particularly wild, for example in the aftermath of powerful spells, at
+                magical loci, near chaotic portals, and when Morrslieb is at its fullest. if you have the second sight talent, an Easy (+40)
+                Perception test will spot such disturbances.
+            </p>
+            <TableDetail Item="@_tableSvc.GetTable(73)"/>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-5">
+        <div class="card-body">
+            <h4 class="card-title">Durée</h4>
+            <p class="card-text">
+                If a spell is successfully cast, it remains in effect for its Duration
+                unless it is dispelled. You may not simply end your spells already
+                in play, but you may attempt to Dispel them.
+            </p>
+
+            <h4 class="card-title">Grimoires</h4>
+            <p class="card-text">
+                Some spellcasters own a spellbook, or grimoire, in which they
+                transcribe their spells. Apprentices copy spells from their master,
+                while experienced wizards will actively seek out new spells from
+                other wizards, often trading spells for favours. A spellcaster may
+                cast a spell directly from a grimoire if the spell belongs to a Lore
+                they possess. Doing so doubles the Casting Number.
+
+            </p>
+            <h4 class="card-title">Projectiles magiques</h4>
+            <p class="card-text">
+                Some spells are marked as magic missiles; these are damage-
+                causing spells that all follow the same rules. When a magic
+                missile is successfully cast and targets another character, the Hit
+                Location struck is determined by reversing the dice rolled on
+                the Language (Magick) Test and referring to the Hit Location
+                Table (see page 159). The SL of the Language (Magick) Test is
+                added to the spell’s listed Damage and your Willpower Bonus to
+                determine the total inflicted Damage. This Damage is reduced by
+                the target’s Toughness and Armour Points as normal.
+            </p>
+
+            <h4 class="card-title">Sorts de contact</h4>
+            <p class="card-text">
+                Certain spells require you to touch the target. If in combat,
+                or if the target is unwilling to be touched, you must make an
+                Opposed Melee (Brawling) Test (generally opposed by the
+                Melee or Dodge Skill) after completing the Casting Test.
+                If you do this and your spell was a magic missile, the Melee
+                (Brawling) Test is used to determine Hit Location struck, not
+                the Language (Magick) Test.
+            </p>
+        </div>
+    </div>
+    <div class="col-7">
+        <div class="card-body">
+            <h4 class="card-title">Ingrédients</h4>
+            <p class="card-text">
+                Spellcasters may channel their magic through an appropriate
+                ingredient before unleashing their spells. Doing this offers
+                protection against Miscasts as the attuned ingredient absorbs the
+                worst of any magical backlash.
+            </p>
+            <p class="card-text">
+                If you use an ingredient when casting, any suffered Major
+                Miscast becomes a Minor Miscast, and any Minor Miscast
+                has no effect. If used in this way, the ingredient is consumed or
+                destroyed by the process, even if no Miscast was rolled.
+            </p>
+            <p class="card-text">
+                Ingredients cost the CN in silver shillings for Arcane and Lore
+                spells. Whenever you purchase a new ingredient, mark on your
+                character sheet which spell it supports; ingredients only work for
+                specific spells, not for all spells in your Lore. For those looking
+                to add character to their ingredients, sample ingredients for each
+                of the primary Lores of Magic are provided by the individual
+                spell lists.
+            </p>
+
+            <h4 class="card-title">Limitations</h4>
+            <p class="card-text">
+                As spells are spoken, you must be able to speak — not gagged,
+                strangled, or underwater — to cast. If your voice is inhibited, the
+                Difficulty of your Language (Magick) Test to cast a spell should
+                be increased by the GM. Further, the Language of Magick needs
+                to be spoken (or sung, for those using the Lore of Light) clearly,
+                and often loudly, to ensure spells work; magic is anything but
+                subtle. As a loose guide, the higher the CN of a spell, the louder
+                the spell is chanted.
+            </p>
+            <p class="card-text">
+                Each of your spells can only be in effect once, meaning you have
+                to wait for a cast spell to come to an end, or be dispelled, before
+                using the same spell again. Further, spells providing bonuses or
+                penalties do not stack. Instead, the best bonus and worst penalty
+                is applied from every spell cast upon you. So, if you had a spell
+                providing a bonus of +20 Willpower, and another providing +10
+                Willpower, you gain a bonus of +20 Willpower, not +30.
+            </p>
+            <p class="card-text">
+                Lastly, unless otherwise specified, you always need to be able to
+                see — i.e. have Line of Sight — to your target.
+            </p>
+        </div>
+    </div>
+</div>
+
+<PageSectionDivider/>
+
+<div class="row">
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Channelling Test</h3>
+            <p class="card-text">
+                Some magical spells require far more magic than can normally
+                be found ambiently flowing through the world. To power such
+                spells, it is possible to draw the Winds of Magic and concentrate
+                them into a more powerful form by using the Channelling Skill.
+                Channelling the Winds of Magic can be a dangerous procedure,
+                but it is the only sure way to cast some powerful spells. To channel
+                magic for a spell, make an Extended Channelling Test.
+            </p>
+            <p class="card-text">
+                When your SL reaches the CN of your selected spell, you have
+                channelled enough magic to cast it. On the next Round, you can
+                cast your spell using the normal Casting rules, but count the
+                chosen spell’s Casting Number as 0. If the casting Test fails, you
+                also lose all your channelled magical energy, and suffer a Minor
+                Miscast as it all writhes free from your Aethyric grasp.
+            </p>
+
+            <h4 class="card-title">Réussite Critique</h4>
+            <p class="card-text">
+                If you roll a Critical when Channelling, you have channelled
+                a mighty flow of magic and can cast your spell next Round
+                regardless of the SL you’ve scored in the Extended Test so far;
+                however, so much magic so quickly concentrated in one place
+                results in some magical backlash: roll 1d100 on the Minor
+                Miscast Table unless you have the Aethyric Attunement Talent
+                (see page 132).
+            </p>
+
+            <h4 class="card-title">Maladresse Critique</h4>
+            <p class="card-text">
+                Channelling the Winds of Magic in a large flow is dangerous.
+                You count any double or any roll ending in a 0 over your Skill as a
+                Fumble, so, 00, 99, 90, 88, and so on. If you fumble a Channelling
+                Test, you suffer a Miscast. Roll 1d100 and consult the Major
+                Miscast Table.
+            </p>
+
+            <h4 class="card-title">Interruptions</h4>
+            <p class="card-text">
+                Concentration is vital when channelling. If you are distracted
+                by anything — loud noises, suffering damage, flashing lights,
+                or similar — you must pass a Hard (–20) Cool Test, or suffer a
+                Minor Miscast and lose all SL you have accrued in the Extended
+                Channelling Test so far.
+            </p>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Repelling The winds</h3>
+            <p class="card-text">
+                Wearing colours appropriate to the Wind of Magic you are
+                manipulating helps attract the magic to you. This is the reason
+                most wizards choose to dress in the traditional garb of their order.
+            </p>
+            <p class="card-text">
+                All Casting and Channelling Tests suffer a –1 SL penalty if you
+                are dressed inappropriately for the Wind of Magic you are trying
+                to attract, as determined by the GM. Specifically, metal and
+                leather armour repel most of the Winds: metal is laden with the
+                golden wind Chamon, while leather retains traces of the amber
+                Ghur. As such, spellcasters wearing armour suffer –1 SL penalty
+                to all Casting and Channelling Tests for every Armour Point
+                on the location with the most armour. Casters with the Arcane
+                Magic (Metal) Talent may wear metal armour without penalty;
+                those with Arcane Magic (Beasts) Talent may ignore penalties
+                from leather armour.
+            </p>
+
+            <h3 class="card-title">Dissipation de la magie</h3>
+            <p class="card-text">
+                If a spell targets you, or a point you can see within Willpower yards,
+                you may oppose the Casting Test with Language (Magick) as you
+                chant a counterspell. Make an <strong>Opposed Language (Magick)</strong> Test.
+                If you win the Opposed Test, you dispel the incoming spell; if
+                you lose, the spell uses the SL of the Opposed Test to determine
+                whether the casting was successful as normal. You may only
+                attempt to dispel a single spell every Round.
+            </p>
+            <h4 class="card-title">Dissiper un sort persistant</h4>
+            <p class="card-text">
+                If a spell has a lasting effect, you may attempt to dispel that spell
+                for your Action. This is done by making an
+                <strong>
+                    Extended Language
+                    (Magick)
+                </strong> Test. When your SL reaches the CN of the ongoing
+                spell, you successfully dispel it.
+            </p>
+        </div>
+
+    </div>
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Utiliser une Warpstone</h3>
+            <p class="card-text">
+                <em>
+                    Officially the use of warpstone is precluded by the powers that be.
+                    Unofficially, I can say that it is officially never used within this
+                    college. Officially, I cannot say what unofficial uses it might have. But
+                    unofficially, I might be able to say it has certain unofficial uses. But
+                    certainly it is officially unofficial.<br/>
+                    –Wilhelm holswig-schliestein, Grey Guardian, raconteur, and liar
+                </em>
+            </p>
+            <p class="card-text">
+                Warpstone is such a rich source of power that even a small
+                fragment of the stuff will offer enough magic to power any spell
+                in short order. Of course, the wisdom of powering any spell with
+                Warpstone, and the wisdom of carrying Warpstone upon your
+                person, is debateable.
+            </p>
+            <p class="card-text">
+                A wizard using Warpstone when Casting and Channelling
+                doubles their SL for the appropriate tests. In addition, Casting
+                or Channelling with Warpstone is a corrupting influence. See
+                page 182 for details of Corruption, and page 236 for casting near
+                Malignant Influences.
+            </p>
+        </div>
+        <div class="card-body">
+            <div class="bulle">
+                <h4 class="card-title">Domaines Arcaniques multiples</h4>
+                <p class="card-text">
+                    If you’re an elf, you can learn a number of Arcane lores equal to your Willpower Bonus. If you have Willpower 65, you can learn 6 of the 8 Arcane lores.
+                    However, doing this takes time and effort. You can’t purchase a new Arcane Magic talent until you have mastered your previous one by taking
+                    at least 20 Advances in the channelling skill of, and learning at least 8 spells from, your lore. Alternatively, any wizard can learn a single Dark lore
+                    in addition to another lore, assuming they are foolish enough and can find a teacher or forbidden grimoire to study.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-12">
