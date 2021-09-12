@@ -355,7 +355,7 @@
   {"id":2456,"parent":2079,"categ":"talent","nom":"Magie arcanique - Ombre","resume":"","description":""},
   {"id":2457,"parent":2079,"categ":"talent","nom":"Magie arcanique - Lumière","resume":"","description":""},
   {"id":2458,"parent":2079,"categ":"talent","nom":"Magie arcanique - Vie","resume":"","description":""},
-  {"id":2458,"parent":2079,"categ":"talent","nom":"Magie arcanique - Nécromancie","resume":"","description":""},
+  {"id":2459,"parent":2079,"categ":"talent","nom":"Magie arcanique - Nécromancie","resume":"","description":""},
   {"id":2151,"parent":2079,"categ":"talent","nom":"Magie commune (occulte)","resume":"","description":""},
   {"id":2162,"categ":"trait","categ_spe":"capacite","nom":"Don du sang (variable)","resume":"","description":""},
   {"id":2136,"parent":2162,"categ":"trait","categ_spe":"capacite","nom":"Don du sang","spe":"sang bleu","resume":"","description":""},
