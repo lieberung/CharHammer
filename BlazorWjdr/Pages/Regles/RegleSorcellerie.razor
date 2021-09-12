@@ -230,7 +230,7 @@
                 magical loci, near chaotic portals, and when Morrslieb is at its fullest. if you have the second sight talent, an Easy (+40)
                 Perception test will spot such disturbances.
             </p>
-            <TableDetail Item="@_tableSvc.GetTable(73)"/>
+            <TableDetail Item="@_tableSvc.GetTable(73)" MasquerTitre="@true"/>
         </div>
     </div>
 </div>
@@ -241,9 +241,9 @@
         <div class="card-body">
             <h4 class="card-title">Durée</h4>
             <p class="card-text">
-                If a spell is successfully cast, it remains in effect for its Duration
-                unless it is dispelled. You may not simply end your spells already
-                in play, but you may attempt to Dispel them.
+                If a spell is successfully cast, it remains in effect for its Duration unless it is dispelled. You may not simply end your spells already in play, but you may attempt to Dispel them.
+                <br/>
+                <strong>Note :</strong> Les sorts dont la durée est annotée d'un ‘+’ peuvent être prolongés d'un Round lorsqu'ils auraient du prendre fin au prix d'un jet de <AptitudeItem Item="@_aptSvc.CompetenceFocalisation"/> réussi.
             </p>
 
             <h4 class="card-title">Grimoires</h4>
@@ -471,6 +471,166 @@
                     in addition to another lore, assuming they are foolish enough and can find a teacher or forbidden grimoire to study.
                 </p>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Magie Mineure</h3>
+            <p class="card-text">
+                For the few Humans blessed — or cursed, depending upon your 
+                point of view — with the spark of magic, it generally manifests 
+                around puberty, and almost always before 25 summers have 
+                passed. The first indications of impending witchery are often 
+                little tricks, knacks, cantrips, or similar, showing the wizard-to-be 
+                should probably be trained for everyone else’s safety.
+            </p>
+            <p class="card-text">
+                For Elves, this is just a part of growing up, and those with interest 
+                in magic are schooled to develop their burgeoning talents. For 
+                Humans, assuming they avoid being lynched, it likely means 
+                years of training as an apprentice to a wizard from one of the 
+                Eight Colleges of Magic, after which they should never use the 
+                little tricks they learned when young again. But most do.
+            </p>
+            <p class="card-text">
+                As Petty spells are not formally codified, they have many 
+                different names. Players are encouraged to devise their own, more 
+                characterful names, reflecting their personality.
+            </p>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Magie Arcanique</h3>
+            <p class="card-text">
+            The Arcane spells represent common formulations of the lingua 
+            praestantia. How these spells manifest in practice will depend on 
+            your Arcane Magic Talent. For instance, a spellcaster with the 
+            Arcane Magic (Fire) Talent casting Drop may cause the object to 
+            overheat, while one with Arcane Magic (Shadows) may make it 
+            slightly insubstantial, causing the object to literally slip between 
+            the target’s fingers.
+            </p>
+            <p class="card-text">
+            Treat Arcane spells as extra options for every Lore of Magic, 
+            including Witch, Dark, and Chaos Lores. They are counted as 
+            Lore spells in all ways, meaning they get all the benefits of Lore 
+            spells, and can only be learned from and taught to those sharing 
+            the same Arcane Magic Talent.
+            </p>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Magie Dissidente</h3>
+            <p class="card-text">
+            The following provides two lists of six spells for spellcasters nor 
+            yet absorbed into the Colleges of Magic, who are almost always 
+            on the run from Witch Hunters and Sigmarites.
+            </p>
+
+            <h4 class="card-title">The Lore of Hedgecraft</h4>
+            <p class="card-text">
+            The Hedgefolk believe their Lore is a gift from the Gods, 
+            referring to their spellcasters as the Blessed Few. Due to their 
+            ancient traditions and ingrained belief, their spells cannot be 
+            cast without ingredients, which are an integral part of their 
+            spellcasting process.
+            </p> 
+            <p class="card-text">
+            Fortunately, the ingredients they use are easily found on the 
+            fringes of settlements and are usually herbs or plants. You receive 
+            1 + SL ingredients on a successful foraging roll, using Lore 
+            (Herbalism), as described under Gathering Food and Herbs on 
+            page 127, or you can buy them for 5 brass pennies each.
+            Ingredients: Hedgefolk use easily sourced local materials 
+            prepared to exacting standards using special tools. So, ingredients 
+            may include things such as the wings of a dragonfly killed with a 
+            silver pin, rods of poplar polished with beeswax on Sonnstill, or 
+            bones buried beneath a hedgerow for a winter’s month.
+            </p>
+
+            <h4 class="card-title">The Lore of Witchcraft</h4>
+            <p class="card-text">
+            Spells from the Lore of Witchcraft draw on whichever winds 
+            of magic are available, without care or concern for mingling the 
+            winds and the potentially horrific results. Each time practitioners 
+            of Witchcraft roll on a Miscast table, they also gain 1 Corruption 
+            point. Further, you may inflict one Bleeding Condition on anyone 
+            targeted by spells from the Lore of Witchcraft. Lastly, channelling 
+            or casting spells from this Lore automatically require a roll on 
+            the Minor Miscast table unless cast with an ingredient , where 
+            the ingredient provides no further protection should you roll a 
+            Miscast. Fortunately, ingredients for the Lore of Witchcraft are 
+            cheap and readily available: body parts of small animals for the 
+            most part. Ingredients cost a spell’s CN in brass pennies, instead 
+            of silver shillings, to purchase. Alternatively, a Witch may forage 
+            for parts, using the Outdoor Survival skill: a successful foraging 
+            roll receives 1 + SL ingredients, as described under Gathering 
+            Food and Herbs on page 127.
+            </p>
+            <p class="card-text">
+            Ingredients: Witches use a horrific mixture of animal body parts, 
+            often harvested when a creature is still alive. It is not uncommon to 
+            find them clutching lizard eyes, dog toes, donkey gizzard, or much, 
+            much worse in their bloody hands as they cast their foul magics.
+            </p>
+
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Magie Noire</h3>
+            
+            <h4 class="card-title">Magie Démonique</h4>
+            <p class="card-text">
+                The forbidden Lore of Daemonology is concerned with 
+                summoning, binding, and controlling Daemons, typically to 
+                empower the spellcaster. It is horrifically dangerous, usually leading 
+                to the Daemonologist’s downfall as their soul is taken by the 
+                Ruinous Powers and a new Chaos Sorcerer is born.
+            </p>
+            
+            <h4 class="card-title">Nécromancie</h4>
+            <p class="card-text">
+                Necromancy is an ancient and bloody magic art concerned with 
+                mastering death and seeking immortality, often by carving up 
+                rotting corpses. Considered one of the foulest and most heretical 
+                of magics, few take to studying its fell secrets lightly, for the 
+                horrors of the dead, and the undead, cannot be underestimated.
+            </p>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Magie Chaötique</h3>
+            <p class="card-text">
+                Three of the four Great Powers of Chaos have a unique Lore of 
+                Magic — only Khorne, the Blood God, who abhors treacherous 
+                magic and all it stands for, has no Lore of his own. One spell is 
+                provided here for each of the primary Chaos Lores, which can be 
+                added to provide flavour to your Chaos Cultists in addition to the 
+                Arcane Spells and the Lore of Daemonology.
+            </p>
+            <h4 class="card-title">Domaine de Nurgle</h4>
+            <p class="card-text">
+                The Lore of Nurgle spreads foul disease and filth, mixing bloated 
+                excesses of the Jade Wind with whatever corruption comes to 
+                hand, then spewing it everywhere.
+            </p>
+            <h4 class="card-title">Domaine de Slaanesh</h4>
+            <p class="card-text">
+                The Lore of Slaanesh brings torture and excess, all splayed before 
+                the Prince of Pain and Pleasure for its eternal enjoyment, typically 
+                pressuring a perverse mix of the Amethyst, Gold, and Jade Winds 
+                into something twisted and exotic.
+            </p>
+            <h4 class="card-title">Domaine de Tzeentch</h4>
+            <p class="card-text">
+                Tzeentch is the Master of Magic, Treachery, and Lies. The Lore 
+                of Tzeentch epitomises this, as it boasts a multitude of powerful 
+                spells focussing upon change, all drawing heavily from the Grey, 
+                Amethyst, and Bright Winds.
+            </p>
         </div>
     </div>
 </div>

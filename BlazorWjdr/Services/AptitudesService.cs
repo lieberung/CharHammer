@@ -85,10 +85,9 @@
         public AptitudeDto TalentMainsAgiles => GetTalent(2048);
         public AptitudeDto TalentMeditation => GetTalent(2063);
         public AptitudeDto TalentProjectilePuissant => GetTalent(2066);
-        public AptitudeDto TalentGroupeMagieCommune => GetTalent(2044);
         public AptitudeDto TalentGroupeMagieMineure => GetTalent(2045);
         public AptitudeDto TalentMagieNoire => GetTalent(2046);
-        public AptitudeDto TalentMagieVulgaire => GetTalent(2047);
+        public AptitudeDto TalentMagieCommuneVulgaire => GetTalent(2163);
 
         // Martial
         public AptitudeDto CompetenceLangSecretBataille => GetAptitude(1148);
