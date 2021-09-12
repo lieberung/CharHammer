@@ -389,7 +389,7 @@ namespace BlazorWjdr
                 apt.Incompatibles = apt.IncompatiblesIds.Select(id => result[id]).OrderBy(a => a.NomComplet).ToList();
             }
             
-            // Compléter
+            // Compléter ToDo: voir si utile
             foreach (var apt in result.Values)
             {
                 foreach (var aptLiee in apt.AptitudesLiees.Where(aptLiee => !aptLiee.AptitudesLiees.Contains(apt)))
@@ -418,9 +418,7 @@ namespace BlazorWjdr
                 .Select(c => new ProfilDto
                 {
                     Id = c.id,
-                    A = c.a,
                     Ag = c.ag,
-                    //B = c.b,
                     Cc = c.cc,
                     Ct = c.ct,
                     Dex = c.dex,
@@ -429,27 +427,11 @@ namespace BlazorWjdr
                     Fm = c.fm,
                     I = c.i,
                     Int = c.intel,
-                    //M = c.m,
-                    //Mag = c.mag,
-                    //Pd = c.pd,
-                    //Pf = c.pf,
                     Soc = c.soc
                 })
                 .ToDictionary(k => k.Id, v => v);
         }
 
-        /*
-        private static IEnumerable<AptitudeDto> GetCompetences(IEnumerable<int>? ids,
-            IReadOnlyDictionary<int, AptitudeDto> cache)
-            => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(c => c.Nom).ThenBy(c => c.Spe);
-
-        private static IEnumerable<AptitudeDto> GetTalents(IEnumerable<int>? ids,
-            IReadOnlyDictionary<int, AptitudeDto> cache)
-            => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(t => t.Nom).ThenBy(t => t.Spe);
-
-        private static IEnumerable<AptitudeDto> GetTraits(IEnumerable<int>? ids, IReadOnlyDictionary<int, AptitudeDto> cache)
-            => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(t => t.Nom).ThenBy(t => t.Spe);
-        */
         private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids,
             IReadOnlyDictionary<int, CarriereDto> cache)
             => (ids ?? Array.Empty<int>()).Select(id => cache[id]).OrderBy(c => c.Nom);

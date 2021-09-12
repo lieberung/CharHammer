@@ -12,6 +12,9 @@
         <Profil ProfilActuel="@Item.ProfilActuel" ProfilInitial="@Item.ProfilInitial" PlanDeCarriere="@Item.CarriereActuelle?.PlanDeCarriere"/>
     }
 </p>
+<p class="card-text">
+    <strong>Blessures :</strong> @Item.Blessures <em class="ml-1">@Item.ProfilActuel.Bf + (2 x @Item.ProfilActuel.Be) + @Item.ProfilActuel.Bfm</em>
+</p>
 
 @if (Item.Competences.Any())
 {

@@ -49,6 +49,9 @@ namespace BlazorWjdr.Models
         public int XpActuel { get; set; }
         public int XpTotal { get; set; }
         public ProfilDto? ProfilInitial { get; set; }
+
+        // ToDo : gérer les gabarits et Dur à cuir
+        public int Blessures => ProfilActuel.Bf + (2 * ProfilActuel.Be) + ProfilActuel.Bfm; 
         
         public string Equipement
         {

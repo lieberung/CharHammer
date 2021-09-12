@@ -13,13 +13,8 @@
         public int Int { get; init; }
         public int Fm { get; init; }
         public int Soc { get; init; }
-        public int A { get; init; }
-        public int B { get; init; }
         public int Bf => F / 10;
         public int Be => E / 10;
-        public int M { get; init; }
-        public int Mag { get; init; }
-        public int Pf { get; init; }
-        public int Pd { get; init; }
+        public int Bfm => Fm / 10;
     }
 }
