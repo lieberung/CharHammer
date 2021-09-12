@@ -29,9 +29,9 @@ namespace BlazorWjdr.Models
         public List<AptitudeDto> Aptitudes { get; set; } = new();
         public List<AptitudeDto[]> AptitudesChoix { get; set; } = new();
 
-        public List<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).ToList();
-        public List<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).ToList();
-        public List<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).ToList();
+        public List<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).OrderBy(a => a.NomComplet).ToList();
+        public List<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).OrderBy(a => a.NomComplet).ToList();
+        public List<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).OrderBy(a => a.NomComplet).ToList();
 
         public List<AptitudeDto[]> ChoixCompetences => AptitudesChoix.Where(choix => choix.First().EstUneCompetence).ToList();
         public List<AptitudeDto[]> ChoixTalents => AptitudesChoix.Where(choix => choix.First().EstUnTalent).ToList();
