@@ -494,7 +494,6 @@
       ]
     },
     {"id":73,"titre":"Fluctuation des vents",
-      "description": "Dans ce contexte le BS est toujours négatif ou nul (au mieux) et vient donc augmenter le résultat du d10.",
       "lignes":[
         ["d10","Modificateur"],
         ["1","-30"],
