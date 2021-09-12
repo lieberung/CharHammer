@@ -77,6 +77,7 @@
         public AptitudeDto CompetenceFocalisation => GetAptitude(1031);
         public AptitudeDto CompetenceLangageMystique => GetAptitude(1036);
         public AptitudeDto CompetenceLangageMystiqueMagick => GetAptitude(1162);
+        public AptitudeDto CompetenceScienceDeLaMagie => GetAptitude(2079);
         public AptitudeDto CompetenceLangageMystiqueDemoniaque => GetAptitude(1170);
         public AptitudeDto CompetenceLangageMystiqueElfeMystique => GetAptitude(1171);
         public AptitudeDto CompetenceLangueClassique => GetAptitude(1142);

@@ -158,19 +158,22 @@
                 and Talents). Once a spell has been memorised, a spellcaster
                 knows it permanently, barring special circumstances.
             </p>
+            <p class="card-text">
+                Acquérir les compétences <AptitudeItem Item="@_aptSvc.CompetenceLangageMystiqueMagick"/> et <AptitudeItem Item="@_aptSvc.CompetenceFocalisation"/> permet de lancer tous les sorts de Magie Mineure.
+                <br/>
+                Acquérir une compétence <AptitudeItem Item="@_aptSvc.CompetenceScienceDeLaMagie"/> vous permet d'apprendre tout sort de Magie Commune autorisés par le Domaine choisi ainsi que les sorts spécialisés dudit Domaine.
+            </p>
+            
             <h4 class="card-title">Lancer des sorts</h4>
             <p class="card-text">
-                To cast a spell, make a <AptitudeItem Item="@_aptSvc.CompetenceLangageMystiqueMagick"/> Test. If you succeed,
-                match your SL to the Casting Number (CN) of the spell (listed in
-                the individual spell description). If your SL is equal to or higher than
-                the CN of the spell, it is cast as explained in the spell’s description.
-                If failed, the spell attempt fails, and nothing else happens.
+                Pour lancer un sort, faites un Test de <AptitudeItem Item="@_aptSvc.CompetenceLangageMystiqueMagick"/> (ou de la langue mystique appropriée à votre Domaine).
+                Sur un succès, comparez votre BS au Niveau de Sort (NS, précisé dans la description du sort). Si votre BS est égal ou supérieur au NS, le sort se lance conformément à sa description.
+                Si vous échouez ou que votre BS est insuffisant, le sort échoue, et rien d'autre ne se produit.
             </p>
         </div>
     </div>
     <div class="col-4">
         <div class="card-body">
-
             <h4 class="card-title">Jets Critiques</h4>
             <p class="card-text">
                 If the casting roll is a Critical, the Winds of Magic
@@ -206,7 +209,6 @@
                 may have additional, optional benefits for additional SL noted in
                 their description.
             </p>
-
         </div>
     </div>
     <div class="col-4">
