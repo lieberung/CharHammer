@@ -107,6 +107,7 @@
         public ArmeAttributDto AttributDamaging => GetAttributDArme(81);
         public ArmeAttributDto AttributPercutant => GetAttributDArme(15);
         public ArmeAttributDto AttributLent => GetAttributDArme(14);
+        public ArmeAttributDto AttributProtection => GetAttributDArme(89);
         
         #endregion
     }
