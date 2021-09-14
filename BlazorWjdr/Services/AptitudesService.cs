@@ -153,6 +153,7 @@
         public AptitudeDto TalentTirEnPuissance => GetTalent(2089);
         public AptitudeDto TalentMaitreArtilleur => GetTalent(2049);
         public AptitudeDto TalentTirEclair => GetTalent(2220);
+        public AptitudeDto TalentTirParfaits => GetTalent(3920);
 
         // De l'ombre
         public AptitudeDto CompetenceAlphSecretVoleurs => GetAptitude(1089);
