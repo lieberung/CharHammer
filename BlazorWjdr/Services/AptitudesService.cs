@@ -135,6 +135,7 @@
         public AptitudeDto CompetenceMeleeArmesLourdes => GetAptitude(1612);
         public AptitudeDto CompetenceMeleeArmesParalisantes => GetAptitude(1605);
         public AptitudeDto CompetenceMeleeFléaux => GetAptitude(1614);
+        public AptitudeDto CompetenceMeleeBagarre => GetAptitude(1624);
 
 
         // Martial Distance
@@ -274,6 +275,11 @@
         public AptitudeDto TalentSainDEsprit => GetTalent(2075);
         public AptitudeDto TraitVisionNocturne => GetTrait(3903);
         public AptitudeDto TalentSensAiguisés => GetTalent(2080);
+
+        public AptitudeDto TalentDictionInstinctive => GetAptitude(2226);
+        public AptitudeDto TalentMagieArcaniqueMetal => GetAptitude(2455);
+        public AptitudeDto TalentMagieArcaniqueBete => GetAptitude(2451);
+        public AptitudeDto TalentMagieArcaniqueFeu => GetAptitude(2452);
 
         public AptitudeDto CompetencePriere => GetAptitude(1225);
         public AptitudeDto TalentBenediction => GetTalent(2277);
