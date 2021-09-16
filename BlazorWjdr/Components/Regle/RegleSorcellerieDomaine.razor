@@ -1,0 +1,10 @@
+﻿<div class="card-body">
+    <h4 class="card-title">@Nom</h4>
+    <img class="career-img" src="@Image" alt="@Nom" style="max-width: 300px; max-height: 450px;"/>
+    @ChildContent
+</div>
+@code{
+    [Parameter] public RenderFragment ChildContent { get; set; } = null!;
+    [Parameter] public string Nom { get; set; } = null!;
+    [Parameter] public string Image { get; set; } = null!;
+}

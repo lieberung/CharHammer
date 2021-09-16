@@ -1,0 +1,27 @@
+﻿@page "/regles/tables-des-echos-du-chaos/"
+
+@using BlazorWjdr.Components.Table
+@using BlazorWjdr.Services
+
+@inject CarrieresService _carrSvc
+@inject TablesService _tableSvc
+@inject AptitudesService _aptSvc
+
+<MainTopRow>
+    <h3 class="card-title">Sorcellerie</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="row mb-3">
+        <div class="col-5">
+            <TableDetail Item="@_tableSvc.GetTable(667)"/>
+        </div>
+        
+        <div class="col-7">
+            <TableDetail Item="@_tableSvc.GetTable(668)"/>
+        </div>
+    </div>
+    
+</div>
+           
