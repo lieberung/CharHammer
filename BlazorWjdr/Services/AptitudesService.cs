@@ -86,7 +86,7 @@
         public AptitudeDto TalentMainsAgiles => GetTalent(2048);
         public AptitudeDto TalentMeditation => GetTalent(2063);
         public AptitudeDto TalentProjectilePuissant => GetTalent(2066);
-        public AptitudeDto TalentGroupeMagieMineure => GetTalent(2045);
+        public AptitudeDto TalentMagieArcaniqueMineure => GetTalent(2151);
         public AptitudeDto TalentMagieNoire => GetTalent(2046);
         public AptitudeDto TalentMagieCommuneVulgaire => GetTalent(2163);
 
@@ -280,6 +280,15 @@
         public AptitudeDto TalentMagieArcaniqueMetal => GetAptitude(2455);
         public AptitudeDto TalentMagieArcaniqueBete => GetAptitude(2451);
         public AptitudeDto TalentMagieArcaniqueFeu => GetAptitude(2452);
+        public AptitudeDto TalentMagieArcaniqueCieux => GetAptitude(2453);
+        public AptitudeDto TalentMagieArcaniqueLumiere => GetAptitude(2457);
+        public AptitudeDto TalentMagieArcaniqueOmbres => GetAptitude(2456);
+        public AptitudeDto TalentMagieArcaniqueMort => GetAptitude(2454);
+        public AptitudeDto TalentMagieArcaniqueVie => GetAptitude(2458);
+        public AptitudeDto TalentMagieArcaniqueNecromancie => GetAptitude(2459);
+        public AptitudeDto TalentSombreSavoirSlaanesh => GetAptitude(2179);
+        public AptitudeDto TalentSombreSavoirTzeench => GetAptitude(2180);
+        public AptitudeDto TalentSombreSavoirNurgle => GetAptitude(2178);
 
         public AptitudeDto CompetencePriere => GetAptitude(1225);
         public AptitudeDto TalentBenediction => GetTalent(2277);
