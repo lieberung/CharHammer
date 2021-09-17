@@ -1,5 +1,9 @@
-﻿<div class="card-body">
+﻿@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Models
+
+<div class="card-body">
     <h4 class="card-title">@Nom</h4>
+    <AptitudeItem Item="@Aptitude"/>
     <img class="career-img" src="@Image" alt="@Nom" style="max-width: 300px; max-height: 450px;"/>
     @ChildContent
 </div>
@@ -7,4 +11,5 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
     [Parameter] public string Nom { get; set; } = null!;
     [Parameter] public string Image { get; set; } = null!;
+    [Parameter] public AptitudeDto Aptitude { get; set; } = null!;
 }
