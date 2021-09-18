@@ -1,14 +1,14 @@
 ﻿{
   "items": [
-    {"id":100,"groupes":[],"nom":"Protèse oculaire","prix":"","enc":"","dispo": "Assez courant",
+    {"id":100,"groupes":["Prothèses"],"nom":"Protèse oculaire","prix":"","enc":"","dispo": "Assez courant",
       "description":"Often decorated, an eye patch is used to cover scarred eye sockets."},
-    {"id":101,"groupes":[],"nom":"Oeil-de-verre","prix":"","enc":"","dispo": "Assez courant",
+    {"id":101,"groupes":["Prothèses"],"nom":"Oeil-de-verre","prix":"","enc":"","dispo": "Assez courant",
       "description":"Particularly popular amongst the rich who prefer not to wear cruder eye-patches, false eyes come in many forms, from wooden to polished glass."},
-    {"id":102,"groupes":[],"nom":"Fausse jambe","prix":"","enc":"","dispo": "Assez courant",
+    {"id":102,"groupes":["Prothèses"],"nom":"Fausse jambe","prix":"","enc":"","dispo": "Assez courant",
       "description":"A False Leg (or just a False Foot, for half price), allows you to ignore 1 point of Movement loss due to the missing body part. Further, for 100 XP you can regain the last point of Movement Loss as you train yourself to use your new body part, and for 200 XP you relearn how to use Dodge again. This all requires you not to lose your False Leg, though."},
-    {"id":103,"groupes":[],"nom":"Nez doré","prix":"","enc":"","dispo": "Assez courant",
+    {"id":103,"groupes":["Prothèses"],"nom":"Nez doré","prix":"","enc":"","dispo": "Assez courant",
       "description":"Même si la plupart sont faits de bois ou de céramique, le terme 'nez doré' est courrament employé. Vous pouvez ignorer la pénalité de Charisme du à votre absence de nez."},
-    {"id":200,"groupes":["Service"],"nom":"Hirelings (p.309)","prix":"","enc":"","dispo": "Assez courant",
+    {"id":200,"groupes":["Services"],"nom":"Hirelings (p.309)","prix":"","enc":"","dispo": "Assez courant",
       "description":"Même si la plupart sont faits de bois ou de céramique, le terme 'nez doré' est courrament employé. Vous pouvez ignorer la pénalité de Charisme du à votre absence de nez."}
   ]
 }
