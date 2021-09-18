@@ -29,7 +29,7 @@ namespace BlazorWjdr
             var dataChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
             var dataLieuxTypes = InitializeLieuxTypes(data.LieuxTypes!.items);
             var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
-            var dataDieux = InitializeDieux(data.Dieux!.items);
+            var dataDieux = InitializeDieux(data.Dieux!.items, dataAptitudes, dataLieux);
             var dataTables = InitializeTables(data.Tables!.items);
             var dataArmesAttributs = InitializeArmesAttributs(data.ArmesAttributs!.items);
             var dataArmes = InitializeArmes(data.Armes!.items, dataArmesAttributs, dataAptitudes);
@@ -257,7 +257,10 @@ namespace BlazorWjdr
                 .ToDictionary(k => k.Id, v => v);
         }
 
-        private static Dictionary<int, DieuDto> InitializeDieux(IEnumerable<JsonDieu> items)
+        private static Dictionary<int, DieuDto> InitializeDieux(
+            IEnumerable<JsonDieu> items,
+            IReadOnlyDictionary<int, AptitudeDto> aptitudes,
+            IReadOnlyDictionary<int, LieuDto> lieux)
         {
             var cache = items
                 .Select(c => new DieuDto
@@ -269,7 +272,28 @@ namespace BlazorWjdr
                     Fideles = c.fideles,
                     Histoire = c.histoire,
                     Symboles = c.symboles,
-                    SymbolesImages = c.symboles_image
+                    PatronId = c.patron,
+                    Ambiance = c.ambiance,
+                    Aptitudes = new AptitudesAssocieesDto {
+                        Inities = c.JsonAptitudesAssociees.initie.Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToList(),
+                        PretesSansOrdre = c.JsonAptitudesAssociees.pretre_sans_ordre.Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToList()
+                    },
+                    Chef = c.chef,
+                    Commandements = c.commandements,
+                    Culte = c.culte,
+                    Cultistes = c.cultistes,
+                    Dogme = c.dogme,
+                    Fetes = c.fetes,
+                    Initiation = c.initiation,
+                    Intro = c.intro,
+                    Personnalites = c.personnalites.Select(p => new PersonnaliteDto { Nom = p.nom, Description = p.description }).ToList(),
+                    Pretrise = c.pretrise,
+                    Regles = c.regles.Select(r => new RegleAssocieeDto { Titre = r.titre, Description = r.description }).ToList(),
+                    Sectes = c.sectes.Select(p => new SecteDto { Nom = p.nom, Description = p.description }).ToList(),
+                    Siege = c.siege.HasValue ? lieux[c.siege.Value] : null,
+                    Structure = c.structure,
+                    Temples = c.temples.Select(t => new TempleDto { Nom = t.nom, Description = t.description }).ToList(),
+                    LivresSaints = c.livres
                 })
                 .ToDictionary(k => k.Id, v => v);
 

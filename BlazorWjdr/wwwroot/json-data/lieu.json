@@ -96,6 +96,7 @@
     {"id":95,"fk_typeid":26,"fk_parentid":32,"nom":"Untergard","description":""},
     {"id":98,"fk_typeid":10,"fk_parentid":32,"nom":"Middenheim","description":""},
     {"id":99,"fk_typeid":5,"fk_parentid":37,"nom":"Altdorf","description":""},
+    {"id":117,"fk_typeid":5,"fk_parentid":6,"nom":"Magritta","description":""},
     {"id":101,"fk_typeid":22,"fk_parentid":37,"nom":"Bögenhafen","description":""},
     {"id":102,"fk_typeid":22,"fk_parentid":37,"nom":"Grissenwald","description":""},
     {"id":104,"fk_typeid":22,"fk_parentid":37,"nom":"Weissbruck","description":""},

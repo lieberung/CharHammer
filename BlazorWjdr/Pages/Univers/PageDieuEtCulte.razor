@@ -1,0 +1,144 @@
+﻿@page "/univers/pantheon/{Dieu}/"
+
+@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject DieuxService _dieuxSvc
+
+<MainTopRow>
+    <h3 class="card-title">@_dieu.Nom</h3>
+</MainTopRow>
+
+<div class="content px-4">
+    
+    <div class="row">
+        
+        <div class="col-5">
+            <CardBody Titre="@_dieu.Nom" Image="@("images/dieux/"+_dieu.Id+".png")">
+                <ul>
+                    <li><strong>Siège :</strong> @_dieu.Siege!.Nom, @_dieu.Siege.Parent!.Nom</li>
+                    <li><strong>Chef du culte :</strong> @_dieu.Chef</li>
+                    <li><strong>Fêtes religieuses :</strong> @_dieu.Fetes</li>
+                    <li><strong>Livres saints :</strong> @_dieu.LivresSaints</li>
+                    <li><strong>Symboles :</strong> @_dieu.Symboles</li>
+                </ul>
+                <CardParagraphes Text="@_dieu.Intro"/>
+            </CardBody>
+        </div>
+        
+        <div class="col-7">
+            <CardBody Titre="Le Dogme" Image="">
+                <div class="bulle" style="float: right;">
+                    <h5 class="card-title">Commandements</h5>
+                    <ul>
+                        @foreach (var cmd in _dieu.Commandements)
+                        {
+                            <li>@cmd</li>
+                        }
+                    </ul>
+                </div>
+                     
+                <CardParagraphes Text="@_dieu.Dogme"/>
+            </CardBody>
+        </div>
+        
+    </div>
+
+    <PageSectionDivider/>
+    
+    <div class="row">
+        
+        <div class="col-6">
+            <CardBody Titre="Le Culte" Image="">
+                <CardParagraphes Text="@_dieu.Culte"/>
+            </CardBody>
+        </div>
+        
+        <div class="col-6">
+            <CardBody Titre="Les Cultistes" Image="">
+                <CardParagraphes Text="@_dieu.Cultistes"/>
+            </CardBody>
+        </div>
+        
+    </div>
+    
+    <PageSectionDivider/>
+    
+    <div class="row">
+        
+        <div class="col-4">
+            <CardBody Titre="Structure" Image="">
+                <CardParagraphes Text="@_dieu.Structure"/>
+            </CardBody>
+        </div>
+        
+        <div class="col-4">
+            <h3 class="card-title">Lieux de Culte</h3>
+            @foreach (var temple in _dieu.Temples)
+            {
+                <CardBody Titre="@temple.Nom" Image="">
+                    <CardParagraphes Text="@temple.Description"/>
+                </CardBody>
+            }
+        </div>
+
+        <div class="col-4">
+            <h3 class="card-title">Personnalités</h3>
+            @foreach (var perso in _dieu.Personnalites)
+            {
+                <CardBody Titre="@perso.Nom" Image="">
+                    <CardParagraphes Text="@perso.Description"/>
+                </CardBody>
+            }
+            <div class="card-body">
+                <h4 class="card-title">Croyances populaires</h4>
+                @foreach (var ambiance in _dieu.Ambiance)
+                {
+                    <p class="card-text">
+                        <em class="p-2">@ambiance</em>
+                    </p>
+                }
+            </div>
+        </div>
+
+    </div>
+
+    <PageSectionDivider/>
+    
+    <div class="row">
+        
+        <div class="col-6">
+            <CardBody Titre="L'initiation" Image="">
+                <AptitudeItemList Items="@_dieu.Aptitudes.Inities.ToArray()"/>
+                <CardParagraphes Text="@_dieu.Initiation"/>
+            </CardBody>
+        </div>
+        
+        <div class="col-6">
+            <CardBody Titre="La prêtrise" Image="">
+                <AptitudeItemList Items="@_dieu.Aptitudes.Inities.ToArray()"/>
+                <CardParagraphes Text="@_dieu.Pretrise"/>
+            </CardBody>
+        </div>
+        
+    </div>
+
+</div>
+
+@code {
+    [Parameter] public string Dieu { get; set; } = null!;
+    private DieuDto _dieu;
+
+    protected override void OnParametersSet()
+    {
+        switch (Dieu)
+        {
+            case "myrmidia":
+                _dieu = _dieuxSvc.GetDieu(13);
+                break;
+        }
+        base.OnParametersSet();
+    }
+
+}
