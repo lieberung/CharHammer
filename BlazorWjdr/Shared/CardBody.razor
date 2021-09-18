@@ -12,7 +12,7 @@
     }
     @if (!string.IsNullOrWhiteSpace(Image))
     {
-        <img class="career-img" src="@Image" alt="@Titre" style="max-width: 300px; max-height: 450px;"/>
+        <img class="career-img" src="@Image" alt="@Titre" style="@_imageStyle"/>
     }
     @ChildContent
 </div>
@@ -20,5 +20,16 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
     [Parameter] public string Titre { get; set; } = null!;
     [Parameter] public string Image { get; set; } = null!;
+    [Parameter] public int ImageMaxWidth { get; set; } = 250;
+    [Parameter] public int ImageMaxHeight { get; set; } = 350;
     [Parameter] public AptitudeDto? Aptitude { get; set; }
+
+    private string _imageStyle;
+    
+    protected override void OnParametersSet()
+    {
+        _imageStyle = $"max-width: {ImageMaxWidth}px; max-height: {ImageMaxHeight}px;";
+        base.OnParametersSet();
+    }
+
 }
