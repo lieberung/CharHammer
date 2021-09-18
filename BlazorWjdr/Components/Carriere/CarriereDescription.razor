@@ -17,6 +17,12 @@
         @paragraphe
     </p>
 }
+@foreach (var ambiance in Item.Ambiance)
+{
+    <p class="card-text pr-3">
+        <em class="p-2">@ambiance</em>
+    </p>
+}
 </div>
 @if (AfficherCitations && Item.Ambiance.Any())
 {
