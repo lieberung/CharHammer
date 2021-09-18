@@ -9,19 +9,29 @@
         private readonly Dictionary<int, ArmeAttributDto> _cacheArmeAttribut;
 
         private readonly Dictionary<int, ArmeDto> _cacheArme;
+        private readonly Dictionary<int, ArmureDto> _cacheArmure;
+        private readonly Dictionary<int, EquipementDto> _cacheEquipement;
 
         private Dictionary<string, List<ArmeDto>>? _armesDeContactPourTable;
         private Dictionary<string, List<ArmeDto>>? _armesADistancePourTable;
 
-        public ArmesService(Dictionary<int, ArmeAttributDto> dataArmesAttributs, Dictionary<int, ArmeDto> dataArmes)
+        public ArmesService(
+            Dictionary<int, ArmeAttributDto> dataArmesAttributs, 
+            Dictionary<int, ArmeDto> dataArmes,
+            Dictionary<int, ArmureDto> dataArmures,
+            Dictionary<int, EquipementDto> dataEquipements)
         {
             _cacheArmeAttribut = dataArmesAttributs;
             _cacheArme = dataArmes;
+            _cacheArmure = dataArmures;
+            _cacheEquipement = dataEquipements;
         }
 
         public List<ArmeAttributDto> AllGroupesDArmes => _cacheArmeAttribut.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToList();
 
         public List<ArmeDto> AllArmes => _cacheArme.Values.ToList();
+        public List<ArmureDto> AllArmures => _cacheArmure.Values.ToList();
+        public List<EquipementDto> AllEquipements => _cacheEquipement.Values.ToList();
         
         private ArmeAttributDto GetAttributDArme(int id) => _cacheArmeAttribut[id];
 

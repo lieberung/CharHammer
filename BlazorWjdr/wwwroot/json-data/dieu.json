@@ -1,12 +1,40 @@
 {
     "items": [
-      {"id":10,"patron":null,"nom":"Sigmar","domaines":"L'Empire, la protection","fideles":"Les citoyens de l'Empire, la noblesse, l'armée","symboles":"","symboles_image":"","histoire":"","comment":""},
+      {"id":10,"patron":null,"nom":"Sigmar",
+        "domaines":"L'Empire, la protection",
+        "fideles":"Les citoyens de l'Empire, la noblesse, l'armée",
+        "symboles":"",
+        "cultes": [
+          {"id":100,"nom":"Les Soeurs de la Foi et de la Chasteté","mineur":true,
+            "competences":[],"talents":[],"traits":[],
+            "description":"Le temple des Soeurs de la Foi et de la Chasteté, qui vivaient autrefois en recluses, se dresse sur la rive sud du Reik, dans le quartier est d'Altdorf. Le jour du Soleil immobile, les soeurs sortent de leur couvent en ordre de bataille pour une parade dans les rues de la ville sous le torride soleil d'été. La matriarche marche en tête de ce défilé de nonnes transpirant, reprenant inlassa-blement et à pleine voix « l'Hymne de la Cinglante Vérité » tout en scrutant les badauds d'un oeil luisant de suspicion. Les soeurs sont vêtues d'une cape noire et brodée sur une antique armure de plaques gravée, décorée de pointes acérées afin de repousser les avances des impies. Comme l'ordre dépend de la charité pour sa survie, ses jeunes novices récoltent les aumônes dans la foule qui se rassemble pour contempler ce spectacle. \nDans le passé, l'ordre se conformait à la règle d'isolement prêchée par sa fondatrice, Esther l'Irréprochable. Mais soeur Griselda von Velten fut visitée par Morr en 2515 et les choses chan-gèrent pour toujours. Elle arpentait le Volker Weg, dans la chaleur suffocante de la parade de Sonnstill, lorsqu'elle poussa soudain un cri perçant et tomba à genoux. Tremblant de tous ses membres, elle murmura à la foule abasourdie que la fin était proche et qu'elle avait gâché sa vie, puis elle rendit l'âme. Un an plus tard, après des mois de correspondance orageuse avec le grand théogoniste, Volkmar le Sévère, la matriarche accepta de reconnaître, la mort dans l'âme, que son ordre avait reçu un signe auquel il devait obéir et elle ordonna à ses soeurs de se préparer pour la guerre. \nLa Tempête du Chaos fut la première grande campagne de l'ordre. La moitié du couvent quitta Altdorf aux côtés de Valten. Celles qui ont survécu sont à présent dispersées dans l'Empire et pourchassent les rescapés des forces du Chaos. Elles revien-nent une fois par an à Altdorf pour partager leur expérience avec les novices et participer à la parade de Sonnstill." },
+          {"id":101,"nom":"L'Ordre de la Torche",
+            "description":"" },
+          {"id":102,"nom":"L'Ordre des Templiers de Sigmar","mineur":true,
+            "description":"" },
+          {"id":103,"nom":"L'Ordre de la Flamme Purificatrice",
+            "description":"" },
+          {"id":104,"nom":"L'Ordre de l'Enclume",
+            "description":"" },
+          {"id":105,"nom":"L'Ordre du Marteau d'Argent",
+            "description":"" }
+        ],
+        "histoire":"",
+        "comment":""},
       
       {"id":11,"patron":null,"nom":"Manann",
         "domaines":"Les océans, les mers et les marées",
         "fideles":"Les pêcheurs, les marins, les voyageurs",
         "penitences":"Les pénitences de Manann impliquent souvent des pèlerinages maritimes dangereux, des épreuves de voile ou des expéditions contre les ennemis des dieux de la mer, en particulier les adeptes du culte hérétique de Stromfels, Dieu des pirates, des naufrageurs et des requins.",
         "symboles":"",
+        "cultes": [
+          {"id":120,"nom":"Les Fils de Manann",
+            "description":"" },
+          {"id":121,"nom":"L'Ordre de l'Albatros",
+            "description":"" },
+          {"id":122,"nom":"Les Chevaliers Navigateurs",
+            "description":"" }
+        ],
         "histoire":"",
         "comment":""
       },
@@ -16,6 +44,16 @@
         "fideles":"Le deuil, les rêveurs, les sorciers d'Améthyste",
         "penitences":"Les pénitences de Morr consistent généralement à chasser les nécromanciens et à détruire les morts-vivants, ou à trouver et restaurer les lieux de sépulture et les lieux saints tombés en désuétude et en mauvais état. Il demande aussi à l'occasion que les serviteurs de Khaine soient empêchés d'accomplir leurs sombres actions.",
         "symboles":"",
+        "cultes": [
+          {"id":150,"nom":"Les Augures",
+            "description":"" },
+          {"id":151,"nom":"La Garde Noire",
+            "description":"" },
+          {"id":152,"nom":"Les Prophètes des Derniers Jours",
+            "description":"" },
+          {"id":153,"nom":"Les Chevaliers du Corbeau",
+            "description":"" }
+        ],
         "histoire":"",
         "comment":""
       },
@@ -80,39 +118,94 @@
         ]
       },
       
-      {"id":14,"patron":null,"nom":"Ranald","domaines":"Les voleurs, les escrocs, la chance","fideles":"Les voyous, les joueurs, les opprimés","symboles":"","symboles_image":"","histoire":"","comment":""},
-      {"id":15,"patron":null,"nom":"Rhya","domaines":"La fertilité de la terre, l'amour","fideles":"Les fermiers, les sorciers de Jade, les paysans","symboles":"","symboles_image":"","histoire":"","comment":""},
+      {"id":14,"patron":null,"nom":"Ranald",
+        "domaines":"Les voleurs, les escrocs, la chance",
+        "fideles":"Les voyous, les joueurs, les opprimés",
+        "symboles":"",
+        "cultes":[
+          {"id":130,"nom":"La Confrérie",
+            "description":"" },
+          {"id":131,"nom":"Les Bienfaiteurs",
+            "description":"" },
+          {"id":132,"nom":"Les Doigts Crochus",
+            "description":"" }
+        ],
+        "histoire":"",
+        "comment":""},
       
-      {"id":16,"patron":null,"nom":"Shallya","domaines":"La guérison, la compassion, la naissance","fideles":"Les pauvres, les malades, les femmes","symboles":"","symboles_image":"",
+      {"id":15,"patron":null,"nom":"Rhya",
+        "domaines":"La fertilité de la terre, l'amour",
+        "fideles":"Les fermiers, les sorciers de Jade, les paysans",
+        "symboles":"",
+        "cultes":[
+          {"id":182,"nom":"Les Filles de Rhya",
+            "description":"" }
+        ],
+        "histoire":"",
+        "comment":""},
+      
+      {"id":16,"patron":null,"nom":"Shallya","domaines":"La guérison, la compassion, la naissance","fideles":"Les pauvres, les malades, les femmes","symboles":"",
         "histoire":"",
         "comment":"",
         "temples":[{"nom":"Le Couvent du Cœur Appaisé","description":"Si le culte de Shallya est traité avec respect, son seul véritable lieu saint de l’Empire est le couvent du Cœur Apaisé, dans les collines hantées de Sylvanie. La légende veut que tous les morts-vivants qui s’en approchent soient aussitôt détruits et que les eaux de la source du couvent puissent soigner la non-vie, rendant ainsi son statut de mortel à la victime. Elle est également censée soigner les malades en phase terminale."}]
       },
       
-      {"id":17,"patron":null,"nom":"Taal","domaines":"La nature et les contrées sauvages","fideles":"Les sorciers d'Ambre, les paysans, les forestiers","symboles":"","symboles_image":"","histoire":"","comment":""},
-      {"id":18,"patron":null,"nom":"Ulric","domaines":"Les batailles, les loups et l'hiver","fideles":"Les guerriers, la population de Middenheim","symboles":"","symboles_image":"","histoire":"","comment":""},
+      {"id":17,"patron":null,"nom":"Taal","domaines":"La nature et les contrées sauvages","fideles":"Les sorciers d'Ambre, les paysans, les forestiers",
+        "symboles":"",
+        "cultes":[
+          {"id":180,"nom":"Les Coureurs des Bois",
+            "description":"" },
+          {"id":181,"nom":"Les Chasseurs Cornus",
+            "description":"" }
+        ],
+        "histoire":"","comment":""},
       
-      {"id":19,"patron":null,"nom":"Verena","domaines":"L'apprentissage et la justice","fideles":"Les scribes, les sorciers Célestes, les magistrats","symboles":"","symboles_image":"",
+      {"id":18,"patron":null,"nom":"Ulric",
+        "domaines":"Les batailles, les loups et l'hiver",
+        "fideles":"Les guerriers, la population de Middenheim",
+        "symboles":"",
+        "histoire":"",
+        "cultes": [
+          {"id":170,"nom":"Les Chevaliers du Loup Blanc",
+            "description":"Les chevaliers du Loup Blanc, plus souvent qualifiés de Loups Blancs, constituent le plus célèbres de tous les ordres de templiers. On les identifie facilement à leurs fourrures de loup et aux violents affrontements auxquels ils participent. Les chevaliers du Loup Blanc sont le plus vaste et le plus vieil ordre de templiers du Vieux Monde, leur création remontant à l'ère de l'Ar-Ulric Wulcan, il y a plus de deux mille ans. Leur cape en peau de loup alliée à leur barbe et à leurs longs cheveux brous-sailleux leur donnent une apparence quelque peu barbare, mais ne vous y trompez pas ; il s'agit d'un ordre militaire très disci-pliné et leur présence lors de la plupart des grandes batailles du Vieux Monde témoigne de leur courage.\nPresque tous les temples d'Urie, de la plus petite chapelle au grand temple de Middenheim, disposent d'au moins un ou. deux Loti ps Blancs. Il existe des chapitres indépendants, mais ils sont rares. Ces importants chapitres abritent plusieurs unités de Loups Blancs, dont le rôle consiste principalement à protéger les intérêts ulricains. Les templiers qui y sont stationnés organisent bien souvent des expéditions militaires> visant à porter le combat chez l'ennemi (en fondant sur un camp orque ou en assiégeant le château d'un nécromancien, par exemple).\nLes chevaliers du Loup Blanc se démarquent aussi bien dans leurs missions quotidiennes que sur le champ de bataille. Ils ne se séparent jamais de leur armure lourde, laquée de noir ou traitée à l'aide d'huiles foncées. Chaque chevalier porte une fourrure de loup sur les épaules. Du reste, leur rite de passage consiste à traquer, à tuer et à dépecer un loup à mains nues pour devenir un membre à part entière de l'ordre.\nLes Loups Blancs combattent sur des chevaux de guerre bardés de rouge et brandissent des marteaux de cavalerie lorsqu'ils chargent (ils n'utilisent donc pas de lances d'arçon). Quand ils sont à pied, ils reportent leur choix sur de gigan-tesques marteaux de guerre à l'aide desquels ils décrivent des arcs de cercle meurtriers. \nLes Loups Blancs sont chargés de protéger les temples et les prêtres d'Ulric de l'Empire et d'ailleurs. Les unités sont envoyées en quête ou en mission, ou encore à la guerre, s'inté-grant alors à l'armée du Middenland ou à une armée de templiers partant en croisade.\nÂgé de 24 ans, Keiner Reizfeld est le plus jeune capi-taine des chevaliers du Loup Blanc, une distinction qui lui vaut l'admiration et la jalousie de ses subor-donnés et rivaux. Keiner est le capitaine de la Compagnie Rouge, l'une des plus prestigieuses compagnies de chevaliers basées au grand temple d'Ulric de Middenheim. Keiner est considéré comme un barbare par les autres capitaines, notam-ment parce qu'il a tendance à ne pas se contrôler au plus fort d'un combat. Cependant, nul ne peut nier qu'il inspire une loyauté sans faille à l'ensemble de ses hommes, les poussant à accomplir des exploits toujours plus grands. Enfin, sans son courage, la liste des pertes de Loups Blancs lors du siège de Middenheim aurait été bien plus longue." },
+          {"id":171,"nom":"L'Ordre du Trône de l'Hiver'","mineur":true,
+            "description":"" }
+        ],
+        "comment":""},
+      
+      {"id":19,"patron":null,"nom":"Verena","domaines":"L'apprentissage et la justice","fideles":"Les scribes, les sorciers Célestes, les magistrats","symboles":"",
         "histoire":"",
         "comment":"",
+        "cultes": [
+          {"id":140,"nom":"Les Gardiens des Lois",
+            "description":"" },
+          {"id":141,"nom":"L'Ordre des Mystères",
+            "description":"" },
+          {"id":142,"nom":"Les Porteurs de la Balance",
+            "description":"" },
+          {"id":143,"nom":"L'Ordre de l'Epée et de la Balance","mineur":true,
+            "description":"C'est le plus important des ordres guerriers de Verena. Ses membres se considèrent comme des représentants de la justice. Son principal devoir est de garder les temples et les dignitaires du culte. Ses membres sont parfois affectés à la garde des prisonniers en attente de jugement ou à la sécurité d'un tribunal lors de procès particulièrement houleux.\nLes membres de l'ordre ne sont pas de simples gardes et peuvent être appelés à manier le glaive de la justice. Ils peuvent alors aider les prêtres verenéens à faire respecter leurs édits en les appliquant à la pointe de l'épée ou en combattant les séides des tyrans. En temps de guerre ou de croisade, ils marchent au combat aux côtés des autres ordres de chevalerie." },
+          {"id":144,"nom":"Les Chevaliers du Parchemin","mineur":true,
+            "description":"C'est le plus important des ordres guerriers de Verena. Ses membres se considèrent comme des représentants de la justice. Son principal devoir est de garder les temples et les dignitaires du culte. Ses membres sont parfois affectés à la garde des prisonniers en attente de jugement ou à la sécurité d'un tribunal lors de procès particulièrement houleux.\nLes membres de l'ordre ne sont pas de simples gardes et peuvent être appelés à manier le glaive de la justice. Ils peuvent alors aider les prêtres verenéens à faire respecter leurs édits en les appliquant à la pointe de l'épée ou en combattant les séides des tyrans. En temps de guerre ou de croisade, ils marchent au combat aux côtés des autres ordres de chevalerie." }
+        ],
         "temples":[{"nom":"Le champ d’Ildebrand","description":"Ildebrand était un répurgateur, connu et craint pour sa propension à exécuter tous ceux qui étaient soupçonnés de commerce avec les Puissances de la Destruction, avec ou sans preuve. Ses procès n’étaient que des parodies de justice. Un jour, il vint à Silberwurt, au Reikland, y dressa son tribunal et reçut presque aussitôt les nombreuses accusations de villageois, manifestement pressés d’affirmer que les moins populaires et les moins puissants d’entre eux pactisaient avec les Puissances de la Ruine.\nLa première accusée fut Bertha, une vieille femme qui vivait seule dans une masure à la sortie du village. Ildebrand énonça les crimes dont elle était accusée, mais n’eut pour toute réponse que des borborygmes de terreur. Il se leva alors et prononça le verdict.\n«Vous n’êtes qu’une vieille femme idiote, pas une hérétique», dit-il à la plus grande surprise de tous, y compris la sienne. «Vous pouvez vous retirer.»\nIl poursuivit et acquitta tous les accusés, puis s’intéressa de plus près aux accusateurs, dont l’un se révéla être un adorateur de Khaine, trahi par les objets trouvés chez lui. Ildebrand l’accusa alors d’entrave à la justice et le fit pendre à un arbre.\nLe temple de Verena qui s’y dresse aujourd’hui a été bâti tout autour de la parcelle et de l’arbre dont parle ce récit, mais certains répurgateurs prétendent aujourd’hui encore que toute cette histoire fut l’œuvre des Puissances de la Destruction."}]
       },
       
-      {"id":20,"patron":null,"nom":"Khorne","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
-      {"id":21,"patron":null,"nom":"Nurgle","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
-      {"id":22,"patron":null,"nom":"Slaanesh","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
-      {"id":23,"patron":null,"nom":"Tzench","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
-      {"id":24,"patron":null,"nom":"Khaine","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"","comment":""},
-      {"id":25,"patron":null,"nom":"Stromfels","domaines":"Les mers déchaînées, les ","fideles":"Les pirates, les naufrageurs","symboles":"Un immense requin, trident ensanglanté, un éclair","symboles_image":"","histoire":"","comment":""},
+      {"id":20,"patron":null,"nom":"Khorne","domaines":"","fideles":"","symboles":"","histoire":"","comment":""},
+      {"id":21,"patron":null,"nom":"Nurgle","domaines":"","fideles":"","symboles":"","histoire":"","comment":""},
+      {"id":22,"patron":null,"nom":"Slaanesh","domaines":"","fideles":"","symboles":"","histoire":"","comment":""},
+      {"id":23,"patron":null,"nom":"Tzench","domaines":"","fideles":"","symboles":"","histoire":"","comment":""},
+      {"id":24,"patron":null,"nom":"Khaine","domaines":"","fideles":"","symboles":"","histoire":"","comment":""},
+      {"id":25,"patron":null,"nom":"Stromfels","domaines":"Les mers déchaînées, les ","fideles":"Les pirates, les naufrageurs","symboles":"Un immense requin, trident ensanglanté, un éclair","histoire":"","comment":""},
       
-      {"id":26,"patron":null,"nom":"Haendrik","domaines":"Les marchands, la prospérité, le commerce","fideles":"","symboles":"Disque d'or, poignée de main","symboles_image":"",
+      {"id":26,"patron":null,"nom":"Haendrik","domaines":"Les marchands, la prospérité, le commerce","fideles":"","symboles":"Disque d'or, poignée de main",
         "histoire":"",
         "comment":"",
         "temples":[{"nom":"Le grand temple de Haendryk de Marienburg","description":"Marienburg est une cité qui tire sa prospérité de la mer et du commerce, si bien que Haendryk y est aussi important que Manann et y éclipse assurément tous les autres dieux. Le temple de Haendryk situé au port est soutenu par les nantis de la société marienbourgeoise.\nFidèle à la philosophie de son dieu, le temple n’accepte aucun présent et n’offre pas la charité. En revanche, les prêtres disposent en quelque sorte d’échoppes au sein du temple, où ils marchandent auprès des adorateurs le prix de leurs services ou de symboles religieux et de plaques votives.\nLe temple investit également et propose même des prêts à des taux raisonnables, certains prêtres étant spécialisés dans la gestion de crédit. Même les aventuriers peuvent y emprunter de l’argent, bénéficiant d’avances en échange d’une partie des récompenses de leur prochaine entreprise. Subventionner ainsi une expédition permet également de bénéficier de la bénédiction de Haendryk lors du voyage. En revanche, tenter de tromper le dieu mènerait inévitablement à l’échec de la mission en question. Les prêtres sont payés à la commission sur les sommes qu’ils rapportent, leurs promotions au sein de la hiérarchie dépendant également de leurs résultats. Les répurgateurs dénoncent souvent le temple qui, à leurs yeux, vend les places au sein de son ordre. Les Marienbourgois trouvent cela étrange de leur part; après tout, comment le culte de Haendryk pourrait-il fonctionner autrement ?"}]
       },
       
-      {"id":27,"patron":null,"nom":"Ursun","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"Ursun est le dieu des ours, aussi appelé le Père des Ours ou Père Ours. Son culte fut à l'origine introduit par les Gospodars, mais les ours font tellement partie de la vie kislevite que la religion fut presque instantanément assimilée. Les ours continuent aujourd'hui encore à faire partie intégrante de la société, et la religion est désormais inséparable de la culture kislevite. Le culte d'Ursun n'est pas une religion d'État comme celui de Sigmar dans l'Empire, mais le destin du Kislev est lié dans bien des esprits aux caprices et à la faveur de Père Ours.\nUrsun est généralement dépeint sous les traits d'un ours des cavernes brun et géant portant parfois une couronne d'or. On le dote souvent de dents ou de griffes d'or, ce qui nous rappelle non seulement qu'Ursun est le roi des animaux, mais aussi que les ours sont des bêtes précieuses. Dans l'oblast, la dépouille d'un ours est une grande richesse pour toute une stanitsa.\nDe temps à autre, Ursun est représenté comme un homme aux larges épaules, bien charpenté, dont les cheveux fous sont striés de blanc. Il porte un pagne et rien d'autre qu'une lance. En tant que dieu sauvage, Ursun n'est pas adoré dans des temples, mais dans des autels en plein air ou des grottes d'ours abandonnées. Dans les villes, de grands jardins ornés de pins, de buissons et de rochers servent de lieux de culte, l'autel se trouvant caché dans une grotte ou une tranchée au centre. Le plus grand de ces jardins se trouve près du palais Bokha de Kislev.","comment":""},
-      {"id":28,"patron":null,"nom":"Dazh","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"Quand le monde fut créé, il était plongé dans les ténèbres et les glaces. Dazh s'en rendit compte et prit les hommes en pitié. Il monta sur son magnifique cheval et porta son feu à travers le ciel, faisant don de la lumière au monde. Ensuite, il retourna dans son palais d'or, dans le ciel, pour s'y reposer, car la chevauchée avait été longue et épuisante. Mais il vit que sur la terre en dessous, le peuple avait froid et peur sans son feu. Cependant, il ne pouvait repartir tant que son cheval ne s'était pas reposé. Dazh fit donc cadeau du feu aux hommes afin qu'ils aient en permanence un peu de sa lumière.\nDazh est représenté sous la forme d'un séduisant jeune homme aux cheveux dorés et aux yeux brillants entouré d'une aura de feu. Il est si éblouissant que quiconque le fixe est aveuglé. Par conséquent, quand Dazh a besoin de communiquer, il envoie ses oiseaux de feu ou ses arari pour porter son message Les arari sont de grands esprits du feu qui vivent dans le palais doré de Dazh. Quand ils ne sont pas occupés à le servir, ils dansent souvent, offrant un spectacle chatoyant dans le ciel du nord. \nDazh est le plus bienveillant des dieux du Kislev et celui qui se soucie le plus du bien-être de l'humanité. En retour, il insiste beau-coup pour que les hommes aient un comportement correct. Les adorateurs de Dazh sont les plus dévoués de tous les prêtres kisle-vites et leur religion est la plus organisée.","comment":""},
-      {"id":29,"patron":null,"nom":"Tor","domaines":"","fideles":"","symboles":"","symboles_image":"","histoire":"Ursun est le plus vénéré des dieux du Kislev, mais Tor est le plus omniprésent. Il n'a pas vraiment de culte, ni de jour sacré en particulier, peu de temples, aucun ordre et un seul commandement, mais Tor n'a guère besoin de ce genre de choses. Tor fait partie de la vie. Quand le ciel est ébranlé et que la terre tremble, Tor est là. Quand les éclairs déchirent le ciel, quand le tonnerre gronde, quand les vents se mettent à hurler et que la grêle cingle la terre tel un fouet, Tor est là. Il est le tonnerre qui gronde sous les sabots des bêtes et l'éclair des lames d'acier, car Tor est un dieu de la guerre autant qu'un dieu du ciel. Comme l'essentiel de la vie des Kislevites est composé de batailles et de guerres, Tor est un compa-gnon de tous les instants, et nul porteur de hache ne se jette dans la mêlée sans murmurer une prière à son intention.\nTor est représenté sous la forme d'un puissant guerrier à la mâchoire carrée faisant jouer ses puissants muscles. Il porte une hache gigantesque au manche en bois de chêne et à l'immense lame argentée. C'est cette arme qu'il abat sur le sol pour créer les éclairs et le tonnerre et pour donner du courage à ses fidèles. Tor est aussi le dieu du courage et celui de la résistance stoïque face aux épreuves, qu'il s'agisse d'essuyer une furieuse tempête ou la charge d'un démon du Chaos.","comment":""}
+      {"id":27,"patron":null,"nom":"Ursun","domaines":"","fideles":"","symboles":"","histoire":"Ursun est le dieu des ours, aussi appelé le Père des Ours ou Père Ours. Son culte fut à l'origine introduit par les Gospodars, mais les ours font tellement partie de la vie kislevite que la religion fut presque instantanément assimilée. Les ours continuent aujourd'hui encore à faire partie intégrante de la société, et la religion est désormais inséparable de la culture kislevite. Le culte d'Ursun n'est pas une religion d'État comme celui de Sigmar dans l'Empire, mais le destin du Kislev est lié dans bien des esprits aux caprices et à la faveur de Père Ours.\nUrsun est généralement dépeint sous les traits d'un ours des cavernes brun et géant portant parfois une couronne d'or. On le dote souvent de dents ou de griffes d'or, ce qui nous rappelle non seulement qu'Ursun est le roi des animaux, mais aussi que les ours sont des bêtes précieuses. Dans l'oblast, la dépouille d'un ours est une grande richesse pour toute une stanitsa.\nDe temps à autre, Ursun est représenté comme un homme aux larges épaules, bien charpenté, dont les cheveux fous sont striés de blanc. Il porte un pagne et rien d'autre qu'une lance. En tant que dieu sauvage, Ursun n'est pas adoré dans des temples, mais dans des autels en plein air ou des grottes d'ours abandonnées. Dans les villes, de grands jardins ornés de pins, de buissons et de rochers servent de lieux de culte, l'autel se trouvant caché dans une grotte ou une tranchée au centre. Le plus grand de ces jardins se trouve près du palais Bokha de Kislev.","comment":""},
+      {"id":28,"patron":null,"nom":"Dazh","domaines":"","fideles":"","symboles":"","histoire":"Quand le monde fut créé, il était plongé dans les ténèbres et les glaces. Dazh s'en rendit compte et prit les hommes en pitié. Il monta sur son magnifique cheval et porta son feu à travers le ciel, faisant don de la lumière au monde. Ensuite, il retourna dans son palais d'or, dans le ciel, pour s'y reposer, car la chevauchée avait été longue et épuisante. Mais il vit que sur la terre en dessous, le peuple avait froid et peur sans son feu. Cependant, il ne pouvait repartir tant que son cheval ne s'était pas reposé. Dazh fit donc cadeau du feu aux hommes afin qu'ils aient en permanence un peu de sa lumière.\nDazh est représenté sous la forme d'un séduisant jeune homme aux cheveux dorés et aux yeux brillants entouré d'une aura de feu. Il est si éblouissant que quiconque le fixe est aveuglé. Par conséquent, quand Dazh a besoin de communiquer, il envoie ses oiseaux de feu ou ses arari pour porter son message Les arari sont de grands esprits du feu qui vivent dans le palais doré de Dazh. Quand ils ne sont pas occupés à le servir, ils dansent souvent, offrant un spectacle chatoyant dans le ciel du nord. \nDazh est le plus bienveillant des dieux du Kislev et celui qui se soucie le plus du bien-être de l'humanité. En retour, il insiste beau-coup pour que les hommes aient un comportement correct. Les adorateurs de Dazh sont les plus dévoués de tous les prêtres kisle-vites et leur religion est la plus organisée.","comment":""},
+      {"id":29,"patron":null,"nom":"Tor","domaines":"","fideles":"","symboles":"","histoire":"Ursun est le plus vénéré des dieux du Kislev, mais Tor est le plus omniprésent. Il n'a pas vraiment de culte, ni de jour sacré en particulier, peu de temples, aucun ordre et un seul commandement, mais Tor n'a guère besoin de ce genre de choses. Tor fait partie de la vie. Quand le ciel est ébranlé et que la terre tremble, Tor est là. Quand les éclairs déchirent le ciel, quand le tonnerre gronde, quand les vents se mettent à hurler et que la grêle cingle la terre tel un fouet, Tor est là. Il est le tonnerre qui gronde sous les sabots des bêtes et l'éclair des lames d'acier, car Tor est un dieu de la guerre autant qu'un dieu du ciel. Comme l'essentiel de la vie des Kislevites est composé de batailles et de guerres, Tor est un compa-gnon de tous les instants, et nul porteur de hache ne se jette dans la mêlée sans murmurer une prière à son intention.\nTor est représenté sous la forme d'un puissant guerrier à la mâchoire carrée faisant jouer ses puissants muscles. Il porte une hache gigantesque au manche en bois de chêne et à l'immense lame argentée. C'est cette arme qu'il abat sur le sol pour créer les éclairs et le tonnerre et pour donner du courage à ses fidèles. Tor est aussi le dieu du courage et celui de la résistance stoïque face aux épreuves, qu'il s'agisse d'essuyer une furieuse tempête ou la charge d'un démon du Chaos.","comment":""}
     ]
 }

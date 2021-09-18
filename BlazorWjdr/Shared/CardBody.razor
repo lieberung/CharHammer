@@ -24,7 +24,7 @@
     [Parameter] public int ImageMaxHeight { get; set; } = 350;
     [Parameter] public AptitudeDto? Aptitude { get; set; }
 
-    private string _imageStyle;
+    private string _imageStyle = "";
     
     protected override void OnParametersSet()
     {

@@ -23,6 +23,8 @@ namespace BlazorWjdr
             Debug.WriteLine("await data.InitializeDataAsync();");
 
             var dataAptitudes = InitializeAptitudes(data.Aptitudes!.items);
+            var dataArmures = InitializeArmures(data.Armures!.items);
+            var dataEquipements = InitializeEquipements(data.Equipements!.items);
             var dataProfils = InitializeProfils(data.Profils!.items);
             var dataReferences = InitializeReferences(data.References!.items);
             var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataAptitudes, dataReferences);
@@ -45,7 +47,7 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new ProfilsService(dataProfils));
             builder.Services.AddSingleton(_ => new TablesService(dataTables));
             builder.Services.AddSingleton(_ => new ChronologieService(dataChrono));
-            builder.Services.AddSingleton(_ => new ArmesService(dataArmesAttributs, dataArmes));
+            builder.Services.AddSingleton(_ => new ArmesService(dataArmesAttributs, dataArmes, dataArmures, dataEquipements));
             builder.Services.AddSingleton(_ => new CarrieresService(dataCarrieres));
             builder.Services.AddSingleton(_ => new RacesService(dataRaces));
             builder.Services.AddSingleton(_ => new TableDesCarrieresInitialesService(dataTablesCarrInit));
@@ -174,7 +176,7 @@ namespace BlazorWjdr
         }
 
         private static Dictionary<int, RaceDto> InitializeRaces(IEnumerable<JsonRace> items,
-            Dictionary<int, LieuDto> lieux)
+            IReadOnlyDictionary<int, LieuDto> lieux)
         {
             var cache = items
                 .Select(r => new RaceDto
@@ -203,6 +205,38 @@ namespace BlazorWjdr
             }
 
             return cache;
+        }
+
+        private static Dictionary<int, ArmureDto> InitializeArmures(IEnumerable<JsonArmure> items)
+        {
+            return items
+                .Select(t => new ArmureDto
+                {
+                    Id = t.id,
+                    Type = t.type,
+                    Nom = t.nom,
+                    Description = t.description,
+                    Disponibilite = t.disponibilite,
+                    Enc = t.enc,
+                    Pa = t.pa,
+                    Prix = t.prix,
+                    Zones = t.zones
+                }).ToDictionary(k => k.Id);
+        }
+
+        private static Dictionary<int, EquipementDto> InitializeEquipements(IEnumerable<JsonEquipement> items)
+        {
+            return items
+                .Select(t => new EquipementDto
+                {
+                    Id = t.id,
+                    Dispo = t.dispo,
+                    Nom = t.nom,
+                    Description = t.description,
+                    Enc = t.enc,
+                    Groupes = (t.groupes ?? Array.Empty<string>()).ToArray(),
+                    Prix = t.prix
+                }).ToDictionary(k => k.Id);
         }
 
         private static Dictionary<int, ArmeAttributDto> InitializeArmesAttributs(IEnumerable<JsonArmeAttribut> items)
@@ -289,13 +323,13 @@ namespace BlazorWjdr
                     Initiation = c.initiation ?? "",
                     Intro = c.intro ?? "",
                     Penitences = c.penitences ?? "",
-                    Personnalites = (c.personnalites ?? Array.Empty<JsonPersonnalite>()).Select(p => new PersonnaliteDto { Nom = p.nom, Description = p.description }).ToList(),
+                    Personnalites = (c.personnalites ?? Array.Empty<JsonPersonnalite>()).Select(p => new PersonnaliteDto { Nom = p.nom ?? "", Description = p.description ?? "" }).ToList(),
                     Pretrise = c.pretrise ?? "",
-                    Regles = (c.regles ?? Array.Empty<JsonRegleAssociee>()).Select(r => new RegleAssocieeDto { Titre = r.titre, Description = r.description }).ToList(),
-                    Sectes = (c.sectes ?? Array.Empty<JsonSecte>()).Select(p => new SecteDto { Nom = p.nom, Description = p.description }).ToList(),
+                    Regles = (c.regles ?? Array.Empty<JsonRegleAssociee>()).Select(r => new RegleAssocieeDto { Titre = r.titre ?? "", Description = r.description ?? "" }).ToList(),
+                    Sectes = (c.sectes ?? Array.Empty<JsonSecte>()).Select(p => new SecteDto { Nom = p.nom ?? "", Description = p.description ?? "" }).ToList(),
                     Siege = c.siege.HasValue ? lieux[c.siege.Value] : null,
                     Structure = c.structure ?? "",
-                    Temples = (c.temples ?? Array.Empty<JsonTemple>()).Select(t => new TempleDto { Nom = t.nom, Description = t.description }).ToList(),
+                    Temples = (c.temples ?? Array.Empty<JsonTemple>()).Select(t => new TempleDto { Nom = t.nom ?? "", Description = t.description ?? "" }).ToList(),
                     LivresSaints = c.livres ?? "aucun.",
                     Ordres = (c.cultes ?? Array.Empty<JsonCulte>()).Select(jc => new CulteDto
                     {

@@ -1,0 +1,53 @@
+﻿@page "/guide-du-consommateur/{Groupe}/"
+
+@using BlazorWjdr.Components.Equipement
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject ArmesService _armesService
+@inject AptitudesService _aptitudesService
+
+<MainTopRow>
+    <h3 class="card-title" style="display:inline-block;">Guide du Consommateur</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="ml-3 mb-3 pl-2">
+        <div class="row">
+            <div class="col-12">
+                @foreach (var grp in _allGroupes)
+                {
+                    <a class="btn btn-item" href="guide-du-consommateur/@grp/">@grp</a>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="ml-3 mb-3 pl-2">
+        @foreach (var grp in _showGroupes)
+        {
+         <div class="row">
+             <div class="col-12">
+                 <h3 class="card-title">@grp</h3>
+                 <TableEquipements Items="@_armesService.AllEquipements.Where(e => e.Groupes.Contains(grp)).OrderBy(e => e.Nom).ToArray()"/>
+             </div>
+        </div>
+        }
+    </div>
+    
+</div>
+@code {
+    [Parameter] public string Groupe { get; set; } = "";
+
+    private List<string> _allGroupes = null!;
+    private List<string> _showGroupes = null!;
+
+    protected override void OnParametersSet()
+    {
+        _allGroupes = _armesService.AllEquipements.SelectMany(e => e.Groupes).Distinct().OrderBy(g => g).ToList();
+        _showGroupes = Groupe == "divers" ? _allGroupes : new List<string> { Groupe };
+        
+        base.OnParametersSet();
+    }
+}

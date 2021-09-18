@@ -1,0 +1,28 @@
+﻿@using BlazorWjdr.Models
+
+<tr>
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+            <span class="oi oi-eye" aria-hidden="true"></span>
+        </span>
+        @Item.Nom
+    </td>
+    <td>@Item.Enc</td>
+    <td>@Item.Prix</td>
+    <td>@Item.Dispo</td>
+</tr>
+@if (AfficherFiche)
+{
+    <tr>
+        <td colspan="4">
+            <div class="bulle p-3 mb-2">
+                @Item.Description
+            </div>
+        </td>
+    </tr>
+}
+@code {
+    [Parameter] public EquipementDto Item { get; set; } = null!;
+    
+    private bool AfficherFiche { get; set; }
+}

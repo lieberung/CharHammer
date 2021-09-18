@@ -1,0 +1,22 @@
+﻿@using BlazorWjdr.Models
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Enc.</th>
+            <th>Prix</th>
+            <th>Disponibilité</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Items)
+    {
+        <EquipementRow Item="@item"/>
+    }
+    </tbody>
+</table>
+
+@code {
+    [Parameter] public EquipementDto[] Items { get; set; } = null!;
+}
