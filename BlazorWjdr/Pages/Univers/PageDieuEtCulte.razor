@@ -7,7 +7,7 @@
 @inject DieuxService _dieuxSvc
 
 <MainTopRow>
-    <h3 class="card-title">@_dieu.Nom</h3>
+    <h3 class="card-title">@_dieu!.Nom</h3>
 </MainTopRow>
 
 <div class="content px-4">
@@ -15,7 +15,7 @@
     <div class="row">
         
         <div class="col-5">
-            <CardBody Titre="@_dieu.Nom" Image="@("images/dieux/"+_dieu.Id+".png")">
+            <CardBody Titre="@_dieu!.Nom" Image="@("images/dieux/"+_dieu.Id+".png")">
                 <ul>
                     <li><strong>Domaines :</strong> @_dieu.Domaines</li>
                     <li><strong>Symboles :</strong> @_dieu.Symboles</li>
@@ -112,14 +112,20 @@
         
         <div class="col-6">
             <CardBody Titre="L'initiation" Image="">
-                <AptitudeItemList Items="@_dieu.Aptitudes.Inities.ToArray()"/>
+                @if (_dieu.Aptitudes.Inities.Any())
+                {
+                    <AptitudeItemList Items="@_dieu.Aptitudes.Inities.ToArray()"/>
+                }
                 <CardParagraphes Text="@_dieu.Initiation"/>
             </CardBody>
         </div>
         
         <div class="col-6">
             <CardBody Titre="La prêtrise" Image="">
-                <AptitudeItemList Items="@_dieu.Aptitudes.Inities.ToArray()"/>
+                @if (_dieu.Aptitudes.PretesSansOrdre.Any())
+                {
+                    <AptitudeItemList Items="@_dieu.Aptitudes.PretesSansOrdre.ToArray()"/>
+                }
                 <CardParagraphes Text="@_dieu.Pretrise"/>
             </CardBody>
         </div>
@@ -130,8 +136,8 @@
 
 @code {
     [Parameter] public string Dieu { get; set; } = null!;
-    private DieuDto _dieu;
-    private string _dieuSiege;
+    private DieuDto? _dieu;
+    private string? _dieuSiege;
     
     protected override void OnParametersSet()
     {
@@ -141,7 +147,7 @@
                 _dieu = _dieuxSvc.GetDieu(13);
                 break;
         }
-        _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
+        _dieuSiege = _dieu!.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
         
         base.OnParametersSet();
     }

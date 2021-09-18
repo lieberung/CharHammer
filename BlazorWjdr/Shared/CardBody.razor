@@ -19,7 +19,7 @@
 @code{
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
     [Parameter] public string Titre { get; set; } = null!;
-    [Parameter] public string Image { get; set; } = null!;
+    [Parameter] public string? Image { get; set; }
     [Parameter] public int ImageMaxWidth { get; set; } = 250;
     [Parameter] public int ImageMaxHeight { get; set; } = 350;
     [Parameter] public AptitudeDto? Aptitude { get; set; }
