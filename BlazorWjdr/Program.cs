@@ -286,6 +286,7 @@ namespace BlazorWjdr
                     Fetes = c.fetes ?? "",
                     Initiation = c.initiation ?? "",
                     Intro = c.intro ?? "",
+                    Penitences = c.penitences ?? "",
                     Personnalites = (c.personnalites ?? Array.Empty<JsonPersonnalite>()).Select(p => new PersonnaliteDto { Nom = p.nom, Description = p.description }).ToList(),
                     Pretrise = c.pretrise ?? "",
                     Regles = (c.regles ?? Array.Empty<JsonRegleAssociee>()).Select(r => new RegleAssocieeDto { Titre = r.titre, Description = r.description }).ToList(),

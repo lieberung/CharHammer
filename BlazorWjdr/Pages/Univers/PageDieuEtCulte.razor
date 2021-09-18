@@ -17,11 +17,13 @@
         <div class="col-5">
             <CardBody Titre="@_dieu.Nom" Image="@("images/dieux/"+_dieu.Id+".png")">
                 <ul>
-                    <li><strong>Siège :</strong> @_dieu.Siege!.Nom, @_dieu.Siege.Parent!.Nom</li>
+                    <li><strong>Domaines :</strong> @_dieu.Domaines</li>
+                    <li><strong>Symboles :</strong> @_dieu.Symboles</li>
+                    <li><strong>Siège :</strong> @_dieuSiege</li>
                     <li><strong>Chef du culte :</strong> @_dieu.Chef</li>
                     <li><strong>Fêtes religieuses :</strong> @_dieu.Fetes</li>
                     <li><strong>Livres saints :</strong> @_dieu.LivresSaints</li>
-                    <li><strong>Symboles :</strong> @_dieu.Symboles</li>
+                    <li><strong>Fidèles :</strong> @_dieu.Fideles</li>
                 </ul>
                 <CardParagraphes Text="@_dieu.Intro"/>
             </CardBody>
@@ -129,7 +131,8 @@
 @code {
     [Parameter] public string Dieu { get; set; } = null!;
     private DieuDto _dieu;
-
+    private string _dieuSiege;
+    
     protected override void OnParametersSet()
     {
         switch (Dieu)
@@ -138,6 +141,8 @@
                 _dieu = _dieuxSvc.GetDieu(13);
                 break;
         }
+        _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
+        
         base.OnParametersSet();
     }
 

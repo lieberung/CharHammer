@@ -53,6 +53,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? fetes { get; set; }
         public string? livres { get; set; }
         public string? intro { get; set; }
+        public string? penitences { get; set; }
         public string? culte { get; set; }
         public JsonRegleAssociee[]? regles { get; set; }
         public string? dogme { get; set; }

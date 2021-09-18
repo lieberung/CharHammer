@@ -21,6 +21,7 @@ namespace BlazorWjdr.Models
         public string Fetes { get; set; }
         public string LivresSaints { get; set; }
         public string Intro { get; set; }
+        public string Penitences { get; set; }
         public string Culte { get; set; }
         public List<RegleAssocieeDto> Regles { get; set; }
         public string Dogme { get; set; }
