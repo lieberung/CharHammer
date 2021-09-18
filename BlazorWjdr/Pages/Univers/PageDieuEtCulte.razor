@@ -7,7 +7,7 @@
 @inject DieuxService _dieuxSvc
 
 <MainTopRow>
-    <h3 class="card-title">@_dieu!.Nom</h3>
+    <h3 class="card-title">@_dieu.Nom</h3>
 </MainTopRow>
 
 <div class="content px-4">
@@ -15,7 +15,8 @@
     <div class="row">
         
         <div class="col-5">
-            <CardBody Titre="@_dieu!.Nom" Image="@("images/dieux/"+_dieu.Id+".png")">
+            <h3 class="card-title">Le Culte de @_dieu.Nom</h3>
+            <CardBody Titre="" Image="@("images/dieux/" + _dieu.Id + ".png")">
                 <ul>
                     <li><strong>Domaines :</strong> @_dieu.Domaines</li>
                     <li><strong>Symboles :</strong> @_dieu.Symboles</li>
@@ -30,8 +31,9 @@
         </div>
         
         <div class="col-7">
-            <CardBody Titre="Le Dogme" Image="">
-                <div class="bulle" style="float: right;">
+            <h3 class="card-title">Le Dogme</h3>
+            <CardBody Titre="" Image="">
+                <div class="bulle ml-4 px-4" style="float:right; width:500px;">
                     <h5 class="card-title">Commandements</h5>
                     <ul>
                         @foreach (var cmd in _dieu.Commandements)
@@ -40,8 +42,11 @@
                         }
                     </ul>
                 </div>
-                     
+
                 <CardParagraphes Text="@_dieu.Dogme"/>
+                
+                <h4 class="card-title">Pénitences</h4>
+                <p class="card-text">@_dieu.Penitences</p>
             </CardBody>
         </div>
         
@@ -52,13 +57,15 @@
     <div class="row">
         
         <div class="col-6">
-            <CardBody Titre="Le Culte" Image="">
+            <h3 class="card-title">Le Culte</h3>
+            <CardBody Titre="" Image="">
                 <CardParagraphes Text="@_dieu.Culte"/>
             </CardBody>
         </div>
         
         <div class="col-6">
-            <CardBody Titre="Les Cultistes" Image="">
+            <h3 class="card-title">Les Cultistes</h3>
+            <CardBody Titre="" Image="">
                 <CardParagraphes Text="@_dieu.Cultistes"/>
             </CardBody>
         </div>
@@ -69,8 +76,38 @@
     
     <div class="row">
         
+        <div class="col-6">
+            <h3 class="card-title">L'initiation</h3>
+            <CardBody Titre="" Image="">
+                @if (_dieu.Aptitudes.Inities.Any())
+                {
+                    <AptitudeItemList Items="@_dieu.Aptitudes.Inities.ToArray()"/>
+                }
+                <CardParagraphes Text="@_dieu.Initiation"/>
+            </CardBody>
+        </div>
+        
+        <div class="col-6">
+            <h3 class="card-title">La prêtrise</h3>
+            <CardBody Titre="" Image="">
+                @if (_dieu.Aptitudes.PretesSansOrdre.Any())
+                {
+                    <AptitudeItemList Items="@_dieu.Aptitudes.PretesSansOrdre.ToArray()"/>
+                }
+                <CardParagraphes Text="@_dieu.Pretrise"/>
+            </CardBody>
+        </div>
+        
+    </div>
+    
+    <PageSectionDivider/>
+
+    
+    <div class="row">
+        
         <div class="col-4">
-            <CardBody Titre="Structure" Image="">
+            <h3 class="card-title">Structure</h3>
+            <CardBody Titre="" Image="">
                 <CardParagraphes Text="@_dieu.Structure"/>
             </CardBody>
         </div>
@@ -105,38 +142,12 @@
         </div>
 
     </div>
-
-    <PageSectionDivider/>
     
-    <div class="row">
-        
-        <div class="col-6">
-            <CardBody Titre="L'initiation" Image="">
-                @if (_dieu.Aptitudes.Inities.Any())
-                {
-                    <AptitudeItemList Items="@_dieu.Aptitudes.Inities.ToArray()"/>
-                }
-                <CardParagraphes Text="@_dieu.Initiation"/>
-            </CardBody>
-        </div>
-        
-        <div class="col-6">
-            <CardBody Titre="La prêtrise" Image="">
-                @if (_dieu.Aptitudes.PretesSansOrdre.Any())
-                {
-                    <AptitudeItemList Items="@_dieu.Aptitudes.PretesSansOrdre.ToArray()"/>
-                }
-                <CardParagraphes Text="@_dieu.Pretrise"/>
-            </CardBody>
-        </div>
-        
-    </div>
-
 </div>
 
 @code {
     [Parameter] public string Dieu { get; set; } = null!;
-    private DieuDto? _dieu;
+    private DieuDto _dieu = null!;
     private string? _dieuSiege;
     
     protected override void OnParametersSet()
@@ -147,7 +158,7 @@
                 _dieu = _dieuxSvc.GetDieu(13);
                 break;
         }
-        _dieuSiege = _dieu!.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
+        _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
         
         base.OnParametersSet();
     }

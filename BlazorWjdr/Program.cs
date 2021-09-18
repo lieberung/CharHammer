@@ -274,9 +274,11 @@ namespace BlazorWjdr
                     Symboles = c.symboles ?? "",
                     PatronId = c.patron,
                     Ambiance = (c.ambiance ?? Array.Empty<string>()).ToList(),
-                    Aptitudes = c.JsonAptitudesAssociees != null ? new AptitudesAssocieesDto {
-                        Inities = c.JsonAptitudesAssociees.initie.Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToList(),
-                        PretesSansOrdre = c.JsonAptitudesAssociees.pretre_sans_ordre.Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToList()
+                    Aptitudes = c.aptitudes != null ? new AptitudesAssocieesDto {
+                        Inities = (c.aptitudes.initie ?? Array.Empty<int>())
+                            .Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToList(),
+                        PretesSansOrdre = (c.aptitudes.pretre_sans_ordre ?? Array.Empty<int>())
+                            .Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToList()
                     } : new AptitudesAssocieesDto(),
                     Chef = c.chef ?? "",
                     Commandements = (c.commandements ?? Array.Empty<string>()).ToList(),

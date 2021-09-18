@@ -7,8 +7,8 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonAptitudesAssociees
     {
-        public List<int> initie { get; set; }
-        public List<int> pretre_sans_ordre { get; set; }
+        public int[]? initie { get; set; }
+        public int[]? pretre_sans_ordre { get; set; }
     }
 
     public class JsonRegleAssociee
@@ -48,7 +48,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         
         public string? symboles { get; set; }
         public int? siege { get; set; }
-        public JsonAptitudesAssociees? JsonAptitudesAssociees { get; set; }
+        public JsonAptitudesAssociees? aptitudes { get; set; }
         public string? chef { get; set; }
         public string? fetes { get; set; }
         public string? livres { get; set; }
