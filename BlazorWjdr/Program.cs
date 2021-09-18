@@ -296,7 +296,16 @@ namespace BlazorWjdr
                     Siege = c.siege.HasValue ? lieux[c.siege.Value] : null,
                     Structure = c.structure ?? "",
                     Temples = (c.temples ?? Array.Empty<JsonTemple>()).Select(t => new TempleDto { Nom = t.nom, Description = t.description }).ToList(),
-                    LivresSaints = c.livres ?? "aucun."
+                    LivresSaints = c.livres ?? "aucun.",
+                    Ordres = (c.cultes ?? Array.Empty<JsonCulte>()).Select(jc => new CulteDto
+                    {
+                        Ambiance = jc.ambiance ?? "",
+                        Aptitudes = (jc.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToList(),
+                        Description = jc.description ?? "",
+                        Id = jc.id,
+                        Mineur = jc.mineur,
+                        Nom = jc.nom ?? ""
+                    }).ToList()
                 })
                 .ToDictionary(k => k.Id, v => v);
 

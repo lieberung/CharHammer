@@ -5,6 +5,16 @@ namespace BlazorWjdr.DataSource.JsonDto
 {
     using System.Collections.Generic;
 
+    public class JsonCulte
+    {
+        public int id { get; set; }
+        public string? nom { get; set; }
+        public int[]? aptitudes { get; set; }
+        public string? description { get; set; }
+        public bool mineur { get; set; }
+        public string? ambiance { get; set; }
+    }
+
     public class JsonAptitudesAssociees
     {
         public int[]? initie { get; set; }
@@ -13,26 +23,26 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonRegleAssociee
     {
-        public string titre { get; set; }
-        public string description { get; set; }
+        public string? titre { get; set; }
+        public string? description { get; set; }
     }
 
     public class JsonSecte
     {
-        public string nom { get; set; }
-        public string description { get; set; }
+        public string? nom { get; set; }
+        public string? description { get; set; }
     }
 
     public class JsonTemple
     {
-        public string nom { get; set; }
-        public string description { get; set; }
+        public string? nom { get; set; }
+        public string? description { get; set; }
     }
 
     public class JsonPersonnalite
     {
-        public string nom { get; set; }
-        public string description { get; set; }
+        public string? nom { get; set; }
+        public string? description { get; set; }
     }
 
     public class JsonDieu
@@ -66,6 +76,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string[]? ambiance { get; set; }
         public JsonTemple[]? temples { get; set; }
         public JsonPersonnalite[]? personnalites { get; set; }
+        public JsonCulte[]? cultes { get; set; }
     }
 
     public class RootDieu

@@ -1,6 +1,7 @@
 ﻿@page "/univers/pantheon/{Dieu}/"
 
 @using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Dieu
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
@@ -143,6 +144,33 @@
 
     </div>
     
+    <PageSectionDivider/>
+    
+    <div class="row">
+        <div class="col-6">
+            <h3 class="card-title">Les Ordres</h3>
+            @foreach (var ordre in _dieu.Ordres)
+            {
+                <CulteDescription Culte="@ordre"/>
+            }
+            
+        </div>
+        
+        <div class="col-6">
+            <h3 class="card-title">Les Sectes</h3>
+            <CardBody Titre="" Image="">
+                @foreach (var secte in _dieu.Sectes)
+                {
+                    @if (!string.IsNullOrWhiteSpace(secte.Nom))
+                    {
+                        <h4 class="card-title">@secte.Nom</h4>
+                    }
+                    <CardParagraphes Text="@secte.Description"/>
+                }
+            </CardBody>
+        </div>
+    </div>
+
 </div>
 
 @code {

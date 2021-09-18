@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable PropertyCanBeMadeInitOnly.Global
 
 namespace BlazorWjdr.Models
 {
@@ -16,53 +18,64 @@ namespace BlazorWjdr.Models
         public DieuDto? Patron { get; set; }
         
         public LieuDto? Siege { get; set; }
-        public AptitudesAssocieesDto Aptitudes { get; set; }
-        public string Chef { get; set; }
-        public string Fetes { get; set; }
-        public string LivresSaints { get; set; }
-        public string Intro { get; set; }
-        public string Penitences { get; set; }
-        public string Culte { get; set; }
-        public List<RegleAssocieeDto> Regles { get; set; }
-        public string Dogme { get; set; }
-        public string Initiation { get; set; }
-        public string Pretrise { get; set; }
-        public List<string> Commandements { get; set; }
-        public string Cultistes { get; set; }
-        public string Structure { get; set; }
-        public List<SecteDto> Sectes { get; set; }
-        public List<string> Ambiance { get; set; }
-        public List<TempleDto> Temples { get; set; }
-        public List<PersonnaliteDto> Personnalites { get; set; }
+        public string Chef { get; set; } = null!;
+        public string Fetes { get; set; } = null!;
+        public string LivresSaints { get; set; } = null!;
+        public string Intro { get; set; } = null!;
+        public string Penitences { get; set; } = null!;
+        public string Culte { get; set; } = null!;
+        public string Dogme { get; set; } = null!;
+        public string Initiation { get; set; } = null!;
+        public string Pretrise { get; set; } = null!;
+        public string Cultistes { get; set; } = null!;
+        public string Structure { get; set; } = null!;
+        public AptitudesAssocieesDto Aptitudes { get; set; } = null!;
+        public List<RegleAssocieeDto> Regles { get; set; } = null!;
+        public List<string> Commandements { get; set; } = null!;
+        public List<SecteDto> Sectes { get; set; } = null!;
+        public List<string> Ambiance { get; set; } = null!;
+        public List<TempleDto> Temples { get; set; } = null!;
+        public List<PersonnaliteDto> Personnalites { get; set; } = null!;
+        public List<CulteDto> Ordres { get; set; } = null!;
+    }
+    
+    public class CulteDto
+    {
+        public int Id { get; set; }
+        public string Nom { get; set; } = null!;
+        public List<AptitudeDto> Aptitudes { get; set; } = null!;
+        public string Description { get; set; } = null!;
+        public bool Mineur { get; set; }
+        public string Ambiance { get; set; } = null!;
     }
     
     public class AptitudesAssocieesDto
     {
-        public List<AptitudeDto> Inities { get; init; }
-        public List<AptitudeDto> PretesSansOrdre { get; init; }
+        public List<AptitudeDto> Inities { get; init; } = null!;
+        public List<AptitudeDto> PretesSansOrdre { get; init; } = null!;
     }
 
     public class RegleAssocieeDto
     {
-        public string Titre { get; init; }
-        public string Description { get; init; }
+        public string Titre { get; init; } = null!;
+        public string Description { get; init; } = null!;
     }
 
     public class SecteDto
     {
-        public string Nom { get; init; }
-        public string Description { get; init; }
+        public string Nom { get; init; } = null!;
+        public string Description { get; init; } = null!;
     }
 
     public class TempleDto
     {
-        public string Nom { get; init; }
-        public string Description { get; init; }
+        public string Nom { get; init; } = null!;
+        public string Description { get; init; } = null!;
     }
 
     public class PersonnaliteDto
     {
-        public string Nom { get; init; }
-        public string Description { get; init; }
+        public string Nom { get; init; } = null!;
+        public string Description { get; init; } = null!;
     }
 }

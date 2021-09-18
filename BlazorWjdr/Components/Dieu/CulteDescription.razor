@@ -1,0 +1,28 @@
+﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Aptitude
+
+<div class="card-body">
+    <h4 class="card-title">@Culte.Nom</h4>
+    @if (Culte.Mineur)
+    {
+        <strong><em>Ordre mineur</em></strong>
+    }
+    
+    @if (Culte.Aptitudes.Any())
+    {
+        <AptitudeItemList Items="@Culte.Aptitudes.ToArray()"/>
+    }
+    
+    <CardParagraphes Text="@Culte.Description"/>
+    
+    @if (!string.IsNullOrWhiteSpace(Culte.Ambiance))
+    {
+        <p class="card-text">
+            <em class="p-4">@Culte.Ambiance</em>
+        </p>
+    }
+</div>
+
+@code {
+    [Parameter] public CulteDto Culte { get; set; } = null!;
+}
