@@ -76,9 +76,9 @@
    "description":"L'armure flexible peut être portée sous une couche d'armure non flexible si vous le souhaitez. Si vous le faites, vous bénéficiez des deux."},
   {"id":43,"type":"attribut","nom":"Impénétrable",
    "description":"L'armure est particulièrement résistante, ce qui signifie que la plupart des attaques ne peuvent tout simplement pas y pénétrer. Toutes les Blessures Critiques causées par un chiffre impair pour vous toucher, comme 11 ou 33, sont ignorées."},
-  {"id":44,"type":"attribut","nom":"Occultant",
+  {"id":44,"type":"attribut","nom":"Occultant (x)",
    "description":"Le port de cette armure réduit votre champ de vision. Vous souffrez de -10% en Perception par degré."},
-  {"id":45,"type":"attribut","nom":"Clinquant",
+  {"id":45,"type":"attribut","nom":"Clinquant (x)",
    "description":"Cette armure est voyante, encombrante ou encore bruyante lorsque vous vous mouvez. Vous souffrez de -10% en Dissimulation par degré."},
 
  {"id":79,"type":"attribut","nom":"Poudre noire",
