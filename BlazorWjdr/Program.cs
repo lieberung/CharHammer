@@ -23,7 +23,6 @@ namespace BlazorWjdr
             Debug.WriteLine("await data.InitializeDataAsync();");
 
             var dataAptitudes = InitializeAptitudes(data.Aptitudes!.items);
-            var dataArmures = InitializeArmures(data.Armures!.items);
             var dataEquipements = InitializeEquipements(data.Equipements!.items);
             var dataProfils = InitializeProfils(data.Profils!.items);
             var dataReferences = InitializeReferences(data.References!.items);
@@ -35,6 +34,7 @@ namespace BlazorWjdr
             var dataTables = InitializeTables(data.Tables!.items);
             var dataArmesAttributs = InitializeArmesAttributs(data.ArmesAttributs!.items);
             var dataArmes = InitializeArmes(data.Armes!.items, dataArmesAttributs, dataAptitudes);
+            var dataArmures = InitializeArmures(data.Armures!.items, dataArmesAttributs);
             var dataRaces = InitializeRaces(data.Races!.items, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataProfils, dataAptitudes, dataLieux, dataCarrieres);
@@ -207,20 +207,23 @@ namespace BlazorWjdr
             return cache;
         }
 
-        private static Dictionary<int, ArmureDto> InitializeArmures(IEnumerable<JsonArmure> items)
+        private static Dictionary<int, ArmureDto> InitializeArmures(
+            IEnumerable<JsonArmure> items,
+            Dictionary<int, ArmeAttributDto> attributs)
         {
             return items
-                .Select(t => new ArmureDto
+                .Select(a => new ArmureDto
                 {
-                    Id = t.id,
-                    Type = t.type,
-                    Nom = t.nom,
-                    Description = t.description,
-                    Disponibilite = t.disponibilite,
-                    Enc = t.enc,
-                    Pa = t.pa,
-                    Prix = t.prix,
-                    Zones = t.zones
+                    Id = a.id,
+                    Type = a.type,
+                    Nom = a.nom,
+                    Description = a.description,
+                    Disponibilite = a.disponibilite,
+                    Enc = a.enc,
+                    Pa = a.pa,
+                    Prix = a.prix,
+                    Zones = a.zones,
+                    Attributs = a.attributs.Select(id => attributs[id]).OrderBy(at => at.Nom).ToArray()
                 }).ToDictionary(k => k.Id);
         }
 

@@ -1,4 +1,5 @@
 ﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Arme
 
 <tr>
     <td>
@@ -11,6 +12,9 @@
     <td>@Item.Pa</td>
     <td>@Item.Zones</td>
     <td>@Item.Enc</td>
+    <td>
+        <AttributDArmeItemList Items="@Item.Attributs"/>
+    </td>
     <td>@Item.Prix</td>
     <td>@Item.Disponibilite</td>
 </tr>

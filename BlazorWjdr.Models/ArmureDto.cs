@@ -12,6 +12,7 @@ namespace BlazorWjdr.Models
         public string Enc { get; set; } = null!;
         public string Disponibilite { get; set; } = null!;
         public string Description { get; set; } = null!;
+        public ArmeAttributDto[] Attributs { get; init; } = null!;
 
         public bool TypeLegere => Type == "Cuir";
         public bool TypeMoyenne => Type == "Mailles";

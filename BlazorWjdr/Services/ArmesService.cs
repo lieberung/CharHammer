@@ -118,6 +118,7 @@
         public ArmeAttributDto AttributPercutant => GetAttributDArme(15);
         public ArmeAttributDto AttributLent => GetAttributDArme(14);
         public ArmeAttributDto AttributProtection => GetAttributDArme(89);
+        public ArmeAttributDto AttributFracassant => GetAttributDArme(82);
         
         #endregion
     }

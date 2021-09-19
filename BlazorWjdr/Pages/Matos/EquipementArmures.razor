@@ -19,6 +19,45 @@
 </MainTopRow>
 
 <div class="content px-4">
+    
+    <div class="row">
+        <div class="col-4">
+            <h3 class="card-title">Endommager une Armure</h3>
+            <p class="card-text">
+                Votre armure peut généralement être endommagée dans les situations suivantes :
+            </p>
+            <ul>
+                <li>Vous êtes blessé par un arme disposant de l'attribut <ArmeAttribut Item="@_armesService.AttributFracassant"/>.</li>
+                <li>Une aptitude spéciale déclenche, comme un sort ou un talent, qui endommage une pièce d'armure.</li>
+                <li>Une Blessure Critique est déviée par votre armure.</li>
+            </ul>
+            <p class="card-text">
+                Chaque fois que votre armure est endommagée, les PA de la zone touchée sont réduits de 1.
+                <br/>
+                Si cela réduit les PA à 0, l'armure qui s'y trouve devient inutile.
+            </p>                
+        </div>
+        
+        <div class="col-4">
+            <h4 class="card-title">Déviation Critique</h4>
+            <p class="card-text">
+                Cela ne se produit que si vous le souhaitez. Si vous subissez une Blessure Critique suite à une attaque infligée sur un emplacement protégé par une armure,
+                vous pouvez choisir de laisser votre armure être endommagée de 1AP afin d'ignorer cette Blessure Critique.
+            </p>
+            <p class="card-text">
+                Vous souffrez toujours de toutes les Blessures normales (et étant donné que vos PA sont de 1 point inférieurs, vous souffrez probablement d'une Blessure
+                supplémentaire), mais vous évitez les effets des Blessures critiques car le coup est absorbé par votre armure qui est maintenant endommagée.
+            </p>
+        </div>
+        
+        <div class="col-4">
+            <h3 class="card-title">Réparer une Armure</h3>
+            <p class="card-text">
+                
+            </p>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-6">
             @if (AfficherArmuresLegeres && Armures.Any(a => a.TypeLegere))
