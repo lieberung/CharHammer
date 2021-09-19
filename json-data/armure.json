@@ -1,12 +1,43 @@
 ﻿{
   "items": [
-    {"id":10,"nom":"Manteau de fourrure","type":"Cuir","pa":"1","zones":"Corps, tête","prix":"10 co","enc":"20","disponibilite": "Assez courant",
+    {"id":10,"nom":"Manteau de fourrure","type":"Cuir","pa":"1","zones":"Corps, tête","prix":"10 co","enc":"1","disponibilite": "Assez courant","attributs":[],
       "description":"Les templiers de plusieurs ordres portent un manteau de fourrure exotique par-dessus leur armure. Bien souvent, il s'agit de trophées ou de simples souvenirs d'antan. Citons les chevaliers du Griffon, dont les dirigeants portent des peaux de griffon prises lors de traques historiques ; les chevaliers Panthères, qui portent des peaux de panthère pour souligner leur fondation dans les montagnes d'Arabie, lors des croisades ; et, pour les plus connus, les chevaliers du Loup Blanc, chacun portant la fourrure du loup qu'il a lui-même abattu pour passer d'écuyer à templier. Les fourrures exotiques ont aussi leur lot d'avantages pratiques : elles tiennent chaud l'hiver et encaissent certains coups. Un manteau de fourrure seul est considéré comme une armure légère, mais il est possible de le porter par-dessus des mailles ou des plaques, conférant alors 1 PA supplémentaire à la tête et au corps (jusqu'à un maximum de 5 PA). Le coût d'un manteau donné sur la table correspond à celui d'une fourrure classique (loup ou ours, par exemple). Les fourrures d'animaux rares (comme le tigre, la panthère ou l'ours blanc) sont des objets de bonne qualité. La fourrure d'une créature exotique (comme un griffon, par exemple) est un objet de qualité exceptionnelle."},
-    {"id":11,"nom":"Armure complète d’obsidienne","type":"Plaques","pa":"5","zones":"Toutes","prix":"500 co","enc":"450","disponibilite": "Très rare",
+    {"id":11,"nom":"Armure complète d’obsidienne","type":"Plaques","pa":"5","zones":"Toutes","prix":"500 co","enc":"4","disponibilite": "Très rare","attributs":[45],
       "description":"Les Gardes noirs de Morr tirent leur nom de leur impression-nante armure de mailles et de plaques, composée d'obsidienne. Cette armure est très encombrante, mais son apparence mena-çante terrorise tous leurs adversaires. Il s'agit toujours d'une armure complète. Son encombrement est compensé par le pouvoir qu'elle exerce sur les adversaires. En effet, le porteur d'une telle armure bénéficie des avantages du talent Troublant."},
-    {"id":12,"nom":"Tabard héraldique","type":"Vêtement","pa":"0","zones":"","prix":"5 co","enc":"10","disponibilite": "Assez courant",
+    {"id":12,"nom":"Tabard héraldique","type":"Vêtement","pa":"0","zones":"","prix":"5 co","enc":"0","disponibilite": "Assez courant","attributs":[],
       "description":"Ce simple tabard ou pardessus arbore des couleurs et armoiries. On le porte sur l'armure afin d'être clairement identifié sur le champ de bataille. Les meilleurs guerriers de l'armée d'un noble pourront porter un tabard affichant le blason de leur maître, alors que les membres d'un ordre de chevalerie porteront géné-ralement tous les mêmes armoiries. Les nobles et officiers supérieurs portent souvent une version d'apparat de leurs armoi-ries, ce qui permet de les différencier de leurs subordonnés tout en les associant à la même armée. Bien évidemment, il arrive qu'une armée ou un officier ne souhaite pas être aussi facilement identifiable, auquel cas le tabard est enlevé et rangé dans un sac. Un personnage a droit à un test de Connaissances académiques (généalogie/héraldique) ou un test de Connaissances géné-rales (pays idoine) Assez difficile (-10%) pour identifier les armoiries d'un individu portant un tabard, mais la difficulté peut varier en fonction de la rareté du blason."},
-    {"id":13,"nom":"Vêtements d'hiver (kislévites)","type":"Cuir","pa":"0","zones":"Toutes","prix":"10 co","enc":"45","disponibilite": "Très courant",
-      "description":"Tenue composée de lourdes fourrures, de lainages et d’épaisses pièces de cuir visant à se protéger du froid. Portée, elle confère un bonus de +10 aux tests d’Endurance visant à résister aux effets d’une exposition au froid, mais impose un malus de –5 à tous les tests d’Agilité."}
+    {"id":13,"nom":"Vêtements d'hiver (kislévites)","type":"Cuir","pa":"0","zones":"Toutes","prix":"10 co","enc":"0","disponibilite": "Très courant",
+      "description":"Tenue composée de lourdes fourrures, de lainages et d’épaisses pièces de cuir visant à se protéger du froid. Portée, elle confère un bonus de +10 aux tests d’Endurance visant à résister aux effets d’une exposition au froid, mais impose un malus de –5 à tous les tests d’Agilité."},
+    
+    {"id":14,"nom":"Gilet (cuir souple)","type":"Cuir","pa":"1","zones":"Corps","prix":"10/-","enc":"1","disponibilite": "Commun","attributs":[],
+      "description":""},
+    {"id":15,"nom":"Veste (cuir souple)","type":"Cuir","pa":"1","zones":"Corps,Bras","prix":"12/-","enc":"1","disponibilite": "Commun","attributs":[],
+      "description":""},
+    {"id":16,"nom":"Jambières (cuir souple)","type":"Cuir","pa":"1","zones":"Jambes","prix":"14/-","enc":"1","disponibilite": "Commun","attributs":[],
+      "description":""},
+    {"id":17,"nom":"Capuche (cuir souple)","type":"Cuir","pa":"1","zones":"Tête","prix":"8/-","enc":"1","disponibilite": "Commun","attributs":[40],
+      "description":""},
+    {"id":18,"nom":"Cuirasse (cuir renforcé)","type":"Cuir","pa":"2","zones":"Corps","prix":"18/-","enc":"2","disponibilite": "Peu commun","attributs":[41],
+      "description":""},
+    
+    {"id":19,"nom":"Gilet de mailles","type":"Mailles","pa":"2","zones":"Corps","prix":"2 co","enc":"2","disponibilite": "Peu commun","attributs":[42,45],
+      "description":""},
+    {"id":20,"nom":"Chemise de mailles","type":"Mailles","pa":"2","zones":"Corps,Bras","prix":"3 co","enc":"2","disponibilite": "Peu commun","attributs":[42,45],
+      "description":""},
+    {"id":21,"nom":"Jambières de mailles","type":"Mailles","pa":"2","zones":"Jambes","prix":"2 co","enc":"2","disponibilite": "Peu commun","attributs":[42,45],
+      "description":""},
+    {"id":22,"nom":"Cagoule de mailles","type":"Mailles","pa":"2","zones":"Tête","prix":"2 co","enc":"1","disponibilite": "Peu commun","attributs":[40,42,44,45],
+      "description":""},
+    
+    {"id":23,"nom":"Cuirasse","type":"Plaques","pa":"2","zones":"Corps","prix":"10 co","enc":"3","disponibilite": "Peu commun","attributs":[41,43,45],
+      "description":""},
+    {"id":24,"nom":"Brassards de plaques","type":"Plaques","pa":"2","zones":"Bras","prix":"8 co","enc":"3","disponibilite": "Rare","attributs":[41,43,45],
+      "description":""},
+    {"id":25,"nom":"Jambières de plaques","type":"Plaques","pa":"2","zones":"Jambes","prix":"10 co","enc":"3","disponibilite": "Rare","attributs":[41,43,45,45],
+      "description":""},
+    {"id":26,"nom":"Haume complet","type":"Plaques","pa":"2","zones":"Tête","prix":"3 co","enc":"2","disponibilite": "Peu commun","attributs":[44,44,43,41,45],
+      "description":""},
+    {"id":27,"nom":"Casque ouvert","type":"Plaques","pa":"2","zones":"Tête","prix":"2 co","enc":"1","disponibilite": "Commun","attributs":[40,44,45],
+      "description":""}
   ]
 }
