@@ -14,7 +14,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string enc { get; set; } = null!;
         public string disponibilite { get; set; } = null!;
         public string description { get; set; } = null!;
-        public int[] attributs { get; set; } = null!;
+        public int[]? attributs { get; set; }
     }
 
     public class RootArmure

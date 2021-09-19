@@ -223,7 +223,7 @@ namespace BlazorWjdr
                     Pa = a.pa,
                     Prix = a.prix,
                     Zones = a.zones,
-                    Attributs = a.attributs.Select(id => attributs[id]).OrderBy(at => at.Nom).ToArray()
+                    Attributs = (a.attributs ?? Array.Empty<int>()).Select(id => attributs[id]).OrderBy(at => at.Nom).ToArray()
                 }).ToDictionary(k => k.Id);
         }
 
