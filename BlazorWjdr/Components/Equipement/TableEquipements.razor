@@ -1,15 +1,13 @@
 ﻿@using BlazorWjdr.Models
 
 <table class="table">
-    <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Enc.</th>
-            <th>Prix</th>
-            <th>Disponibilité</th>
+    <tbody class="alternate-color-dark">
+        <tr class="tgroupe">
+            <td>Nom</td>
+            <td>Enc.</td>
+            <td>Prix</td>
+            <td>Disponibilité</td>
         </tr>
-    </thead>
-    <tbody>
     @foreach (var item in Items)
     {
         <EquipementRow Item="@item"/>

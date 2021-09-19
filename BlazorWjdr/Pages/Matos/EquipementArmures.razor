@@ -1,0 +1,59 @@
+﻿@page "/equipement/armures/{Groupe}/"
+
+@using BlazorWjdr.Components.Equipement
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject ArmesService _armesService
+@inject AptitudesService _aptitudesService
+
+<MainTopRow>
+    <h3 class="card-title" style="display:inline-block;">Armures et Vêtements</h3>
+    <span style="margin-left: 160px;">
+        <a style="width:120px; margin-top:-10px;" href="equipement/armures/toutes/" class="mr-2 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+        <a style="width:120px; margin-top:-10px;" href="equipement/armures/legeres/" class="mr-2 btn btn-sm @(Groupe == "legeres" ? "btn-primary" : "btn-secondary")">Légères</a>
+        <a style="width:120px; margin-top:-10px;" href="equipement/armures/moyennes/" class="mr-2 btn btn-sm @(Groupe == "moyennes" ? "btn-primary" : "btn-secondary")">Moyennes</a>
+        <a style="width:120px; margin-top:-10px;" href="equipement/armures/lourdes/" class="mr-2 btn btn-sm @(Groupe == "lourdes" ? "btn-primary" : "btn-secondary")">Lourdes</a>
+        <a style="width:120px; margin-top:-10px;" href="equipement/armures/vetements/" class="mr-2 btn btn-sm @(Groupe == "vetements" ? "btn-primary" : "btn-secondary")">Vêtements</a>
+    </span>
+</MainTopRow>
+
+<div class="content px-4">
+    <div class="row">
+        <div class="col-6">
+            @if (AfficherArmuresLegeres && Armures.Any(a => a.TypeLegere))
+            {
+                <h5 class="card-title">Armures Légères</h5>
+                <TableArmures Items="Armures.Where(a => a.TypeLegere).ToArray()"/>
+            }
+            @if (AfficherArmuresMoyennes && Armures.Any(a => a.TypeMoyenne))
+            {
+                <h5 class="card-title">Armures Moyennes</h5>
+                <TableArmures Items="Armures.Where(a => a.TypeMoyenne).ToArray()"/>
+            }
+            @if (AfficherArmuresLourdes && Armures.Any(a => a.TypeLourde))
+            {
+                <h5 class="card-title">Armures Lourdes</h5>
+                <TableArmures Items="Armures.Where(a => a.TypeLourde).ToArray()"/>
+            }
+            @if (AfficherVetements && Armures.Any(a => a.TypeVetement))
+            {
+                <h5 class="card-title">Vêtements</h5>
+                <TableArmures Items="Armures.Where(a => a.TypeVetement).ToArray()"/>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Groupe { get; set; } = "";
+
+    private IEnumerable<ArmureDto> Armures => _armesService.AllArmures;
+
+    private bool AfficherArmuresLegeres => Groupe == "toutes" || Groupe == "legeres";
+    private bool AfficherArmuresMoyennes => Groupe == "toutes" || Groupe == "moyennes";
+    private bool AfficherArmuresLourdes => Groupe == "toutes" || Groupe == "lourdes";
+    private bool AfficherVetements => Groupe == "toutes" || Groupe == "vetements";
+}

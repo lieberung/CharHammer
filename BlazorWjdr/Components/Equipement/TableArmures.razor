@@ -1,0 +1,23 @@
+﻿@using BlazorWjdr.Models
+
+<table class="table">
+    <tbody class="alternate-color-dark">
+    <tr class="tgroupe">
+        <td>Nom</td>
+        <td>Type</td>
+        <td>PA</td>
+        <td>Zones</td>
+        <td>Enc.</td>
+        <td>Prix</td>
+        <td>Disponibilité</td>
+    </tr>
+    @foreach (var item in Items)
+    {
+        <ArmureRow Item="@item"/>
+    }
+    </tbody>
+</table>
+
+@code {
+    [Parameter] public ArmureDto[] Items { get; set; } = null!;
+}

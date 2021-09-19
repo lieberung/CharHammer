@@ -1,4 +1,5 @@
-﻿namespace BlazorWjdr.Models
+﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+namespace BlazorWjdr.Models
 {
     public class ArmureDto
     {
@@ -11,5 +12,10 @@
         public string Enc { get; set; } = null!;
         public string Disponibilite { get; set; } = null!;
         public string Description { get; set; } = null!;
+
+        public bool TypeLegere => Type == "Cuir";
+        public bool TypeMoyenne => Type == "Mailles";
+        public bool TypeLourde => Type == "Plaques";
+        public bool TypeVetement => Type == "Vêtement";
     }
 }
