@@ -218,7 +218,7 @@ namespace BlazorWjdr
                     Type = a.type,
                     Nom = a.nom,
                     Description = a.description,
-                    Disponibilite = a.disponibilite,
+                    Disponibilite = a.dispo,
                     Enc = a.enc,
                     Pa = a.pa,
                     Prix = a.prix,

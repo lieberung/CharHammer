@@ -12,7 +12,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string zones { get; set; } = null!;
         public string prix { get; set; } = null!;
         public string enc { get; set; } = null!;
-        public string disponibilite { get; set; } = null!;
+        public string dispo { get; set; } = null!;
         public string description { get; set; } = null!;
         public int[]? attributs { get; set; }
     }

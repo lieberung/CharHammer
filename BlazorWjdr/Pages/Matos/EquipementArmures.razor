@@ -14,7 +14,6 @@
         <a style="width:120px; margin-top:-10px;" href="equipement/armures/legeres/" class="mr-2 btn btn-sm @(Groupe == "legeres" ? "btn-primary" : "btn-secondary")">Légères</a>
         <a style="width:120px; margin-top:-10px;" href="equipement/armures/moyennes/" class="mr-2 btn btn-sm @(Groupe == "moyennes" ? "btn-primary" : "btn-secondary")">Moyennes</a>
         <a style="width:120px; margin-top:-10px;" href="equipement/armures/lourdes/" class="mr-2 btn btn-sm @(Groupe == "lourdes" ? "btn-primary" : "btn-secondary")">Lourdes</a>
-        <a style="width:120px; margin-top:-10px;" href="equipement/armures/vetements/" class="mr-2 btn btn-sm @(Groupe == "vetements" ? "btn-primary" : "btn-secondary")">Vêtements</a>
     </span>
 </MainTopRow>
 
@@ -83,11 +82,6 @@
                 <h5 class="card-title">Armures Lourdes</h5>
                 <TableArmures Items="Armures.Where(a => a.TypeLourde).ToArray()"/>
             }
-            @if (AfficherVetements && Armures.Any(a => a.TypeVetement))
-            {
-                <h5 class="card-title">Vêtements</h5>
-                <TableArmures Items="Armures.Where(a => a.TypeVetement).ToArray()"/>
-            }
         </div>
     </div>
 </div>
@@ -102,5 +96,4 @@
     private bool AfficherArmuresLegeres => Groupe == "toutes" || Groupe == "legeres";
     private bool AfficherArmuresMoyennes => Groupe == "toutes" || Groupe == "moyennes";
     private bool AfficherArmuresLourdes => Groupe == "toutes" || Groupe == "lourdes";
-    private bool AfficherVetements => Groupe == "toutes" || Groupe == "vetements";
 }

@@ -16,9 +16,10 @@
     <div class="ml-3 mb-3 pl-2">
         <div class="row">
             <div class="col-5">
+                <a style="width:120px;" href="guide-du-consommateur/tout/" class="mr-5 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Tout</a>
                 @foreach (var grp in _allGroupes)
                 {
-                    <a class="btn btn-item" href="guide-du-consommateur/@grp/">@grp</a>
+                    <a style="width:120px;" href="guide-du-consommateur/@grp/" class="mr-2 btn btn-sm @(Groupe == grp ? "btn-primary" : "btn-secondary")">grp</a>
                 }
             </div>
         </div>
@@ -30,7 +31,7 @@
          <div class="row">
              <div class="col-5">
                  <h3 class="card-title">@grp</h3>
-                 <TableEquipements Items="@_armesService.AllEquipements.Where(e => e.Groupes.Contains(grp)).OrderBy(e => e.Nom).ToArray()"/>
+                 <TableEquipements Items="@GetEquipement(grp)"/>
              </div>
         </div>
         }
@@ -43,10 +44,14 @@
     private List<string> _allGroupes = null!;
     private List<string> _showGroupes = null!;
 
+    private EquipementDto[] GetEquipement(string groupe) => _armesService.AllEquipements
+        .Where(e => e.Groupes.Any(g => GenericService.ConvertirCaracteres(g) == groupe))
+        .OrderBy(e => e.Nom).ToArray();
+
     protected override void OnParametersSet()
     {
         _allGroupes = _armesService.AllEquipements.SelectMany(e => e.Groupes).Distinct().OrderBy(g => g).ToList();
-        _showGroupes = Groupe == "divers" ? _allGroupes : new List<string> { Groupe };
+        _showGroupes = Groupe == "tout" ? _allGroupes : new List<string> { Groupe };
         
         base.OnParametersSet();
     }
