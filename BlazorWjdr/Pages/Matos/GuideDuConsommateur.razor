@@ -15,8 +15,10 @@
 
     <div class="ml-3 mb-3 pl-2">
         <div class="row">
-            <div class="col-5">
+            <div class="col-2">
                 <a style="width:120px;" href="guide-du-consommateur/tout/" class="mr-5 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Tout</a>
+            </div>
+            <div class="col-10">
                 @foreach (var grp in _allGroupes)
                 {
                     <a style="width:120px;" href="guide-du-consommateur/@grp/" class="mr-2 btn btn-sm @(Groupe == grp ? "btn-primary" : "btn-secondary")">@grp</a>
