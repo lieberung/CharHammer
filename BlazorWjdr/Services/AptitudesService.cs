@@ -58,6 +58,9 @@
 
         public AptitudeDto TraitCourseAPied => GetTrait(3020);
         public AptitudeDto TraitDurACuir => GetTrait(3021);
+        
+        public AptitudeDto TalentCostaud => GetTrait(2239);
+        public AptitudeDto TalentRobuste => GetTalent(2074);
 
 
         // Académique
@@ -114,7 +117,6 @@
         public AptitudeDto TalentFrenesie => GetTalent(2020);
         public AptitudeDto TalentParadeEclair => GetTalent(2065);
         public AptitudeDto TalentLutte => GetTalent(2043);
-        public AptitudeDto TalentRobuste => GetTalent(2074);
         public AptitudeDto TraitValeureux => GetTalent(3906);
         public AptitudeDto TalentGroupeVertu => GetTalent(2206);
         public AptitudeDto TalentPresenceImposante => GetTalent(2217);
@@ -358,6 +360,7 @@
         public AptitudeDto ConditionATerre => GetTrait(3458);
         public AptitudeDto ConditionEtourdi => GetTrait(3459);
         public AptitudeDto ConditionInconscient => GetTrait(3461);
+        public AptitudeDto ConditionExtenue => GetTrait(3456);
 
         public AptitudeDto TraitPsychoHaine => GetTrait(3217);
         public AptitudeDto TraitPsychoAnimosite => GetTrait(3215);
