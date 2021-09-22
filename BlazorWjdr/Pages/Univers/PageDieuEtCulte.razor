@@ -2,10 +2,13 @@
 
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Dieu
+@using BlazorWjdr.Components.Sortilege
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject DieuxService _dieuxSvc
+@inject AptitudesService _aptitudesService
+@inject SortilegesService _sortilegesService
 
 <MainTopRow>
     <h3 class="card-title">@_dieu.Nom</h3>
@@ -170,13 +173,30 @@
             </CardBody>
         </div>
     </div>
+@if (InspirationDivine != null)
+{
+    <PageSectionDivider/>
 
+    <div class="row">
+        <div class="col-12">
+@foreach (var miracle in  _sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(InspirationDivine)))
+{
+    <div class="bulle m-4" style="display:inline-block;">
+        <div class="card-body">
+            <SortilegeDetail Item="@miracle"/>
+        </div>
+    </div>
+}
+        </div>
+    </div>
+}
 </div>
 
 @code {
     [Parameter] public string Dieu { get; set; } = null!;
     private DieuDto _dieu = null!;
     private string? _dieuSiege;
+    private AptitudeDto? InspirationDivine;
     
     protected override void OnParametersSet()
     {
@@ -184,6 +204,7 @@
         {
             case "myrmidia":
                 _dieu = _dieuxSvc.GetDieu(13);
+                InspirationDivine = _aptitudesService.InspirationDivineMyrmidia;
                 break;
         }
         _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";

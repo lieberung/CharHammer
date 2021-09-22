@@ -54,6 +54,7 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new TableDesCarrieresInitialesService(dataTablesCarrInit));
             builder.Services.AddSingleton(_ => new BestiolesService(dataBestioles));
             builder.Services.AddSingleton(_ => new ReglesService(dataRegles));
+            builder.Services.AddSingleton(_ => new SortilegesService(dataSortileges));
 
             builder.RootComponents.Add<App>("#app");
 
