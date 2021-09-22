@@ -1,8 +1,10 @@
-﻿@using BlazorWjdr.Models
+﻿@using BlazorWjdr.Components.Sortilege
+@using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject AptitudesService _aptitudesService
 @inject ArmesService _armesService
+@inject SortilegesService _sortilegesService
 
 @if (!string.IsNullOrWhiteSpace(Item.CaracteristiqueAssociee))
 {
@@ -79,6 +81,14 @@
         <p class="card-text">
             <strong>• @arme.Nom : </strong><span>@arme.Description</span>
         </p>
+    }
+}
+@if (Item.Parent == _aptitudesService.CompetenceScienceDeLaMagie)
+{
+    @if (_sortilegesService.AllSortileges.Any(s => s.Aptitudes.Contains(Item)))
+    {
+        <h3 class="card-title">Sortilèges</h3>
+        <SortilegeItemList Items="_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray()"/>
     }
 }
 

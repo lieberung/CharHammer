@@ -1,0 +1,29 @@
+﻿@using BlazorWjdr.Models
+
+<a href="sortileges/@Item.Id.ToString()/" class="btn btn-light btn-item">
+    <span class="oi oi-script item-icon mr-1" aria-hidden="true"></span>
+    @if (string.IsNullOrWhiteSpace(_toolTipText)) {
+        @_itemName
+    } else {
+        <Tooltip Text="@(_toolTipText)">@_itemName</Tooltip>
+    }
+</a>
+
+@code{
+    [Parameter]
+    public SortilegeDto Item { get; set; } = null!;
+
+    private string _toolTipText = null!;
+    private string _itemName = null!;
+
+    protected override void OnParametersSet()
+    {
+        _itemName = Item.Nom;
+        if (Item.NS.HasValue)
+            _itemName += $" ns{Item.NS}"; 
+        _toolTipText = $"{Item.Effet}\n\nCibles : {Item.Cible} / Distance : {Item.Distance} / Durée : {Item.Duree}";
+        
+        base.OnParametersSet();
+    }
+
+}

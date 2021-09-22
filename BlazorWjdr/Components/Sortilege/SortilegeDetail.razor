@@ -1,0 +1,19 @@
+﻿@using BlazorWjdr.Models
+<h4 class="card-title">@Item.Nom</h4>
+<ul>
+    @if (AfficherType)
+    {
+        <li><strong>@Item.Type</strong></li>
+    }
+    <li><strong>NS</strong> : @Item.NS</li>
+    <li><strong>Cibles</strong> : @Item.Cible</li>
+    <li><strong>Distance</strong> : @Item.Distance</li>
+    <li><strong>Durée</strong> : @Item.Duree</li>
+</ul>
+<p class="card-text">
+    @Item.Effet
+</p>
+@code {
+    [Parameter] public SortilegeDto Item { get; set; } = null!;
+    [Parameter] public bool AfficherType { get; set; }
+}
