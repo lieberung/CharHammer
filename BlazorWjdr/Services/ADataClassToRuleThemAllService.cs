@@ -18,23 +18,24 @@ namespace BlazorWjdr.Services
         public async Task InitializeDataAsync()
         {
             Aptitudes = await GetRootAptitude();
-            Creatures = await GetRootCreature();
             Armes = await GetRootArme();
             ArmesAttributs = await GetRootArmeAttribut();
+            Armures = await GetRootArmure();
+            Creatures = await GetRootCreature();
             Carrieres = await GetRootCarriere();
             CarrieresInitiales = await GetRootTableCarriereInitiale();
             Chrono = await GetRootChrono();
             Dieux = await GetRootDieu();
             Domaines = await GetRootDomaine();
+            Equipements = await GetRootEquipement();
             Lieux = await GetRootLieu();
             LieuxTypes = await GetRootLieuType();
             Profils = await GetRootProfil();
             Races = await GetRootRace();
             References = await GetRootReference();
             Regles = await GetRootRegle();
+            Sortileges = await GetRootSortilege();
             Tables = await GetRootTable();
-            Equipements = await GetRootEquipement();
-            Armures = await GetRootArmure();
         }
 
         public RootAptitude? Aptitudes { get; private set; }
@@ -49,6 +50,7 @@ namespace BlazorWjdr.Services
         public RootArmeAttribut? ArmesAttributs { get; private set; }
         public RootProfil? Profils { get; private set; }
         public RootRace? Races { get; private set; }
+        public RootSortilege? Sortileges { get; private set; }
         public RootReference? References { get; private set; }
         public RootTable? Tables { get; private set; }
         public RootRegle? Regles { get; private set; }
@@ -78,6 +80,7 @@ namespace BlazorWjdr.Services
         private async Task<RootArmeAttribut> GetRootArmeAttribut() => await LoadRootFromJson<RootArmeAttribut>($"{JsonDataPath}/armeattribut.json");
         private async Task<RootProfil> GetRootProfil() => await LoadRootFromJson<RootProfil>($"{JsonDataPath}/profil.json");
         private async Task<RootRace> GetRootRace() => await LoadRootFromJson<RootRace>($"{JsonDataPath}/race.json");
+        private async Task<RootSortilege> GetRootSortilege() => await LoadRootFromJson<RootSortilege>($"{JsonDataPath}/sortilege.json");
         private async Task<RootReference> GetRootReference() => await LoadRootFromJson<RootReference>($"{JsonDataPath}/reference.json");
         private async Task<RootTable> GetRootTable() => await LoadRootFromJson<RootTable>($"{JsonDataPath}/table.json");
         private async Task<RootRegle> GetRootRegle() => await LoadRootFromJson<RootRegle>($"{JsonDataPath}/regle.json");

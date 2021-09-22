@@ -35,6 +35,7 @@ namespace BlazorWjdr
             var dataArmesAttributs = InitializeArmesAttributs(data.ArmesAttributs!.items);
             var dataArmes = InitializeArmes(data.Armes!.items, dataArmesAttributs, dataAptitudes);
             var dataArmures = InitializeArmures(data.Armures!.items, dataArmesAttributs);
+            var dataSortileges = InitializeSortileges(data.Sortileges!.items, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataProfils, dataAptitudes, dataLieux, dataCarrieres);
@@ -57,6 +58,24 @@ namespace BlazorWjdr
             builder.RootComponents.Add<App>("#app");
 
             await builder.Build().RunAsync();
+        }
+
+        private static Dictionary<int, SortilegeDto> InitializeSortileges(IEnumerable<JsonSortilege> items, IReadOnlyDictionary<int, AptitudeDto> dataAptitudes)
+        {
+            return items
+                .Select(i => new SortilegeDto
+                {
+                    Id = i.id,
+                    Aptitudes = (i.aptitudes ?? Array.Empty<int>()).Select(id => dataAptitudes[id]).ToArray(),
+                    Cible = i.cible,
+                    Distance = i.distance,
+                    Duree = i.duree,
+                    Effet = i.effet,
+                    Nom = i.nom,
+                    Type = i.type,
+                    NS = i.ns
+                })
+                .ToDictionary(k => k.Id);
         }
 
         #region Initialize
