@@ -178,15 +178,27 @@
     <PageSectionDivider/>
 
     <div class="row">
-        <div class="col-12">
-@foreach (var miracle in  _sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(InspirationDivine)))
-{
-    <div class="bulle m-4" style="display:inline-block;">
-        <div class="card-body">
-            <SortilegeDetail Item="@miracle"/>
+        <div class="col-6">
+            <h3 class="card-title">Bénédictions</h3>
+            @foreach (var benediction in  _sortilegesService.AllSortileges.Where(s => s.Type == "benediction" && s.Aptitudes.Contains(InspirationDivine)))
+            {
+                <div class="bulle m-4 sortilege">
+                    <div class="card-body">
+                        <SortilegeDetail Item="@benediction"/>
+                    </div>
+                </div>
+            }
         </div>
-    </div>
-}
+        <div class="col-6">
+            <h3 class="card-title">Miracles</h3>
+            @foreach (var miracle in  _sortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(InspirationDivine)))
+            {
+                <div class="bulle m-4 sortilege">
+                    <div class="card-body">
+                        <SortilegeDetail Item="@miracle"/>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 }
