@@ -57,6 +57,7 @@ a:-webkit-any-link .tooltip-wrapper { cursor:pointer; }
 
 .bulle { padding: 8px; background-color: #fff7f2; border: 1px dotted #80390f; border-radius: .75em; } /* bg-c: #cebfb5 */
 .bulle > .table { margin-bottom: 0; }
+.bulle.sortilege { width:500px; }
 
 .item-icon { font-size: .800rem; color: #80390f; }
 .career-img { float: right; margin-left: 15px; }
