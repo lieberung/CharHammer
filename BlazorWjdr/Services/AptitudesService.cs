@@ -70,7 +70,7 @@
         public AptitudeDto CompetenceConnaissancesAcademiquesDeuxAuChoix => GetAptitude(1169);
         public AptitudeDto CompetenceConnaissancesAcademiquesTroisAuChoix => GetAptitude(1166);
         public AptitudeDto CompetenceLireEcrire => GetAptitude(1042);
-        public AptitudeDto TalentCalculMental => GetTalent(207);
+        public AptitudeDto TalentCalculMental => GetTalent(2007);
         public AptitudeDto TalentLinguistique => GetTalent(2042);
 
         // Arcanique
