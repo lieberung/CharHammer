@@ -81,7 +81,18 @@
         public AptitudeDto CompetenceLangageMystique => GetAptitude(1036);
         public AptitudeDto CompetenceLangageMystiqueMagick => GetAptitude(1162);
         public AptitudeDto CompetenceScienceDeLaMagie => GetAptitude(2079);
+        
+        public AptitudeDto InspirationDivineManann => GetAptitude(2281);
+        public AptitudeDto InspirationDivineMorr => GetAptitude(2282);
         public AptitudeDto InspirationDivineMyrmidia => GetAptitude(2280);
+        public AptitudeDto InspirationDivineRanald => GetAptitude(2283);
+        public AptitudeDto InspirationDivineRhya => GetAptitude(2284);
+        public AptitudeDto InspirationDivineShallya => GetAptitude(2285);
+        public AptitudeDto InspirationDivineSigmar => GetAptitude(2286);
+        public AptitudeDto InspirationDivineTaal => GetAptitude(2287);
+        public AptitudeDto InspirationDivineUlric => GetAptitude(2288);
+        public AptitudeDto InspirationDivineVerena => GetAptitude(2289);
+        
         public AptitudeDto CompetenceLangageMystiqueDemoniaque => GetAptitude(1170);
         public AptitudeDto CompetenceLangageMystiqueElfeMystique => GetAptitude(1171);
         public AptitudeDto CompetenceLangueClassique => GetAptitude(1142);
