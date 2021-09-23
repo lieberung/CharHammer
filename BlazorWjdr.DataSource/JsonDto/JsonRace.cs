@@ -13,7 +13,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public bool pj { get; set; }
         public bool group_only { get; set; }
         public string nom_masculin { get; set; } = null!;
-        public string nom_feminin { get; set; } = null!;
+        public string? nom_feminin { get; set; } = null!;
         public string description { get; set; } = null!;
         public JsonOpinion[]? opinions { get; set; }
     }

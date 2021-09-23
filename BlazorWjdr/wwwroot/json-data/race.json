@@ -82,8 +82,8 @@
   ]
 },
 {"id":64,"parent":56,"pj":true,"nom_masculin":"Humain mutant","nom_feminin":"Humaine mutant","description":""},
-      {"id":65,"parent":25,"nom_masculin":"Elfe sylvain","nom_feminin":"","description":""},
-      {"id":66,"parent":25,"nom_masculin":"Haut Elfe","nom_feminin":"","description":""},
-      {"id":67,"parent":25,"nom_masculin":"Ogre","nom_feminin":"Ogresse","description":""}
+{"id":65,"parent":25,"nom_masculin":"Elfe sylvain","nom_feminin":"","description":""},
+{"id":66,"parent":25,"nom_masculin":"Haut Elfe","nom_feminin":"","description":""},
+{"id":67,"parent":25,"nom_masculin":"Ogre","nom_feminin":"Ogresse","description":""}
     ]
 }
