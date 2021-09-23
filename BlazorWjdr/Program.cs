@@ -203,11 +203,11 @@ namespace BlazorWjdr
                 {
                     Id = r.id,
                     Description = r.description,
-                    Lieux = (r.lieux_ids ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    Lieux = (r.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                     GroupOnly = r.group_only,
                     NomFeminin = r.nom_feminin,
                     NomMasculin = r.nom_masculin,
-                    ParentId = r.parent_id,
+                    ParentId = r.parent,
                     PourPj = r.pj
                 })
                 .ToDictionary(k => k.Id);
