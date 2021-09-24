@@ -10,11 +10,13 @@ namespace BlazorWjdr.Models
         public bool GroupOnly { get; init; }
         public string NomMasculin { get; init; } = null!;
         public string NomFeminin { get; init; } = null!;
+        public string Autochtones { get; init; } = null!;
         public string Description { get; init; } = null!;
 
         public int? ParentId { get; init; }
         public RaceDto? Parent { get; set; }
         public readonly List<RaceDto> SousElements = new();
+        public List<OpinionDto> Opinions = new();
         
         public int ParentsCount {
             get
@@ -24,5 +26,12 @@ namespace BlazorWjdr.Models
                 return Parent.ParentsCount + 1;
             }
         }
+    }
+
+    public class OpinionDto
+    {
+        public int RaceId { get; init; }
+        public RaceDto? Race { get; set; }
+        public string Ambiance { get; init; } = null!;
     }
 }

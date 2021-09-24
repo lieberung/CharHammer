@@ -12,8 +12,9 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int[]? lieux { get; set; }
         public bool pj { get; set; }
         public bool group_only { get; set; }
-        public string nom_masculin { get; set; } = null!;
-        public string? nom_feminin { get; set; } = null!;
+        public string nom_masculin { get; init; } = null!;
+        public string? nom_feminin { get; init; } = null!;
+        public string? nom_autoch { get; init; } = null!;
         public string description { get; set; } = null!;
         public JsonOpinion[]? opinions { get; set; }
     }
@@ -21,7 +22,7 @@ namespace BlazorWjdr.DataSource.JsonDto
     public class JsonOpinion
     {
         public int race { get; set; }
-        public string ambiance { get; set; }
+        public string ambiance { get; init; } = null!;
     }
     
     public class RootRace

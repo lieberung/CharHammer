@@ -205,10 +205,13 @@ namespace BlazorWjdr
                     Description = r.description,
                     Lieux = (r.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                     GroupOnly = r.group_only,
-                    NomFeminin = r.nom_feminin,
+                    NomFeminin = r.nom_feminin??"",
                     NomMasculin = r.nom_masculin,
+                    Autochtones = r.nom_autoch??"",
                     ParentId = r.parent,
-                    PourPj = r.pj
+                    PourPj = r.pj,
+                    Opinions = (r.opinions ?? Array.Empty<JsonOpinion>())
+                        .Select(o => new OpinionDto { RaceId = o.race, Ambiance = o.ambiance }).ToList()
                 })
                 .ToDictionary(k => k.Id);
 
@@ -217,11 +220,16 @@ namespace BlazorWjdr
                 race.Parent = cache[race.ParentId!.Value];
             }
 
-            foreach (var lieu in cache.Values)
+            foreach (var race in cache.Values)
             {
-                lieu.SousElements.AddRange(cache.Values
-                    .Where(c => c.Parent == lieu)
+                race.SousElements.AddRange(cache.Values
+                    .Where(c => c.Parent == race)
                     .OrderBy(c => c.NomMasculin));
+                foreach (var opinion in race.Opinions)
+                {
+                    if (opinion.RaceId != 0)
+                        opinion.Race = cache[opinion.RaceId];
+                }
             }
 
             return cache;

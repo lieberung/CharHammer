@@ -1,0 +1,81 @@
+﻿@page "/univers/race/{Race}/"
+
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject RacesService _racesService
+
+<MainTopRow>
+    <h3 class="card-title">Les @_autochtones</h3>
+</MainTopRow>
+
+<div class="content px-4">
+    
+    <div class="row">
+        
+        <div class="col-4">
+            <h3 class="card-title">Les @_autochtones</h3>
+            
+            <CardParagraphes Text="@_race.Description"/>
+            
+        </div>
+        
+        <div class="col-4">
+            <h3 class="card-title">Ce qu'ils pensent des autres...</h3>
+            @foreach (var opinion in _race.Opinions)
+            {
+                <div class="card-body">
+                    @if (opinion.Race != null)
+                    {
+                        <h5 class="card-title">Concernant les @opinion.Race.Autochtones</h5>
+                    }
+                    <p class="card-text">@opinion.Ambiance</p>
+                </div>
+            }
+        </div>
+        <div class="col-4">
+            <h3 class="card-title">Ce que les autres pensent d'eux...</h3>
+            @foreach (var race in _racesService.AllRaces.Where(r => r.Opinions.Any(o => o.Race == _race)))
+            {
+                @foreach (var opinion in race.Opinions.Where(o => o.Race == _race))
+                {
+                    <div class="card-body">
+                        @if (opinion.Race != null)
+                        {
+                            <h5 class="card-title">Selon les @race.Autochtones</h5>
+                        }
+                        <p class="card-text">@opinion.Ambiance</p>
+                    </div>
+                }   
+            }
+        </div>
+    </div>
+</div>
+@code {
+    [Parameter] public string Race { get; set; }
+    private RaceDto _race;
+    private string _autochtones;
+
+    protected override void OnParametersSet()
+    {
+        _race = Race switch
+        {
+            "humains" => _racesService.Humains,
+            "halflings" => _racesService.Halfelings,
+            "nains" => _racesService.Nains,
+            "gnomes" => _racesService.Gnomes,
+            "elfes-sylvains" => _racesService.ElfesSylvains,
+            "hauts-elfes" => _racesService.HautsElfes,
+            _ => _race
+        };
+        @for (int i = 0; i < _race.Autochtones.Length; i++)
+        {
+            _autochtones += _race.Autochtones[i];
+            if (i == 0)
+                _autochtones = _autochtones.ToUpper();
+        }
+        
+        base.OnParametersSet();
+    }
+
+}

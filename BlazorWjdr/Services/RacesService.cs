@@ -17,6 +17,8 @@
         public RaceDto GetRace(int id) => _cacheRace[id];
 
         public RaceDto Elfes => GetRace(25);
+        public RaceDto ElfesSylvains => GetRace(65);
+        public RaceDto HautsElfes => GetRace(66);
         public RaceDto Humains => GetRace(1);
         public RaceDto HumainsMutants => GetRace(64);
         public RaceDto Halfelings => GetRace(26);
