@@ -313,7 +313,19 @@
             <p class="card-text">
                 Dans l’Empire, la qualité du service médical se décline suivant les quatre catégories habituelles. Les tarifs de base et les disponibilités sont conformes aux critères décrits dans le livre de base de WJDR (cf. page 104).
             </p>
-            <TableDetail Item="@_tablesService.GetTable(80)"/>
+        </div>
+        <TableDetail Item="@_tablesService.GetTable(80)"/>
+        <div class="card-body">
+            <h4 class="card-title">Disponibilité</h4>
+            <p class="card-text">
+                Les degrés de disponibilité sont indiqués pour une ville de moins de 1000 habitants, à ajuster dans le cas d’une population plus ou moins importante.
+            </p>
+            <h4 class="card-title">Prix</h4>
+            <p class="card-text">
+                l s’agit du prix à payer pour une consultation simple; le praticien peut demander des suppléments (et il ne s’en prive pas) dans le cas
+                d’examens approfondis ou pour les remèdes qu’il propose. S’il ne vend pas ses propres remèdes, il aura sans doute avec un apothicaire un arrangement
+                très lucratif pour les deux partenaires.
+            </p>
         </div>
     </div>
 
@@ -362,50 +374,60 @@
 
     <div class="col-4">
         <div class="card-body">
-            <h4 class="card-title">Disponibilité</h4>
+            <h4 class="card-title">Charlatanisme</h4>
             <p class="card-text">
-                Les degrés de disponibilité sont indiqués pour une ville de moins de 1000 habitants, à ajuster dans le cas d’une population plus ou moins importante.
+                Après être parvenu à localiser un médecin grâce à la réussite d’un test de Commérage, le MJ devra lancer 1d100 en secret et comparer le résultat au score relatif à la qualité du médecin trouvé.
+                Si le jet est inférieur au pourcentage de charlatanisme, alors le praticien en question est soit un charlatan, soit fou à lier. Il utilise la compétence Soins mentionnée dans le tableau,
+                mais les remèdes qu’il propose, quels qu’ils soient, ont de grandes chances de n’être efficaces qu’en apparence. Dans l’heureuse éventualité où le test de Soins du charlatan serait inférieur ou égal
+                à la moitié de son pourcentage en Soins, il a trouvé une méthode valable, par le plus grand des hasards; son traitement est efficace ou son opération chirurgicale est réussie. S’il réussit son
+                test de Soins en obtenant un résultat supérieur à la moitié de sa compétence Soins, son traitement semble efficace pendant 12+1d10 heures (pour les affections de courte durée ou les blessures)
+                ou pendant 1d10 jours (pour les maladies de longue durée) ; au bout de cette période les symptômes réapparaissent tels qu’avant le traitement. Lors de ce répit temporaire, le temps durant lequel
+                le patient semble avoir été guéri par le traitement du charlatan n’est pas décompté de la durée durant laquelle il doit être affecté par sa blessure ou sa maladie; on considère que le traitement ou
+                l’opération chirurgicale a échoué. Pour déterminer le degré d’échec, considérez que le charlatan possède la moitié de sa compétence Soins.
+            </p>
+            <p class="card-text">
+                Si le charlatan manque totalement son test de Soins, tout le monde peut voir que ses faux remèdes ne servent à rien. Quel que soit le résultat de ses efforts, la réussite d’un test de Soins Difficile
+                (-20%) permet à un PJ qui l’observe au travail et analyse ses procédures opératoires de déceler qu’il s’agit d’un faux médecin ou que les méthodes qu’il emploie sont totalement farfelues.
             </p>
         </div>
-        <h4 class="card-title">Charlatanisme</h4>
-        <p class="card-text">
-            Après être parvenu à localiser un médecin grâce à la réussite d’un test de Commérage, le MJ devra lancer 1d100 en secret et comparer le résultat au score relatif à la qualité du médecin trouvé.
-            Si le jet est inférieur au pourcentage de charlatanisme, alors le praticien en question est soit un charlatan, soit fou à lier. Il utilise la compétence Soins mentionnée dans le tableau,
-            mais les remèdes qu’il propose, quels qu’ils soient, ont de grandes chances de n’être efficaces qu’en apparence. Dans l’heureuse éventualité où le test de Soins du charlatan serait inférieur ou égal
-            à la moitié de son pourcentage en Soins, il a trouvé une méthode valable, par le plus grand des hasards; son traitement est efficace ou son opération chirurgicale est réussie. S’il réussit son
-            test de Soins en obtenant un résultat supérieur à la moitié de sa compétence Soins, son traitement semble efficace pendant 12+1d10 heures (pour les affections de courte durée ou les blessures)
-            ou pendant 1d10 jours (pour les maladies de longue durée) ; au bout de cette période les symptômes réapparaissent tels qu’avant le traitement. Lors de ce répit temporaire, le temps durant lequel
-            le patient semble avoir été guéri par le traitement du charlatan n’est pas décompté de la durée durant laquelle il doit être affecté par sa blessure ou sa maladie; on considère que le traitement ou
-            l’opération chirurgicale a échoué. Pour déterminer le degré d’échec, considérez que le charlatan possède la moitié de sa compétence Soins.
-        </p>
-        <p class="card-text">
-            Si le charlatan manque totalement son test de Soins, tout le monde peut voir que ses faux remèdes ne servent à rien. Quel que soit le résultat de ses efforts, la réussite d’un test de Soins Difficile
-            (-20%) permet à un PJ qui l’observe au travail et analyse ses procédures opératoires de déceler qu’il s’agit d’un faux médecin ou que les méthodes qu’il emploie sont totalement farfelues.
-        </p>
-        <h4 class="card-title">Infection</h4>
-        <p class="card-text">
-            Une plaie peut toujours s’infecter, même si elle a été nettoyée après une intervention chirurgicale. Vous devez donc effectuer un jet de dés contre l’infection
-            après toute opération par un charlatan, même si la table d’opération a été décrassée convenablement (cf. le paragraphe Chirurgie ci-après).
-        </p>
-        <h4 class="card-title">Prix</h4>
-        <p class="card-text">
-            l s’agit du prix à payer pour une consultation simple; le praticien peut demander des suppléments (et il ne s’en prive pas) dans le cas
-            d’examens approfondis ou pour les remèdes qu’il propose. S’il ne vend pas ses propres remèdes, il aura sans doute avec un apothicaire un arrangement
-            très lucratif pour les deux partenaires.
-        </p>
+        <TableDetail Item="@_tablesService.GetTable(83)"/>
     </div>
 
 </div>
 
 <div class="row">
-    <div class="col-4">
+    <div class="col-8">
+        <div class="card-body">
+            <h4 class="card-title">Infection</h4>
+            <p class="card-text">
+                Une plaie peut toujours s’infecter, même si elle a été nettoyée après une intervention chirurgicale. Vous devez donc effectuer un jet de dés contre l’infection
+                après toute opération par un charlatan, même si la table d’opération a été décrassée convenablement (cf. le paragraphe Chirurgie ci-après).
+            </p>
+        </div>
         <TableDetail Item="@_tablesService.GetTable(81)"/>
-    </div>
-    <div class="col-4">
         <TableDetail Item="@_tablesService.GetTable(82)"/>
     </div>
     <div class="col-4">
-        <TableDetail Item="@_tablesService.GetTable(83)"/>
+        <div class="card-body">
+            <h4 class="card-title">Nettoyer une plaie</h4>
+            <p class="card-text">
+                Lorsqu’un PJ perd des points de Blessures, si personne ne possède la compétence Soins nécessaire pour le traiter, ou en cas d’échec
+                d’un test de Soins, tout n’est pas perdu. N’importe laquelle des personnes présentes peut tenter de nettoyer la blessure; à défaut de la
+                guérir, ceci permet au moins d’empêcher l’infection de s’installer.
+            </p>
+            <p class="card-text">
+                La meilleure manière de procéder est de laver soigneusement la plaie à l’aide d’une solution alcoolisée, en réussissant un test d’Agilité Facile (+20%).
+                La blessure doit ensuite être nettoyée de la même manière et pansée de frais tous les jours, pendant trois jours, en renouvelant le test à chaque tentative.
+                Si, au cours de ces trois jours, la ou les blessures ne sont pas nettoyées, ou mal nettoyées, le blessé devra effectuer un test d’Endurance pour résister
+                à l’infection, suivant la procédure normale.
+            </p>
+            <p class="card-text">
+                Certains médecins militaires préfèrent la cautérisation et emplissent souvent la blessure de poudre noire afin d’être sûrs que la chaleur de la flamme
+                sera suffisante. Avec ou sans poudre, cette douloureuse méthode inflige un coup d’une valeur de dégâts de 3 (feu) et s’accompagne d’un test d’Agilité
+                Assez facile (+10%). L’avantage de ce traitement, c’est que les résultats sont plus durables: un PJ dont les blessures ont été cautérisées avec succès n’a
+                plus besoin de nettoyer ses blessures durant les jours suivants.
+            </p>
+        </div>
     </div>
 </div>
 
