@@ -349,7 +349,7 @@ namespace BlazorWjdr
                             .Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToList(),
                         PretesSansOrdre = (c.aptitudes.pretre_sans_ordre ?? Array.Empty<int>())
                             .Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToList()
-                    } : new AptitudesAssocieesDto(),
+                    } : new AptitudesAssocieesDto { Inities = new List<AptitudeDto>(), PretesSansOrdre = new List<AptitudeDto>() },
                     Chef = c.chef ?? "",
                     Commandements = (c.commandements ?? Array.Empty<string>()).ToList(),
                     Culte = c.culte ?? "",

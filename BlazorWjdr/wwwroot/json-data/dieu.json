@@ -3,6 +3,7 @@
       {"id":10,"patron":null,"nom":"Sigmar",
         "domaines":"L'Empire, la protection",
         "fideles":"Les citoyens de l'Empire, la noblesse, l'armée",
+        "penitences":"Les Sigmarites peuvent recevoir l'ordre de détruire une cellule d'adorateurs du Chaos, ou de dénoncer un fonctionnaire corrompu qui est secrètement de connivence avec les Puissances Ruineuses ou une puissance étrangère. Il est également courant d'être chargé de construire ou de reconstruire des communautés locales pour mieux promouvoir l'unité et la force de l'Empire.",
         "symboles":"",
         "cultes": [
           {"id":100,"nom":"Les Soeurs de la Foi et de la Chasteté","mineur":true,
@@ -39,11 +40,18 @@
         "comment":""
       },
       
-      {"id":12,"patron":null,"nom":"Morr",
+      {"id":12,"patron":null,"nom":"Morr","siege":118,
+        "aptitudes":{"initie":[1034],"pretre_sans_ordre":[1110,3200,1069]},
+        "chef":"aucun.",
+        "fetes":"Hexensnacht, Geheimnisnacht",
+        "livres":"Le Livre des portes, Les Psaumes du corbeau",
         "domaines":"La mort et les rêves",
         "fideles":"Le deuil, les rêveurs, les sorciers d'Améthyste",
         "penitences":"Les pénitences de Morr consistent généralement à chasser les nécromanciens et à détruire les morts-vivants, ou à trouver et restaurer les lieux de sépulture et les lieux saints tombés en désuétude et en mauvais état. Il demande aussi à l'occasion que les serviteurs de Khaine soient empêchés d'accomplir leurs sombres actions.",
-        "symboles":"",
+        "symboles":"la rose noire, le corbeau, le portail",
+        "intro":"",
+        "culte":"",
+        "regles":[],
         "cultes": [
           {"id":150,"nom":"Les Augures",
             "description":"" },
@@ -54,8 +62,28 @@
           {"id":153,"nom":"Les Chevaliers du Corbeau",
             "description":"" }
         ],
+        "sectes":[],
+        "dogme":"Le récit des douze plus importantes batailles de Myrmidia, accompagné de ses commentaires personnels, constitue la base de L’Art de la guerre. Ce livre recèle toute la doctrine de base du culte. De nombreux myrmidéens l’emportent partout avec eux afin de pouvoir l’étudier et méditer sur les paroles et les actes de leur déesse.\nL’honneur est une notion essentielle pour le culte, car c’est le principe sur lequel reposent toutes les actions de Myrmidia. Dans la vie, la déesse se pliait à un code de conduite très strict, auquel elle donnait le nom de «Protocole de Guerre» et elle traitait tous ses adversaires avec l’équité réclamée par ce code, même si ceux-ci avaient déjà démontré leur perfidie dans le passé (et ce fut le cas plus d’une fois). De la même façon, les myrmidéens traitent leurs adversaires avec respect, particulièrement lorsque ceux-ci se rendent, car ils considèrent la reddition de l’ennemi comme l’un des objectifs d’une bataille.\nLa structure hiérarchique est également l’un des points-clefs de son enseignement, mais on connaît un certain nombre de légendes où l’on voit la déesse ou ses vierges guerrières choisir d’agir selon ce qu’elles estiment juste et non suivant les ordres reçus. Pour cette raison, et bien que les myrmidéens respectent strictement les ordres, ils n’hésitent pas à les outrepasser si ceux-ci risquent de les forcer à trahir leur code d’honneur.\nÀ ses adeptes, Myrmidia enseigne également la maîtrise de l’art de la guerre. En tant que femme, elle était physiquement plus faible que bon nombre de ses opposants; elle dut ainsi apprendre à utiliser ses forces au mieux et à dissimuler ses faiblesses. Contrairement aux autres dieux guerriers, elle se concentre sur les moyens d’éviter les conflits inutiles par la mise en place d’habiles stratégies. C’est une manière de voir qui a la faveur de nombreux guerriers car peu d’hommes se délectent des horreurs de la guerre après les avoir connues. Les ulricains et les sigmarites y voient de la lâcheté. Les myrmidéens n’y voient que de la circonspection.\nCela dit, Myrmidia est assez populaire auprès des femmes dont les fils et les maris sont à la guerre. Elles vont prier la déesse pour que celle-ci inspire des choix judicieux aux officiers, dans l’espoir que cela permettra aux êtres qui leur sont chers de survivre. Comme elles le disent souvent: «Sigmar vous conduit à la guerre, mais c’est Myrmidia qui vous permet d’en revenir.» Elles ont également le sentiment que Myrmidia, en tant que femme, est mieux à même de comprendre leurs craintes et les peines qu’elles ressentent pour leurs hommes; ce sont là des croyances que le culte de Sigmar désapprouve.",
+        "initiation":"Dans l’Empire, la plupart des gens pensent que le culte de Myrmidia n’est ouvert qu’aux militaires ou aux expatriés estaliens et tiléens. Il faut pourtant savoir que n’importe qui, ou presque, peut y entrer du moment que le candidat démontre un intérêt suffisant pour les principes myrmidéens, qu’il mène l’existence honorable requise et qu’il parvient à faire suffisamment bonne impression sur le prêtre du temple local.\nUne fois acceptés, les initiés reçoivent une robe blanche sans capuchon et sont placés sous la tutelle d’un prêtre qui peut former jusqu’à cinq initiés à la fois. Ces initiés constituent une «escadrille» et ils font tout collectivement, y compris manger, dormir, assister à leurs cours et pratiquer l’éducation physique. Si un temple possède suffisamment d’initiés pour avoir plusieurs escadrilles, on les fait s’affronter au cours de toutes sortes de jeux guerriers et de compétitions. Comme il est aussi important d’affûter l’esprit que d’entraîner le corps, les longs sermons au cours desquels les initiés écoutent les préceptes de Myrmidia sont souvent accompagnés de séances de méditation durant lesquelles ils inhalent une fumée sacrée ou de périodes de contemplation et d’isolement prolongés. Le meilleur élève d’une escadrille obtient bientôt le titre de «premier aigle», le chef de l’escadrille. Aucun initié ne peut accéder à la prêtrise sans avoir d’abord été premier aigle et s’être distingué par une action méritoire. Les critères diffèrent d’un temple à l’autre. Il peut s’agir de quelque chose d’apparemment simple, par exemple de faire à la fois preuve de sagesse et de perspicacité lors d’une épreuve particulièrement difficile ou de démontrer des qualités de meneur d’hommes. Il peut également s’agir d’un défi un peu plus stimulant, comme de surpasser les succès de Myrmidia elle-même en recréant l’une de ses batailles au moyen de figurines peintes pour représenter les armées en présence.\nQuoi qu’il en soit, un initié doit faire ses preuves pour se révéler digne d’accéder au grade de prêtre; s’il se révèle incapable, on le convoque en privé et on lui demande de quitter le culte. Ceux qui sont acceptés doivent accomplir une épreuve dont la nature varie en fonction du temple. On peut leur demander de s’orienter dans un labyrinthe truffé d’énigmes, dans les sous-sols du temple, ou encore d’échapper, de manière rituelle, à une puissante créature issue des légendes de la saga de Myrmidia, un taureau ou un sanglier par exemple. Il peut également devoir trouver le moyen de survivre après avoir été abandonné dans un environnement hostile ou entreprendre une quête afin de découvrir les secrets d’un lointain site sacré. Quoi qu’il en soit, une fois qu’il a triomphé de son épreuve, l’initié est ordonné prêtre et un sergent du temple le prend en main pour continuer sa formation.",
+        "pretrise":"Bien que Myrmidia soit la déesse de la Guerre, les rites d’initiation de son culte n’impliquent presque jamais de combat. Cela ne veut pas dire que les gens ne sont pas choisis pour l’initiation à cause de leurs prouesses martiales, mais plutôt que cette estimation a lieu avant le rite en lui-même. Presque tous les rites impliquent la présentation d’armes et d’armure aux nouveaux prêtres, presque toujours en public. Les détails varient énormément d’un endroit à l’autre, et selon les occasions, car il est courant que le rite implique une référence aux exploits d’un initié particulier. Par exemple, un initié peut se voir présenter une épée destinée à remplacer celle qu’il a perdue en combattant des orques.\nQuand une prêtresse se réveille le matin, son premier devoir est de s’armer pour la journée. On prend ce devoir au pied de la lettre, en mettant une armure et en prenant effectivement les armes. Chaque étape de ce rituel est accompagnée de prières à Myrmidia, lesquelles rappellent la fonction de chaque arme ou armure. Dans bien des cas, les activités de la journée ne requièrent pas d’armure, et il ne reste plus au prêtre qu’à la retirer. Ce n’est que si les circonstances rendent peu pratique le port de l’armure dans leurs quartiers que les prêtres accomplissent le rituel symboliquement, traitant leurs vêtements comme une armure et les outils qu’ils ont sous la main comme des armes.\nLa plupart des superstitions des myrmidéens tournent autour de la stratégie militaire. Par conséquent, beaucoup refusent d’entrer dans les voies sans issue ou dans toute pièce qui ne comporte qu’une sortie, et ils ont toujours un plan d’évasion à l’esprit. De même, prendre une décision impulsive est censé porter malheur; les prêtres doivent toujours être vigilants afin de ne manquer aucun élément. On peut facilement pousser ce comportement à l’extrême.\nSelon une superstition très répandue, un prêtre ne devrait jamais être désarmé. L’arme peut être très petite, mais il faut qu’elle soit fonctionnelle et ne constitue pas un simple symbole. Ceci peut poser problème quand un prêtre désire s’entretenir avec un individu puissant et prudent.\nUn ensemble de superstitions tournent autour des aigles. Tuer un aigle (et même simplement en voir un mort) porte affreusement malheur. À l’inverse, voir un aigle prendre son envol au matin est un excellent présage, alors que beaucoup de prêtres renoncent à voyager s’ils voient un aigle se poser juste avant de partir. Beaucoup d’éleveurs de moutons considèrent les aigles comme un fléau, et comme le culte de Myrmidia se répand dans l’Empire, il est probable que cela pose de plus en plus de problèmes.\nLes prêtres myrmidéens aiment la hiérarchie, même s’ils ne sont pas aux commandes. Ils détestent faire quoi que ce soit, fût-ce aller à la taverne, sans avoir un plan, et ils sont prêts à suggérer un projet si nécessaire. Ils accordent une grande importance à la loyauté et à la morale de groupe, et ils n’abandonnent jamais un camarade, même si celui-ci s’est montré inconscient dans ses actes.",
+        "commandements":[
+          "Respecter et protéger les morts.",
+          "Traquez les Nécromanciens et les morts-vivants où qu'ils se rassemblent.",
+          "Soyez attentifs à vos rêves.",
+          "Montrez-vous toujours respectueux et attentionné envers les défunts et leurs familles.",
+          "Ne refusez jamais d'organiser un service funèbre.",
+          "Ne jamais participer à la résurrection des morts, sauf si autorisé par Morr, respecter et protéger les morts."
+        ],
+        "cultistes":"",
+        "structure":"",
         "histoire":"",
-        "comment":""
+        "comment":"",
+        "ambiance":[
+          "« Père repose dans le domaine de Morr à présent. Et nous avons fait une collecte générale pour payer les prêtres afin d’être sûrs que ce vieux saligaud y reste. »\n—LUDMILLA VONTHIELDORF, ARISTOCRATE DUREIKLAND",
+          "« Sauvé par Morr. » - Décédé"
+        ],
+        "temples":[],
+        "personnalites":[]
       },
       
       {"id":13,"patron":null,"nom":"Myrmidia","siege":117,
@@ -152,6 +180,7 @@
       
       {"id":17,"patron":null,"nom":"Taal","domaines":"La nature et les contrées sauvages","fideles":"Les sorciers d'Ambre, les paysans, les forestiers",
         "symboles":"",
+        "penitences":"Les pénitences de Taal impliquent généralement l'élimination des monstres malades ou mutants des zones sauvages, la replantation d'arbres sacrés et l'entretien des bosquets importants pour le culte. On peut aussi ordonner à un adepte d'escalader une haute montagne et de laisser une pierre sur un cairn au sommet, ou de dégager un obstacle au sommet d'une chute d'eau. Quelle que soit la tâche spécifique qui doit être entreprise, les pénitences de Taal mettent presque toujours le cultiste au défi de survivre dans la nature.",
         "cultes":[
           {"id":180,"nom":"Les Coureurs des Bois",
             "description":"" },
@@ -163,6 +192,7 @@
       {"id":18,"patron":null,"nom":"Ulric",
         "domaines":"Les batailles, les loups et l'hiver",
         "fideles":"Les guerriers, la population de Middenheim",
+        "penitences":"Les pénitences imposées par Ulric sont presque toujours des tests de force, de courage et d'habileté martiale. Tuer un monstre puissant, ou vider un nid de bêtes ou de hors-la-loi, sont des tâches typiques.",
         "symboles":"",
         "histoire":"",
         "cultes": [
