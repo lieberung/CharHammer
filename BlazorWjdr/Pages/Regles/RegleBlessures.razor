@@ -7,7 +7,7 @@
 
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
-@inject AptitudesService _cttService
+@inject AptitudesService _aptSvc
 
 <MainTopRow>
     <h3 class="card-title">Les aléas de la vie d'aventurier</h3>
@@ -25,9 +25,9 @@
 
         <h4 class="card-title">Blessures Superficielles</h4>
         <p class="card-text">
-            Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <AptitudeItem Item="@_cttService.ConditionATerre"/>.
+            Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <AptitudeItem Item="@_aptSvc.ConditionATerre"/>.
             <br/>
-            Pire, si vous n'êtes pas soigné avant un nombre de Round égale à votre <BonusDeCarac Carac="E"/>, vous perdez connaissance, gagnant ainsi une Condition <AptitudeItem Item="@_cttService.ConditionInconscient"/>.
+            Pire, si vous n'êtes pas soigné avant un nombre de Round égale à votre <BonusDeCarac Carac="E"/>, vous perdez connaissance, gagnant ainsi une Condition <AptitudeItem Item="@_aptSvc.ConditionInconscient"/>.
             <br/>
             Dans les deux cas, vous ne pourrez pas perdre ces Conditions tant que vous n'avez pas récupéré au moins 1 Blessure.
         </p>
@@ -58,12 +58,12 @@
             Vous êtes <strong>Légèrement Blessé</strong> dès lors que vous avez perdu 1 Blessure.
         </p>
         <p class="card-text">
-            Sans soins médicaux, vous pouvez tenter un test de <AptitudeItem Item="@_cttService.CompetenceResistance"/> Moyen (+20) après une bonne nuit de sommeil une fois par jour.
+            Sans soins médicaux, vous pouvez tenter un test de <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> Moyen (+20) après une bonne nuit de sommeil une fois par jour.
             Echec ou réussite, vous récupérez un nombre de Blessures égal à votre BS + votre <BonusDeCarac Carac="E"/>.
             Si ensuite vous passez une journée calme et reposante, vous récupérez un nombre de Blessures supplémentaire égal à votre <BonusDeCarac Carac="E"/>.
         </p>
         <p class="card-text">
-            L'utilisation de <AptitudeItem Item="@_cttService.CompetenceSoins"/> peut vous guérir davantage, ou encore l'accès à des bandages et à une trousse de soins.
+            L'utilisation de <AptitudeItem Item="@_aptSvc.CompetenceSoins"/> peut vous guérir davantage, ou encore l'accès à des bandages et à une trousse de soins.
         </p>
 
         <h4 class="card-title">Blessures Critiques</h4>
@@ -71,13 +71,13 @@
             Vous êtes <strong>Gravement Blessé</strong> dès lors que vous avez reçu des Blessures Critiques.
         </p>
         <p class="card-text">
-            L'utilisation de <AptitudeItem Item="@_cttService.CompetenceSoins"/> est généralement toujours possible, mais cela dépend des conséquences du Coup Critique.
+            L'utilisation de <AptitudeItem Item="@_aptSvc.CompetenceSoins"/> est généralement toujours possible, mais cela dépend des conséquences du Coup Critique.
             Ces Blessures ne sont considérées comme soignées que lorsque tous les effets négatifs associés ont disparu, à l'exception d'éentuelles séquelles permanentes.
         </p>
 
         <h4 class="card-title">Soins médicaux et Chirugie</h4>
         <p class="card-text">
-            Pour certaines Blessures, il sera précisé que des Soins médicaux ou de la Chirurgie sont requis, en l'occurence du matériel médical et les compétences <AptitudeItem Item="@_cttService.CompetenceSoins"/> et <AptitudeItem Item="@_cttService.TalentChirurgie"/>.
+            Pour certaines Blessures, il sera précisé que des Soins médicaux ou de la Chirurgie sont requis, en l'occurence du matériel médical et les compétences <AptitudeItem Item="@_aptSvc.CompetenceSoins"/> et <AptitudeItem Item="@_aptSvc.TalentChirurgie"/>.
         </p>
     </div>
 
@@ -109,7 +109,7 @@
             If prepared, you can hold your breath for Toughness Bonus x 10 seconds without a Test. After that, you may start to suffocate or drown. If you are unprepared and suddenly deprived of air, you will start to suffocate immediately.
         </p>
         <p class="card-text">
-            Each Round you are being suffocated you lose 1 Wound. Should you reach 0 Wounds, you immediately receive the <AptitudeItem Item="@_cttService.ConditionInconscient"/> Condition. After that, you will die of suffocation or drowning in Toughness Bonus Rounds.
+            Each Round you are being suffocated you lose 1 Wound. Should you reach 0 Wounds, you immediately receive the <AptitudeItem Item="@_aptSvc.ConditionInconscient"/> Condition. After that, you will die of suffocation or drowning in Toughness Bonus Rounds.
         </p>
     </div>
 
@@ -124,7 +124,7 @@
         <p class="card-text">
             Une entorse ou un muscle froissé réduit vos capacités en plus d'être très douloureux. Vous subissez un malus de -10 à tous les jets impliquant la zone meurtrie. Si c'est une jambe, divisez également par 2 votre <strong>Mouvement</strong>.
             <br/>
-            <strong>Soins</strong> : une Déchirure Mineure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E"/>) jours. Utiliser <AptitudeItem Item="@_cttService.CompetenceSoins"/> réduit cette durée de 1+BS jours (appliquable une seule fois).
+            <strong>Soins</strong> : une Déchirure Mineure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E"/>) jours. Utiliser <AptitudeItem Item="@_aptSvc.CompetenceSoins"/> réduit cette durée de 1+BS jours (appliquable une seule fois).
         </p>
         <h4 class="card-title">Déchirure Majeure</h4>
         <p class="card-text">
@@ -134,7 +134,7 @@
             <br/>
             <strong>Soins</strong> : une Déchirure Majeure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E"/>) jours, suite à quoi les malus passeront à -10.
             Il faudra à nouveau patienter ce même délai pour un rétablissement complet.
-            La Compétence <AptitudeItem Item="@_cttService.CompetenceSoins"/> n'y peut pas grand chose mais vous conseille de ne pas utiliser le membre impliqué !
+            La Compétence <AptitudeItem Item="@_aptSvc.CompetenceSoins"/> n'y peut pas grand chose mais vous conseille de ne pas utiliser le membre impliqué !
         </p>
     </div>
 
@@ -149,24 +149,24 @@
             En revanche la zone touchée est inutilisable jusqu'à ce que l'os se ressoude.
             <ul>
                 <li><strong>bras ou jambe</strong> : vous avez probablement besoin d'une attèle ; consultez la partie Amputations pour connaître les conséquences.</li>
-                <li><strong>tête</strong> : vous êtes condamné à un régime liquide et subissez un malus de -30 pour tous les tests relatifs au <AptitudeItem Item="@_cttService.CompetenceGroupeLangue"/>.</li>
+                <li><strong>tête</strong> : vous êtes condamné à un régime liquide et subissez un malus de -30 pour tous les tests relatifs au <AptitudeItem Item="@_aptSvc.CompetenceGroupeLangue"/>.</li>
                 <li><strong>torse</strong> : votre Force et votre Agilité sont sévèrement compromises, vous subissez un malus de -30 dans ces caractéristiques, et divisez par 2 votre Mouvement.</li>
             </ul>
-            <strong>Soins</strong> : un os fracturé se réparera au bout de 30+1d10 jours. Suite à cela, un test réussi de <AptitudeItem Item="@_cttService.CompetenceResistance"/> Moyen (+20) signifie que l'os s'est bien remis et ne laissera aucune séquelle.
+            <strong>Soins</strong> : un os fracturé se réparera au bout de 30+1d10 jours. Suite à cela, un test réussi de <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> Moyen (+20) signifie que l'os s'est bien remis et ne laissera aucune séquelle.
             Sur un échec, vous subirez des séquelles permanentes (voir tableau).
             <br/>
-            Un test de <AptitudeItem Item="@_cttService.CompetenceSoins"/> Moyen (+20) réussi dans la semaine qui suit l'obtention de la fracture annule le besoin de faire le test de <AptitudeItem Item="@_cttService.CompetenceResistance"/> mais la zone devra rester bandée et maintenue en place jusqu'à guérison.
-            Si le bandage est retiré avant, un nouveau test de <AptitudeItem Item="@_cttService.CompetenceSoins"/> sera nécessaire.
+            Un test de <AptitudeItem Item="@_aptSvc.CompetenceSoins"/> Moyen (+20) réussi dans la semaine qui suit l'obtention de la fracture annule le besoin de faire le test de <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> mais la zone devra rester bandée et maintenue en place jusqu'à guérison.
+            Si le bandage est retiré avant, un nouveau test de <AptitudeItem Item="@_aptSvc.CompetenceSoins"/> sera nécessaire.
         </p>
 
         <h4 class="card-title">Fracture Majeure</h4>
         <p class="card-text">
-            Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <AptitudeItem Item="@_cttService.TalentChirurgie"/> pour être soigné.
+            Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <AptitudeItem Item="@_aptSvc.TalentChirurgie"/> pour être soigné.
             <br/>
             La zone touchée est inutilisable jusqu'à guérison. Utilisez les mêmes règles que pour une Fracture Mineure avec ces ajustements :
             <ul>
                 <li>le temps de guérison prendra 10 jours de plus</li>
-                <li>les tests associés de <AptitudeItem Item="@_cttService.CompetenceResistance"/> et <AptitudeItem Item="@_cttService.CompetenceSoins"/> sont effectués à +0</li>
+                <li>les tests associés de <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> et <AptitudeItem Item="@_aptSvc.CompetenceSoins"/> sont effectués à +0</li>
                 <li>les séquelles permanentes sont plus handicapantes (voir tableau)</li>
             </ul>
         </p>
@@ -186,7 +186,7 @@
                     <td>Jambe et Torse</td><td>-5 en Agilité</td><td>-15 en Agilité</td>
                 </tr>
                 <tr>
-                    <td>Tête</td><td>-5 en <AptitudeItem Item="@_cttService.CompetenceGroupeLangue"/></td><td>-15 en <AptitudeItem Item="@_cttService.CompetenceGroupeLangue"/></td>
+                    <td>Tête</td><td>-5 en <AptitudeItem Item="@_aptSvc.CompetenceGroupeLangue"/></td><td>-15 en <AptitudeItem Item="@_aptSvc.CompetenceGroupeLangue"/></td>
                 </tr>
                 </tbody>
             </table>
@@ -198,17 +198,17 @@
     <div class="card-body">
         <h3 class="card-title">Privation d'eau et de nourriture</h3>
         <p class="card-text">
-            Running out of provisions can be bad. Running out of water is worse. <AptitudeItem Item="@_cttService.CompetenceResistance"/> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
+            Running out of provisions can be bad. Running out of water is worse. <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
         </p>
 
         <h4 class="card-title">Mourrir de soif</h4>
         <p class="card-text">
-            Every day without water requires you make an <AptitudeItem Item="@_cttService.CompetenceResistance"/> test. The first failed Test causes a penalty of –10 Intelligence, Willpower, and Fellowship. Second and subsequent failures reduce all Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
+            Every day without water requires you make an <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> test. The first failed Test causes a penalty of –10 Intelligence, Willpower, and Fellowship. Second and subsequent failures reduce all Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
         </p>
 
         <h4 class="card-title">Mourrir de faim</h4>
         <p class="card-text">
-            Every 2 days without food require an <AptitudeItem Item="@_cttService.CompetenceResistance"/> Test. The first failed Tests causes a penalty of –10 Strength and Toughness. Second and subsequent failures reduce all other Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
+            Every 2 days without food require an <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> Test. The first failed Tests causes a penalty of –10 Strength and Toughness. Second and subsequent failures reduce all other Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
         </p>
     </div>
 
@@ -221,15 +221,15 @@
         <p class="card-text">
             L'amputation d'un membre, qu'elle soit due à un (très) mauvais coup ou une intervention chirurgicale peut-être compensée par une prothèse (voir le Guide du consommateur).
             <br/>
-            Quand vous subissez un Coup Critique dont l'effet est <strong>Amputation (difficulté)</strong>, vous devez réussir un test de <AptitudeItem Item="@_cttService.CompetenceResistance"/> avec la difficulté spécifiée ou immédiatetement subir la Condition <AptitudeItem Item="@_cttService.ConditionATerre"/>.
+            Quand vous subissez un Coup Critique dont l'effet est <strong>Amputation (difficulté)</strong>, vous devez réussir un test de <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> avec la difficulté spécifiée ou immédiatetement subir la Condition <AptitudeItem Item="@_aptSvc.ConditionATerre"/>.
             <br/>
-            Sur un BS de -2 ou -3, vous subissez également la Condition <AptitudeItem Item="@_cttService.ConditionEtourdi"/>, et au delà la Condition <AptitudeItem Item="@_cttService.ConditionInconscient"/>.
+            Sur un BS de -2 ou -3, vous subissez également la Condition <AptitudeItem Item="@_aptSvc.ConditionEtourdi"/>, et au delà la Condition <AptitudeItem Item="@_aptSvc.ConditionInconscient"/>.
             <br/>
-            Toute membre amputé requiert de la <AptitudeItem Item="@_cttService.TalentChirurgie"/> pour guérrir correctement, et aucune Blessure ne pourra être récupérée sans cela. Voir Chirurgie p.181.
+            Toute membre amputé requiert de la <AptitudeItem Item="@_aptSvc.TalentChirurgie"/> pour guérrir correctement, et aucune Blessure ne pourra être récupérée sans cela. Voir Chirurgie p.181.
         </p>
         <h4 class="card-title">Oreille</h4>
         <p class="card-text">
-            Douloureux mais vous apprendrez rapidement à vivre avec. Si par malheur c'était votre dernière, vous subissez un malus permanent de -20 à tous les tests de <AptitudeItem Item="@_cttService.CompetencePerception"/> liés à l'ouïe.
+            Douloureux mais vous apprendrez rapidement à vivre avec. Si par malheur c'était votre dernière, vous subissez un malus permanent de -20 à tous les tests de <AptitudeItem Item="@_aptSvc.CompetencePerception"/> liés à l'ouïe.
             De plus vous subissez un malus de -5 par oreille à tout test de Sociabilité quand leur absence est visible.
         </p>
         <h4 class="card-title">Oeil</h4>
@@ -251,7 +251,7 @@
         </p>
         <h4 class="card-title">Langue</h4>
         <p class="card-text">
-            La perte de votre langue vous empêche de vous exprimer autrement qu'en grognant et marmonant. Apprendre le langage des signes est votre seule option. Vous ne pouvez plus utiliser <AptitudeItem Item="@_cttService.CompetenceGroupeLangue"/>.
+            La perte de votre langue vous empêche de vous exprimer autrement qu'en grognant et marmonant. Apprendre le langage des signes est votre seule option. Vous ne pouvez plus utiliser <AptitudeItem Item="@_aptSvc.CompetenceGroupeLangue"/>.
         </p>
         <h4 class="card-title">Doigts</h4>
         <p class="card-text">
@@ -275,12 +275,12 @@
         </p>
         <h4 class="card-title">Pied</h4>
         <p class="card-text">
-            Divisez votre Mouvement par 2 de manière permanente et subissez un malus de -20 à tous les tests basés sur la mobilité, comme <AptitudeItem Item="@_cttService.CompetenceEsquive"/>.
+            Divisez votre Mouvement par 2 de manière permanente et subissez un malus de -20 à tous les tests basés sur la mobilité, comme <AptitudeItem Item="@_aptSvc.CompetenceEsquive"/>.
             Perdre le deuxième pied va compliquer les choses. Peut-être pouvez-vous recruter un porteur ?
         </p>
         <h4 class="card-title">Jambe</h4>
         <p class="card-text">
-            Idem que pour le pied, mais vous ne pouvez plus utiliser <AptitudeItem Item="@_cttService.CompetenceEsquive"/>.
+            Idem que pour le pied, mais vous ne pouvez plus utiliser <AptitudeItem Item="@_aptSvc.CompetenceEsquive"/>.
         </p>
 
     </div>
@@ -390,7 +390,9 @@
                 (-20%) permet à un PJ qui l’observe au travail et analyse ses procédures opératoires de déceler qu’il s’agit d’un faux médecin ou que les méthodes qu’il emploie sont totalement farfelues.
             </p>
         </div>
-        <TableDetail Item="@_tablesService.GetTable(83)"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(83)"/>
+        </div>
     </div>
 
 </div>
@@ -404,10 +406,28 @@
                 après toute opération par un charlatan, même si la table d’opération a été décrassée convenablement (cf. le paragraphe Chirurgie ci-après).
             </p>
         </div>
-        <TableDetail Item="@_tablesService.GetTable(81)"/>
-        <TableDetail Item="@_tablesService.GetTable(82)"/>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(81)"/>
+        </div>
+        <div class="card-body">
+            <TableDetail Item="@_tablesService.GetTable(82)"/>
+        </div>
     </div>
     <div class="col-4">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Traitements médicaux : les blessures</h3>
+            <p class="card-text">
+                Qu’un PJ soit Légèrement ou Gravement blessé, le meilleur remède reste une bonne potion de soins ou un cataplasme médicinal, accompagné de quelques jours de repos. La plupart des médecins proposent des remèdes « spéciaux » de leur composition, mais on trouve des potions ou des cataplasmes tout aussi bons chez les apothicaires, les herboristes et même auprès des ménagères les plus compréhensives. Dans ces conditions, il est probable que la plupart des PJ ne se mettront en quête d’un médecin qu’en cas de blessure consécutive à un coup critique: un bras ou une jambe estropié ou une blessure à la colonne vertébrale. Les blessures de ce genre nécessitent généralement une opération, effectuée par un chirurgien barbier ou par un médecin, bien que certains médecins considèrent la chirurgie comme étant au-dessous de leur dignité. La chirurgie est moins complexe que la médecine et s’appuie sur des méthodes éprouvées qui échouent rarement. Cela ne signifie pas pour autant qu’elles soient agréables ni que la réussite soit garantie.
+            </p>
+            <p class="card-text">
+                Dans le Vieux Monde, les connaissances en matière de chirurgie sont limitées : on sait réduire une fracture (si la cassure est bien nette), stopper une hémorragie et empêcher une infection de s’installer (si l’intervention est réalisée assez rapidement) et recoudre une plaie afin de maintenir la cohésion des tissus (pourvu que la blessure ne soit pas trop béante). Dès que les choses deviennent plus compliquées, on résout le problème en supprimant la partie endommagée à l’aide d’un hachoir bien aiguisé ou d’une scie à os, plus lente mais qui permet d’obtenir un résultat beaucoup plus propre. Un bon chirurgien est celui qui sait pratiquer l’ablation de la partie blessée sans réduire en charpie l’appendice tout entier. Un excellent chirurgien est celui qui est capable de le faire rapidement, du fait que les techniques d’anesthésie relèvent du mystère et que plus la plaie reste exposée à l’air libre longtemps, plus elle risque de s’infecter.
+            </p>
+        </div>
         <div class="card-body">
             <h4 class="card-title">Nettoyer une plaie</h4>
             <p class="card-text">
@@ -416,17 +436,71 @@
                 guérir, ceci permet au moins d’empêcher l’infection de s’installer.
             </p>
             <p class="card-text">
-                La meilleure manière de procéder est de laver soigneusement la plaie à l’aide d’une solution alcoolisée, en réussissant un test d’Agilité Facile (+20%).
+                La meilleure manière de procéder est de laver soigneusement la plaie à l’aide d’une solution alcoolisée, en réussissant un test de <strong>Dextérité</strong> Facile (+20%).
                 La blessure doit ensuite être nettoyée de la même manière et pansée de frais tous les jours, pendant trois jours, en renouvelant le test à chaque tentative.
-                Si, au cours de ces trois jours, la ou les blessures ne sont pas nettoyées, ou mal nettoyées, le blessé devra effectuer un test d’Endurance pour résister
+                Si, au cours de ces trois jours, la ou les blessures ne sont pas nettoyées, ou mal nettoyées, le blessé devra effectuer un test de <AptitudeItem Item="@_aptSvc.CompetenceResistance"/> pour résister
                 à l’infection, suivant la procédure normale.
             </p>
             <p class="card-text">
                 Certains médecins militaires préfèrent la cautérisation et emplissent souvent la blessure de poudre noire afin d’être sûrs que la chaleur de la flamme
-                sera suffisante. Avec ou sans poudre, cette douloureuse méthode inflige un coup d’une valeur de dégâts de 3 (feu) et s’accompagne d’un test d’Agilité
+                sera suffisante. Avec ou sans poudre, cette douloureuse méthode inflige un coup d’une valeur de dégâts de 3 (feu) et s’accompagne d’un test de <strong>Dextérité</strong>
                 Assez facile (+10%). L’avantage de ce traitement, c’est que les résultats sont plus durables: un PJ dont les blessures ont été cautérisées avec succès n’a
                 plus besoin de nettoyer ses blessures durant les jours suivants.
             </p>
+        </div>
+    </div>
+    <div class="col-4">
+            <div class="card-body">
+                <h3 class="card-title">Primo-infection</h3>
+                <p class="card-text">
+                    Afin de déterminer les chances de rétablissements d’un PJ blessé, la première étape intervient bien avant la consultation chez le chirurgien.
+                    Vous pouvez utiliser une règle optionnelle : si un PJ ne bénéficie pas d’un test de Soins réussi à la suite d’une rencontre durant laquelle
+                    il a perdu des points de Blessures, il doit effectuer un test de Résistance le matin suivant afin de déterminer si sa plaie s’est infectée.
+                    La difficulté de base de ce test est Très facile (+30%), ajustée suivant les modificateurs de la table ci-dessous. Le PJ doit effectuer
+                    ce test tous les matins, jusqu’à la réussite d’un test de Soins effectué dans le dessein de soigner cette blessure (ce test compte en tant
+                    que seul test de Soins dont pourra bénéficier le PJ dans la journée) ou jusqu’à ce qu’il ait récupéré tous ses points de Blessures.
+                </p>
+                <p class="card-text">
+                    Si la blessure du PJ s’infecte, notez la marge d’échec au test de Résistance, qui devient alors le niveau de difficulté de l’infection. Un
+                    PJ souffrant d’une blessure infectée présente les mêmes symptômes qu’un malade de la variole verte à l’exception des troubles de la vision
+                    et du malus qu’elle impose habituellement aux tests de Sociabilité. Cet état persiste durant 14 jours ou jusqu’à ce que le blessé meure,
+                    suivant l’événement qui intervient en premier. La réussite d’un test de Soins (d’une difficulté égale à la difficulté de l’infection)
+                    fait disparaître l’infection. Une fois celle-ci disparue, les caractéristiques du profil principal du PJ reviennent à la normale au rythme
+                    de +5% par jour.
+                </p>
+                <p class="card-text">
+                    Si l’infection réduit l’Endurance d’un PJ à moins de la moitié de sa valeur initiale, elle dégénère en gangrène. Contrairement aux infections ordinaires,
+                    la gangrène n’a pas de durée maximale et les malus qu’elle impose aux caractéristiques sont permanents. On ne peut soigner une gangrène que par l’ablation chirurgicale des tissus
+                    lésés ou, pour ceux qui veulent être sûrs du résultat, par l’amputation du membre touché.
+                </p>
+            </div>
+    </div>
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Chirurgie</h3>
+            <p class="card-text">
+                Lorsque la gangrène s’installe ou qu’une blessure découle d’un coup critique ayant exigé un test d’Endurance afin d’éviter la perte d’une fonction, il faut recourir à la chirurgie. Normalement, une opération chirurgicale est automatiquement réussie et permet simplement au patient de bénéficier d’un bonus de +20% au test d’Endurance qui lui permet d’éviter de perdre la fonction de la partie du corps concerné. Toutefois, pour les MJ qui préfèrent donner une atmosphère un peu plus macabre à leur campagne ou pour ceux qui désirent utiliser les règles optionnelles relatives à l’infection décrites plus haut, une opération chirurgicale peut devenir une épreuve nettement plus pénible.
+            </p>
+            <p class="card-text">
+                Selon ces règles optionnelles, le succès d’une opération chirurgicale exige un test de Soins Assez difficile (-10%), ainsi que le nettoyage de la plaie et la réparation des tissus et des os endommagés. Une opération destinée à éliminer un foyer de gangrène exige un test de Soins d’une difficulté équivalente à la difficulté de l’infection, ainsi que l’ablation totale des tissus infectés du corps du patient. Dans tous les cas, le processus est évidemment terriblement douloureux pour le patient en question.
+            </p>
+            <p class="card-text">
+                Bien que les principes de l’anesthésie soient pratiquement inconnus dans l’Empire, les chirurgiens ne sont pas totalement dépourvus de pitié: ils proposent généralement à leurs patients une petite pièce de bois entourée de corde ou d’une lanière de cuir, afin qu’ils puissent mordre dedans. Lors d’une opération chirurgicale, le PJ concerné doit réussir un test de Force Mentale Difficile (-20%) sous peine de se mettre à hurler et à se débattre. Si personne ne peut l’immobiliser à l’aide d’une prise, ses contorsions imposent aux tests de Soins du chirurgien un malus cumulatif de -5% par minute durant laquelle le patient s’agite durant l’opération. Certains patients préfèrent se présenter ivres morts afin de s’empêcher de se débattre en hurlant, mais dans ce cas le bonus conféré par les efforts du chirurgien à leur test d’Endurance tombe à +10%.
+            </p>
+            <p class="card-text">
+                Si l’opération destinée à préserver les fonctionnalités de l’organe touché réussit, le patient bénéficie d’un bonus de +20% à son test de Résistance. En cas d’échec, en plus du fait que ce bonus de +20% ne s’applique plus, le patient court également le risque de voir la zone opérée s’infecter. Pour éviter cela, il doit effectuer un nouveau test de Résistance, comme s’il avait subi une blessure sans bénéficier de soins médicaux appropriés (cf. Primo-infection, plus haut), si ce n’est que ce sont les modificateurs de la Table 5-3 qui s’appliquent. En cas d’échec, le patient perd immédiatement 1 point de Blessures par tranche de 10% d’échec au test et la zone concernée s’infecte, avec tous les malus et les effets à long terme décrits au paragraphe Primo-infection.
+            </p>
+            <p class="card-text">
+                Si l’opération destinée à éliminer des tissus atteints de gangrène est couronnée de succès, l’infection «revient» au stade normal et le patient bénéficie alors d’un bonus de +20% à tous ses tests de Résistance effectués par la suite afin de résister aux effets de cette infection. En outre, elle peut alors être soignée grâce à un test de Soins normal. En cas d’échec de l’opération, la difficulté de l’infection augmente de +10% et la gangrène progresse.
+            </p>
+
+            <h3 class="card-title">Prothèses</h3>
+            <p class="card-text">
+                Un autre rôle important d’un chirurgien est de fabriquer et d’adapter des prothèses de toutes sortes: jambes de bois, mains de vétéran, yeux de verre, plaques crâniennes et dentiers en bois. Si une prothèse ou un appendice quelconque est fixé au cours d’une opération qui provoque une infection ou adapté à une partie du corps frappée de gangrène, l’objet doit être détruit et un nouvel appareillage devra être fourni au patient.
+            </p>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Prothèses</h3>
         </div>
     </div>
 </div>
