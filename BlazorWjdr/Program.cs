@@ -23,13 +23,13 @@ namespace BlazorWjdr
             Debug.WriteLine("await data.InitializeDataAsync();");
 
             var dataAptitudes = InitializeAptitudes(data.Aptitudes!.items);
-            var dataEquipements = InitializeEquipements(data.Equipements!.items);
             var dataProfils = InitializeProfils(data.Profils!.items);
             var dataReferences = InitializeReferences(data.References!.items);
             var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataAptitudes, dataReferences);
             var dataChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
             var dataLieuxTypes = InitializeLieuxTypes(data.LieuxTypes!.items);
             var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
+            var dataEquipements = InitializeEquipements(data.Equipements!.items, dataLieux);
             var dataDieux = InitializeDieux(data.Dieux!.items, dataAptitudes, dataLieux);
             var dataTables = InitializeTables(data.Tables!.items);
             var dataArmesAttributs = InitializeArmesAttributs(data.ArmesAttributs!.items);
@@ -255,7 +255,9 @@ namespace BlazorWjdr
                 }).ToDictionary(k => k.Id);
         }
 
-        private static Dictionary<int, EquipementDto> InitializeEquipements(IEnumerable<JsonEquipement> items)
+        private static Dictionary<int, EquipementDto> InitializeEquipements(
+            IEnumerable<JsonEquipement> items,
+            IReadOnlyDictionary<int, LieuDto> lieux)
         {
             return items
                 .Select(t => new EquipementDto
@@ -266,7 +268,10 @@ namespace BlazorWjdr
                     Description = t.description,
                     Enc = t.enc,
                     Groupes = (t.groupes ?? Array.Empty<string>()).ToArray(),
-                    Prix = t.prix
+                    Prix = t.prix,
+                    Contenance = t.contenance,
+                    Addiction = t.addiction,
+                    Lieux = (t.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray()
                 }).ToDictionary(k => k.Id);
         }
 

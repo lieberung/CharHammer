@@ -14,6 +14,10 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string enc { get; set; } = null!;
         public string dispo { get; set; } = null!;
         public string description { get; set; } = null!;
+        
+        public string? contenance { get; set; }
+        public int? addiction { get; set; }
+        public int[]? lieux { get; set; }
     }
 
     public class RootEquipement
