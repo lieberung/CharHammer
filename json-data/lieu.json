@@ -109,6 +109,7 @@
     {"id":111,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Drazh","description":""},
     {"id":114,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Dron","description":""},
     {"id":113,"fk_typeid":6,"fk_parentid":44,"nom":"Karak Huit Pics","description":""},
-    {"id":116,"fk_typeid":27,"fk_parentid":44,"nom":"Karag Haraz (La Montagne de feu)","description":""}
+    {"id":116,"fk_typeid":27,"fk_parentid":44,"nom":"Karag Haraz (La Montagne de feu)","description":""},
+    {"id":118,"fk_typeid":5,"fk_parentid":7,"nom":"Luccini","description":""}
   ]
 }
