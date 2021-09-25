@@ -503,6 +503,56 @@
         ["10","+30"]
       ]
     },
+    
+    {"id":80,"titre":"Médecins - Catégories de Praticiens",
+      "description": "",
+      "lignes":[
+        ["Qualité","Médiocre","Moyenne","Bonne","Exceptionnelle"],
+        ["Disponibilité","Très courante","Courante","Inhabituelle","Très Rare"],
+        ["Compétence de Soins","33%","45%","66%","80%"],
+        ["Risques d'infection","30%","20%","10%","0%"],
+        ["% de Charlatanisme","10%","20%","30%","40%"],
+        ["Honoraires","1/-","5/-","1 co","10 co"]
+      ]
+    },
+    {"id":81,"titre":"Risques d'infection dus à une Blessure",
+      "description": "",
+      "lignes":[
+        ["Condition","Malus au test de Résistance"],
+        ["Par jour durant lequel la blessure n’a pas été traitée","-10%"],
+        ["Par coup critique subi","-10%"],
+        ["Blessure causée par des skavens ou des morts-vivants","-10%"],
+        ["Blessure reçue dans un lieu insalubre (égout, prison, tas d’ordures, marais)","-10% à -30%"]
+      ]
+    },
+    {"id":82,"titre":"Risques d'infection dus à une Opération Chirurgicale",
+      "description": "",
+      "lignes":[
+        ["Condition","Malus au test de Résistance"],
+        ["Lorsque le chirurgien a manqué son test de Soins, par tranche de 10%","-5%"],
+        ["Opération effectuée dans un lieu insalubre (égout, prison, tas d’ordures, marais)","-10% à -30%"],
+        ["Opération effectuée à l’aide d’outils improvisés","-10%"]
+      ]
+    },
+    {"id":83,"titre":"Remèdes de Charlatan",
+      "description": "",
+      "styles_th":["width:40px;",""],
+      "styles_td":["text-align:center;",""],
+      "lignes":[
+        ["d10","Remède"],
+        ["1","Frotter une plaie ouverte à l’aide d’une pâte faite d’ail, de miel et de limaces écrasées, préalablement mâchée par le praticien."],
+        ["2","Attacher une roue de moulin à la poitrine du patient puis tambouriner sur la roue à coups de marteaux."],
+        ["3","Manger de la viande crue à chaque repas durant une semaine."],
+        ["4","Courir nu dans les rues sous une pluie torrentielle alors que le vent souffle vers l’ouest."],
+        ["5","Se faire arracher toutes les dents pour mieux digérer."],
+        ["6","Se faire attacher les poignets dans le dos à l’aided’une corde mouillée de vin et rester ainsi jusqu’à guérison complète."],
+        ["7","Se frotter le crâne avec la bave d’un hibou, d’un faucon ou (dans l’idéal) d’un griffon, qui devra ensuite être tué à la pleine lune."],
+        ["8","Boire le contenu d’un tonneau d’eau en une seule fois (on fournit l’entonnoir)."],
+        ["9","Partager sa couche une nuit durant avec quatre poulets noirs vivants puis les faire cuire en tourte et les manger."],
+        ["0","Lécher un crapaud tous les matins."]
+      ]
+    },
+    
     {"id":666,"titre":"Colère Divine !",
       "description": "Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.\nAprès avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.",
       "styles_th":["width:80px;",""],
