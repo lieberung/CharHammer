@@ -11,8 +11,9 @@
             <input class="dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
                    @bind-value="_searchText"
                    @bind-value:event="oninput"
-                   placeholder="Recherche..."/>
-            <span class="oi oi-magnifying-glass" aria-hidden="true" style="color: #5e1a05;"></span>
+                   placeholder="Recherche..."
+                   style="width:256px;"/>
+            <span class="oi oi-magnifying-glass" aria-hidden="true" style="color:#5e1a05;"></span>
         </div>
         @if (_searchText.Length > 2 && ResultFound)
         {
