@@ -1,16 +1,27 @@
-﻿@foreach (var citation in Items)
+﻿<em style="text-align: justify;">
+    @_citation
+</em>
+@if (!string.IsNullOrWhiteSpace(_auteur))
 {
-    <p class="card-text p-4">
-        <em style="text-align: justify;">
-            @citation.Split("\n-")[0]
-        </em>
-        <br/>
-        <span style="text-align: right;">
-            @citation.Split("\n-")[1]
-        </span>
-    </p>
+    <br/>
+    <span style="text-align: right;">
+        @_auteur
+    </span>
 }
+
 @code {
-    [Parameter]
-    public string[] Items { get; set; } = null!;
+    [Parameter] public string Citation { get; set; } = null!;
+
+    private string _citation = "";
+    private string _auteur = "";
+
+    protected override void OnParametersSet()
+    {
+        var sp = Citation.Split("\n-");
+        _citation = sp[0];
+        if (sp.Length > 1)
+            _auteur = sp[1];
+        
+        base.OnParametersSet();
+    }
 }

@@ -556,6 +556,7 @@ namespace BlazorWjdr
                     Id = c.id,
                     Groupe = c.groupe ?? "",
                     Nom = c.nom,
+                    NiveauSpecifie = c.niveau,
                     MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
                     Description = c.description,
                     Ambiance = c.ambiance ?? Array.Empty<string>(),

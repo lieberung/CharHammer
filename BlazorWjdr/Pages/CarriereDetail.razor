@@ -3,6 +3,7 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Profil
+@using BlazorWjdr.Components.Regle
 @using Models
 @using Services
 
@@ -20,8 +21,6 @@
                     <CarriereDescription Item="@Carriere" AfficherCitations="@true"/>
                 </div>
 
-                <CarriereRestriction Item="@Carriere"/>
-
             </div>
 
             <div class="col-7">
@@ -31,7 +30,11 @@
                     <p class="card-text">
                         <Profil PlanDeCarriere="@Carriere.PlanDeCarriere"/>
                     </p>
-
+                    
+                    <p class="card-text">
+                        <CarriereNiveau Niveau="@Carriere.Niveau"/>
+                    </p>
+                    
                     <h5 class="card-title">Compétences</h5>
                     <p class="card-text">
                         <AptitudeItemList Items="@Carriere.Competences.ToArray()" ItemsChoix="@Carriere.ChoixCompetences.ToArray()"/>

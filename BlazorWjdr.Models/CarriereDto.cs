@@ -8,6 +8,7 @@ namespace BlazorWjdr.Models
     public class CarriereDto
     {
         public int Id { get; init; }
+        public int? NiveauSpecifie { get; init; }
         public string Groupe { get; init; } = null!;
         public string Nom { get; init; } = null!;
         public List<string> MotsClefDeRecherche { get; init; } = null!;
@@ -46,6 +47,18 @@ namespace BlazorWjdr.Models
         public List<CarriereDto> Origines = new();
 
         public ReferenceDto? SourceLivre { get; init; }
+
+        public int Niveau
+        {
+            get
+            {
+                if (NiveauSpecifie.HasValue)
+                    return NiveauSpecifie.Value;
+                if (EstUneCarriereAvancee == false)
+                    return 1;
+                return Filieres.Any(f => f.EstUneCarriereAvancee == false) ? 2 : 3;
+            }
+        }
 
         public int ScoreAcademique { get; set; }
         public int ScoreMartialAuContact { get; set; }

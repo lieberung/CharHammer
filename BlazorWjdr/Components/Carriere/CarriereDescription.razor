@@ -17,16 +17,15 @@
         @paragraphe
     </p>
 }
-@foreach (var ambiance in Item.Ambiance)
-{
-    <p class="card-text pr-3">
-        <em class="p-2">@ambiance</em>
-    </p>
-}
 </div>
 @if (AfficherCitations && Item.Ambiance.Any())
 {
-    <CarriereCitations Items="@Item.Ambiance"/>
+    @foreach (var citation in Item.Ambiance)
+    {
+        <p class="card-text p-2" style="clear:both;">
+            <CarriereCitations Citation="@citation"/>
+        </p>
+    }
 }
 @if (Item.SourceLivre != null || !string.IsNullOrWhiteSpace(Item.Source))
 {
