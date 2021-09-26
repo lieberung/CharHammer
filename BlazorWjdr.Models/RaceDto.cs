@@ -17,6 +17,7 @@ namespace BlazorWjdr.Models
         public RaceDto? Parent { get; set; }
         public readonly List<RaceDto> SousElements = new();
         public List<OpinionDto> Opinions = new();
+        public List<RaceInfoDto> Infos = new();
         
         public int ParentsCount {
             get
@@ -33,5 +34,11 @@ namespace BlazorWjdr.Models
         public int RaceId { get; init; }
         public RaceDto? Race { get; set; }
         public string Ambiance { get; init; } = null!;
+    }
+    
+    public class RaceInfoDto
+    {
+        public string? Titre { get; set; }
+        public string Detail { get; init; } = null!;
     }
 }

@@ -17,6 +17,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? nom_autoch { get; init; } = null!;
         public string description { get; set; } = null!;
         public JsonOpinion[]? opinions { get; set; }
+        public JsonInfo[]? infos { get; set; }
     }
 
     public class JsonOpinion
@@ -24,7 +25,13 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int race { get; set; }
         public string ambiance { get; init; } = null!;
     }
-    
+
+    public class JsonInfo
+    {
+        public string? titre { get; set; }
+        public string detail { get; init; } = null!;
+    }
+
     public class RootRace
     {
         public List<JsonRace> items { get; set; } = null!;

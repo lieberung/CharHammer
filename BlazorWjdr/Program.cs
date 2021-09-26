@@ -211,7 +211,9 @@ namespace BlazorWjdr
                     ParentId = r.parent,
                     PourPj = r.pj,
                     Opinions = (r.opinions ?? Array.Empty<JsonOpinion>())
-                        .Select(o => new OpinionDto { RaceId = o.race, Ambiance = o.ambiance }).ToList()
+                        .Select(o => new OpinionDto {RaceId = o.race, Ambiance = o.ambiance}).ToList(),
+                    Infos = (r.infos ?? Array.Empty<JsonInfo>())
+                        .Select(i => new RaceInfoDto {Titre = i.titre, Detail = i.detail}).ToList()
                 })
                 .ToDictionary(k => k.Id);
 
