@@ -16,7 +16,7 @@
         <div class="col-4">
             <h3 class="card-title">Les @_autochtones</h3>
             
-            <CardParagraphes Text="@_race.Description"/>
+            <CardParagraphes Text="@_race!.Description"/>
             
         </div>
         
@@ -52,9 +52,9 @@
     </div>
 </div>
 @code {
-    [Parameter] public string Race { get; set; }
-    private RaceDto _race;
-    private string _autochtones;
+    [Parameter] public string Race { get; set; } = null!;
+    private RaceDto? _race;
+    private string _autochtones = "";
 
     protected override void OnParametersSet()
     {
@@ -68,7 +68,7 @@
             "hauts-elfes" => _racesService.HautsElfes,
             _ => _race
         };
-        @for (int i = 0; i < _race.Autochtones.Length; i++)
+        @for (var i = 0; i < _race!.Autochtones.Length; i++)
         {
             _autochtones += _race.Autochtones[i];
             if (i == 0)

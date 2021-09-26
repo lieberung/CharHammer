@@ -173,14 +173,14 @@
             </CardBody>
         </div>
     </div>
-@if (InspirationDivine != null)
+@if (_inspirationDivine != null)
 {
     <PageSectionDivider/>
 
     <div class="row">
         <div class="col-6">
             <h3 class="card-title">Bénédictions</h3>
-            @foreach (var benediction in  _sortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(InspirationDivine)))
+            @foreach (var benediction in  _sortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(_inspirationDivine)))
             {
                 <div class="bulle m-4 sortilege">
                     <div class="card-body">
@@ -191,7 +191,7 @@
         </div>
         <div class="col-6">
             <h3 class="card-title">Miracles</h3>
-            @foreach (var miracle in  _sortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(InspirationDivine)))
+            @foreach (var miracle in  _sortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(_inspirationDivine)))
             {
                 <div class="bulle m-4 sortilege">
                     <div class="card-body">
@@ -208,7 +208,7 @@
     [Parameter] public string Dieu { get; set; } = null!;
     private DieuDto _dieu = null!;
     private string? _dieuSiege;
-    private AptitudeDto? InspirationDivine;
+    private AptitudeDto? _inspirationDivine;
     
     protected override void OnParametersSet()
     {
@@ -216,43 +216,43 @@
         {
             case "manann":
                 _dieu = _dieuxSvc.GetDieu(11);
-                InspirationDivine = _aptitudesService.InspirationDivineManann;
+                _inspirationDivine = _aptitudesService.InspirationDivineManann;
                 break;
             case "morr":
                 _dieu = _dieuxSvc.GetDieu(12);
-                InspirationDivine = _aptitudesService.InspirationDivineMorr;
+                _inspirationDivine = _aptitudesService.InspirationDivineMorr;
                 break;
             case "myrmidia":
                 _dieu = _dieuxSvc.GetDieu(13);
-                InspirationDivine = _aptitudesService.InspirationDivineMyrmidia;
+                _inspirationDivine = _aptitudesService.InspirationDivineMyrmidia;
                 break;
             case "ranald":
                 _dieu = _dieuxSvc.GetDieu(14);
-                InspirationDivine = _aptitudesService.InspirationDivineRanald;
+                _inspirationDivine = _aptitudesService.InspirationDivineRanald;
                 break;
             case "rhya":
                 _dieu = _dieuxSvc.GetDieu(15);
-                InspirationDivine = _aptitudesService.InspirationDivineRhya;
+                _inspirationDivine = _aptitudesService.InspirationDivineRhya;
                 break;
             case "shallya":
                 _dieu = _dieuxSvc.GetDieu(16);
-                InspirationDivine = _aptitudesService.InspirationDivineShallya;
+                _inspirationDivine = _aptitudesService.InspirationDivineShallya;
                 break;
             case "sigmar":
                 _dieu = _dieuxSvc.GetDieu(10);
-                InspirationDivine = _aptitudesService.InspirationDivineSigmar;
+                _inspirationDivine = _aptitudesService.InspirationDivineSigmar;
                 break;
             case "taal":
                 _dieu = _dieuxSvc.GetDieu(17);
-                InspirationDivine = _aptitudesService.InspirationDivineTaal;
+                _inspirationDivine = _aptitudesService.InspirationDivineTaal;
                 break;
             case "ulric":
                 _dieu = _dieuxSvc.GetDieu(18);
-                InspirationDivine = _aptitudesService.InspirationDivineUlric;
+                _inspirationDivine = _aptitudesService.InspirationDivineUlric;
                 break;
             case "verena":
                 _dieu = _dieuxSvc.GetDieu(19);
-                InspirationDivine = _aptitudesService.InspirationDivineVerena;
+                _inspirationDivine = _aptitudesService.InspirationDivineVerena;
                 break;
         }
         _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";

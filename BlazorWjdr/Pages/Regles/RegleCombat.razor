@@ -268,9 +268,9 @@
                 L'Action de l'attaquant est ensuite terminée.<br/>
             </p>
             <ul>
-                <li>Vous ne pouvez effectuer d'attaque à distance en étant <strong>Engagé</strong> que si votre arme à l'attribut <ArmeAttribut Item="@_armesService.AttributProtection"/>.</li>
+                <li>Vous ne pouvez effectuer d'attaque à distance en étant <strong>Engagé</strong> que si votre arme à l'attribut <AttributDArmeItem Item="@_armesService.AttributProtection"/>.</li>
                 <li>Si vous utilisez <AptitudeItem Item="@_aptSvc.CompetenceGroupeTir"/> en étant <strong>Engagé</strong> avec votre cible, la cible peut Opposer votre Tir avec une compétence <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee"/>.</li>
-                <li>Les Tirs ne peuvent être Opposées avec une compétence Mélée à moins que la cible n'utilise un bouclier suffisamment large avec l'attribut <ArmeAttribut Item="@_armesService.AttributProtection"/>, ou si le Tir est à bout portant, auquel cas il est aussi possible d'utiliser l'<AptitudeItem Item="@_aptSvc.CompetenceEsquive"/>.</li>
+                <li>Les Tirs ne peuvent être Opposées avec une compétence Mélée à moins que la cible n'utilise un bouclier suffisamment large avec l'attribut <AttributDArmeItem Item="@_armesService.AttributProtection"/>, ou si le Tir est à bout portant, auquel cas il est aussi possible d'utiliser l'<AptitudeItem Item="@_aptSvc.CompetenceEsquive"/>.</li>
             </ul>
             <AptitudeItemList Items="@(new[] { _aptSvc.TalentAdresseAuTir, _aptSvc.TalentTirEclair, _aptSvc.TalentTirDePrecision, _aptSvc.TalentTirEnPuissance, _aptSvc.TalentTirParfaits, _aptSvc.TalentRechergementRapide })"/>
         </div>

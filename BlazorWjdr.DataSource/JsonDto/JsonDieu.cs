@@ -5,7 +5,7 @@ namespace BlazorWjdr.DataSource.JsonDto
 {
     using System.Collections.Generic;
 
-    public class JsonCulte
+    public class JsonOrdre
     {
         public int id { get; set; }
         public string? nom { get; set; }
@@ -76,7 +76,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string[]? ambiance { get; set; }
         public JsonTemple[]? temples { get; set; }
         public JsonPersonnalite[]? personnalites { get; set; }
-        public JsonCulte[]? cultes { get; set; }
+        public JsonOrdre[]? ordres { get; set; }
     }
 
     public class RootDieu

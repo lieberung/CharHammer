@@ -1,5 +1,6 @@
 ﻿@page "/equipement/armures/{Groupe}/"
 
+@using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Equipement
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
@@ -26,7 +27,7 @@
                 Votre armure peut généralement être endommagée dans les situations suivantes :
             </p>
             <ul>
-                <li>Vous êtes blessé par un arme disposant de l'attribut <ArmeAttribut Item="@_armesService.AttributFracassant"/>.</li>
+                <li>Vous êtes blessé par un arme disposant de l'attribut <AttributDArmeItem Item="@_armesService.AttributFracassant"/>.</li>
                 <li>Une aptitude spéciale déclenche, comme un sort ou un talent, qui endommage une pièce d'armure.</li>
                 <li>Une Blessure Critique est déviée par votre armure.</li>
             </ul>

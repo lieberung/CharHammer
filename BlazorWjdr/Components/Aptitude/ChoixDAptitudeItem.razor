@@ -6,10 +6,10 @@
     {
         <span>&nbsp;<em>ou</em>&nbsp;</span>
     }
-    <AptitudeItem Item="@Choix[i]"/>
+    <AptitudeItem Item="@Choix[i]" PasDeTooltip="@PasDeTooltip"/>
 }
 
 @code{
-    [Parameter]
-    public AptitudeDto[] Choix { get; set; } = null!;
+    [Parameter] public AptitudeDto[] Choix { get; set; } = null!;
+    [Parameter] public bool PasDeTooltip { get; set; }
 }

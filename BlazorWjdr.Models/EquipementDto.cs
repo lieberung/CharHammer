@@ -14,6 +14,6 @@ namespace BlazorWjdr.Models
         
         public string? Contenance { get; init; }
         public int? Addiction { get; init; }
-        public LieuDto[] Lieux { get; init; }
+        public LieuDto[] Lieux { get; init; } = null!;
     }
 }
