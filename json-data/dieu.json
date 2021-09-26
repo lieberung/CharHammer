@@ -1,10 +1,13 @@
 {
     "items": [
-      {"id":10,"patron":null,"nom":"Sigmar",
+      {"id":10,"patron":null,"nom":"Sigmar","siege":99,
+        "chef":"Le grand théogoniste Volkmar le Sévère",
+        "fetes":"Le jour de Sigmar (le 28 du mois de Sigmar)",
+        "livres":"Le Livre de Sigmar, Deus Sigmar, le Geistbuch",
         "domaines":"L'Empire, la protection",
         "fideles":"Les citoyens de l'Empire, la noblesse, l'armée",
         "penitences":"Les Sigmarites peuvent recevoir l'ordre de détruire une cellule d'adorateurs du Chaos, ou de dénoncer un fonctionnaire corrompu qui est secrètement de connivence avec les Puissances Ruineuses ou une puissance étrangère. Il est également courant d'être chargé de construire ou de reconstruire des communautés locales pour mieux promouvoir l'unité et la force de l'Empire.",
-        "symboles":"",
+        "symboles":"Ghal Maraz (le marteau de guerre de Sigmar), la comète à deux queues, le griffon",
         "cultes": [
           {"id":100,"nom":"Les Soeurs de la Foi et de la Chasteté","mineur":true,
             "competences":[],"talents":[],"traits":[],
@@ -20,8 +23,29 @@
           {"id":105,"nom":"L'Ordre du Marteau d'Argent",
             "description":"" }
         ],
+        "intro":"",
+        "culte":"",
+        "regles":[],
+        "sectes":[],
+        "dogme":"",
+        "initiation":"",
+        "pretrise":"",
+        "commandements":[
+        ],
+        "cultistes":"",
+        "structure":"",
         "histoire":"",
-        "comment":""},
+        "comment":"",
+        "ambiance":[
+          "« La bonne enclume ne craint pas le marteau. » — Suivez les préceptes de Sigmar à la lettre et vous serez protégé du mal.",
+          "« Aaaah, ben, sans not’ Sigmar, où qu’on s’rait? C’est ben lui qu’a fait not’ Empire d’ici-bas et c’est ben lui qui l’protège. Voyez-vous, y’a les prêtres qui nous gardent nos âmes et pis les prêtres guerriers pour garder nos terres. Aaah, pour sûr, y s’occupent pas d’nos récoltes ou d’ces trucs-là, mais c’est ben vrai qu’on n’aurions point d’récoltes si c’était pas pour l’bon Sigmar! Alors j’m’en vas au templ’ toutes les s’maines, voui m’sieur. Et pis c’est un bon moyen d’voir mes compères. »\n— Stoffan Kleinbauer, Fermier",
+          "« Les templiers ont pris ma Grelda. Ils l’ont torturée. Ils l’ont brûlée. Elle était pas mauvaise. C’était la gentillesse même. Mais elle lisait des livres, elle savait des choses. Elle disait toujours qu’ils étaient dangereux. Elle... elle avait bien raison. »\n— Gespar Sollander, récemment entré dans le culte de la Main Pourpre",
+          "« Ils sont tellement obsédés par la protection de leur précieux Empire qu’ils ont oublié comment il a été formé. Par les conquêtes! Oui-da, les conquêtes! Les victoires en Albion montrent bien de quoi nous sommes capables! C’est le bon moment! L’Empire ne devrait pas se cacher derrière ces petites frontières ridicules qui sont si chères aux sigmarites. Mes amis, l’heure est venue de partir en guerre! Le Kislev est faible! Qui est avec moi ? »\n - Lazlo Argermann, agitateur de Bechafen",
+          "« À l’est. » — Je ne sais absolument pas à quel endroit."
+        ],
+        "temples":[],
+        "personnalites":[]
+      },
       
       {"id":11,"patron":null,"nom":"Manann",
         "domaines":"Les océans, les mers et les marées",
