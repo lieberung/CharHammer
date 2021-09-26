@@ -1,6 +1,7 @@
 {
     "items": [
       {"id":10,"patron":null,"nom":"Sigmar","siege":99,
+        "aptitudes":{"initie":[1096],"pretre_sans_ordre":[1133]},
         "chef":"Le grand théogoniste Volkmar le Sévère",
         "fetes":"Le jour de Sigmar (le 28 du mois de Sigmar)",
         "livres":"Le Livre de Sigmar, Deus Sigmar, le Geistbuch",
@@ -8,19 +9,24 @@
         "fideles":"Les citoyens de l'Empire, la noblesse, l'armée",
         "penitences":"Les Sigmarites peuvent recevoir l'ordre de détruire une cellule d'adorateurs du Chaos, ou de dénoncer un fonctionnaire corrompu qui est secrètement de connivence avec les Puissances Ruineuses ou une puissance étrangère. Il est également courant d'être chargé de construire ou de reconstruire des communautés locales pour mieux promouvoir l'unité et la force de l'Empire.",
         "symboles":"Ghal Maraz (le marteau de guerre de Sigmar), la comète à deux queues, le griffon",
-        "cultes": [
+        "ordres": [
           {"id":100,"nom":"Les Soeurs de la Foi et de la Chasteté","mineur":true,
-            "competences":[],"talents":[],"traits":[],
+            "aptitudes":[1034,1612],
             "description":"Le temple des Soeurs de la Foi et de la Chasteté, qui vivaient autrefois en recluses, se dresse sur la rive sud du Reik, dans le quartier est d'Altdorf. Le jour du Soleil immobile, les soeurs sortent de leur couvent en ordre de bataille pour une parade dans les rues de la ville sous le torride soleil d'été. La matriarche marche en tête de ce défilé de nonnes transpirant, reprenant inlassa-blement et à pleine voix « l'Hymne de la Cinglante Vérité » tout en scrutant les badauds d'un oeil luisant de suspicion. Les soeurs sont vêtues d'une cape noire et brodée sur une antique armure de plaques gravée, décorée de pointes acérées afin de repousser les avances des impies. Comme l'ordre dépend de la charité pour sa survie, ses jeunes novices récoltent les aumônes dans la foule qui se rassemble pour contempler ce spectacle. \nDans le passé, l'ordre se conformait à la règle d'isolement prêchée par sa fondatrice, Esther l'Irréprochable. Mais soeur Griselda von Velten fut visitée par Morr en 2515 et les choses chan-gèrent pour toujours. Elle arpentait le Volker Weg, dans la chaleur suffocante de la parade de Sonnstill, lorsqu'elle poussa soudain un cri perçant et tomba à genoux. Tremblant de tous ses membres, elle murmura à la foule abasourdie que la fin était proche et qu'elle avait gâché sa vie, puis elle rendit l'âme. Un an plus tard, après des mois de correspondance orageuse avec le grand théogoniste, Volkmar le Sévère, la matriarche accepta de reconnaître, la mort dans l'âme, que son ordre avait reçu un signe auquel il devait obéir et elle ordonna à ses soeurs de se préparer pour la guerre. \nLa Tempête du Chaos fut la première grande campagne de l'ordre. La moitié du couvent quitta Altdorf aux côtés de Valten. Celles qui ont survécu sont à présent dispersées dans l'Empire et pourchassent les rescapés des forces du Chaos. Elles revien-nent une fois par an à Altdorf pour partager leur expérience avec les novices et participer à la parade de Sonnstill." },
           {"id":101,"nom":"L'Ordre de la Torche",
+            "aptitudes":[1009,2028],
             "description":"" },
           {"id":102,"nom":"L'Ordre des Templiers de Sigmar","mineur":true,
+            "aptitudes":[2053,1056],
             "description":"" },
           {"id":103,"nom":"L'Ordre de la Flamme Purificatrice",
+            "aptitudes":[1034,1056],
             "description":"" },
           {"id":104,"nom":"L'Ordre de l'Enclume",
+            "aptitudes":[1105,1115],
             "description":"" },
           {"id":105,"nom":"L'Ordre du Marteau d'Argent",
+            "aptitudes":[1612,1009],
             "description":"" }
         ],
         "intro":"",
@@ -52,7 +58,7 @@
         "fideles":"Les pêcheurs, les marins, les voyageurs",
         "penitences":"Les pénitences de Manann impliquent souvent des pèlerinages maritimes dangereux, des épreuves de voile ou des expéditions contre les ennemis des dieux de la mer, en particulier les adeptes du culte hérétique de Stromfels, Dieu des pirates, des naufrageurs et des requins.",
         "symboles":"",
-        "cultes": [
+        "ordres": [
           {"id":120,"nom":"Les Fils de Manann",
             "description":"" },
           {"id":121,"nom":"L'Ordre de l'Albatros",
@@ -76,7 +82,7 @@
         "intro":"",
         "culte":"",
         "regles":[],
-        "cultes": [
+        "ordres": [
           {"id":150,"nom":"Les Augures",
             "description":"" },
           {"id":151,"nom":"La Garde Noire",
@@ -219,7 +225,7 @@
         "penitences":"Les pénitences imposées par Ulric sont presque toujours des tests de force, de courage et d'habileté martiale. Tuer un monstre puissant, ou vider un nid de bêtes ou de hors-la-loi, sont des tâches typiques.",
         "symboles":"",
         "histoire":"",
-        "cultes": [
+        "ordres": [
           {"id":170,"nom":"Les Chevaliers du Loup Blanc",
             "description":"Les chevaliers du Loup Blanc, plus souvent qualifiés de Loups Blancs, constituent le plus célèbres de tous les ordres de templiers. On les identifie facilement à leurs fourrures de loup et aux violents affrontements auxquels ils participent. Les chevaliers du Loup Blanc sont le plus vaste et le plus vieil ordre de templiers du Vieux Monde, leur création remontant à l'ère de l'Ar-Ulric Wulcan, il y a plus de deux mille ans. Leur cape en peau de loup alliée à leur barbe et à leurs longs cheveux brous-sailleux leur donnent une apparence quelque peu barbare, mais ne vous y trompez pas ; il s'agit d'un ordre militaire très disci-pliné et leur présence lors de la plupart des grandes batailles du Vieux Monde témoigne de leur courage.\nPresque tous les temples d'Urie, de la plus petite chapelle au grand temple de Middenheim, disposent d'au moins un ou. deux Loti ps Blancs. Il existe des chapitres indépendants, mais ils sont rares. Ces importants chapitres abritent plusieurs unités de Loups Blancs, dont le rôle consiste principalement à protéger les intérêts ulricains. Les templiers qui y sont stationnés organisent bien souvent des expéditions militaires> visant à porter le combat chez l'ennemi (en fondant sur un camp orque ou en assiégeant le château d'un nécromancien, par exemple).\nLes chevaliers du Loup Blanc se démarquent aussi bien dans leurs missions quotidiennes que sur le champ de bataille. Ils ne se séparent jamais de leur armure lourde, laquée de noir ou traitée à l'aide d'huiles foncées. Chaque chevalier porte une fourrure de loup sur les épaules. Du reste, leur rite de passage consiste à traquer, à tuer et à dépecer un loup à mains nues pour devenir un membre à part entière de l'ordre.\nLes Loups Blancs combattent sur des chevaux de guerre bardés de rouge et brandissent des marteaux de cavalerie lorsqu'ils chargent (ils n'utilisent donc pas de lances d'arçon). Quand ils sont à pied, ils reportent leur choix sur de gigan-tesques marteaux de guerre à l'aide desquels ils décrivent des arcs de cercle meurtriers. \nLes Loups Blancs sont chargés de protéger les temples et les prêtres d'Ulric de l'Empire et d'ailleurs. Les unités sont envoyées en quête ou en mission, ou encore à la guerre, s'inté-grant alors à l'armée du Middenland ou à une armée de templiers partant en croisade.\nÂgé de 24 ans, Keiner Reizfeld est le plus jeune capi-taine des chevaliers du Loup Blanc, une distinction qui lui vaut l'admiration et la jalousie de ses subor-donnés et rivaux. Keiner est le capitaine de la Compagnie Rouge, l'une des plus prestigieuses compagnies de chevaliers basées au grand temple d'Ulric de Middenheim. Keiner est considéré comme un barbare par les autres capitaines, notam-ment parce qu'il a tendance à ne pas se contrôler au plus fort d'un combat. Cependant, nul ne peut nier qu'il inspire une loyauté sans faille à l'ensemble de ses hommes, les poussant à accomplir des exploits toujours plus grands. Enfin, sans son courage, la liste des pertes de Loups Blancs lors du siège de Middenheim aurait été bien plus longue." },
           {"id":171,"nom":"L'Ordre du Trône de l'Hiver'","mineur":true,
@@ -230,7 +236,7 @@
       {"id":19,"patron":null,"nom":"Verena","domaines":"L'apprentissage et la justice","fideles":"Les scribes, les sorciers Célestes, les magistrats","symboles":"",
         "histoire":"",
         "comment":"",
-        "cultes": [
+        "ordres": [
           {"id":140,"nom":"Les Gardiens des Lois",
             "description":"" },
           {"id":141,"nom":"L'Ordre des Mystères",
