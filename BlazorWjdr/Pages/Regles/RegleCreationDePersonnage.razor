@@ -142,15 +142,22 @@
 {
     <TraitsRaciauxHumains ProvinceActive="Empire"/>
 }
+else if (RaceDesElfesSelectionnee)
+{
+    <div class="row">
+        <div class="col-6">
+            <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
+        </div>
+        <div class="col-6">
+            <RegleDetail Item="@_reglesService.GetRegle(23)" MasquerTitre="@false"/>
+        </div>
+    </div>
+}
 else
 {
     <div class="row">
         <div class="col-12">
             <div class="card-body bulle px-4">
-                @if (RaceDesElfesSelectionnee)
-                {
-                    <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false"/>
-                }
                 @if (RaceDesGnomesSelectionnee)
                 {
                     <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false"/>
