@@ -10,9 +10,6 @@
         "penitences":"Les Sigmarites peuvent recevoir l'ordre de détruire une cellule d'adorateurs du Chaos, ou de dénoncer un fonctionnaire corrompu qui est secrètement de connivence avec les Puissances Ruineuses ou une puissance étrangère. Il est également courant d'être chargé de construire ou de reconstruire des communautés locales pour mieux promouvoir l'unité et la force de l'Empire.",
         "symboles":"Ghal Maraz (le marteau de guerre de Sigmar), la comète à deux queues, le griffon",
         "ordres": [
-          {"id":100,"nom":"Les Soeurs de la Foi et de la Chasteté","mineur":true,
-            "aptitudes":[1034,1612],
-            "description":"Le temple des Soeurs de la Foi et de la Chasteté, qui vivaient autrefois en recluses, se dresse sur la rive sud du Reik, dans le quartier est d'Altdorf. Le jour du Soleil immobile, les soeurs sortent de leur couvent en ordre de bataille pour une parade dans les rues de la ville sous le torride soleil d'été. La matriarche marche en tête de ce défilé de nonnes transpirant, reprenant inlassa-blement et à pleine voix « l'Hymne de la Cinglante Vérité » tout en scrutant les badauds d'un oeil luisant de suspicion. Les soeurs sont vêtues d'une cape noire et brodée sur une antique armure de plaques gravée, décorée de pointes acérées afin de repousser les avances des impies. Comme l'ordre dépend de la charité pour sa survie, ses jeunes novices récoltent les aumônes dans la foule qui se rassemble pour contempler ce spectacle. \nDans le passé, l'ordre se conformait à la règle d'isolement prêchée par sa fondatrice, Esther l'Irréprochable. Mais soeur Griselda von Velten fut visitée par Morr en 2515 et les choses chan-gèrent pour toujours. Elle arpentait le Volker Weg, dans la chaleur suffocante de la parade de Sonnstill, lorsqu'elle poussa soudain un cri perçant et tomba à genoux. Tremblant de tous ses membres, elle murmura à la foule abasourdie que la fin était proche et qu'elle avait gâché sa vie, puis elle rendit l'âme. Un an plus tard, après des mois de correspondance orageuse avec le grand théogoniste, Volkmar le Sévère, la matriarche accepta de reconnaître, la mort dans l'âme, que son ordre avait reçu un signe auquel il devait obéir et elle ordonna à ses soeurs de se préparer pour la guerre. \nLa Tempête du Chaos fut la première grande campagne de l'ordre. La moitié du couvent quitta Altdorf aux côtés de Valten. Celles qui ont survécu sont à présent dispersées dans l'Empire et pourchassent les rescapés des forces du Chaos. Elles revien-nent une fois par an à Altdorf pour partager leur expérience avec les novices et participer à la parade de Sonnstill." },
           {"id":101,"nom":"L'Ordre de la Torche",
             "aptitudes":[1009,2028],
             "description":"" },
@@ -27,7 +24,10 @@
             "description":"" },
           {"id":105,"nom":"L'Ordre du Marteau d'Argent",
             "aptitudes":[1612,1009],
-            "description":"" }
+            "description":"" },
+          {"id":106,"nom":"Les Soeurs de la Foi et de la Chasteté","mineur":true,
+            "aptitudes":[1034,1612],
+            "description":"Le temple des Soeurs de la Foi et de la Chasteté, qui vivaient autrefois en recluses, se dresse sur la rive sud du Reik, dans le quartier est d'Altdorf. Le jour du Soleil immobile, les soeurs sortent de leur couvent en ordre de bataille pour une parade dans les rues de la ville sous le torride soleil d'été. La matriarche marche en tête de ce défilé de nonnes transpirant, reprenant inlassa-blement et à pleine voix « l'Hymne de la Cinglante Vérité » tout en scrutant les badauds d'un oeil luisant de suspicion. Les soeurs sont vêtues d'une cape noire et brodée sur une antique armure de plaques gravée, décorée de pointes acérées afin de repousser les avances des impies. Comme l'ordre dépend de la charité pour sa survie, ses jeunes novices récoltent les aumônes dans la foule qui se rassemble pour contempler ce spectacle. \nDans le passé, l'ordre se conformait à la règle d'isolement prêchée par sa fondatrice, Esther l'Irréprochable. Mais soeur Griselda von Velten fut visitée par Morr en 2515 et les choses chan-gèrent pour toujours. Elle arpentait le Volker Weg, dans la chaleur suffocante de la parade de Sonnstill, lorsqu'elle poussa soudain un cri perçant et tomba à genoux. Tremblant de tous ses membres, elle murmura à la foule abasourdie que la fin était proche et qu'elle avait gâché sa vie, puis elle rendit l'âme. Un an plus tard, après des mois de correspondance orageuse avec le grand théogoniste, Volkmar le Sévère, la matriarche accepta de reconnaître, la mort dans l'âme, que son ordre avait reçu un signe auquel il devait obéir et elle ordonna à ses soeurs de se préparer pour la guerre. \nLa Tempête du Chaos fut la première grande campagne de l'ordre. La moitié du couvent quitta Altdorf aux côtés de Valten. Celles qui ont survécu sont à présent dispersées dans l'Empire et pourchassent les rescapés des forces du Chaos. Elles revien-nent une fois par an à Altdorf pour partager leur expérience avec les novices et participer à la parade de Sonnstill." }
         ],
         "intro":"Il y a plus de 2500 ans, Sigmar Heldenhammer, dont la naissance avait été annoncée par le passage d’une comète à deux queues, fut couronné Empereur à Altdorf (qui portait alors le nom de Reikdorf) par le grand prêtre d’Ulric. À sa ceinture, il portait Ghal Maraz, le marteau de guerre magique offert par les nains en remerciement pour avoir sauvé la vie du roi Kurgan, souverain de Karaz-a-Karak. Il gouverna son peuple pendant de nombreuses décennies de prospérité.\nLa cinquantième année de son règne, Sigmar déposa sa couronne et quitta Reikdorf. L’histoire ne nous est pas d’un grand secours pour savoir pourquoi il s’en alla ainsi mais, selon les légendes, on l’aperçut qui se dirigeait vers l’est et les Montagnes du Bord du Monde, avec de lourdes fourrures drapées autour de ses larges épaules et ses longs cheveux encore blonds nattés en tresses épaisses. D’autres légendes nous rapportent qu’on le vit, le visage résolu, accompagné d’un grand loup gris qui marchait à sa gauche et d’un sanglier géant à défenses noires qui trottait à sa droite. Quelle que soit la vérité, le plus grand de tous les hommes que l’Empire devait jamais connaître l’avait quitté.\nUn peu plus de vingt ans après le départ de Sigmar, son peuple avait déjà élevé Johann Helstrum (un moine au regard fou qui prétendait que Sigmar avait été couronné dieu par Ulric lui-même) à la dignité de premier grand prêtre de Sigmar. Bientôt son culte naissant, un culte qui prêchait l’unité et demandait au peuple d’obéir inconditionnellement à l’Empereur et à ses Comtes Électeurs, devint une religion prépondérante totalement soutenue par l’État.\nAujourd’hui, le culte de Sigmar domine dans l’Empire. On peut voir ses temples et ses oratoires dans les plus petites communautés et des millions de fidèles en appellent à Sigmar pour qu’il défende leurs âmes de la corruption. Parmi leurs devoirs, les prêtres sont chargés de défendre l’Empire créé par Sigmar et ils le font souvent en battant le rappel des citoyens lors des périodes de troubles ; c’est la raison pour laquelle les étrangers les perçoivent fréquemment comme les prêtres d’un dieu de la guerre, bien que ceci ne soit pas entièrement vrai.",
         "culte":"Dans l’Empire, le culte de Sigmar est universellement reconnu. Chaque jour de fête, toutes les classes sociales se retrouvent dans ses temples pour l’office de Festag au cours duquel les prêtres de l’Ordre de la Torche, du haut de leur chaire, prient pour l’unité et psalmodient la sainte parole du livre. Les temples de Sigmar sont souvent le point focal des communautés ; ce sont leurs prêtres qui préparent les rituels saisonniers, qui conseillent les gens du peuple, forment des chorales et organisent les milices locales destinées à la défense de l’Empire. Les temples qui n’ont pas de templiers forment également la crème de la jeunesse locale pour en faire des porteurs du Marteau, les gardes en robe noire qui protègent les artefacts les plus sacrés du temple et les portent durant les parades religieuses et les célébrations du jour de Sigmar. Dans les temples les plus importants, les porteurs du Marteau sont des guerriers d’élite au visage couturé de cicatrices, terriblement craints du peuple, portant l’épée longue dans le dos, qui escortent les prêtres partout où ils se rendent.\nTandis que les prêtres de l’Ordre de la Torche protègent les âmes des populations de l’Empire, les membres de l’Ordre du Marteau d’Argent sillonnent son territoire en conseillant les représentants de la loi et gardent ses frontières en écrasant toutes les menaces qui se présentent. Ils proposent également leur aide aux temples qu’ils rencontrent en chemin; on les voit souvent haranguer des initiés au maintien mal assuré, s’occuper de l’entraînement des porteurs du Marteau ou prêcher lors de l’office. Ces prêtres guerriers au visage austère sont très aimés du peuple car ils assurent la sécurité de l’Empire par la puissance de leurs marteaux de guerre et de leur indomptable courage et ils apportent la sainte Parole de Sigmar aux quelques communautés qui ne possèdent pas de temple.\nL’ordre monastique de l’Enclume est chargé de garder la Parole de Sigmar qui constitue la pierre angulaire de toute la loi sigmarite. En cas de dispute au sein du culte, tous les autres ordres se tournent vers ces moines intransigeants et sévères, car ils ont une parfaite connaissance de toutes les pratiques du culte dans leurs moindres détails. Bien que ces moines quittent rarement leurs monastères isolés, il leur arrive de partir en voyage dans l’Empire, parfois en tant que juges itinérants, parfois à la recherche de grimoires sigmarites perdus ou encore sur ordre de leurs supérieurs.\nLe dernier des grands ordres, le très redoutable et très redouté Ordre de la Flamme Purificatrice, n’est pas très bien connu de la populace. Il est chargé de protéger l’Empire de la corruption et d’extirper les noires semences du Chaos où qu’elles se cachent. Les médaillons estampés d’une flamme des inquisiteurs de l’ordre leur permettent d’accéder à tous les temples, monastères et chapitres du culte sigmarite dans l’Empire et les membres du culte sont supposés satisfaire à toutes leurs requêtes dans les limites du « raisonnable ». Bien que la majorité des citoyens de l’Empire n’aient jamais entendu parler de cet ordre, sans sa protection l’Empire aurait succombé depuis des siècles aux assauts des Sombres Puissances.\nÀ côté de ces quatre ordres immensément influents, il existe d’innombrables ordres mineurs dont les adeptes, hommes et femmes, sont animés de la plus grande ferveur et prêts à défendre l’Empire quel que soit le prix de leur dévouement.",
@@ -54,8 +54,6 @@
         ],
         "cultistes":"Aucun membre du culte de Sigmar ne ressemble à un autre. Les ordres et les temples sont tous différents et les traditions locales extrêmement variées, ce qui fait que les représentants de Sigmar peuvent revêtir toutes sortes de tenues liturgiques et arborer des coiffures réellement bizarres.\nOn voit presque toujours les prêtres-guerriers de l’Ordre du Marteau d’Argent en robes noires festonnées de jaune, qu’ils portent sur des vêtements de protection en cuir. Pour l’armure, ils apprécient les plastrons bénis, ornés de blasons à l’image du griffon, de la comète ou des croix, et les gorgerins larges et montant haut sur le cou, mais ils portent souvent de la maille à la place, car elle est moins coûteuse. On rase généralement la tête des novices lorsqu’ils sont acceptés dans l’ordre, mais certains prêtres laissent repousser leurs cheveux par endroits afin de pouvoir les raser soigneusement et dessiner des symboles sacrés ou des invocations liturgiques.\nLes différents monastères de l’Ordre de l’Enclume ont des exigences différentes en matière d’habillement et de coiffure. L’habit simple, gris ou noir, est très courant, mais on voit également du brun dans l’est de l’Empire et du vert ou de l’orange dans certains monastères retirés du Talabecland et du Reikland. Les cheveux sont ordinairement rasés, les novices portant la tonsure, mais là encore il existe des variations. Certains monastères imposent à leurs moines de se laisser pousser une tignasse échevelée, de se raser en dessinant des rayures ou de natter leurs chevelures en centaines de tresses très serrées. Les moines portent souvent de larges cols montants qui évoquent les gorgerins des armures des prêtres-guerriers.\nOn rencontre encore plus de diversité dans l’immense Ordre de la Torche. Les robes noires sont la tenue la plus habituelle et l’on voit également beaucoup de gris et de brun, mais certains temples ont adopté le blanc, l’orange, le rouge ou même le pourpre, suivant ce que leur dictent les traditions ou les superstitions locales ; naturellement, chacune de ces variantes doit être approuvée par le grand théogoniste. Là encore, les hauts cols évasés sont courants, mais pas universels, tout comme les têtes rasées. Les symboles usuels, tels que marteaux, comètes, griffons, sceaux sanctifiés et autres parchemins de prières sont généralement arborés d’une manière ou d’une autre, bien que la doctrine de certains temples enseigne que de telles démonstrations de foi se rapprochent plus de l’idolâtrie des objets que de la véritable glorification de Sigmar. Une autre tradition très courante consiste à transporter des livres saints, parfois à la ceinture, parfois dans le dos, ainsi que des fardeaux symboliques. Certains prêtres poussent ces pratiques à l’extrême en portant des reproductions miniatures des textes saints ligaturés sur le front par un bandeau de cuir afin de protéger leur âme de l’hérésie.\nL’Ordre de la Flamme Purificatrice, beaucoup moins nombreux, exerce un contrôle plus strict sur la tenue tout autant que sur le comportement de ses adeptes. Les robes sont noires, brodées de rouge, et la chevelure coupée très court avec des tonsures élaborées chez les dignitaires de l’ordre. Les membres de l’ordre peuvent également porter une longue cape noire à capuchon qui leur descend aux chevilles, mais les novices ne sont pas autorisés à relever leur capuchon. Contrairement à ce qui se pratique dans les autres ordres les plus importants du culte, ces habits de cérémonie ne sont portés que lors des occasions importantes. En voyage, les membres de la Flamme Purificatrice portent les vêtements les mieux adaptés à la mission que leur a confiée leur ordre, y compris la tenue d’un autre ordre ou un déguisement de paysan ou de colporteur itinérant. Mais quelle que soit leur tenue, tous les membres de l’ordre possèdent une sainte amulette frappée d’une unique flamme en son centre ; c’est l’emblème de leur ordre, qui prouve qu’ils sont en mission pour accomplir l’oeuvre de Sigmar.",
         "structure":"Le grand théogoniste trône au sommet de la hiérarchie monumentale et terriblement complexe du culte de Sigmar. Il détient une puissance prodigieuse. En plus de l’autorité absolue qu’il exerce sur le plus important et le plus puissant culte de l’Empire et du fait qu’il nomme les chefs de tous ses ordres majeurs, il exerce également une influence considérable sur le monde séculier.\nLe grand théogoniste dirige personnellement l’Ordre de la Torche, l’ordre le plus important du culte, dont l’effectif dépasse ceux de tous les autres ordres sigmarites combinés. C’est lui qui désigne tous les officiers supérieurs de l’ordre, parmi lesquels les deux archilecteurs, les dix-huit lecteurs, les six grands capitulaires, les douze capitulaires, un certain nombre de théogonistes et une foule de grands prêtres. Il existe de nombreux autres postes d’importance dans cet ordre, tels que ceux de grand confesseur, de maître du scriptorium, de gardien de la cloche sacrée et d’archiadjudant, pour la plupart basés dans l’immense complexe du grand temple d’Altdorf ou dans ses environs immédiats.\nL’Ordre de la Torche administre la quasi-totalité des temples et oratoires de l’Empire. La plupart des temples sont dirigés par un grand prêtre nommé par le lecteur local ou par le grand capitulaire. Ce grand prêtre est responsable de tout ce qui touche à la foi sigmarite dans son secteur ; il nomme des prêtres pour gérer les petits temples locaux et veiller au bon entretien des oratoires les plus importants.\nPar comparaison avec le vaste domaine d’influence de la Torche, les prêtres-guerriers de l’Ordre du Marteau d’Argent n’ont aucun temple qui soit propre à leur ordre. Leurs établissements, peu nombreux, sont généralement rattachés aux temples et chapitres des autres ordres. C’est la raison pour laquelle les quelques grands prêtres de cet ordre se déplacent généralement autant que les prêtres, allant où bon leur semble et envoyant leurs représentants locaux là où leur présence est nécessaire. De tous les religieux des ordres de Sigmar, ce sont certainement ceux qui voyagent le plus. Ils constituent souvent le fer de lance de missions envoyées par le culte vers d’autres contrées, sous le commandement des théogonistes de l’Ordre de la Torche. L’Ordre du Marteau d’Argent ne possède aucun directoire ; il serait administré par les hauts dignitaires de l’Ordre de la Torche, mais nul ne saurait dire combien de prêtres-guerriers sillonnent leurs domaines à un moment donné. Il est fréquent que les plus brillants des grands prêtres de cet ordre soient promus par le grand théogoniste à des postes électoraux, ce que les grands prêtres de l’Ordre de la Torche considèrent toujours d’un fort mauvais oeil.\nLes moines de l’ordre monastique de l’Enclume sont plus nombreux que la plupart des gens ne l’imaginent. En tant que spécialistes des lois régissant le culte et l’Empire, ils sont également beaucoup plus influents que les autres ordres ne le voudraient. Le gardien de la Sainte Parole dirige l’ordre depuis le monastère d’Helstrum, situé dans le quartier du Temple d’Altdorf. Il est nommé à vie et son opinion fait autorité vis-à-vis de tout ce qui touche à la Parole de Sigmar même si, en théorie, l’autorité du grand théogoniste prévaut sur la sienne. Chaque monastère de l’ordre est dirigé par un abbé théoriquement assujetti au gardien de la Sainte Parole mais qui, en pratique, dispose d’un pouvoir quasi absolu sur les moines et les novices qui dépendent de lui. Dans de nombreux monastères isolés, l’abbé est nommé par les moines eux-mêmes et non par le gardien de la Sainte Parole.\nEn dernier lieu vient le mystérieux Ordre de la Flamme Purificatrice. Même s’il ne possède qu’un seul chapitre rattaché à Altdorf, son pouvoir véritable l’emporte sur celui de presque tous les autres ordres car ses membres sont habilités à prendre le commandement de presque tous les sigmarites, pourvu qu’ils demeurent dans les limites du raisonnable. L’inquisiteur général dirige l’ordre d’une main de fer et supervise étroitement les activités des grands inquisiteurs, des prêtres inquisiteurs et des novices de l’ordre, sans jamais perdre de vue que tout pouvoir peut se révéler corrupteur, particulièrement quand il est de la nature de celui de l’Ordre de la Flamme Purificatrice. La plus grande partie de ses effectifs est issue des autres ordres, particulièrement celui du Marteau d’Argent et celui des templiers de Sigmar. Les répurgateurs séculiers et les tortionnaires sont également acceptés si leur dévotion est exemplaire.",
-        "histoire":"",
-        "comment":"",
         "ambiance":[
           "« La bonne enclume ne craint pas le marteau. » — Suivez les préceptes de Sigmar à la lettre et vous serez protégé du mal.",
           "« Aaaah, ben, sans not’ Sigmar, où qu’on s’rait? C’est ben lui qu’a fait not’ Empire d’ici-bas et c’est ben lui qui l’protège. Voyez-vous, y’a les prêtres qui nous gardent nos âmes et pis les prêtres guerriers pour garder nos terres. Aaah, pour sûr, y s’occupent pas d’nos récoltes ou d’ces trucs-là, mais c’est ben vrai qu’on n’aurions point d’récoltes si c’était pas pour l’bon Sigmar! Alors j’m’en vas au templ’ toutes les s’maines, voui m’sieur. Et pis c’est un bon moyen d’voir mes compères. »\n— Stoffan Kleinbauer, Fermier",
@@ -64,7 +62,8 @@
           "« À l’est. » — Je ne sais absolument pas à quel endroit."
         ],
         "temples":[
-          {"nom":"","description":"Les temples de Sigmar présentent des aspects aussi divers que les fidèles qui viennent y prier. Les traditions locales, les lubies des mécènes et les aspirations des prêtres eux-mêmes ont souvent donné lieu à l’édification de bâtiments réellement singuliers.\nLes seuls éléments communs à tous ces temples sont l’absence de bancs pour la congrégation et une décoration à base d’énormes marteaux de guerre stylisés et de comètes. Souvent, on retrouve également certains détails : par exemple l’alignement du temple avec le site de l’ascension de Sigmar (bien que sa localisation exacte soit un sujet de furieuses polémiques) ; un clocher afin d’appeler les fidèles à l’office; une abside ou un choeur dodécagonal, symbolisant les douze tribus originelles qui constituèrent l’Empire; une disposition en forme de marteau; un trône vide, prêt pour le retour de Sigmar ; de grandes fresques polychromes ou des vitraux colorés représentant les hauts faits de l’Homme-Dieu et de ses plus vénérables compagnons."}
+          {"nom":"","description":"Chaque ville, village et cité de l'Empire a au moins un temple à Sigmar. Une chapelle de village peut être visitée une fois par semaine par un prêtre itinérant, qui répond aux besoins de plusieurs petits villages. On trouve des sanctuaires dans la plupart des maisons, et des sanctuaires de cheminement parsèment toutes les grandes autoroutes, la plupart du temps martelés à l'aide de marteaux ou de comètes.\nLes temples de Sigmar présentent des aspects aussi divers que les fidèles qui viennent y prier. Les traditions locales, les lubies des mécènes et les aspirations des prêtres eux-mêmes ont souvent donné lieu à l’édification de bâtiments réellement singuliers.\nLes seuls éléments communs à tous ces temples sont l’absence de bancs pour la congrégation et une décoration à base d’énormes marteaux de guerre stylisés et de comètes. Souvent, on retrouve également certains détails : par exemple l’alignement du temple avec le site de l’ascension de Sigmar (bien que sa localisation exacte soit un sujet de furieuses polémiques) ; un clocher afin d’appeler les fidèles à l’office; une abside ou un choeur dodécagonal, symbolisant les douze tribus originelles qui constituèrent l’Empire; une disposition en forme de marteau; un trône vide, prêt pour le retour de Sigmar ; de grandes fresques polychromes ou des vitraux colorés représentant les hauts faits de l’Homme-Dieu et de ses plus vénérables compagnons."},
+          {"nom":"La Grande Cathédrale d'Altdorf","description":"La Grande Cathédrale d'Altdorf compte des centaines de prêtres et d'ouvriers laïcs et est gardée par au moins deux ordres de Templiers."}
         ],
         "personnalites":[
           {"nom":"","description":"Le culte de Sigmar est riche en personnages remarquables et aussi importants qu’influents. En ces temps troublés, les messagers sillonnent les forêts à cheval, galopant des uns aux autres, tandis que chacun essaye de découvrir les plans de ses correspondants. Volkmar le Sévère, le grand théogoniste que tout le monde croyait mort, est revenu. Valten l’Exalté, la réincarnation de Sigmar, a disparu et il est peut-être mort… mais qui peut croire à une telle chose ? Esmer III, le grand théogoniste destitué, pourrait être en train de rallier ses partisans à Marienburg. Tous ces individus, et bien d’autres, manoeuvrent pour placer leurs pions. Ils doivent toutefois se montrer prudents, car il semble bien que la pire des horreurs soit sur le point de s’abattre sur l’Empire : la guerre civile menace et les cultes n’ont ni le désir ni les moyens de laisser la situation dégénérer à ce point."},
@@ -85,11 +84,11 @@
         "culte":"",
         "regles":[],
         "ordres": [
-          {"id":120,"nom":"Les Fils de Manann",
+          {"id":111,"nom":"Les Fils de Manann",
             "description":"" },
-          {"id":121,"nom":"L'Ordre de l'Albatros",
+          {"id":112,"nom":"L'Ordre de l'Albatros",
             "description":"" },
-          {"id":122,"nom":"Les Chevaliers Navigateurs",
+          {"id":113,"nom":"Les Chevaliers Navigateurs",
             "description":"" }
         ],
         "sectes":[],
@@ -99,8 +98,6 @@
         ],
         "cultistes":"",
         "structure":"",
-        "histoire":"",
-        "comment":"",
         "ambiance":[
         ],
         "temples":[],
@@ -120,13 +117,13 @@
         "culte":"Le culte de Morr ne s’inquiète pas des opinions du monde. Tout le monde rend visite au culte un jour ou l’autre et il a suffisamment à faire avec la protection de ceux qui se trouvent déjà sous sa garde. Cette indépendance se répercute pratiquement chez tous ses membres, jusqu’au moindre prêtre; ceux qui désirent se lancer dans une carrière dans ce culte ne sont généralement pas des gens qui ont besoin de l’approbation d’autrui pour prendre leurs décisions.\nPourtant, les cultistes se préoccupent réellement du monde qui les entoure. Certains en savent plus sur le futur que la majorité des hommes et tous sont en permanence au contact de la mort et, par conséquent, de personnes tout juste décédées dont ils doivent prendre soin. Les adeptes de Morr sont loin d’être des âmes indifférentes, mais en général, ils ne se considèrent pas comme responsables des vivants. Les soldats racontent parfois avoir vu des prêtres de Morr sur le champ de bataille, allant de cadavre en cadavre pour leur donner les derniers sacrements et ignorant tous ceux qui respirent encore autour d’eux jusqu’à ce que ceux-ci aient rendu leur dernier souffle. Les moriens prennent très au sérieux leurs devoirs envers les trépassés. Les martyrs du culte sont souvent les prêtres qui refusent de quitter une ville ravagée par une épidémie de peste afin d’enterrer les cadavres. Ce sens des responsabilités peut aller jusqu’à accomplir les dernières volontés d’un défunt ou à offrir un peu de réconfort aux endeuillés, mais d’une façon générale, les prêtres de Morr s’impliquent très peu dans les affaires des vivants.\nLa seule exception remarquable est l’attitude du culte à l’égard de la nécromancie. Les nécromanciens sont les ennemis jurés de Morr : ils pillent son royaume, violent son domaine protégé pour leur propre profit et défient son autorité. Les moriens pensent également que les morts-vivants ne sont pas sous la protection de Morr et qu’ils sont donc vulnérables aux perversions des Dieux Sombres. Ainsi, même les morts-vivants intelligents qui se prétendent satisfaits de leur condition doivent dormir de leur dernier sommeil après avoir reçu les sacrements appropriés. La plupart des moriens pensent que Morr accepte et protège toutes les âmes, même celles des nécromanciens, une fois perpétuellement de postulants et plus encore de recrues et doit parfois revoir ses critères à la baisse.",
         "regles":[],
         "ordres": [
-          {"id":150,"nom":"Les Augures","aptitudes":[1004,1008,1113],
+          {"id":121,"nom":"Les Augures","aptitudes":[1004,1008,1113],
             "description":"" },
-          {"id":151,"nom":"La Garde Noire","aptitudes":[1110,1048,3200],
+          {"id":122,"nom":"La Garde Noire","aptitudes":[1110,1048,3200],
             "description":"Les Gardes noirs sont les templiers de Morr. Leur premier devoir est de protéger les jardins de Morr et ses prêtres. D’habitude, ceux qui veulent y entrer se présentent à la suite d’un événement significatif dans leur existence, très souvent la mort d’un être cher enfin libéré de ses souffrances par le trépas. Cette expérience permet au futur garde de comprendre l’importance du rôle de Morr et lui montre le culte sous un jour plus sympathique.\nD’autres membres de la Garde noire y entrent après avoir combattu des morts-vivants, mais cela ne concerne qu’une minorité. Ils sont souvent peu satisfaits de devoir se contenter de veiller sur des tombeaux. Comme certains prêtres partagent leurs sentiments, ceux-ci peuvent entrer dans la Garde noire afin de prendre la tête d’unités de templiers choisis parmi les plus militants pour les conduire au combat contre les morts sans repos et les nécromanciens.\nLors de funérailles importantes, le défunt est souvent accompagné d’une garde d’honneur composée de Gardes noirs. Les templiers ne font pas le moindre bruit durant la cérémonie et ils semblent même se déplacer en silence malgré leurs lourdes armures. L’importance d’un enterrement se détermine généralement à la somme dépensée pour la cérémonie, mais les Gardes noirs ont le droit de choisir les cérémonies auxquelles ils acceptent de participer. La plupart des unités ont coutume d’assister de temps à autre à l’enterrement d’un pauvre choisi au hasard, afin d’entretenir les spéculations du peuple, mais ils se plient généralement aux demandes des prêtres." },
-          {"id":152,"nom":"Les Prophètes des Derniers Jours","aptitudes":[3200,1047,1055],
+          {"id":123,"nom":"Les Prophètes des Derniers Jours","aptitudes":[3200,1047,1055],
             "description":"Ils constituent un sous-ordre des Augures. Ils sont chargés de parcourir les régions reculées du monde, pour y prononcer leurs oracles funèbres et célébrer les rites funéraires lorsqu’il n’existe aucun temple de Morr accessible. Certains sont liés à un temple particulier, qui peut aussi bien appartenir à l’Ordre du Suaire qu’à celui des Augures, et se déplacent suivant un circuit déterminé. D’autres errent apparemment au hasard, visitant les temples qu’ils rencontrent en chemin. Ces Prophètes prétendent toujours qu’ils voyagent au gré des visions reçues dans leurs rêves.\nIl existe deux catégories de Prophètes des Derniers Jours qui semblent guidés par Morr. Les premiers arrivent dans une communauté la veille du dixième anniversaire d’un enfant ou au lendemain d’un décès, précisément au bon moment pour accomplir les rites nécessaires. Dans certains cas, il paraît évident que la chose est simplement due à un excellent réseau d’informateurs et à un cheval rapide. Cependant, dans d’autres circonstances, il ne semble pas y avoir de cause naturelle à leur apparition opportune.\nLes prêtres du second groupe paraissent attirés vers les endroits où de nombreuses personnes sont sur le point de mourir, que cela soit à cause d’une bataille, d’une épidémie ou d’une catastrophe naturelle. Ces prêtres disent recevoir des rêves qu’ils ne peuvent ignorer et dont ils doivent comprendre la signification. La plupart sont convaincus qu’il serait impie d’essayer d’empêcher ces morts, puisque Morr a décrété qu’il était temps pour ces gens de rejoindre son royaume. Ils pensent avoir la mission de procéder aux rites funéraires. Certains d’entre eux pensent au contraire que Morr les envoie vers des endroits où un grand nombre de gens courent le danger d’être précipités vers son royaume avant que leur heure ne soit venue et qu’il est donc de leur devoir d’empêcher ces décès ou au moins de limiter le désastre. Une poignée d’entre eux va jusqu’à laisser entendre que Morr fait les deux à la fois, en choisissant ses envoyés en fonction de chaque situation." },
-          {"id":153,"nom":"Les Chevaliers du Corbeau",
+          {"id":124,"nom":"Les Chevaliers du Corbeau",
             "description":"La confrérie du suaire croit qu'il faut mener le combat jusqu'à l'ennemi. Ses meilleurs guerriers sont regroupés au sein d'un ordre, les chevaliers du Corbeau, dont le mandat est très clair : éliminer les squelettes, zombies et ombres qui arpentent la terre, et exterminer les nécromanciens et vampires qui les invoquent. Contrairement à l'ordre des Gardes noirs, les chevaliers du Corbeau sont impitoyables et agressifs ; ils partent à la rencontre de leur ennemi plutôt que d'attendre qu'il ne vienne à aux. Actuellement, beaucoup des ces chevaliers sont stationnés dans la ville de Siegfriedhof, au Stirland, sur la frontière Sylvanienne. Jusqu'à présent, leur action s'est limitées à des raids, mais avec leur nombre et leurs renseignements grandissants (sans compter le retour vraissemblable de Mannfred), ils sont sur le point de lancer une croisade visant à prendre une bonne fois pour toute cette terre austère aux noirs seigneurs qui s'en sont emparé." }
         ],
         "sectes":[
@@ -189,16 +186,16 @@
         "cultistes":"Dans le « Livre des Transformations » du Bellona Myrmidia, la déesse prend la forme d’un aigle royal à l’œil perçant pour aller inspecter les positions ennemies. L’Ordre de l’Aigle s’identifie à cet oiseau majestueux et le représente souvent avec les ailes déployées et levées haut au-dessus de sa tête. On arbore ce symbole sur le sein gauche ou sous la forme d’une broche utilisée pour retenir la cape blanche des prêtres. Dans l’Empire, les membres de l’ordre portent également un capuchon bleu bordé de rouge et une robe blanche. Ailleurs dans le Vieux Monde, les capuchons peuvent être de couleurs différentes, en fonction du régiment auquel appartient le prêtre (vous en saurez plus en lisant le paragraphe suivant, Structure). Chez les Aigles, le grade est marqué par de petites épingles en forme de serres d’oiseau, portées au col.\nLes membres de l’Ordre de la Lance de Vertu portent une armure de plaques polie, avec un tabard blanc à l’insigne des armes favorites de Myrmidia, la lance et le bouclier. Toutefois, l’ordre s’est divisé en une multitude d’ordres mineurs éparpillés dans tout le Vieux Monde, chacun avec son uniforme particulier, son style de combat et ses préférences en matière d’armes. Le seul élément commun à ces ordres disparates est le symbole de la lance et du bouclier qui apparaît toujours quelque part sur leur tenue.\nLes chevaliers du Soleil, eux, portent une armure de plaques noir et or très ouvragée, soigneusement astiquée, et arborent souvent le symbole de l’ordre (un soleil stylisé d’où partent seize rayons de lumière ondulés) en guise de cimier ou de blason. Les membres du cercle intérieur de l’ordre, une poignée d’hommes extrêmement riches, n’hésitent pas à exhiber leur fortune avec beaucoup d’ostentation en portant des armures d’une somptuosité stupéfiante, ornées d’or, de jais, d’obsidienne et de diamants. De nombreux templiers de l’ordre portent des boucliers polis comme des miroirs qu’ils utilisent pour refléter la lumière dans les yeux de leurs ennemis afin de les aveugler.",
         "structure":"En Estalie et en Tilée, le culte de Myrmidia représente une puissance énorme et contrôle d’innombrables positions de pouvoir à travers la multitude de ses ordres. Dans l’Empire en revanche, où le culte est beaucoup moins représenté, il offre un aspect beaucoup plus sobre.\nBien que l’Ordre de l’Aigle soit organisé comme une immense armée dans laquelle les inférieurs doivent obéir aux ordres de leurs supérieurs, la sagesse et la clairvoyance, qui sont les dons de la mère et du père de Myrmidia, y restent extrêmement estimées. Les officiers de rang supérieur ne se contentent pas d’écouter les avis de leurs inférieurs, mais ils n’hésitent pas à leur demander conseil. Dans l’Empire, l’officier de plus haut rang est l’aigle du Nord, actuellement basé à Nuln, qui commande le Régiment Nord de l’Ordre de l’Aigle. Ce régiment est divisé en dix unités, une par province impériale et une pour le Kislev, chacune commandée par un grand prêtre. L’unité rattachée à un grand prêtre est divisée en autant de districts qu’il se trouve de temples sous son autorité, chacun commandé par un prêtre principal. Ce prêtre principal est assisté d’un ou plusieurs sergents du temple qui peuvent avoir jusqu’à dix prêtres sous leur autorité. Enfin, chaque prêtre peut diriger jusqu’à cinq initiés.\nDans l’Empire, la progression d’un individu au sein de l’ordre dépend essentiellement du bon vouloir de ses chefs et des postes disponibles. Toutefois, la plupart des prêtres de rang supérieur réfléchissent longuement sur leurs options pour être certains de faire le meilleur choix. Dans le sud, au contraire, la plupart des nominations à un poste élevé nécessitent l’appui de l’Ordre de la Clairvoyance Véritable (cf. page 44) qui a la réputation de posséder la meilleure compréhension de la stratégie élaborée par Myrmidia pour le culte. L’impartialité des oracles n’est jamais ouvertement remise en question, mais on entend parfois murmurer que l’argent et les faveurs pourraient avoir plus d’influence que les révélations reçues de Myrmidia au gré de transes prophétiques suscitées par les fumées sacrées. En réalité, il n’est pas rare de voir différents oracles soutenir différents candidats, chacun clamant que c’est Myrmidia qui l’a guidé dans ses choix.\nLa structure de l’Ordre de l’Aigle subit des modifications mineures d’une année sur l’autre, suivant la conviction selon laquelle il doit s’adapter aux évolutions du monde environnant. À l’heure actuelle, l’Aigle du Nord se trouve dans une position équivalente à celle d’un gouverneur de province en Tilée ou en Estalie. Il reporte au haut aigle de Miragliano (L’Alta Aquila di Miragliano) qui commande également la moitié des régiments de l’ordre en Tilée.\nL’Ordre de la Lance de Vertu est l’un des ordres templiers les plus importants du Vieux Monde. La plus grande partie de ses effectifs est stationnée en Tilée et en Estalie, mais on trouve des chapitres de l’ordre partout dans l’Empire, en Bretonnie, dans les Principautés Frontalières et même en Arabie. Au sein de l’Empire, les templiers se bornent à protéger et à soutenir leurs temples, mais l’ordre grandit lentement en popularité. Il est divisé en nombreux ordres mineurs, chacun dirigé par son propre grand maître et portant un nom particulier, mais ils rendent tous des comptes au glorieux commandant (El Lider Glorioso) qui dirige l’ordre depuis la cité de Magritta. Chacun des grands maîtres de l’Empire se soumet aux ordres de l’aigle du Nord, mais le glorieux commandant peut passer outre s’il le désire. Tous les chapitres de la Lance de Vertu sont dirigés par un capitaine templier qui est toujours un chevalier du cercle intérieur.\nL’Ordre du Soleil paraît minuscule comparé à celui de la Lance de Vertu. C’est durant les croisades que soixante chevaliers impériaux aux abois firent le vœu de se consacrer au service de Myrmidia lorsqu’une violente secousse sismique fit basculer une gigantesque statue de la déesse sur les centaines d’Arabiens qui s’apprêtaient à les charger, les sauvant ainsi d’une mort certaine. À leur retour dans l’Empire, ils édifièrent un chapitre et un temple à leur déesse étrangère, aux environs de Ravenstein dans l’ouest du Talabecland. Avec l’aide d’autres ordres de chevaliers croisés, comme les chevaliers Panthères et ceux du Lion d’Or, ils travaillèrent d’arrache-pied à ouvrir des routes de pèlerinage et de commerce vers l’Estalie et les contrées au-delà. Aujourd’hui, l’ordre s’est enrichi grâce à ses tractations menées à l’étranger; c’est au Middenland que son influence est la plus forte et c’est de là que le grand maître de l’ordre dirige ses chevaliers, depuis son chapitre de Carroburg. L’ordre répond directement à La Aguila Ultima en Estalie, car c’est à elle que les tout premiers chevaliers impériaux jurèrent allégeance. C’est là une situation très irritante pour l’aigle du Nord qui convoite depuis longtemps leurs coffres emplis d’or et apparemment inépuisables.",
         "cultes":[
-          {"id":160,"nom":"L'Ordre de l'Aigle","aptitudes":[1009,1601,1114],
+          {"id":131,"nom":"L'Ordre de l'Aigle","aptitudes":[1009,1601,1114],
             "description":"" },
-          {"id":162,"nom":"Les Chevaliers du Soleil","aptitudes":[1093,1101,1601,2033],
+          {"id":132,"nom":"Les Chevaliers du Soleil","aptitudes":[1093,1101,1601,2033],
             "description":"" },
-          {"id":161,"nom":"Ordre de la Lance de Vertu, Les Chevaliers du Champ Verdoyant","aptitudes":[1093,1101,1601,3010],
+          {"id":133,"nom":"Ordre de la Lance de Vertu, Les Chevaliers du Champ Verdoyant","aptitudes":[1093,1101,1601,3010],
             "description":"" },
-          {"id":163,"nom":"Le Saint-Ordre de la Clairvoyance Véritable","mineur":true,"aptitudes":[1093,1101,2011,1114,1103],
+          {"id":134,"nom":"Le Saint-Ordre de la Clairvoyance Véritable","mineur":true,"aptitudes":[1093,1101,2011,1114,1103],
             "ambiance":"« Avant de décider d’une stratégie, il faut d’abord rechercher le conseil d’un oracle. Les sombres serviteurs de Morr proclament que la seconde vue est du domaine de leur dieu, mais comme ils ne comprennent guère les vicissitudes de la guerre, ils peuvent se tromper et prononcer de fausses prédictions. Recherchez un oracle qui soit versé dans les usages de Myrmidia car c’est seulement ainsi que l’honorable général pourra trouver la véritable clairvoyance. »\n—Bellum Stragtegia, « Avant que les lames ne quittent le fourreau »",
             "description":"Alors qu’elle était encore mortelle, Myrmidia consultait souvent les augures du culte de Morr car elle accordait beaucoup de prix aux conseils prophétiques de son lointain géniteur. Aujourd’hui, les fidèles de Myrmidia perpétuent cet usage et l’on voit souvent les Augures de Morr marcher aux côtés des armées tiléennes et estaliennes. Cependant, le culte de Myrmidia possède ses propres oracles. Le Saint Ordre de la Clairvoyance Véritable accueille les adeptes ayant la réputation d’avoir reçu la bénédiction de la déesse et ses révélations. Ils se regroupent dans des temples isolés, peu peuplés, afin de rendre leurs prophéties aux âmes honorables qui viennent rechercher leurs conseils.\nOn ne peut accéder à cet ordre que par sollicitation de ses membres dont la majorité sont des femmes au crépuscule de leur vie. La plupart résident dans des temples retirés du monde où elles étudient les saintes écritures de Myrmidia et méditent dans des pièces enfumées, examinent de problématiques stratégies et les points les plus épineux de la doctrine myrmidéenne. Même si l’ordre ne possède encore aucun temple dans l’Empire, sa présence s’y fait tout de même ressentir car nombreux sont les membres de l’Ordre de l’Aigle qui refusent d’entreprendre toute campagne importante sans avoir d’abord consulté les oracles de la Clairvoyance Véritable. Trois prêtresses prophétesses (une jeune, une d’âge mûr et une vieille) sont récemment arrivées à Nuln afin de conseiller l’aigle du Nord; cependant, aucune d’entre elles n’est vraiment sûre du genre de campagne qu’il désire préparer." },
-          {"id":164,"nom":"L'Ordre de la Furie","mineur":true,"aptitudes":[1601,1009,2030],
+          {"id":135,"nom":"L'Ordre de la Furie","mineur":true,"aptitudes":[1601,1009,2030],
             "ambiance":"« Et elle apprit ce qui était advenu, alors elle vint à Elle et lui dit : ‘À cause de ce que l’on t’a fait, à partir de ce jour je renonce à mon nom, je serai désormais connue sous le nom de la Furie.’ »\n— Bellona Myrmidia, « Histoire de la Furie »",
             "description":"Alors qu’elle était encore mortelle, Myrmidia vit beaucoup de grands héros se ranger à ses côtés, mais aucun n’est aussi célèbre que la Furie, l’une de ses vierges guerrières. Sa légende est consignée dans le Bellona Myrmidia et c’est une histoire pleine d’horreur, de souffrances et de traîtrises. Les événements racontés dans cette triste histoire menèrent une jeune fille à abandonner son propre nom et à faire le serment de venger toutes les horreurs commises dans ce monde, un devoir auquel elle s’attaqua avec une fureur et une passion inégalées. Malgré son chagrin, Myrmidia ne put se résoudre à l’arrêter car elle comprenait de manière très profonde à quelle source s’alimentait la rage de la Furie. Alors Myrmidia fit ce qu’il y avait à faire: elle utilisa les talents de la jeune fille sur le champ de bataille. Là, la Furie tua, encore et encore, à coups redoublés, jusqu’à ce que tous ses ennemis fussent tombés et qu’elle s’effondre en pleurs. Le dernier combat de la Furie se déroula dans la chaîne de montagnes des Abasko. C’est là que Myrmidia retrouva son cadavre, entouré de monceaux d’orques et de gobelins morts. Le site est aujourd’hui sous la protection du grand temple de l’ordre.\nBien qu’en Estalie et en Tilée l’Ordre de la Furie soit essentiellement composé de femmes, dans l’Empire il est pratiquement exclusivement composé d’hommes. La popularité de cet ordre grandit de plus en plus et il possède déjà quatre temples au Reikland. Un grand prêtre de l’ordre, un personnage charismatique du nom de Janos Enescu, est récemment arrivé à Delberz. Les Stirlanders ont survécu à quelques-uns des pires conflits de la récente Incursion du Chaos. Enescu collecte des aides financières afin de fonder un temple de la Furie dans cette cité, non sans rencontrer une résistance acharnée de la part des ulricains locaux." }
         ],
@@ -224,79 +221,256 @@
         ]
       },
       
-      {"id":14,"patron":null,"nom":"Ranald",
+      {"id":14,"patron":null,"nom":"Ranald","siege":null,
         "domaines":"Les voleurs, les escrocs, la chance",
         "fideles":"Les voyous, les joueurs, les opprimés",
         "symboles":"",
         "cultes":[
-          {"id":130,"nom":"La Confrérie",
+          {"id":141,"nom":"La Confrérie",
             "description":"" },
-          {"id":131,"nom":"Les Bienfaiteurs",
+          {"id":142,"nom":"Les Bienfaiteurs",
             "description":"" },
-          {"id":132,"nom":"Les Doigts Crochus",
+          {"id":143,"nom":"Les Doigts Crochus",
             "description":"" }
         ],
-        "histoire":"",
-        "comment":""},
+        "aptitudes":{"initie":[],"pretre_sans_ordre":[]},
+        "chef":"",
+        "fetes":"",
+        "livres":"",
+        "penitences":"",
+        "ordres": [
+          {"id":161,"nom":"",
+            "aptitudes":[],
+            "description":"" }
+        ],
+        "intro":"",
+        "culte":"",
+        "regles":[],
+        "sectes":[
+          {"nom":"","description":""}
+        ],
+        "dogme":"",
+        "initiation":"",
+        "pretrise":"",
+        "commandements":[
+          "Obéissez aux ordres."
+        ],
+        "cultistes":"",
+        "structure":"",
+        "ambiance":[
+          "«  » — "
+        ],
+        "personnalites":[
+          {"nom":"","description":""}
+        ]
+      },
       
-      {"id":15,"patron":null,"nom":"Rhya",
+      {"id":15,"patron":null,"nom":"Rhya","siege":null,
         "domaines":"La fertilité de la terre, l'amour",
         "fideles":"Les fermiers, les sorciers de Jade, les paysans",
         "symboles":"",
         "cultes":[
-          {"id":182,"nom":"Les Filles de Rhya",
+          {"id":151,"nom":"Les Filles de Rhya",
             "description":"" }
         ],
-        "histoire":"",
-        "comment":""},
-      
-      {"id":16,"patron":null,"nom":"Shallya","domaines":"La guérison, la compassion, la naissance","fideles":"Les pauvres, les malades, les femmes","symboles":"",
-        "histoire":"",
-        "comment":"",
-        "temples":[{"nom":"Le Couvent du Cœur Appaisé","description":"Si le culte de Shallya est traité avec respect, son seul véritable lieu saint de l’Empire est le couvent du Cœur Apaisé, dans les collines hantées de Sylvanie. La légende veut que tous les morts-vivants qui s’en approchent soient aussitôt détruits et que les eaux de la source du couvent puissent soigner la non-vie, rendant ainsi son statut de mortel à la victime. Elle est également censée soigner les malades en phase terminale."}]
+        "aptitudes":{"initie":[],"pretre_sans_ordre":[]},
+        "chef":"",
+        "fetes":"",
+        "livres":"",
+        "penitences":"",
+        "ordres": [
+          {"id":161,"nom":"",
+            "aptitudes":[],
+            "description":"" }
+        ],
+        "intro":"",
+        "culte":"",
+        "regles":[],
+        "sectes":[
+          {"nom":"","description":""}
+        ],
+        "dogme":"",
+        "initiation":"",
+        "pretrise":"",
+        "commandements":[
+          "Obéissez aux ordres."
+        ],
+        "cultistes":"",
+        "structure":"",
+        "ambiance":[
+          "«  » — "
+        ],
+        "personnalites":[
+          {"nom":"","description":""}
+        ]
       },
       
-      {"id":17,"patron":null,"nom":"Taal","domaines":"La nature et les contrées sauvages","fideles":"Les sorciers d'Ambre, les paysans, les forestiers",
+      {"id":16,"patron":null,"nom":"Shallya","siege":14,
+        "domaines":"La guérison, la compassion, la naissance",
+        "fideles":"Les pauvres, les malades, les femmes",
+        "temples":[
+          {"nom":"Le Couvent du Cœur Appaisé","description":"Si le culte de Shallya est traité avec respect, son seul véritable lieu saint de l’Empire est le couvent du Cœur Apaisé, dans les collines hantées de Sylvanie. La légende veut que tous les morts-vivants qui s’en approchent soient aussitôt détruits et que les eaux de la source du couvent puissent soigner la non-vie, rendant ainsi son statut de mortel à la victime. Elle est également censée soigner les malades en phase terminale."}
+        ],
+        "aptitudes":{"initie":[1053],"pretre_sans_ordre":[1058,1076,2072]},
+        "chef":"Grande Matriarche",
+        "fetes":"aucune",
+        "livres":"Le livre de la souffrance, Livre des Larmes, Le Testament de Pergunda",
+        "penitences":"Les pénitences imposées par Shallya consistent toujours à aider les malades, les pauvres ou les opprimés. Un cultistes peut être envoyé dans un village frappé par la peste pour soigner les malades jusqu'à ce que la maladie soit passée. Shallya charge souvent ses serviteurs d'aider les blessés de guerre ou de patrouiller les routes de pèlerinage populaires pour ceux qui ne peuvent achever leur voyage en raison de problèmes de santé.",
+        "symboles":"une colombe blanche, une clé, un cœur avec une goutte de sang",
+        "ordres": [
+          {"id":161,"nom":"",
+            "aptitudes":[],
+            "description":"" }
+        ],
+        "intro":"",
+        "culte":"",
+        "regles":[{"titre":"Des prêtres shalléens ?","description":"La plus grande partie du clergé de Shallya est composée de prêtresses ; la plupart des habitants du Vieux Monde ont du mal à croire qu’un homme puisse réellement devenir prêtre de la déesse. Elle les accepte pourtant et ils sont relativement bien représentés chez les prêtres itinérants.\nLes jeunes prêtres de Shallya sont presque toujours des prêtres errants car les grandes prêtresses des temples ne sont généralement pas très disposées à introduire de jeunes hommes de belle prestance dans un environnement où ils se trouveraient entourés d’une foule de jeunes femmes impressionnables. On les reçoit pour un certain temps, puis on les encourage à poursuivre leur périple avant qu’ils ne commencent à briser les cœurs. Certaines légendes du culte parlent de prêtres qui, pour avoir exploité l’attirance qu’ils exerçaient sur les prêtresses, furent dévorés par Slaanesh en punition. (Il existe des versions non autorisées de ces légendes, très explicites sur les détails de cette exploitation et de la punition qui s’ensuit. Ce sont des livres interdits, quoique populaires.) Une fois qu’ils sont devenus vieux et beaucoup moins attirants, ces prêtres itinérants peuvent s’installer dans un temple."}],
+        "sectes":[
+          {"nom":"","description":""}
+        ],
+        "dogme":"",
+        "initiation":"",
+        "pretrise":"",
+        "commandements":[
+          "Toujours prêter assistance sans porter de jugement, en se basant uniquement sur les besoins de la personne.",
+          "Ne tuez jamais, sauf en cas de légitime défense ou lorsque vous affrontez les disciples du Seigneur de la Mouche.",
+          "Traquez les serviteurs du Seigneur de la Mouche où qu'ils soient.",
+          "Le travail de Shallya n'est jamais terminé, alors ne vous laissez pas aller à l'auto-indulgence.",
+          "Ne prenez jamais les armes ; une canne et du courage suffiront."
+        ],
+        "cultistes":"",
+        "structure":"",
+        "ambiance":[
+          "«  » — "
+        ],
+        "personnalites":[
+          {"nom":"","description":""}
+        ]
+      },
+      
+      {"id":17,"patron":null,"nom":"Taal","siege":null,
+        "domaines":"La nature et les contrées sauvages",
+        "fideles":"Les sorciers d'Ambre, les paysans, les forestiers",
         "symboles":"",
         "penitences":"Les pénitences de Taal impliquent généralement l'élimination des monstres malades ou mutants des zones sauvages, la replantation d'arbres sacrés et l'entretien des bosquets importants pour le culte. On peut aussi ordonner à un adepte d'escalader une haute montagne et de laisser une pierre sur un cairn au sommet, ou de dégager un obstacle au sommet d'une chute d'eau. Quelle que soit la tâche spécifique qui doit être entreprise, les pénitences de Taal mettent presque toujours le cultiste au défi de survivre dans la nature.",
         "cultes":[
-          {"id":180,"nom":"Les Coureurs des Bois",
+          {"id":171,"nom":"Les Coureurs des Bois",
             "description":"" },
-          {"id":181,"nom":"Les Chasseurs Cornus",
+          {"id":172,"nom":"Les Chasseurs Cornus",
             "description":"" }
         ],
-        "histoire":"","comment":""},
+        "aptitudes":{"initie":[],"pretre_sans_ordre":[]},
+        "chef":"",
+        "fetes":"",
+        "livres":"",
+        "ordres": [
+          {"id":161,"nom":"",
+            "aptitudes":[],
+            "description":"" }
+        ],
+        "intro":"",
+        "culte":"",
+        "regles":[],
+        "sectes":[
+          {"nom":"","description":""}
+        ],
+        "dogme":"",
+        "initiation":"",
+        "pretrise":"",
+        "commandements":[
+          "Obéissez aux ordres."
+        ],
+        "cultistes":"",
+        "structure":"",
+        "ambiance":[
+          "«  » — "
+        ],
+        "personnalites":[
+          {"nom":"","description":""}
+        ]
+      },
       
-      {"id":18,"patron":null,"nom":"Ulric",
+      {"id":18,"patron":null,"nom":"Ulric","siege":null,
         "domaines":"Les batailles, les loups et l'hiver",
         "fideles":"Les guerriers, la population de Middenheim",
         "penitences":"Les pénitences imposées par Ulric sont presque toujours des tests de force, de courage et d'habileté martiale. Tuer un monstre puissant, ou vider un nid de bêtes ou de hors-la-loi, sont des tâches typiques.",
         "symboles":"",
-        "histoire":"",
         "ordres": [
-          {"id":170,"nom":"Les Chevaliers du Loup Blanc",
+          {"id":181,"nom":"Les Chevaliers du Loup Blanc",
             "description":"Les chevaliers du Loup Blanc, plus souvent qualifiés de Loups Blancs, constituent le plus célèbres de tous les ordres de templiers. On les identifie facilement à leurs fourrures de loup et aux violents affrontements auxquels ils participent. Les chevaliers du Loup Blanc sont le plus vaste et le plus vieil ordre de templiers du Vieux Monde, leur création remontant à l'ère de l'Ar-Ulric Wulcan, il y a plus de deux mille ans. Leur cape en peau de loup alliée à leur barbe et à leurs longs cheveux brous-sailleux leur donnent une apparence quelque peu barbare, mais ne vous y trompez pas ; il s'agit d'un ordre militaire très disci-pliné et leur présence lors de la plupart des grandes batailles du Vieux Monde témoigne de leur courage.\nPresque tous les temples d'Urie, de la plus petite chapelle au grand temple de Middenheim, disposent d'au moins un ou. deux Loti ps Blancs. Il existe des chapitres indépendants, mais ils sont rares. Ces importants chapitres abritent plusieurs unités de Loups Blancs, dont le rôle consiste principalement à protéger les intérêts ulricains. Les templiers qui y sont stationnés organisent bien souvent des expéditions militaires> visant à porter le combat chez l'ennemi (en fondant sur un camp orque ou en assiégeant le château d'un nécromancien, par exemple).\nLes chevaliers du Loup Blanc se démarquent aussi bien dans leurs missions quotidiennes que sur le champ de bataille. Ils ne se séparent jamais de leur armure lourde, laquée de noir ou traitée à l'aide d'huiles foncées. Chaque chevalier porte une fourrure de loup sur les épaules. Du reste, leur rite de passage consiste à traquer, à tuer et à dépecer un loup à mains nues pour devenir un membre à part entière de l'ordre.\nLes Loups Blancs combattent sur des chevaux de guerre bardés de rouge et brandissent des marteaux de cavalerie lorsqu'ils chargent (ils n'utilisent donc pas de lances d'arçon). Quand ils sont à pied, ils reportent leur choix sur de gigan-tesques marteaux de guerre à l'aide desquels ils décrivent des arcs de cercle meurtriers. \nLes Loups Blancs sont chargés de protéger les temples et les prêtres d'Ulric de l'Empire et d'ailleurs. Les unités sont envoyées en quête ou en mission, ou encore à la guerre, s'inté-grant alors à l'armée du Middenland ou à une armée de templiers partant en croisade.\nÂgé de 24 ans, Keiner Reizfeld est le plus jeune capi-taine des chevaliers du Loup Blanc, une distinction qui lui vaut l'admiration et la jalousie de ses subor-donnés et rivaux. Keiner est le capitaine de la Compagnie Rouge, l'une des plus prestigieuses compagnies de chevaliers basées au grand temple d'Ulric de Middenheim. Keiner est considéré comme un barbare par les autres capitaines, notam-ment parce qu'il a tendance à ne pas se contrôler au plus fort d'un combat. Cependant, nul ne peut nier qu'il inspire une loyauté sans faille à l'ensemble de ses hommes, les poussant à accomplir des exploits toujours plus grands. Enfin, sans son courage, la liste des pertes de Loups Blancs lors du siège de Middenheim aurait été bien plus longue." },
-          {"id":171,"nom":"L'Ordre du Trône de l'Hiver'","mineur":true,
+          {"id":182,"nom":"L'Ordre du Trône de l'Hiver'","mineur":true,
             "description":"" }
         ],
-        "comment":""},
+        "aptitudes":{"initie":[],"pretre_sans_ordre":[]},
+        "chef":"",
+        "fetes":"",
+        "livres":"",
+        "intro":"",
+        "culte":"",
+        "regles":[],
+        "sectes":[
+          {"nom":"","description":""}
+        ],
+        "dogme":"",
+        "initiation":"",
+        "pretrise":"",
+        "commandements":[
+          "Obéissez aux ordres."
+        ],
+        "cultistes":"",
+        "structure":"",
+        "ambiance":[
+          "«  » — "
+        ],
+        "personnalites":[
+          {"nom":"","description":""}
+        ]
+      },
       
-      {"id":19,"patron":null,"nom":"Verena","domaines":"L'apprentissage et la justice","fideles":"Les scribes, les sorciers Célestes, les magistrats","symboles":"",
-        "histoire":"",
-        "comment":"",
+      {"id":19,"patron":null,"nom":"Verena","siege":null,
+        "domaines":"L'apprentissage et la justice",
+        "fideles":"Les scribes, les sorciers Célestes, les magistrats",
+        "symboles":"",
+        "penitences":"Les pénitences imposées par Verena impliquent normalement la récupération ou la préservation des connaissances, le redressement d'une injustice ou la résolution d'un différend. Les cultistes peuvent aussi être envoyés pour récupérer un livre de Connaissances longtemps oublié, ou pour servir d'intermédiaires dans une querelle difficile. Il peut s'agir d'un conflit frontalier entre agriculteurs ou d'un démêlage de la politique compliquée de deux royaumes au bord de la guerre.",
         "ordres": [
-          {"id":140,"nom":"Les Gardiens des Lois",
+          {"id":191,"nom":"Les Gardiens des Lois",
             "description":"" },
-          {"id":141,"nom":"L'Ordre des Mystères",
+          {"id":192,"nom":"L'Ordre des Mystères",
             "description":"" },
-          {"id":142,"nom":"Les Porteurs de la Balance",
+          {"id":193,"nom":"Les Porteurs de la Balance",
             "description":"" },
-          {"id":143,"nom":"L'Ordre de l'Epée et de la Balance","mineur":true,
+          {"id":194,"nom":"L'Ordre de l'Epée et de la Balance","mineur":true,
             "description":"C'est le plus important des ordres guerriers de Verena. Ses membres se considèrent comme des représentants de la justice. Son principal devoir est de garder les temples et les dignitaires du culte. Ses membres sont parfois affectés à la garde des prisonniers en attente de jugement ou à la sécurité d'un tribunal lors de procès particulièrement houleux.\nLes membres de l'ordre ne sont pas de simples gardes et peuvent être appelés à manier le glaive de la justice. Ils peuvent alors aider les prêtres verenéens à faire respecter leurs édits en les appliquant à la pointe de l'épée ou en combattant les séides des tyrans. En temps de guerre ou de croisade, ils marchent au combat aux côtés des autres ordres de chevalerie." },
-          {"id":144,"nom":"Les Chevaliers du Parchemin","mineur":true,
+          {"id":195,"nom":"Les Chevaliers du Parchemin","mineur":true,
             "description":"C'est le plus important des ordres guerriers de Verena. Ses membres se considèrent comme des représentants de la justice. Son principal devoir est de garder les temples et les dignitaires du culte. Ses membres sont parfois affectés à la garde des prisonniers en attente de jugement ou à la sécurité d'un tribunal lors de procès particulièrement houleux.\nLes membres de l'ordre ne sont pas de simples gardes et peuvent être appelés à manier le glaive de la justice. Ils peuvent alors aider les prêtres verenéens à faire respecter leurs édits en les appliquant à la pointe de l'épée ou en combattant les séides des tyrans. En temps de guerre ou de croisade, ils marchent au combat aux côtés des autres ordres de chevalerie." }
         ],
-        "temples":[{"nom":"Le champ d’Ildebrand","description":"Ildebrand était un répurgateur, connu et craint pour sa propension à exécuter tous ceux qui étaient soupçonnés de commerce avec les Puissances de la Destruction, avec ou sans preuve. Ses procès n’étaient que des parodies de justice. Un jour, il vint à Silberwurt, au Reikland, y dressa son tribunal et reçut presque aussitôt les nombreuses accusations de villageois, manifestement pressés d’affirmer que les moins populaires et les moins puissants d’entre eux pactisaient avec les Puissances de la Ruine.\nLa première accusée fut Bertha, une vieille femme qui vivait seule dans une masure à la sortie du village. Ildebrand énonça les crimes dont elle était accusée, mais n’eut pour toute réponse que des borborygmes de terreur. Il se leva alors et prononça le verdict.\n«Vous n’êtes qu’une vieille femme idiote, pas une hérétique», dit-il à la plus grande surprise de tous, y compris la sienne. «Vous pouvez vous retirer.\nIl poursuivit et acquitta tous les accusés, puis s’intéressa de plus près aux accusateurs, dont l’un se révéla être un adorateur de Khaine, trahi par les objets trouvés chez lui. Ildebrand l’accusa alors d’entrave à la justice et le fit pendre à un arbre.\nLe temple de Verena qui s’y dresse aujourd’hui a été bâti tout autour de la parcelle et de l’arbre dont parle ce récit, mais certains répurgateurs prétendent aujourd’hui encore que toute cette histoire fut l’œuvre des Puissances de la Destruction."}]
+        "temples":[
+          {"nom":"Le champ d’Ildebrand","description":"Ildebrand était un répurgateur, connu et craint pour sa propension à exécuter tous ceux qui étaient soupçonnés de commerce avec les Puissances de la Destruction, avec ou sans preuve. Ses procès n’étaient que des parodies de justice. Un jour, il vint à Silberwurt, au Reikland, y dressa son tribunal et reçut presque aussitôt les nombreuses accusations de villageois, manifestement pressés d’affirmer que les moins populaires et les moins puissants d’entre eux pactisaient avec les Puissances de la Ruine.\nLa première accusée fut Bertha, une vieille femme qui vivait seule dans une masure à la sortie du village. Ildebrand énonça les crimes dont elle était accusée, mais n’eut pour toute réponse que des borborygmes de terreur. Il se leva alors et prononça le verdict.\n«Vous n’êtes qu’une vieille femme idiote, pas une hérétique», dit-il à la plus grande surprise de tous, y compris la sienne. «Vous pouvez vous retirer.\nIl poursuivit et acquitta tous les accusés, puis s’intéressa de plus près aux accusateurs, dont l’un se révéla être un adorateur de Khaine, trahi par les objets trouvés chez lui. Ildebrand l’accusa alors d’entrave à la justice et le fit pendre à un arbre.\nLe temple de Verena qui s’y dresse aujourd’hui a été bâti tout autour de la parcelle et de l’arbre dont parle ce récit, mais certains répurgateurs prétendent aujourd’hui encore que toute cette histoire fut l’œuvre des Puissances de la Destruction."}
+        ],
+        "aptitudes":{"initie":[],"pretre_sans_ordre":[]},
+        "chef":"aucun",
+        "fetes":"",
+        "livres":"",
+        "intro":"",
+        "culte":"",
+        "regles":[],
+        "sectes":[
+          {"nom":"","description":""}
+        ],
+        "dogme":"",
+        "initiation":"",
+        "pretrise":"",
+        "commandements":[
+          "Obéissez aux ordres."
+        ],
+        "cultistes":"",
+        "structure":"",
+        "ambiance":[
+          "«  » — "
+        ],
+        "personnalites":[
+          {"nom":"","description":""}
+        ]
       },
       
       {"id":20,"patron":null,"nom":"Khorne","domaines":"","fideles":"","symboles":"","histoire":"","comment":""},
@@ -306,14 +480,15 @@
       {"id":24,"patron":null,"nom":"Khaine","domaines":"","fideles":"","symboles":"","histoire":"","comment":""},
       {"id":25,"patron":null,"nom":"Stromfels","domaines":"Les mers déchaînées, les ","fideles":"Les pirates, les naufrageurs","symboles":"Un immense requin, trident ensanglanté, un éclair","histoire":"","comment":""},
       
-      {"id":26,"patron":null,"nom":"Haendrik","domaines":"Les marchands, la prospérité, le commerce","fideles":"","symboles":"Disque d'or, poignée de main",
-        "histoire":"",
-        "comment":"",
+      {"id":26,"patron":null,"nom":"Haendrik","siege":null,
+        "domaines":"Les marchands, la prospérité, le commerce",
+        "fideles":"",
+        "symboles":"Disque d'or, poignée de main",
         "temples":[{"nom":"Le grand temple de Haendryk de Marienburg","description":"Marienburg est une cité qui tire sa prospérité de la mer et du commerce, si bien que Haendryk y est aussi important que Manann et y éclipse assurément tous les autres dieux. Le temple de Haendryk situé au port est soutenu par les nantis de la société marienbourgeoise.\nFidèle à la philosophie de son dieu, le temple n’accepte aucun présent et n’offre pas la charité. En revanche, les prêtres disposent en quelque sorte d’échoppes au sein du temple, où ils marchandent auprès des adorateurs le prix de leurs services ou de symboles religieux et de plaques votives.\nLe temple investit également et propose même des prêts à des taux raisonnables, certains prêtres étant spécialisés dans la gestion de crédit. Même les aventuriers peuvent y emprunter de l’argent, bénéficiant d’avances en échange d’une partie des récompenses de leur prochaine entreprise. Subventionner ainsi une expédition permet également de bénéficier de la bénédiction de Haendryk lors du voyage. En revanche, tenter de tromper le dieu mènerait inévitablement à l’échec de la mission en question. Les prêtres sont payés à la commission sur les sommes qu’ils rapportent, leurs promotions au sein de la hiérarchie dépendant également de leurs résultats. Les répurgateurs dénoncent souvent le temple qui, à leurs yeux, vend les places au sein de son ordre. Les Marienbourgois trouvent cela étrange de leur part; après tout, comment le culte de Haendryk pourrait-il fonctionner autrement ?"}]
       },
       
-      {"id":27,"patron":null,"nom":"Ursun","domaines":"","fideles":"","symboles":"","intro":"Ursun est le dieu des ours, aussi appelé le Père des Ours ou Père Ours. Son culte fut à l'origine introduit par les Gospodars, mais les ours font tellement partie de la vie kislevite que la religion fut presque instantanément assimilée. Les ours continuent aujourd'hui encore à faire partie intégrante de la société, et la religion est désormais inséparable de la culture kislevite. Le culte d'Ursun n'est pas une religion d'État comme celui de Sigmar dans l'Empire, mais le destin du Kislev est lié dans bien des esprits aux caprices et à la faveur de Père Ours.\nUrsun est généralement dépeint sous les traits d'un ours des cavernes brun et géant portant parfois une couronne d'or. On le dote souvent de dents ou de griffes d'or, ce qui nous rappelle non seulement qu'Ursun est le roi des animaux, mais aussi que les ours sont des bêtes précieuses. Dans l'oblast, la dépouille d'un ours est une grande richesse pour toute une stanitsa.\nDe temps à autre, Ursun est représenté comme un homme aux larges épaules, bien charpenté, dont les cheveux fous sont striés de blanc. Il porte un pagne et rien d'autre qu'une lance. En tant que dieu sauvage, Ursun n'est pas adoré dans des temples, mais dans des autels en plein air ou des grottes d'ours abandonnées. Dans les villes, de grands jardins ornés de pins, de buissons et de rochers servent de lieux de culte, l'autel se trouvant caché dans une grotte ou une tranchée au centre. Le plus grand de ces jardins se trouve près du palais Bokha de Kislev.","comment":""},
-      {"id":28,"patron":null,"nom":"Dazh","domaines":"","fideles":"","symboles":"","intro":"Quand le monde fut créé, il était plongé dans les ténèbres et les glaces. Dazh s'en rendit compte et prit les hommes en pitié. Il monta sur son magnifique cheval et porta son feu à travers le ciel, faisant don de la lumière au monde. Ensuite, il retourna dans son palais d'or, dans le ciel, pour s'y reposer, car la chevauchée avait été longue et épuisante. Mais il vit que sur la terre en dessous, le peuple avait froid et peur sans son feu. Cependant, il ne pouvait repartir tant que son cheval ne s'était pas reposé. Dazh fit donc cadeau du feu aux hommes afin qu'ils aient en permanence un peu de sa lumière.\nDazh est représenté sous la forme d'un séduisant jeune homme aux cheveux dorés et aux yeux brillants entouré d'une aura de feu. Il est si éblouissant que quiconque le fixe est aveuglé. Par conséquent, quand Dazh a besoin de communiquer, il envoie ses oiseaux de feu ou ses arari pour porter son message Les arari sont de grands esprits du feu qui vivent dans le palais doré de Dazh. Quand ils ne sont pas occupés à le servir, ils dansent souvent, offrant un spectacle chatoyant dans le ciel du nord. \nDazh est le plus bienveillant des dieux du Kislev et celui qui se soucie le plus du bien-être de l'humanité. En retour, il insiste beau-coup pour que les hommes aient un comportement correct. Les adorateurs de Dazh sont les plus dévoués de tous les prêtres kisle-vites et leur religion est la plus organisée.","comment":""},
-      {"id":29,"patron":null,"nom":"Tor","domaines":"","fideles":"","symboles":"","intro":"Ursun est le plus vénéré des dieux du Kislev, mais Tor est le plus omniprésent. Il n'a pas vraiment de culte, ni de jour sacré en particulier, peu de temples, aucun ordre et un seul commandement, mais Tor n'a guère besoin de ce genre de choses. Tor fait partie de la vie. Quand le ciel est ébranlé et que la terre tremble, Tor est là. Quand les éclairs déchirent le ciel, quand le tonnerre gronde, quand les vents se mettent à hurler et que la grêle cingle la terre tel un fouet, Tor est là. Il est le tonnerre qui gronde sous les sabots des bêtes et l'éclair des lames d'acier, car Tor est un dieu de la guerre autant qu'un dieu du ciel. Comme l'essentiel de la vie des Kislevites est composé de batailles et de guerres, Tor est un compa-gnon de tous les instants, et nul porteur de hache ne se jette dans la mêlée sans murmurer une prière à son intention.\nTor est représenté sous la forme d'un puissant guerrier à la mâchoire carrée faisant jouer ses puissants muscles. Il porte une hache gigantesque au manche en bois de chêne et à l'immense lame argentée. C'est cette arme qu'il abat sur le sol pour créer les éclairs et le tonnerre et pour donner du courage à ses fidèles. Tor est aussi le dieu du courage et celui de la résistance stoïque face aux épreuves, qu'il s'agisse d'essuyer une furieuse tempête ou la charge d'un démon du Chaos.","comment":""}
+      {"id":27,"patron":null,"nom":"Ursun","domaines":"","fideles":"","symboles":"","intro":"Ursun est le dieu des ours, aussi appelé le Père des Ours ou Père Ours. Son culte fut à l'origine introduit par les Gospodars, mais les ours font tellement partie de la vie kislevite que la religion fut presque instantanément assimilée. Les ours continuent aujourd'hui encore à faire partie intégrante de la société, et la religion est désormais inséparable de la culture kislevite. Le culte d'Ursun n'est pas une religion d'État comme celui de Sigmar dans l'Empire, mais le destin du Kislev est lié dans bien des esprits aux caprices et à la faveur de Père Ours.\nUrsun est généralement dépeint sous les traits d'un ours des cavernes brun et géant portant parfois une couronne d'or. On le dote souvent de dents ou de griffes d'or, ce qui nous rappelle non seulement qu'Ursun est le roi des animaux, mais aussi que les ours sont des bêtes précieuses. Dans l'oblast, la dépouille d'un ours est une grande richesse pour toute une stanitsa.\nDe temps à autre, Ursun est représenté comme un homme aux larges épaules, bien charpenté, dont les cheveux fous sont striés de blanc. Il porte un pagne et rien d'autre qu'une lance. En tant que dieu sauvage, Ursun n'est pas adoré dans des temples, mais dans des autels en plein air ou des grottes d'ours abandonnées. Dans les villes, de grands jardins ornés de pins, de buissons et de rochers servent de lieux de culte, l'autel se trouvant caché dans une grotte ou une tranchée au centre. Le plus grand de ces jardins se trouve près du palais Bokha de Kislev."},
+      {"id":28,"patron":null,"nom":"Dazh","domaines":"","fideles":"","symboles":"","intro":"Quand le monde fut créé, il était plongé dans les ténèbres et les glaces. Dazh s'en rendit compte et prit les hommes en pitié. Il monta sur son magnifique cheval et porta son feu à travers le ciel, faisant don de la lumière au monde. Ensuite, il retourna dans son palais d'or, dans le ciel, pour s'y reposer, car la chevauchée avait été longue et épuisante. Mais il vit que sur la terre en dessous, le peuple avait froid et peur sans son feu. Cependant, il ne pouvait repartir tant que son cheval ne s'était pas reposé. Dazh fit donc cadeau du feu aux hommes afin qu'ils aient en permanence un peu de sa lumière.\nDazh est représenté sous la forme d'un séduisant jeune homme aux cheveux dorés et aux yeux brillants entouré d'une aura de feu. Il est si éblouissant que quiconque le fixe est aveuglé. Par conséquent, quand Dazh a besoin de communiquer, il envoie ses oiseaux de feu ou ses arari pour porter son message Les arari sont de grands esprits du feu qui vivent dans le palais doré de Dazh. Quand ils ne sont pas occupés à le servir, ils dansent souvent, offrant un spectacle chatoyant dans le ciel du nord. \nDazh est le plus bienveillant des dieux du Kislev et celui qui se soucie le plus du bien-être de l'humanité. En retour, il insiste beau-coup pour que les hommes aient un comportement correct. Les adorateurs de Dazh sont les plus dévoués de tous les prêtres kisle-vites et leur religion est la plus organisée."},
+      {"id":29,"patron":null,"nom":"Tor","domaines":"","fideles":"","symboles":"","intro":"Ursun est le plus vénéré des dieux du Kislev, mais Tor est le plus omniprésent. Il n'a pas vraiment de culte, ni de jour sacré en particulier, peu de temples, aucun ordre et un seul commandement, mais Tor n'a guère besoin de ce genre de choses. Tor fait partie de la vie. Quand le ciel est ébranlé et que la terre tremble, Tor est là. Quand les éclairs déchirent le ciel, quand le tonnerre gronde, quand les vents se mettent à hurler et que la grêle cingle la terre tel un fouet, Tor est là. Il est le tonnerre qui gronde sous les sabots des bêtes et l'éclair des lames d'acier, car Tor est un dieu de la guerre autant qu'un dieu du ciel. Comme l'essentiel de la vie des Kislevites est composé de batailles et de guerres, Tor est un compa-gnon de tous les instants, et nul porteur de hache ne se jette dans la mêlée sans murmurer une prière à son intention.\nTor est représenté sous la forme d'un puissant guerrier à la mâchoire carrée faisant jouer ses puissants muscles. Il porte une hache gigantesque au manche en bois de chêne et à l'immense lame argentée. C'est cette arme qu'il abat sur le sol pour créer les éclairs et le tonnerre et pour donner du courage à ses fidèles. Tor est aussi le dieu du courage et celui de la résistance stoïque face aux épreuves, qu'il s'agisse d'essuyer une furieuse tempête ou la charge d'un démon du Chaos."}
     ]
 }
