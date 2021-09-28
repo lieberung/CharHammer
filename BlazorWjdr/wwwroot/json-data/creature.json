@@ -6,7 +6,7 @@
 {"id":4,"profil_actuel":137,"user":7,"race":27,"nom":"Yorek","sexe":1,"histoire":"Garde du corps de Dame Isolde","description":"","origines":[79],"membrede":[1],"poids":63,"taille":135,"age":105,"aptitudes":[1034,1048,1075,1096,1133,1136,1026,1053,1053,1042,1610,1607,2032,2070,2074,2078,2014,2019,2085,3903,3906,3012,3013,3017]},
 {"id":5,"profil_actuel":210,"user":1,"race":46,"nom":"Dankred","sexe":1,"histoire":"Parmi les rares survivants d'une des batailles clef de la Tempête du Chaos.","description":"","origines":[95],"membrede":[2],"poids":65,"taille":175,"age":24,"aptitudes":[1092,1092,1008,1010,1034,1115,1136,1042,1614,2070,2027,3018,3019,3021,3169]},
 {"id":9,"profil_actuel":10,"race":2,"nom":"Killian Yorul","sexe":1,"poids":83,"taille":162,"age":37,
-  "histoire":"","description":"","psycho":"",
+  "histoire":"","description":"",
   "aptitudes":[],
   "date_creation":null,"user":8,"membrede":[3],"mort":true,"epitaph":"Saloperie de trolls","last_words":"J'ai le cerveau en compote !"},
 {"id":10,"profil_actuel":221,"user":8,"race":2,"nom":"Klanyss Istrian","sexe":1,"histoire":"La main poisseuse, mi-guerrier mi-ours. Grandes oreilles, petite taille, carrure imposante, mégalomane.","description":"","membrede":[3],"poids":83,"taille":162,"age":37,"aptitudes":[1092,1136,1010,1020,1007,1155,1019,1047,1087,1087,1005,1012,1125,1050,1049,1055,1048,1032,2002,2005,2021,3731,3012,3013,3015,3021]},
@@ -27,6 +27,6 @@
 {"id":25,"profil_actuel":245,"user":0,"race":59,"nom":"Loup","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,1048,1049,2080,3904]},
 {"id":26,"profil_actuel":246,"user":0,"race":60,"nom":"Ours brun","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,2020,2021,2080,2091,3904]},
 {"id":27,"profil_actuel":260,"user":1,"race":25,"nom":"Dolwen","sexe":1,"description":"","membrede":[1],"poids":59,"taille":175,"age":50,"aptitudes":[]},
-{"id":28,"profil_actuel":329,"user":0,"race":1,"nom":"Marchand type","sexe":1,"histoire":"","description":"","membrede":[],"poids":72,"taille":169,"age":50,"psycho":"","aptitudes":[1092,1092,1158,1012,1027,1032,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019]}
+{"id":28,"profil_actuel":329,"user":0,"race":1,"nom":"Marchand type","sexe":1,"histoire":"","description":"","membrede":[],"poids":72,"taille":169,"age":50,"aptitudes":[1092,1092,1158,1012,1027,1032,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019]}
   ]
 }
