@@ -9,7 +9,7 @@
         ["94-97","4%" ,"Nain"         ,"100 xp"],
         ["98"   ,"1%" ,"Gnôme"        ,"200 xp"],
         ["99"   ,"1%" ,"Elfe sylvain" ,"200 xp"],
-        ["100"  ,"1%" ,"Mutant"       ,"NA"]
+        ["100"  ,"1%" ,"Haut elfe"    ,"200 xp"]
       ]
     },
     {"id":11,"titre":"Détermination des caractéristiques",
@@ -159,14 +159,14 @@
       "description": "Si la promotion n'est pas comprise dans votre profil de carrière, le coup en xp est doublé.",
       "lignes":[
         ["Promotion","Caractéristique"],
-        ["+5%","50 xp"],
-        ["+10%","100 xp"],
-        ["+15%","150 xp"],
-        ["+20%","200 xp"],
-        ["+25%","250 xp"],
-        ["+30%","300 xp"],
-        ["+35%","350 xp"],
-        ["+40%","400 xp"]
+        ["+5%" ,"100 xp"],
+        ["+10%","150 xp"],
+        ["+15%","200 xp"],
+        ["+20%","250 xp"],
+        ["+25%","300 xp"],
+        ["+30%","350 xp"],
+        ["+35%","400 xp"],
+        ["+40%","450 xp"]
       ]
     },
     {"id":21,"titre":"Dépenser ses XP (points d'expérience)",
