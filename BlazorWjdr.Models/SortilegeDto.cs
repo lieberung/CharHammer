@@ -12,6 +12,7 @@ namespace BlazorWjdr.Models
         public string Distance { get; init; } = null!;
         public string Cible { get; init; } = null!;
         public string Duree { get; init; } = null!;
+        public string? Ingredient { get; init; }
         public string Effet { get; init; } = null!;
         public int? NS { get; init; }
     }

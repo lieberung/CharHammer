@@ -5,10 +5,17 @@
     {
         <li><strong>@Item.Type</strong></li>
     }
-    <li><strong>NS</strong> : @Item.NS</li>
+    @if (Item.NS != null)
+    {
+        <li><strong>NS</strong> : @Item.NS</li>
+    }
     <li><strong>Cibles</strong> : @Item.Cible</li>
     <li><strong>Distance</strong> : @Item.Distance</li>
     <li><strong>Durée</strong> : @Item.Duree</li>
+    @if (!string.IsNullOrWhiteSpace(Item.Ingredient))
+    {
+        <li><strong>Ingrédient</strong> : @Item.Ingredient</li>
+    }
 </ul>
 <p class="card-text" style="max-height:400px; scroll-behavior:auto;">
     @Item.Effet

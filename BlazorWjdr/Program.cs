@@ -71,6 +71,7 @@ namespace BlazorWjdr
                     Cible = i.cible,
                     Distance = i.distance,
                     Duree = i.duree,
+                    Ingredient = i.ingredient,
                     Effet = i.effet,
                     Nom = i.nom,
                     Type = i.type,

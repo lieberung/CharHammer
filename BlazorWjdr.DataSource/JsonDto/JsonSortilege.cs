@@ -13,6 +13,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string distance { get; set; } = null!;
         public string cible { get; set; } = null!;
         public string duree { get; set; } = null!;
+        public string? ingredient { get; set; }
         public string effet { get; set; } = null!;
         public int? ns { get; set; }
     }
