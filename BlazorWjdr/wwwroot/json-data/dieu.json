@@ -470,7 +470,7 @@
           {"id":183,"nom":"L'Ordre du Loup Hurlant","mineur":true,"aptitudes":[1612,2030,1034],
             "description":"" }
         ],
-        "aptitudes":{"initie":[2021],"pretre_sans_ordre":[1034,2030,1612]},
+        "aptitudes":{"initie":[2245],"pretre_sans_ordre":[1034,2030,1612]},
         "chef":"L’Ar-Ulric Emil Valgeir",
         "fetes":"Fin de la saison des campagnes (les Racines dormantes), Hochwinter (le Monde assoupi), Début de la saison des campagnes (la Montée de sève).",
         "livres":"Liber Lupus, le Teutognengeschichte, Le Credo d’Ulric",
