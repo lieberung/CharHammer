@@ -188,7 +188,7 @@
         ["Choisir une carrière parmi ses débouchés","100 xp","gratuit si carrière actuelle complétée"]
       ]
     },
-    {"id":25,"titre":"Lieu de naissance (Elfes)",
+    {"id":25,"titre":"Lieu de naissance (Elfes sylvains)",
       "description": "",
       "lignes":[
         ["d100","Lieu de naissance"],

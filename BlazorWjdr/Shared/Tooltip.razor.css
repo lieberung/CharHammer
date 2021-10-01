@@ -12,6 +12,8 @@ span {
     bottom: 180%;
     left: 50%;
     margin-left: -180px;
+    letter-spacing: -1px;
+    line-height: 1.1em;
     background-color: #363636;
     color: #fff;
     text-align: justify;
