@@ -39,7 +39,7 @@
             _hrefBase = "traits";
             _oiIcon = "droplet";
             _itemName = Item.Nom;
-            _toolTipText = Item.ResumeComplet;
+            _toolTipText = string.IsNullOrWhiteSpace(Item.ResumeComplet) ? Item.Description : Item.ResumeComplet;
         }
         
         base.OnParametersSet();
