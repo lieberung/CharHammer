@@ -30,6 +30,6 @@
 {"id":26,"profil_actuel":246,"user":0,"race":60,"nom":"Ours brun","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,2020,2021,2080,2091,3904]},
 {"id":27,"profil_actuel":260,"user":1,"race":25,"nom":"Dolwen","sexe":1,"description":"","membrede":[1],"poids":59,"taille":175,"age":50,"aptitudes":[]},
 {"id":28,"profil_actuel":329,"user":0,"race":1,"nom":"Marchand type","sexe":1,"histoire":"","description":"","membrede":[],"poids":72,"taille":169,"age":50,"aptitudes":[1092,1092,1158,1012,1027,1032,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019]},
-{"id":7,"profil_actuel":6,"user":8,"race":2,"nom":"Bernard Dupond","sexe":1,"histoire":"","description":"","membrede":[3],"poids":83,"taille":162,"age":37,"aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146]}
+{"id":7,"profil_actuel":6,"user":8,"race":2,"nom":"Bernhard Dupond","sexe":1,"histoire":"","description":"","membrede":[3],"poids":83,"taille":162,"age":37,"aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146]}
   ]
 }
