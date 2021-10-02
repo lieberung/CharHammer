@@ -5,6 +5,8 @@
 {"id":3,"profil_actuel":136,"user":6,"race":46,"nom":"Tatalia","sexe":2,"histoire":"Collègue de Rolf Hurtsis","description":"","origines":[92],"membrede":[1],"poids":70,"taille":163,"age":25,"aptitudes":[1019,1024,1027,1032,1042,1046,1047,1048,1048,1055,1079,1089,1092,1016,1136,2007,2011,2016,2081,2082]},
 {"id":4,"profil_actuel":137,"user":7,"race":27,"nom":"Yorek","sexe":1,"histoire":"Garde du corps de Dame Isolde","description":"","origines":[79],"membrede":[1],"poids":63,"taille":135,"age":105,"aptitudes":[1034,1048,1075,1096,1133,1136,1026,1053,1053,1042,1610,1607,2032,2070,2074,2078,2014,2019,2085,3903,3906,3012,3013,3017]},
 {"id":5,"profil_actuel":210,"user":1,"race":46,"nom":"Dankred","sexe":1,"histoire":"Parmi les rares survivants d'une des batailles clef de la Tempête du Chaos.","description":"","origines":[95],"membrede":[2],"poids":65,"taille":175,"age":24,"aptitudes":[1092,1092,1008,1010,1034,1115,1136,1042,1614,2070,2027,3018,3019,3021,3169]},
+{"id":6,"profil_actuel":365,"user":0,"race":57,"nom":"Goule de crypte","sexe":1,"description":"","origines":[],"membrede":[4],
+  "aptitudes":[3903,4000,4000,4000,4000,4000,4000]},
 {"id":9,"profil_actuel":10,"race":2,"nom":"Killian Yorul","sexe":1,"poids":83,"taille":162,"age":37,
   "histoire":"","description":"",
   "aptitudes":[],

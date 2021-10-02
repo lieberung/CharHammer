@@ -227,7 +227,7 @@
     {"id":448,"groupes":["Herbes","Drogues"],"nom":"Herbe à pipe des halflings","prix":"1/-","enc":"0","dispo":"Commun","addiction":1,"lieux":[33],
       "description":""},
     
-    {"id":460,"groupes":["Herbes","Drogues"],"nom":"Belladone","prix":"3 co","enc":"0","dispo":"Rare",
+    {"id":460,"groupes":["Herbes","Drogues","Poisons"],"nom":"Belladone","prix":"3 co","enc":"0","dispo":"Rare",
       "description":"La consommation de cette herbe fait tomber la victime dans un sommeil profond après 2-3 heures, à moins qu'un Test de Résistance soit passé avec succès. Un sommeil induit par la belladone dure 1d10+4 heures. Dose : 1 par personne."},
 
     {"id":461,"groupes":["Potions"],"nom":"Cataplasme de soins","prix":"12/-","enc":"0","dispo":"Commun",
