@@ -10,10 +10,12 @@ namespace BlazorWjdr.Models
         public bool EstUnPersonnageJoueur { get; init; }
         
         public ProfilDto ProfilActuel { get; init; } = null!;
+        
         public int Userid { get; init; }
         public string Nom { get; init; } = null!;
         public string Histoire { get; init; } = null!;
-        public string Commentaire { get; init; } = "";
+        public string Description { get; init; } = null!;
+        public string Notes { get; init; } = "";
         
         public AptitudeAcquise[] AptitudesAcquises { get; init; } = null!;
         
@@ -44,11 +46,11 @@ namespace BlazorWjdr.Models
         public CarriereDto? CarriereActuelle => CheminementPro.LastOrDefault();
         
         // PJ
-        public System.DateTime? DateDeCreation { get; set; }
+        public string DateDeCreation { get; init; } = null!;
         public string Joueur { get; set; } = null!;
         public int XpActuel { get; set; }
         public int XpTotal { get; set; }
-        public ProfilDto? ProfilInitial { get; set; }
+        public ProfilDto? ProfilInitial { get; init; }
 
         // ToDo : gérer les gabarits et Dur à cuir
         public int Blessures
@@ -61,13 +63,22 @@ namespace BlazorWjdr.Models
             }
         }
 
-        public string BlessuresCalcul
+        public string BlessuresCalculDetail
         {
             get
             {
                 if (Race.Id == 26) // Halfling
-                    return $"(2xBE)+BFM  =>  (2x{ProfilActuel.Be})+{ProfilActuel.Bfm}";
-                return $"BF+(2xBE)+BFM  =>  {ProfilActuel.Bf}+(2x{ProfilActuel.Be})+{ProfilActuel.Bfm}";
+                    return $"(2x{ProfilActuel.Be})+{ProfilActuel.Bfm}";
+                return $"{ProfilActuel.Bf}+(2x{ProfilActuel.Be})+{ProfilActuel.Bfm}";
+            }
+        }
+        public string BlessuresCalculFormule
+        {
+            get
+            {
+                if (Race.Id == 26) // Halfling
+                    return $"(2xBE)+BFM";
+                return $"BF+(2xBE)+BFM";
             }
         }
 

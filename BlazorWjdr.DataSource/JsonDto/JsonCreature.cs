@@ -25,24 +25,18 @@ namespace BlazorWjdr.DataSource.JsonDto
         
         public string? histoire { get; set; }
         public string? description { get; set; }
+        public string? notes { get; set; }
         public string? psycho { get; set; }
 
-        [JsonIgnore]
-        public int[]? competences { get; set; }
-        [JsonIgnore]
-        public int[]? talents { get; set; }
-        [JsonIgnore]
-        public int[]? traits { get; set; }
-        
-        public System.DateTime? date_creation { get; set; }
+        public string? date_creation { get; set; }
         public string? nom_joueur { get; set; } = null!;
         public int xp_actuel { get; set; }
         public int xp_total { get; set; }
-        public int? fk_profilinitialid { get; set; }
+        public int? profil_initial { get; set; }
         
-        public int[]? fk_cheminprofess { get; set; }
-        public int? fk_carrierepereid { get; set; }
-        public int? fk_carrieremereid { get; set; }
+        public int[]? cheminement { get; set; }
+        public int? carriere_du_pere { get; set; }
+        public int? carriere_de_la_mere { get; set; }
         public int? fk_signeastralid { get; set; }
         public string? freres_et_soeurs { get; set; }
         public int? main_directrice { get; set; }

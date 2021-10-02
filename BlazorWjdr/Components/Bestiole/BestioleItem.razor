@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Models
-<a href="bestioles/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="creatures/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <span class="oi oi-@(Item.EstUnPersonnage ? "person" : "bug") item-icon mr-1" aria-hidden="true"></span>
     <span>@Item.Nom</span>
     @if (Item.CheminementPro.Any())
@@ -11,9 +11,9 @@
     {
         <em class="ml-2">(@Item.Joueur)</em>
     }
-    @if (!string.IsNullOrWhiteSpace(@Item.Commentaire))
+    @if (!string.IsNullOrWhiteSpace(@Item.Notes))
     {
-        <Tooltip Text="@Item.Commentaire">
+        <Tooltip Text="@Item.Notes">
             <span class="oi oi-info ml-2" style="color:#aa0101" aria-hidden="true"></span>
         </Tooltip>
     }

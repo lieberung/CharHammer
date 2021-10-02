@@ -1,0 +1,120 @@
+﻿@page "/creatures/{CreatureId}/"
+
+@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Components.Lieu
+@using BlazorWjdr.Services
+@using Models
+
+@inject BestiolesService _bestiolesService
+
+<MainTopRow>
+    @if (Item!.DateDeCreation != "")
+    {
+        <em>Créé le @Item.DateDeCreation</em> 
+    }
+</MainTopRow>
+
+<div class="content px-4">
+    <div class="_container">
+
+        <div class="row">
+
+            <div class="col-6">
+
+                <div class="card-body">
+                    <h1 class="card-title" style="font-size: xxx-large;">@Item!.Nom</h1>
+                    @if (Item.Origines.Any())
+                    {
+                        <em>Origines :&nbsp;</em>
+                        @foreach (var lieu in Item.Origines)
+                        {
+                            <span class="ml-2"><LieuItem Item="@lieu"/></span>
+                        }
+                    }
+                    <br/>
+                    <em>Age :&nbsp;</em><span>@Item.Age ans</span>
+                    @if (Item.EstUnPersonnageJoueur)
+                    {
+                        <br/>
+                        <em>Expérience actuelle :&nbsp;</em>
+                        <span>@Item.XpActuel xp</span>
+                        <br/>
+                        <em>Expérience totale :&nbsp;</em>
+                        <span>@Item.XpTotal xp</span>
+                    }
+                </div>                
+                <div class="card-body">
+                    <BestioleFiche Item="@Item"/>
+                </div>
+
+            </div>
+
+            <div class="col-6">
+                @if (Item.Histoire != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Histoire</h3>
+                        <CardParagraphes Text="@Item.Histoire"/>
+                    </div>
+                }
+                
+                <div class="card-body">
+                    <h4 class="card-title">Famille</h4>
+                    <ul>
+                        @if (Item.CarriereDuPere != null)
+                        {
+                            <li>Père : @Item.CarriereDuPere.Nom</li>
+                        }
+                        @if (Item.CarriereDeLaMere != null)
+                        {
+                            <li>Mère : @Item.CarriereDeLaMere.Nom</li>
+                        }
+                        @if (Item.FreresEtSoeurs != "")
+                        {
+                            <li>Frères et soeurs : @Item.FreresEtSoeurs</li>
+                        }                    
+                    </ul>
+                </div>
+                
+                @if (Item.Description != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Description</h3>
+                        <CardParagraphes Text="@Item.Description"/>
+                    </div>
+                }
+                
+                <div class="card-body">
+                    <h4 class="card-title">Apparence</h4>
+                    <ul>          
+                        <li>Poids : @Item.Poids kg</li>                        
+                        <li>Taille : @Item.Taille</li>                        
+                        <li>Cheveux : @Item.Cheveux</li>                        
+                        <li>Yeux : @Item.Yeux</li>                        
+                    </ul>
+                </div>
+                
+                @if (Item.Notes != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Commentaires</h3>
+                        <CardParagraphes Text="@Item.Notes"/>
+                    </div>
+                }                  
+                </div>
+        </div>
+    </div>
+</div>
+@code{
+    [Parameter]
+    public string CreatureId { get; set; } = null!;
+    
+    private BestioleDto? Item { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Item = _bestiolesService.GetBestiole(int.Parse(CreatureId));
+        base.OnParametersSet();
+    }
+
+}

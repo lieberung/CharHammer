@@ -129,13 +129,15 @@ namespace BlazorWjdr
                 .Select(c => new BestioleDto
                 {
                     Id = c.id,
-                    EstUnPersonnage = (c.fk_cheminprofess ?? Array.Empty<int>()).Any(),
-                    EstUnPersonnageJoueur = !string.IsNullOrWhiteSpace(c.nom_joueur),
+                    EstUnPersonnage = (c.cheminement ?? Array.Empty<int>()).Any(),
+                    EstUnPersonnageJoueur = c.user != 0 || !string.IsNullOrWhiteSpace(c.nom_joueur),
                     Userid = c.user,
                     MembreDe = c.membrede,
                     Age = c.age,
-                    Commentaire = c.description ?? string.Empty,
+                    DateDeCreation = c.date_creation ?? "",
+                    Notes = c.notes ?? string.Empty,
                     Histoire = c.histoire ?? string.Empty,
+                    Description = c.description ?? string.Empty,
                     Nom = c.nom,
                     Poids = c.poids,
                     Psychologie = c.psycho ?? "",
@@ -143,6 +145,7 @@ namespace BlazorWjdr
                     Sexe = c.sexe ?? -1,
                     Taille = c.taille,
                     ProfilActuel = profils[c.profil_actuel],
+                    ProfilInitial = c.profil_initial.HasValue ? profils[c.profil_initial.Value] : null,
                     AptitudesAcquises = AptitudeAcquise.GetList(c.aptitudes.Select(id => aptitudes[id]).ToArray()),
                     Origines = (c.origines ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                     // Personnage
@@ -152,13 +155,11 @@ namespace BlazorWjdr
                     FreresEtSoeurs = c.freres_et_soeurs,
                     MainDirectrice = c.main_directrice ?? -1,
                     Mort = c.mort,
-                    CarriereDuPere = c.fk_carrierepereid.HasValue ? carrieres[c.fk_carrierepereid.Value] : null,
-                    CarriereDeLaMere = c.fk_carrieremereid.HasValue ? carrieres[c.fk_carrieremereid.Value] : null,
+                    CarriereDuPere = c.carriere_du_pere.HasValue ? carrieres[c.carriere_du_pere.Value] : null,
+                    CarriereDeLaMere = c.carriere_de_la_mere.HasValue ? carrieres[c.carriere_de_la_mere.Value] : null,
                     // PJ
                     Joueur = c.nom_joueur ?? "",
-                    CheminementPro = c.fk_cheminprofess != null ? c.fk_cheminprofess!.Select(id => carrieres[id]).ToArray() : Array.Empty<CarriereDto>(),
-
-                    ProfilInitial = c.fk_profilinitialid.HasValue ? profils[c.fk_profilinitialid.Value] : null,
+                    CheminementPro = c.cheminement != null ? c.cheminement!.Select(id => carrieres[id]).ToArray() : Array.Empty<CarriereDto>(),
                     XpActuel = c.xp_actuel,
                     XpTotal = c.xp_total
                 })
