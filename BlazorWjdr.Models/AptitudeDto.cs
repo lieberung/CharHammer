@@ -111,7 +111,17 @@
             ? $"[{Aptitude.CaracteristiqueAssociee}] {Aptitude.Resume}"
             : Aptitude.Resume;
         public string Icon => Aptitude.EstUneCompetence ? "target" : Aptitude.EstUnTalent ? "brush" : Aptitude.EstUnTrait ? "droplet" : "error";
-        public string Detail => $"{Aptitude.Nom} (+{Niveau * 5}%)";
+        public string Detail
+        {
+            get
+            {
+                if (Aptitude.EstUneCompetence)
+                    return $"{Aptitude.Nom} (+{Niveau * 5}%)";
+                
+                var niveau = Niveau == 1 ? "" : $" (n{Niveau})";
+                return $"{Aptitude.Nom}{niveau}";
+            }
+        }
 
         public static AptitudeAcquise[] GetList(IEnumerable<AptitudeDto> aptitudes)
         {

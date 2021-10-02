@@ -11,7 +11,7 @@
 {"id":18,"titre":"Traits raciaux - Halflings","regle":"Un personnage halfling reçoit les compétences et les talents ci-dessous, ainsi qu'un talent aléatoire supplémentaire sur la table concernée.",
   "aptitudes":[1010,1106,1094,1132,1136,1608,2071,3831,3903,1008,1051,1026,1035,1043,1210,1048,1025,1020],"aptitudes_choix":[[1068,1074]]},
 {"id":19,"titre":"Traits raciaux - Empire (humains)","regle":"Un personnage humain reçoit les compétences ci dessous, ainsi que deux talents aléatoires supplémentaires sur la table concernée.",
-  "aptitudes":[1010,1092,1136,1054,1008,1219,1027,1043,1129,1226,1618,1615,3917,2203],"aptitudes_choix":[[2017,3019]],"lieux":[2]},
+  "aptitudes":[1010,1092,1136,1054,1008,1219,1027,1043,1129,1226,1618,1615,3917,2203],"aptitudes_choix":[[3017,3019]],"lieux":[2]},
 {"id":20,"titre":"Traits raciaux - Nains","regle":"Un personnage nain reçoit les compétences, talents et traits suivants :",
   "aptitudes":[1096,1133,1136,2070,2074,3800,3701,3903,3906,1051,1219,1220,1123,1027,1034,1040,1224,1618],"aptitudes_choix":[[1042,2249],[2245,2078],[3906,3018],[1075,1077,1080]]},
 {"id":21,"titre":"Traits raciaux - Mutants (humains)","regle":"Un personnage humain mutant commence avec 1 point de folie et doit tirer une mutation aléatoire dans la table concernée. Si le résultat ne lui plait pas il peut dépenser un point de destin pour tirer une nouvelle mutation aléatoire qu'il est obligé d'accepter.\nEnfin, il reçoit les compétences ci dessous, ainsi que deux talents aléatoires supplémentaires sur la table concernée.",
