@@ -1,0 +1,7 @@
+﻿@using BlazorWjdr.Models
+
+<strong>Blessures :</strong> @Item.Blessures <em class="ml-3" style="color:#495057;">@Item.BlessuresCalcul</em>
+@code{
+    [Parameter]
+    public BestioleDto Item { get; set; } = null!;
+}

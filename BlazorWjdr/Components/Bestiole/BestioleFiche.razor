@@ -2,6 +2,10 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Profil
+@using BlazorWjdr.Services
+@using System.ComponentModel.Design
+
+@inject RacesService _racesService
 
 <h6 class="card-title">Plan de carrière</h6>
 <p>
@@ -13,7 +17,7 @@
     }
 </p>
 <p class="card-text">
-    <strong>Blessures :</strong> @Item.Blessures <em class="ml-1">@Item.ProfilActuel.Bf + (2 x @Item.ProfilActuel.Be) + @Item.ProfilActuel.Bfm</em>
+    <Blessures Item="@Item"/>
 </p>
 
 @if (Item.Competences.Any())

@@ -51,8 +51,26 @@ namespace BlazorWjdr.Models
         public ProfilDto? ProfilInitial { get; set; }
 
         // ToDo : gérer les gabarits et Dur à cuir
-        public int Blessures => ProfilActuel.Bf + (2 * ProfilActuel.Be) + ProfilActuel.Bfm; 
-        
+        public int Blessures
+        {
+            get
+            {
+                if (Race.Id == 26) // Halfling
+                    return (2 * ProfilActuel.Be) + ProfilActuel.Bfm;
+                return ProfilActuel.Bf + (2 * ProfilActuel.Be) + ProfilActuel.Bfm;
+            }
+        }
+
+        public string BlessuresCalcul
+        {
+            get
+            {
+                if (Race.Id == 26) // Halfling
+                    return $"(2xBE)+BFM  =>  (2x{ProfilActuel.Be})+{ProfilActuel.Bfm}";
+                return $"BF+(2xBE)+BFM  =>  {ProfilActuel.Bf}+(2x{ProfilActuel.Be})+{ProfilActuel.Bfm}";
+            }
+        }
+
         public string Equipement
         {
             get
