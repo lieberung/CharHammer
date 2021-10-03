@@ -7,9 +7,9 @@
         ["01-89","89%","Humain"       ,"50 xp"],
         ["90-93","4%" ,"Halfling"     ,"100 xp"],
         ["94-97","4%" ,"Nain"         ,"100 xp"],
-        ["98"   ,"1%" ,"Gnôme"        ,"200 xp"],
-        ["99"   ,"1%" ,"Elfe sylvain" ,"200 xp"],
-        ["100"  ,"1%" ,"Haut elfe"    ,"200 xp"]
+        ["98"   ,"1%" ,"Elfe sylvain" ,"200 xp"],
+        ["99"   ,"1%" ,"Haut elfe"    ,"200 xp"],
+        ["100"  ,"1%" ,"Gnôme"        ,"200 xp"]
       ]
     },
     {"id":11,"titre":"Détermination des caractéristiques",
@@ -244,6 +244,17 @@
         ["81-90","Zhufbar (Montagnes du Bord du Monde)"],
         ["91-00","Barak Var (Golfe Noir)"]
         
+      ]
+    },
+    {"id":30,"titre":"Lieu de naissance (Hauts elfes)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-15","Cité de Marienburg"],
+        ["16-20","Ville de Carroburg"],
+        ["21-35","Cité d'Altdorf"],
+        ["36-45","Cité de Nuln"],
+        ["46-00","Ulthuan"]
       ]
     },
     {"id":50,"titre":"Marchand : Traits aléatoires",
