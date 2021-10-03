@@ -2,7 +2,6 @@
   "items": [
     {"race":1,"carriere":115,"facteur":2},
     {"race":1,"carriere":116,"facteur":2},
-    {"race":1,"carriere":125,"facteur":2},
     {"race":1,"carriere":126,"facteur":2},
     {"race":1,"carriere":127,"facteur":2},
     {"race":1,"carriere":128,"facteur":2},
@@ -153,7 +152,6 @@
     {"race":26,"carriere":83,"facteur":5},
     {"race":26,"carriere":88,"facteur":3},
     
-    {"race":27,"carriere":125,"facteur":3},
     {"race":27,"carriere":127,"facteur":3},
     {"race":27,"carriere":139,"facteur":2},
     {"race":27,"carriere":140,"facteur":2},
