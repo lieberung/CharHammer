@@ -36,7 +36,7 @@ namespace BlazorWjdr
             var dataArmes = InitializeArmes(data.Armes!.items, dataArmesAttributs, dataAptitudes);
             var dataArmures = InitializeArmures(data.Armures!.items, dataArmesAttributs);
             var dataSortileges = InitializeSortileges(data.Sortileges!.items, dataAptitudes);
-            var dataRaces = InitializeRaces(data.Races!.items, dataLieux);
+            var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataProfils, dataAptitudes, dataLieux, dataCarrieres);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
@@ -198,6 +198,7 @@ namespace BlazorWjdr
         }
 
         private static Dictionary<int, RaceDto> InitializeRaces(IEnumerable<JsonRace> items,
+            IReadOnlyDictionary<int, AptitudeDto> aptitudes,
             IReadOnlyDictionary<int, LieuDto> lieux)
         {
             var cache = items
@@ -205,7 +206,8 @@ namespace BlazorWjdr
                 {
                     Id = r.id,
                     Description = r.description,
-                    Lieux = (r.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    Aptitudes = (r.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToArray(),
+                    Lieux = (r.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).OrderBy(l => l.Nom).ToArray(),
                     GroupOnly = r.group_only,
                     NomFeminin = r.nom_feminin??"",
                     NomMasculin = r.nom_masculin,
@@ -614,7 +616,8 @@ namespace BlazorWjdr
 
         private static List<AptitudeDto> GetAptitudes(int[]? argAptitudes, IReadOnlyDictionary<int, AptitudeDto> cacheAptitudes)
         {
-            return argAptitudes == null ? new List<AptitudeDto>() : argAptitudes.Select(id => cacheAptitudes[id]).ToList();
+            return argAptitudes == null ? new List<AptitudeDto>()
+                : argAptitudes.Select(id => cacheAptitudes[id]).OrderBy(a => a.NomComplet).ToList();
         }
 
         private static IEnumerable<ChronologieDto> InitializeChronologie(IEnumerable<JsonChrono> chrono,

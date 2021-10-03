@@ -135,10 +135,37 @@
 
 <div class="row">
     <div class="col-12">
-        <PageSectionRowTitle Title="4. Déterminer ses traits raciaux et culturels"></PageSectionRowTitle>
+        <PageSectionRowTitle Title="4. Déterminer ses traits raciaux et culturels"/>
+        <p class="card-text">
+            Etre un membre de votre vous octroie les compétences, talents et traits spécifiés ci-dessous.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div class="card-body">
+        @if (RaceDesElfesSelectionnee)
+        {
+            <h4 class="card-title">Traits raciaux innés - Elfes sylvains</h4>
+            <AptitudeItemList Items="@_racesService.ElfesSylvains.Aptitudes"/>
+        }
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card-body">
+        @if (RaceDesElfesSelectionnee)
+        {
+            <h4 class="card-title">Traits raciaux innés - Hauts-Elfes</h4>
+            <AptitudeItemList Items="@_racesService.HautsElfes.Aptitudes"/>
+        }
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
         <div class="card-body">
             <p class="card-text">
-                Vous pouvez choisir <strong>9 Compétences<span class="oi oi-target item-icon ml-1" aria-hidden="true"></span> et/ou Talents<span class="oi oi-brush item-icon ml-1" aria-hidden="true"></span></strong> parmi celles et ceux proposés par votre race et votre origine, en respectant les régles suivantes :
+                Vous pouvez choisir des <strong>Compétences<span class="oi oi-target item-icon ml-1" aria-hidden="true"></span> et/ou Talents<span class="oi oi-brush item-icon ml-1" aria-hidden="true"></span></strong> parmi celles et ceux proposés par votre race et votre origine, en respectant les régles suivantes :
             </p>
             <ul>
                 <li>Vous ne pouvez pas choisir plus de 2 Talents.</li>

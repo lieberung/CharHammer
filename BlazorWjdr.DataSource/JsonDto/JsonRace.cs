@@ -10,6 +10,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int id { get; set; }
         public int? parent { get; set; }
         public int[]? lieux { get; set; }
+        public int[]? aptitudes { get; set; }
         public bool pj { get; set; }
         public bool group_only { get; set; }
         public string nom_masculin { get; init; } = null!;

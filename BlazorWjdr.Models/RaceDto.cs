@@ -16,6 +16,8 @@ namespace BlazorWjdr.Models
         public int? ParentId { get; init; }
         public RaceDto? Parent { get; set; }
         public readonly List<RaceDto> SousElements = new();
+        public AptitudeDto[] Aptitudes { get; init; } = null!;
+    
         public List<OpinionDto> Opinions = new();
         public List<RaceInfoDto> Infos = new();
         
