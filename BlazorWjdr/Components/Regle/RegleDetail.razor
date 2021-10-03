@@ -23,7 +23,7 @@
 }
 @if (Item.Traits.Any())
 {
-    <AptitudeItemList Items="@Item.Traits.ToArray()"/>
+    <AptitudeItemList Items="@Item.Traits.ToArray()" ItemsChoix="@Item.ChoixTraits.ToArray()"/>
 }
 
 @if (Item.Bestioles.Any())
