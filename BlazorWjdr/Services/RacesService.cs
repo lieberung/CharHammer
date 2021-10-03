@@ -22,7 +22,7 @@
         public RaceDto Humains => GetRace(1);
         public RaceDto HumainsImperiaux => GetRace(2);
         public RaceDto HumainsMutants => GetRace(64);
-        public RaceDto Halfelings => GetRace(26);
+        public RaceDto Halflings => GetRace(26);
         public RaceDto Nains => GetRace(27);
         public RaceDto Gnomes => GetRace(63);
     }

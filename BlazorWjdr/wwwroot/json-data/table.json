@@ -206,7 +206,7 @@
         ["01-00","Retirez sur la table des humains (Empire)"]
       ]
     },
-    {"id":27,"titre":"Lieu de naissance (Halfelings)",
+    {"id":27,"titre":"Lieu de naissance (Halflings)",
       "description": "",
       "lignes":[
         ["d100","Lieu de naissance"],

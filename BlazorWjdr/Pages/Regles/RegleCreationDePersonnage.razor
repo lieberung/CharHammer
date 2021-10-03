@@ -33,7 +33,7 @@
             <p class="card-text">
                 <LinkPageCreationPerso Actif="@RaceDesElfesSelectionnee" Race="@_racesService.Elfes"/>
                 <LinkPageCreationPerso Actif="@RaceDesGnomesSelectionnee" Race="@_racesService.Gnomes"/>
-                <LinkPageCreationPerso Actif="@RaceDesHalflingsSelectionnee" Race="@_racesService.Halfelings"/>
+                <LinkPageCreationPerso Actif="@RaceDesHalflingsSelectionnee" Race="@_racesService.Halflings"/>
                 <LinkPageCreationPerso Actif="@RaceDesHumainsSelectionnee" Race="@_racesService.Humains"/>
                 <LinkPageCreationPerso Actif="@RaceDesNainsSelectionnee" Race="@_racesService.Nains"/>
             </p>
@@ -146,8 +146,28 @@
         <div class="card-body">
         @if (RaceDesElfesSelectionnee)
         {
-            <h4 class="card-title">Traits raciaux innés - Elfes sylvains</h4>
+            <h4 class="card-title">Aptitudes raciales - Elfes sylvains</h4>
             <AptitudeItemList Items="@_racesService.ElfesSylvains.Aptitudes"/>
+        }
+        else if (RaceDesGnomesSelectionnee)
+        {
+            <h4 class="card-title">Aptitudes raciales - Gnômes</h4>
+            <AptitudeItemList Items="@_racesService.Gnomes.Aptitudes"/>
+        }
+        else if (RaceDesNainsSelectionnee)
+        {
+            <h4 class="card-title">Aptitudes raciales - Nains</h4>
+            <AptitudeItemList Items="@_racesService.Nains.Aptitudes"/>
+        }
+        else if (RaceDesHalflingsSelectionnee)
+        {
+            <h4 class="card-title">Aptitudes raciales - Halflings</h4>
+            <AptitudeItemList Items="@_racesService.Halflings.Aptitudes"/>
+        }
+        else if (RaceDesHumainsSelectionnee)
+        {
+            <h4 class="card-title">Aptitudes raciales - Humains</h4>
+            <AptitudeItemList Items="@_racesService.Gnomes.Aptitudes"/>
         }
         </div>
     </div>
@@ -155,7 +175,7 @@
         <div class="card-body">
         @if (RaceDesElfesSelectionnee)
         {
-            <h4 class="card-title">Traits raciaux innés - Hauts-Elfes</h4>
+            <h4 class="card-title">Aptitudes raciales - Hauts-Elfes</h4>
             <AptitudeItemList Items="@_racesService.HautsElfes.Aptitudes"/>
         }
         </div>
@@ -494,7 +514,7 @@ else
 
     private bool RaceDesElfesSelectionnee => _race == _racesService.Elfes;
     private bool RaceDesGnomesSelectionnee => _race == _racesService.Gnomes;
-    private bool RaceDesHalflingsSelectionnee => _race == _racesService.Halfelings;
+    private bool RaceDesHalflingsSelectionnee => _race == _racesService.Halflings;
     private bool RaceDesHumainsSelectionnee => _race == _racesService.Humains;
     private bool RaceDesNainsSelectionnee => _race == _racesService.Nains;
 }
