@@ -146,7 +146,7 @@ namespace BlazorWjdr
                     Taille = c.taille,
                     ProfilActuel = profils[c.profil_actuel],
                     ProfilInitial = c.profil_initial.HasValue ? profils[c.profil_initial.Value] : null,
-                    AptitudesAcquises = AptitudeAcquise.GetList(c.aptitudes.Select(id => aptitudes[id]).ToArray()),
+                    AptitudesAcquises = AptitudeAcquise.GetList((c.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray()),
                     Origines = (c.origines ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                     // Personnage
                     SigneAstralId = c.fk_signeastralid,

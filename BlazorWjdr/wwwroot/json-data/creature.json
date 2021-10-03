@@ -1,11 +1,11 @@
 {
   "items":[
 {"id":1,"profil_initial":134,"profil_actuel":134,"user":4,"race":2,"nom":"Blastt","sexe":1,"histoire":"Sosie de KL","description":"","membrede":[1],"poids":70,"taille":180,"age":23,
-  "aptitudes":[1019,1030,1032,1034,1045,1048,1049,1053,1055,1076,2021,2008,2019,3010,3011,3012]},
+  "aptitudes":[1019,1030,1034,1045,1048,1049,1053,1055,1076,2021,2008,2019,3010,3011,3012]},
 {"id":2,"profil_initial":135,"profil_actuel":135,"user":5,"race":26,"nom":"Théo","sexe":1,"histoire":"Ami de Joseph","description":"","membrede":[1],"poids":49,"taille":125,"age":40,
-  "aptitudes":[1008,1010,1027,1032,1048,1054,1092,1092,1068,1106,1116,1122,1025,1025,1132,1136,1610,1608,2004,2007,2071,3903,3182,3011]},
+  "aptitudes":[1008,1010,1027,1048,1054,1092,1092,1068,1106,1116,1122,1025,1025,1132,1136,1610,1608,2004,2007,2071,3903,3182,3011]},
 {"id":3,"profil_initial":136,"profil_actuel":136,"user":6,"race":46,"nom":"Tatalia","sexe":2,"histoire":"Collègue de Rolf Hurtsis","description":"","origines":[92],"membrede":[1],"poids":70,"taille":163,"age":25,
-  "aptitudes":[1019,1024,1027,1032,1042,1046,1047,1048,1048,1055,1079,1089,1092,1016,1136,2007,2011,2016,2081,2082]},
+  "aptitudes":[1019,1024,1027,1042,1046,1047,1048,1048,1055,1079,1089,1092,1016,1136,2007,2011,2016,2081,2082]},
 {"id":4,"profil_initial":137,"profil_actuel":137,"user":7,"race":27,"nom":"Yorek","sexe":1,"histoire":"Garde du corps de Dame Isolde","description":"","origines":[79],"membrede":[1],"poids":63,"taille":135,"age":105,
   "aptitudes":[1034,1048,1075,1096,1133,1136,1026,1053,1053,1042,1610,1607,2032,2070,2074,2078,2014,2019,2085,3903,3906,3012,3013,3017]},
 {"id":5,"profil_initial":210,"profil_actuel":210,"user":1,"race":46,"nom":"Dankred","sexe":1,
@@ -20,7 +20,7 @@
   "histoire":"","description":"",
   "aptitudes":[],
   "epitaph":"Saloperie de trolls","last_words":"J'ai le cerveau en compote !"},
-{"id":10,"profil_initial":221,"profil_actuel":221,"user":8,"race":2,"nom":"Klanyss Istrian","sexe":1,"histoire":"La main poisseuse, mi-guerrier mi-ours. Grandes oreilles, petite taille, carrure imposante, mégalomane.","description":"","membrede":[3],"poids":83,"taille":162,"age":37,"aptitudes":[1092,1136,1010,1020,1007,1155,1019,1047,1087,1087,1005,1012,1125,1050,1049,1055,1048,1032,2002,2005,2021,3731,3012,3013,3015,3021]},
+{"id":10,"profil_initial":221,"profil_actuel":221,"user":8,"race":2,"nom":"Klanyss Istrian","sexe":1,"histoire":"La main poisseuse, mi-guerrier mi-ours. Grandes oreilles, petite taille, carrure imposante, mégalomane.","description":"","membrede":[3],"poids":83,"taille":162,"age":37,"aptitudes":[1092,1136,1010,1020,1007,1155,1019,1047,1087,1087,1005,1012,1125,1050,1049,1055,1048,2002,2005,2021,3731,3012,3013,3015,3021]},
 {"id":11,"profil_initial":222,"profil_actuel":222,"user":3,"race":27,"nom":"Grounch Peau d'Pierre","sexe":1,"description":"Massapourfentueur de tout","origines":[112],"membrede":[3],"poids":68,"taille":68,"age":83,"aptitudes":[1152,1019,1019,1096,1133,1136,1042,1075,1080,1026,1034,1048,1053,1109,1009,1009,1607,1612,1610,2001,2014,2002,2019,2021,2023,2085,2030,2082,2004,2032,2070,2074,3903,3020,3012,3013]},
 {"id":12,"profil_initial":223,"profil_actuel":223,"user":1,"race":25,"nom":"Gwendel","sexe":1,"description":"","membrede":[3],"poids":51,"taille":171,"age":105,"aptitudes":[]},
 {"id":13,"profil_initial":224,"profil_actuel":224,"user":1,"race":2,"nom":"Kurt Lone","sexe":1,"histoire":"Le cornu, répurgateur refoulé. Cheveux courts, corps couvert de cicatrices, forte voix. Originaire d'Averheim.","description":"","membrede":[3],"poids":70,"taille":181,"age":31,"aptitudes":[1042,1020,1019,1024,1026,1023,1005,1012,1087,1148,1010,1092,1092,1048,1607,1612,1614,2011,2004,2021,2019,2023,2016,3012,3013,3015]},
@@ -37,7 +37,7 @@
 {"id":24,"profil_actuel":244,"user":0,"race":51,"nom":"Destrier","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,1048,2002,2021,2080,3904]},
 {"id":25,"profil_actuel":245,"user":0,"race":59,"nom":"Loup","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,1048,1049,2080,3904]},
 {"id":26,"profil_actuel":246,"user":0,"race":60,"nom":"Ours brun","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,2020,2021,2080,2091,3904]},
-{"id":28,"profil_actuel":329,"user":0,"race":1,"nom":"Marchand type","sexe":1,"histoire":"","description":"","membrede":[],"poids":72,"taille":169,"age":50,"aptitudes":[1092,1092,1158,1012,1027,1032,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019]},
+{"id":28,"profil_actuel":329,"user":0,"race":1,"nom":"Marchand type","sexe":1,"histoire":"","description":"","membrede":[],"poids":72,"taille":169,"age":50,"aptitudes":[1092,1092,1158,1012,1027,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019]},
 
 {"id":7,"user":8,"membrede":[5],"race":2,"nom":"Bernhard Dupond","sexe":1,"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",

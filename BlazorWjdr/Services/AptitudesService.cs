@@ -174,7 +174,6 @@
         public AptitudeDto CompetenceAlphSecretVoleurs => GetAptitude(1089);
         public AptitudeDto CompetenceDeplacementSilencieux => GetAptitude(1019);
         public AptitudeDto CompetenceDissimulation => GetAptitude(1020);
-        public AptitudeDto CompetenceFouille => GetAptitude(1032);
         public AptitudeDto CompetencePerception => GetAptitude(1048);
         public AptitudeDto CompetenceEscalade => GetAptitude(1024);
         public AptitudeDto CompetenceCrochetage => GetAptitude(1016);
