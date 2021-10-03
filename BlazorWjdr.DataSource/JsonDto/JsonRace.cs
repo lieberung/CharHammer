@@ -16,7 +16,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string nom_masculin { get; init; } = null!;
         public string? nom_feminin { get; init; } = null!;
         public string? nom_autoch { get; init; } = null!;
-        public string description { get; set; } = null!;
+        public string? description { get; set; }
         public JsonOpinion[]? opinions { get; set; }
         public JsonInfo[]? infos { get; set; }
     }

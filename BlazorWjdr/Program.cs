@@ -205,7 +205,7 @@ namespace BlazorWjdr
                 .Select(r => new RaceDto
                 {
                     Id = r.id,
-                    Description = r.description,
+                    Description = r.description??"",
                     Aptitudes = (r.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToArray(),
                     Lieux = (r.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).OrderBy(l => l.Nom).ToArray(),
                     GroupOnly = r.group_only,

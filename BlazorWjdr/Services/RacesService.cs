@@ -20,6 +20,7 @@
         public RaceDto ElfesSylvains => GetRace(65);
         public RaceDto HautsElfes => GetRace(66);
         public RaceDto Humains => GetRace(1);
+        public RaceDto HumainsImperiaux => GetRace(2);
         public RaceDto HumainsMutants => GetRace(64);
         public RaceDto Halfelings => GetRace(26);
         public RaceDto Nains => GetRace(27);

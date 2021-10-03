@@ -1,5 +1,6 @@
 ﻿@page "/univers/race/{Race}/"
 
+@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
@@ -14,40 +15,47 @@
     <div class="row">
         
         <div class="col-4">
-            <h3 class="card-title">Les @_autochtones</h3>
-            
-            <CardParagraphes Text="@_race!.Description"/>
-            
+            <div class="card-body">
+                <h3 class="card-title">Les @_autochtones</h3>
+                <CardParagraphes Text="@_race!.Description"/>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Aptitudes innées</h4>
+                <p class="card-text">
+                    Les personnages @_autochtones disposent tous des aptitudes suivantes :
+                </p>
+                <AptitudeItemList Items="@_aptitudesInnees"/>
+            </div>
         </div>
         
         <div class="col-4">
-            <h3 class="card-title">Ce qu'ils pensent des autres...</h3>
-            @foreach (var opinion in _race.Opinions)
-            {
-                <div class="card-body">
+            <div class="card-body">
+                <h3 class="card-title mb-3">Ce qu'ils pensent des autres...</h3>
+                @foreach (var opinion in _race.Opinions)
+                {
                     @if (opinion.Race != null)
                     {
                         <h5 class="card-title">Concernant les @opinion.Race.Autochtones</h5>
                     }
                     <p class="card-text">@opinion.Ambiance</p>
-                </div>
-            }
+                }
+            </div>
         </div>
         <div class="col-4">
-            <h3 class="card-title">Ce que les autres pensent d'eux...</h3>
-            @foreach (var race in _racesService.AllRaces.Where(r => r.Opinions.Any(o => o.Race == _race)))
-            {
-                @foreach (var opinion in race.Opinions.Where(o => o.Race == _race))
+            <div class="card-body">
+                <h3 class="card-title mb-3">Ce que les autres pensent d'eux...</h3>
+                @foreach (var race in _racesService.AllRaces.Where(r => r.Opinions.Any(o => o.Race == _race)))
                 {
-                    <div class="card-body">
+                    @foreach (var opinion in race.Opinions.Where(o => o.Race == _race))
+                    {
                         @if (opinion.Race != null)
                         {
                             <h5 class="card-title">Selon les @race.Autochtones</h5>
                         }
                         <p class="card-text">@opinion.Ambiance</p>
-                    </div>
-                }   
-            }
+                    }   
+                }
+            </div>
         </div>
     </div>
 </div>
@@ -55,6 +63,7 @@
     [Parameter] public string Race { get; set; } = null!;
     private RaceDto? _race;
     private string _autochtones = "";
+    private AptitudeDto[]? _aptitudesInnees;
 
     protected override void OnParametersSet()
     {
@@ -68,6 +77,9 @@
             "hauts-elfes" => _racesService.HautsElfes,
             _ => _race
         };
+
+        _aptitudesInnees = _race == _racesService.Humains ? _racesService.HumainsImperiaux.Aptitudes : _race!.Aptitudes;
+        
         @for (var i = 0; i < _race!.Autochtones.Length; i++)
         {
             _autochtones += _race.Autochtones[i];

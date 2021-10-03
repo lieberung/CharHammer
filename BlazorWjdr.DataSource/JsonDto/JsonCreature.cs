@@ -1,8 +1,7 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable ClassNeverInstantiated.Global
 
-using Newtonsoft.Json;
-
+// ReSharper disable UnusedAutoPropertyAccessor.Global
 namespace BlazorWjdr.DataSource.JsonDto
 {
     using System.Collections.Generic;
@@ -21,7 +20,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int? taille { get; set; }
         public int? age { get; set; }
         
-        public List<int> aptitudes { get; set; } = new ();
+        public int[]? aptitudes { get; set; }
         
         public string? histoire { get; set; }
         public string? description { get; set; }
