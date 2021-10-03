@@ -10,7 +10,7 @@ namespace BlazorWjdr.DataSource.JsonDto
     {
         public int id { get; set; }
         public int profil_actuel { get; set; }
-        public int user { get; set; }
+        public int? user { get; set; }
         public int race { get; set; }
         public string nom { get; set; } = null!;
         public int? sexe { get; set; }
@@ -29,8 +29,8 @@ namespace BlazorWjdr.DataSource.JsonDto
 
         public string? date_creation { get; set; }
         public string? nom_joueur { get; set; } = null!;
-        public int xp_actuel { get; set; }
-        public int xp_total { get; set; }
+        public int? xp_actuel { get; set; }
+        public int? xp_total { get; set; }
         public int? profil_initial { get; set; }
         
         public int[]? cheminement { get; set; }

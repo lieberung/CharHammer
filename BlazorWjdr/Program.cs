@@ -130,8 +130,8 @@ namespace BlazorWjdr
                 {
                     Id = c.id,
                     EstUnPersonnage = (c.cheminement ?? Array.Empty<int>()).Any(),
-                    EstUnPersonnageJoueur = c.user != 0 || !string.IsNullOrWhiteSpace(c.nom_joueur),
-                    Userid = c.user,
+                    EstUnPersonnageJoueur = (c.user ?? 0) != 0,
+                    Userid = c.user ?? 0,
                     MembreDe = c.membrede,
                     Age = c.age,
                     DateDeCreation = c.date_creation ?? "",
@@ -160,8 +160,8 @@ namespace BlazorWjdr
                     // PJ
                     Joueur = c.nom_joueur ?? "",
                     CheminementPro = c.cheminement != null ? c.cheminement!.Select(id => carrieres[id]).ToArray() : Array.Empty<CarriereDto>(),
-                    XpActuel = c.xp_actuel,
-                    XpTotal = c.xp_total
+                    XpActuel = c.xp_actuel ?? 0,
+                    XpTotal = c.xp_total ?? 0
                 })
                 .ToDictionary(k => k.Id);
         }
