@@ -43,16 +43,16 @@
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
   "histoire":"Inspiration inspiration...",
   "description":"Bernhard possède une marque de naissance sur la fesse droite ; si un simple coup d'oeil révèle une forme rappelant un phalus, une obsevation plus attentive et un peu de mauvaise foi permettent d'y voir une comête à deux queues. Serait-ce un signe ? Il n'a cependant toujours pas franchit le pas pour la soumettre à une observation plus approfondie au temple de Sigmar.",
-  "poids":83,"taille":162,"age":37,"cheveux":"roux","yeux":"vairons orange et pourpre",
+  "poids":82,"taille":177,"age":36,"cheveux":"bruns","yeux":"vairons orange et pourpre",
   "profil_initial":6,"profil_actuel":7,"cheminement":[68],"origines":[36],
   "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"aucun",
-  "aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146,1220,2009,1019,1032,1048,1020,1021,1209,1608]
+  "aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146,1220,2009,1019,1005,1048,1020,1021,1209,1608,3903]
 },
 
 {"id":8,"user":1,"membrede":[5],"race":26,"nom":"Pulpo Léobite","sexe":1,"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "histoire":"",
   "description":"",
-  "poids":83,"taille":162,"age":37,"cheveux":"bruns","yeux":"vairons noir et bleu",
+  "poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
   "profil_initial":24,"profil_actuel":24,"cheminement":[24],"origines":[33],
   "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"5 frères et 3 soeurs",
   "aptitudes":[3147,3193,3103]
