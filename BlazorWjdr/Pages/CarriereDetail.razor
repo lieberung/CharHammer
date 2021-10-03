@@ -45,7 +45,7 @@
                         <AptitudeItemList Items="@Carriere.Talents.ToArray()" ItemsChoix="@Carriere.ChoixTalents.ToArray()"/>
                     </p>
 
-                    @if (Carriere.Traits.Any())
+                    @if (Carriere.ProposeAuMoinsUnTrait)
                     {
                         <h5 class="card-title">Traits</h5>
                         <p class="card-text">
