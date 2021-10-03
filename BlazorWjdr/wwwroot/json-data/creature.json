@@ -11,7 +11,7 @@
 {"id":16,"profil_actuel":236,"race":56,"nom":"Mutant standard","sexe":1,"description":"","membrede":[4],"aptitudes":[]},
 {"id":17,"profil_actuel":237,"race":54,"nom":"Orque standard","sexe":1,"description":"","membrede":[4],"aptitudes":[]},
 {"id":18,"profil_actuel":238,"race":62,"nom":"Revenant","sexe":1,"description":"","membrede":[4],"aptitudes":[1145,1048,3199,3901]},
-{"id":19,"profil_actuel":239,"race":58,"nom":"Skaven","sexe":1,"description":"","membrede":[4],"aptitudes":[1019,1020,1024,1045,1048,1055,1156,2009,2062]},
+{"id":19,"profil_actuel":239,"race":58,"nom":"Skaven","sexe":1,"description":"","membrede":[4],"aptitudes":[1019,1020,1024,1045,1048,1055,1156,2009,1608]},
 {"id":20,"profil_actuel":240,"race":57,"nom":"Squelette","sexe":1,"description":"","membrede":[4],"aptitudes":[3199,3901,3200]},
 {"id":21,"profil_actuel":241,"race":57,"nom":"Zombie","sexe":1,"description":"","membrede":[4],"aptitudes":[3199,3901,3200]},
 {"id":22,"profil_actuel":242,"race":51,"nom":"Cheval de guerre","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,1048,2002,2021,2080,3904]},

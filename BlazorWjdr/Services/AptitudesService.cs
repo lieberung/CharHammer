@@ -112,7 +112,6 @@
         public AptitudeDto TalentSurSesGardes => GetTalent(2085);
         public AptitudeDto TalentTroublant => GetTalent(2091);
         public AptitudeDto TalentMaitriseUneAuChoix => GetTalent(2153);
-        public AptitudeDto TalentMaitriseDeuxAuChoix => GetTalent(2152);
         public AptitudeDto TalentReflexesDeCombat => GetTalent(2218);
 
         // Martial CaC
