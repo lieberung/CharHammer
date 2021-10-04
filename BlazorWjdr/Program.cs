@@ -38,7 +38,7 @@ namespace BlazorWjdr
             var dataSortileges = InitializeSortileges(data.Sortileges!.items, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
-            var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataProfils, dataAptitudes, dataLieux, dataCarrieres);
+            var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
             
             builder.Services.AddSingleton(_ => new AptitudesService(dataAptitudes));
@@ -120,7 +120,6 @@ namespace BlazorWjdr
         private static Dictionary<int, BestioleDto> InitializeCreatures(
             IEnumerable<JsonCreature> items,
             IReadOnlyDictionary<int, RaceDto> races,
-            IReadOnlyDictionary<int, ProfilDto> profils,
             IReadOnlyDictionary<int, AptitudeDto> aptitudes,
             IReadOnlyDictionary<int, LieuDto> lieux,
             IReadOnlyDictionary<int, CarriereDto> carrieres)
@@ -144,8 +143,8 @@ namespace BlazorWjdr
                     Race = races[c.race],
                     Sexe = c.sexe ?? -1,
                     Taille = c.taille,
-                    ProfilActuel = profils[c.profil_actuel],
-                    ProfilInitial = c.profil_initial.HasValue ? profils[c.profil_initial.Value] : null,
+                    ProfilActuel = GetProfilDtoFromJson(c.profil_actuel),
+                    ProfilInitial = c.profil_initial != null ? GetProfilDtoFromJson(c.profil_initial) : null,
                     AptitudesAcquises = AptitudeAcquise.GetList((c.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray()),
                     Origines = (c.origines ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                     // Personnage
@@ -526,22 +525,22 @@ namespace BlazorWjdr
 
         private static Dictionary<int, ProfilDto> InitializeProfils(IEnumerable<JsonProfil> profils)
         {
-            return profils
-                .Select(c => new ProfilDto
-                {
-                    Id = c.id,
-                    Ag = c.ag,
-                    Cc = c.cc,
-                    Ct = c.ct,
-                    Dex = c.dex,
-                    E = c.e,
-                    F = c.f,
-                    Fm = c.fm,
-                    I = c.i,
-                    Int = c.intel,
-                    Soc = c.soc
-                })
-                .ToDictionary(k => k.Id, v => v);
+            return profils.Select(GetProfilDtoFromJson).ToDictionary(k => k.Id, v => v);
+        }
+        private static ProfilDto GetProfilDtoFromJson(JsonProfil profil)
+        {
+            return new ProfilDto {
+                Id = profil.id,
+                Ag = profil.ag,
+                Cc = profil.cc,
+                Ct = profil.ct,
+                Dex = profil.dex,
+                E = profil.e,
+                F = profil.f,
+                Fm = profil.fm,
+                I = profil.i,
+                Int = profil.intel,
+                Soc = profil.soc };
         }
 
         private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids,

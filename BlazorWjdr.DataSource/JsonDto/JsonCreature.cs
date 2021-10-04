@@ -9,7 +9,7 @@ namespace BlazorWjdr.DataSource.JsonDto
     public class JsonCreature
     {
         public int id { get; set; }
-        public int profil_actuel { get; set; }
+        public JsonProfil profil_actuel { get; set; } = null!;
         public int? user { get; set; }
         public int race { get; set; }
         public string nom { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? nom_joueur { get; set; } = null!;
         public int? xp_actuel { get; set; }
         public int? xp_total { get; set; }
-        public int? profil_initial { get; set; }
+        public JsonProfil? profil_initial { get; set; }
         
         public int[]? cheminement { get; set; }
         public int? carriere_du_pere { get; set; }
