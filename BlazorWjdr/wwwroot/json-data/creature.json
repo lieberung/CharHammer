@@ -1,73 +1,74 @@
 {
   "items":[
     
-{"id":6,"race":57,"nom":"Goule de crypte","sexe":1,"origines":[],"membrede":[4],
+{"id":6,"race":57,"nom":"Goule de crypte","membrede":[4],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
   "aptitudes":[3903,4000,4000,4000,4000,4000,4000],"description":""},
 
-{"id":14,"race":53,"nom":"Gobelin standard","sexe":1,"membrede":[4],
+{"id":14,"race":53,"nom":"Gobelin standard","membrede":[4],
   "profil_actuel":{"cc":25,"ct":30,"f":30,"e":30,"i":99,"ag":25,"dex":99,"intel":25,"fm":30,"soc":20},
   "aptitudes":[1019,1020,1023,1045,1024,1138,1048,1055,3903],"description":""},
     
-{"id":15,"race":55,"nom":"Homme-bête standard","sexe":1,"membrede":[4],
+{"id":15,"race":55,"nom":"Homme-bête standard","membrede":[4],
   "profil_actuel":{"cc":40,"ct":25,"f":35,"e":45,"i":99,"ag":35,"dex":99,"intel":25,"fm":25,"soc":25},
   "aptitudes":[1019,1020,1030,1034,1140,1048,1049,1055,2008,2080,3200],"description":""},
     
-{"id":16,"race":56,"nom":"Mutant standard","sexe":1,"description":"","membrede":[4],
+{"id":16,"race":56,"nom":"Mutant standard","membrede":[4],
   "profil_actuel":{"cc":31,"ct":31,"f":31,"e":31,"i":31,"ag":31,"dex":31,"intel":31,"fm":31,"soc":31},
-  "aptitudes":[]},
+  "aptitudes":[],"description":""},
     
-{"id":17,"race":54,"nom":"Orque standard","sexe":1,"description":"","membrede":[4],
+{"id":17,"race":54,"nom":"Orque standard","membrede":[4],
   "profil_actuel":{"cc":35,"ct":35,"f":35,"e":45,"i":99,"ag":25,"dex":99,"intel":25,"fm":30,"soc":20},
-  "aptitudes":[]},
+  "aptitudes":[],"description":""},
     
-{"id":18,"race":62,"nom":"Revenant","sexe":1,"membrede":[4],
+{"id":18,"race":62,"nom":"Revenant","membrede":[4],
   "profil_actuel":{"cc":40,"ct":35,"f":45,"e":45,"i":99,"ag":30,"dex":99,"intel":25,"fm":35,"soc":20},
   "aptitudes":[1145,1048,3199,3901],
   "description":""},
     
-{"id":19,"race":58,"nom":"Skaven","sexe":1,"membrede":[4],
+{"id":19,"race":58,"nom":"Skaven","membrede":[4],
   "profil_actuel":{"cc":30,"ct":25,"f":30,"e":30,"i":99,"ag":40,"dex":99,"intel":25,"fm":25,"soc":15},
   "aptitudes":[1019,1020,1024,1045,1048,1055,1156,2009,1608],
   "description":""},
     
-{"id":20,"race":57,"nom":"Squelette","sexe":1,"membrede":[4],
+{"id":20,"race":57,"nom":"Squelette","membrede":[4],
   "profil_actuel":{"cc":25,"ct":20,"f":30,"e":30,"i":99,"ag":25,"dex":99,"intel":0,"fm":0,"soc":0},
-  "aptitudes":[3199,3901,3200],
-  "description":""},
+  "aptitudes":[3199,3901,3200],"description":""},
     
-{"id":21,"race":57,"nom":"Zombie","sexe":1,"membrede":[4],
+{"id":21,"race":57,"nom":"Zombie","membrede":[4],
   "profil_actuel":{"cc":25,"ct":0,"f":35,"e":35,"i":99,"ag":10,"dex":99,"intel":0,"fm":0,"soc":0},
-  "aptitudes":[3199,3901,3200],
-  "description":""},
+  "aptitudes":[3199,3901,3200],"description":""},
     
-{"id":22,"race":51,"nom":"Cheval de guerre","sexe":1,"membrede":[4],
+{"id":22,"race":51,"nom":"Cheval de guerre","membrede":[4],
   "profil_actuel":{"cc":30,"ct":0,"f":40,"e":40,"i":99,"ag":30,"dex":99,"intel":10,"fm":10,"soc":0},
   "aptitudes":[1045,1048,1048,2002,2021,2080,3904],"description":""},
     
-{"id":23,"race":59,"nom":"Chien de guerre","sexe":1,"membrede":[4],
+{"id":23,"race":59,"nom":"Chien de guerre","membrede":[4],
   "profil_actuel":{"cc":41,"ct":0,"f":32,"e":38,"i":99,"ag":30,"dex":99,"intel":15,"fm":43,"soc":0},
-  "aptitudes":[1045,1048,1048,1048,1049,2021,2080,3904],  "description":""},
+  "aptitudes":[1045,1048,1048,1048,1049,2021,2080,3904],"description":""},
     
-{"id":24,"profil_actuel":{"cc":30,"ct":0,"f":45,"e":45,"i":99,"ag":30,"dex":99,"intel":10,"fm":10,"soc":0},
-  "race":51,"nom":"Destrier","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,1048,2002,2021,2080,3904]},
-{"id":25,"profil_actuel":{"cc":30,"ct":0,"f":30,"e":30,"i":99,"ag":40,"dex":99,"intel":14,"fm":25,"soc":0},
-  "race":59,"nom":"Loup","sexe":1,"description":"","membrede":[4],"aptitudes":[1045,1048,1048,1049,2080,3904]},
+{"id":24,"race":51,"nom":"Destrier","membrede":[4],
+  "profil_actuel":{"cc":30,"ct":0,"f":45,"e":45,"i":99,"ag":30,"dex":99,"intel":10,"fm":10,"soc":0},
+  "aptitudes":[1045,1048,1048,2002,2021,2080,3904],"description":""},
+    
+{"id":25,"race":59,"nom":"Loup","membrede":[4],
+  "profil_actuel":{"cc":30,"ct":0,"f":30,"e":30,"i":99,"ag":40,"dex":99,"intel":14,"fm":25,"soc":0},
+  "aptitudes":[1045,1048,1048,1049,2080,3904],"description":""},
 
-{"id":26,"race":60,"nom":"Ours brun","sexe":1,"membrede":[4],
+{"id":26,"race":60,"nom":"Ours brun","membrede":[4],
   "profil_actuel":{"cc":33,"ct":0,"f":52,"e":47,"i":0,"ag":25,"dex":0,"intel":10,"fm":25,"soc":0},
-  "aptitudes":[1045,1048,2020,2021,2080,2091,3904],
+  "aptitudes":[1045,1048,2020,2021,2080,2091,3904],"description":""},
+
+{"id":28,"race":1,"nom":"Marchand type","poids":72,"taille":169,"age":50,"membrede":[],
+  "profil_actuel":{"cc":37,"ct":32,"f":35,"e":36,"i":0,"ag":33,"dex":0,"intel":48,"fm":46,"soc":51},
+  "aptitudes":[1092,1092,1158,1012,1027,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019],
   "description":""},
 
-{"id":28,"profil_actuel":{"cc":37,"ct":32,"f":35,"e":36,"i":0,"ag":33,"dex":0,"intel":48,"fm":46,"soc":51},
-  "race":1,"nom":"Marchand type","sexe":1,"histoire":"","description":"","membrede":[],"poids":72,"taille":169,"age":50,
-  "aptitudes":[1092,1092,1158,1012,1027,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019]},
-
-{"id":7,"user":2,"membrede":[5],"race":2,"nom":"Bernhard Dupond","sexe":1,"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
+{"id":7,"race":2,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
   "histoire":"Inspiration inspiration...",
   "description":"Bernhard possède une marque de naissance sur la fesse droite ; si un simple coup d'oeil révèle une forme rappelant un phalus, une obsevation plus attentive et un peu de mauvaise foi permettent d'y voir une comête à deux queues. Serait-ce un signe ? Il n'a cependant toujours pas franchit le pas pour la soumettre à une observation plus approfondie au temple de Sigmar.",
-  "poids":82,"taille":177,"age":36,"cheveux":"bruns","yeux":"vairons orange et pourpre",
+  "sexe":1,"poids":82,"taille":177,"age":36,"cheveux":"bruns","yeux":"vairons orange et pourpre",
   "profil_initial":{"cc":35,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
   "profil_actuel":{"cc":40,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
   "cheminement":[68],"origines":[36],
@@ -75,10 +76,10 @@
   "aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146,1220,2009,1019,1005,1048,1020,1021,1209,1608,3903]
 },
 
-{"id":8,"user":1,"membrede":[5],"race":26,"nom":"Pulpo Léobite","sexe":1,"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
+{"id":8,"race":26,"nom":"Pulpo Léobite","user":1,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "histoire":"",
   "description":"",
-  "poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
+  "sexe":1,"poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
   "profil_initial":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
   "profil_actuel":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
   "cheminement":[24],"origines":[33],
