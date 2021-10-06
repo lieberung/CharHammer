@@ -32,9 +32,9 @@ namespace BlazorWjdr
             var dataEquipements = InitializeEquipements(data.Equipements!.items, dataLieux);
             var dataDieux = InitializeDieux(data.Dieux!.items, dataAptitudes, dataLieux);
             var dataTables = InitializeTables(data.Tables!.items);
-            var dataArmesAttributs = InitializeArmesAttributs(data.ArmesAttributs!.items);
-            var dataArmes = InitializeArmes(data.Armes!.items, dataArmesAttributs, dataAptitudes);
-            var dataArmures = InitializeArmures(data.Armures!.items, dataArmesAttributs);
+            var dataArmesAttributs = InitializeArmesAttributs(data.Armes!.attributs);
+            var dataArmes = InitializeArmes(data.Armes!.armes, dataArmesAttributs, dataAptitudes);
+            var dataArmures = InitializeArmures(data.Armes!.armures, dataArmesAttributs);
             var dataSortileges = InitializeSortileges(data.Sortileges!.items, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
