@@ -1,53 +1,52 @@
-﻿using System.Collections.Generic;
-
-namespace BlazorWjdr.Models
+﻿namespace BlazorWjdr.Models
 {
+    /*
     public class RootCampagneDto
     {
         private readonly Dictionary<int, UserDto> _users;
         private readonly Dictionary<int, CampagneDto> _campagnes;
         private readonly Dictionary<int, TeamDto> _teams;
     }
-    
+    */
     public class UserDto
     {
-        public int Id { get; set; }
-        public string Email { get; set; } = null!;
-        public string Pseudo { get; set; } = null!;
+        public int Id { get; init; }
+        public string Email { get; init; } = null!;
+        public string Pseudo { get; init; } = null!;
     }
 
     public class CampagneDto
     {
-        public int Id { get; set; }
-        public string Titre { get; set; } = null!;
-        public int Mj { get; set; }
+        public int Id { get; init; }
+        public string Titre { get; init; } = null!;
+        public UserDto Mj { get; init; } = null!;
     }
 
     public class TeamDto
     {
-        public int Id { get; set; }
-        public string Nom { get; set; } = null!;
+        public int Id { get; init; }
+        public string Nom { get; init; } = null!;
     }
 
     public class FactDto
     {
-        public int Tri { get; set; }
-        public UserDto[] Pjs { get; set; }
-        public string Fact { get; set; } = null!;
+        public int Tri { get; init; }
+        public UserDto[] Pjs { get; init; } = null!;
+        public string Fact { get; init; } = null!;
     }
 
     public class SeanceDto
     {
-        public TeamDto? Team { get; set; }
-        public CampagneDto Campagne { get; set; }
-        public string Quand { get; set; } = null!;
-        public int Acte { get; set; }
-        public int Duree { get; set; }
-        public string Titre { get; set; } = null!;
-        public int Xp { get; set; }
-        public string XpComment { get; set; }
-        public string Resume { get; set; }
-        public UserDto[] Pjs { get; set; }
-        public FactDto[]? Facts { get; set; }
+        public TeamDto? Team { get; init; }
+        public CampagneDto Campagne { get; init; } = null!;
+        public string Quand { get; init; } = null!;
+        public int Acte { get; init; }
+        public int Duree { get; init; }
+        public string Titre { get; init; } = null!;
+        public int Xp { get; init; }
+        public string? XpComment { get; init; }
+        public string Resume { get; init; } = null!;
+        public UserDto[] Pjs { get; init; } = null!;
+        public FactDto[]? Facts { get; init; }
     }
 }

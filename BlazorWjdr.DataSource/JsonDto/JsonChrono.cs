@@ -19,6 +19,7 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class RootChrono
     {
+        public List<JsonDomaine> domaines { get; set; } = null!;
         public List<JsonChrono> items { get; set; } = null!;
     }
 }

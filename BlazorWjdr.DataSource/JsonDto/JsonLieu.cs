@@ -11,11 +11,11 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int? fk_parentid { get; set; }
         public string nom { get; set; } = null!;
         public string? description { get; set; }
-        public string? image { get; set; }
     }
 
     public class RootLieu
     {
+        public List<JsonLieuType> types { get; set; } = null!;
         public List<JsonLieu> items { get; set; } = null!;
     }
 }
