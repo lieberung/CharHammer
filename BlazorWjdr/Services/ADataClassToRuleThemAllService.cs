@@ -26,10 +26,8 @@ namespace BlazorWjdr.Services
             CarrieresInitiales = await GetRootTableCarriereInitiale();
             Chrono = await GetRootChrono();
             Dieux = await GetRootDieu();
-            Domaines = await GetRootDomaine();
             Equipements = await GetRootEquipement();
             Lieux = await GetRootLieu();
-            LieuxTypes = await GetRootLieuType();
             Profils = await GetRootProfil();
             Races = await GetRootRace();
             References = await GetRootReference();
@@ -43,9 +41,7 @@ namespace BlazorWjdr.Services
         public RootCarriere? Carrieres { get; private set; }
         public RootChrono? Chrono { get; private set; }
         public RootDieu? Dieux { get; private set; }
-        public RootDomaine? Domaines { get; private set; }
         public RootLieu? Lieux { get; private set; }
-        public RootLieuType? LieuxTypes { get; private set; }
         public RootArme? Armes { get; private set; }
         public RootArmeAttribut? ArmesAttributs { get; private set; }
         public RootProfil? Profils { get; private set; }
@@ -73,9 +69,7 @@ namespace BlazorWjdr.Services
         private async Task<RootCarriere> GetRootCarriere() => await LoadRootFromJson<RootCarriere>($"{JsonDataPath}/carriere.json");
         private async Task<RootChrono> GetRootChrono() => await LoadRootFromJson<RootChrono>($"{JsonDataPath}/chrono.json");
         private async Task<RootDieu> GetRootDieu() => await LoadRootFromJson<RootDieu>($"{JsonDataPath}/dieu.json");
-        private async Task<RootDomaine> GetRootDomaine() => await LoadRootFromJson<RootDomaine>($"{JsonDataPath}/domaine.json");
         private async Task<RootLieu> GetRootLieu() => await LoadRootFromJson<RootLieu>($"{JsonDataPath}/lieu.json");
-        private async Task<RootLieuType> GetRootLieuType() => await LoadRootFromJson<RootLieuType>($"{JsonDataPath}/lieutype.json");
         private async Task<RootArme> GetRootArme() => await LoadRootFromJson<RootArme>($"{JsonDataPath}/arme.json");
         private async Task<RootArmeAttribut> GetRootArmeAttribut() => await LoadRootFromJson<RootArmeAttribut>($"{JsonDataPath}/armeattribut.json");
         private async Task<RootProfil> GetRootProfil() => await LoadRootFromJson<RootProfil>($"{JsonDataPath}/profil.json");

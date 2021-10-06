@@ -6,8 +6,6 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonChrono
     {
-        public int id { get; set; }
-        public int? fk_userid { get; set; }
         public int debut { get; set; }
         public int? fin { get; set; }
         public string resume { get; set; } = null!;

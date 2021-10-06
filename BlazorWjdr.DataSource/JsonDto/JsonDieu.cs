@@ -45,6 +45,13 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? description { get; set; }
     }
 
+    public class JsonDomaine
+    {
+        public int id { get; set; }
+        public string nom { get; set; } = null!;
+        public string comment { get; set; } = null!;
+    }
+
     public class JsonDieu
     {
         public int id { get; set; }

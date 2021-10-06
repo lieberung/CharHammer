@@ -27,7 +27,7 @@ namespace BlazorWjdr
             var dataReferences = InitializeReferences(data.References!.items);
             var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataAptitudes, dataReferences);
             var dataChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
-            var dataLieuxTypes = InitializeLieuxTypes(data.LieuxTypes!.items);
+            var dataLieuxTypes = InitializeLieuxTypes(data.Lieux!.types);
             var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
             var dataEquipements = InitializeEquipements(data.Equipements!.items, dataLieux);
             var dataDieux = InitializeDieux(data.Dieux!.items, dataAptitudes, dataLieux);
