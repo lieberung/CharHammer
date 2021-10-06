@@ -13,9 +13,10 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonCampagne
     {
-        public int id { get; set; }
         public string titre { get; set; } = null!;
         public int mj { get; set; }
+        public int team { get; set; }
+        public JsonSeance[]? seances { get; set; }
     }
 
     public class JsonTeam
@@ -33,9 +34,6 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonSeance
     {
-        public int id { get; set; }
-        public int team { get; set; }
-        public int campagne { get; set; }
         public string quand { get; set; } = null!;
         public int acte { get; set; }
         public int duree { get; set; }
@@ -52,6 +50,5 @@ namespace BlazorWjdr.DataSource.JsonDto
         public List<JsonUser> users { get; set; } = null!;
         public List<JsonCampagne> campagnes { get; set; } = null!;
         public List<JsonTeam> teams { get; set; } = null!;
-        public List<JsonSeance> items { get; set; } = null!;
     }
 }

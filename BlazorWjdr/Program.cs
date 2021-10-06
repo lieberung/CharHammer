@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Net.Http;
 using System.Linq;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace BlazorWjdr
             var dataProfils = InitializeProfils(data.Profils!.items);
             var dataReferences = InitializeReferences(data.References!.items);
             var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataAptitudes, dataReferences);
-            var dataChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
+            var listChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
             var dataLieuxTypes = InitializeLieuxTypes(data.Lieux!.types);
             var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
             var dataEquipements = InitializeEquipements(data.Equipements!.items, dataLieux);
@@ -40,6 +41,10 @@ namespace BlazorWjdr
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
+
+            var dataUsers = InitializeUsers(data.Campagne!.users);
+            var dataTeams = InitializeTeams(data.Campagne!.teams);
+            var listCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataBestioles);
             
             builder.Services.AddSingleton(_ => new AptitudesService(dataAptitudes));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
@@ -47,7 +52,7 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new ReferencesService(dataReferences));
             builder.Services.AddSingleton(_ => new ProfilsService(dataProfils));
             builder.Services.AddSingleton(_ => new TablesService(dataTables));
-            builder.Services.AddSingleton(_ => new ChronologieService(dataChrono));
+            builder.Services.AddSingleton(_ => new ChronologieService(listChrono));
             builder.Services.AddSingleton(_ => new ArmesService(dataArmesAttributs, dataArmes, dataArmures, dataEquipements));
             builder.Services.AddSingleton(_ => new CarrieresService(dataCarrieres));
             builder.Services.AddSingleton(_ => new RacesService(dataRaces));
@@ -55,10 +60,57 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new BestiolesService(dataBestioles));
             builder.Services.AddSingleton(_ => new ReglesService(dataRegles));
             builder.Services.AddSingleton(_ => new SortilegesService(dataSortileges));
+            builder.Services.AddSingleton(_ => new CampagnesService(dataUsers, dataTeams, listCampagnes));
 
             builder.RootComponents.Add<App>("#app");
 
             await builder.Build().RunAsync();
+        }
+
+        private static IEnumerable<CampagneDto> InitializeCampagnes(
+            IReadOnlyDictionary<int, UserDto> users, 
+            IReadOnlyDictionary<int, TeamDto> teams, 
+            IEnumerable<JsonCampagne> campagnes,
+            IReadOnlyDictionary<int, BestioleDto> bestioles)
+        {
+            return campagnes.Select(c => new CampagneDto()
+            {
+                Mj = users[c.mj],
+                Seances = (c.seances ?? Array.Empty<JsonSeance>()).Select(s => GetSeanceDtoFromJson(s, bestioles)).ToArray(),
+                Team = teams[c.team],
+                Titre = c.titre
+            });
+        }
+
+        private static SeanceDto GetSeanceDtoFromJson(JsonSeance s, IReadOnlyDictionary<int, BestioleDto> bestioles)
+        {
+            return new SeanceDto
+            {
+                Acte = s.acte,
+                Duree = s.duree,
+                Facts = (s.facts ?? Array.Empty<JsonFact>()).Select(f => new FactDto
+                {
+                    Fact = f.fact,
+                    Pjs = (f.pjs ?? Array.Empty<int>()).Select(id => bestioles[id]).ToArray(),
+                    Tri = f.tri
+                }).ToArray(),
+                Pjs = (s.pjs ?? Array.Empty<int>()).Select(id => bestioles[id]).ToArray(),
+                Quand = s.quand,
+                Resume = s.resume ?? "",
+                Titre = s.titre,
+                Xp = s.xp,
+                XpComment = s.xp_comment
+            };
+        }
+
+        private static Dictionary<int, TeamDto> InitializeTeams(IEnumerable<JsonTeam> teams)
+        {
+            return teams.Select(t => new TeamDto { Id = t.id, Nom = t.nom }).ToDictionary(k => k.Id);
+        }
+
+        private static Dictionary<int, UserDto> InitializeUsers(IEnumerable<JsonUser> users)
+        {
+            return users.Select(t => new UserDto { Id = t.id, Pseudo = t.pseudo, Email = t.email }).ToDictionary(k => k.Id);
         }
 
         private static Dictionary<int, SortilegeDto> InitializeSortileges(IEnumerable<JsonSortilege> items, IReadOnlyDictionary<int, AptitudeDto> dataAptitudes)

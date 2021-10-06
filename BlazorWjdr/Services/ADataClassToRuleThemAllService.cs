@@ -19,6 +19,7 @@ namespace BlazorWjdr.Services
         {
             Aptitudes = await GetRootAptitude();
             Armes = await GetRootArme();
+            Campagne = await GetRootCampagne();
             Creatures = await GetRootCreature();
             Carrieres = await GetRootCarriere();
             CarrieresInitiales = await GetRootTableCarriereInitiale();
@@ -35,6 +36,7 @@ namespace BlazorWjdr.Services
         }
 
         public RootAptitude? Aptitudes { get; private set; }
+        public RootCampagne? Campagne { get; private set; }
         public RootCreature? Creatures { get; private set; }
         public RootCarriere? Carrieres { get; private set; }
         public RootChrono? Chrono { get; private set; }
@@ -60,6 +62,7 @@ namespace BlazorWjdr.Services
 
         private async Task<RootAptitude> GetRootAptitude() => await LoadRootFromJson<RootAptitude>($"{JsonDataPath}/aptitude.json");
         private async Task<RootEquipement> GetRootEquipement() => await LoadRootFromJson<RootEquipement>($"{JsonDataPath}/equipement.json");
+        private async Task<RootCampagne> GetRootCampagne() => await LoadRootFromJson<RootCampagne>($"{JsonDataPath}/campagne.json");
         private async Task<RootCreature> GetRootCreature() => await LoadRootFromJson<RootCreature>($"{JsonDataPath}/creature.json");
         private async Task<RootCarriere> GetRootCarriere() => await LoadRootFromJson<RootCarriere>($"{JsonDataPath}/carriere.json");
         private async Task<RootChrono> GetRootChrono() => await LoadRootFromJson<RootChrono>($"{JsonDataPath}/chrono.json");

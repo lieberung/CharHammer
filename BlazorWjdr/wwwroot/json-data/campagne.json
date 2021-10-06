@@ -5,11 +5,6 @@
     {"id":3,"email":"","pseudo":"Grounch"},
     {"id":4,"email":"","pseudo":"Blue bird"}
   ],
-  "campagnes": [
-    {"id":1,"titre":"L'ennemi Intérieur - Toulouse 2011","mj":1},
-    {"id":2,"titre":"Les Mille Trônes - Charente 2011","mj":2},
-    {"id":3,"titre":"Renouveau - Charente 2021","mj":1}
-  ],
   "teams": [
     {"id":1,"nom":"[2011] La Campagne Impériale Toulouse"},
     {"id":2,"nom":"[2011] Les voies de la Damnation Charente"},
@@ -17,32 +12,42 @@
     {"id":4,"nom":"Bestiaire du Vieux Monde"},
     {"id":5,"nom":"[2021] Frères à la Chope d'Obsidienne Charente"}
   ],
-  "items": [
-    {"id":101,"team":1,"campagne":1,"quand":"2011-08-23","acte":1,"duree":5,"titre":"Erreur sur la personne – part 1","xp":100},
-    {"id":102,"team":1,"campagne":1,"quand":"2011-08-30","acte":1,"duree":5,"titre":"Erreur sur la personne – part 2","xp":100},
-    {"id":103,"team":1,"campagne":1,"quand":"2011-09-13","acte":1,"duree":5,"titre":"Ombres sur Bogenhäfen – part 1","xp":150},
-    {"id":104,"team":1,"campagne":1,"quand":"2011-09-20","acte":1,"duree":5,"titre":"Ombres sur Bogenhäfen – part 2","xp":0,"xp_comment":"(70xp cumulés)"},
-    {"id":105,"team":1,"campagne":1,"quand":"2011-10-04","acte":1,"duree":5,"titre":"Ombres sur Bogenhäfen – part 3","xp":480},
-    {"id":106,"team":1,"campagne":1,"quand":"2011-10-18","acte":2,"duree":5,"titre":"MslR – Grabuge sur la rivière","xp":100},
-    {"id":107,"team":1,"campagne":1,"quand":"2011-10-30","acte":2,"duree":7,"titre":"Une histoire de fesses","xp":200},
-    {"id":108,"team":2,"campagne":2,"quand":"2011-10-31","acte":1,"duree":7,"titre":"En passant par la Drakwald","xp":185},
-    {"id":109,"team":1,"campagne":1,"quand":"2011-11-08","acte":2,"duree":5,"titre":"RsP - Le Rituel","xp":175,"xp_comment":"Blastt -150xp"},
-    {"id":110,"team":2,"campagne":2,"quand":"2011-11-19","acte":1,"duree":7,"titre":"En passant par la Drakwald - AdJ","xp":150},
-    {"id":111,"team":1,"campagne":1,"quand":"2011-11-23","acte":2,"duree":6,"titre":"RsP - Hantée par une horreur","xp":250,"xp_comment":"Yorek -125xp"},
-    {"id":112,"team":1,"campagne":1,"quand":"2011-11-30","acte":2,"duree":4,"titre":"MslR - Weisbruck, Altdorf, Delberz","xp":50},
-    {"id":113,"team":2,"campagne":2,"quand":"2011-12-17","acte":1,"duree":6,"titre":"LVdlD - Les cendres de Maddenheim - part 1","xp":110,
-      "resume":"Nous remettons la sainte relique au Père Mortem.\nCe dernier entâme aussitôt des recherches mais est assassiné peu après dans son bureau, une fléchette empoisonnée plantée dans le cou. Nous apprenons peu après que la substance fatale contient de la pierre distordante. Cela et quelques griffure sur le rebord de la fenêtre semblent indiquer qu'il s'agit de l'oeuvre de skavens.\r\nLe Père Mortem venait de découvrir que l'icône datait peut-être de l'époque de Sigmar ce qui lui confèrerait une valeur inestimable. Le cadre doré masquait une partie de l'image (mieux conservée).\r\nLa capitaine du guet Ulrich Schlutzman nous recrute pour enquêter sur le meurtre, nous expliquant qu'il y a eu récemment trois autres cas d'assassinats par fléchettes empoisonnées.\r\nAprès des recherches infructueuses auprès du Colegium Theologica et de la guile des engingneurs nains, nous apprenons au temple de Morr que la troisième victime a été identifiée comme Gérard Krohen, un fervent adepte de Sigmar. Une sépulture décente lui a été payée par un groupe d'inconnus dont le supposé chef est un grand homme aux cheveux noirs, aux yeux pâles et ayant une cicatrice sur côté gauche du nez. Les inscriptions OF sur la tombe ainsi qu'un symbole représentant une épée, un marteau et une comête à deux queues nous apprennent qu'il s'agit là de l'Ordo Fidelis, peut-être impliqué dans la mort de l'homme, où ayant une idée des raisons.\r\nDes traces de sang près du lieu du meurtre nous mènent, en passant par les égouts jusqu'au limites de la ville, au repaire d'une unité skaven - un ancien temple de Grugni. Après les avoir décimé, nous retrouvont le cadre doré mais pas la relique."},
-    {"id":114,"team":2,"campagne":2,"quand":"2011-12-27","acte":1,"duree":7,"titre":"Les esclaves du destin","xp":200,"xp_comment":"Ridick Dankred -100xp"},
-    {"id":115,"team":1,"campagne":1,"quand":"2012-02-07","acte":2,"duree":4,"titre":"MslR - En remontant le Reik","xp":100},
-    {"id":116,"team":1,"campagne":1,"quand":"2012-02-22","acte":2,"duree":5,"titre":"MslR - Kemperbad","xp":100,
-      "resume":"Nous faisons halte à Kemperbad pour faire le plein de vivres et apprécier la terre ferme.\r\nA notre arrivée, un concert de trompettes accueille un noble corpulent ; nous apprenons peu après qu'il s'agit d'un plénipotenciaire impérial probablement en mission pour reprendre \r\nNous rencontrons peu après un quinquagénère bien vétu et maniéré, Luigi Belladonna, qui nous propose de récupérer une livraison pour lui. Suite à notre réussite (une malette contenant pour 1000 couronnes de diamants, Tatalia en soustrait un), il nous propose de se joindre à son entreprise (carrière de Racketteur). L'homme appartient à la Guilde et semble influent à Kemperbad. Apparemment, il connaît Eilen.\r\nBlastt fait une halte au temple local de Morr ou un clerc lui demande de faire ses preuves et de revenir quand il sera prêt, ou lorque Morr le lui en donnera l'ordre.\r\nThéo contacte la Guilde et se finit par trouver un oratoire de Ranald ou il se receuille.\r\nAu temple de Véréna, on nous indique que les Crêtes Noires sont des mines de charbon naines situées non loin de la colonie humaine Grissenwald, près de Nuln.\r\nNous reprenons donc le bateau le lendemain en direction de Grissenwald et passons aux abords du Château Wittgenstein, qui semble avoir une bien mauvaise réputation. Des corps déformés et à moitié humains sont souvent repéchés par des bateliers.\r\nArrivés à Grissenwald, on nous confirme l'existence des Crêtes Noires, situées à quelques kilomètres plus au sud.\r\nA l'auberge locale, nous sommes pris à parti par des nains ivres, mais les villageois sont de notre côté et ils repartent peu après sans grabuge.\nIls vivent dans le bidon-ville Kazid Slumbol et sont apparemment une plaie à Grissenwald. Ils sont récemment soupçonnés d'avoir incendié plusieurs fermes et tué des villageois."},
-    {"id":117,"team":1,"campagne":1,"quand":"2012-06-03","acte":2,"duree":5,"titre":"MslR - Sur le chemin des Crêtes Noires","xp":100},
-    
-    {"id":118,"team":5,"campagne":3,"quand":"2021-10-02","acte":0,"duree":5,"titre":"Here comes a new challenger: Bernhard!",
-      "pjs":[2],"xp":300,"xp_comment":"300 xp octroyés à la création",
-      "facts":[
-        {"tri":1,"pjs":[2],"fact":"Reçoit 300 xp\nDépense 100 xp pour ré-organiser ses stats\n8 compétences culturelles : ...\nDoit choisir sa Destinée ?\nDépense 200 xp dans..."}
-      ],
-      "resume":"Création du personnage humain de Bernhard Dupond, un ratier ostlandais, pour Vincent."}
+  "campagnes": [
+    {"titre":"Renouveau - Charente 2021","mj":1,"team":5,
+      "seances":[
+        {"quand":"2021-10-02","acte":0,"duree":5,"titre":"Here comes a new challenger: Bernhard!",
+          "pjs":[2],"xp":300,"xp_comment":"300 xp octroyés à la création",
+          "facts":[
+            {"tri":1,"pjs":[2],"fact":"Reçoit 300 xp\nDépense 100 xp pour ré-organiser ses stats\n8 compétences culturelles : ...\nDoit choisir sa Destinée ?\nDépense 200 xp dans..."}
+          ],
+          "resume":"Création du personnage humain de Bernhard Dupond, un ratier ostlandais, pour Vincent."}
+      ]
+    },
+    {"titre":"L'ennemi Intérieur - Toulouse 2011","mj":1,"team":1,
+      "seances":[
+        {"quand":"2011-08-23","acte":1,"duree":5,"titre":"Erreur sur la personne – part 1","xp":100},
+        {"quand":"2011-08-30","acte":1,"duree":5,"titre":"Erreur sur la personne – part 2","xp":100},
+        {"quand":"2011-09-13","acte":1,"duree":5,"titre":"Ombres sur Bogenhäfen – part 1","xp":150},
+        {"quand":"2011-09-20","acte":1,"duree":5,"titre":"Ombres sur Bogenhäfen – part 2","xp":0,"xp_comment":"(70xp cumulés)"},
+        {"quand":"2011-10-04","acte":1,"duree":5,"titre":"Ombres sur Bogenhäfen – part 3","xp":480},
+        {"quand":"2011-10-18","acte":2,"duree":5,"titre":"MslR – Grabuge sur la rivière","xp":100},
+        {"quand":"2011-10-30","acte":2,"duree":7,"titre":"Une histoire de fesses","xp":200},
+        {"quand":"2011-11-08","acte":2,"duree":5,"titre":"RsP - Le Rituel","xp":175,"xp_comment":"Blastt -150xp"},
+        {"quand":"2011-11-23","acte":2,"duree":6,"titre":"RsP - Hantée par une horreur","xp":250,"xp_comment":"Yorek -125xp"},
+        {"quand":"2011-11-30","acte":2,"duree":4,"titre":"MslR - Weisbruck, Altdorf, Delberz","xp":50},
+        {"quand":"2012-02-07","acte":2,"duree":4,"titre":"MslR - En remontant le Reik","xp":100},
+        {"quand":"2012-02-22","acte":2,"duree":5,"titre":"MslR - Kemperbad","xp":100,"resume":"Nous faisons halte à Kemperbad pour faire le plein de vivres et apprécier la terre ferme.\r\nA notre arrivée, un concert de trompettes accueille un noble corpulent ; nous apprenons peu après qu'il s'agit d'un plénipotenciaire impérial probablement en mission pour reprendre \r\nNous rencontrons peu après un quinquagénère bien vétu et maniéré, Luigi Belladonna, qui nous propose de récupérer une livraison pour lui. Suite à notre réussite (une malette contenant pour 1000 couronnes de diamants, Tatalia en soustrait un), il nous propose de se joindre à son entreprise (carrière de Racketteur). L'homme appartient à la Guilde et semble influent à Kemperbad. Apparemment, il connaît Eilen.\r\nBlastt fait une halte au temple local de Morr ou un clerc lui demande de faire ses preuves et de revenir quand il sera prêt, ou lorque Morr le lui en donnera l'ordre.\r\nThéo contacte la Guilde et se finit par trouver un oratoire de Ranald ou il se receuille.\r\nAu temple de Véréna, on nous indique que les Crêtes Noires sont des mines de charbon naines situées non loin de la colonie humaine Grissenwald, près de Nuln.\r\nNous reprenons donc le bateau le lendemain en direction de Grissenwald et passons aux abords du Château Wittgenstein, qui semble avoir une bien mauvaise réputation. Des corps déformés et à moitié humains sont souvent repéchés par des bateliers.\r\nArrivés à Grissenwald, on nous confirme l'existence des Crêtes Noires, situées à quelques kilomètres plus au sud.\r\nA l'auberge locale, nous sommes pris à parti par des nains ivres, mais les villageois sont de notre côté et ils repartent peu après sans grabuge.\nIls vivent dans le bidon-ville Kazid Slumbol et sont apparemment une plaie à Grissenwald. Ils sont récemment soupçonnés d'avoir incendié plusieurs fermes et tué des villageois."},
+        {"quand":"2012-06-03","acte":2,"duree":5,"titre":"MslR - Sur le chemin des Crêtes Noires","xp":100}
+      ]
+    },
+    {"titre":"Les Mille Trônes - Charente 2011","mj":2,"team":2,
+      "seances":[
+        {"quand":"2011-10-31","acte":1,"duree":7,"titre":"En passant par la Drakwald","xp":185},
+        {"quand":"2011-11-19","acte":1,"duree":7,"titre":"En passant par la Drakwald - AdJ","xp":150},
+        {"quand":"2011-12-17","acte":1,"duree":6,"titre":"LVdlD - Les cendres de Maddenheim - part 1","xp":110,
+          "resume":"Nous remettons la sainte relique au Père Mortem.\nCe dernier entâme aussitôt des recherches mais est assassiné peu après dans son bureau, une fléchette empoisonnée plantée dans le cou. Nous apprenons peu après que la substance fatale contient de la pierre distordante. Cela et quelques griffure sur le rebord de la fenêtre semblent indiquer qu'il s'agit de l'oeuvre de skavens.\r\nLe Père Mortem venait de découvrir que l'icône datait peut-être de l'époque de Sigmar ce qui lui confèrerait une valeur inestimable. Le cadre doré masquait une partie de l'image (mieux conservée).\r\nLa capitaine du guet Ulrich Schlutzman nous recrute pour enquêter sur le meurtre, nous expliquant qu'il y a eu récemment trois autres cas d'assassinats par fléchettes empoisonnées.\r\nAprès des recherches infructueuses auprès du Colegium Theologica et de la guile des engingneurs nains, nous apprenons au temple de Morr que la troisième victime a été identifiée comme Gérard Krohen, un fervent adepte de Sigmar. Une sépulture décente lui a été payée par un groupe d'inconnus dont le supposé chef est un grand homme aux cheveux noirs, aux yeux pâles et ayant une cicatrice sur côté gauche du nez. Les inscriptions OF sur la tombe ainsi qu'un symbole représentant une épée, un marteau et une comête à deux queues nous apprennent qu'il s'agit là de l'Ordo Fidelis, peut-être impliqué dans la mort de l'homme, où ayant une idée des raisons.\r\nDes traces de sang près du lieu du meurtre nous mènent, en passant par les égouts jusqu'au limites de la ville, au repaire d'une unité skaven - un ancien temple de Grugni. Après les avoir décimé, nous retrouvont le cadre doré mais pas la relique."},
+        {"quand":"2011-12-27","acte":1,"duree":7,"titre":"Les esclaves du destin","xp":200,"xp_comment":"Ridick Dankred -100xp"}
+      ]
+    }
   ]
 }
