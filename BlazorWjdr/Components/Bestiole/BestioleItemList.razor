@@ -1,0 +1,12 @@
+﻿@using BlazorWjdr.Models
+<ul class="list-inline">
+    @foreach (var bestiole in Items.OrderBy(c=>c.Nom))
+    {
+        <li class="@ItemClass"><BestioleItem Item="@bestiole"/></li>
+    }
+</ul>
+@code
+{
+    [Parameter] public string ItemClass { get; set; } = "list-inline-item";
+    [Parameter] public BestioleDto[] Items { get; set; } = null!;
+}

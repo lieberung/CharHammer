@@ -1,0 +1,30 @@
+﻿@using BlazorWjdr.Models
+
+<div class="card">
+<div class="card-body">
+    <h3 class="card-title">@Campagne.Titre</h3>
+    <ul>
+        <li>Meneur de jeu : @Campagne.Mj.Pseudo</li>
+        <li>Equipe : @Campagne.Team.Nom</li>
+    </ul>
+</div>
+</div>
+
+@foreach (var acte in Campagne.Seances.Select(s => s.Acte).Distinct().OrderBy(a => a))
+{
+    <div class="card-body">
+        <h3 class="card-title">Acte @acte</h3>
+    
+        @foreach (var seance in Campagne.Seances.Where(s => s.Acte == acte).OrderBy(s => s.Quand))
+        {
+            <div>
+                <SeanceDetail Seance="@seance"/>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public CampagneDto Campagne { get; set; } = null!;
+}

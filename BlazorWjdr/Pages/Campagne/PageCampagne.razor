@@ -1,0 +1,43 @@
+﻿@page "/campagne/{CampagneId}/seances/"
+
+@using BlazorWjdr.Components.Campagne
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject CampagnesService _campagnesService
+
+<MainTopRow>
+    <h3 class="card-title">Carnets de Campagne</h3>
+</MainTopRow>
+
+<div class="content px-4">
+    
+    <div class="row mb-4">
+        @foreach (var campagne in _campagnesService.AllCampagnes())
+        {
+            <div class="col-2">
+                <LinkCampagne Titre="@campagne.Titre" CampagneId="@campagne.Id.ToString()" Actif="@(CampagneId == @campagne.Id.ToString())"/>
+            </div>
+        }
+    </div>
+    
+    <div class="row">
+        <div class="col">
+            <CampagneDetail Campagne="@_campagne"/>
+        </div>
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public string CampagneId { get; set; } = null!;
+
+    private CampagneDto _campagne = null!;
+
+    protected override void OnParametersSet()
+    {
+        _campagne = _campagnesService.AllCampagnes().First(c => c.Id.ToString() == CampagneId);
+        base.OnParametersSet();
+    }
+}

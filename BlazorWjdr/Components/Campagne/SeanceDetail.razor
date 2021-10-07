@@ -1,0 +1,34 @@
+﻿@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Models
+@code {
+    [Parameter]
+    public SeanceDto Seance { get; set; } = null!;
+}
+
+<h5 class="card-title">@Seance.Quand - @Seance.Titre</h5>
+
+<p class="card-text">
+    <span class="mr-3">Durée : @(Seance.Duree)h</span>
+    <span class="oi oi-infinity item-icon mr-3" aria-hidden="true"></span>
+    <span>@Seance.Xp xp</span>
+    @if (!string.IsNullOrWhiteSpace(Seance.XpComment))
+    {
+        <em class="ml-2">@Seance.XpComment</em>
+    }
+</p>
+<CardParagraphes Text="@Seance.Resume"/>
+
+<p class="card-text">
+    <BestioleItemList Items="@Seance.Pjs"/>
+</p>
+<table class="table">
+    <tbody>
+    @foreach (var fact in Seance.Facts.OrderBy(f => f.Tri))
+    {
+        <tr>
+            <td><BestioleItemList Items="@fact.Pjs"/></td>
+            <td>@fact.Fact</td>
+        </tr>
+    }
+    </tbody>
+</table>

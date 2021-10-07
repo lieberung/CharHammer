@@ -69,12 +69,13 @@ namespace BlazorWjdr
 
         private static IEnumerable<CampagneDto> InitializeCampagnes(
             IReadOnlyDictionary<int, UserDto> users, 
-            IReadOnlyDictionary<int, TeamDto> teams, 
+            IReadOnlyDictionary<int, TeamDto> teams,
             IEnumerable<JsonCampagne> campagnes,
             IReadOnlyDictionary<int, BestioleDto> bestioles)
         {
             return campagnes.Select(c => new CampagneDto()
             {
+                Id = c.id,
                 Mj = users[c.mj],
                 Seances = (c.seances ?? Array.Empty<JsonSeance>()).Select(s => GetSeanceDtoFromJson(s, bestioles)).ToArray(),
                 Team = teams[c.team],

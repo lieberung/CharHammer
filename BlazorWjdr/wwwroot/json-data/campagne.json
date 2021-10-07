@@ -13,17 +13,17 @@
     {"id":5,"nom":"[2021] Frères à la Chope d'Obsidienne Charente"}
   ],
   "campagnes": [
-    {"titre":"Renouveau - Charente 2021","mj":1,"team":5,
+    {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
       "seances":[
         {"quand":"2021-10-02","acte":0,"duree":5,"titre":"Here comes a new challenger: Bernhard!",
-          "pjs":[2],"xp":300,"xp_comment":"300 xp octroyés à la création",
+          "pjs":[7],"xp":300,"xp_comment":"300 xp octroyés à la création",
           "facts":[
-            {"tri":1,"pjs":[2],"fact":"Reçoit 300 xp\nDépense 100 xp pour ré-organiser ses stats\n8 compétences culturelles : ...\nDoit choisir sa Destinée ?\nDépense 200 xp dans..."}
+            {"tri":1,"pjs":[7],"fact":"Reçoit 300 xp\nDépense 100 xp pour ré-organiser ses stats\n8 compétences culturelles : ...\nDoit choisir sa Destinée ?\nDépense 200 xp dans..."}
           ],
           "resume":"Création du personnage humain de Bernhard Dupond, un ratier ostlandais, pour Vincent."}
       ]
     },
-    {"titre":"L'ennemi Intérieur - Toulouse 2011","mj":1,"team":1,
+    {"id":11,"titre":"L'ennemi Intérieur - Toulouse 2011","mj":1,"team":1,
       "seances":[
         {"quand":"2011-08-23","acte":1,"duree":5,"titre":"Erreur sur la personne – part 1","xp":100},
         {"quand":"2011-08-30","acte":1,"duree":5,"titre":"Erreur sur la personne – part 2","xp":100},
@@ -40,7 +40,7 @@
         {"quand":"2012-06-03","acte":2,"duree":5,"titre":"MslR - Sur le chemin des Crêtes Noires","xp":100}
       ]
     },
-    {"titre":"Les Mille Trônes - Charente 2011","mj":2,"team":2,
+    {"id":12,"titre":"Les Mille Trônes - Charente 2011","mj":2,"team":2,
       "seances":[
         {"quand":"2011-10-31","acte":1,"duree":7,"titre":"En passant par la Drakwald","xp":185},
         {"quand":"2011-11-19","acte":1,"duree":7,"titre":"En passant par la Drakwald - AdJ","xp":150},

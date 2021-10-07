@@ -13,6 +13,7 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonCampagne
     {
+        public int id { get; set; }
         public string titre { get; set; } = null!;
         public int mj { get; set; }
         public int team { get; set; }

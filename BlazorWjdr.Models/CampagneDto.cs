@@ -15,6 +15,7 @@
 
     public class CampagneDto
     {
+        public int Id { get; init; }
         public string Titre { get; init; } = null!;
         public UserDto Mj { get; init; } = null!;
         public TeamDto Team { get; init; } = null!;
