@@ -127,13 +127,13 @@
         _boucliers = new();
         _munitions = new();
 
-        if (Filtre == "toutes" || Filtre == "melee")
+        if (Filtre is "toutes" or "melee")
             _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC).ToList();
-        if (Filtre == "toutes" || Filtre == "tir")
+        if (Filtre is "toutes" or "tir")
             _armesDeTir = armes.Where(a => a.EstUneArmeDeTir).ToList();
-        if (Filtre == "toutes" || Filtre == "boucliers")
+        if (Filtre is "toutes" or "boucliers")
             _boucliers = armes.Where(a => a.Groupes.Contains(_armesService.GroupeBouclier)).ToList();
-        if (Filtre == "toutes" || Filtre == "munitions")
+        if (Filtre is "toutes" or "munitions")
             _munitions = armes.Where(a => a.EstUneMunition).ToList();
 
         GroupeActuel = Groupe != "toutes" ? _armesService.AllGroupesDArmes.Single(g => GetGroupe(g.Nom) == Groupe) : null;
