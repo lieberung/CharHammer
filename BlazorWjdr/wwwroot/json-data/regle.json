@@ -26,7 +26,7 @@
   "aptitudes":[2274,1238,1008,1026,1010,1043,1167,1051,1162,1020,1226],"aptitudes_choix":[[1052,3907],[1042,1055],[2011,2036],[2215,3922]]},
   
 {"id":23,"titre":"Aptitudes culturelles - Hauts-Elfes","regle":"Un personnage haut elfe choisit 8 aptitudes parmi la liste ci-dessous :",
-  "aptitudes":[1009,1027,1042,1045,1046,1047,1048,1119,1128,1219,1227,1615,1618,2003],"aptitudes_choix":[[1052,3907],[3017,3018],[2257,3017]]},
+  "aptitudes":[1009,1027,1042,1045,1046,1047,1048,1119,1128,1219,1227,1615,1618,2003],"aptitudes_choix":[[1052,3907],[3017,3018]]},
   
 {"id":30,"titre":"Here comes a new challenger !","regle":"Donner vie à son personnage","regles":[31,32,33,34]},
 {"id":31,"titre":"Ajouter des détails","regle":"C’est ici qu’on va par exemple trouver un nom pour le personnage.\nIl y a de nombreuses aides permettant de trouver un bon nom de nain, ou de générer un nom d’elfe, etc.\n\nEnsuite viennent les détails physiques. On détermine l’âge aux dés, ainsi que la taille (plus le poids), la couleur des cheveux et des yeux.","tables":[]},

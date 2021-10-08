@@ -15,7 +15,7 @@
     <div class="row mb-4">
         @foreach (var campagne in _campagnesService.AllCampagnes())
         {
-            <div class="col-2">
+            <div class="col-3">
                 <LinkCampagne Titre="@campagne.Titre" CampagneId="@campagne.Id.ToString()" Actif="@(CampagneId == @campagne.Id.ToString())"/>
             </div>
         }

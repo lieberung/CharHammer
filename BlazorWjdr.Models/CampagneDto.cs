@@ -32,7 +32,7 @@
         public string? XpComment { get; init; }
         public string Resume { get; init; } = null!;
         public BestioleDto[] Pjs { get; init; } = null!;
-        public FactDto[]? Facts { get; init; }
+        public FactDto[] Facts { get; init; } = null!;
     }
 
     public class FactDto
