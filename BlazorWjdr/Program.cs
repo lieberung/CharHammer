@@ -198,6 +198,7 @@ namespace BlazorWjdr
                     ProfilActuel = GetProfilDtoFromJson(c.profil_actuel),
                     ProfilInitial = c.profil_initial != null ? GetProfilDtoFromJson(c.profil_initial) : null,
                     AptitudesAcquises = AptitudeAcquise.GetList((c.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray()),
+                    AptitudesFacultatives = AptitudeAcquise.GetList((c.aptitudes_facultatives ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray()),
                     Origines = (c.origines ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                     // Personnage
                     SigneAstralId = c.fk_signeastralid,

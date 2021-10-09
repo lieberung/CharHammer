@@ -21,6 +21,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int? age { get; set; }
         
         public int[]? aptitudes { get; set; }
+        public int[]? aptitudes_facultatives { get; set; }
         
         public string? histoire { get; set; }
         public string? description { get; set; }

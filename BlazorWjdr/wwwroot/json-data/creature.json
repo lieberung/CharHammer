@@ -70,7 +70,8 @@
 
 {"id":30,"race":49,"nom":"Rat géant","membrede":[4],
   "profil_actuel":{"cc":25,"ct":0,"f":30,"e":25,"i":25,"ag":35,"dex":0,"intel":15,"fm":15,"soc":0},
-  "aptitudes":[3138,4003,4000,4000,4000,4000,4004,4005,4006,3903],"description":""},
+  "aptitudes":[3138,4003,4000,4000,4000,4000,4004,4005,4006,3903],"aptitudes_facultatives":[],
+  "description":""},
 
 {"id":31,"race":49,"nom":"Sanglier","membrede":[4],
   "profil_actuel":{"cc":35,"ct":0,"f":33,"e":35,"i":33,"ag":35,"dex":0,"intel":10,"fm":10,"soc":0},
