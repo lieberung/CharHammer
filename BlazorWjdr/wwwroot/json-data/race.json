@@ -137,6 +137,9 @@
     {"race":27,"ambiance":"‘Je suggère de les éviter. Ils sont perdus dans le passé, ce qui les aveugle à ce qui s'en vient. Hochez la tête poliment, acceptez leurs insultes et passez à autre chose. Inutile de discuter, ils ne changeront jamais d'avis.\n– Alathan Crestrider, matelot de Cothique"}
   ]
 },
-{"id":67,"parent":25,"nom_masculin":"Ogre","nom_feminin":"Ogresse","nom_autoch":"ogres","description":""}
+{"id":67,"parent":25,"nom_masculin":"Ogre","nom_feminin":"Ogresse","nom_autoch":"ogres","description":""},
+{"id":68,"nom_masculin":"Monstre","nom_feminin":"","nom_autoch":"monstres","description":""},
+{"id":69,"nom_masculin":"Reptile","nom_feminin":"","nom_autoch":"reptiles","description":""},
+{"id":70,"nom_masculin":"Volatile","nom_feminin":"","nom_autoch":"volatiles","description":""}
     ]
 }
