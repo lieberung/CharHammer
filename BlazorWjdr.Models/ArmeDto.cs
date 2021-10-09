@@ -20,7 +20,7 @@ namespace BlazorWjdr.Models
         public string Disponibilite { get; init; } = null!;
         public string Description { get; init; } = null!;
 
-        public bool EstUneArmeDeCaC => Allonge != ""; //.StartsWith("BF") && Groupes.All(g => g.Nom != "De jet");
+        public bool EstUneArmeDeCaC => Allonge != "";
         public bool EstUneArmeDeTir => Portee != "" && !EstUneMunition;
         public bool EstUneMunition => Groupes.Any(g => g.Nom == "Munitions");
     }

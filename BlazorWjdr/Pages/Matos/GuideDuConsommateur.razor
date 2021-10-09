@@ -96,11 +96,15 @@
     private List<string> _allGroupes = null!;
     private List<string> _showGroupes = null!;
 
-    private static string Clean(string s) => GenericService.ConvertirCaracteres(s);
+    private static string Clean(string s) => GenericService.GetUrlChunck(s);
 
-    private EquipementDto[] GetEquipement(string groupe) => _armesService.AllEquipements
-        .Where(e => e.Groupes.Any(g => Clean(g) == Clean(groupe)))
-        .OrderBy(e => e.Nom).ToArray();
+    private EquipementDto[] GetEquipement(string groupe)
+    {
+        var cleanGroupe = Clean(groupe);
+        return _armesService.AllEquipements
+            .Where(e => e.Groupes.Any(g => Clean(g) == cleanGroupe))
+            .OrderBy(e => e.Nom).ToArray();
+    }
 
     protected override void OnParametersSet()
     {

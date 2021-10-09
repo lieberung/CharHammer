@@ -18,27 +18,34 @@ namespace BlazorWjdr.Services
         private const string CaracteresARemplacer =     "àáâãäåòóôõöøèéêëìíîïùúûüÿñç-'";
         private const string CaracteresDeRemplacement = "aaaaaaooooooeeeeiiiiuuuuync  ";
 
-        internal static string ConvertirCaracteres(string chaineANettoyer)
-        {
-            chaineANettoyer = chaineANettoyer.ToLower();
+        internal static string GetUrlChunck(string chaine) => ConvertirCaracteres(chaine).Replace(" ", "-");
 
-            chaineANettoyer = chaineANettoyer.Replace("armes", "arme");
-            chaineANettoyer = chaineANettoyer.Replace("connaissances", "conn");
-            chaineANettoyer = chaineANettoyer.Replace("connaissance", "conn");
-            chaineANettoyer = chaineANettoyer.Replace("conn.", "conn");
-            chaineANettoyer = chaineANettoyer.Replace("académiques", "acad");
-            chaineANettoyer = chaineANettoyer.Replace("générales", "gene");
+        internal static string NettoyerPourRecherche(string chaine)
+        {
+            chaine = chaine.ToLower();
+            chaine = chaine.Replace("armes", "arme");
+            chaine = chaine.Replace("connaissances", "conn");
+            chaine = chaine.Replace("connaissance", "conn");
+            chaine = chaine.Replace("conn.", "conn");
+            chaine = chaine.Replace("académiques", "acad");
+            chaine = chaine.Replace("générales", "gene");
+            return ConvertirCaracteres(chaine);
+        }
+
+        private static string ConvertirCaracteres(string chaine)
+        {
+            chaine = chaine.ToLower();
             
             char[] tableauFind = CaracteresDeRemplacement.ToCharArray();
             char[] tableauReplace = CaracteresARemplacer.ToCharArray();
 
             for (var i = 0; i < tableauReplace.Length; i++)
-                chaineANettoyer = chaineANettoyer.Replace(tableauReplace[i], tableauFind[i]);
+                chaine = chaine.Replace(tableauReplace[i], tableauFind[i]);
 
-            while (chaineANettoyer.Contains("  "))
-                chaineANettoyer = chaineANettoyer.Replace("  ", " ");
+            while (chaine.Contains("  "))
+                chaine = chaine.Replace("  ", " ");
                     
-            return chaineANettoyer;
+            return chaine;
         }
 
         internal static List<string> MotsClefsDeRecherche(string chaineADecouper)

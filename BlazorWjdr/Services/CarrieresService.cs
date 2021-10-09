@@ -618,11 +618,11 @@
 
         public CarriereDto[] Recherche(string searchText)
         {
-            searchText = GenericService.ConvertirCaracteres(searchText);
+            searchText = GenericService.NettoyerPourRecherche(searchText);
             var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
 
             return AllCarrieres
-                .Where(c => GenericService.ConvertirCaracteres(c.Nom).Contains(searchText)
+                .Where(c => GenericService.NettoyerPourRecherche(c.Nom).Contains(searchText)
                             || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any())
                 .OrderByDescending(c => c.MotsClefDeRecherche.Intersect(motsClefRecherches).Count())
                 .ToArray();

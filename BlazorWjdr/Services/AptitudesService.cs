@@ -37,11 +37,56 @@
             .Where(a => a.EstUnTrait)
             .OrderBy(c => c.Nom).ThenBy(c => c.Spe);
 
+        public List<AptitudeDto> AllArmesSpecialisations
+        {
+            get
+            {
+                var all = new List<AptitudeDto>(AllMeleeSpecialisations);
+                all.AddRange(AllTirSpecialisations);
+                return all;
+            }
+        }
+
         public List<AptitudeDto> AllMeleeSpecialisations =>
             CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
         public List<AptitudeDto> AllTirSpecialisations =>
             CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
 
+        public AptitudeDto[] RechercheAptitudes(string searchText)
+        {
+            searchText = GenericService.NettoyerPourRecherche(searchText);
+            var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
+
+            return AllAptitudes
+                .Where(c => c.Ignore == false && (
+                            c.NomPourRecherche.Contains(searchText) || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any()
+                    )
+                )
+                .OrderByDescending(c => c.MotsClefDeRecherche.Intersect(motsClefRecherches).Count())
+                .ToArray();
+        }
+
+        #region Mélée et Tir
+
+        public const int IdMeleeOrdinaires = 1618;
+        public const int IdMeleeFleaux = 1614;
+        public const int IdMeleeParade = 1607;
+        public const int IdMeleeCavalerie = 1609;
+        public const int IdMeleeParalysantes = 1605;
+        public const int IdMeleeLourdes = 1612;
+        public const int IdMeleeEscrime = 1611;
+        public const int IdMeleeBagarre = 1624;
+        
+        public const int IdTirArbaletes = 1604;
+        public const int IdTirArcs = 1615;
+        public const int IdTirArmesAFeu = 1616;
+        public const int IdTirArmesDeJet = 1610;
+        public const int IdTirMecaniques = 1606;
+        public const int IdTirLancePierres = 1608;
+        public const int IdTirExplosifs = 1617;
+
+        #endregion
+        
         #region Aptitudes & Talents
 
         // Caractéristiques
@@ -142,23 +187,23 @@
         public AptitudeDto TalentFrappeReactive => GetTalent(2213);
         public AptitudeDto TalentRetournement => GetTalent(2242);
 
-        public AptitudeDto CompetenceMeleeArmesDEscrime => GetAptitude(1611);
-        public AptitudeDto CompetenceMeleeArmesDeCavalerie => GetAptitude(1609);
-        public AptitudeDto CompetenceMeleeArmesDeParade => GetAptitude(1607);
-        public AptitudeDto CompetenceMeleeArmesLourdes => GetAptitude(1612);
-        public AptitudeDto CompetenceMeleeArmesParalisantes => GetAptitude(1605);
-        public AptitudeDto CompetenceMeleeFléaux => GetAptitude(1614);
-        public AptitudeDto CompetenceMeleeBagarre => GetAptitude(1624);
+        public AptitudeDto CompetenceMeleeArmesDEscrime => GetAptitude(IdMeleeEscrime);
+        public AptitudeDto CompetenceMeleeArmesDeCavalerie => GetAptitude(IdMeleeCavalerie);
+        public AptitudeDto CompetenceMeleeArmesDeParade => GetAptitude(IdMeleeParade);
+        public AptitudeDto CompetenceMeleeArmesLourdes => GetAptitude(IdMeleeLourdes);
+        public AptitudeDto CompetenceMeleeArmesParalisantes => GetAptitude(IdMeleeParalysantes);
+        public AptitudeDto CompetenceMeleeFléaux => GetAptitude(IdMeleeFleaux);
+        public AptitudeDto CompetenceMeleeBagarre => GetAptitude(IdMeleeBagarre);
 
 
         // Martial Distance
-        public AptitudeDto CompetenceTirArbaletes => GetAptitude(1604);
-        public AptitudeDto CompetenceTirArcsLongs => GetAptitude(1615);
-        public AptitudeDto CompetenceTirArmesAFeu => GetAptitude(1616);
-        public AptitudeDto CompetenceTirArmesDeJet => GetAptitude(1610);
-        public AptitudeDto CompetenceTirArmesMecaniques => GetAptitude(1606);
-        public AptitudeDto CompetenceTirLancePierres => GetAptitude(1608);
-        public AptitudeDto CompetenceGroupeExplosifs => GetAptitude(1617);
+        public AptitudeDto CompetenceTirArbaletes => GetAptitude(IdTirArbaletes);
+        public AptitudeDto CompetenceTirArcs => GetAptitude(IdTirArcs);
+        public AptitudeDto CompetenceTirArmesAFeu => GetAptitude(IdTirArmesAFeu);
+        public AptitudeDto CompetenceTirArmesDeJet => GetAptitude(IdTirArmesDeJet);
+        public AptitudeDto CompetenceTirArmesMecaniques => GetAptitude(IdTirMecaniques);
+        public AptitudeDto CompetenceTirLancePierres => GetAptitude(IdTirLancePierres);
+        public AptitudeDto CompetenceGroupeExplosifs => GetAptitude(IdTirExplosifs);
         public AptitudeDto CompetenceGroupeTir => GetAptitude(1620);
         public AptitudeDto CompetenceMetierArquebusier => GetAptitude(1059);
         public AptitudeDto TalentAdresseAuTir => GetTalent(2004);
@@ -307,20 +352,6 @@
         public AptitudeDto TalentInspirationDivine => GetTalent(2278);
 
         #endregion
-
-        public AptitudeDto[] RechercheAptitudes(string searchText)
-        {
-            searchText = GenericService.ConvertirCaracteres(searchText);
-            var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
-
-            return AllAptitudes
-                .Where(c => c.Ignore == false && (
-                            c.NomPourRecherche.Contains(searchText) || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any()
-                    )
-                )
-                .OrderByDescending(c => c.MotsClefDeRecherche.Intersect(motsClefRecherches).Count())
-                .ToArray();
-        }
 
         public List<AptitudeDto> TalentsInitiaux => new List<AptitudeDto> {
              TalentAccuiteAuditive,

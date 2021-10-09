@@ -355,11 +355,11 @@ namespace BlazorWjdr
                     Id = l.id,
                     Nom = l.nom,
                     Description = l.description ?? "",
-                    Attributs = l.attributs.Select(id => cacheAttributs[id]).ToList(),
+                    Attributs = (l.attributs ?? Array.Empty<int>()).Select(id => cacheAttributs[id]).ToList(),
                     Degats = l.degats,
                     Disponibilite = l.dispo,
                     Encombrement = l.enc,
-                    Groupes = l.groupes.Select(id => cacheAttributs[id]).ToList(),
+                    Groupes = (l.groupes ?? Array.Empty<int>()).Select(id => cacheAttributs[id]).ToList(),
                     Allonge = l.allonge ?? "",
                     Portee = l.portee ?? "",
                     Prix = l.prix,
@@ -544,7 +544,7 @@ namespace BlazorWjdr
 
             foreach (var apt in result.Values)
             {
-                apt.NomPourRecherche = GenericService.ConvertirCaracteres(apt.Nom);
+                apt.NomPourRecherche = GenericService.NettoyerPourRecherche(apt.Nom);
                 apt.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(apt.NomPourRecherche);
                 apt.SetResume();
                 apt.SetDescription();
@@ -612,7 +612,7 @@ namespace BlazorWjdr
                     Groupe = c.groupe ?? "",
                     Nom = c.nom,
                     NiveauSpecifie = c.niveau,
-                    MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.ConvertirCaracteres(c.nom)),
+                    MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.NettoyerPourRecherche(c.nom)),
                     Description = c.description,
                     Ambiance = c.ambiance ?? Array.Empty<string>(),
                     CarriereMereId = c.parent,
