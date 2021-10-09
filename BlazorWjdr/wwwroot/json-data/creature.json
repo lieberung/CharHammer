@@ -3,7 +3,7 @@
     
 {"id":6,"race":57,"nom":"Goule de crypte","membrede":[4],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
-  "aptitudes":[3903,4000,4000,4000,4000,4000,4000],"description":""},
+  "aptitudes":[3903,4000,4000,4000,4000,4000,4000,4003,4011,4011,4011,4011,4011],"description":""},
 
 {"id":14,"race":53,"nom":"Gobelin standard","membrede":[4],
   "profil_actuel":{"cc":25,"ct":30,"f":30,"e":30,"i":99,"ag":25,"dex":99,"intel":25,"fm":30,"soc":20},
@@ -41,23 +41,23 @@
     
 {"id":22,"race":51,"nom":"Cheval de guerre","membrede":[4],
   "profil_actuel":{"cc":30,"ct":0,"f":40,"e":40,"i":99,"ag":30,"dex":99,"intel":10,"fm":10,"soc":0},
-  "aptitudes":[1045,1048,1048,2002,2021,2080,3904],"description":""},
+  "aptitudes":[1045,1048,1048,2002,2021,2080,3904,3832,4000,4000,4000,4000,4000,4000,4000],"description":""},
     
 {"id":23,"race":59,"nom":"Chien de guerre","membrede":[4],
   "profil_actuel":{"cc":41,"ct":0,"f":32,"e":38,"i":99,"ag":30,"dex":99,"intel":15,"fm":43,"soc":0},
-  "aptitudes":[1045,1048,1048,1048,1049,2021,2080,3904],"description":""},
+  "aptitudes":[1045,1048,1048,1048,1049,2021,2080,3904,3831,4000,4000,4000,4000,4000],"description":""},
     
 {"id":24,"race":51,"nom":"Destrier","membrede":[4],
   "profil_actuel":{"cc":30,"ct":0,"f":45,"e":45,"i":99,"ag":30,"dex":99,"intel":10,"fm":10,"soc":0},
-  "aptitudes":[1045,1048,1048,2002,2021,2080,3904],"description":""},
+  "aptitudes":[1045,1048,1048,2002,2021,2080,3904,4000,4000,4000,4000,4000,4000,4000],"description":""},
     
 {"id":25,"race":59,"nom":"Loup","membrede":[4],
   "profil_actuel":{"cc":30,"ct":0,"f":30,"e":30,"i":99,"ag":40,"dex":99,"intel":14,"fm":25,"soc":0},
-  "aptitudes":[1045,1048,1048,1049,2080,3904],"description":""},
+  "aptitudes":[1045,1048,1048,1049,2080,3904,4000,4000,4000,4000,4000,4000],"description":""},
 
 {"id":26,"race":60,"nom":"Ours brun","membrede":[4],
   "profil_actuel":{"cc":33,"ct":0,"f":52,"e":47,"i":0,"ag":25,"dex":0,"intel":10,"fm":25,"soc":0},
-  "aptitudes":[1045,1048,2020,2021,2080,2091,3904],"description":""},
+  "aptitudes":[1045,1048,2020,2021,2080,2091,3904,4000,4000,4000,4000,4000,4000,4000,4000],"description":""},
 
 {"id":28,"race":1,"nom":"Marchand type","poids":72,"taille":169,"age":50,"membrede":[],
   "profil_actuel":{"cc":37,"ct":32,"f":35,"e":36,"i":0,"ag":33,"dex":0,"intel":48,"fm":46,"soc":51},
@@ -66,7 +66,7 @@
 
 {"id":29,"race":67,"nom":"Ogres","membrede":[4],
   "profil_actuel":{"cc":30,"ct":20,"f":45,"e":45,"i":10,"ag":25,"dex":20,"intel":20,"fm":30,"soc":20},
-  "aptitudes":[4001,4002,3923,3124,3903,4000,4000,4000,4000,4000,4000,4000,4000],"description":""},
+  "aptitudes":[4001,4002,3923,3832,3903,4000,4000,4000,4000,4000,4000,4000,4000],"description":""},
 
 {"id":30,"race":49,"nom":"Rat géant","membrede":[4],
   "profil_actuel":{"cc":25,"ct":0,"f":30,"e":25,"i":25,"ag":35,"dex":0,"intel":15,"fm":15,"soc":0},
@@ -79,15 +79,15 @@
 
 {"id":32,"race":69,"nom":"Serpent","membrede":[4],
   "profil_actuel":{"cc":40,"ct":0,"f":30,"e":25,"i":25,"ag":40,"dex":0,"intel":5,"fm":45,"soc":0},
-  "aptitudes":[4008,4009,4000,4000,4000,4000,4000,4001,4004,3138,4060],"description":""},
+  "aptitudes":[4008,4009,4000,4000,4000,4000,4000,4001,4004,3831,4060],"description":""},
 
 {"id":33,"race":70,"nom":"Pigeon","membrede":[4],
   "profil_actuel":{"cc":15,"ct":0,"f":5,"e":15,"i":25,"ag":40,"dex":0,"intel":10,"fm":20,"soc":10},
-  "aptitudes":[4004,4006,4061],"description":""},
+  "aptitudes":[4004,4006,4061,3835],"description":""},
 
 {"id":34,"race":68,"nom":"Araignée géante","membrede":[4],
   "profil_actuel":{"cc":35,"ct":25,"f":15,"e":25,"i":10,"ag":35,"dex":30,"intel":5,"fm":25,"soc":0},
-  "aptitudes":[4004,3138,3903,4000,4000,4000,4010],"description":""},
+  "aptitudes":[4004,3831,3903,4000,4000,4000,4010],"description":""},
 
 {"id":7,"race":2,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
