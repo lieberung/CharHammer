@@ -776,7 +776,7 @@
   {"id":3800,"categ":"trait","categ_spe":"nevrose","nom":"Animosité","spe":"Elfes","resume":null,"description":"Vous êtes sujet à une antipathie irraisonnée envers les elfes.","severite":1},
   {"id":3801,"categ":"trait","categ_spe":"nevrose","nom":"Animosité","spe":"Supporters des équipes adverses","resume":null,"description":"Vous êtes sujet à une antipathie irraisonnée envers les elfes.","severite":1},
   {"id":3802,"categ":"trait","categ_spe":"nevrose","nom":"Animosité","spe":"Sigmarites","resume":null,"description":"Vous êtes sujet à une antipathie irraisonnée envers les membres du culte de Sigmar.","severite":1},
-  {"id":3803,"categ":"trait","categ_spe":"nevrose","nom":"Animosité","spe":"Peaux Vertes","resume":null,"description":"Vous êtes sujet à une antipathie irraisonnée envers les membres du culte de Sigmar.","severite":1},
+  {"id":3803,"categ":"trait","categ_spe":"nevrose","nom":"Animosité","spe":"Peaux vertes","resume":null,"description":"Vous êtes sujet à une antipathie irraisonnée envers les Peaux vertes.","severite":1},
   {"id":3830,"categ":"trait","categ_spe":"gabarit","nom":"Gabarit (variable)","spe":"Elfes","resume":null,"description":"Vous êtes sujet à une antipathie irraisonnée envers les elfes.","severite":1},
   {"id":3831,"categ":"trait","categ_spe":"gabarit","nom":"Petit","resume":"Vous êtes bien plus petit que la plupart des humanoïdes du Vieux Monde.","description":"Vous êtes bien plus petit que la plupart des humanoïdes du Vieux Monde.\nThe full rules for different Sizes are found in Chapter 12: Bestiary on page 341.","severite":1},
   {"id":3832,"categ":"trait","categ_spe":"gabarit","nom":"Large","resume":null,"description":"","severite":1},
