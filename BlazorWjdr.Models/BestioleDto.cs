@@ -18,7 +18,7 @@ namespace BlazorWjdr.Models
         public string Notes { get; init; } = "";
         
         public AptitudeAcquise[] AptitudesAcquises { get; init; } = null!;
-        public AptitudeAcquise[] AptitudesFacultatives { get; init; } = null!;
+        public AptitudeAcquise[] AptitudesOptionnels { get; init; } = null!;
         
         public AptitudeAcquise[] Competences => AptitudesAcquises.Where(a => a.Aptitude.EstUneCompetence).ToArray();
         public AptitudeAcquise[] Talents => AptitudesAcquises.Where(a => a.Aptitude.EstUnTalent).ToArray();

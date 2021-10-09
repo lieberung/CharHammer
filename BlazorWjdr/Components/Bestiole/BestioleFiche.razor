@@ -38,6 +38,12 @@
     <p><AptitudeAcquiseItemList Items="@Item.Traits" /></p>
 }
 
+@if (Item.AptitudesOptionnels.Any())
+{
+    <h6 class="card-title">Traits optionnels</h6>
+    <p><AptitudeAcquiseItemList Items="@Item.AptitudesOptionnels" /></p>
+}
+
 @if (!string.IsNullOrWhiteSpace(Item.Equipement))
 {
     <h6 class="card-title">Equipement</h6>
