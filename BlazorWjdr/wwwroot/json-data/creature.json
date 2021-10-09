@@ -64,6 +64,10 @@
   "aptitudes":[1092,1092,1158,1012,1027,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019],
   "description":""},
 
+{"id":22,"race":67,"nom":"Ogres","membrede":[4],
+  "profil_actuel":{"cc":30,"ct":20,"f":45,"e":45,"i":10,"ag":25,"dex":20,"intel":20,"fm":30,"soc":20},
+  "aptitudes":[4001,4002,3923,3124,3903,4000,4000,4000,4000,4000,4000,4000,4000],"description":""},
+
 {"id":7,"race":2,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
   "histoire":"Inspiration inspiration...",
