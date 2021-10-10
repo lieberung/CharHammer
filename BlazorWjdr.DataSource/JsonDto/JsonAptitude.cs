@@ -22,8 +22,8 @@ namespace BlazorWjdr.DataSource.JsonDto
 
         public bool ignorer { get; set; }
         public string? carac { get; set; }
-        public string resume { get; set; } = null!;
-        public string description { get; set; } = null!;
+        public string? resume { get; set; }
+        public string? description { get; set; }
         
         public string? max { get; set; }
         public string? tests { get; set; }

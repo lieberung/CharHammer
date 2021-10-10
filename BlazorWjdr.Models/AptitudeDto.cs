@@ -9,6 +9,7 @@
         public bool Ignore { get; init; }
         
         public string Nom { get; init; } = null!;
+        public string? NomEn { get; init; }
         public string? Spe { get; init; }
         public string NomPourRecherche { get; set; } = "";
         public List<string> MotsClefDeRecherche { get; set; } = new();
@@ -27,10 +28,10 @@
         public bool EstUnTrait => Categ == "trait";
 
         // Competence
-        public string CaracteristiqueAssociee { get; init; } = null!;
+        public string CaracteristiqueAssociee { get; set; } = null!;
         // Talent
-        public string Max { get; init; } = null!;
-        public string Tests { get; init; } = null!;
+        public string? Max { get; init; }
+        public string Tests { get; set; } = null!;
         // Trait
         public int Severite { get; init; }
         public string Guerison { get; init; } = null!;

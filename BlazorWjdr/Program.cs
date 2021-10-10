@@ -523,11 +523,14 @@ namespace BlazorWjdr
                     Id = c.id,
                     Ignore = c.ignorer,
                     Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.spe) ? $" : {c.spe}" : "")}",
+                    NomEn = c.nom_en,
                     Spe = c.spe ?? "",
+                    Max = c.max,
+                    Tests = c.tests ?? "",
                     Categ = c.categ,
                     CategSpe = c.categ_spe ?? "",
-                    Resume = c.resume,
-                    Description = c.description,
+                    Resume = c.resume ?? "",
+                    Description = c.description ?? "",
                     CaracteristiqueAssociee = c.carac ?? "",
                     AptitudeMereId = c.parent,
                     Contagieux = c.contagieux,
@@ -541,6 +544,10 @@ namespace BlazorWjdr
             foreach (var aptitude in result.Values.Where(c => c.AptitudeMereId.HasValue))
             {
                 aptitude.Parent = result[aptitude.AptitudeMereId!.Value];
+                if (aptitude.CaracteristiqueAssociee == "" && aptitude.Parent.CaracteristiqueAssociee != "")
+                    aptitude.CaracteristiqueAssociee = aptitude.Parent.CaracteristiqueAssociee;
+                if (aptitude.Tests == "" && aptitude.Parent.Tests != "")
+                    aptitude.Tests = aptitude.Parent.Tests;
             }
 
             foreach (var apt in result.Values)

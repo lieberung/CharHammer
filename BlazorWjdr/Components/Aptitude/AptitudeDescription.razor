@@ -6,6 +6,12 @@
 @inject ArmesService _armesService
 @inject SortilegesService _sortilegesService
 
+@if (!string.IsNullOrWhiteSpace(Item.NomEn))
+{
+    <p class="card-text">
+        <strong>Nom anglais</strong> : @Item.NomEn
+    </p>
+}
 @if (!string.IsNullOrWhiteSpace(Item.CaracteristiqueAssociee))
 {
     <p class="card-text">
