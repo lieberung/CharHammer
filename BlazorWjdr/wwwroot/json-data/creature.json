@@ -43,7 +43,7 @@
     
 {"id":21,"race":57,"nom":"Zombie","membrede":[4],
   "profil_actuel":{"cc":15,"ct":0,"f":30,"e":30,"i":5,"ag":10,"dex":15,"intel":0,"fm":0,"soc":0},
-  "aptitudes":[3199,3901,3200,4000,4000,4000,4000,4000,4000,4000,4016,40264027,4027,4029],"aptitudes_facultatives":[4001,4021,4003,4030,4028,4031,4032],
+  "aptitudes":[3199,3901,3200,4000,4000,4000,4000,4000,4000,4000,4016,4026,4027,4027,4029],"aptitudes_facultatives":[4001,4021,4003,4030,4028,4031,4032],
   "description":""},
     
 {"id":22,"race":51,"nom":"Cheval de guerre","membrede":[4],
@@ -125,8 +125,19 @@
   "profil_initial":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
   "profil_actuel":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
   "cheminement":[24],"origines":[33],
-  "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"5 frères et 3 soeurs",
+  "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"3 frères et 2 soeurs",
   "aptitudes":[3147,3193,3103]
-}
+},
+    {"id":9,"race":2,"nom":"Huguette Heinrich","user":4,"membrede":[5],"date_creation":"2021-10-10","xp_total":300,"xp_actuel":200,
+      "notes":"Destinée : Une chute fatale...",
+      "histoire":"",
+      "description":"",
+      "sexe":2,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
+      "profil_initial":{"cc":28,"ct":38,"f":30,"e":35,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
+      "profil_actuel":{"cc":28,"ct":38,"f":30,"e":40,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
+      "cheminement":[57],"origines":[37],
+      "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"4 frères",
+      "aptitudes":[2032,1018,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085]
+    }
   ]
 }
