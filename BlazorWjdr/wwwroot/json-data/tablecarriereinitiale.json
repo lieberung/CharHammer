@@ -47,6 +47,7 @@
     {"race":1,"carriere":50,"facteur":2},
     {"race":1,"carriere":51,"facteur":2},
     {"race":1,"carriere":52,"facteur":2},
+    {"race":1,"carriere":133,"facteur":2},
     {"race":1,"carriere":53,"facteur":1},
     {"race":1,"carriere":54,"facteur":2},
     {"race":1,"carriere":55,"facteur":2},
@@ -155,6 +156,7 @@
     {"race":26,"carriere":82,"facteur":5},
     {"race":26,"carriere":83,"facteur":5},
     {"race":26,"carriere":88,"facteur":3},
+    {"race":26,"carriere":369,"facteur":2},
     
     {"race":27,"carriere":365,"facteur":2},
     {"race":27,"carriere":368,"facteur":4},
@@ -218,7 +220,7 @@
     {"race":63,"carriere":37,"facteur":3},
     {"race":63,"carriere":40,"facteur":3},
     {"race":63,"carriere":43,"facteur":1},
-    {"race":63,"carriere":43,"facteur":5},
+    {"race":63,"carriere":369,"facteur":1},
     {"race":63,"carriere":44,"facteur":2},
     {"race":63,"carriere":46,"facteur":1},
     {"race":63,"carriere":51,"facteur":92},
@@ -235,9 +237,9 @@
     {"race":63,"carriere":81,"facteur":1},
     {"race":63,"carriere":82,"facteur":2},
     {"race":63,"carriere":84,"facteur":2},
+    
     {"race":66,"carriere":58,"facteur":1},
     {"race":66,"carriere":25,"facteur":1},
-    
     {"race":66,"carriere":33,"facteur":2},
     {"race":66,"carriere":22,"facteur":4},
     {"race":66,"carriere":23,"facteur":3},
@@ -246,6 +248,7 @@
     {"race":66,"carriere":46,"facteur":2},
     {"race":66,"carriere":332,"facteur":1},
     {"race":66,"carriere":341,"facteur":1},
+    {"race":66,"carriere":369,"facteur":1},
     {"race":66,"carriere":42,"facteur":3},
     {"race":66,"carriere":61,"facteur":3},
     {"race":66,"carriere":330,"facteur":2},

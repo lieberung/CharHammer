@@ -46,19 +46,7 @@
                     <CarriereInitialeRow Item="@_col3Lines[i]"/>
                 }
             }
-            @if (i < _col4Lines.Count)
-            {
-                if (i == 0 || _col4Lines[i - 1].Carriere.Groupe != _col4Lines[i].Carriere.Groupe)
-                {
-                    <CarriereInitialeGroupeCol Groupe="@_col4Lines[i].Carriere.Groupe"/>
-                    <CarriereInitialeRow Item="@_col4Lines[i]" BorderTop="@true"/>
-                }
-                else
-                {
-                    <td style="width:100px;"></td>
-                    <CarriereInitialeRow Item="@_col4Lines[i]"/>
-                }
-            }
+
         </tr>
     }
     </tbody>
@@ -68,26 +56,27 @@
     public string RaceId { get; set; } = null!;
 
     private int _split;
+    private int _nbColonnes = 3; 
     
     private List<LigneDeCarriereInitialeDto> _allLines = null!;
     private List<LigneDeCarriereInitialeDto> _col1Lines = new ();
     private List<LigneDeCarriereInitialeDto> _col2Lines = new ();
     private List<LigneDeCarriereInitialeDto> _col3Lines = new ();
-    private List<LigneDeCarriereInitialeDto> _col4Lines = new ();
+    //private List<LigneDeCarriereInitialeDto> _col4Lines = new ();
 
     protected override void OnParametersSet()
     {
         _allLines = _tableDesCarrieresInitialesService.AllLignes[int.Parse(RaceId)];
 
-        var nb = _allLines.Count / 4;
-        if (_allLines.Count % 4 != 0)
+        var nb = _allLines.Count / _nbColonnes;
+        if (_allLines.Count % _nbColonnes != 0)
             nb++;
         _split = nb;
 
         _col1Lines = new ();
         _col2Lines = new ();
         _col3Lines = new ();
-        _col4Lines = new ();
+        //_col4Lines = new ();
         
         for (var i = 0; i < _allLines.Count; i++)
         {
@@ -95,13 +84,27 @@
                 _col1Lines.Add(_allLines[i]);
             else if (i < (_split * 2))
                 _col2Lines.Add(_allLines[i]);
-            else if (i < (_split * 3))
+            else //if (i < (_split * 3))
                 _col3Lines.Add(_allLines[i]);
-            else
-                _col4Lines.Add(_allLines[i]);
+            //else
+            //    _col4Lines.Add(_allLines[i]);
         }
-        
-        
+
         base.OnParametersSet();
     }
+    /*
+    @if (i < _col4Lines.Count)
+    {
+        if (i == 0 || _col4Lines[i - 1].Carriere.Groupe != _col4Lines[i].Carriere.Groupe)
+        {
+            <CarriereInitialeGroupeCol Groupe="@_col4Lines[i].Carriere.Groupe"/>
+            <CarriereInitialeRow Item="@_col4Lines[i]" BorderTop="@true"/>
+        }
+        else
+        {
+            <td style="width:100px;"></td>
+            <CarriereInitialeRow Item="@_col4Lines[i]"/>
+        }
+    }
+    */
 }
