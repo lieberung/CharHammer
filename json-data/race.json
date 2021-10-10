@@ -9,7 +9,7 @@
     {"race":66,"ambiance":"Oui, je fais du commerce avec eux. Et, non, ne sois pas ridicule, je n'ai jamais été transformé en pilier de sel rien qu'en les regardant. Vraiment, je les trouve gracieuses et urbaines. Bien civilisé, je dirais. Mais,'entre toi et moi, si Verena demandait, je dirais aussi que je les trouve juste... Bizarres. Tellement intense. Comme si chaque marché qu'on faisait comptait vraiment.\n– Dorothea Taalenstein, Merchant de Kemperbad"}
   ]
 },
-{"id":2,"parent":1,"lieux":[2],"pj":true,"nom_masculin":"Impérial","nom_feminin":"","nom_autoch":"impériaux",
+{"id":2,"parent":1,"lieux":[2],"pj":true,"nom_masculin":"Impérial","nom_feminin":"Impériale","nom_autoch":"impériaux",
   "aptitudes":[1092,1136,3917],
   "description":""},
 {"id":3,"parent":1,"lieux":[3],"pj":true,"nom_masculin":"Wastlandais","nom_feminin":"Wastlandaise","description":""},
@@ -79,7 +79,7 @@
 {"id":45,"parent":2,"lieux":[31],"pj":true,"nom_masculin":"Hochlandais","nom_feminin":"Hochlandaise","description":""},
 {"id":46,"parent":2,"lieux":[32],"pj":true,"nom_masculin":"Middenlander","nom_feminin":"Middenlandaise?","description":""},
 {"id":47,"parent":2,"lieux":[33],"pj":true,"nom_masculin":"Mootien?","nom_feminin":"Mootienne?","description":""},
-{"id":48,"parent":2,"lieux":[37],"pj":true,"nom_masculin":"Reiklander","nom_feminin":"","nom_autoch":"reiklanders","description":""},
+{"id":48,"parent":2,"lieux":[37],"pj":true,"nom_masculin":"Reiklander","nom_feminin":"Reiklandaise","nom_autoch":"reiklanders","description":""},
 {"id":49,"group_only":true,"nom_masculin":"Mammifère","nom_feminin":"","description":""},
 {"id":50,"parent":49,"group_only":true,"nom_masculin":"Equidé","nom_feminin":"","description":""},
 {"id":51,"parent":50,"group_only":true,"nom_masculin":"Cheval","nom_feminin":"","description":""},
