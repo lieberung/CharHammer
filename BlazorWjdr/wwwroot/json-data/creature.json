@@ -3,12 +3,12 @@
     
 {"id":6,"race":57,"nom":"Goule de crypte","membrede":[4],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
-  "aptitudes":[3903,4000,4000,4000,4000,4000,4000,4003,4011,4011,4011,4011,4011],"aptitudes_facultatives":[],
+  "aptitudes":[3903,4000,4000,4000,4000,4000,4000,4003,4011,4011,4011,4011,4011],"aptitudes_facultatives":[4004,4016,4017],
   "description":""},
 
 {"id":14,"race":53,"nom":"Gobelin standard","membrede":[4],
-  "profil_actuel":{"cc":25,"ct":30,"f":30,"e":30,"i":99,"ag":25,"dex":99,"intel":25,"fm":30,"soc":20},
-  "aptitudes":[1019,1020,1023,1045,1024,1138,1048,1055,3903],"aptitudes_facultatives":[],
+  "profil_actuel":{"cc":25,"ct":30,"f":30,"e":30,"i":20,"ag":35,"dex":30,"intel":30,"fm":20,"soc":20},
+  "aptitudes":[1019,1020,1023,1045,1024,1138,1048,1055,3903,4000,4000,4000,4000,4000,4000,4000,4001,4018],"aptitudes_facultatives":[4019,4019,4019,4019,4019,4019,4019,3703,4003,4017,4020],
   "description":""},
     
 {"id":15,"race":55,"nom":"Homme-bête standard","membrede":[4],
@@ -17,13 +17,13 @@
   "description":""},
     
 {"id":16,"race":56,"nom":"Mutant standard","membrede":[4],
-  "profil_actuel":{"cc":31,"ct":31,"f":31,"e":31,"i":31,"ag":31,"dex":31,"intel":31,"fm":31,"soc":31},
-  "aptitudes":[],"aptitudes_facultatives":[],
+  "profil_actuel":{"cc":30,"ct":30,"f":30,"e":30,"i":30,"ag":30,"dex":30,"intel":30,"fm":30,"soc":30},
+  "aptitudes":[4000,4000,4000,4000,4000,4000,4000,4021,4024],"aptitudes_facultatives":[],
   "description":""},
     
 {"id":17,"race":54,"nom":"Orque standard","membrede":[4],
-  "profil_actuel":{"cc":35,"ct":35,"f":35,"e":45,"i":99,"ag":25,"dex":99,"intel":25,"fm":30,"soc":20},
-  "aptitudes":[],"aptitudes_facultatives":[],
+  "profil_actuel":{"cc":35,"ct":30,"f":35,"e":45,"i":20,"ag":25,"dex":20,"intel":25,"fm":35,"soc":20},
+  "aptitudes":[3803,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4001,4012,3903,4025],"aptitudes_facultatives":[],
   "description":""},
     
 {"id":18,"race":62,"nom":"Revenant","membrede":[4],
@@ -77,7 +77,7 @@
 
 {"id":29,"race":67,"nom":"Ogres","membrede":[4],
   "profil_actuel":{"cc":30,"ct":20,"f":45,"e":45,"i":10,"ag":25,"dex":20,"intel":20,"fm":30,"soc":20},
-  "aptitudes":[4001,4002,3923,3832,3903,4000,4000,4000,4000,4000,4000,4000,4000],"aptitudes_facultatives":[4012,4003],
+  "aptitudes":[4001,4002,3923,3832,3903,4000,4000,4000,4000,4000,4000,4000,4000],"aptitudes_facultatives":[4012,4003,4013],
   "description":""},
 
 {"id":30,"race":49,"nom":"Rat géant","membrede":[4],
@@ -92,12 +92,12 @@
 
 {"id":32,"race":69,"nom":"Serpent","membrede":[4],
   "profil_actuel":{"cc":40,"ct":0,"f":30,"e":25,"i":25,"ag":40,"dex":0,"intel":5,"fm":45,"soc":0},
-  "aptitudes":[4008,4009,4000,4000,4000,4000,4000,4001,4004,3831,4060],"aptitudes_facultatives":[],
+  "aptitudes":[4008,4009,4000,4000,4000,4000,4000,4001,4004,3831,4014],"aptitudes_facultatives":[],
   "description":""},
 
 {"id":33,"race":70,"nom":"Pigeon","membrede":[4],
   "profil_actuel":{"cc":15,"ct":0,"f":5,"e":15,"i":25,"ag":40,"dex":0,"intel":10,"fm":20,"soc":10},
-  "aptitudes":[4004,4006,4061,3835],"aptitudes_facultatives":[3831],
+  "aptitudes":[4004,4006,4015,3835],"aptitudes_facultatives":[3831],
   "description":""},
 
 {"id":34,"race":68,"nom":"Araignée géante","membrede":[4],
