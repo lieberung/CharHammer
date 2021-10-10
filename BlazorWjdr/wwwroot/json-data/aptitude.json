@@ -260,6 +260,7 @@
   {"id":1522,"parent":1014,"categ":"skill","categ_spe":"adv","nom":"Connaissances","spe":"Dragons","aptitudes":[2033]},
   {"id":1523,"parent":1014,"categ":"skill","categ_spe":"adv","nom":"Connaissances","spe":"Chaos","aptitudes":[2033]},
   {"id":1524,"parent":1014,"categ":"skill","categ_spe":"adv","nom":"Connaissances","spe":"Rotzball","aptitudes":[2033]},
+  {"id":1525,"parent":1014,"categ":"skill","categ_spe":"adv","nom":"Connaissances","spe":"Drogues","aptitudes":[2033]},
 
   {"id":1600,"categ":"skill","categ_spe":"bas","nom":"Mélée","carac":"CC",
     "resume":"Vous êtes capable d’utiliser un type d’arme de mélée nécessitant une formation particulière. Ex : armes ordinaires, de cavalerie, de parade, d’escrime, lourdes, paralysantes et fléaux.",
