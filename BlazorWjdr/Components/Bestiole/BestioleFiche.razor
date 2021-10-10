@@ -1,7 +1,6 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
-@using BlazorWjdr.Components.Profil
 @using BlazorWjdr.Services
 @using System.ComponentModel.Design
 
@@ -9,40 +8,13 @@
 
 <h6 class="card-title">Plan de carrière</h6>
 <p>
-    <CarriereItemList Items="@Item.CheminementPro" HideIndicatorBase="true" HideIndicatorRestriction="true"/>
-    @if (NAfficherQueLeProfilActuel) {
-        <Profil ProfilActuel="@Item.ProfilActuel" />
-    } else {
-        <Profil ProfilActuel="@Item.ProfilActuel" ProfilInitial="@Item.ProfilInitial" PlanDeCarriere="@Item.CarriereActuelle?.PlanDeCarriere"/>
-    }
+    <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@NAfficherQueLeProfilActuel"/>
 </p>
 <p class="card-text">
     <Blessures Item="@Item"/>
 </p>
 
-@if (Item.Competences.Any())
-{
-    <h6 class="card-title">Compétences</h6>
-    <p><AptitudeAcquiseItemList Items="@Item.Competences"/></p>
-}
-
-@if (Item.Talents.Any())
-{
-    <h6 class="card-title">Talents</h6>
-    <p><AptitudeAcquiseItemList Items="@Item.Talents"/></p>
-}
-
-@if (Item.Traits.Any())
-{
-    <h6 class="card-title">Traits</h6>
-    <p><AptitudeAcquiseItemList Items="@Item.Traits" /></p>
-}
-
-@if (Item.AptitudesOptionnels.Any())
-{
-    <h6 class="card-title">Traits optionnels</h6>
-    <p><AptitudeAcquiseItemList Items="@Item.AptitudesOptionnels" /></p>
-}
+<AptitudesAcquises Item="@Item"/>
 
 @if (!string.IsNullOrWhiteSpace(Item.Equipement))
 {

@@ -18,9 +18,7 @@
     <div class="_container">
 
         <div class="row">
-
-            <div class="col-6">
-
+            <div class="col-4">
                 <div class="card-body">
                     <h1 class="card-title" style="font-size: xxx-large;">@Item!.Nom</h1>
                     @if (Item.Origines.Any())
@@ -32,19 +30,84 @@
                         }
                     }
                     <br/>
+                    @if (Item.Sexe != 0)
+                    {
+                        <em>Genre :&nbsp;</em><span class="mr-3">@(Item.Sexe == 2 ? "féminin" : "masculin")</span>
+                    }
                     <em>Age :&nbsp;</em><span>@Item.Age ans</span>
                     @if (Item.EstUnPersonnageJoueur)
                     {
                         <br/>
-                        <em>Expérience actuelle :&nbsp;</em>
-                        <span>@Item.XpActuel xp</span>
-                        <br/>
-                        <em>Expérience totale :&nbsp;</em>
-                        <span>@Item.XpTotal xp</span>
+                        <em>Expérience actuelle / totale :&nbsp;</em><span>@Item.XpActuel / @Item.XpTotal xp</span>
                     }
-                </div>                
+                </div>
                 <div class="card-body">
-                    <BestioleFiche Item="@Item"/>
+                    <h4 class="card-title">Carrières & Profil</h4>
+                    <p>
+                        <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@false"/>
+                    </p>
+                    <p class="card-text">
+                        <Blessures Item="@Item"/>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-3">
+                <img alt="Portrait de @Item!.Nom" style="max-width:550px; max-height:450px;" src="/images/beasts/@(Item.Id).png"/>
+            </div>
+            
+            <div class="col-5">
+                <div class="card-body">
+                    <div style="display:inline-block;">
+                        <h4 class="card-title">Apparence</h4>
+                        <ul>
+                            <li>Poids : @Item.Poids kg</li>
+                            <li>Taille : @Item.Taille</li>
+                            <li>Cheveux : @Item.Cheveux</li>
+                            <li>Yeux : @Item.Yeux</li>
+                        </ul>
+                    </div>
+                    <div style="display:inline-block;">
+                        <h4 class="card-title">Famille</h4>
+                        <ul>
+                            @if (Item.CarriereDuPere != null)
+                            {
+                                <li>Père : @Item.CarriereDuPere.Nom</li>
+                            }
+                            @if (Item.CarriereDeLaMere != null)
+                            {
+                                <li>Mère : @Item.CarriereDeLaMere.Nom</li>
+                            }
+                            @if (Item.FreresEtSoeurs != "")
+                            {
+                                <li>Frères et soeurs : @Item.FreresEtSoeurs</li>
+                            }                    
+                        </ul>
+                    </div>
+                </div>
+                
+                @if (Item.Description != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Description</h3>
+                        <CardParagraphes Text="@Item.Description"/>
+                    </div>
+                }
+
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-6">
+                
+                <div class="card-body">
+                    <AptitudesAcquises Item="@Item"/>
+                    
+                    @if (!string.IsNullOrWhiteSpace(Item.Equipement))
+                    {
+                        <h4 class="card-title">Equipement</h4>
+                        <p>@Item.Equipement</p>
+                    }
                 </div>
 
             </div>
@@ -58,41 +121,6 @@
                     </div>
                 }
                 
-                <div class="card-body">
-                    <h4 class="card-title">Famille</h4>
-                    <ul>
-                        @if (Item.CarriereDuPere != null)
-                        {
-                            <li>Père : @Item.CarriereDuPere.Nom</li>
-                        }
-                        @if (Item.CarriereDeLaMere != null)
-                        {
-                            <li>Mère : @Item.CarriereDeLaMere.Nom</li>
-                        }
-                        @if (Item.FreresEtSoeurs != "")
-                        {
-                            <li>Frères et soeurs : @Item.FreresEtSoeurs</li>
-                        }                    
-                    </ul>
-                </div>
-                
-                @if (Item.Description != "")
-                {
-                    <div class="card-body">
-                        <h3 class="card-title">Description</h3>
-                        <CardParagraphes Text="@Item.Description"/>
-                    </div>
-                }
-                
-                <div class="card-body">
-                    <h4 class="card-title">Apparence</h4>
-                    <ul>          
-                        <li>Poids : @Item.Poids kg</li>                        
-                        <li>Taille : @Item.Taille</li>                        
-                        <li>Cheveux : @Item.Cheveux</li>                        
-                        <li>Yeux : @Item.Yeux</li>                        
-                    </ul>
-                </div>
                 
                 @if (Item.Notes != "")
                 {
