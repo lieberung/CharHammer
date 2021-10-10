@@ -26,7 +26,8 @@
                         <em>Origines :&nbsp;</em>
                         @foreach (var lieu in Item.Origines)
                         {
-                            <span class="ml-2"><LieuItem Item="@lieu"/></span>
+                            <LieuComplet Item="@lieu"/>
+                            <!--span class="ml-2"><LieuItem Item="@lieu"/></span-->
                         }
                     }
                     <br/>
@@ -65,6 +66,7 @@
                             <li>Taille : @Item.Taille</li>
                             <li>Cheveux : @Item.Cheveux</li>
                             <li>Yeux : @Item.Yeux</li>
+                            <li>Main directrice : @(Item.MainDirectrice == 1 ? "droite" : "gauche")</li>
                         </ul>
                     </div>
                     <div style="display:inline-block;">

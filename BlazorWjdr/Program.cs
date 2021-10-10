@@ -22,6 +22,8 @@ namespace BlazorWjdr
             await data.InitializeDataAsync();
             Debug.WriteLine("await data.InitializeDataAsync();");
 
+            var dataUsers = InitializeUsers(data.Campagne!.users);
+
             var dataAptitudes = InitializeAptitudes(data.Aptitudes!.items);
             var dataProfils = InitializeProfils(data.Profils!.items);
             var dataReferences = InitializeReferences(data.References!.items);
@@ -38,10 +40,9 @@ namespace BlazorWjdr
             var dataSortileges = InitializeSortileges(data.Sortileges!.items, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
-            var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres);
+            var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataUsers);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
 
-            var dataUsers = InitializeUsers(data.Campagne!.users);
             var dataTeams = InitializeTeams(data.Campagne!.teams);
             var listCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataBestioles);
             
@@ -174,7 +175,8 @@ namespace BlazorWjdr
             IReadOnlyDictionary<int, RaceDto> races,
             IReadOnlyDictionary<int, AptitudeDto> aptitudes,
             IReadOnlyDictionary<int, LieuDto> lieux,
-            IReadOnlyDictionary<int, CarriereDto> carrieres)
+            IReadOnlyDictionary<int, CarriereDto> carrieres,
+            IReadOnlyDictionary<int, UserDto> users)
         {
             return items
                 .Select(c => new BestioleDto
@@ -210,7 +212,7 @@ namespace BlazorWjdr
                     CarriereDuPere = c.carriere_du_pere.HasValue ? carrieres[c.carriere_du_pere.Value] : null,
                     CarriereDeLaMere = c.carriere_de_la_mere.HasValue ? carrieres[c.carriere_de_la_mere.Value] : null,
                     // PJ
-                    Joueur = c.nom_joueur ?? "",
+                    Joueur = c.user != null ? users[c.user.Value].Pseudo : "",
                     CheminementPro = c.cheminement != null ? c.cheminement!.Select(id => carrieres[id]).ToArray() : Array.Empty<CarriereDto>(),
                     XpActuel = c.xp_actuel ?? 0,
                     XpTotal = c.xp_total ?? 0

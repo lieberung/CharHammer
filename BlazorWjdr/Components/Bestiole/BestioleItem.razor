@@ -1,17 +1,25 @@
 ﻿@using BlazorWjdr.Models
 <a href="creatures/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <span class="oi oi-@(Item.EstUnPersonnage ? "person" : "bug") item-icon mr-1" aria-hidden="true"></span>
-    <span>@Item.Nom</span>
+    @if (_tooltipNomJoueur != "")
+    {
+        <Tooltip Text="@_tooltipNomJoueur">
+            <span class="oi oi-person item-icon mr-1" aria-hidden="true"></span>
+        </Tooltip>
+    }
+    else
+    {
+        <span class="oi oi-@(Item.EstUnPersonnage ? "person" : "bug") item-icon mr-1" aria-hidden="true"></span>
+    }
+    <strong>@Item.Nom</strong>
     @if (Item.CheminementPro.Any())
     {
-        <span>, @Item.CarriereActuelle?.Nom</span>
+        <span>, @Item.CarriereActuelle?.Nom @_nomRace @_originaireDu</span>
     }
-    <strong class="ml-2">@(Item.Sexe == 1 ? Item.Race.NomMasculin : Item.Race.NomFeminin)</strong>
-    @if (!string.IsNullOrWhiteSpace(Item.Joueur))
+    else
     {
-        <em class="ml-2">(@Item.Joueur)</em>
+        <strong class="ml-2">@_nomRace</strong>
     }
-    @if (!string.IsNullOrWhiteSpace(@Item.Notes))
+    @if (!string.IsNullOrWhiteSpace(Item.Notes))
     {
         <Tooltip Text="@Item.Notes">
             <span class="oi oi-info ml-2" style="color:#aa0101" aria-hidden="true"></span>
@@ -21,4 +29,21 @@
 @code{
     [Parameter]
     public BestioleDto Item { get; set; } = null!;
+
+    private string _nomRace = "";
+    private string _originaireDu = "";
+    private string _tooltipNomJoueur = "";
+    
+    protected override void OnParametersSet()
+    {
+        _nomRace = (Item.Sexe == 1 || string.IsNullOrWhiteSpace(Item.Race.NomFeminin) ? Item.Race.NomMasculin : Item.Race.NomFeminin).ToLower();
+        if (Item.Origines.Any())
+            _originaireDu = $"({Item.Origines.First().Nom})";
+
+        if (!string.IsNullOrWhiteSpace(Item.Joueur))
+            _tooltipNomJoueur = $"Joueur : {Item.Joueur}. Créé le {Item.DateDeCreation}";
+        
+        base.OnParametersSet();
+    }
+
 }

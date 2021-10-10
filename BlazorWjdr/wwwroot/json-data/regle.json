@@ -7,25 +7,32 @@
 {"id":15,"titre":"Déterminer vos caractéristiques","regle":"On effectue un tirage de 1d100 pour chacune des caractéristiques.\n* On peut choisir de garder ces jets et leur ordre\n* on peut dépenser 100 xp pour ordonner librement les jets\n* on peut dépenser 150 xp pour ignorer les jets et répartir 100 points dans chacune des 10 caractéristiques, avec un minimum de 4 et un maximum de 18 à chaque fois.","tables":[11]},
 {"id":16,"titre":"Déterminer vos traits raciaux","regle":"","regles":[17,18,19,20,21]},
 
-{"id":17,"titre":"Aptitudes culturelles - Elfes sylvains","regle":"Un personnage elfe sylvain choisit 6 aptitudes parmi la liste ci-dessous :",
+{"id":17,"titre":"Aptitudes culturelles - Elfes sylvains",
+  "regle":"Un personnage elfe sylvain choisit 6 aptitudes parmi la liste ci-dessous :",
   "aptitudes":[1209,1024,1220,1119,1034,1615,1618,1055,1042,1049,2008,1019],"aptitudes_choix":[[1052,2003],[3021,3013]]},
 
-{"id":18,"titre":"Aptitudes culturelles - Halflings","regle":"Un personnage halfling choisit 6 aptitudes parmi la liste ci-dessous, ainsi que deux talents aléatoires supplémentaires sur la table concernée.",
+{"id":18,"titre":"Aptitudes culturelles - Halflings",
+  "regle":"Un personnage halfling choisit 6 aptitudes parmi la liste ci-dessous, ainsi que 2 talents aléatoires supplémentaires sur la table concernée.",
   "aptitudes":[1010,1608,1008,1051,1026,1035,1043,1210,1048,1025,1020],"aptitudes_choix":[[1068,1074]]},
 
-{"id":19,"titre":"Aptitudes culturelles - Empire (humains)","regle":"Un personnage humain choisit 6 aptitudes parmi la liste ci dessous, et reçoit deux talents aléatoires supplémentaires sur la table concernée.",
-  "aptitudes":[1010,1054,1008,1219,1027,1043,1129,1226,1618,1615,2203],"aptitudes_choix":[[3017,3019]],"lieux":[2]},
+{"id":19,"titre":"Aptitudes culturelles - Empire (humains)",
+  "regle":"Un personnage humain choisit 6 aptitudes parmi la liste ci dessous, et reçoit 3 talents aléatoires supplémentaires sur la table concernée.",
+  "aptitudes":[1010,1054,1008,1219,1027,1043,1129,1226,1618,1615,2203],"lieux":[2]},
 
-{"id":20,"titre":"Aptitudes culturelles - Nains","regle":"Un personnage nain choisit 7 aptitudes parmi la liste ci-dessous :",
+{"id":20,"titre":"Aptitudes culturelles - Nains",
+  "regle":"Un personnage nain choisit 7 aptitudes parmi la liste ci-dessous :",
   "aptitudes":[1051,1219,1220,1123,1027,1034,1040,1224,1618,1042,2078],"aptitudes_choix":[[2245,2249],[3906,3018],[1075,1077,1080]]},
 
-{"id":21,"titre":"Aptitudes culturelles - Mutants (humains)","regle":"Un personnage humain mutant commence avec 1 point de folie et doit tirer une mutation aléatoire dans la table concernée. Si le résultat ne lui plait pas il peut dépenser un point de destin pour tirer une nouvelle mutation aléatoire qu'il est obligé d'accepter.\nEnfin, il reçoit les compétences ci dessous, ainsi que deux talents aléatoires supplémentaires sur la table concernée.",
+{"id":21,"titre":"Aptitudes culturelles - Mutants (humains)",
+  "regle":"Un personnage humain mutant commence avec 1 point de folie et doit tirer une mutation aléatoire dans la table concernée. Si le résultat ne lui plait pas il peut dépenser un point de destin pour tirer une nouvelle mutation aléatoire qu'il est obligé d'accepter.\nEnfin, il reçoit les compétences ci dessous, ainsi que deux talents aléatoires supplémentaires sur la table concernée.",
   "aptitudes":[1092,1136]},
 
-{"id":22,"titre":"Aptitudes culturelles - Gnômes","regle":"Un personnage gnôme choisit 7 aptitudes parmi la liste ci-dessous :",
+{"id":22,"titre":"Aptitudes culturelles - Gnômes",
+  "regle":"Un personnage gnôme choisit 7 aptitudes parmi la liste ci-dessous :",
   "aptitudes":[2274,1238,1008,1026,1010,1043,1167,1051,1162,1020,1226],"aptitudes_choix":[[1052,3907],[1042,1055],[2011,2036],[2215,3922]]},
   
-{"id":23,"titre":"Aptitudes culturelles - Hauts-Elfes","regle":"Un personnage haut elfe choisit 8 aptitudes parmi la liste ci-dessous :",
+{"id":23,"titre":"Aptitudes culturelles - Hauts-Elfes",
+  "regle":"Un personnage haut elfe choisit 8 aptitudes parmi la liste ci-dessous :",
   "aptitudes":[1009,1027,1042,1045,1046,1047,1048,1119,1128,1219,1227,1615,1618,2003],"aptitudes_choix":[[1052,3907],[3017,3018]]},
   
 {"id":30,"titre":"Here comes a new challenger !","regle":"Donner vie à son personnage","regles":[31,32,33,34]},
