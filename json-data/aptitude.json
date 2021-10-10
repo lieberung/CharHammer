@@ -867,7 +867,8 @@
   {"id":4060,"parent":3199,"categ":"trait","categ_spe":"creature","nom":"Flippant","spe":"marche sur le ventre","max":"1","resume":"La créature marche sur son ventre. Le joueur devra réussir un test de Force mentale ou se pisser dessus pendant 1d4 Rounds."},
   {"id":4061,"parent":3199,"categ":"trait","categ_spe":"creature","nom":"Flippant","spe":"sans bras","max":"1","resume":"La créature n'a pas de bras. Le joueur devra réussir un test de Force mentale ou se pisser dessus pendant 1d4 Rounds."},
   {"id":4010,"categ":"trait","categ_spe":"creature","nom":"Grimpant","nom_en":"","max":"1","resume":"Réussit automatiquement tous ses tests d'escalade","description":"La créature peut facilement escalader toutes les surfaces verticales et même parcourir les plafonds, prête à fondre sur les proies imprudentes. Elle avance à sa vitesse maximale de Mouvement sur toutes les surfaces appropriées et réussit automatiquement tous ses tests d'escalade."},
-  {"id":4011,"categ":"trait","categ_spe":"creature","nom":"Morsure","nom_en":"","max":"16","resume":"Pendant son tour, la créature peut faire une Attaque Gratuite en dépensant 1 Avantage. Les dégâts de l'attaque sont égaux à la Valeur de l'indice de l'aptitude et incluent déjà le Bonus de Force de la créature.","description":""}
+  {"id":4011,"categ":"trait","categ_spe":"creature","nom":"Morsure","nom_en":"","max":"16","resume":"Pendant son tour, la créature peut faire une Attaque Gratuite en dépensant 1 Avantage. Les dégâts de l'attaque sont égaux à la Valeur de l'indice de l'aptitude et incluent déjà le Bonus de Force de la créature.","description":""},
+  {"id":4012,"categ":"trait","categ_spe":"creature","nom":"Bélliqueux","nom_en":"","max":"1","resume":"La créature adore combattre. Tant qu'elle a plus d'avantages que son adversaire, elle est immunisée à la psychologie.","description":""}
 
 ]
 }
