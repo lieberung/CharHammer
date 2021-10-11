@@ -1,0 +1,19 @@
+﻿@using BlazorWjdr.Models
+@code {
+    [Parameter]
+    public BestioleDto Item { get; set; } = null!;
+}
+<ul>
+    @if (Item.CarriereDuPere != null)
+    {
+        <li>Père : @Item.CarriereDuPere.Nom</li>
+    }
+    @if (Item.CarriereDeLaMere != null)
+    {
+        <li>Mère : @Item.CarriereDeLaMere.Nom</li>
+    }
+    @if (Item.FreresEtSoeurs != "")
+    {
+        <li>Frères et soeurs : @Item.FreresEtSoeurs</li>
+    }                    
+</ul>

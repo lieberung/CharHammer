@@ -6,6 +6,7 @@
 @using Models
 
 @inject BestiolesService _bestiolesService
+@inject CampagnesService _campagnesService
 
 <MainTopRow>
     @if (Item!.DateDeCreation != "")
@@ -27,7 +28,6 @@
                         @foreach (var lieu in Item.Origines)
                         {
                             <LieuComplet Item="@lieu"/>
-                            <!--span class="ml-2"><LieuItem Item="@lieu"/></span-->
                         }
                     }
                     <br/>
@@ -54,37 +54,18 @@
             </div>
             
             <div class="col-3">
-                <img alt="Portrait de @Item!.Nom" style="max-width:550px; max-height:450px;" src="/images/beasts/@(Item.Id).png"/>
+                <img alt="Portrait de @Item!.Nom" style="max-width:550px; max-height:450px;" src="images/beasts/@(Item.Id).png"/>
             </div>
             
             <div class="col-5">
                 <div class="card-body">
                     <div style="display:inline-block;">
                         <h4 class="card-title">Apparence</h4>
-                        <ul>
-                            <li>Poids : @Item.Poids kg</li>
-                            <li>Taille : @Item.Taille</li>
-                            <li>Cheveux : @Item.Cheveux</li>
-                            <li>Yeux : @Item.Yeux</li>
-                            <li>Main directrice : @(Item.MainDirectrice == 1 ? "droite" : "gauche")</li>
-                        </ul>
+                        <PersoApparence Item="@Item"/>
                     </div>
                     <div style="display:inline-block;">
                         <h4 class="card-title">Famille</h4>
-                        <ul>
-                            @if (Item.CarriereDuPere != null)
-                            {
-                                <li>Père : @Item.CarriereDuPere.Nom</li>
-                            }
-                            @if (Item.CarriereDeLaMere != null)
-                            {
-                                <li>Mère : @Item.CarriereDeLaMere.Nom</li>
-                            }
-                            @if (Item.FreresEtSoeurs != "")
-                            {
-                                <li>Frères et soeurs : @Item.FreresEtSoeurs</li>
-                            }                    
-                        </ul>
+                        <PersoFamille Item="@Item"/>
                     </div>
                 </div>
                 
@@ -131,8 +112,23 @@
                         <CardParagraphes Text="@Item.Notes"/>
                     </div>
                 }                  
-                </div>
+            </div>
         </div>
+        
+        <PageSectionDivider/>
+        
+        <div class="row">
+            <div class="col-8">
+                @foreach (var campagne in _campagnesService.CampagnesAuxquellesAParticipe(Item))
+                {
+                    <h3 class="card-title">Historique de Campagne - @campagne.Titre</h3>
+                    <div class="card-body">
+                        <HistoriqueDeCampagne Campagne="@campagne" Pj="@Item"/>
+                    </div>
+                }
+            </div>
+        </div>
+
     </div>
 </div>
 @code{

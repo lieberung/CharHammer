@@ -15,12 +15,13 @@
   "campagnes": [
     {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
       "seances":[
-        {"quand":"2021-10-02","acte":0,"duree":5,"titre":"Here comes a new challenger: Bernhard!",
-          "pjs":[7],"xp":300,"xp_comment":"300 xp octroyés à la création",
+        {"quand":"2021-10-02","acte":0,"duree":5,"titre":"Création des personnages cobayes v4",
+          "pjs":[7,9],"xp":300,"xp_comment":"300 xp octroyés à la création",
           "facts":[
-            {"tri":1,"pjs":[7],"fact":"Reçoit 300 xp\nDépense 100 xp pour ré-organiser ses stats\n8 compétences culturelles : ...\nDoit choisir sa Destinée ?\nDépense 200 xp dans..."}
+            {"tri":1,"pjs":[7],"fact":"Reçoit 300 xp\nDépense 100 xp pour ré-organiser ses stats\n8 compétences culturelles : ...\nDoit choisir sa Destinée ?\nDépense 200 xp dans..."},
+            {"tri":3,"pjs":[9],"fact":"Reçoit 300 xp\nTalents aléatoires : Séduction, Calme, Résistance aux poisons\nSignes dist. : Pas du matin, Phéromones puissants, Démarche atypique\nDépense 100 xp pour ré-organiser ses stats\nTirage ré-ordonné : cc:8, ct:18, f:10, e:15, i:13, ag:16, dex:12, int:18, fm:9, soc:16\n8 compétences culturelles : ...\nSa Destinée la conduira vers une chute fatale.\nDépense 200 xp dans..."}
           ],
-          "resume":"Création du personnage humain de Bernhard Dupond, un ratier ostlandais, pour Vincent."}
+          "resume":"Expérimentation des règles v4 pour la création de personnages."}
       ]
     },
     {"id":11,"titre":"L'ennemi Intérieur - Toulouse 2011","mj":1,"team":1,

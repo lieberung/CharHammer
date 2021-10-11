@@ -1,0 +1,17 @@
+﻿@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Models
+<tr>
+    <td><BestioleItemList Items="@Fact.Pjs"/></td>
+    <td>
+        <ul>
+            @foreach (var line in Fact.Fact.Split('\n'))
+            {
+                <li>@line</li>
+            }
+        </ul>
+    </td>
+</tr>
+
+@code {
+    [Parameter] public FactDto Fact { get; set; } = null!;
+}

@@ -1,0 +1,12 @@
+﻿@using BlazorWjdr.Models
+@code {
+    [Parameter]
+    public BestioleDto Item { get; set; } = null!;
+}
+<ul>
+    <li>Poids : @Item.Poids kg</li>
+    <li>Taille : @Item.Taille</li>
+    <li>Cheveux : @Item.Cheveux</li>
+    <li>Yeux : @Item.Yeux</li>
+    <li>Main directrice : @(Item.MainDirectrice == 1 ? "droite" : "gauche")</li>
+</ul>

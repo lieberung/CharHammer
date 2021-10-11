@@ -13,7 +13,7 @@
   "aptitudes":[1092,1136,3917],
   "description":""},
 {"id":3,"parent":1,"lieux":[3],"pj":true,"nom_masculin":"Wastlandais","nom_feminin":"Wastlandaise","description":""},
-{"id":4,"parent":1,"lieux":[4],"pj":true,"nom_masculin":"Bretonnien","nom_feminin":"Bretonniène","description":""},
+{"id":4,"parent":1,"lieux":[4],"pj":true,"nom_masculin":"Bretonnien","nom_feminin":"Bretonniène","nom_autoch":"brétonniens","description":""},
 {"id":5,"parent":1,"lieux":[5],"pj":true,"nom_masculin":"Kislevite","nom_feminin":"","description":""},
 {"id":6,"parent":1,"lieux":[6],"pj":true,"nom_masculin":"Estalien","nom_feminin":"","description":""},
 {"id":7,"parent":1,"lieux":[7],"pj":true,"nom_masculin":"Tiléen","nom_feminin":"","description":""},

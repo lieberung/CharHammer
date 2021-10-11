@@ -1,0 +1,9 @@
+﻿@using BlazorWjdr.Models
+@code {
+    [Parameter] public CampagneDto Campagne { get; set; } = null!;
+    [Parameter] public BestioleDto Pj { get; set; } = null!;
+}
+@foreach (var seance in Campagne.Seances.Where(s => s.Pjs.Contains(Pj)).OrderBy(s => s.Acte).ThenBy(s => s.Quand))
+{
+    <HistoriqueDeSeance Seance="@seance" Pj="@Pj"/>
+}

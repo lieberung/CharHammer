@@ -1,5 +1,6 @@
 ﻿using BlazorWjdr.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BlazorWjdr.Services
 {
@@ -19,9 +20,11 @@ namespace BlazorWjdr.Services
             _campagnes = campagnes;
         }
 
-        public IEnumerable<CampagneDto> AllCampagnes()
-        {
-            return _campagnes;
-        }
+        public IEnumerable<CampagneDto> AllCampagnes() => _campagnes;
+
+        public IEnumerable<CampagneDto> CampagnesAuxquellesAParticipe(BestioleDto pj)
+            => _campagnes
+                .Where(c => c.Seances.Any(s => s.Pjs.Contains(pj)))
+                .OrderBy(c => c.Titre);
     }
 }

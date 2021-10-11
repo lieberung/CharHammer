@@ -25,10 +25,7 @@
     <tbody>
     @foreach (var fact in Seance.Facts.OrderBy(f => f.Tri))
     {
-        <tr>
-            <td><BestioleItemList Items="@fact.Pjs"/></td>
-            <td>@fact.Fact</td>
-        </tr>
+        <SeanceFactRow Fact="@fact"/>
     }
     </tbody>
 </table>

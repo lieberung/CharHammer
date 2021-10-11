@@ -1,0 +1,15 @@
+﻿@using BlazorWjdr.Components.Campagne
+@using BlazorWjdr.Models
+@code {
+    [Parameter] public SeanceDto Seance { get; set; } = null!;
+    [Parameter] public BestioleDto Pj { get; set; } = null!;
+}
+<h5 class="card-title">Séance du @Seance.Quand</h5>
+<table>
+    <tbody>
+    @foreach (var fact in Seance.Facts.Where(f => f.Pjs.Contains(Pj)).OrderBy(f => f.Tri))
+    {
+        <SeanceFactRow Fact="@fact"/>
+    }
+    </tbody>
+</table>
