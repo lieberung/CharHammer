@@ -8,12 +8,12 @@
 
 {"id":14,"race":53,"nom":"Gobelin standard","membrede":[4],
   "profil_actuel":{"cc":25,"ct":30,"f":30,"e":30,"i":20,"ag":35,"dex":30,"intel":30,"fm":20,"soc":20},
-  "aptitudes":[1019,1020,1023,1045,1024,1138,1048,1055,3903,4000,4000,4000,4000,4000,4000,4000,4001,4018],"aptitudes_facultatives":[4019,4019,4019,4019,4019,4019,4019,3703,4003,4017,4020],
+  "aptitudes":[2008,2009,1023,1045,1024,1138,1048,1055,3903,4000,4000,4000,4000,4000,4000,4000,4001,4018],"aptitudes_facultatives":[4019,4019,4019,4019,4019,4019,4019,3703,4003,4017,4020],
   "description":"Maigrichon, vindicatif, agile et intelligent, l'instinct de conservation d'u gobelin ne doit jamais être sous-estimé. Bien que lâches, les Gobelins s'unissent volontiers si cela leur assure un avantage écrasant en nombre. Les Gobelins se joignent fréquemment aux armées orques ( pas toujours par choix ) en se servant opportunément du butin de guerre, tandis que d'autres s'occupent de la plupart des combats."},
     
 {"id":15,"race":55,"nom":"Homme-bête standard","membrede":[4],
   "profil_actuel":{"cc":40,"ct":25,"f":35,"e":45,"i":99,"ag":35,"dex":99,"intel":25,"fm":25,"soc":25},
-  "aptitudes":[1019,1020,1030,1034,1140,1048,1049,1055,2008,2080,3200],"aptitudes_facultatives":[],
+  "aptitudes":[2008,1030,1034,1140,1048,1049,1055,2008,2080,3200],"aptitudes_facultatives":[],
   "description":""},
     
 {"id":16,"race":56,"nom":"Mutant standard","membrede":[4],
@@ -33,7 +33,7 @@
     
 {"id":19,"race":58,"nom":"Skaven","membrede":[4],
   "profil_actuel":{"cc":30,"ct":25,"f":30,"e":30,"i":99,"ag":40,"dex":99,"intel":25,"fm":25,"soc":15},
-  "aptitudes":[1019,1020,1024,1045,1048,1055,1156,2009,1608],"aptitudes_facultatives":[],
+  "aptitudes":[2009,1024,1045,1048,1055,1156,2009,1608],"aptitudes_facultatives":[],
   "description":""},
     
 {"id":20,"race":57,"nom":"Squelette","membrede":[4],
@@ -135,17 +135,19 @@
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
   "histoire":"Inspiration inspiration...",
   "description":"Bernhard possède une marque de naissance sur la fesse droite ; si un simple coup d'oeil révèle une forme rappelant un phalus, une obsevation plus attentive et un peu de mauvaise foi permettent d'y voir une comête à deux queues. Serait-ce un signe ? Il n'a cependant toujours pas franchit le pas pour la soumettre à une observation plus approfondie au temple de Sigmar.",
+  "ambitions":"Bernhard se demande si sa marque de naissance est un signe... Peut-être qu'en se mettant au service de Sigmar, une destinée particulière pourrait se dessiner.",
   "sexe":1,"poids":82,"taille":177,"age":36,"cheveux":"bruns","yeux":"vairons orange et pourpre",
   "profil_initial":{"cc":35,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
   "profil_actuel":{"cc":40,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
   "cheminement":[68],"origines":[36],
   "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"aucun",
-  "aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146,1220,2009,1019,1005,1048,1020,1021,1209,1608,3903]
+  "aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146,1220,2009,1005,1048,1197,1209,1608,3903]
 },
 
 {"id":8,"race":26,"nom":"Pulpo Léobite","user":1,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "histoire":"",
   "description":"",
+  "ambitions":"Huguette souhaite",
   "sexe":1,"poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
   "profil_initial":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
   "profil_actuel":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
@@ -157,6 +159,7 @@
       "notes":"Destinée : Une chute fatale...",
       "histoire":"",
       "description":"",
+      "ambitions":"Huguette souhaite",
       "sexe":2,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
       "profil_initial":{"cc":28,"ct":38,"f":30,"e":35,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
       "profil_actuel":{"cc":28,"ct":38,"f":30,"e":40,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},

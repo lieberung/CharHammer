@@ -182,7 +182,7 @@
         ["- 1ère fois (niveau 1)","100 xp",""],
         ["- Nième fois (niveau N)","N x 75 xp",""],
         ["Acheter un Trait","100 xp","La carrière actuelle doit être Complétée"],
-        ["Acheter un Talent ou une Compétence...","",""],
+        ["Acheter un/e Compétence/Talent/Trait...","",""],
         ["- via le 2ème choix dans une carrière","+50 xp",""],
         ["- via un instructeur ou une formation","+100 xp","Accord du MJ requis"],
         ["Choisir une nouvelle carrière de base","200 xp","100 xp si carrière actuelle complétée"],
@@ -197,7 +197,7 @@
         ["21-40","Cité de Marienburg"],
         ["41-70","Forêt de Laurelorn"],
         ["71-85","Grande Forêt"],
-        ["86-00","Forêt de Raikwald"]
+        ["86-00","Forêt de Reikwald"]
       ]
     },
     {"id":26,"titre":"Lieu de naissance (Gnômes)",
@@ -256,6 +256,28 @@
         ["21-35","Cité d'Altdorf"],
         ["36-45","Cité de Nuln"],
         ["46-00","Ulthuan"]
+      ]
+    },
+    {"id":31,"titre":"Lieu de naissance (Estalie)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-20","Royaume d’Astarios"],
+        ["21-40","Royaume d’Obregon"],
+        ["41-60","Royaume de cantonia"],
+        ["61-80","Royaume de Tigarre"],
+        ["81-00","Les montagnes d’Irrina"]
+      ]
+    },
+    {"id":32,"titre":"Lieu de naissance (Tilée)",
+      "description": "",
+      "lignes":[
+        ["d100","Lieu de naissance"],
+        ["01-25","Cité état de Luccini"],
+        ["26-50","Cité état de Remas"],
+        ["51-75","Cité état de Miragliano"],
+        ["76-90","Cité état de Tobaro"],
+        ["91-00","Ile de Sartosa"]
       ]
     },
     {"id":50,"titre":"Marchand : Traits aléatoires",

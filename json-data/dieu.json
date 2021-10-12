@@ -279,7 +279,7 @@
           {"id":143,"nom":"Les Doigts Crochus","aptitudes":[2019,1030,1034,1035],
             "description":"" }
         ],
-        "aptitudes":{"initie":[1025],"pretre_sans_ordre":[2011,1019,1020]},
+        "aptitudes":{"initie":[1025],"pretre_sans_ordre":[2011,2008]},
         "chef":"aucun",
         "fetes":"le Jour des Frasques, le Pèlerinage des Doigts",
         "livres":"Les Mystères du Dix, Minuit et le Chat noir",

@@ -9,11 +9,11 @@
 
 {"id":17,"titre":"Aptitudes culturelles - Elfes sylvains",
   "regle":"Un personnage elfe sylvain choisit 6 aptitudes parmi la liste ci-dessous :",
-  "aptitudes":[1209,1024,1220,1119,1034,1615,1618,1055,1042,1049,2008,1019],"aptitudes_choix":[[1052,2003],[3021,3013]]},
+  "aptitudes":[1209,1024,1220,1119,1034,1615,1618,1055,1042,1049,2008],"aptitudes_choix":[[1052,2003],[3021,3013]]},
 
 {"id":18,"titre":"Aptitudes culturelles - Halflings",
   "regle":"Un personnage halfling choisit 6 aptitudes parmi la liste ci-dessous, ainsi que 2 talents aléatoires supplémentaires sur la table concernée.",
-  "aptitudes":[1010,1608,1008,1051,1026,1035,1043,1210,1048,1025,1020],"aptitudes_choix":[[1068,1074]]},
+  "aptitudes":[1010,1608,1008,1051,1026,1035,1043,1210,1048,1025],"aptitudes_choix":[[1068,1074],[2008,2010]]},
 
 {"id":19,"titre":"Aptitudes culturelles - Empire (humains)",
   "regle":"Un personnage humain choisit 6 aptitudes parmi la liste ci dessous, et reçoit 3 talents aléatoires supplémentaires sur la table concernée.",
@@ -29,7 +29,7 @@
 
 {"id":22,"titre":"Aptitudes culturelles - Gnômes",
   "regle":"Un personnage gnôme choisit 7 aptitudes parmi la liste ci-dessous :",
-  "aptitudes":[2274,1238,1008,1026,1010,1043,1167,1051,1162,1020,1226],"aptitudes_choix":[[1052,3907],[1042,1055],[2011,2036],[2215,3922]]},
+  "aptitudes":[2274,1238,1008,1026,1010,1043,1167,1051,1162,2010,1226],"aptitudes_choix":[[1052,3907],[1042,1055],[2011,2036],[2215,3922]]},
   
 {"id":23,"titre":"Aptitudes culturelles - Hauts-Elfes",
   "regle":"Un personnage haut elfe choisit 8 aptitudes parmi la liste ci-dessous :",
@@ -46,7 +46,7 @@
 {"id":60,"titre":"Traits provinciaux - Averland","regle":"Un personnage Averlander peut également choisir parmi les aptitudes ci dessous.",
   "aptitudes":[1023,1080],"lieux":[30]},
 {"id":61,"titre":"Traits provinciaux - Hochland","regle":"Un personnage Hochlander peut également choisir parmi les aptitudes ci dessous.",
-  "aptitudes":[1020,2008],"lieux":[31]},
+  "aptitudes":[2008],"lieux":[31]},
 {"id":62,"titre":"Traits provinciaux - Middenland","regle":"Un personnage Middenlander peut également choisir parmi les aptitudes ci dessous.",
   "aptitudes":[1034],"lieux":[32]},
 {"id":63,"titre":"Traits provinciaux - Nordland","regle":"Un personnage Nordlander peut également choisir parmi les aptitudes ci dessous.",
