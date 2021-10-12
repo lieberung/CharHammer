@@ -9,7 +9,7 @@
     protected override void OnParametersSet()
     {
         var hauteur = Niveau == 1 ? 5 : Niveau == 2 ? 10 : 20;
-        _help = $"Pour compléter cette carrière, vous devez acheter toutes les améliorations de caractéristques proposées à hauteur de +{hauteur}% si cela est possible.\n\n";
+        _help = $"Pour compléter cette carrière, vous devez acheter toutes les améliorations de caractéristques proposées à hauteur de +{hauteur}% si cela est possible, ainsi que chaque Compétence et chaque Talent au moins une fois.\n\n";
         if (Niveau == 1)
             _help += "Vous ne pouvez acheter qu'une seule fois chaque Compétence proposée par cette carrière.";
         else
