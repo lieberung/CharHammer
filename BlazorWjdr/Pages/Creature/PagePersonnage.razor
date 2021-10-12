@@ -115,19 +115,22 @@
             </div>
         </div>
         
-        <PageSectionDivider/>
-        
-        <div class="row">
-            <div class="col-8">
-                @foreach (var campagne in _campagnesService.CampagnesAuxquellesAParticipe(Item))
-                {
-                    <h3 class="card-title">Historique de Campagne - @campagne.Titre</h3>
-                    <div class="card-body">
-                        <HistoriqueDeCampagne Campagne="@campagne" Pj="@Item"/>
-                    </div>
-                }
+        @if (Item.EstUnPersonnage)
+        {
+            <PageSectionDivider/>
+
+            <div class="row">
+                <div class="col-8">
+                    @foreach (var campagne in _campagnesService.CampagnesAuxquellesAParticipe(Item))
+                    {
+                        <h3 class="card-title">Historique de Campagne - @campagne.Titre</h3>
+                        <div class="card-body">
+                            <HistoriqueDeCampagne Campagne="@campagne" Pj="@Item"/>
+                        </div>
+                    }
+                </div>
             </div>
-        </div>
+        }
 
     </div>
 </div>

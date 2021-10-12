@@ -182,7 +182,7 @@
         ["- 1ère fois (niveau 1)","100 xp",""],
         ["- Nième fois (niveau N)","N x 75 xp",""],
         ["Acheter un Trait","100 xp","La carrière actuelle doit être Complétée"],
-        ["Acheter un Talent ou une Compétence...","",""],
+        ["Acheter un/e Compétence/Talent/Trait...","",""],
         ["- via le 2ème choix dans une carrière","+50 xp",""],
         ["- via un instructeur ou une formation","+100 xp","Accord du MJ requis"],
         ["Choisir une nouvelle carrière de base","200 xp","100 xp si carrière actuelle complétée"],
