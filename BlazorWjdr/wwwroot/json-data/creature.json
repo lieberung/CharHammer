@@ -63,12 +63,12 @@
     
 {"id":25,"race":59,"nom":"Loup","membrede":[4],
   "profil_actuel":{"cc":35,"ct":0,"f":35,"e":30,"i":35,"ag":30,"dex":0,"intel":15,"fm":15,"soc":0},
-  "aptitudes":[1045,1048,1048,1049,2080,3904,4000,4000,4000,4000,4000,4000,4001,4004,4005,4006,4013,3903],"aptitudes_facultatives":[3508,4003,3832,4028,4033],
+  "aptitudes":[1045,1048,1048,1049,2080,3904,4000,4000,4000,4000,4000,4000,4001,4004,4005,4006,4013,3903],"aptitudes_facultatives":[3508,4003,3832,4028,4038,4039,4040,4041,4042,4043,4045],
   "description":""},
 
 {"id":26,"race":60,"nom":"Ours brun","membrede":[4],
   "profil_actuel":{"cc":33,"ct":0,"f":52,"e":47,"i":0,"ag":25,"dex":0,"intel":10,"fm":25,"soc":0},
-  "aptitudes":[1045,1048,2020,2021,2080,2091,3903,3904,4000,4000,4000,4000,4000,4000,4000,4000,4001,4004,4005,4011,4011,4011,4011,4011,4011,4011,4011,4011,4006,3832],"aptitudes_facultatives":[4033,4003,4031,4028,3833],
+  "aptitudes":[1045,1048,2020,2021,2080,2091,3903,3904,4000,4000,4000,4000,4000,4000,4000,4000,4001,4004,4005,4011,4011,4011,4011,4011,4011,4011,4011,4011,4006,3832],"aptitudes_facultatives":[4037,4038,4040,4003,4031,4028,3833],
   "description":""},
 
 {"id":28,"race":1,"nom":"Marchand type","poids":72,"taille":169,"age":50,"membrede":[],
@@ -83,12 +83,12 @@
 
 {"id":30,"race":49,"nom":"Rat géant","membrede":[4],
   "profil_actuel":{"cc":25,"ct":0,"f":30,"e":25,"i":25,"ag":35,"dex":0,"intel":15,"fm":15,"soc":0},
-  "aptitudes":[3831,4003,4000,4000,4000,4000,4004,4005,4006,3903],"aptitudes_facultatives":[4001,4033,4030,4034],
+  "aptitudes":[3831,4003,4000,4000,4000,4000,4004,4005,4006,3903],"aptitudes_facultatives":[4001,4040,4030,4034],
   "description":""},
 
 {"id":31,"race":49,"nom":"Sanglier","membrede":[4],
   "profil_actuel":{"cc":35,"ct":0,"f":33,"e":35,"i":33,"ag":35,"dex":0,"intel":10,"fm":10,"soc":0},
-  "aptitudes":[4001,4004,3903,4006,4005,4000,4000,4000,4000,4000,4000,4007],"aptitudes_facultatives":[4003,3508,3832,4012,4033,4031,4028],
+  "aptitudes":[4001,4004,3903,4006,4005,4000,4000,4000,4000,4000,4000,4007],"aptitudes_facultatives":[4003,3508,3832,4012,4038,4040,4042,4031,4028],
   "description":""},
 
 {"id":32,"race":69,"nom":"Serpent","membrede":[4],
@@ -98,12 +98,12 @@
 
 {"id":33,"race":70,"nom":"Pigeon","membrede":[4],
   "profil_actuel":{"cc":15,"ct":0,"f":5,"e":15,"i":25,"ag":40,"dex":0,"intel":10,"fm":20,"soc":10},
-  "aptitudes":[4004,4006,4015,3835],"aptitudes_facultatives":[3831,4033],
+  "aptitudes":[4004,4006,4015,3835],"aptitudes_facultatives":[3831,4038,4044],
   "description":""},
 
 {"id":34,"race":68,"nom":"Araignée géante","membrede":[4],
   "profil_actuel":{"cc":35,"ct":25,"f":15,"e":25,"i":10,"ag":35,"dex":30,"intel":5,"fm":25,"soc":0},
-  "aptitudes":[4004,3831,3903,4000,4000,4000,4010],"aptitudes_facultatives":[4034,4020,4001,4033,4011,4017],
+  "aptitudes":[4004,3831,3903,4000,4000,4000,4010],"aptitudes_facultatives":[4034,4020,4001,4038,4039,4040,4041,4042,4011,4017],
   "description":""},
 
 {"id":7,"race":1,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
