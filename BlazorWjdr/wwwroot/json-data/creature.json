@@ -4,12 +4,12 @@
 {"id":6,"race":57,"nom":"Goule de crypte","membrede":[4],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
   "aptitudes":[3903,4000,4000,4000,4000,4000,4000,4003,4011,4011,4011,4011,4011],"aptitudes_facultatives":[4004,4016,4017],
-  "description":""},
+  "description":"Certaines des créatures les plus pitoyables de l'Ancien Monde, les Ghouls de la crypte sont des créatures laides, courbées, à la peau jaunâtre et sale, aux dents pointues et jaunes capables de déchirer la chair de leurs victimes. Les Ghouls sont attirés par les énergies magiques de Shyish et de Dhar, ce qui signifie en pratique qu'ils sont attirés par les cimetières et les cryptes, et autour des champs de bataille."},
 
 {"id":14,"race":53,"nom":"Gobelin standard","membrede":[4],
   "profil_actuel":{"cc":25,"ct":30,"f":30,"e":30,"i":20,"ag":35,"dex":30,"intel":30,"fm":20,"soc":20},
   "aptitudes":[1019,1020,1023,1045,1024,1138,1048,1055,3903,4000,4000,4000,4000,4000,4000,4000,4001,4018],"aptitudes_facultatives":[4019,4019,4019,4019,4019,4019,4019,3703,4003,4017,4020],
-  "description":""},
+  "description":"Maigrichon, vindicatif, agile et intelligent, l'instinct de conservation d'u gobelin ne doit jamais être sous-estimé. Bien que lâches, les Gobelins s'unissent volontiers si cela leur assure un avantage écrasant en nombre. Les Gobelins se joignent fréquemment aux armées orques ( pas toujours par choix ) en se servant opportunément du butin de guerre, tandis que d'autres s'occupent de la plupart des combats."},
     
 {"id":15,"race":55,"nom":"Homme-bête standard","membrede":[4],
   "profil_actuel":{"cc":40,"ct":25,"f":35,"e":45,"i":99,"ag":35,"dex":99,"intel":25,"fm":25,"soc":25},
@@ -19,12 +19,12 @@
 {"id":16,"race":56,"nom":"Mutant standard","membrede":[4],
   "profil_actuel":{"cc":30,"ct":30,"f":30,"e":30,"i":30,"ag":30,"dex":30,"intel":30,"fm":30,"soc":30},
   "aptitudes":[4000,4000,4000,4000,4000,4000,4000,4021,4024],"aptitudes_facultatives":[],
-  "description":""},
+  "description":"L'un des des destins les plus tragiques d'un être humain est de succomber à l'influence mutante du Chaos. Cela peut se produire sans rime ni raison, et même des bébés peuvent naître mutants. Lorsqu'une telle situation se produit, de nombreux parents se rendent compte qu'ils ne sont pas capables de faire preuve de la volonté de tuer leurs enfants, alors abandonnent plutôt leur progéniture dans les bois, soit pour se faire tuer ou accueillir par des mutants ou d'autres Hommes-Bêtes. Aussi innocents qu'ils soient, tous les mutants sont une source de terreur pour le commun des mortels, donc la plupart tombent aux mains des Dieux Noirs, abandonnés et aigris, ou mettent fin à tout cela avant qu'il soit trop tard."},
     
 {"id":17,"race":54,"nom":"Orque standard","membrede":[4],
   "profil_actuel":{"cc":35,"ct":30,"f":35,"e":45,"i":20,"ag":25,"dex":20,"intel":25,"fm":35,"soc":20},
   "aptitudes":[3803,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4001,4012,3903,4025,4003],"aptitudes_facultatives":[4019,4016,3832],
-  "description":""},
+  "description":"Les Orques sont méchants, brutaux, belliqueux et presque immunisés contre la douleur. Ils ont un corps musclé et massif, des épaules larges et puissantes, et ne laisseront pas une petite chose comme un bras perdu se mettre en travers d'un bon morceau. Ils sont bâtis pour le combat et n'aiment rien de plus que de le faire. Quand ils n'ont pas d'ennemis à combattre, ils s'attaquent à des groupes rivaux de PeauxVertes. S'il n'y a pas de groupe rival, ils se battront entre eux. Bien qu'ils ne soient pas aussi nombreux que les Gobelins, ils sont plus grands et plus durs, et ils le leur font savoir à chaque occasion. Les Orques peuvent atteindre une taille prodigieuse, avec des Orques plus grands, plus forts, plus résistants et plus agressifs, et donc plus prestigieux, car la puissance est égale à la loi dans leur société belliqueuse. Certains Orques chevauchent d'immenses sangliers au combat, un spectacle qui ne manque jamais de terrifier."},
     
 {"id":18,"race":62,"nom":"Revenant","membrede":[4],
   "profil_actuel":{"cc":40,"ct":35,"f":45,"e":45,"i":99,"ag":30,"dex":99,"intel":25,"fm":35,"soc":20},
@@ -39,12 +39,12 @@
 {"id":20,"race":57,"nom":"Squelette","membrede":[4],
   "profil_actuel":{"cc":25,"ct":25,"f":30,"e":30,"i":20,"ag":20,"dex":25,"intel":0,"fm":0,"soc":0},
   "aptitudes":[3199,3901,3200,4000,4000,4000,4000,4000,4000,4000,4001,4001,4026,3903,4027,4027],"aptitudes_facultatives":[4021,4003,4028],
-  "description":""},
+  "description":"Les squelettes sont les os sans chair de ces morts de longue date, réanimés  la magie noire pour marcher sur la terre comme des parodies des vivants. Ceux qui sont morts et n'ont pas été enterrés selon les rituels de Morr, le Dieu de la mort, peuvent être ressuscités sous cette forme par un nécromancien suffisamment puissant. Les squelettes se battront jusqu'à ce que leurs os soient brisés en morceaux. Ils n'ont pas de courage car ils n'ont pas peur. Ils ne peuvent pas être tués parce qu'ils ne sont pas vivants."},
     
 {"id":21,"race":57,"nom":"Zombie","membrede":[4],
   "profil_actuel":{"cc":15,"ct":0,"f":30,"e":30,"i":5,"ag":10,"dex":15,"intel":0,"fm":0,"soc":0},
   "aptitudes":[3199,3901,3200,4000,4000,4000,4000,4000,4000,4000,4016,4026,4027,4027,4029],"aptitudes_facultatives":[4001,4021,4003,4030,4028,4031,4032],
-  "description":""},
+  "description":"Comme les squelettes, les zombies sont des créatures mortes-vivantes réanimées et liées entre elles par une ignoble magie. Contrairement aux squelettes, ils sont morts si récemment qu'une grande partie de leur corps existe toujours, pourrissant et leur chair malade s'affaisse sur leurs organes gonflés et miteux. Pendant qu'ils se battent, leur chair et leurs organes se détachent de leurs os, libérant une odeur nauséabonde et toxique, assez puissante pour retourner le ventre de tous les soldats sauf les plus endurcis d'entre eux."},
     
 {"id":22,"race":51,"nom":"Cheval de guerre","membrede":[4],
   "profil_actuel":{"cc":30,"ct":0,"f":40,"e":40,"i":99,"ag":30,"dex":99,"intel":10,"fm":10,"soc":0},
@@ -63,13 +63,13 @@
     
 {"id":25,"race":59,"nom":"Loup","membrede":[4],
   "profil_actuel":{"cc":35,"ct":0,"f":35,"e":30,"i":35,"ag":30,"dex":0,"intel":15,"fm":15,"soc":0},
-  "aptitudes":[1045,1048,1048,1049,2080,3904,4000,4000,4000,4000,4000,4000,4001,4004,4005,4006,4013,3903],"aptitudes_facultatives":[3508,4003,3832,4028,4033],
-  "description":""},
+  "aptitudes":[1045,1048,1048,1049,2080,3904,4000,4000,4000,4000,4000,4000,4001,4004,4005,4006,4013,3903],"aptitudes_facultatives":[3508,4003,3832,4028,4038,4039,4040,4041,4042,4043,4045],
+  "description":"Les loups chassent habituellement en meute et ont la réputation d'être des chasseurs tenaces, poursuivant leur proie sur des dizaines de kilomètres sans repos ni répit. Plusieurs espèces rôdent dans le Reikland, y compris les féroces loups géants, qui sont capturés et élevés par les Gobelins pour servir de gardes et de montures."},
 
 {"id":26,"race":60,"nom":"Ours brun","membrede":[4],
   "profil_actuel":{"cc":33,"ct":0,"f":52,"e":47,"i":0,"ag":25,"dex":0,"intel":10,"fm":25,"soc":0},
-  "aptitudes":[1045,1048,2020,2021,2080,2091,3903,3904,4000,4000,4000,4000,4000,4000,4000,4000,4001,4004,4005,4011,4011,4011,4011,4011,4011,4011,4011,4011,4006,3832],"aptitudes_facultatives":[4033,4003,4031,4028,3833],
-  "description":""},
+  "aptitudes":[1045,1048,2020,2021,2080,2091,3903,3904,4000,4000,4000,4000,4000,4000,4000,4000,4001,4004,4005,4011,4011,4011,4011,4011,4011,4011,4011,4011,4006,3832],"aptitudes_facultatives":[4037,4038,4040,4003,4031,4028,3833],
+  "description":"L'ours, qui erre dans les endroits sauvages du Reikland, est solitaire et généralement timide, ne devient agressif que lorsque les intrus menacent ses petits ou lorsqu'il est blessé. Lorsque la nourriture se fait rare, ils s'approchent des villages et des voyageurs non protégés, en particulier ceux qui sont négligents avec leurs provisions."},
 
 {"id":28,"race":1,"nom":"Marchand type","poids":72,"taille":169,"age":50,"membrede":[],
   "profil_actuel":{"cc":37,"ct":32,"f":35,"e":36,"i":0,"ag":33,"dex":0,"intel":48,"fm":46,"soc":51},
@@ -83,28 +83,53 @@
 
 {"id":30,"race":49,"nom":"Rat géant","membrede":[4],
   "profil_actuel":{"cc":25,"ct":0,"f":30,"e":25,"i":25,"ag":35,"dex":0,"intel":15,"fm":15,"soc":0},
-  "aptitudes":[3831,4003,4000,4000,4000,4000,4004,4005,4006,3903],"aptitudes_facultatives":[4001,4033,4030,4034],
-  "description":""},
+  "aptitudes":[3831,4003,4000,4000,4000,4000,4004,4005,4006,3903],"aptitudes_facultatives":[4001,4040,4030,4034],
+  "description":"Les rats se déplacent partout et sont particulièrement répandus dans les villes et les villages. Plus les gens sont nombreux, plus les rats sont regroupés avec eux, ce qui est particulièrement mauvais lorsque les créatures sont porteuses de maladies. Bien que typiquement petits, ils peuvent atteindre des proportions monstrueuses, avec des rapports de rats sous Altdorf de la taille d'un humain et plus grand. Des chasseurs de rats sont employés pour les garder sous contrôle."},
 
 {"id":31,"race":49,"nom":"Sanglier","membrede":[4],
   "profil_actuel":{"cc":35,"ct":0,"f":33,"e":35,"i":33,"ag":35,"dex":0,"intel":10,"fm":10,"soc":0},
-  "aptitudes":[4001,4004,3903,4006,4005,4000,4000,4000,4000,4000,4000,4007],"aptitudes_facultatives":[4003,3508,3832,4012,4033,4031,4028],
-  "description":""},
+  "aptitudes":[4001,4004,3903,4006,4005,4000,4000,4000,4000,4000,4000,4007],"aptitudes_facultatives":[4003,3508,3832,4012,4038,4040,4042,4031,4028],
+  "description":"En fouillant dans la forêt, les sangliers sont des créatures solitaires, mais lorsqu'ils sont pris au piège, ils se battent avec leurs défenses acérées avec une ténacité qui choque ceux qui ne sont pas préparés. Bien que la plupart mesurent de 0,5 à 1,80 mètres de long, certaines atteignent des proportions remarquables, les plus grandes étant appréciées par les Orques, qui les utilisent comme montures de guerre féroces."},
 
 {"id":32,"race":69,"nom":"Serpent","membrede":[4],
   "profil_actuel":{"cc":40,"ct":0,"f":30,"e":25,"i":25,"ag":40,"dex":0,"intel":5,"fm":45,"soc":0},
   "aptitudes":[4008,4009,4000,4000,4000,4000,4000,4001,4004,3831,4014],"aptitudes_facultatives":[4034,4017,4035,4036],
-  "description":""},
+  "description":"On trouve des serpents dans tout l'Empire, en particulier dans les forêts. La plupart sont inoffensifs, mais certains possèdent un venin mortel ou étranglent leurs victimes jusqu'à leur mort par suffocation. Comme de nombreuses créatures de l'Ancien Monde, elles peuvent atteindre des proportions gigantesques, comme l'énorme ver Fen, ce qui représente un réel danger, même pour le plus fort des mercenaires."},
 
 {"id":33,"race":70,"nom":"Pigeon","membrede":[4],
   "profil_actuel":{"cc":15,"ct":0,"f":5,"e":15,"i":25,"ag":40,"dex":0,"intel":10,"fm":20,"soc":10},
-  "aptitudes":[4004,4006,4015,3835],"aptitudes_facultatives":[3831,4033],
-  "description":""},
+  "aptitudes":[4004,4006,4015,3835],"aptitudes_facultatives":[3831,4038,4044],
+  "description":"Les pigeons sont élevés à travers le Reikland pour transmettre des messages  toutes sortes. Récemment, ils sont devenus célèbres pour transporter une cargaison plus mortelle, car l'oiseau facilement accessible est devenu le favori des ingénieurs, habitués à déployer leurs 'bombes pigeons' avec plus ou moins de succès."},
 
 {"id":34,"race":68,"nom":"Araignée géante","membrede":[4],
   "profil_actuel":{"cc":35,"ct":25,"f":15,"e":25,"i":10,"ag":35,"dex":30,"intel":5,"fm":25,"soc":0},
-  "aptitudes":[4004,3831,3903,4000,4000,4000,4010],"aptitudes_facultatives":[4034,4020,4001,4033,4011,4017],
-  "description":""},
+  "aptitudes":[4004,3831,3903,4000,4000,4000,4010],"aptitudes_facultatives":[4034,4020,4001,4038,4039,4040,4041,4042,4011,4017],
+  "description":"Les araignées géantes rôdent au fond des forêts et des grottes de l'Empire, mais peuvent vivre n'importe où, y compris dans les greniers poussiéreux et les caves sombres. La plupart piègent leurs proies avec des toiles solides avant d'injecter du venin. Bien que la plupart aient la taille d'un gros rat, certaines espèces d'araignées géantes sont d'une taille terrifiante. Les gobelins des forêts capturent souvent des spécimens plus grands pour les monter."},
+
+{"id":35,"race":59,"nom":"Chien","membrede":[4],
+  "profil_actuel":{"cc":25,"ct":0,"f":20,"e":20,"i":35,"ag":30,"dex":0,"intel":15,"fm":10,"soc":15},
+  "aptitudes":[4000,4000,4000,4000,4004,4005,4006,3831,3903],"aptitudes_facultatives":[4001,4037,4038,4039,4040,4041,4043,3508,4003,4013,4028],
+  "description":"Les chiens sont élevés à des fins multiples dans l'Ancien Monde. Alors que les toutous dorlotés des courtisans d'Altdorf ne représentent pas une menace pour la vie de l'aventurier, les grandes races, y compris celles élevées pour la guerre et les combats de chiens, peuvent représenter une menace considérable."},
+
+{"id":36,"race":51,"nom":"Cheval","membrede":[4],
+  "profil_actuel":{"cc":25,"ct":0,"f":45,"e":35,"i":15,"ag":30,"dex":0,"intel":10,"fm":10,"soc":20},
+  "aptitudes":[4000,4000,4000,4000,4000,4000,4000,4004,4005,4006,3832],"aptitudes_facultatives":[4001,4037,4038,4040,4041,4042,4045],
+  "description":"Les chevaux sont élevés pour de nombreux travaux, y compris des montures rap pour les messagers, des chevaux de trait robustes pour les chevaliers, et de puissants chevaux de trait pour les fermiers. Ils sont si utiles que le commerce de chevaux est presque un sport de compétition dans le Reikland. Les'Horse Copers' (vendeurs de chevaux) sans scrupules veulent gagner de l'argent aux dépens de l'acheteur ignorant, peindre et limer les dents des chevaux âgés ou mettre des chiffons sur le nez pour faire tremper le mucus, alors l'acheteur ignorant doit se méfier."},
+
+{"id":37,"race":68,"nom":"Géant","membrede":[4],
+  "profil_actuel":{"cc":30,"ct":30,"f":65,"e":55,"i":30,"ag":20,"dex":15,"intel":25,"fm":25,"soc":20},
+  "aptitudes":[4000,4000,4000,4000,4000,4000,4000,4000,4000,4000,4001,4005,3833,3903],"aptitudes_facultatives":[4002,4004,4003,4031,3834],
+  "description":"Les géants sont des créatures solitaires qui évitent généralement la civilisation. La plupart des endroits reculés et élevés autour de l'Empire, s'enfonçant dans des grottes et des ruines oubliées loin des plus petits, bien qu'ils migrent parfois vers les contreforts à la recherche de nourriture. Ils sont réputés pour leur agressivité et leur férocité, en partie à cause de leur taille intimidante, de leur alimentation de bœuf et de leur association aux armées des Peaux vertes qui les réduisent à la misère. En vérité, de nombreux géants sont des âmes douces, sujettes à des accès de colère et farouchement protectrices de leur vie privée, mais pas nécessairement hostiles aux autres. En raison de leur longue durée de vie, les rumeurs suggèrent qu'ils amassent d'anciennes Connaissances, bien que la plupart semblent moins lucides, et certainement plus intéressés par l'alcool que par les débats sur l'histoire."},
+
+{"id":38,"race":68,"nom":"Troll","membrede":[4],
+  "profil_actuel":{"cc":30,"ct":15,"f":55,"e":45,"i":10,"ag":15,"dex":15,"intel":10,"fm":20,"soc":5},
+  "aptitudes":[4000,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4025,4003,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,3832],"aptitudes_facultatives":[4002,4004,3508,4016,4036,4024,4031,3903,2070],
+  "description":"Les trolls sont des créatures sales et immondes qui infestent tous les coins l'Ancien Monde. Ils s'adaptent rapidement à leur environnement et se déclinent en différents types, mais tous sont immenses et imposants. Ils sont sombres et guidés par leur instinct pour la nourriture, mais ils aiment amasser et leurs repaires peuvent être une mine de trésors utiles et précieux... et les restes sinistres de leurs repas. Bien qu'il existe de nombreuses espèces de Trolls, elles ont toutes en commun certaines caractéristiques : elles sont généralement extrêmement stupides, ce qui signifie que tout ennemi à l'esprit vif peut les dominer ; elles peuvent se régénérer, ce qui les rend extrêmement difficiles à tuer ; et elles sont capables de régurgiter leur dernier repas à volonté, vomissant une bile âcre sur une distance terriblement impressionnante - même si elles sont répugnantes à faire cela car ça leur donne très faim."},
+
+{"id":39,"race":68,"nom":"Basilic","membrede":[4],
+  "profil_actuel":{"cc":45,"ct":35,"f":45,"e":55,"i":25,"ag":15,"dex":0,"intel":15,"fm":15,"soc":0},
+  "aptitudes":[4008,4000,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4004,4005,4003,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,3833,4017,3903],"aptitudes_facultatives":[4024,4028],
+  "description":"Ces reptiles à huit pattes sont solitaires et insaisissables. Prétendue être l'une des créatures les plus anciennes du Chaos, on dit qu'elle est remplie d'une telle rancune et que le venin sur le sol même où elle marche est empoisonné. Leur morsure aussi est toxique, mais c'est leur regard pétrifiant qui terrorise le plus. Rarement rencontrés de nos jours, les basilics sont un ennemi des plus dangereux. Leurs glandes et leurs organes sont très prisés par les sorciers et les alchimistes, de sorte que les chasseurs opportunistes chassent souvent le Basilics dans les lieux sauvages du Vorbergland, mais peu reviennent."},
 
 {"id":7,"race":1,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
