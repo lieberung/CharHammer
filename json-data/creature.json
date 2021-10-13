@@ -8,7 +8,7 @@
 
 {"id":14,"race":53,"nom":"Gobelin standard","membrede":[4],
   "profil_actuel":{"cc":25,"ct":30,"f":30,"e":30,"i":20,"ag":35,"dex":30,"intel":30,"fm":20,"soc":20},
-  "aptitudes":[2008,2009,1023,1045,1024,1138,1048,1055,3903,4000,4000,4000,4000,4000,4000,4000,4001,4018],"aptitudes_facultatives":[4019,4019,4019,4019,4019,4019,4019,3703,4003,4017,4020],
+  "aptitudes":[2008,2009,1023,1045,1024,1138,1048,1055,3903,4000,4000,4000,4000,4000,4000,4000,4001,4018],"aptitudes_facultatives":[4050,4050,4050,4050,4050,4050,4050,3703,4003,4017,4020],
   "description":"Maigrichon, vindicatif, agile et intelligent, l'instinct de conservation d'u gobelin ne doit jamais être sous-estimé. Bien que lâches, les Gobelins s'unissent volontiers si cela leur assure un avantage écrasant en nombre. Les Gobelins se joignent fréquemment aux armées orques ( pas toujours par choix ) en se servant opportunément du butin de guerre, tandis que d'autres s'occupent de la plupart des combats."},
     
 {"id":15,"race":55,"nom":"Homme-bête standard","membrede":[4],
@@ -23,7 +23,7 @@
     
 {"id":17,"race":54,"nom":"Orque standard","membrede":[4],
   "profil_actuel":{"cc":35,"ct":30,"f":35,"e":45,"i":20,"ag":25,"dex":20,"intel":25,"fm":35,"soc":20},
-  "aptitudes":[3803,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4001,4012,3903,4025,4003],"aptitudes_facultatives":[4019,4016,3832],
+  "aptitudes":[3803,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4001,4012,3903,4025,4003],"aptitudes_facultatives":[4051,4051,4051,4051,4051,4051,4051,4051,4016,3832],
   "description":"Les Orques sont méchants, brutaux, belliqueux et presque immunisés contre la douleur. Ils ont un corps musclé et massif, des épaules larges et puissantes, et ne laisseront pas une petite chose comme un bras perdu se mettre en travers d'un bon morceau. Ils sont bâtis pour le combat et n'aiment rien de plus que de le faire. Quand ils n'ont pas d'ennemis à combattre, ils s'attaquent à des groupes rivaux de PeauxVertes. S'il n'y a pas de groupe rival, ils se battront entre eux. Bien qu'ils ne soient pas aussi nombreux que les Gobelins, ils sont plus grands et plus durs, et ils le leur font savoir à chaque occasion. Les Orques peuvent atteindre une taille prodigieuse, avec des Orques plus grands, plus forts, plus résistants et plus agressifs, et donc plus prestigieux, car la puissance est égale à la loi dans leur société belliqueuse. Certains Orques chevauchent d'immenses sangliers au combat, un spectacle qui ne manque jamais de terrifier."},
     
 {"id":18,"race":62,"nom":"Revenant","membrede":[4],
@@ -98,7 +98,7 @@
 
 {"id":33,"race":70,"nom":"Pigeon","membrede":[4],
   "profil_actuel":{"cc":15,"ct":0,"f":5,"e":15,"i":25,"ag":40,"dex":0,"intel":10,"fm":20,"soc":10},
-  "aptitudes":[4004,4006,4015,3835],"aptitudes_facultatives":[3831,4038,4044],
+  "aptitudes":[4004,4006,4015,3835],"aptitudes_facultatives":[3831,4038,4044,4062],
   "description":"Les pigeons sont élevés à travers le Reikland pour transmettre des messages  toutes sortes. Récemment, ils sont devenus célèbres pour transporter une cargaison plus mortelle, car l'oiseau facilement accessible est devenu le favori des ingénieurs, habitués à déployer leurs 'bombes pigeons' avec plus ou moins de succès."},
 
 {"id":34,"race":68,"nom":"Araignée géante","membrede":[4],
@@ -123,12 +123,12 @@
 
 {"id":38,"race":68,"nom":"Troll","membrede":[4],
   "profil_actuel":{"cc":30,"ct":15,"f":55,"e":45,"i":10,"ag":15,"dex":15,"intel":10,"fm":20,"soc":5},
-  "aptitudes":[4000,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4025,4003,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,3832],"aptitudes_facultatives":[4002,4004,3508,4016,4036,4024,4031,3903,2070],
+  "aptitudes":[4071,4000,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4025,4003,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,3832],"aptitudes_facultatives":[4002,4004,3508,4016,4036,4024,4031,3903,2070],
   "description":"Les trolls sont des créatures sales et immondes qui infestent tous les coins l'Ancien Monde. Ils s'adaptent rapidement à leur environnement et se déclinent en différents types, mais tous sont immenses et imposants. Ils sont sombres et guidés par leur instinct pour la nourriture, mais ils aiment amasser et leurs repaires peuvent être une mine de trésors utiles et précieux... et les restes sinistres de leurs repas. Bien qu'il existe de nombreuses espèces de Trolls, elles ont toutes en commun certaines caractéristiques : elles sont généralement extrêmement stupides, ce qui signifie que tout ennemi à l'esprit vif peut les dominer ; elles peuvent se régénérer, ce qui les rend extrêmement difficiles à tuer ; et elles sont capables de régurgiter leur dernier repas à volonté, vomissant une bile âcre sur une distance terriblement impressionnante - même si elles sont répugnantes à faire cela car ça leur donne très faim."},
 
-{"id":39,"race":68,"nom":"Basilic","membrede":[4],
+{"id":39,"race":69,"nom":"Basilic","membrede":[4],
   "profil_actuel":{"cc":45,"ct":35,"f":45,"e":55,"i":25,"ag":15,"dex":0,"intel":15,"fm":15,"soc":0},
-  "aptitudes":[4008,4000,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4004,4005,4003,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,3833,4017,3903],"aptitudes_facultatives":[4024,4028],
+  "aptitudes":[4080,4008,4000,4000,4000,4000,4000,4000,4000,4000,4000,4001,4001,4004,4005,4003,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,4011,3833,4017,3903],"aptitudes_facultatives":[3902,3902,3902,3902,3902,3902,3902,3902,4024,4028],
   "description":"Ces reptiles à huit pattes sont solitaires et insaisissables. Prétendue être l'une des créatures les plus anciennes du Chaos, on dit qu'elle est remplie d'une telle rancune et que le venin sur le sol même où elle marche est empoisonné. Leur morsure aussi est toxique, mais c'est leur regard pétrifiant qui terrorise le plus. Rarement rencontrés de nos jours, les basilics sont un ennemi des plus dangereux. Leurs glandes et leurs organes sont très prisés par les sorciers et les alchimistes, de sorte que les chasseurs opportunistes chassent souvent le Basilics dans les lieux sauvages du Vorbergland, mais peu reviennent."},
 
 {"id":7,"race":1,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
