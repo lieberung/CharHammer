@@ -13,7 +13,7 @@
 @foreach (var acte in Campagne.Seances.Select(s => s.Acte).Distinct().OrderBy(a => a))
 {
     <div class="card-body">
-        <h3 class="card-title">Acte @acte</h3>
+        <h3 class="card-title">@(acte == 0 ? "Introduction" : $"Acte {acte}")</h3>
     
         @foreach (var seance in Campagne.Seances.Where(s => s.Acte == acte).OrderBy(s => s.Quand))
         {
