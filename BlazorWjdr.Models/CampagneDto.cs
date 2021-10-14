@@ -31,6 +31,7 @@
         public int Xp { get; init; }
         public string? XpComment { get; init; }
         public string Resume { get; init; } = null!;
+        public LieuDto[] Lieux { get; init; } = null!;
         public BestioleDto[] Pjs { get; init; } = null!;
         public FactDto[] Facts { get; init; } = null!;
     }

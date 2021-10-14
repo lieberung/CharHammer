@@ -42,6 +42,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int xp { get; set; }
         public string? xp_comment { get; set; }
         public string? resume { get; set; }
+        public int[]? lieux { get; set; }
         public int[]? pjs { get; set; }
         public JsonFact[]? facts { get; set; }
     }

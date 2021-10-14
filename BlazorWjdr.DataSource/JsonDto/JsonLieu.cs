@@ -14,9 +14,12 @@ namespace BlazorWjdr.DataSource.JsonDto
     public class JsonLieu
     {
         public int id { get; set; }
-        public int fk_typeid { get; set; }
-        public int? fk_parentid { get; set; }
+        public int type { get; set; }
+        public int? parent { get; set; }
         public string nom { get; set; } = null!;
+        public string? population { get; set; }
+        public string? allegeance { get; set; }
+        public string? industrie { get; set; }
         public string? description { get; set; }
     }
 

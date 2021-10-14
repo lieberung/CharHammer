@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,7 +19,6 @@ namespace BlazorWjdr
 
             var data = new ADataClassToRuleThemAllService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await data.InitializeDataAsync();
-            Debug.WriteLine("await data.InitializeDataAsync();");
 
             var dataUsers = InitializeUsers(data.Campagne!.users);
 
@@ -44,7 +42,7 @@ namespace BlazorWjdr
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
 
             var dataTeams = InitializeTeams(data.Campagne!.teams);
-            var listCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataBestioles);
+            var listCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataBestioles, dataLieux);
             
             builder.Services.AddSingleton(_ => new AptitudesService(dataAptitudes));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
@@ -71,24 +69,28 @@ namespace BlazorWjdr
             IReadOnlyDictionary<int, UserDto> users, 
             IReadOnlyDictionary<int, TeamDto> teams,
             IEnumerable<JsonCampagne> campagnes,
-            IReadOnlyDictionary<int, BestioleDto> bestioles)
+            IReadOnlyDictionary<int, BestioleDto> bestioles,
+            IReadOnlyDictionary<int, LieuDto> lieux)
         {
             return campagnes.Select(c => new CampagneDto()
             {
                 Id = c.id,
                 Mj = users[c.mj],
-                Seances = (c.seances ?? Array.Empty<JsonSeance>()).Select(s => GetSeanceDtoFromJson(s, bestioles)).ToArray(),
+                Seances = (c.seances ?? Array.Empty<JsonSeance>()).Select(s => GetSeanceDtoFromJson(s, bestioles, lieux)).ToArray(),
                 Team = teams[c.team],
                 Titre = c.titre
             });
         }
 
-        private static SeanceDto GetSeanceDtoFromJson(JsonSeance s, IReadOnlyDictionary<int, BestioleDto> bestioles)
+        private static SeanceDto GetSeanceDtoFromJson(JsonSeance s,
+            IReadOnlyDictionary<int, BestioleDto> bestioles,
+            IReadOnlyDictionary<int, LieuDto> lieux)
         {
             return new SeanceDto
             {
                 Acte = s.acte,
                 Duree = s.duree,
+                Lieux = (s.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                 Facts = (s.facts ?? Array.Empty<JsonFact>()).Select(f => new FactDto
                 {
                     Fact = f.fact,
@@ -473,9 +475,12 @@ namespace BlazorWjdr
                 {
                     Id = l.id,
                     Nom = l.nom,
+                    Population = l.population ?? "",
+                    Allegeance = l.allegeance ?? "",
+                    Industrie = l.industrie ?? "",
                     Description = l.description ?? "",
-                    ParentId = l.fk_parentid,
-                    TypeDeLieu = cacheTypesDeLieu[l.fk_typeid]
+                    ParentId = l.parent,
+                    TypeDeLieu = cacheTypesDeLieu[l.type]
                 })
                 .ToDictionary(k => k.Id);
 

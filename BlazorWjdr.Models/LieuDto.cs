@@ -13,6 +13,9 @@ namespace BlazorWjdr.Models
         public List<LieuDto> SousElements = new();
         
         public string Nom { get; init; } = null!;
+        public string Population { get; init; } = null!;
+        public string Allegeance { get; init; } = null!;
+        public string Industrie { get; init; } = null!;
         public string Description { get; init; } = null!;
         public string Image => $"lieux/{Id}.png";
 

@@ -1,4 +1,5 @@
 ﻿@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Models
 @code {
     [Parameter]
@@ -8,6 +9,11 @@
 <h5 class="card-title">@Seance.Quand - @Seance.Titre</h5>
 
 <p class="card-text">
+    @if (Seance.Lieux.Any())
+    {
+        <LieuItemList Items="@Seance.Lieux"/>
+        <span class="oi oi-infinity item-icon mr-3" aria-hidden="true"></span>   
+    }
     <span class="mr-3">Durée : @(Seance.Duree)h</span>
     <span class="oi oi-infinity item-icon mr-3" aria-hidden="true"></span>
     <span>@Seance.Xp xp</span>
@@ -16,16 +22,19 @@
         <em class="ml-2">@Seance.XpComment</em>
     }
 </p>
-<CardParagraphes Text="@Seance.Resume"/>
-
 <p class="card-text">
+    <span class="mr-3">Aventuriers : </span>
     <BestioleItemList Items="@Seance.Pjs"/>
 </p>
-<table class="table">
-    <tbody>
-    @foreach (var fact in Seance.Facts.OrderBy(f => f.Tri))
-    {
-        <SeanceFactRow Fact="@fact"/>
-    }
-    </tbody>
-</table>
+<CardParagraphes Text="@Seance.Resume"/>
+
+<div class="p-3">
+    <table class="table">
+        <tbody>
+        @foreach (var fact in Seance.Facts.OrderBy(f => f.Tri))
+        {
+            <SeanceFactRow Fact="@fact"/>
+        }
+        </tbody>
+    </table>
+</div>
