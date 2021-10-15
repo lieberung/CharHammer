@@ -617,8 +617,21 @@
         "intro":"Les cultes de Slaanesh sont prolifiques ; on les trouve aussi bien en ville que dans les pires trous perdus. Slaanesh offre beaucoup de plaisir et autant de souffrances. Il exauce chacun de vos rêves, qu’il\ns’agisse d’union charnelle ou de création de beaux sonnets. Patron des doux rêveurs et des envieux, il est étonnamment populaire et possède les âmes de nombreuses personnalités de l’Empire.\n\nLe sceau de Slaanesh combine les symboles de masculinité et de féminité en une fusion impie célébrant la nature hermaphrodite du Corrupteur. Bien qu’ils soient mis en évidence lors de leurs rituels et cérémonies, les cultistes de Slaanesh prennent soin de ne pas afficher ces symboles accablants en public. Ils insistent plutôt sur leur nature décadente en se parant de bijoux étranges et de tenues pastel, de préférence roses, vertes ou pourpres.",
         "cultistes":"Les disciples de Slaanesh sont des pervers hédonistes, constitués du pire de ce que l’humanité a à offrir. On y trouve tout, du sadique au masochiste, tous se livrant aux pires vices pour un bref moment de frisson, l’accomplissement de tous leurs désirs en quelques instants."
       },
-      {"id":23,"patron":null,"nom":"Tzeentch","domaines":"","fideles":"","symboles":"",
-        "introduction":"Tzeentch est le plus énigmatique des Dieux du Chaos. Il est intimement lié aux forces du Chaos telles qu elles apparaissent dans la distorsion des lois naturelles par les forces des mutations et de la magie. Le culte de Tzeentch est, de tous les cultes du Chaos, le plus largement rependu dans l'Empire. Il est particulièrement vivace parmi les mutants mais on le trouve tout aussi bien dans les villes et les cités que dans les forêts. Les groupes de cultistes de Tzeentch sont tous engagés dans l'effort de subversion de l'Empire et ils disposent d'un énorme reseau d'informateurs et d'espions - dont certains occupent de très hautes fonctions.\nLes activitées du culte de Tzeentch sont dissimulées derrière les hostilitées qu'il conçoit envers les adorateurs de Nurgle. Qui, en effet, suspecterait que les persécuteurs les plus zélés du culte de Nurgle sont eux même des adorateurs du Chaos? La taille des groupes d adorateurs de Tzeentch varie de lieu en lieu. Les plus importants se trouvent dans les cités ou dans les profondeurs des forêts. Ils se rencontrent quand et oú cela parait possible et ils sont plus organisés et plus prudent que les adorateurs de Slaanesh.\nLes couleurs de Tzeentch sont rose, puce et/ou pourpre et elles sont souvent utilisées en de subtile combinaisons dans les vetements quotidiens. Pour les rituels formels, les robes sont toutefois beaucoup plus voyantes et criardes tant dans les formes que dans les coloris."},
+      {"id":23,"patron":null,"nom":"Tzeentch","domaines":"","fideles":"",
+        "fetes":"Les jours de nouvelle lune sont sacrés.",
+        "symboles":"Le symbole de Tzeentch est un mutant oiseau/serpent stylisé. Ses adeptes portent des robes aux couleurs criardes pendant les rituels. En public, ils adoptent des vêtements avec de discrets motifs de couleur pourpre ou rose.",
+        "introduction":"Tzeentch est le plus énigmatique des Dieux du Chaos. Il est intimement lié aux forces du Chaos telles qu elles apparaissent dans la distorsion des lois naturelles par les forces des mutations et de la magie. Le culte de Tzeentch est, de tous les cultes du Chaos, le plus largement rependu dans l'Empire. Il est particulièrement vivace parmi les mutants mais on le trouve tout aussi bien dans les villes et les cités que dans les forêts. Les groupes de cultistes de Tzeentch sont tous engagés dans l'effort de subversion de l'Empire et ils disposent d'un énorme reseau d'informateurs et d'espions - dont certains occupent de très hautes fonctions.\nLes activitées du culte de Tzeentch sont dissimulées derrière les hostilitées qu'il conçoit envers les adorateurs de Nurgle. Qui, en effet, suspecterait que les persécuteurs les plus zélés du culte de Nurgle sont eux même des adorateurs du Chaos? La taille des groupes d adorateurs de Tzeentch varie de lieu en lieu. Les plus importants se trouvent dans les cités ou dans les profondeurs des forêts. Ils se rencontrent quand et oú cela parait possible et ils sont plus organisés et plus prudent que les adorateurs de Slaanesh.\nLes couleurs de Tzeentch sont rose, puce et/ou pourpre et elles sont souvent utilisées en de subtile combinaisons dans les vetements quotidiens. Pour les rituels formels, les robes sont toutefois beaucoup plus voyantes et criardes tant dans les formes que dans les coloris.",
+        "temples": [
+          {"nom":"","description":"Il n'existe pas de temples visibles de Tzeentch, ils se trouvent au coeur des forêts ; quant à ceux des villes, ils sont tous dissimulés dans des maisons. Un simple autel est souvent utilisé. Les adorateurs de Tzeentch se rencontrent quand et où cela est possible, et ils sont plus prudents que les adorateurs de Slaanesh."}
+        ],
+        "culte":"Puisque Tzeentch est un dieu chaotique, son culte est illégal dans tout le Vieux Monde civilisé. Son culte est toutefois le plus répandu dans l'Empire des cultes du chaos. Il est le plus vivace parmi les mutants, mais on le trouve aussi bien dans les villes et les cités que dans les forêts. Les adeptes de Tzeentch sont tous engagés dans l'effort de subversion de l'Empire et ils ont un véritable réseau d'espions dans l'Empire, dont certains occupent de très hautes fonctions.",
+        "penitences":"Les épreuves imposées par Tzeentch sont le plus souvent de tuer un adepte de Nurgle, ou d'instaurer le chaos dans un village ou une ville.",
+        "commandements":[
+          "Ne rien faire pour consolider la société.",
+          "Toujours tromper son ennemi pour l'humilier.",
+          "Utiliser la magie sans modération."
+        ]
+      },
       {"id":24,"patron":null,"nom":"Khaine","domaines":"","fideles":"","symboles":""},
       {"id":25,"patron":null,"nom":"Stromfels","domaines":"Les mers déchaînées, les ","fideles":"Les pirates, les naufrageurs","symboles":"Un immense requin, trident ensanglanté, un éclair"},
       
@@ -650,6 +663,44 @@
           "Toujours s'opposer au Chaos, à tout moment et n'importe où, et - si possible - exterminer ses adeptes.",
           "Ne laisser personne s'opposer au premier commandement.",
           "Toujours s'opposer aux lois qui favorisent le Chaos."
+        ]
+      },
+      {"id":31,"patron":null,"nom":"Arianka",
+        "domaines":"Loi et Discipline",
+        "symboles":"Laihtendrung",
+        "fetes":"Le premier et le dernier jour de chaque lune est sacré.",
+        "fideles":"Les Initiés et les Clercs de Solkan peuvent choisir l'une des Compétences suivantes chaque fois qu'ils progressent d'un niveau. Le choix est à la discrétion du personnage au prix normal de 100 PE. Les Compétences disponibles sont : Esquive, Pistage, Immunité aux Maladies, Législation, Orientation, Piégeage, Filature, Déplacement Silencieux - Urbain, Sixième Sens, Détection des Pièges, Coups Puissants, Coups Précis, Coups Assommants, et Torture.",
+        "intro":"Arianka est la soeur d'Illuminas (Divinité de la Lumière) et de Solkan (Dieu de la Vengeance). Elle est la Déesse de la Loi et de la Discipline. Dans un lointain passé, Arianka a été battue et emprisonnée par un dieu du Chaos dont on a perdu le nom. Il est dit qu'elle repose dans un cercueil de cristal, quelque part dans le Vieux Monde. De nombreux lieux ont déclaré avoir découvert le cercueil au fil des siècles. Le plus récent, si l'on en croit la rumeur, serait Praag - une des trois villes principales de Kislev. On dit aussi qu'Arianka ne pourrait être libérée de son cercueil que part des clefs de cristal dont la cachette n'a jamais été découverte. On ne sait s'il existe une clef ou plusieurs, ni si elles sont cachées ensemble ou séparément. Le symbole d'Arianka est Laihtendrung, une épée de cristal dont émane une douce lumière. C'est avec cette épée qu'elle jugeait et punissait les coupables. Les Clercs portent une robe blanche, avec un petit dessin de Laihtendrung au niveau du coeur.\nLe culte d'Arianka est en bonne relation avec tous les cultes basés sur la loi. Les dieux chaotiques sont bien sûr des ennemis.",
+        "cultistes":"Les fidèles d'Arianka sont présents partout à travers le Vieux Monde. Cependant, leur nombre est très faible.",
+        "culte":"Ceux qui aspirent à devenir Initié ne doivent jamais avoir bafoué la loi, sauf s'ils étaient en accord avec les commandements d'Arianka.",
+        "dogme":"Avant son emprisonnement, les Clercs d'Arianka pouvaient utiliser la Magie Mineure et la Magie de Bataille. Désormais, Arianka ne peut plus accorder de pouvoirs magiques à ses Clercs. Arianka ne peut accorder de grâces divine tant qu'elle est enfermée. Sinon, elle favorise une augmentation temporaire de Sang-froid ou de Force Mentale.",
+        "penitences":"Il n'y a pas d'épreuves imposées par Arianka, car la quête des clefs est plus important que ce genre de choses.",
+        "initiation":"Les Initiés doivent acheter la compétence Erudition - Droit avant de pouvoir passer Prêtre",
+        "temples":[
+          {"nom":"","description":"Tous les vieux temples d'Arianka sont tombés en ruine depuis bien longtemps. Les Clercs d'Arianka consacrent d'ailleurs plus de temps à la recherche des clefs du cercueil qu'à la reconstruction des temples."}
+        ],
+        "commandements":[
+          "Toujours s'opposer au Chaos, à tout moment et n'importe où.",
+          "Toujours s'opposer aux fausses lois qui sont contre la Loi et la Discipline.",
+          "Ne jamais laisser un crime impuni.",
+          "Toujours obéir aux lois, sauf pour faire respecter les commandements précédents."
+        ],
+        "ambiance":["Prière\n\n(à voix haute, mais faible)\nGloire à toi Solkan\n\n(en pensée)\nLa lutte contre le chaos et ses adeptes s’amorce\nLa vengeance est proche, l’ordre va régner de nouveau\nL’ennemie sera bientôt écraser par ta force\nProche est la fin du chaos et de son dévot\n\n(à voix haute, normal)\nGloire à toi Solkan !\n\n(chuchoté, à peine audible)\nJe t’en prie Solkan montre à tous ses insoumis ta puissance\nNon, le chaos jamais ne régnera\nSolkan pour la gloire de l’ordre, nécessaire est la violence\nSolkan donne moi ta force, donne moi ton bras\n\n(à voix haute, fort)\nGloire à toi Solkan !!\n\n(dit normalement)\nTa puissance balaye le chaos\nSolkan pour la victoire, accorde moi ta protection\nSolkan pour la destruction des dévots\nOh Solkan accorde moi ta force, donne moi ton bras\n\n(à voix haute, en criant) \nGloire à toi Solkan !!!\n\n(dit fort) \nSolkan pour la victoire de l’ordre\nInvestit moi de tes pouvoirs\nSolkan pour la destruction du chaos\nInvestit moi de ta puissance, donne moi ton bras !\n\n(à voix haute, en hurlant)\nGloire à toi Solkan !!!!\n"]
+      },
+      {"id":32,"patron":null,"nom":"Illuminas","domaines":"",
+        "fetes":"Tous les solstices sont des jours sacrés, cependant celui d'été est considéré comme étant le plus important.",
+        "penitences":"Les épreuves imposées par Illuminas peuvent consister à détecter un Illusionniste qui se sert de sa magie pour tromper, le remettre aux autorités et prêcher à la population que tous les Illusionnistes sont ainsi ; une autre épreuve consiste à démanteler un groupe de chaotiques.",
+        "fideles":"Ses Clercs portent des robes blanches serrées à la taille par une ceinture de fils dorés. L'animal associé au culte est la Licorne.",
+        "symboles":"Le soleil, la licorne",
+        "culte":"Le culte d'Illuminas n'est pas très répandu à travers le Vieux Monde. En effet, ses concepts ne sont pas tous accessibles au commun des mortels. Les cultes chaotiques et mauvais sont des ennemis d'Illuminas. Ranald n'est pas très apprécié par les fidèle du Maître de la Lumière, car les disciples du Dieu des Voleurs font souvent appel aux sorts de Magie Illusoire. Illuminas considère Vénéra comme amie de son culte, bien qu'il trouve ses principes insuffisants.\nPour devenir Initié d'Illuminas, il ne faut en aucun cas avoir été frappé par une mutation du Chaos.\nLes compétences favorisées par Illuminas sont Acuité visuelle, Vision nocturne, Sixième sens. Les Test favorisées concernent la contre-magie, la recherche, l'observation, et la communication. Une grâce d'Illuminas peut aussi prendre la forme d'un augmentation temporaire de Cl, FM ou Soc.",
+        "intro":"Illuminas est le Maître de la Lumière. C'est le frère de Solkan (Dieu de la Vengeance) et d'Arianka (Déesse de la Loi). Illuminas n'approuve pas les méthodes de Solkan contre le Chaos, qu'il trouve trop violentes. Au contraire, il désire plutôt aider les personnes à revenir sur le droit chemin de la lumière.",
+        "commandements":[
+          "Toujours venir en aide aux personnes qui tentent sincèrement de se sortir de l'emprise du Chaos.",
+          "Ne pas user de la violence - sauf pour se défendre.",
+          "Combattre les Illusionistes qui usent de leur pouvoir contre la société."
+        ],
+        "temples":[
+          {"nom":"Temple d'Aglamia","description":"Le seul temple connu d'Illuminas se trouve sur la petite île d'Aglamia, au sud de la pointe extrême des Royaumes Estaliens. C'est un immense batiment en pierres blanches et aux angles parfaitement droits. A l'intérieur de ce temple, des milliers de torches illuminent les murs nus. Dans la partie centrale du temple brûle un feu magique qui ne peut être éteint. C'est Illuminas lui-même qui l'a allumé."}
         ]
       }
     ]
