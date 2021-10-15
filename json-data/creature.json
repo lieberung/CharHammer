@@ -71,6 +71,11 @@
   "aptitudes":[1045,1048,2020,2021,2080,2091,3903,3904,4000,4000,4000,4000,4000,4000,4000,4000,4001,4004,4005,4011,4011,4011,4011,4011,4011,4011,4011,4011,4006,3832],"aptitudes_facultatives":[4037,4038,4040,4003,4031,4028,3833],
   "description":"L'ours, qui erre dans les endroits sauvages du Reikland, est solitaire et généralement timide, ne devient agressif que lorsque les intrus menacent ses petits ou lorsqu'il est blessé. Lorsque la nourriture se fait rare, ils s'approchent des villages et des voyageurs non protégés, en particulier ceux qui sont négligents avec leurs provisions."},
 
+{"id":27,"race":1,"nom":"Homme de main type","poids":72,"taille":169,"age":27,"membrede":[],
+  "profil_actuel":{"cc":33,"ct":31,"f":35,"e":33,"i":28,"ag":29,"dex":29,"intel":27,"fm":30,"soc":31},
+  "aptitudes":[1618,1034,1026,1220,1010,1209],"aptitudes_facultatives":[1624,2014],
+  "description":""},
+    
 {"id":28,"race":1,"nom":"Marchand type","poids":72,"taille":169,"age":50,"membrede":[],
   "profil_actuel":{"cc":37,"ct":32,"f":35,"e":36,"i":0,"ag":33,"dex":0,"intel":48,"fm":46,"soc":51},
   "aptitudes":[1092,1092,1158,1012,1027,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019],"aptitudes_facultatives":[],
