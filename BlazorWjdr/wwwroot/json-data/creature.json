@@ -252,7 +252,7 @@
   "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"4 frères",
   "aptitudes":[2032,1018,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085]
 },
-{"id":10,"race":1,"nom":"Encore un nain ?","user":3,"membrede":[5],"date_creation":"2021-10-16","xp_total":300,"xp_actuel":300,
+{"id":10,"race":27,"nom":"Encore un nain ?","user":3,"membrede":[5],"date_creation":"2021-10-16","xp_total":300,"xp_actuel":300,
   "notes":"",
   "histoire":"",
   "description":"",
@@ -260,7 +260,7 @@
   "sexe":1,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
   "profil_initial":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
   "profil_actuel":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
-  "cheminement":[],"origines":[],
+  "cheminement":[77],"origines":[],
   "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"4 frères",
   "aptitudes":[]
 }

@@ -14,21 +14,10 @@
     <table class="table">
         <thead></thead>
         <tbody>
-            @foreach (var bestiole in _bestiolesLines)
+            @foreach (var bestiole in _bestiolesService.AllBestioles.Where(b => b.EstUnPersonnage).OrderBy(b => b.Nom).ToList())
             {
                 <BestioleRow Item="bestiole" />
             }
         </tbody>
     </table>
 </div>
-
-
-@code {
-    private List<BestioleDto> _bestiolesLines = null!;
-
-    protected override void OnInitialized()
-    {
-        var bestioles = _bestiolesService.AllBestioles;
-        _bestiolesLines = bestioles.Where(b => b.EstUnPersonnage).OrderBy(b => b.Nom).ToList();
-    }
-}
