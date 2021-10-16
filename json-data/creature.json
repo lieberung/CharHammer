@@ -229,28 +229,40 @@
   "aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146,1220,2009,1005,1048,1197,1209,1608,3903]
 },
 
-{"id":8,"race":26,"nom":"Pulpo Léobite","user":1,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
+{"id":8,"race":26,"nom":"Pulpo Glascanon","user":1,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
+  "histoire":"",
+  "description":"",
+  "ambitions":"Pulpo souhaite ...",
+  "sexe":1,"poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
+  "profil_initial":{"cc":12,"ct":43,"f":30,"e":22,"i":29,"ag":39,"dex":47,"intel":37,"fm":29,"soc":36},
+  "profil_actuel":{"cc":12,"ct":43,"f":30,"e":22,"i":29,"ag":39,"dex":47,"intel":37,"fm":29,"soc":36},
+  "cheminement":[24],"origines":[33],
+  "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"3 frères et 2 soeurs",
+  "aptitudes":[3147,3193,3103,1025,1026,1608,2010,1048,1094,1106,1132,1136,3831,2071,3903,3012,2298,1068]
+},
+{"id":9,"race":1,"nom":"Huguette Heinrich","user":4,"membrede":[5],"date_creation":"2021-10-10","xp_total":300,"xp_actuel":200,
+  "notes":"Destinée : Une chute fatale...",
   "histoire":"",
   "description":"",
   "ambitions":"Huguette souhaite",
-  "sexe":1,"poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
+  "sexe":2,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
+  "profil_initial":{"cc":28,"ct":38,"f":30,"e":35,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
+  "profil_actuel":{"cc":28,"ct":38,"f":30,"e":40,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
+  "cheminement":[57],"origines":[37],
+  "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"4 frères",
+  "aptitudes":[2032,1018,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085]
+},
+{"id":10,"race":1,"nom":"Encore un nain ?","user":3,"membrede":[5],"date_creation":"2021-10-16","xp_total":300,"xp_actuel":300,
+  "notes":"",
+  "histoire":"",
+  "description":"",
+  "ambitions":"... souhaite ...",
+  "sexe":1,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
   "profil_initial":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
   "profil_actuel":{"cc":0,"ct":0,"f":0,"e":0,"i":0,"ag":0,"dex":0,"intel":0,"fm":0,"soc":0},
-  "cheminement":[24],"origines":[33],
-  "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"3 frères et 2 soeurs",
-  "aptitudes":[3147,3193,3103]
-},
-    {"id":9,"race":1,"nom":"Huguette Heinrich","user":4,"membrede":[5],"date_creation":"2021-10-10","xp_total":300,"xp_actuel":200,
-      "notes":"Destinée : Une chute fatale...",
-      "histoire":"",
-      "description":"",
-      "ambitions":"Huguette souhaite",
-      "sexe":2,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
-      "profil_initial":{"cc":28,"ct":38,"f":30,"e":35,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
-      "profil_actuel":{"cc":28,"ct":38,"f":30,"e":40,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
-      "cheminement":[57],"origines":[37],
-      "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"4 frères",
-      "aptitudes":[2032,1018,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085]
-    }
+  "cheminement":[],"origines":[],
+  "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"4 frères",
+  "aptitudes":[]
+}
   ]
 }

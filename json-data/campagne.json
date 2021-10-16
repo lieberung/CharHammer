@@ -16,10 +16,12 @@
     {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
       "seances":[
         {"quand":"2021-10-02","acte":0,"duree":5,"titre":"Création des personnages cobayes v4",
-          "pjs":[7,9],"xp":300,"xp_comment":"300 xp octroyés à la création",
+          "pjs":[7,8,9],"xp":300,"xp_comment":"300 xp octroyés à la création",
           "facts":[
             {"tri":1,"pjs":[7],"fact":"(-100 xp) Ré-organise ses stats\n8 compétences culturelles : ...\nDoit choisir sa Destinée ?\nDépense 200 xp dans..."},
-            {"tri":3,"pjs":[9],"fact":"(-100 xp) Tirage ré-ordonné : cc:8, ct:18, f:10, e:15, i:13, ag:16, dex:12, int:18, fm:9, soc:16\nTalents aléatoires : Séduction, Calme, Résistance aux poisons\nSignes dist. : Pas du matin, Phéromones puissants, Démarche atypique\n8 compétences culturelles : ...\nSa Destinée la conduira vers une chute fatale.\nDépense 200 xp dans..."}
+            {"tri":2,"pjs":[8],"fact":"(-100 xp) Tirage ré-ordonné : cc:2, ct:13, f:15, e:12, i:9, ag:9, dex:17, int:17, fm:9, soc:6\nTalents aléatoires : Force accrue, Affinité animale\nSignes dist. : Pas du matin, Phéromones puissants, Démarche atypique\n6 compétences culturelles : Escamotage, Esquive, Tir Lance-pierre, Dissimulation (Urbaine), Perception, Métier (cuisinier)\nSa Destinée ...\nDépense 200 xp dans..."},
+            {"tri":3,"pjs":[9],"fact":"(-100 xp) Tirage ré-ordonné : cc:8, ct:18, f:10, e:15, i:13, ag:16, dex:12, int:18, fm:9, soc:16\nTalents aléatoires : Séduction, Calme, Résistance aux poisons\nSignes dist. : Pas du matin, Phéromones puissants, Démarche atypique\n8 compétences culturelles : ...\nSa Destinée la conduira vers une chute fatale.\nDépense 200 xp dans..."},
+            {"tri":4,"pjs":[10],"fact":"(-100 xp) Tirage ré-ordonné : cc:0, ct:0, f:0, e:0, i:0, ag:0, dex:0, int:0, fm:0, soc:0\nTalents aléatoires : \nSignes dist. : \n8 compétences culturelles : ...\nDépense ?00 xp dans..."}
           ],
           "resume":"Expérimentation des règles v4 pour la création de personnages. Chaque personnage reçoit 300 xp et peut choisir 7 aptitudes dans sa carrière initale (max 1 talent, 1 trait)."}
       ]
