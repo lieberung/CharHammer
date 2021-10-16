@@ -66,11 +66,11 @@ namespace BlazorWjdr.Services
             {
                 AptitudesService.TraitGabaritMinusculeId => "(gabarit minuscule)",
                 AptitudesService.TraitGabaritToutPetitId => "BE",
-                AptitudesService.TraitGabaritPetitId => $"(2 * BE) + BFM",
-                AptitudesService.TraitGabaritMoyenId => $"BF + (2 * BE) + BFM",
-                AptitudesService.TraitGabaritLargeId => $"2 * (BF + (2 * BE) + BFM)",
-                AptitudesService.TraitGabaritEnormeId => $"4 * (BF + (2 * BE) + BFM)",
-                AptitudesService.TraitGabaritMonstrueuxId => $"8 * (BF + (2 * BE) + BFM)",
+                AptitudesService.TraitGabaritPetitId => "(2 * BE) + BFM",
+                AptitudesService.TraitGabaritMoyenId => "BF + (2 * BE) + BFM",
+                AptitudesService.TraitGabaritLargeId => "2 * (BF + (2 * BE) + BFM)",
+                AptitudesService.TraitGabaritEnormeId => "4 * (BF + (2 * BE) + BFM)",
+                AptitudesService.TraitGabaritMonstrueuxId => "8 * (BF + (2 * BE) + BFM)",
                 _ => throw new Exception("Gabarit invalide pour formule de calcul des Blessures")
             };
             if (durACuir)

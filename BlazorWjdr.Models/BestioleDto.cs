@@ -55,8 +55,8 @@ namespace BlazorWjdr.Models
         public ProfilDto? ProfilInitial { get; init; }
 
         public int Blessures { get; set; }
-        public string BlessuresDetailDuCalcul { get; set; }
-        public string BlessuresFormuleDeCalcul { get; set; }
+        public string BlessuresDetailDuCalcul { get; set; } = "";
+        public string BlessuresFormuleDeCalcul { get; set; } = "";
 
         public string Equipement
         {

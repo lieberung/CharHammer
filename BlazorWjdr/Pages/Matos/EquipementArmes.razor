@@ -28,7 +28,7 @@
                 
                 @foreach (var skillMelee in _aptitudesService.AllMeleeSpecialisations)
                 {
-                    <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string")/toutes/" class="mb-1 mr-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@skillMelee.Spe</a>    
+                    <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string")/toutes/" class="mb-1 mr-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@CleanMeleeSpeName(skillMelee.Spe!)</a>    
                 }
             
                 <span class="oi oi-infinity item-icon ml-3 mr-4" aria-hidden="true"></span>
@@ -145,6 +145,15 @@
         if (groupe != null)
             result = result.Where(a => a.Groupes.Contains(groupe)).ToList();
         return result;
+    }
+
+    private string CleanMeleeSpeName(string spe)
+    {
+        var str = spe
+            .Replace("Armes d'", "")
+            .Replace("Armes de ", "")
+            .Replace("Armes ", "");
+        return str.Substring(0, 1).ToUpper() + str.Substring(1);
     }
 
 }

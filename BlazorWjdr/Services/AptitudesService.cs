@@ -109,8 +109,8 @@
         public AptitudeDto TraitHabileDeSesMains => GetTrait(3016);
         public AptitudeDto TraitReflexesEclairs => GetTrait(3015);
         public AptitudeDto TraitIntelligent => GetTrait(3017);
-        public AptitudeDto TraitSangFroid => GetTrait(3018);
-        public AptitudeDto TraitSociable => GetTrait(3019);
+        public AptitudeDto TraitCalme => GetTrait(3018);
+        public AptitudeDto TraitAffable => GetTrait(3019);
 
         public AptitudeDto TraitCourseAPied => GetTrait(3020);
         public AptitudeDto TraitDurACuir => GetTrait(TraitDurACuirId);
@@ -245,6 +245,7 @@
         public AptitudeDto TalentAccuiteAuditive => GetTalent(2002);
         public AptitudeDto TalentAccuiteGustativeEtOlfactive => GetTalent(2209);
         public AptitudeDto TalentAccuiteVisuelle => GetTalent(2003);
+        public AptitudeDto TalentAffiniteAnimale => GetTalent(2298);
         public AptitudeDto TalentFilature => GetTalent(2020);
         public AptitudeDto TalentPistage => GetTalent(2049);
 
@@ -307,7 +308,7 @@
         public AptitudeDto CompetencePistage => GetAptitude(1049);
         public AptitudeDto TalentSensDeLOrientation => GetTalent(2081);
         public AptitudeDto TalentGrandVoyageur => GetTalent(2033);
-        public AptitudeDto TalentSixiemeSens => GetTalent(2082);
+        public AptitudeDto TalentSixiemeSens => GetTalent(3907);
 
         // Maritimes  + AptitudeOrientation, AptitudeMetierCartographe, TalentGrandVoyageur
         public AptitudeDto CompetenceCanotage => GetAptitude(1007);

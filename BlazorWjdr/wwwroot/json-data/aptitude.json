@@ -600,6 +600,10 @@
   {"id":2272,"categ":"talent","nom":"Nageur expert","nom_en":"Strong Swimmer","resume":"","description":"You are an especially strong swimmer and used to holding your breath for a long time underwater. Gain a bonus of your level in Strong Swimmer to your Toughness Bonus for the purposes of holding your breath.","max":"Bonus de Force"},
   {"id":2274,"categ":"talent","nom":"Pêcheur","nom_en":"Fisherman","resume":"","description":"You are a very capable fisherman and know all the best ways to land fish. Assuming a large enough body of water is available, you are automatically assumed to be able to fish enough to feed yourself and a number of others equal to your level in Fisherman, assuming you choose to spend at least an hour or so with a line and bait. You may secure more fish in addition to this using the normal rules for foraging (see page 127).","max":"Bonus d'Initiative"},
   {"id":2275,"categ":"trait","categ_spe":"autre","nom":"Ame pûre","nom_en":"Pure Soul","resume":"","description":"Your soul is pure, quite resistant to the depredations of Chaos. You may gain extra Corruption points equal to your level of Pure Soul before having to Test to see if you become corrupt.","max":"Bonus de Force Mentale"},
+  {"id":2290,"categ":"talent","nom":"Tenace","nom_en":"Tenacious",
+    "resume":"Vous pouvez doubler le temps qu'un test réussi de Résistance vous autorise à supporter une contrainte.",
+    "description":"You never give up, no matter how impossible your travails appear. You can double the length of time successful Endurance Tests allow you to endure a hardship. This includes enduring prolonged riding, exposure, rituals, and similar adversities.","max":"1"},
+  
   {"id":2276,"categ":"talent","nom":"Courroux divin","nom_en":"Holy Hatred","resume":"You deal +1 Damage with Miracles for each level in this Talent.","description":"Your prayers drip with the hatred you feel for your blasphemous enemies. You deal +1 Damage with Miracles for each level in this Talent.","max":"Bonus de Sociabilité"},
   {"id":2277,"parent":2079,"categ":"talent","nom":"Bénédiction","nom_en":"Bless (Divine Lore)","resume":"Vous pouvez apprendre et lancer les six bénédictions de votre Domaine Divin.",
     "description":"You are watched over by one of the Gods and can empower simple prayers. You can now deploy the Blessings of your deity as listed in Chapter 7: Religion and Belief, en utilisant votre Compétence Prière. Vous pouvez choisir et apprendre un nombre de bénédictions égal à votre Bonus de Sociabilité. Under normal circumstances, you may only ever know one Divine Lore for the Bless Talent.","max":"1"},
@@ -617,9 +621,6 @@
   {"id":2288,"parent":2278,"categ":"talent","nom":"Inspiration divine - Ulric","nom_en":"Invoke (Ulric)"},
   {"id":2289,"parent":2278,"categ":"talent","nom":"Inspiration divine - Verena","nom_en":"Invoke (Verena)"},
   
-  {"id":2290,"categ":"talent","nom":"Tenace","nom_en":"Tenacious",
-    "resume":"Vous pouvez doubler le temps qu'un test réussi de Résistance vous autorise à supporter une contrainte.",
-    "description":"You never give up, no matter how impossible your travails appear. You can double the length of time successful Endurance Tests allow you to endure a hardship. This includes enduring prolonged riding, exposure, rituals, and similar adversities.","max":"1"},
   {"id":2291,"categ":"talent","nom":"Arpenteur (terrain)","nom_en":"Strider","max":"1","tests":"Tests d’Athlétisme pour parcourir le type de Terrain",
     "resume":"Vous avez l'habitude de traverser des terrains difficiles. Vous ignorez toutes les pénalités de mouvement lorsque vous traversez un terrain spécifié (spécialisations : la côte, les déserts, les marais, les rochers, la toundra et les bois).",
     "description":"Vous avez l'habitude de traverser des terrains difficiles. Vous ignorez toutes les pénalités de mouvement lorsque vous traversez un terrain spécifié. Les spécialités typiques comprennent: la côte, les déserts, les marais, les rochers, la toundra et les bois."},
@@ -629,6 +630,8 @@
   {"id":2295,"categ":"talent","nom":"Arpenteur","spe":"montagne"},
   {"id":2296,"categ":"talent","nom":"Arpenteur","spe":"toundra"},
   {"id":2297,"categ":"talent","nom":"Arpenteur","spe":"bois"},
+  
+  {"id":2298,"categ":"talent","nom":"Affinité animale","aptitudes":[1022],"resume":"Les animaux sauvages se sentent bien en votre présence et suivent souvent vos commandements. Toute la créature bestiale non entraînée et agressive sera automatiquement calmée en votre présence à moins qu'ils est une raison de ne pas l'être, comme une douleur, une attaque, étant naturellement agressive, ou ayant des jeunes à proximité."},
   
   {"id":3010,"categ":"trait","categ_spe":"nature_avantageuse","nom":"Guerrier né","resume":"+5% en CC permanent (modifiez votre profil initial)","description":"Vous bénéficiez d’un bonus permanent de +5% en Capacité de Combat. Modifiez votre profil de départ en conséquence."},
   {"id":3011,"categ":"trait","categ_spe":"nature_avantageuse","nom":"Tireur d'élite","resume":"+5% en CT permanent (modifiez votre profil initial)","description":"Vous bénéficiez d’un bonus permanent de +5% en Capacité de Tir. Modifiez votre profil de départ en conséquence."},
