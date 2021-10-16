@@ -198,7 +198,22 @@
 
 {"id":52,"race":68,"nom":"Vouivre","membrede":[4],
   "profil_actuel":{"cc":55,"ct":0,"f":60,"e":55,"i":15,"ag":45,"dex":0,"intel":10,"fm":50,"soc":0},
-  "aptitudes":[4210],"aptitudes_facultatives":[],
+  "aptitudes":[4210,4001,4001,4004,3833,4017,4061,3902,3902,3902,3902,3902,3902,3902],"aptitudes_facultatives":[3902,3902,4007,4038,4039,4040,4041,4042,4094],
+  "description":"Bien que les non-éduqués les confondent souvent avec les Dragons, au-delà de leurs similitudes superficielles, les Vouivres qui sentent mauvais ne sont en rien comme ces créatures dignes. Lâchement charognards et malvoyants, ils ont tendance à assouvir leur appétit vorace en éliminant des créatures sans défense ( surtout des moutons et des chèvres ) en évitant le combat direct quand c'est possible. Contrairement aux autres monstres des montagnes, les Vouivres ne sont pas particulièrement territoriaux et ont tendance à se déplacer lorsque leurs territoires de chasse sont envahis."},
+
+{"id":53,"race":52,"nom":"Snotling","membrede":[4],
+  "profil_actuel":{"cc":25,"ct":15,"f":25,"e":20,"i":20,"ag":30,"dex":0,"intel":15,"fm":30,"soc":0},
+  "aptitudes":[4204,4004,4003,3831,3903],"aptitudes_facultatives":[4038,4039,4043,4034,4017],
+  "description":"Créatures au cerveau de petits pois qui ressemblent à des chiots enthousiast et incontrôlés, les Snotlings sont des charognards et des pilleurs naturels qui ramassent les os et les objets brillants partout où ils vont, ou reproduisant les exploits qu'ils voient. Si les Gobelins ou les Orques les poussent dans le conflit, ils se battent en essaims puants, essayant de submerger leurs ennemis par le simple poids des nombres. Pour ce faire, ils trouvent toutes sortes de substances dégoûtantes et nocives, comme des champignons toxiques et des déchets corporels, à jeter sur leurs ennemis."},
+
+{"id":54,"race":57,"nom":"Banshee","membrede":[4],
+  "profil_actuel":{"cc":30,"ct":0,"f":30,"e":30,"i":20,"ag":30,"dex":30,"intel":25,"fm":40,"soc":20},
+  "aptitudes":[4207,2205,4107,4079,4029,3901,4108,4108,4108],"aptitudes_facultatives":[4004,4016,4103,4028,3900],
+  "description":"Les Banshees sont les restes spectraux de sorcières autrefois puissantes don l'esprit est imprégné de l'énergie fétide de dhar . Leur vie après la mort est tourmentée par la perte et l'amertume, un vide béant dans leur âme qui les pousse à relâcher des hurlements terrifiants et déchirants assez puissants pour rendre ceux qui l'entendent folle, ou même pour arrêter leur cœur."},
+
+{"id":55,"race":57,"nom":"Chauve-Souris vampire (Varghulf)","membrede":[4],
+  "profil_actuel":{"cc":55,"ct":0,"f":55,"e":55,"i":30,"ag":50,"dex":20,"intel":10,"fm":60,"soc":0},
+  "aptitudes":[4209,4228,4001,4002,4004,3706,4079,3901,4027,4027,4027,4027,3832,4108,4108,4108,4074,4109],"aptitudes_facultatives":[4021,3508,4013,4103,4028,3900],
   "description":""},
 
 {"id":7,"race":1,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
