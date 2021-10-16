@@ -8,7 +8,8 @@ namespace BlazorWjdr.Models
         public int Id { get; init; }
         public bool EstUnPersonnage { get; init; }
         public bool EstUnPersonnageJoueur { get; init; }
-        
+        public AptitudeDto? Gabarit { get; set; }
+
         public ProfilDto ProfilActuel { get; init; } = null!;
         
         public int Userid { get; init; }
@@ -53,35 +54,9 @@ namespace BlazorWjdr.Models
         public int XpTotal { get; set; }
         public ProfilDto? ProfilInitial { get; init; }
 
-        // ToDo : gérer les gabarits et Dur à cuir
-        public int Blessures
-        {
-            get
-            {
-                if (Race.Id == 26) // Halfling
-                    return (2 * ProfilActuel.Be) + ProfilActuel.Bfm;
-                return ProfilActuel.Bf + (2 * ProfilActuel.Be) + ProfilActuel.Bfm;
-            }
-        }
-
-        public string BlessuresCalculDetail
-        {
-            get
-            {
-                if (Race.Id == 26) // Halfling
-                    return $"(2x{ProfilActuel.Be})+{ProfilActuel.Bfm}";
-                return $"{ProfilActuel.Bf}+(2x{ProfilActuel.Be})+{ProfilActuel.Bfm}";
-            }
-        }
-        public string BlessuresCalculFormule
-        {
-            get
-            {
-                if (Race.Id == 26) // Halfling
-                    return $"(2xBE)+BFM";
-                return $"BF+(2xBE)+BFM";
-            }
-        }
+        public int Blessures { get; set; }
+        public string BlessuresDetailDuCalcul { get; set; }
+        public string BlessuresFormuleDeCalcul { get; set; }
 
         public string Equipement
         {

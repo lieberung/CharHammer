@@ -180,7 +180,7 @@ namespace BlazorWjdr
             IReadOnlyDictionary<int, CarriereDto> carrieres,
             IReadOnlyDictionary<int, UserDto> users)
         {
-            return items
+            var bestioles = items
                 .Select(c => new BestioleDto
                 {
                     Id = c.id,
@@ -220,6 +220,19 @@ namespace BlazorWjdr
                     XpTotal = c.xp_total ?? 0
                 })
                 .ToDictionary(k => k.Id);
+
+            foreach (var bestiole in bestioles.Values)
+            {
+                bestiole.Gabarit = BestiolesService.GetGabarit(bestiole) ?? aptitudes[AptitudesService.TraitGabaritMoyenId];
+                bestiole.Blessures = BestiolesService.CalculBlessures(bestiole.Gabarit, bestiole.ProfilActuel,
+                    bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId));
+                bestiole.BlessuresDetailDuCalcul = BestiolesService.GetBlessuresDetailDuCalcul(bestiole.Gabarit, bestiole.ProfilActuel,
+                    bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId));
+                bestiole.BlessuresFormuleDeCalcul = BestiolesService.GetBlessuresFormuleDeCalcul(bestiole.Gabarit, bestiole.ProfilActuel,
+                    bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId));
+            }
+
+            return bestioles;
         }
 
         private static Dictionary<int, List<LigneDeCarriereInitialeDto>> InitializeTablesCarrieresInitiales(

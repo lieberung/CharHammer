@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Models
 
-<strong>Blessures :</strong> @Item.Blessures <Tooltip Text="@Item.BlessuresCalculFormule"><em class="ml-3" style="color:#495057;">@Item.BlessuresCalculDetail</em></Tooltip>
+<strong>Blessures :</strong> @Item.Blessures <Tooltip Text="@Item.BlessuresFormuleDeCalcul"><em class="ml-3" style="color:#495057;">@Item.BlessuresDetailDuCalcul</em></Tooltip>
 @code{
     [Parameter]
     public BestioleDto Item { get; set; } = null!;

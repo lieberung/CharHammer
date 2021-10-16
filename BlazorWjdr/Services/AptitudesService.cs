@@ -89,6 +89,17 @@
         
         #region Aptitudes & Talents
 
+        public const int TraitDurACuirId = 3021;
+        public const int AptitudeGroupeGabarit = 3830;
+        
+        public const int TraitGabaritMinusculeId = 3835;
+        public const int TraitGabaritToutPetitId = 3837;
+        public const int TraitGabaritPetitId = 3831;
+        public const int TraitGabaritMoyenId = 3836;
+        public const int TraitGabaritLargeId = 3832;
+        public const int TraitGabaritEnormeId = 3833;
+        public const int TraitGabaritMonstrueuxId = 3834;
+
         // Caractéristiques
         public AptitudeDto TraitGuerrierNe => GetTrait(3010);
         public AptitudeDto TraitTireurDElite => GetTrait(3011);
@@ -102,7 +113,7 @@
         public AptitudeDto TraitSociable => GetTrait(3019);
 
         public AptitudeDto TraitCourseAPied => GetTrait(3020);
-        public AptitudeDto TraitDurACuir => GetTrait(3021);
+        public AptitudeDto TraitDurACuir => GetTrait(TraitDurACuirId);
         
         public AptitudeDto TalentCostaud => GetTrait(2239);
         public AptitudeDto TalentRobuste => GetTalent(2074);

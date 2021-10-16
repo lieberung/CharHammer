@@ -872,6 +872,8 @@
   {"id":3833,"parent":3830,"categ":"trait","categ_spe":"gabarit","nom":"Enorme","resume":null,"description":"","severite":1},
   {"id":3834,"parent":3830,"categ":"trait","categ_spe":"gabarit","nom":"Gigantesque","resume":null,"description":"","severite":1},
   {"id":3835,"parent":3830,"categ":"trait","categ_spe":"gabarit","nom":"Minuscule","resume":null,"description":"","severite":1},
+  {"id":3836,"parent":3830,"categ":"trait","categ_spe":"gabarit","nom":"Moyen","resume":null,"description":"","severite":1},
+  {"id":3837,"parent":3830,"categ":"trait","categ_spe":"gabarit","nom":"Tout petit","resume":null,"description":"","severite":1},
   
   {"id":3903,"categ":"trait","categ_spe":"capacite","nom":"Vision nocturne","resume":null,"description":"Vous y voyez parfaitement clair dans l’obscurité naturelle à 30m. Ne fonctionne pas dans l’obscurité totale, nécessite au moins l’équivalent de la lumière des étoiles.\",\"description\":\"Vous voyez parfaitement clair dans l’obscurité naturelle jusqu’à une distance de 30 mètres. Ce talent ne fonctionne pas dans l’obscurité totale et requiert l’équivalent de la lumière des étoiles au moins.","severite":1},
   {"id":3199,"categ":"trait","categ_spe":"autre","nom":"Effrayant","resume":null,"description":"Vous avez une apparence effrayante. Lorsque vous adoptez une attitude menaçante, vous provoquez la Peur."},

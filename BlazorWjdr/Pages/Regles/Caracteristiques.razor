@@ -1,10 +1,12 @@
 ﻿@page "/regles/caracteristiques/"
 
 @using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Table
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject AptitudesService _service
+@inject TablesService _tableService
 
 <MainTopRow>
     <h3 class="card-title">Caractéristiques</h3>
@@ -34,6 +36,11 @@
                 <h4 class="card-title">E - Endurance</h4>
                 <p class="card-text">Your physical hardiness. It helps you survive damage in combat but will also help with things like surviving harsh conditions and standing up to poison.</p>
                 <AptitudeItemList Items="@GetByCarac("E")"/>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">B - Blessures</h4>
+                <p class="card-text">Vos points de vie, le nombre de blessures que vous pouvez subir avant de prendre des <a href="regles/blessures/">Coups Critiques</a>.</p>
+                <TableDetail Item="@_tableService.GetTable(66)"/>
             </div>
         </div>
 
