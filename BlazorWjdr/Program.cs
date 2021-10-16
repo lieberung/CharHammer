@@ -184,8 +184,6 @@ namespace BlazorWjdr
                 .Select(c => new BestioleDto
                 {
                     Id = c.id,
-                    EstUnPersonnage = (c.cheminement ?? Array.Empty<int>()).Any(),
-                    EstUnPersonnageJoueur = (c.user ?? 0) != 0,
                     Userid = c.user ?? 0,
                     MembreDe = c.membrede,
                     Age = c.age,

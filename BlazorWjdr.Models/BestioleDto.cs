@@ -6,8 +6,8 @@ namespace BlazorWjdr.Models
     public class BestioleDto
     {
         public int Id { get; init; }
-        public bool EstUnPersonnage { get; init; }
-        public bool EstUnPersonnageJoueur { get; init; }
+        public bool EstUnPersonnage => CheminementPro.Any();
+        public bool EstUnPersonnageJoueur => Userid != 0;
         public AptitudeDto? Gabarit { get; set; }
 
         public ProfilDto ProfilActuel { get; init; } = null!;
