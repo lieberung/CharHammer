@@ -216,6 +216,26 @@
   "aptitudes":[4209,4228,4001,4002,4004,3706,4079,3901,4027,4027,4027,4027,3832,4108,4108,4108,4074,4109],"aptitudes_facultatives":[4021,3508,4013,4103,4028,3900],
   "description":""},
 
+{"id":56,"race":57,"nom":"Fantôme","membrede":[4],
+  "profil_actuel":{"cc":30,"ct":0,"f":30,"e":30,"i":10,"ag":30,"dex":20,"intel":15,"fm":15,"soc":0},
+  "aptitudes":[4206,2205,4079,4029,3901,4027,4027],"aptitudes_facultatives":[4004,3259,4034,4103,4028],
+  "description":"Les fantômes sont les esprits des âmes tourmentées qui sont mortes avec des histoires inachevées. Tout comme les squelettes et les zombies, les fantômes peuvent être convoqués par des vampires ou des nécromanciens, ou peuvent hanter des zones imprégnées de Dhar . Dans des circonstances exceptionnelles, des esprits particulièrement motivés peuvent se frayer un chemin à partir du royaume de Morr dans la poursuite de leurs propres affaires, bien que de tels événements attirent rapidement l'attention du culte de Morr, ou des magistères de l'Ordre Amethyste. Lorsqu'ils sont convoqués par les arts nécromantiques, les fantômes se rassemblent en essaim, formant de grandes armées d'esprits qui sautent et plongent parmi leurs ennemis, répandant la peur et le désarroi dans leur sillage."},
+
+{"id":57,"race":57,"nom":"Loup funeste","membrede":[4],
+  "profil_actuel":{"cc":30,"ct":0,"f":35,"e":35,"i":30,"ag":30,"dex":0,"intel":0,"fm":0,"soc":0},
+  "aptitudes":[4206,4001,4026,4005,4079,3901,4029,3832,4027,4027,4013],"aptitudes_facultatives":[4028,4021,4003,4016,4032],
+  "description":"Quand la terre abandonne les morts, ce ne sont pas seulement les humains qui ressuscitent ; des parodies macabres de loups géants, aux yeux brillants, et des lambeaux de chair tombant de leurs carcasses en décomposition, les Loups funestes rôdant la nuit pour leurs maîtres nécromancien. Dans le Reikland, on dit qu'ils errent dans les forêts hantées des Hägercrybs quand Morrslieb est plein, à la recherche de proies pour assouvir leur faim insatiable, maudits par un appétit de chair et un instinct accru pour l'odeur du sang."},
+
+{"id":58,"race":57,"nom":"Spectre de Cairn","membrede":[4],
+  "profil_actuel":{"cc":35,"ct":0,"f":35,"e":30,"i":15,"ag":30,"dex":25,"intel":25,"fm":50,"soc":15},
+  "aptitudes":[4209,2205,4131,4079,4029,3901,4108],"aptitudes_facultatives":[4004,4070,4016,4028],
+  "description":"Les Spectres de Cairn sont des esprits particulièrement puissants, les restes spectraux d'aspirants nécromanciens qui cherchaient à prolonger leur existence par magie noire. Dans la vie, ils avaient une forte volonté ; dans la mort, leur volonté malveillante les pousse à exercer une vengeance effrayante sur les âmes brûlantes des vivants. Beaucoup de ces Spectres hantent les cairns brumeux qui parsèment le paysage de l'Empire, tels que les Hägercrybs tombés."},
+
+{"id":59,"race":57,"nom":"Vampire","membrede":[4],
+  "profil_actuel":{"cc":60,"ct":40,"f":50,"e":40,"i":50,"ag":70,"dex":40,"intel":40,"fm":60,"soc":40},
+  "aptitudes":[4209,4228,3901,3903,4109],"aptitudes_facultatives":[4002,4004,4070,4021,4101,3508,4010,4079,4025,4016,4111,4112,4032,4027,4013,4103,4073,4074,3900],
+  "description":""},
+
 {"id":7,"race":1,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
   "histoire":"Inspiration inspiration...",
