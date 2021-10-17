@@ -249,7 +249,7 @@
 {"id":62,"race":55,"nom":"Ungor","membrede":[4],
   "profil_actuel":{"cc":35,"ct":30,"f":30,"e":35,"i":30,"ag":35,"dex":25,"intel":25,"fm":35,"soc":25},
   "aptitudes":[4020,4206,3903],"aptitudes_facultatives":[4050,4050,4050,4050,4050,4050,4050,4001,4021,4003,3417,4024,4031,3831],
-  "description":"Les Ungors ont des vestiges de cornes ou des cornes très courtes et sont donc à peine considérés "Gor" par le reste du troupeau. Certains ont même des visages ressemblant à des humains, ce qui en fait des infiltrateurs efficaces, mais aussi une cible pour le ridicule. En effet, les Ungors sont mal traités par les Gors, et sont souvent rabougris ou mal nourris par rapport à leurs frères à cornes , ce qui en fait des êtres amers désireux de faire retomber leur jalousie sur autrui."},
+  "description":"Les Ungors ont des vestiges de cornes ou des cornes très courtes et sont donc à peine considérés Gor par le reste du troupeau. Certains ont même des visages ressemblant à des humains, ce qui en fait des infiltrateurs efficaces, mais aussi une cible pour le ridicule. En effet, les Ungors sont mal traités par les Gors, et sont souvent rabougris ou mal nourris par rapport à leurs frères à cornes , ce qui en fait des êtres amers désireux de faire retomber leur jalousie sur autrui."},
 
 {"id":63,"race":55,"nom":"Minotaur","membrede":[4],
   "profil_actuel":{"cc":45,"ct":25,"f":44,"e":45,"i":20,"ag":35,"dex":25,"intel":20,"fm":30,"soc":15},
