@@ -589,6 +589,26 @@
         ["0","Lécher un crapaud tous les matins."]
       ]
     },
+
+    {"id":91,"titre":"Prénoms halflings","description": "",
+      "lignes":[
+        ["Adam","Alabert","Albi","Anatole"],
+        ["Aristide","Bargol","Berrylla","Carl"],
+        ["Dabbul","Dibbul","Drogon","Erika"],
+        ["Erling","Ernest","Eustase","Felix"],
+        ["Ferdo","Friedrich (Fred)","Frengar","Gaspard"],
+        ["Gobbul","Halfred","Hanbul","Hando"],
+        ["Haribul","Harthol","Hiero","Hildegarde (Hilde)"],
+        ["Hildebrandt","Horace","Hugo","Humfried"],
+        ["Isidor","Leonard (Leo)","Lily","Logar"],
+        ["Lothon","Mangul","Maximilien (Max)","Melilot"],
+        ["Mimosa","Minton","Molly","Peregrin"],
+        ["Philibert","Poldo","Primevère","Prisca"],
+        ["Salvia","Saturnin","Simeon","Theodosius"],
+        ["Theodule (Theo)"],
+        ["Thomas (Tom)","Ursul","Wanda","Willfried (Will)"]
+      ]
+    },
     
     {"id":666,"titre":"Colère Divine !",
       "description": "Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.\nAprès avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.",
