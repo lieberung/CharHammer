@@ -1002,7 +1002,11 @@
   {"id":4109,"categ":"trait","categ_spe":"creature","nom":"Vampirique","resume":"La créature se nourrit de sang et tire une grande force physiqu de cet acte. Chaque fois qu'elle réussit une attaque de Morsures contre un adversaire approprié, elle guérit autant de Blessures que son adversaire en perd. Boire du sang de cette façon est le seul moyen de guérir.","description":""},
   
   {"id":4110,"categ":"trait","categ_spe":"creature","nom":"Lanceur de sorts","spe":"Demonologie","resume":"La créature peut lancer des Sorts du Domaine de Démonologie (page 256)."},
+  {"id":4111,"categ":"trait","categ_spe":"creature","nom":"Lanceur de sorts","spe":"Mort","resume":"La créature peut lancer des Sorts du Domaine de la Mort (page 251)."},
+  {"id":4112,"categ":"trait","categ_spe":"creature","nom":"Lanceur de sorts","spe":"Nécromancie","resume":"La créature peut lancer des Sorts de Nécromantie (page 256)."},
   {"id":4130,"categ":"trait","categ_spe":"creature","nom":"Lanceur de sorts","spe":"Divers","resume":"La créature peut lancer des Sorts. Le type de magie est à spécifier."},
+  
+  {"id":4131,"categ":"trait","categ_spe":"creature","nom":"Etreinte Glaciale","resume":"Le toucher de la créature glace l'âme de son ennemi. Pour le coût de 2 Avantage et de son Action, elle peut tenter un Test opposer CC/Mêlée ou Esquive. Si elle gagne, la cible perd 1d10 + BS Blessures qui ignorent le Bonus d'Endurance et les Points d'Armure. Cette Attaque est Magique."},
   
   {"id":4200,"categ":"trait","categ_spe":"creature","nom":"Arme+0","max":"1","resume":"La créature porte une arme de corps à corps, ou utilise ses dents, griffes ou similaires en combat.\nL'arme inflige 'niveau' dégâts qui incluent déjà son BF.","description":""},
   {"id":4201,"categ":"trait","categ_spe":"creature","nom":"Arme+1","max":"1","resume":"La créature porte une arme de corps à corps, ou utilise ses dents, griffes ou similaires en combat.\nL'arme inflige 'niveau' dégâts qui incluent déjà son BF.","description":""},
