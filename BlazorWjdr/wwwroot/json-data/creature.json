@@ -234,7 +234,27 @@
 {"id":59,"race":57,"nom":"Vampire","membrede":[4],
   "profil_actuel":{"cc":60,"ct":40,"f":50,"e":40,"i":50,"ag":70,"dex":40,"intel":40,"fm":60,"soc":40},
   "aptitudes":[4209,4228,3901,3903,4109],"aptitudes_facultatives":[4002,4004,4070,4021,4101,3508,4010,4079,4025,4016,4111,4112,4032,4027,4013,4103,4073,4074,3900],
-  "description":""},
+  "description":"Les vampires se considèrent comme les maîtres de la nuit. Beaucoup peuvent passer pour des êtres humains, certains fonctionnant même pendant de longues périodes parmi les vivants. Malgré leur apparence extérieurement humaine, aucun cœur ne bat sous leur peau pâle, et au lieu d'une faim mortelle, ils possèdent une soif constante de sang. Tous les vampires de l'Ancien Monde descendent en fin de compte d'anciennes lignées de sang qui ont pris naissance il y a des millénaires, loin au sud. Bon nombre d'entre eux sont extrêmement fiers de leur héritage et des traits et traditions qui les distinguent des autres. Les vampires de lignées différentes sont souvent des rivaux amers, mais ils sont assez astucieux pour s'unir quand il le faut pour affronter de plus grands ennemis."},
+
+{"id":60,"race":55,"nom":"Chamane-Bray","membrede":[4],
+  "profil_actuel":{"cc":40,"ct":30,"f":30,"e":45,"i":40,"ag":35,"dex":25,"intel":30,"fm":50,"soc":30},
+  "aptitudes":[4020,4207,4007,4007,4007,4007,4007,4007,4021,4111,4113,4114,4115,3903,4103],"aptitudes_facultatives":[4003,3832,4024,4031,3417],
+  "description":"Le Chamane-Bray est né avec la capacité instinctive d'exercer les pouvoirs du Chaos, qu'il déploie avec une terrifiante capacité. Unique parmi les Hommes-Bêtes, ils n'ont jamais besoin de se défendre des autres membres de leur troupeau, comme aucun n'oserait faire du mal à un Chamane-Bray, comme on croit que ce sont les Dieux Noirs eux-mêmes qui parlent à l'aide de leur volonté."},
+
+{"id":61,"race":55,"nom":"Gor","membrede":[4],
+  "profil_actuel":{"cc":45,"ct":30,"f":35,"e":45,"i":30,"ag":35,"dex":25,"intel":25,"fm":30,"soc":25},
+  "aptitudes":[4020,4207,4001,4007,4007,4007,4007,4007,4007,3903,4103],"aptitudes_facultatives":[4001,4001,4021,4003,4113,4024,4031,3832],
+  "description":"Les Gors, les Hommes-Bêtes les plus communs, hantent presque toutes les forêts de l'Ancien Monde. Leur apparence varie considérablement, mais tous combinent des traits bestiaux et humains, souvent avec la tête et les pattes des chèvres et le torse et les bras des humains. La seule caractéristique que tous les Gor possèdent universellement est une grande paire de cornes ( plus elles sont grandes, mieux c'est, car elles indiquent le statut des Hommes-Bêtes ) un trait qui les distingue de Ungor et Turnskins). Les plus grands Gors sont connus sous le nom de Bestigors."},
+
+{"id":62,"race":55,"nom":"Ungor","membrede":[4],
+  "profil_actuel":{"cc":35,"ct":30,"f":30,"e":35,"i":30,"ag":35,"dex":25,"intel":25,"fm":35,"soc":25},
+  "aptitudes":[4020,4206,3903],"aptitudes_facultatives":[4050,4050,4050,4050,4050,4050,4050,4001,4021,4003,3417,4024,4031,3831],
+  "description":"Les Ungors ont des vestiges de cornes ou des cornes très courtes et sont donc à peine considérés "Gor" par le reste du troupeau. Certains ont même des visages ressemblant à des humains, ce qui en fait des infiltrateurs efficaces, mais aussi une cible pour le ridicule. En effet, les Ungors sont mal traités par les Gors, et sont souvent rabougris ou mal nourris par rapport à leurs frères à cornes , ce qui en fait des êtres amers désireux de faire retomber leur jalousie sur autrui."},
+
+{"id":63,"race":55,"nom":"Minotaur","membrede":[4],
+  "profil_actuel":{"cc":45,"ct":25,"f":44,"e":45,"i":20,"ag":35,"dex":25,"intel":20,"fm":30,"soc":15},
+  "aptitudes":[4209,4007,4007,4007,4007,4007,4007,4007,4007,4007,3832,4002,3903],"aptitudes_facultatives":[4020,4012,4021,4003,3417,4024,4031,4103],
+  "description":"Les Minotaures son massifs et monstrueux, semblables à des taureaux, dominen même les plus grands Bestigors. Les troupeaux avec un grand contingent de Minotaures se considèrent particulièrement bénis par les Dieux Noirs. Les hommesbêtes se rassemblent autour des Minotaures car leur présence imposante donne du courage."},
 
 {"id":7,"race":1,"nom":"Bernhard Dupond","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
   "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
