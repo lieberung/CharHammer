@@ -166,6 +166,7 @@
   {"id":1120,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","spe":"Chiromancien","carac":"Int"},
   {"id":1121,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","spe":"Clown","carac":"Int/Soc"},
   {"id":1117,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","spe":"Acteur","carac":"Int"},
+  {"id":1002,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","spe":"Provocation","carac":"Int"},
 
   {"id":1013,"categ":"skill","categ_spe":"adv","nom":"Erudition","carac":"Int","resume":"Permet de se souvenir de faits et de chiffres et (si on dispose des archives adéquates) d’effectuer des recherches. Elles représentent un savoir beaucoup plus approfondi que Connaissances générales et nécessitent de longues études. Arts, astronomie, démonologie, droit, histoire, ingénierie, généalogie/héraldique, magie, nécromancie, philosophie, runes, science, stratégie/tactique et théologie sont les plus répandues.","description":""},
   {"id":1146,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Erudition (une au choix)","ignorer":true},
