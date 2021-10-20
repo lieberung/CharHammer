@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using BlazorWjdr.DataSource.JsonDto;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -17,6 +18,7 @@ namespace BlazorWjdr.Services
 
         public async Task InitializeDataAsync()
         {
+            var startTime = DateTime.Now;
             Aptitudes = await GetRootAptitude();
             Armes = await GetRootArme();
             Campagne = await GetRootCampagne();
@@ -33,6 +35,7 @@ namespace BlazorWjdr.Services
             Regles = await GetRootRegle();
             Sortileges = await GetRootSortilege();
             Tables = await GetRootTable();
+            Console.WriteLine($"Loading json data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
         }
 
         public RootAptitude? Aptitudes { get; private set; }

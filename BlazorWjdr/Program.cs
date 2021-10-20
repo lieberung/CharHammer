@@ -20,6 +20,7 @@ namespace BlazorWjdr
             var data = new ADataClassToRuleThemAllService(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             await data.InitializeDataAsync();
 
+            var startTime = DateTime.Now;
             var dataUsers = InitializeUsers(data.Campagne!.users);
 
             var dataAptitudes = InitializeAptitudes(data.Aptitudes!.items);
@@ -43,6 +44,7 @@ namespace BlazorWjdr
 
             var dataTeams = InitializeTeams(data.Campagne!.teams);
             var listCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataBestioles, dataLieux);
+            Console.WriteLine($"Initializing data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
             
             builder.Services.AddSingleton(_ => new AptitudesService(dataAptitudes));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
