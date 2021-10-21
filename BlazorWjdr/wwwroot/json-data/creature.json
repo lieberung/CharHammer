@@ -43,10 +43,10 @@
       "ambitions":"... souhaite ...",
       "sexe":1,"poids":66,"taille":138,"age":82,"cheveux":"bruns","yeux":"marrons","main_directrice":1,
       "profil_initial":{"cc":44,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":33,"soc":19},
-      "profil_actuel":{"cc":44,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":33,"soc":19},
+      "profil_actuel":{"cc":49,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":33,"soc":19},
       "cheminement":[75],"origines":[76],
       "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"non",
-      "aptitudes":[1042,1618,1224,1075,2245,1220,3018,3152,3146,3198,3014,1096,1133,1136,2070,2074,3800,3701,3903,3906]
+      "aptitudes":[1042,1618,1224,1075,2245,1220,3018,1209,1034,1220,1618,3200,2021,1026,3152,3146,3198,3014,1096,1133,1136,2070,2074,3800,3701,3903,3906]
     },
     {"id":11,"race":1,"nom":"Helhene de Brionne","user":3,"membrede":[5],"date_creation":"2021-10-16","xp_total":300,"xp_actuel":100,
       "notes":"",
