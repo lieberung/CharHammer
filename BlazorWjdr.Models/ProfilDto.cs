@@ -15,6 +15,8 @@
         public int Soc { get; init; }
         public int Bf => F / 10;
         public int Be => E / 10;
+        public int BonusDInitiative => I / 10;
+        public int BonusDAgilite => Ag / 10;
         public int Bfm => Fm / 10;
     }
 }

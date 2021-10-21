@@ -4,6 +4,8 @@
 @code {
     [Parameter]
     public SeanceDto Seance { get; set; } = null!;
+    [Parameter]
+    public int CampagneId { get; set; }
 }
 
 <h5 class="card-title">@Seance.Quand - @Seance.Titre</h5>
@@ -23,7 +25,7 @@
     }
 </p>
 <p class="card-text">
-    <span class="mr-3">Aventuriers : </span>
+    <a class="mr-3" href="aventuriers/@CampagneId/@Seance.Quand/" >Aventuriers : </a>
     <BestioleItemList Items="@Seance.Pjs"/>
 </p>
 <CardParagraphes Text="@Seance.Resume"/>

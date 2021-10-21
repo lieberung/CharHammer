@@ -76,7 +76,34 @@ namespace BlazorWjdr.Services
             if (durACuir)
                 blessures += $" + BE (dur à cuir)";
             return blessures;
+        }
 
+        public static InitiativeDeCombatDto[] InitiativeDeCombat(IEnumerable<BestioleDto> combattants)
+        {
+            return combattants
+                .Select(JetDInitiativeDeCombat)
+                .OrderByDescending(idc => idc.JetDInitiative)
+                .ThenByDescending(idc => idc.Combattant.ProfilActuel.I)
+                .ToArray();
+        }
+
+        private static InitiativeDeCombatDto JetDInitiativeDeCombat(BestioleDto combattant)
+        {
+            var initiative = (combattant.ProfilActuel.BonusDInitiative * 2) + combattant.ProfilActuel.BonusDAgilite;
+            var detail = $"2 x {combattant.ProfilActuel.BonusDInitiative} (BI) + {combattant.ProfilActuel.BonusDAgilite} (BAg)";
+            
+            var reflexes = combattant.AptitudesAcquises.Count(a => a.Aptitude.Id == AptitudesService.TalentReflexesDeCombatId);
+            if (reflexes != 0)
+            {
+                initiative += reflexes * 2;
+                detail += $" + {reflexes * 2} (RdC)";
+            }
+            
+            var dice = 1 + new Random().Next(0, 10);
+            initiative += dice;
+            detail += $" + {dice} (1d10)";
+
+            return new InitiativeDeCombatDto(combattant, initiative, detail);
         }
     }
 }

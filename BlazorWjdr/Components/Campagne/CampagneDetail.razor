@@ -18,7 +18,7 @@
         @foreach (var seance in Campagne.Seances.Where(s => s.Acte == acte).OrderBy(s => s.Quand))
         {
             <div>
-                <SeanceDetail Seance="@seance"/>
+                <SeanceDetail Seance="@seance" CampagneId="@Campagne.Id"/>
             </div>
         }
     </div>

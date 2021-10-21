@@ -10,14 +10,14 @@
     {
         <span class="oi oi-@(Item.EstUnPersonnage ? "person" : "bug") item-icon mr-1" aria-hidden="true"></span>
     }
-    <strong>@Item.Nom</strong>
+    @Item.Nom
     @if (Item.CheminementPro.Any())
     {
         <span>, @Item.CarriereActuelle?.Nom @_nomRace @_originaireDu</span>
     }
     else
     {
-        <strong class="ml-2">@_nomRace</strong>
+        <span class="ml-2">@_nomRace</span>
     }
     @if (!string.IsNullOrWhiteSpace(Item.Notes))
     {

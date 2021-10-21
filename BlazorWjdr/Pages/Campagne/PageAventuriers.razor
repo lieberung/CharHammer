@@ -1,0 +1,86 @@
+﻿@page "/aventuriers/{CampagneId}/{DateSeance}/"
+
+@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Components.Campagne
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject CampagnesService _campagnesService
+
+<MainTopRow>
+    <h3 class="card-title">Aventuriers</h3>
+</MainTopRow>
+
+<div class="content px-4">
+    
+    <div class="row">
+        <div class="col-6">
+            <div class="card-body">
+                <h3 class="card-title">Aptitudes du groupe</h3>
+                <AptitudeItemListSummary Aptitudes="_aptitudes" CompetencesAvanceesUniquement="@true"/>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card-body">
+                <h3 class="card-title">Assistant de combat</h3>
+                <p class="card-text">
+                    <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombat">Initiative de combat !</button>
+                </p>
+                @if (_initiativeDeCombat.Any())
+                {
+                    <InitiativeDeCombat Combattants="@_initiativeDeCombat"></InitiativeDeCombat>
+                }
+            </div>          
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-6">
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+        </div>
+        <div class="col-6">
+        </div>
+    </div>
+
+</div>
+
+@code {
+    [Parameter]
+    public string CampagneId { get; set; } = null!;
+    [Parameter]
+    public string DateSeance { get; set; } = null!;
+
+    private SeanceDto _seance = null!;
+    private AptitudeDto[] _aptitudes = null!;
+    private InitiativeDeCombatDto[] _initiativeDeCombat = Array.Empty<InitiativeDeCombatDto>(); 
+    
+    protected override void OnParametersSet()
+    {
+        _seance = _campagnesService.GetSeance(int.Parse(CampagneId), DateSeance);
+
+        _aptitudes = _seance.Pjs
+            .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
+            .Distinct()
+            .OrderBy(a => a.NomComplet).ToArray();
+        
+        base.OnParametersSet();
+    }
+
+    private void CalculerInitiativeDeCombat()
+    {
+        _initiativeDeCombat = BestiolesService.InitiativeDeCombat(_seance.Pjs);
+    }
+
+}
