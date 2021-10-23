@@ -1,7 +1,7 @@
 {
   "items":[
 
-    {"id":7,"race":1,"nom":"Febreize Ziberman","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
+    {"id":7,"race":1,"nom":"Febreize Ziberman","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,"main_directrice":1,
       "armes":[116,141],
       "armures":[15],
       "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
@@ -11,9 +11,9 @@
       "sexe":1,"poids":82,"taille":177,"age":36,"cheveux":"bruns","yeux":"vairons orange et pourpre",
       "profil_initial":{"cc":35,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
       "profil_actuel":{"cc":40,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
-      "cheminement":[68],"origines":[36],
+      "cheminement":[68],"origines":[37],
       "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"aucun",
-      "aptitudes":[3017,3019,2036,3917,1022,1618,1219,1008,1054,1055,3147,3130,3146,1220,2009,1005,1048,1197,1209,1608,3903]
+      "aptitudes":[3017,3019,2036,3917,2298,1618,1219,1008,1054,1055,3147,3130,3146,1220,2009,1048,1197,1209,1608,3903]
     },
     {"id":8,"race":26,"nom":"Pulpo Glascanon","user":1,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
       "histoire":"",
