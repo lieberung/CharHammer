@@ -1,0 +1,11 @@
+﻿<Tooltip Text="@TooltipText">
+    <span class="oi oi-@Icon ml-2" aria-hidden="true" style="color:@Color"></span>
+</Tooltip>
+@code{
+    [Parameter]
+    public string TooltipText { get; set; } = null!;
+    [Parameter]
+    public string Icon { get; set; } = "info";
+    [Parameter]
+    public string Color { get; set; } = "#aa0101";
+}

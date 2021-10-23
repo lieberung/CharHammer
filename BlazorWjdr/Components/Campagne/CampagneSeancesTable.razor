@@ -1,0 +1,24 @@
+﻿@using BlazorWjdr.Models
+@code {
+    [Parameter] public CampagneDto Campagne { get; set; } = null!;
+    [Parameter] public int Acte { get; set; }
+}
+<table>
+    <thead>
+         <tr>
+             <th class="tgroupe"></th>
+             <th class="tgroupe pl-2">Date</th>
+             <th class="tgroupe pl-2">Titre</th>
+             <th class="tgroupe pl-2">Durée</th>
+             <th class="tgroupe pl-2" style="text-align:center;">XP</th>
+             <th class="tgroupe pl-2">Lieux</th>
+             <th class="tgroupe pl-2"></th>
+         </tr>
+    </thead>
+    <tbody class="alternate-color-dark">
+    @foreach (var seance in Campagne.Seances.Where(s => s.Acte == Acte).OrderBy(s => s.Quand))
+    {
+        <SeanceRow Item="@seance" CampagneId="@Campagne.Id"/>
+    }
+    </tbody>
+</table>

@@ -1,0 +1,42 @@
+﻿@using BlazorWjdr.Components.Reference
+@using BlazorWjdr.Components.Lieu
+@using BlazorWjdr.Components.Campagne
+@using BlazorWjdr.Models
+@using BlazorWjdr.Shared.Oi
+
+<tr>
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+            <span class="oi oi-eye" aria-hidden="true"></span>
+        </span>
+    </td>
+    <td class="px-2">@Item.Quand</td>
+    <td class="px-2"><strong style="color:#5e1a05;">@Item.Titre</strong></td>
+    <td class="px-2" style="text-align:center;">@(Item.Duree)h</td>
+    <td class="px-2" style="text-align:center;">@(Item.Xp) xp</td>
+    <td class="px-2">
+        @if (Item.Lieux.Any())
+        {
+            <LieuItemList Items="@Item.Lieux"/>
+        }
+    </td>
+    <td class="px-2">
+        <a class="mr-3" href="aventuriers/@CampagneId/@Item.Quand/" >Aventuriers</a>
+    </td>
+</tr>
+@if (AfficherFiche)
+{
+    <tr>
+        <td colspan="6" class="p-3">
+            <div class="bulle" style="padding-bottom: 0;">
+                <SeanceDetail Item="@Item" CampagneId="@CampagneId"/>
+            </div>
+        </td>
+    </tr>
+}
+@code{
+    [Parameter] public SeanceDto Item { get; set; } = null!;
+    [Parameter] public int CampagneId { get; set; }
+    
+    private bool AfficherFiche { get; set; }
+}

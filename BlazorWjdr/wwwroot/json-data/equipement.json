@@ -141,7 +141,9 @@
       "description":""},
     {"id":343,"groupes":["Artisanat"],"nom":"Outils professionnels","prix":"3 co","enc":"1","dispo":"Rare",
       "description":""},
-
+    {"id":344,"groupes":["Outils"],"nom":"Chaîne (le mètre)","prix":"2/-","enc":"0","dispo":"Commun",
+      "description":""},
+    
     {"id":350,"groupes":["Paperasse"],"nom":"Brochure","prix":"1/-","enc":"0","dispo":"Commun",
       "description":""},
     {"id":351,"groupes":["Paperasse"],"nom":"Cartes","prix":"3 co","enc":"1","dispo":"Peu Commun",

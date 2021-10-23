@@ -1,0 +1,22 @@
+﻿@page "/regles/"
+
+@using BlazorWjdr.Services
+
+@inject ReglesService _reglesService
+
+<MainTopRow>
+    <h3 class="card-title">Règles en vrac</h3>
+</MainTopRow>
+
+<div class="content px-4">
+    <table class="table">
+        <tbody>
+        @foreach (var regle in _reglesService.AllRegles.OrderBy(r => r.Titre))
+        {
+            <tr>
+                <td><a href="regles/@regle.Id/">@regle.Titre</a></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

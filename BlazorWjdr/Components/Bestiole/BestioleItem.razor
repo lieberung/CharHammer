@@ -1,47 +1,52 @@
-﻿@using BlazorWjdr.Models
+﻿@using BlazorWjdr.Shared.Oi
+@using BlazorWjdr.Models
+
 <a href="creatures/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    @if (_tooltipNomJoueur != "")
+    @if (Item.EstUnPersonnageJoueur)
     {
         <Tooltip Text="@_tooltipNomJoueur">
-            <span class="oi oi-person item-icon mr-1" aria-hidden="true"></span>
+            <span class="oi oi-person item-icon ml-1 mr-1" aria-hidden="true"></span>
         </Tooltip>
     }
     else
     {
         <span class="oi oi-@(Item.EstUnPersonnage ? "person" : "bug") item-icon mr-1" aria-hidden="true"></span>
     }
-    @Item.Nom
+    <span>@Item.Nom</span>
     @if (Item.CheminementPro.Any())
     {
-        <span>, @Item.CarriereActuelle?.Nom @_nomRace @_originaireDu</span>
+        <span>, @Item.CarriereActuelle?.Nom @_nomRace</span>
     }
     else
     {
         <span class="ml-2">@_nomRace</span>
     }
-    @if (!string.IsNullOrWhiteSpace(Item.Notes))
+    @if (!Item.EstUnPersonnageJoueur && !string.IsNullOrWhiteSpace(Item.Notes))
     {
-        <Tooltip Text="@Item.Notes">
-            <span class="oi oi-info ml-2" style="color:#aa0101" aria-hidden="true"></span>
-        </Tooltip>
+        <ItemInfoRed TootipText="@Item.Notes"/>
     }
+    @ChildContent
 </a>
 @code{
-    [Parameter]
-    public BestioleDto Item { get; set; } = null!;
+    [Parameter] public BestioleDto Item { get; set; } = null!;
+    [Parameter] public RenderFragment ChildContent { get; set; } = null!;
 
     private string _nomRace = "";
-    private string _originaireDu = "";
+    private string _origines = "inconnu";
     private string _tooltipNomJoueur = "";
     
     protected override void OnParametersSet()
     {
         _nomRace = (Item.Sexe == 1 || string.IsNullOrWhiteSpace(Item.Race.NomFeminin) ? Item.Race.NomMasculin : Item.Race.NomFeminin).ToLower();
         if (Item.Origines.Any())
-            _originaireDu = $"({Item.Origines.First().Nom})";
+        {
+            _origines = Item.Origines.First().Nom ?? "";
+            if (Item.Origines.First().Parent != null)
+                _origines += $", {Item.Origines.First().Parent!.Nom}";
+        }
 
-        if (!string.IsNullOrWhiteSpace(Item.Joueur))
-            _tooltipNomJoueur = $"Joueur : {Item.Joueur}. Créé le {Item.DateDeCreation}";
+        if (Item.EstUnPersonnageJoueur)
+            _tooltipNomJoueur = $"Créé le {Item.DateDeCreation} par {Item.Joueur}\nOrigines : {_origines}\n{Item.Notes}";
         
         base.OnParametersSet();
     }

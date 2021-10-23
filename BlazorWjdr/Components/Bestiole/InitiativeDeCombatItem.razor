@@ -1,33 +1,10 @@
 ﻿@using BlazorWjdr.Models
-
-<a href="creatures/@Item.Combattant.Id.ToString()/" class="btn btn-light btn-item">
-    @if (_tooltipNomJoueur != "")
-    {
-        <Tooltip Text="@_tooltipNomJoueur">
-            <span class="oi oi-person item-icon mr-1" aria-hidden="true"></span>
-        </Tooltip>
-    }
-    else
-    {
-        <span class="oi oi-@(Item.Combattant.EstUnPersonnage ? "person" : "bug") item-icon mr-1" aria-hidden="true"></span>
-    }
+@code{
+    [Parameter] public InitiativeDeCombatDto Item { get; set; } = null!;
+}
+<BestioleItem Item="@Item.Combattant">
     <Tooltip Text="@Item.DetailDuJet">
-        @Item.Combattant.Nom
         <strong class="ml-2">@Item.JetDInitiative</strong>
         <span class="oi oi-info ml-1" style="color:#aa0101" aria-hidden="true"></span>
     </Tooltip>
-</a>
-@code{
-    [Parameter]
-    public InitiativeDeCombatDto Item { get; set; } = null!;
-
-    private string _tooltipNomJoueur = "";
-    
-    protected override void OnParametersSet()
-    {
-        if (!string.IsNullOrWhiteSpace(Item.Combattant.Joueur))
-            _tooltipNomJoueur = $"Joueur : {Item.Combattant.Joueur}. Créé le {Item.Combattant.DateDeCreation}";
-        
-        base.OnParametersSet();
-    }
-}
+</BestioleItem>

@@ -1,5 +1,20 @@
 ﻿@using BlazorWjdr.Models
-
+@code {
+    /*
+     * CC (mélée - ...)
+     * BF / BE
+     * arme / dégâts
+     * compétences de combat
+     * compteur de round (next)
+     * compteur d'avantages
+     * ajouter/retirer des conditions
+     * compteur de blessures / blessures totales
+     * déclarer mort
+     *
+     * + tables coups critiques
+     */
+    [Parameter] public InitiativeDeCombatDto[] Combattants { get; set; } = null!;
+}
 <ul>
 @foreach (var combattant in Combattants)
 {
@@ -8,18 +23,3 @@
     </li>
 }
 </ul>
-
-@code {
-    /*
-     * CC (mélée - ...)
-     * BF / BE
-     * compétences de combat
-     * compteur de round (next)
-     * compteur d'avantages
-     * ajouter/retirer des conditions
-     * compteur de blessures
-     * déclarer mort
-     */
-    [Parameter]
-    public InitiativeDeCombatDto[] Combattants { get; set; } = null!;
-}

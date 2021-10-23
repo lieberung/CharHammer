@@ -2,38 +2,29 @@
 @using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Models
 @code {
-    [Parameter]
-    public SeanceDto Seance { get; set; } = null!;
-    [Parameter]
-    public int CampagneId { get; set; }
+    [Parameter] public SeanceDto Item { get; set; } = null!;
+    [Parameter] public int CampagneId { get; set; }
 }
 
-<h5 class="card-title">@Seance.Quand - @Seance.Titre</h5>
-
 <p class="card-text">
-    @if (Seance.Lieux.Any())
-    {
-        <LieuItemList Items="@Seance.Lieux"/>
-        <span class="oi oi-infinity item-icon mr-3" aria-hidden="true"></span>   
-    }
-    <span class="mr-3">Durée : @(Seance.Duree)h</span>
+    <span class="mr-3">Durée : @(Item.Duree)h</span>
     <span class="oi oi-infinity item-icon mr-3" aria-hidden="true"></span>
-    <span>@Seance.Xp xp</span>
-    @if (!string.IsNullOrWhiteSpace(Seance.XpComment))
+    <span>@Item.Xp xp</span>
+    @if (!string.IsNullOrWhiteSpace(Item.XpComment))
     {
-        <em class="ml-2">@Seance.XpComment</em>
+        <em class="ml-2">@Item.XpComment</em>
     }
 </p>
 <p class="card-text">
-    <a class="mr-3" href="aventuriers/@CampagneId/@Seance.Quand/" >Aventuriers : </a>
-    <BestioleItemList Items="@Seance.Pjs"/>
+    <a class="mr-3" href="aventuriers/@CampagneId/@Item.Quand/" >Aventuriers : </a>
+    <BestioleItemList Items="@Item.Pjs"/>
 </p>
-<CardParagraphes Text="@Seance.Resume"/>
+<CardParagraphes Text="@Item.Resume"/>
 
 <div class="p-3">
     <table class="table">
         <tbody>
-        @foreach (var fact in Seance.Facts.OrderBy(f => f.Tri))
+        @foreach (var fact in Item.Facts.OrderBy(f => f.Tri))
         {
             <SeanceFactRow Fact="@fact"/>
         }
