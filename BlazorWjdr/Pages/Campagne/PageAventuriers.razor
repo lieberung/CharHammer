@@ -27,15 +27,33 @@
             <div class="card-body">
                 <h3 class="card-title">Assistant de combat</h3>
                 <p class="card-text">
-                    <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombat">Initiative de combat !</button>
+                    <button class="btn btn-primary" @onclick="() => CalculerInitiativeDeCombat()">Initiative de combat !</button>
+                    @foreach (var rencontre in _seance.Rencontres)
+                    {
+                        <button class="btn btn-primary ml-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe !</button>
+                    }
                 </p>
                 @if (_combattants.Any())
                 {
                     <table class="table">
+                        <thead>
+                             <tr>
+                                 <th class="tgroupe"></th>
+                                 <th class="tgroupe pl-2">Combattant</th>
+                                 <th class="tgroupe pl-2" style="text-align:center;">CC</th>
+                                 <th class="tgroupe pl-2" style="text-align:center;">BF</th>
+                                 <th class="tgroupe pl-2" style="text-align:center;">BE</th>
+                                 <th class="tgroupe pl-2" style="text-align:center;">Avant.</th>
+                                 <th class="tgroupe pl-2">Blessures</th>
+                                 <th class="tgroupe pl-2">Aptitudes</th>
+                                 <th class="tgroupe pl-2">Armes</th>
+                                 <th class="tgroupe pl-2">Armures</th>
+                             </tr>
+                        </thead>
                         <tbody class="alternate-color-dark">
                         @foreach (var combattant in _combattants)
                         {
-                            <CombattantRow Item="@combattant"/>
+                            <CombattantRow Item="@combattant" Ennemi="@Rencontre!.Pnjs.Contains(combattant.Combattant)"/>
                         }
                         </tbody>
                     </table>
@@ -66,14 +84,13 @@
 </div>
 
 @code {
-    [Parameter]
-    public string CampagneId { get; set; } = null!;
-    [Parameter]
-    public string DateSeance { get; set; } = null!;
-
+    [Parameter] public string CampagneId { get; set; } = null!;
+    [Parameter] public string DateSeance { get; set; } = null!;
+    
+    private RencontreDto? Rencontre { get; set; }
     private SeanceDto _seance = null!;
     private AptitudeDto[] _aptitudes = null!;
-    private CombattantDto[] _combattants = Array.Empty<CombattantDto>(); 
+    private List<CombattantDto> _combattants = new(); 
     
     protected override void OnParametersSet()
     {
@@ -87,9 +104,15 @@
         base.OnParametersSet();
     }
 
-    private void CalculerInitiativeDeCombat()
+    private void CalculerInitiativeDeCombat(RencontreDto? rencontre = null)
     {
-        _combattants = BestiolesService.InitiativeDeCombat(_seance.Pjs);
+        Rencontre = rencontre;
+
+        var protagonistes = _seance.Pjs.ToList();
+        if (Rencontre != null)
+            protagonistes.AddRange(Rencontre.Pnjs);
+
+        _combattants = BestiolesService.InitiativeDeCombat(protagonistes).ToList();
     }
 
 }

@@ -4,6 +4,7 @@
 @using BlazorWjdr.Services
 @code {
     [Parameter] public CombattantDto Item { get; set; } = null!;
+    [Parameter] public bool Ennemi { get; set; }
     
     private bool AfficherFiche { get; set; }
 }
@@ -14,11 +15,11 @@
         </span>
     </td>
     <td class="px-2">
-        <CombattantItem Item="@Item"/>
+        <CombattantItem Item="@Item" Ennemi="@Ennemi"/>
     </td>
-    <td>@Item.Combattant.ProfilActuel.Cc</td>
-    <td>@Item.Combattant.ProfilActuel.Bf</td>
-    <td>@Item.Combattant.ProfilActuel.Be</td>
+    <td style="text-align:center;">@Item.Combattant.ProfilActuel.Cc</td>
+    <td style="text-align:center;">@Item.Combattant.ProfilActuel.Bf</td>
+    <td style="text-align:center;">@Item.Combattant.ProfilActuel.Be</td>
     <td>
         <input type="text" class="saisie-score"/> (max @Item.Combattant.ProfilActuel.BonusDInitiative)
     </td>

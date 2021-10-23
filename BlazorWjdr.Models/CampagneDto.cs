@@ -34,6 +34,7 @@
         public LieuDto[] Lieux { get; init; } = null!;
         public BestioleDto[] Pjs { get; init; } = null!;
         public FactDto[] Facts { get; init; } = null!;
+        public RencontreDto[] Rencontres { get; init; } = null!;
     }
 
     public class FactDto
@@ -41,5 +42,11 @@
         public int Tri { get; init; }
         public BestioleDto[] Pjs { get; init; } = null!;
         public string Fact { get; init; } = null!;
+    }
+    
+    public class RencontreDto
+    {
+        public BestioleDto[] Pnjs { get; init; }
+        public string Groupe { get; init; } = null!;
     }
 }

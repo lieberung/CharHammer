@@ -33,6 +33,12 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string fact { get; set; } = null!;
     }
 
+    public class JsonRencontre
+    {
+        public int[] pnjs { get; init; } = null!;
+        public string groupe { get; init; } = null!;
+    }
+    
     public class JsonSeance
     {
         public string quand { get; set; } = null!;
@@ -45,6 +51,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int[]? lieux { get; set; }
         public int[]? pjs { get; set; }
         public JsonFact[]? facts { get; set; }
+        public JsonRencontre[]? rencontres { get; set; }
     }
 
     public class RootCampagne

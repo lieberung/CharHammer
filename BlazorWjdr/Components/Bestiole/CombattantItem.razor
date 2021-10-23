@@ -1,6 +1,7 @@
 ﻿@using BlazorWjdr.Models
 @code{
     [Parameter] public CombattantDto Item { get; set; } = null!;
+    [Parameter] public bool Ennemi { get; set; }
 }
 <BestioleItem Item="@Item.Combattant">
     <Tooltip Text="@Item.DetailDuJet">

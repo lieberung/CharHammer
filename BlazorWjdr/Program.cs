@@ -104,7 +104,19 @@ namespace BlazorWjdr
                 Resume = s.resume ?? "",
                 Titre = s.titre,
                 Xp = s.xp,
-                XpComment = s.xp_comment
+                XpComment = s.xp_comment,
+                Rencontres = (s.rencontres ?? Array.Empty<JsonRencontre>())
+                    .Select(r => GetRencontreDtoFromJson(r, bestioles)).ToArray()
+            };
+        }
+
+        private static RencontreDto GetRencontreDtoFromJson(JsonRencontre r,
+            IReadOnlyDictionary<int, BestioleDto> bestioles)
+        {
+            return new RencontreDto
+            {
+                Groupe = r.groupe,
+                Pnjs = r.pnjs.Select(id => bestioles[id]).ToArray()
             };
         }
 
