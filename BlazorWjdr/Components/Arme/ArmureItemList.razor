@@ -1,0 +1,13 @@
+﻿@using BlazorWjdr.Models
+@code{
+    [Parameter] public ArmureDto[] Items { get; set; } = null!;
+    [Parameter] public bool EnColonne { get; set; }
+}
+<ul class="@(EnColonne ? "" : "list-inline")">
+    @foreach (var armure in Items)
+    {
+        <li class="@(EnColonne ? "" : "list-inline-item")">
+            <ArmureItem Item="@armure"/>
+        </li>
+    }
+</ul>

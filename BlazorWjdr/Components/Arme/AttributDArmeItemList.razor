@@ -1,8 +1,8 @@
 ﻿@using BlazorWjdr.Models
 <ul class="@(EnColonne ? "" : "list-inline")">
-    @foreach (var item in _items)
+    @foreach (var (attribut, rating) in _items)
     {
-        <li class="@(EnColonne ? "" : "list-inline-item")"><AttributDArmeItem Item="@item.Item1" Rating="@item.Item2"/></li>
+        <li class="@(EnColonne ? "" : "list-inline-item")"><AttributDArmeItem Item="@attribut" Rating="@rating"/></li>
     }
 </ul>
 @code{

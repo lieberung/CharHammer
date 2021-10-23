@@ -1,0 +1,12 @@
+﻿@using BlazorWjdr.Models
+<span class="btn btn-light btn-item" target="_blank">
+    <span class="oi oi-location item-icon mr-1" aria-hidden="true"></span>
+    @if (string.IsNullOrWhiteSpace(Item.Description)) {
+        @Item.Nom
+    } else {
+        <Tooltip Text="@Item.Description">@Item.Nom</Tooltip>
+    }
+</span>
+@code{
+    [Parameter] public ArmeDto Item { get; set; } = null!;
+}

@@ -2,6 +2,8 @@
   "items":[
 
     {"id":7,"race":1,"nom":"Febreize Ziberman","user":2,"membrede":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
+      "armes":[116,141],
+      "armures":[15],
       "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
       "histoire":"Inspiration inspiration...",
       "description":"Febreize possède une marque de naissance sur la fesse droite ; si un simple coup d'oeil révèle une forme rappelant un phalus, une obsevation plus attentive et un peu de mauvaise foi permettent d'y voir une comête à deux queues. Serait-ce un signe ? Il n'a cependant toujours pas franchit le pas pour la soumettre à une observation plus approfondie au temple de Sigmar.",
@@ -25,6 +27,8 @@
       "aptitudes":[3147,3193,3103,1025,1026,1608,2010,1048,1094,1106,1132,1136,3831,2071,3903,3012,2298,1068]
     },
     {"id":9,"race":1,"nom":"Huguette Heinrich","user":4,"membrede":[5],"date_creation":"2021-10-10","xp_total":300,"xp_actuel":200,
+      "armes":[113,132],
+      "armures":[19,15],
       "notes":"Destinée : Une chute fatale...",
       "histoire":"",
       "description":"",
@@ -37,6 +41,9 @@
       "aptitudes":[2032,1018,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085]
     },
     {"id":10,"race":27,"nom":"Rhaimon Bahrr de Fer","user":3,"membrede":[5],"date_creation":"2021-10-17","xp_total":300,"xp_actuel":100,
+      "armes":[114],
+      "armures":[],
+      "equipement":[],
       "notes":"",
       "histoire":"",
       "description":"",

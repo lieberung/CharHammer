@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Models
 @code{
-    [Parameter] public InitiativeDeCombatDto Item { get; set; } = null!;
+    [Parameter] public CombattantDto Item { get; set; } = null!;
 }
 <BestioleItem Item="@Item.Combattant">
     <Tooltip Text="@Item.DetailDuJet">

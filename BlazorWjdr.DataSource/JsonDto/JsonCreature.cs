@@ -42,6 +42,10 @@ namespace BlazorWjdr.DataSource.JsonDto
         public bool mort { get; set; }
         public string? cheveux { get; set; }
         public string? yeux { get; set; }
+
+        public int[]? armes { get; set; }
+        public int[]? armures { get; set; }
+        public int[]? equipement { get; set; }
     }
 
     public class RootCreature

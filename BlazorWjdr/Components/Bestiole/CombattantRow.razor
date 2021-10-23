@@ -1,0 +1,47 @@
+﻿@using BlazorWjdr.Components.Arme
+@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+@code {
+    [Parameter] public CombattantDto Item { get; set; } = null!;
+    
+    private bool AfficherFiche { get; set; }
+}
+<tr>
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+            <span class="oi oi-eye" aria-hidden="true"></span>
+        </span>
+    </td>
+    <td class="px-2">
+        <CombattantItem Item="@Item"/>
+    </td>
+    <td>@Item.Combattant.ProfilActuel.Cc</td>
+    <td>@Item.Combattant.ProfilActuel.Bf</td>
+    <td>@Item.Combattant.ProfilActuel.Be</td>
+    <td>
+        <input type="text" class="saisie-score"/> (max @Item.Combattant.ProfilActuel.BonusDInitiative)
+    </td>
+    <td>
+        <input type="text" class="saisie-score" value="@Item.Combattant.Blessures"/><span>/ @Item.Combattant.Blessures</span>
+    </td>
+    <td class="px-2">
+        <AptitudeAcquiseItemList Items="@Item.Combattant.AptitudesAcquises.Where(aa => aa.Aptitude.Parent?.Id == AptitudesService.IdMeleeGroupe).ToArray()"/>
+    </td>
+    <td class="px-2">
+        <ArmeItemList Items="@Item.Combattant.Armes"/>
+    </td>
+    <td class="px-2">
+        <ArmureItemList Items="@Item.Combattant.Armures"/>
+    </td>
+</tr>
+@if (AfficherFiche)
+{
+    <tr>
+        <td colspan="10" class="p-3">
+            <div class="bulle" style="padding-bottom: 0;">
+                <BestioleFiche Item="@Item.Combattant" NAfficherQueLeProfilActuel="@true"/>
+            </div>
+        </td>
+    </tr>
+}

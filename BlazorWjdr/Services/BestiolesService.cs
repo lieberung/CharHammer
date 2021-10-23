@@ -78,7 +78,7 @@ namespace BlazorWjdr.Services
             return blessures;
         }
 
-        public static InitiativeDeCombatDto[] InitiativeDeCombat(IEnumerable<BestioleDto> combattants)
+        public static CombattantDto[] InitiativeDeCombat(IEnumerable<BestioleDto> combattants)
         {
             return combattants
                 .Select(JetDInitiativeDeCombat)
@@ -87,7 +87,7 @@ namespace BlazorWjdr.Services
                 .ToArray();
         }
 
-        private static InitiativeDeCombatDto JetDInitiativeDeCombat(BestioleDto combattant)
+        private static CombattantDto JetDInitiativeDeCombat(BestioleDto combattant)
         {
             var initiative = (combattant.ProfilActuel.BonusDInitiative * 2) + combattant.ProfilActuel.BonusDAgilite;
             var detail = $"2 x {combattant.ProfilActuel.BonusDInitiative} (BI) + {combattant.ProfilActuel.BonusDAgilite} (BAg)";
@@ -103,7 +103,7 @@ namespace BlazorWjdr.Services
             initiative += dice;
             detail += $" + {dice} (1d10)";
 
-            return new InitiativeDeCombatDto(combattant, initiative, detail);
+            return new CombattantDto(combattant, initiative, detail);
         }
     }
 }

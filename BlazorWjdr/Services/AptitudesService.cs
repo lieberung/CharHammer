@@ -68,6 +68,7 @@
 
         #region Mélée et Tir
 
+        public const int IdMeleeGroupe = 1600;
         public const int IdMeleeOrdinaires = 1618;
         public const int IdMeleeFleaux = 1614;
         public const int IdMeleeParade = 1607;

@@ -1,8 +1,8 @@
 ﻿namespace BlazorWjdr.Models
 {
-    public class InitiativeDeCombatDto
+    public class CombattantDto
     {
-        public InitiativeDeCombatDto(BestioleDto combattant, int jetDInitiative, string detailDuJet)
+        public CombattantDto(BestioleDto combattant, int jetDInitiative, string detailDuJet)
         {
             Combattant = combattant;
             JetDInitiative = jetDInitiative;

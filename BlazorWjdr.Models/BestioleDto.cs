@@ -33,7 +33,11 @@ namespace BlazorWjdr.Models
         public int? Age { get; init; }
         public int Sexe { get; init; }
         public string Psychologie { get; init; } = null!;
-        
+
+        public ArmeDto[] Armes { get; set; } = null!;
+        public ArmureDto[] Armures { get; set; } = null!;
+        public EquipementDto[] Equipement { get; set; } = null!;
+
         // Personnage
         public CarriereDto? CarriereDuPere { get; set; }
         public CarriereDto? CarriereDeLaMere { get; set; }
@@ -58,7 +62,7 @@ namespace BlazorWjdr.Models
         public string BlessuresDetailDuCalcul { get; set; } = "";
         public string BlessuresFormuleDeCalcul { get; set; } = "";
 
-        public string Equipement
+        public string EquipementDeCarrieres
         {
             get
             {

@@ -39,7 +39,7 @@ namespace BlazorWjdr
             var dataSortileges = InitializeSortileges(data.Sortileges!.items, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
-            var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataUsers);
+            var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataUsers);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
 
             var dataTeams = InitializeTeams(data.Campagne!.teams);
@@ -180,6 +180,9 @@ namespace BlazorWjdr
             IReadOnlyDictionary<int, AptitudeDto> aptitudes,
             IReadOnlyDictionary<int, LieuDto> lieux,
             IReadOnlyDictionary<int, CarriereDto> carrieres,
+            IReadOnlyDictionary<int, ArmeDto> armes,
+            IReadOnlyDictionary<int, ArmureDto> armures,
+            IReadOnlyDictionary<int, EquipementDto> equipement,
             IReadOnlyDictionary<int, UserDto> users)
         {
             var bestioles = items
@@ -204,6 +207,9 @@ namespace BlazorWjdr
                     AptitudesAcquises = AptitudeAcquise.GetList((c.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray()),
                     AptitudesOptionnels = AptitudeAcquise.GetList((c.aptitudes_facultatives ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray()),
                     Origines = (c.origines ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    Armes = (c.armes ?? Array.Empty<int>()).Select(id => armes[id]).ToArray(),
+                    Armures = (c.armures ?? Array.Empty<int>()).Select(id => armures[id]).ToArray(),
+                    Equipement = (c.equipement ?? Array.Empty<int>()).Select(id => equipement[id]).ToArray(),
                     // Personnage
                     SigneAstralId = c.fk_signeastralid,
                     Cheveux = c.cheveux,

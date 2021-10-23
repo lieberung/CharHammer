@@ -2,7 +2,6 @@
 
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Bestiole
-@using BlazorWjdr.Components.Campagne
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
@@ -21,15 +20,25 @@
                 <AptitudeItemListSummary Aptitudes="_aptitudes" CompetencesAvanceesUniquement="@true"/>
             </div>
         </div>
-        <div class="col-6">
+    </div>
+    
+    <div class="row">
+        <div class="col-12">
             <div class="card-body">
                 <h3 class="card-title">Assistant de combat</h3>
                 <p class="card-text">
                     <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombat">Initiative de combat !</button>
                 </p>
-                @if (_initiativeDeCombat.Any())
+                @if (_combattants.Any())
                 {
-                    <InitiativeDeCombat Combattants="@_initiativeDeCombat"></InitiativeDeCombat>
+                    <table class="table">
+                        <tbody class="alternate-color-dark">
+                        @foreach (var combattant in _combattants)
+                        {
+                            <CombattantRow Item="@combattant"/>
+                        }
+                        </tbody>
+                    </table>
                 }
             </div>          
         </div>
@@ -64,7 +73,7 @@
 
     private SeanceDto _seance = null!;
     private AptitudeDto[] _aptitudes = null!;
-    private InitiativeDeCombatDto[] _initiativeDeCombat = Array.Empty<InitiativeDeCombatDto>(); 
+    private CombattantDto[] _combattants = Array.Empty<CombattantDto>(); 
     
     protected override void OnParametersSet()
     {
@@ -80,7 +89,7 @@
 
     private void CalculerInitiativeDeCombat()
     {
-        _initiativeDeCombat = BestiolesService.InitiativeDeCombat(_seance.Pjs);
+        _combattants = BestiolesService.InitiativeDeCombat(_seance.Pjs);
     }
 
 }
