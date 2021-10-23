@@ -589,7 +589,31 @@
         ["0","Lécher un crapaud tous les matins."]
       ]
     },
-
+    {"id":84,"titre":"Cloisons, portes et serrures (v1)",
+      "description": "Note : les portes sont considérées comme inertes (toucher automatique et dégâts doublés).",
+      "lignes":[
+        ["Emplacement","Résistance","Dommages","Difficulté serrure"],
+        ["Armoire / Placard","1","1D6","(1D4 – 2) x 10%"],
+        ["Pièce domestique","2","1D6","(1D4 – 1) x 10%"],
+        ["Entrée de service","3","2D6","1D4 x 10%"],
+        ["Chambre forte / Pièces communicantes","4","3D6","(1D4 + 1) x 10%"],
+        ["Porte de cachot / Entrée de corridor","5","3D6","(1D4 + 1) x 10%"],
+        ["Maîtresse-tour (donjon)","6","5D6","(1D4 + 2) x 10%"],
+        ["Porte principale d’une forteresse / prison","8","6D6","(1D4 + 3) x 10%"],
+        ["Panneau / Trappe d’accès","2","1D6","(1D4 + 1) x 10%"]
+      ]
+    },
+    {"id":85,"titre":"Quémendage",
+      "description": "",
+      "lignes":[
+        ["Population","< 100","100-1000","1000-10000","10000 +"],
+        ["Artisan","3%","9%","42%","59%"],
+        ["Bateleur","3%","17%","73%","100%"],
+        ["Manouvrier","17%","73%","100%","100%"],
+        ["Serviteur","17%","59%","100%","100%"]
+      ]
+    },
+    
     {"id":91,"titre":"Prénoms halflings","description": "",
       "lignes":[
         ["Adam","Alabert","Albi","Anatole"],
