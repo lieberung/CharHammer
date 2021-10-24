@@ -1,0 +1,13 @@
+﻿.card-title {
+    color: #5e1a05;
+    margin-bottom: .35rem;
+    margin-top: .50rem;
+    font-family: 'Caslon Antique', fantasy;
+    font-weight: 600;
+}
+h1.card-title { font-size: xxx-large; }
+h3.card-title { font-size: xx-large; }
+h5.card-title { font-size: x-large; }
+h6.card-title { font-size: medium; margin-top: .25rem; }
+
+.card-text { text-align: justify; }

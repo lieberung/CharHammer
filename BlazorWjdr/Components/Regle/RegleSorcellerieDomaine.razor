@@ -1,10 +1,11 @@
 ﻿@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Models
 
 <div class="card-body">
     <h4 class="card-title">@Nom</h4>
     <AptitudeItem Item="@Aptitude"/>
-    <img class="career-img" src="@Image" alt="@Nom" style="max-width: 300px; max-height: 450px;"/>
+    <CarriereImage Nom="@Nom" Image="@Image" MaxHeight="450px" MaxWidth="300px"/>
     @ChildContent
 </div>
 @code{

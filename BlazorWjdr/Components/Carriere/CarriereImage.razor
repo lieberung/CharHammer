@@ -1,0 +1,8 @@
+﻿@using BlazorWjdr.Models
+@code{
+    [Parameter] public string Nom { get; set; } = "";
+    [Parameter] public string Image { get; set; } = null!;
+    [Parameter] public string MaxWidth { get; set; } = "300px";
+    [Parameter] public string MaxHeight { get; set; } = "450px";
+}
+<img class="career-img" src="@Image" alt="@Nom" style="max-width:@MaxWidth; max-height:@MaxHeight;"/>

@@ -62,25 +62,62 @@
         </div>
     </div>
     
-    <div class="row">
-        <div class="col-6">
+    @if (_seance.Pjs.Length > 0)
+    {
+        <div class="row">
+            <div class="col-6">
+                <BestioleFiche Item="@_seance.Pjs[0]" NAfficherQueLeProfilActuel="@true"/>
+            </div>
+            <div class="col-6">
+                @if (_seance.Pjs.Length > 1)
+                {
+                    <BestioleFiche Item="@_seance.Pjs[1]" NAfficherQueLeProfilActuel="@true"/>
+                }
+            </div>
         </div>
-        <div class="col-6">
+    }
+    @if (_seance.Pjs.Length > 2)
+    {
+        <div class="row">
+            <div class="col-6">
+                <BestioleFiche Item="@_seance.Pjs[2]" NAfficherQueLeProfilActuel="@true"/>
+            </div>
+            <div class="col-6">
+                @if (_seance.Pjs.Length > 3)
+                {
+                    <BestioleFiche Item="@_seance.Pjs[3]" NAfficherQueLeProfilActuel="@true"/>
+                }
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
+    }
+    @if (_seance.Pjs.Length > 4)
+    {
+        <div class="row">
+            <div class="col-6">
+                <BestioleFiche Item="@_seance.Pjs[4]" NAfficherQueLeProfilActuel="@true"/>
+            </div>
+            <div class="col-6">
+                @if (_seance.Pjs.Length > 5)
+                {
+                    <BestioleFiche Item="@_seance.Pjs[5]" NAfficherQueLeProfilActuel="@true"/>
+                }
+            </div>
         </div>
-        <div class="col-6">
+    }
+    @if (_seance.Pjs.Length > 6)
+    {
+        <div class="row">
+            <div class="col-6">
+                <BestioleFiche Item="@_seance.Pjs[6]" NAfficherQueLeProfilActuel="@true"/>
+            </div>
+            <div class="col-6">
+                @if (_seance.Pjs.Length > 7)
+                {
+                    <BestioleFiche Item="@_seance.Pjs[7]" NAfficherQueLeProfilActuel="@true"/>
+                }
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-        </div>
-        <div class="col-6">
-        </div>
-    </div>
-
+    }
 </div>
 
 @code {

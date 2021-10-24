@@ -1,4 +1,5 @@
 ﻿@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Models
 
 <div class="card-body">
@@ -12,7 +13,7 @@
     }
     @if (!string.IsNullOrWhiteSpace(Image))
     {
-        <img class="career-img" src="@Image" alt="@Titre" style="@_imageStyle"/>
+        <CarriereImage Image="@Image" Nom="@Titre" MaxHeight="@ImageMaxHeight" MaxWidth="@ImageMaxWidth"/>
     }
     @ChildContent
 </div>
@@ -20,16 +21,7 @@
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
     [Parameter] public string Titre { get; set; } = null!;
     [Parameter] public string? Image { get; set; }
-    [Parameter] public int ImageMaxWidth { get; set; } = 250;
-    [Parameter] public int ImageMaxHeight { get; set; } = 350;
+    [Parameter] public string ImageMaxWidth { get; set; } = "250px";
+    [Parameter] public string ImageMaxHeight { get; set; } = "350px";
     [Parameter] public AptitudeDto? Aptitude { get; set; }
-
-    private string _imageStyle = "";
-    
-    protected override void OnParametersSet()
-    {
-        _imageStyle = $"max-width: {ImageMaxWidth}px; max-height: {ImageMaxHeight}px;";
-        base.OnParametersSet();
-    }
-
 }
