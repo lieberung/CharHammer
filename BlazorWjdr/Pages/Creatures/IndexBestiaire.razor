@@ -6,18 +6,25 @@
 
 @inject BestiolesService _bestiolesService
 
+@code{
+    private IReadOnlyDictionary<string, IEnumerable<BestioleDto>> _groupes = null!;
+
+    protected override void OnInitialized()
+    {
+        _groupes = _bestiolesService.BestiolesRegroupees();
+        base.OnInitialized();
+    }
+}
+
 <MainTopRow>
     <h3 class="card-title">Bestiaire</h3>
 </MainTopRow>
 
 <div class="content px-4">
-    <table class="table">
-        <thead></thead>
-        <tbody>
-        @foreach (var bestiole in _bestiolesService.AllBestioles.Where(b => b.EstUnPersonnage == false).OrderBy(b => b.Nom).ToList())
-        {
-            <BestioleRow Item="bestiole"/>
-        }
-        </tbody>
-    </table>
+    @foreach (var groupe in _groupes.Keys)
+    {
+        <div class="card-body">
+            <BestioleTable Items="@_groupes[groupe].ToArray()"/>
+        </div>
+    }
 </div>

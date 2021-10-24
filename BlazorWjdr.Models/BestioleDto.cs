@@ -28,7 +28,7 @@ namespace BlazorWjdr.Models
 
         public LieuDto[] Origines { get; init; } = null!;
         public RaceDto Race { get; init; } = null!;
-        public int[] MembreDe { get; init; } = null!;
+        public string[] MembreDe { get; init; } = null!;
         public int? Poids { get; init; }
         public int? Taille { get; init; }
         public int? Age { get; init; }

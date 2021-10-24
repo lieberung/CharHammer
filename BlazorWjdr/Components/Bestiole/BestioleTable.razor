@@ -1,0 +1,13 @@
+﻿@using BlazorWjdr.Models
+@code{
+    [Parameter] public BestioleDto[] Items { get; set; } = null!;
+} 
+<table class="table">
+    <thead></thead>
+    <tbody class="alternate-color-dark">
+    @foreach (var bestiole in Items)
+    {
+        <BestioleRow Item="bestiole"/>
+    }
+    </tbody>
+</table>

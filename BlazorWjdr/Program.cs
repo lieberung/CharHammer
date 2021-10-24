@@ -202,7 +202,7 @@ namespace BlazorWjdr
                 {
                     Id = c.id,
                     Userid = c.user ?? 0,
-                    MembreDe = c.membrede,
+                    MembreDe = c.membrede ?? Array.Empty<string>(),
                     Age = c.age,
                     DateDeCreation = c.date_creation ?? "",
                     Notes = c.notes ?? string.Empty,

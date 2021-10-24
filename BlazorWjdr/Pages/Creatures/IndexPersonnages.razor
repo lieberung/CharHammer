@@ -1,7 +1,6 @@
 ﻿@page "/personnages"
 
 @using BlazorWjdr.Components.Bestiole
-@using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject BestiolesService _bestiolesService
@@ -11,13 +10,15 @@
 </MainTopRow>
 
 <div class="content px-4">
-    <table class="table">
-        <thead></thead>
-        <tbody>
-            @foreach (var bestiole in _bestiolesService.AllBestioles.Where(b => b.EstUnPersonnage).OrderBy(b => b.Nom).ToList())
-            {
-                <BestioleRow Item="bestiole" />
-            }
-        </tbody>
-    </table>
+    
+    <div class="row">
+        <div class="col-6">
+            <h3 class="card-title">Archétypes et PNJs</h3>
+            <BestioleTable Items="@_bestiolesService.AllPnjs.ToArray()"/>
+        </div>
+        <div class="col-6">
+            <h3 class="card-title">Personnages incarnés par des joueurs</h3>
+            <BestioleTable Items="@_bestiolesService.AllPjs.ToArray()"/>
+        </div>
+    </div>
 </div>

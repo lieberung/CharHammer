@@ -15,7 +15,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string nom { get; set; } = null!;
         public int? sexe { get; set; }
         public int[]? origines { get; set; }
-        public int[] membrede { get; set; } = null!;
+        public string[]? membrede { get; set; } = null!;
         public int? poids { get; set; }
         public int? taille { get; set; }
         public int? age { get; set; }

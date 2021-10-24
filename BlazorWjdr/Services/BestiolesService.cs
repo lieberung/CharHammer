@@ -16,6 +16,25 @@ namespace BlazorWjdr.Services
         }
         
         public IEnumerable<BestioleDto> AllBestioles => _cacheBestiole.Values.ToList();
+        public IEnumerable<BestioleDto> AllPnjs => _cacheBestiole.Values
+            .Where(b => b.EstUnPersonnage && !b.EstUnPersonnageJoueur).OrderBy(b => b.Nom).ToArray()
+            .ToList();
+        public IEnumerable<BestioleDto> AllPjs => _cacheBestiole.Values
+            .Where(b => b.EstUnPersonnageJoueur).OrderBy(b => b.Nom).ToArray()
+            .ToList();
+
+        private IEnumerable<string> GroupesDeBestioles() => AllBestioles
+            .Where(b => b.EstUnPersonnage == false)
+            .SelectMany(b => b.MembreDe)
+            .Distinct()
+            .OrderBy(g => g); 
+        private IEnumerable<BestioleDto> BestiolesMembreDuGroupe(string groupe) => AllBestioles
+            .Where(b => b.EstUnPersonnage == false && b.MembreDe.Contains(groupe))
+            .OrderBy(b => b.Nom)
+            .ToArray();
+        public IReadOnlyDictionary<string, IEnumerable<BestioleDto>> BestiolesRegroupees()
+            => GroupesDeBestioles().ToDictionary(k => k, BestiolesMembreDuGroupe);
+
         public BestioleDto GetBestiole(int id) => _cacheBestiole[id];
 
         public static AptitudeDto? GetGabarit(BestioleDto bestiole)
