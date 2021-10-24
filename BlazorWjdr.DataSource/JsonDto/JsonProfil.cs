@@ -18,6 +18,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int intel { get; set; }
         public int fm { get; set; }
         public int soc { get; set; }
+        public int m { get; set; }
     }
 
     public class RootProfil

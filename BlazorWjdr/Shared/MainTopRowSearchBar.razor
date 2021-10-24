@@ -2,8 +2,9 @@
 @using System.Net.Mime
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
-@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Components.Carriere
 
 <div class="header-menu">
     <div class="btn-group" >
@@ -23,7 +24,7 @@
                 {
                     <div class="mb-3">
                         <h6 class="card-title">Carrières</h6>
-                        <CarriereItemList Items="FilteredCarrieres" ItemClass=""/>
+                        <CarriereItemList Items="@FilteredCarrieres" ItemClass=""/>
                     </div>
                 }
 
@@ -50,6 +51,15 @@
                         <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTrait).ToArray()" PasDeTooltip="@true"/>
                     </div>
                 }
+                
+                @if (FilteredBestioles.Any())
+                {
+                    <div class="mb-3">
+                        <h6 class="card-title">Créatures</h6>
+                        <BestioleItemList Items="@FilteredBestioles" ItemClass=""/>
+                    </div>
+                }
+
             </div>
         }
     </div>
@@ -59,6 +69,7 @@
 @code {
     private IEnumerable<CarriereDto> AllCarrieres { get; set; } = new List<CarriereDto>();
     private IEnumerable<AptitudeDto> AllAptitudes { get; set; } = new List<AptitudeDto>();
+    private IEnumerable<BestioleDto> AllBestioles { get; set; } = new List<BestioleDto>();
 
     [Parameter]
     public string Text { get; set; } = "";
@@ -67,11 +78,13 @@
 
     [Inject] private CarrieresService CarrieresService { get; set; } = null!;
     [Inject] private AptitudesService AptitudesService { get; set; } = null!;
+    [Inject] private BestiolesService BestiolesService { get; set; } = null!;
         
     protected override void OnInitialized()
     {
         AllCarrieres = CarrieresService.AllCarrieres;
-        AllAptitudes = AptitudesService.AllCompetences;
+        AllAptitudes = AptitudesService.AllAptitudes;
+        AllBestioles = BestiolesService.AllBestioles;
     }
 
     protected override void OnParametersSet()
@@ -80,7 +93,7 @@
         base.OnParametersSet();
     }
 
-    private bool ResultFound => FilteredCarrieres.Any() || FilteredAptitudes.Any();
+    private bool ResultFound => FilteredCarrieres.Any() || FilteredAptitudes.Any() || FilteredBestioles.Any();
 
     private CarriereDto[] FilteredCarrieres => _searchText.Length < 3
         ? new CarriereDto[0]
@@ -89,6 +102,10 @@
     private AptitudeDto[] FilteredAptitudes => _searchText.Length < 3
         ?  new AptitudeDto[0]
         : AptitudesService.RechercheAptitudes(_searchText);
+
+    private BestioleDto[] FilteredBestioles => _searchText.Length < 3
+        ?  new BestioleDto[0]
+        : BestiolesService.Recherche(_searchText);
 
     private void ClearSearch()
     {

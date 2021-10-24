@@ -124,5 +124,14 @@ namespace BlazorWjdr.Services
 
             return new CombattantDto(combattant, initiative, detail);
         }
+        
+        public BestioleDto[] Recherche(string searchText)
+        {
+            searchText = GenericService.NettoyerPourRecherche(searchText);
+            return AllBestioles
+                .Where(c => GenericService.NettoyerPourRecherche(c.Nom).Contains(searchText))
+                .OrderBy(c => c.Nom)
+                .ToArray();
+        }
     }
 }

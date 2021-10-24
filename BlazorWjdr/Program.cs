@@ -627,20 +627,21 @@ namespace BlazorWjdr
         {
             return profils.Select(GetProfilDtoFromJson).ToDictionary(k => k.Id, v => v);
         }
-        private static ProfilDto GetProfilDtoFromJson(JsonProfil profil)
+        private static ProfilDto GetProfilDtoFromJson(JsonProfil p)
         {
             return new ProfilDto {
-                Id = profil.id,
-                Ag = profil.ag,
-                Cc = profil.cc,
-                Ct = profil.ct,
-                Dex = profil.dex,
-                E = profil.e,
-                F = profil.f,
-                Fm = profil.fm,
-                I = profil.i,
-                Int = profil.intel,
-                Soc = profil.soc };
+                Id = p.id,
+                Ag = p.ag,
+                Cc = p.cc,
+                Ct = p.ct,
+                Dex = p.dex,
+                E = p.e,
+                F = p.f,
+                Fm = p.fm,
+                I = p.i,
+                Int = p.intel,
+                Soc = p.soc,
+                M = p.m };
         }
 
         private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids,

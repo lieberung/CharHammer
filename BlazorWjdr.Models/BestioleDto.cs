@@ -8,6 +8,7 @@ namespace BlazorWjdr.Models
         public int Id { get; init; }
         public bool EstUnPersonnage => CheminementPro.Any();
         public bool EstUnPersonnageJoueur => Userid != 0;
+        public bool EstUneCreature => !EstUnPersonnage;
         public AptitudeDto? Gabarit { get; set; }
 
         public ProfilDto ProfilActuel { get; init; } = null!;
@@ -35,28 +36,28 @@ namespace BlazorWjdr.Models
         public int Sexe { get; init; }
         public string Psychologie { get; init; } = null!;
 
-        public ArmeDto[] Armes { get; set; } = null!;
-        public ArmureDto[] Armures { get; set; } = null!;
-        public EquipementDto[] Equipement { get; set; } = null!;
+        public ArmeDto[] Armes { get; init; } = null!;
+        public ArmureDto[] Armures { get; init; } = null!;
+        public EquipementDto[] Equipement { get; init; } = null!;
 
         // Personnage
-        public CarriereDto? CarriereDuPere { get; set; }
-        public CarriereDto? CarriereDeLaMere { get; set; }
+        public CarriereDto? CarriereDuPere { get; init; }
+        public CarriereDto? CarriereDeLaMere { get; init; }
         public int? SigneAstralId { get; set; }
-        public string? FreresEtSoeurs { get; set; }
-        public int MainDirectrice { get; set; }
+        public string? FreresEtSoeurs { get; init; }
+        public int MainDirectrice { get; init; }
         public bool Mort { get; set; }
-        public CarriereDto[] CheminementPro { get; set; } = null!;
-        public string? Cheveux { get; set; }
-        public string? Yeux { get; set; }
+        public CarriereDto[] CheminementPro { get; init; } = null!;
+        public string? Cheveux { get; init; }
+        public string? Yeux { get; init; }
 
         public CarriereDto? CarriereActuelle => CheminementPro.LastOrDefault();
         
         // PJ
         public string DateDeCreation { get; init; } = null!;
-        public string Joueur { get; set; } = null!;
-        public int XpActuel { get; set; }
-        public int XpTotal { get; set; }
+        public string Joueur { get; init; } = null!;
+        public int XpActuel { get; init; }
+        public int XpTotal { get; init; }
         public ProfilDto? ProfilInitial { get; init; }
 
         public int Blessures { get; set; }

@@ -1,0 +1,94 @@
+﻿@page "/creatures/{CreatureId}/"
+
+@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Components.Lieu
+@using BlazorWjdr.Services
+@using Models
+
+@inject BestiolesService _bestiolesService
+@inject CampagnesService _campagnesService
+
+<MainTopRow/>
+
+<div class="content px-4">
+    <div class="_container">
+
+        <div class="row">
+            <div class="col-4">
+                <div class="card-body">
+                    <h1 class="card-title" style="font-size: xxx-large;">@Item!.Nom</h1>
+                    @if (Item.Origines.Any())
+                    {
+                        <em>Origines :&nbsp;</em>
+                        @foreach (var lieu in Item.Origines)
+                        {
+                            <LieuComplet Item="@lieu"/>
+                        }
+                    }
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Profil</h4>
+                    <p>
+                        <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@true"/>
+                    </p>
+                    <p class="card-text">
+                        <Blessures Item="@Item"/>
+                        @if (Item.ProfilActuel.M > 0)
+                        {
+                            <strong>Mouvement :&nbsp;</strong><span>&nbsp;@Item.ProfilActuel.M</span>
+                        }
+                    </p>
+                </div>
+                <div class="card-body">
+                    <AptitudesAcquises Item="@Item"/>
+                    
+                    @if (!string.IsNullOrWhiteSpace(Item.EquipementDeCarrieres))
+                    {
+                        <h4 class="card-title">Equipement</h4>
+                        <p>@Item.EquipementDeCarrieres</p>
+                    }
+                </div>
+            </div>
+            
+            <div class="col-3">
+                <img alt="Portrait de @Item!.Nom" style="max-width:550px; max-height:450px;" src="images/beasts/@(Item.Id).png"/>
+            </div>
+            
+            <div class="col-5">
+                @if (Item.Description != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Description</h3>
+                        <CardParagraphes Text="@Item.Description"/>
+                    </div>
+                }
+                @if (Item.Psychologie != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Psychologie</h3>
+                        <CardParagraphes Text="@Item.Psychologie"/>
+                    </div>
+                }
+                @if (Item.Notes != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Notes</h3>
+                        <CardParagraphes Text="@Item.Notes"/>
+                    </div>
+                }                  
+            </div>
+        </div>
+    </div>
+</div>
+@code{
+    [Parameter]
+    public string CreatureId { get; set; } = null!;
+    
+    private BestioleDto? Item { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Item = _bestiolesService.GetBestiole(int.Parse(CreatureId));
+        base.OnParametersSet();
+    }
+}

@@ -1,7 +1,7 @@
 ﻿@using BlazorWjdr.Shared.Oi
 @using BlazorWjdr.Models
 
-<a href="creatures/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="@(Item.EstUneCreature ? "creatures" : "personnages")/@Item.Id.ToString()/" class="btn btn-light btn-item">
     @if (Item.EstUnPersonnageJoueur)
     {
         <Tooltip Text="@_tooltipNomJoueur">

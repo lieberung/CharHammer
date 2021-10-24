@@ -1,4 +1,4 @@
-﻿@page "/creatures/{CreatureId}/"
+﻿@page "/personnages/{CreatureId}/"
 
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Lieu
@@ -49,6 +49,10 @@
                     </p>
                     <p class="card-text">
                         <Blessures Item="@Item"/>
+                        @if (Item.ProfilActuel.M > 0)
+                        {
+                            <strong>Mouvement :&nbsp;</strong><span>&nbsp;@Item.ProfilActuel.M</span>
+                        }
                     </p>
                 </div>
             </div>
