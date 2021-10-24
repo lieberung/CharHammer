@@ -129,8 +129,9 @@ button.btn-sm[b-33fbycr4ot] {
     position: relative;
     display: inline-block;
     /*border-bottom: 1px dotted black;*/
-    /*cursor: help;*/
+    cursor: help;
 }
+a:-webkit-any-link .tooltip-wrapper[b-n0eqg1tdss] { cursor:pointer; }
 
 span[b-n0eqg1tdss] {
     visibility: hidden;
