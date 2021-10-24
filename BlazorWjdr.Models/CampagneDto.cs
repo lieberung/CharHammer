@@ -3,6 +3,7 @@
     public class UserDto
     {
         public int Id { get; init; }
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public string Email { get; init; } = null!;
         public string Pseudo { get; init; } = null!;
     }
@@ -46,7 +47,7 @@
     
     public class RencontreDto
     {
-        public BestioleDto[] Pnjs { get; init; }
+        public BestioleDto[] Pnjs { get; init; } = null!;
         public string Groupe { get; init; } = null!;
     }
 }

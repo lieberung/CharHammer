@@ -119,7 +119,10 @@
                 if (Aptitude.EstUneCompetence)
                     return $"{Aptitude.Nom} (+{Niveau * 5}%)";
                 if (Aptitude.EstUnTalent)
-                    return $"{Aptitude.Nom} (Niveau {Niveau})";
+                {
+                    var rating = Niveau == 1 ? "" : $" ({Niveau})";
+                    return $"{Aptitude.Nom}{rating})";
+                }
                 var niveau = Niveau == 1 ? "" : $" (+{Niveau})";
                 return $"{Aptitude.Nom}{niveau}";
             }

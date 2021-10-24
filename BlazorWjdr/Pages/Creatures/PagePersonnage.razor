@@ -76,7 +76,13 @@
                         <CardParagraphes Text="@Item.Description"/>
                     </div>
                 }
-
+                @if (Item.Psychologie != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Psychologie</h3>
+                        <CardParagraphes Text="@Item.Psychologie"/>
+                    </div>
+                }
             </div>
         </div>
         
@@ -103,8 +109,13 @@
                         <CardParagraphes Text="@Item.Histoire"/>
                     </div>
                 }
-                
-                
+                @if (Item.Ambitions != "")
+                {
+                    <div class="card-body">
+                        <h3 class="card-title">Ambitions</h3>
+                        <CardParagraphes Text="@Item.Ambitions"/>
+                    </div>
+                }
                 @if (Item.Notes != "")
                 {
                     <div class="card-body">

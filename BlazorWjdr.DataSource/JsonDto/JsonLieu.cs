@@ -1,5 +1,6 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable ClassNeverInstantiated.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
 namespace BlazorWjdr.DataSource.JsonDto
 {
     using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? allegeance { get; set; }
         public string? industrie { get; set; }
         public string? description { get; set; }
+        public bool ignorer { get; set; }
     }
 
     public class RootLieu

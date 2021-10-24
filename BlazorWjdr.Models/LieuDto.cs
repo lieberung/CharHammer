@@ -18,6 +18,7 @@ namespace BlazorWjdr.Models
         public string Industrie { get; init; } = null!;
         public string Description { get; init; } = null!;
         public string Image => $"lieux/{Id}.png";
+        public bool Ignorer { get; init; }
 
         public int ParentsCount {
             get

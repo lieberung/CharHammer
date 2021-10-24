@@ -1,9 +1,9 @@
 ﻿@using BlazorWjdr.Models
 
 <ul class="list-inline">
-    @if (Item.Parent != null)
+    @if (Item.Parent is {Ignorer: false })
     {
-        @if (Item.Parent.Parent != null)
+        @if (Item.Parent.Parent is {Ignorer: false })
         {
             <li class="list-inline-item">
                 <LieuItem Item="@Item.Parent.Parent"/>

@@ -207,6 +207,7 @@ namespace BlazorWjdr
                     DateDeCreation = c.date_creation ?? "",
                     Notes = c.notes ?? string.Empty,
                     Histoire = c.histoire ?? string.Empty,
+                    Ambitions = c.ambitions ?? string.Empty,
                     Description = c.description ?? string.Empty,
                     Nom = c.nom,
                     Poids = c.poids,
@@ -511,7 +512,8 @@ namespace BlazorWjdr
                     Industrie = l.industrie ?? "",
                     Description = l.description ?? "",
                     ParentId = l.parent,
-                    TypeDeLieu = cacheTypesDeLieu[l.type]
+                    TypeDeLieu = cacheTypesDeLieu[l.type],
+                    Ignorer = l.ignorer
                 })
                 .ToDictionary(k => k.Id);
 
