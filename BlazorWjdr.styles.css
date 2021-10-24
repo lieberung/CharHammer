@@ -1,5 +1,3 @@
-/* /Components/Carriere/CarriereImage.razor.rz.scp.css */
-.career-img[b-z3xcn1o35q] { float:right; margin-left:15px; }
 /* /Components/Regle/TraitsRaciauxHumains.razor.rz.scp.css */
 button[b-33fbycr4ot] {
     width:120px;
@@ -10,6 +8,8 @@ button.btn-sm[b-33fbycr4ot] {
 /* /Pages/Matos/EquipementArmures.razor.rz.scp.css */
 .table tbody[b-0z5pwvloxm] { font-size: 14px; }
 [b-0z5pwvloxm] .btn.btn-item { font-size: 14px; }
+/* /Shared/ImageMax.razor.rz.scp.css */
+.career-img[b-swacsjmkup] { float:right; margin-left:15px; }
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-ptappyth0t] {
     position: relative;
