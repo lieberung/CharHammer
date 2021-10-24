@@ -1,0 +1,24 @@
+﻿@page "/regles/acquisition-aptitudes/"
+
+@using BlazorWjdr.Components.Table
+@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject AptitudesService _aptitudesService
+@inject TablesService _tablesService
+
+<MainTopRow/>
+
+<div class="content px-4">
+
+    <div class="row">
+
+        <div class="col-6" style="padding-right: 0;">
+            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                <h1 class="card-title" style="font-size: xxx-large;">Acquisition automatique</h1>
+                <TableDetail Item="@_tablesService.GetTable(87)"/>
+            </div>
+        </div>
+    </div>
+</div>
