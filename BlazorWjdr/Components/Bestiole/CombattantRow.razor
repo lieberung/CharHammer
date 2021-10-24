@@ -21,10 +21,10 @@
     <td style="text-align:center;">@Item.Combattant.ProfilActuel.Bf</td>
     <td style="text-align:center;">@Item.Combattant.ProfilActuel.Be</td>
     <td>
-        <input type="text" class="saisie-score"/> (max @Item.Combattant.ProfilActuel.BonusDInitiative)
+        <Compteur CurrentValue="0"/> (max @Item.Combattant.ProfilActuel.BonusDInitiative)
     </td>
     <td>
-        <input type="text" class="saisie-score" value="@Item.Combattant.Blessures"/><span>/ @Item.Combattant.Blessures</span>
+        <Compteur CurrentValue="@Item.Combattant.Blessures"/><span>/ @Item.Combattant.Blessures</span>
     </td>
     <td class="px-2">
         <AptitudeAcquiseItemList Items="@Item.Combattant.AptitudesAcquises.Where(aa => aa.Aptitude.Parent?.Id == AptitudesService.IdMeleeGroupe).ToArray()"/>

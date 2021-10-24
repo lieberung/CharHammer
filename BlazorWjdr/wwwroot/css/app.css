@@ -26,7 +26,7 @@
     font-weight: 500;
     font-size: large;
 }
-.saisie-score { width:35px; text-align:center; }
+.saisie-score { width:25px; text-align:center; }
 .table thead th { border-bottom: none; }
 .table td, .table th { padding: .10rem; border-top: none; }
 .table td ul { margin-bottom: 0; }

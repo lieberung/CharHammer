@@ -8,6 +8,7 @@ namespace BlazorWjdr.Models
         public int Id { get; init; }
         public bool EstUnPersonnage => CheminementPro.Any();
         public bool EstUnPersonnageJoueur => Userid != 0;
+        public bool EstUnPersonnageNonJoueur => EstUnPersonnage && !EstUnPersonnageJoueur;
         public bool EstUneCreature => !EstUnPersonnage;
         public AptitudeDto? Gabarit { get; set; }
 

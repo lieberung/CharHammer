@@ -70,16 +70,22 @@
       "aptitudes":[3152,3146,3198,3014,1096,1133,1136,2070,2074,3800,3701,3903,3906]
     },
     
-    {"id":401,"race":1,"nom":"Homme de main type","poids":72,"taille":169,"age":27,
+    {"id":401,"race":1,"nom":"Archétype","poids":72,"taille":169,"age":27,
       "cheminement":[75],
       "profil_actuel":{"cc":33,"ct":31,"f":35,"e":33,"i":28,"ag":29,"dex":29,"intel":27,"fm":30,"soc":31},
       "aptitudes":[1618,1034,1026,1220,1010,1209],"aptitudes_facultatives":[1624,2014],
       "description":""},
 
-    {"id":402,"race":1,"nom":"Marchand type","poids":72,"taille":169,"age":50,
+    {"id":402,"race":1,"nom":"Archétype","poids":72,"taille":169,"age":50,
       "cheminement":[368,179],
       "profil_actuel":{"cc":37,"ct":32,"f":35,"e":36,"i":0,"ag":33,"dex":0,"intel":48,"fm":46,"soc":51},
       "aptitudes":[1092,1092,1158,1012,1027,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019],"aptitudes_facultatives":[],
+      "description":""},
+
+    {"id":403,"race":1,"nom":"Archétype","poids":72,"taille":169,"age":32,
+      "cheminement":[39,375],
+      "profil_actuel":{"cc":47,"ct":49,"f":41,"e":42,"i":51,"ag":43,"dex":38,"intel":38,"fm":40,"soc":39},
+      "aptitudes":[1209,1026,1034,1220,1210,1001,1611,1611,1616,2021,2013,2218,2015,2085,2262],
       "description":""},
 
 {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
@@ -93,7 +99,7 @@
   "description":"Maigrichon, vindicatif, agile et intelligent, l'instinct de conservation d'u gobelin ne doit jamais être sous-estimé. Bien que lâches, les Gobelins s'unissent volontiers si cela leur assure un avantage écrasant en nombre. Les Gobelins se joignent fréquemment aux armées orques ( pas toujours par choix ) en se servant opportunément du butin de guerre, tandis que d'autres s'occupent de la plupart des combats."},
     
 {"id":15,"race":55,"nom":"Homme-bête standard","membrede":["Hommes-bêtes"],
-  "profil_actuel":{"cc":40,"ct":25,"f":35,"e":45,"i":99,"ag":35,"dex":99,"intel":25,"fm":25,"soc":25},
+  "profil_actuel":{"cc":40,"ct":25,"f":35,"e":45,"i":35,"ag":35,"dex":25,"intel":25,"fm":25,"soc":25},
   "aptitudes":[2008,1030,1034,1140,1048,1049,1055,2008,2080,3200],"aptitudes_facultatives":[],
   "description":""},
     
@@ -108,12 +114,12 @@
   "description":"Les Orques sont méchants, brutaux, belliqueux et presque immunisés contre la douleur. Ils ont un corps musclé et massif, des épaules larges et puissantes, et ne laisseront pas une petite chose comme un bras perdu se mettre en travers d'un bon morceau. Ils sont bâtis pour le combat et n'aiment rien de plus que de le faire. Quand ils n'ont pas d'ennemis à combattre, ils s'attaquent à des groupes rivaux de PeauxVertes. S'il n'y a pas de groupe rival, ils se battront entre eux. Bien qu'ils ne soient pas aussi nombreux que les Gobelins, ils sont plus grands et plus durs, et ils le leur font savoir à chaque occasion. Les Orques peuvent atteindre une taille prodigieuse, avec des Orques plus grands, plus forts, plus résistants et plus agressifs, et donc plus prestigieux, car la puissance est égale à la loi dans leur société belliqueuse. Certains Orques chevauchent d'immenses sangliers au combat, un spectacle qui ne manque jamais de terrifier."},
     
 {"id":18,"race":62,"nom":"Revenant","membrede":["Morts-vivants"],
-  "profil_actuel":{"cc":40,"ct":35,"f":45,"e":45,"i":99,"ag":30,"dex":99,"intel":25,"fm":35,"soc":20},
+  "profil_actuel":{"cc":40,"ct":35,"f":45,"e":45,"i":30,"ag":30,"dex":0,"intel":25,"fm":35,"soc":20},
   "aptitudes":[1145,1048,3199,3901],"aptitudes_facultatives":[],
   "description":""},
     
 {"id":19,"race":58,"nom":"Skaven","membrede":["Homme-rats"],
-  "profil_actuel":{"cc":30,"ct":25,"f":30,"e":30,"i":99,"ag":40,"dex":99,"intel":25,"fm":25,"soc":15},
+  "profil_actuel":{"cc":30,"ct":25,"f":30,"e":30,"i":40,"ag":40,"dex":25,"intel":25,"fm":25,"soc":15},
   "aptitudes":[2009,1024,1045,1048,1055,1156,2009,1608],"aptitudes_facultatives":[],
   "description":""},
     
@@ -133,12 +139,12 @@
   "description":""},
     
 {"id":23,"race":59,"nom":"Chien de guerre","membrede":["Animaux"],
-  "profil_actuel":{"cc":41,"ct":0,"f":32,"e":38,"i":99,"ag":30,"dex":99,"intel":15,"fm":43,"soc":0},
+  "profil_actuel":{"cc":41,"ct":0,"f":32,"e":38,"i":35,"ag":30,"dex":0,"intel":15,"fm":43,"soc":0},
   "aptitudes":[1045,1048,1048,1048,1049,2021,2080,3904,3831,4205],"aptitudes_facultatives":[],
   "description":""},
     
 {"id":24,"race":51,"nom":"Destrier","membrede":["Animaux"],
-  "profil_actuel":{"cc":30,"ct":0,"f":45,"e":45,"i":99,"ag":30,"dex":99,"intel":10,"fm":10,"soc":0},
+  "profil_actuel":{"cc":30,"ct":0,"f":45,"e":45,"i":10,"ag":30,"dex":0,"intel":10,"fm":10,"soc":0},
   "aptitudes":[1045,1048,1048,2002,2021,2080,3904,4207],"aptitudes_facultatives":[],
   "description":""},
     

@@ -121,7 +121,7 @@
                 if (Aptitude.EstUnTalent)
                 {
                     var rating = Niveau == 1 ? "" : $" ({Niveau})";
-                    return $"{Aptitude.Nom}{rating})";
+                    return $"{Aptitude.Nom}{rating}";
                 }
                 var niveau = Niveau == 1 ? "" : $" (+{Niveau})";
                 return $"{Aptitude.Nom}{niveau}";

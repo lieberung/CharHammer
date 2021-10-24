@@ -1,12 +1,18 @@
 ﻿@using BlazorWjdr.Models
 @code{
     [Parameter] public ArmureDto Item { get; set; } = null!;
+    
+    private string _tooltip = "";
+
+    protected override void OnParametersSet()
+    {
+        _tooltip = $"Protection {Item.Pa} ({Item.Zones})";
+        if (Item.Attributs.Any())
+            _tooltip += $"\nAttributs : {string.Join(", ", Item.Attributs.Select(a => a.Nom).ToArray())}";
+        base.OnParametersSet();
+    }
 }
 <span class="btn btn-light btn-item" target="_blank">
     <span class="oi oi-shield item-icon mr-1" aria-hidden="true"></span>
-    @if (string.IsNullOrWhiteSpace(Item.Description)) {
-        @Item.Nom
-    } else {
-        <Tooltip Text="@Item.Description">@Item.Nom</Tooltip>
-    }
+    <Tooltip Text="@_tooltip">@Item.Nom</Tooltip>
 </span>
