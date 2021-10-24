@@ -257,7 +257,7 @@
   "aptitudes":[4207,4005,3832,4062],"aptitudes_facultatives":[4038,4040,4041,4042,4045],
   "description":"Les Pégases sont de beaux chevaux blancs avec de grandes ailes en forme de cygne. Ce sont des voltigeurs acharnés et inépuisables qui volent en grands troupeaux dans les hautes montagnes, prenant apparemment un grand plaisir à plonger et à tourbillonner sur les courants thermiques en spirale. Ils sont des candidats évidents pour des coursiers et beaucoup de guerriers ou d'éclaireurs ont essayé d'attraper un Pégase de leur propre chef. Ils sont très intelligents, et certains croient qu'ils ne se laissent capturer que s'ils le souhaitent, ce qui a conduit à toutes sortes de légendes romantiques fantaisistes insistant sur le fait que seuls ceux qui sont dignes ou assez vertueux peuvent être choisis."},
 
-{"id":50,"race":68,"nom":"Pieuvre des tourbières","membrede":["Animaux"],
+{"id":50,"race":68,"nom":"Pieuvre des tourbières","membrede":["Monstres"],
   "profil_actuel":{"cc":35,"ct":0,"f":80,"e":75,"i":15,"ag":55,"dex":0,"intel":5,"fm":65,"soc":0},
   "aptitudes":[4077,4004,4035,4078,4036,4106],"aptitudes_facultatives":[3833,3834,4028],
   "description":"Les pieuvres des tourbières rôdent dans les eaux peu profondes, habituellement dans les marais et les marécages. Ils attendent leurs proies dans un calme parfait, capables de sentir les vibrations des créatures qui s'approchent, puis sortent de l'eau boueuse, cherchant à s'agripper et à les noyer avec leurs tentacules puissants. Habituellement tachetés de vert et de brun, les pieuvres des tourbières sont parfaitement camouflées pour les environnements marécageux, leurs yeux immenses et limpides étant souvent les seuls indices qui trahissent leur présence. La plupart ont des tentacules de 6 mètres de longue et un corps d'environ 1m80 de long, mais les histoires disent qu'ils poussent plusieurs fois cette taille, surtout s'ils ont un approvisionnement régulier en viande."},
@@ -267,7 +267,7 @@
   "aptitudes":[4209,3903,4004,4003,4033],"aptitudes_facultatives":[4077,4007,3508,4079,4103,3831,3832,3833,3835,4091,4097],
   "description":""},
 
-{"id":52,"race":68,"nom":"Vouivre","membrede":["Animaux"],
+{"id":52,"race":68,"nom":"Vouivre","membrede":["Monstres"],
   "profil_actuel":{"cc":55,"ct":0,"f":60,"e":55,"i":15,"ag":45,"dex":0,"intel":10,"fm":50,"soc":0},
   "aptitudes":[4210,4001,4001,4004,3833,4017,4061,3902,3902,3902,3902,3902,3902,3902],"aptitudes_facultatives":[3902,3902,4007,4038,4039,4040,4041,4042,4094],
   "description":"Bien que les non-éduqués les confondent souvent avec les Dragons, au-delà de leurs similitudes superficielles, les Vouivres qui sentent mauvais ne sont en rien comme ces créatures dignes. Lâchement charognards et malvoyants, ils ont tendance à assouvir leur appétit vorace en éliminant des créatures sans défense ( surtout des moutons et des chèvres ) en évitant le combat direct quand c'est possible. Contrairement aux autres monstres des montagnes, les Vouivres ne sont pas particulièrement territoriaux et ont tendance à se déplacer lorsque leurs territoires de chasse sont envahis."},
