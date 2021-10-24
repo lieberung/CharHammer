@@ -107,6 +107,7 @@
 
         public AptitudeDto Aptitude { get; }
         private int Niveau { get; set; }
+        private int Score { get; set; }
 
         public string Resume => Aptitude.EstUneCompetence
             ? $"[{Aptitude.CaracteristiqueAssociee}] {Aptitude.Resume}"
@@ -117,7 +118,7 @@
             get
             {
                 if (Aptitude.EstUneCompetence)
-                    return $"{Aptitude.Nom} (+{Niveau * 5}%)";
+                    return $"{Aptitude.Nom} ({Score}%)"; // (+{Niveau * 5}%)
                 if (Aptitude.EstUnTalent)
                 {
                     var rating = Niveau == 1 ? "" : $" ({Niveau})";
@@ -128,7 +129,7 @@
             }
         }
 
-        public static AptitudeAcquise[] GetList(IEnumerable<AptitudeDto> aptitudes)
+        public static AptitudeAcquise[] GetList(IEnumerable<AptitudeDto> aptitudes, ProfilDto profil)
         {
             var liste = new List<AptitudeAcquise>();
             foreach (var apt in aptitudes)
@@ -138,6 +139,11 @@
                     liste.Add(new AptitudeAcquise(apt, 1));
                 else
                     ca.Niveau += 1;
+            }
+
+            foreach (var aptAcq in liste.Where(aa => aa.Aptitude.EstUneCompetence))
+            {
+                aptAcq.Score = profil.GetStat(aptAcq.Aptitude.CaracteristiqueAssociee) + aptAcq.Niveau * 5;
             }
             return liste.OrderBy(c => c.Detail).ToArray();
         }

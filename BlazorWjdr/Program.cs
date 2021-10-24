@@ -217,8 +217,12 @@ namespace BlazorWjdr
                     Taille = c.taille,
                     ProfilActuel = GetProfilDtoFromJson(c.profil_actuel),
                     ProfilInitial = c.profil_initial != null ? GetProfilDtoFromJson(c.profil_initial) : null,
-                    AptitudesAcquises = AptitudeAcquise.GetList((c.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray()),
-                    AptitudesOptionnels = AptitudeAcquise.GetList((c.aptitudes_facultatives ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray()),
+                    AptitudesAcquises = AptitudeAcquise.GetList(
+                        (c.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray(),
+                        GetProfilDtoFromJson(c.profil_actuel)),
+                    AptitudesOptionnels = AptitudeAcquise.GetList(
+                        (c.aptitudes_facultatives ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray(),
+                        GetProfilDtoFromJson(c.profil_actuel)),
                     Origines = (c.origines ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                     Armes = (c.armes ?? Array.Empty<int>()).Select(id => armes[id]).ToArray(),
                     Armures = (c.armures ?? Array.Empty<int>()).Select(id => armures[id]).ToArray(),
