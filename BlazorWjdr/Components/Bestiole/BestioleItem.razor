@@ -8,18 +8,22 @@
             <span class="oi oi-person item-icon ml-1 mr-1" aria-hidden="true"></span>
         </Tooltip>
     }
+    else if (Item.EstUnPersonnage && Item.EstUnPersonnageJoueur == false)
+    {
+        <Tooltip Text="@Item.Description">
+            <span class="oi oi-person item-icon mr-1" aria-hidden="true"></span>
+        </Tooltip>
+    }
     else
     {
-        <span class="oi oi-@(Item.EstUnPersonnage ? "person" : "bug") item-icon mr-1" aria-hidden="true"></span>
+        <Tooltip Text="@Item.Description">
+            <span class="oi oi-bug item-icon ml-1 mr-1" aria-hidden="true"></span>
+        </Tooltip>
     }
     <span>@Item.Nom</span>
     @if (Item.CheminementPro.Any())
     {
         <span>, @Item.CarriereActuelle?.Nom @_nomRace</span>
-    }
-    else
-    {
-        <span class="ml-2">@_nomRace</span>
     }
     @if (!Item.EstUnPersonnageJoueur && !string.IsNullOrWhiteSpace(Item.Notes))
     {
