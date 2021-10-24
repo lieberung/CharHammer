@@ -325,7 +325,16 @@
 {"id":63,"race":55,"nom":"Minotaure","membrede":["Hommes-bêtes"],
   "profil_actuel":{"cc":45,"ct":25,"f":44,"e":45,"i":20,"ag":35,"dex":25,"intel":20,"fm":30,"soc":15},
   "aptitudes":[4209,4007,4007,4007,4007,4007,4007,4007,4007,4007,3832,4002,3903],"aptitudes_facultatives":[4020,4012,4021,4003,3417,4024,4031,4103],
-  "description":"Les Minotaures son massifs et monstrueux, semblables à des taureaux, dominen même les plus grands Bestigors. Les troupeaux avec un grand contingent de Minotaures se considèrent particulièrement bénis par les Dieux Noirs. Les hommesbêtes se rassemblent autour des Minotaures car leur présence imposante donne du courage."}
+  "description":"Les Minotaures son massifs et monstrueux, semblables à des taureaux, dominen même les plus grands Bestigors. Les troupeaux avec un grand contingent de Minotaures se considèrent particulièrement bénis par les Dieux Noirs. Les hommesbêtes se rassemblent autour des Minotaures car leur présence imposante donne du courage."},
 
+{"id":601,"race":68,"nom":"Sanguinaire de Khorne","membrede":["Démons"],
+ "profil_actuel":{"cc":55,"ct":35,"f":45,"e":35,"i":60,"ag":40,"dex":30,"intel":25,"fm":70,"soc":15,"m":5},
+ "aptitudes":[4001,4001,4001,4001,4001,4070,3904,4022,4072,4072,4072,4072,4072,4072,4072,4072,4027,4027,4027,3508,4007,4007,4007,4007,4007,4007,4007,4007,4029,4209,4132],"aptitudes_facultatives":[],
+ "description":"Les Sanguinaires de Khorne, choisies par Khorne, sillonnent les champs de bataille de l'Ancien Monde, emportant crânes et vies en l'honneur du Dieu du sang. Des dents tranchantes et aiguës en forme d'aiguilles dépassent des visages monstrueux et cornés. Leur peau rouge sang est dure comme du cuivre, forgée sur l'enclume d'une guerre incessante. Chaque Sanguinaire porte une lame Hellblade, une lame méchamment tranchante, trempée dans le sang, qu'elle manie avec un déchaînement imprudent, se livrant à la douce sensation d'un massacre impitoyable."},
+
+{"id":602,"race":68,"nom":"Démonette de Slaanesh","membrede":["Démons"],
+  "profil_actuel":{"cc":60,"ct":50,"f":40,"e":30,"i":65,"ag":60,"dex":35,"intel":30,"fm":70,"soc":45,"m":4},
+  "aptitudes":[4070,4022,4072,4072,4072,4072,4072,4072,4072,4072,4072,4072,3251,4027,4027,3903,4029,4209],"aptitudes_facultatives":[],
+  "description":"Comme toutes les créatures du Prince de la Douleur et du Plaisir, les Demonettes de Slaanesh sont à la fois belles et horribles. Possédant une allure surnaturelle qui défie tout sens et toute rationalité, ils rendent leurs ennemis impuissants à résister, tant ils sont enchantés par la sensualité profane de leurs formes monstrueuses. Ils ont une peau crémeuse et pâle et de grands yeux noirs de jais. Des cheveux sauvages, fluides et anormalement colorés ornent leurs couronnes délicates. Au lieu de leurs mains, leurs bras minces se terminent par des griffes sinueuses en forme de pince de crabe."}
   ]
 }
