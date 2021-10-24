@@ -613,7 +613,16 @@
         ["Serviteur","17%","59%","100%","100%"]
       ]
     },
-    
+    {"id":87,"titre":"Compétences de base - apprentissage automatique",
+      "description": "Si au cours d'une aventure (durée à la discrétion du MJ) un personnage réussit suffisamment de jets dans une Compétence de Base (6 x 1 + Niveau de la compétence), il passe gratuitement au niveau supérieur.\nExceptions : Connaissances?",
+      "lignes":[
+        ["Niveau actuel","Nombre de tests"],
+        ["0 (+0%)","6 tests réussis"],
+        ["1 (+5%)","12 tests réussis"],
+        ["2 (+10%)","18 tests réussis"],
+        ["3 (+15%)","24 tests réussis"]
+      ]
+    },
     {"id":91,"titre":"Prénoms halflings","description": "",
       "lignes":[
         ["Adam","Alabert","Albi","Anatole"],
