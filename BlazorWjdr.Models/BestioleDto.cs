@@ -41,6 +41,17 @@ namespace BlazorWjdr.Models
         public ArmureDto[] Armures { get; init; } = null!;
         public EquipementDto[] Equipement { get; init; } = null!;
 
+        public string ArmureSynthese {
+            get
+            {
+                return "ToDo";
+            }
+        }
+
+        public class SyntheseArmure
+        {
+        }
+
         // Personnage
         public CarriereDto? CarriereDuPere { get; init; }
         public CarriereDto? CarriereDeLaMere { get; init; }

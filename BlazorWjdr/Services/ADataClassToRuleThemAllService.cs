@@ -35,11 +35,13 @@ namespace BlazorWjdr.Services
             Regles = await GetRootRegle();
             Sortileges = await GetRootSortilege();
             Tables = await GetRootTable();
+            Scenarios = await GetRootScenarios();
             Console.WriteLine($"Loading json data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
         }
 
         public RootAptitude? Aptitudes { get; private set; }
         public RootCampagne? Campagne { get; private set; }
+        public RootScenario? Scenarios { get; private set; }
         public RootCreature? Creatures { get; private set; }
         public RootCarriere? Carrieres { get; private set; }
         public RootChrono? Chrono { get; private set; }
@@ -78,6 +80,7 @@ namespace BlazorWjdr.Services
         private async Task<RootReference> GetRootReference() => await LoadRootFromJson<RootReference>($"{JsonDataPath}/reference.json");
         private async Task<RootTable> GetRootTable() => await LoadRootFromJson<RootTable>($"{JsonDataPath}/table.json");
         private async Task<RootRegle> GetRootRegle() => await LoadRootFromJson<RootRegle>($"{JsonDataPath}/regle.json");
+        private async Task<RootScenario> GetRootScenarios() => await LoadRootFromJson<RootScenario>($"{JsonDataPath}/scenarios.json");
         private async Task<RootTableCarriereInitiale> GetRootTableCarriereInitiale() => await LoadRootFromJson<RootTableCarriereInitiale>($"{JsonDataPath}/tablecarriereinitiale.json");
     }
 }

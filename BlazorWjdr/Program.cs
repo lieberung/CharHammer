@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Linq;
 using System.Threading.Tasks;
+using BlazorWjdr.Components.Lieu;
 using BlazorWjdr.DataSource.JsonDto;
 using BlazorWjdr.Models;
 
@@ -44,6 +45,8 @@ namespace BlazorWjdr
 
             var dataTeams = InitializeTeams(data.Campagne!.teams);
             var listCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataBestioles, dataLieux);
+            var dataScenarios = InitializeScenarios(data.Scenarios!.items, dataLieux, dataLieuxTypes);
+            
             Console.WriteLine($"Initializing data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
             
             builder.Services.AddSingleton(_ => new AptitudesService(dataAptitudes));
@@ -65,6 +68,25 @@ namespace BlazorWjdr
             builder.RootComponents.Add<App>("#app");
 
             await builder.Build().RunAsync();
+        }
+
+        private static IEnumerable<ScenarioDto> InitializeScenarios(IEnumerable<JsonScenario> items,
+            IReadOnlyDictionary<int, LieuDto> lieux,
+            IReadOnlyDictionary<int, LieuTypeDto> lieuxTypes)
+        {
+            return items.Select(s => new ScenarioDto
+            {
+                Difficulte = s.difficulte ?? "",
+                Duree = s.duree ?? "",
+                Lieux = (s.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                LieuxTypes = (s.lieuxtypes ?? Array.Empty<int>()).Select(id => lieuxTypes[id]).ToArray(),
+                Nom = s.nom,
+                Note = s.note,
+                Resume = s.resume ?? "",
+                Source = s.source ?? "",
+                Styles = s.styles ?? Array.Empty<string>(),
+                DejaJoue = s.deja_joue ?? ""
+            });
         }
 
         private static IEnumerable<CampagneDto> InitializeCampagnes(
