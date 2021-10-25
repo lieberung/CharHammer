@@ -1,0 +1,49 @@
+﻿@using BlazorWjdr.Components.Lieu
+@using BlazorWjdr.Shared.Oi
+@using BlazorWjdr.Models
+@code{
+    [Parameter] public ScenarioDto Item { get; set; } = null!;
+    
+    private bool AfficherFiche { get; set; }
+}
+<tr>
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+            <span class="oi oi-eye" aria-hidden="true"></span>
+        </span>
+    </td>
+    <td>@Item.Nom</td>
+    <td>
+        <Notation Note="@Item.Note"/>
+    </td>
+    <td>@Item.Duree</td>
+    <td>@Item.Difficulte</td>
+    <td>@string.Join(", ", Item.Styles)</td>
+    <td>
+        @if (Item.LieuxTypes.Any())
+        {
+            <LieuTypeItemList Items="@Item.LieuxTypes"/>
+        }
+        @if (Item.Lieux.Any())
+        {
+            <LieuItemList Items="@Item.Lieux"/>
+        }
+    </td>
+    <td>@Item.Source</td>
+</tr>
+@if (AfficherFiche)
+{
+    <tr>
+        <td colspan="8" class="p-3">
+            <div class="bulle" style="padding-bottom: 0;">
+                @if (Item.DejaJoue != "")
+                {
+                    <p class="card-text">
+                        <strong>Déjà joué :</strong>&nbsp;@Item.DejaJoue
+                    </p>
+                }
+                <CardParagraphes Text="@Item.Resume"/>
+            </div>
+        </td>
+    </tr>
+}

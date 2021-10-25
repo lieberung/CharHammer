@@ -64,6 +64,7 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new ReglesService(dataRegles));
             builder.Services.AddSingleton(_ => new SortilegesService(dataSortileges));
             builder.Services.AddSingleton(_ => new CampagnesService(dataUsers, dataTeams, listCampagnes));
+            builder.Services.AddSingleton(_ => new ScenariosService(dataScenarios));
 
             builder.RootComponents.Add<App>("#app");
 

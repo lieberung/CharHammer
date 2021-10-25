@@ -1,0 +1,41 @@
+﻿@page "/scenarios/"
+
+@using BlazorWjdr.Components.Campagne
+@using BlazorWjdr.Services
+
+@inject ScenariosService _scenariosService
+
+<MainTopRow>
+    <h3 class="card-title">Scénarios</h3>
+</MainTopRow>
+
+<div class="content px-4">
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                         <tr>
+                             <th class="tgroupe"></th>
+                             <th class="tgroupe">Nom</th>
+                             <th class="tgroupe">Note</th>
+                             <th class="tgroupe">Durée</th>
+                             <th class="tgroupe">Difficulté</th>
+                             <th class="tgroupe">Style</th>
+                             <th class="tgroupe">Lieux</th>
+                             <th class="tgroupe">Source & Auteur</th>
+                         </tr>
+                    </thead>
+                    <tbody class="alternate-color-dark">
+                    @foreach (var scenar in _scenariosService.AllScenarios())
+                    {
+                        <ScenarioRow Item="@scenar"/>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

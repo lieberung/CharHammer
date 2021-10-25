@@ -8,14 +8,11 @@ namespace BlazorWjdr.Services
     {
         private readonly ChronologieDto[] _chronologie;
 
-        public ChronologieService(IEnumerable<ChronologieDto> dataChrono)
+        public ChronologieService(IEnumerable<ChronologieDto> chronologie)
         {
-            _chronologie = dataChrono.ToArray();
+            _chronologie = chronologie.ToArray();
         }
 
-        public ChronologieDto[] AllChronologie()
-        {
-            return _chronologie;
-        }
+        public ChronologieDto[] AllChronologie() => _chronologie;
     }
 }
