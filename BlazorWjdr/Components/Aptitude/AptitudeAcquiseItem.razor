@@ -1,15 +1,12 @@
 ﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+@code{ [Parameter] public AptitudeAcquise Item { get; set; } = null!; }
 
 <a href="competences/@Item.Aptitude.Id.ToString()/" class="btn btn-light btn-item">
     <span class="oi oi-@(Item.Icon) item-icon mr-1" aria-hidden="true"></span>
-    @if (string.IsNullOrWhiteSpace(Item.Resume)) {
+    @if (Item.Resume == "") {
         @Item.Detail
     } else {
         <Tooltip Text="@Item.Resume">@Item.Detail</Tooltip>
     }
 </a>
-
-@code{
-    [Parameter]
-    public AptitudeAcquise Item { get; set; } = null!;
-}

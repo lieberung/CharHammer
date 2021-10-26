@@ -118,7 +118,9 @@
             get
             {
                 if (Aptitude.EstUneCompetence)
+                {
                     return $"{Aptitude.Nom} ({Score}%)"; // (+{Niveau * 5}%)
+                }
                 if (Aptitude.EstUnTalent)
                 {
                     var rating = Niveau == 1 ? "" : $" ({Niveau})";

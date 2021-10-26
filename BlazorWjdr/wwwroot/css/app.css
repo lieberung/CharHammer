@@ -32,6 +32,7 @@
 .table td ul { margin-bottom: 0; }
 tbody.alternate-color-dark tr:nth-child(even) { background-color: #cebfb5; }
 tbody.alternate-color-light tr:nth-child(even) { background-color: #f3e3c1; }
+.list-inline { display:inline-block; }
 
 a, .btn-link {
     color: #562f08;
