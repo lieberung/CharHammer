@@ -1,9 +1,9 @@
 ﻿{
   "users": [
-    {"id":1,"email":"","pseudo":"Lieberung","discord":"Nietzsche sa mère#9463"},
-    {"id":2,"email":"","pseudo":"Klanyss"},
-    {"id":3,"email":"","pseudo":"Grounch"},
-    {"id":4,"email":"","pseudo":"Blue bird"},
+    {"id":1,"email":"","pseudo":"Laurent","discord":"Nietzsche sa mère#9463"},
+    {"id":2,"email":"","pseudo":"Vincent"},
+    {"id":3,"email":"","pseudo":"Jonathan"},
+    {"id":4,"email":"","pseudo":"Stella"},
     {"id":5,"email":"","pseudo":"Helene"}
   ],
   "teams": [
@@ -18,7 +18,10 @@
       "seances":[
         {"quand":"2021-10-30","acte":1,"duree":4,"titre":"Premières armes",
           "pjs":[7,9,10,11],"xp":0,"xp_comment":"",
-          "rencontres": [{"groupe":"Rencontre","pnjs":[403,401,401,401]}],
+          "rencontres": [
+            {"groupe":"Rencontre 1","pnjs":[403,401,401,401]},
+            {"groupe":"Rencontre 2","pnjs":[602,404,404,405,405,405]}
+          ],
           "facts":[
           ],
           "resume":"Expérimentation des règles v4 sur un premier one shot."
