@@ -64,6 +64,7 @@
                                                         && a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdMeleeOrdinaires)
                                                         && !a.Groupes.Contains(GroupeBouclier))
                         .ToList() },
+                    { "Armes de poing", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => a.Id == AptitudesService.IdMeleeBagarre)).ToList() },
                     { "Armes lourdes", AllArmes.Where(a => a.Groupes.Contains(GroupeADeuxMains)
                                                            && !a.Groupes.Contains(GroupeArmesDHast)
                                                            && a.CompetencesDeMaitrise.All(c => c.Id != AptitudesService.IdMeleeFleaux))

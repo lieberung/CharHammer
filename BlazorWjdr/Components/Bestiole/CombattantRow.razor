@@ -1,5 +1,6 @@
 ﻿@using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Sortilege
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 @code {
@@ -31,9 +32,8 @@
     </td>
     <td class="px-2">
         <ArmeItemList Items="@Item.Combattant.Armes"/>
-    </td>
-    <td class="px-2">
         <ArmureItemList Items="@Item.Combattant.Armures"/>
+        <SortilegeItemList Items="@Item.Combattant.Sorts"/>
     </td>
 </tr>
 @if (AfficherFiche)

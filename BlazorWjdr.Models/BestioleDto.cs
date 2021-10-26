@@ -40,6 +40,7 @@ namespace BlazorWjdr.Models
         public ArmeDto[] Armes { get; init; } = null!;
         public ArmureDto[] Armures { get; init; } = null!;
         public EquipementDto[] Equipement { get; init; } = null!;
+        public SortilegeDto[] Sorts { get; init; } = null!;
 
         public string ArmureSynthese {
             get
