@@ -42,7 +42,7 @@
       "aptitudes":[2032,1018,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085]
     },
     {"id":10,"race":27,"nom":"Rhaimon Bahrr de Fer","user":3,"teams":[5],"date_creation":"2021-10-17","xp_total":300,"xp_actuel":100,
-      "armes":[114],
+      "armes":[114,200],
       "armures":[14,17],
       "equipement":[],
       "notes":"",
