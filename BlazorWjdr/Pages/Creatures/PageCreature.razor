@@ -31,14 +31,7 @@
                     <p>
                         <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@true"/>
                     </p>
-                    <p class="card-text">
-                        <Blessures Item="@Item"/>
-                        @if (Item.ProfilActuel.M > 0)
-                        {
-                            <br/>
-                            <strong>Mouvement :&nbsp;</strong><span>&nbsp;@Item.ProfilActuel.M</span>
-                        }
-                    </p>
+                    <BestioleBlessuresEtMouvement Item="@Item"/>
                 </div>
                 <div class="card-body">
                     <AptitudesAcquises Item="@Item"/>

@@ -28,20 +28,20 @@
         <Compteur CurrentValue="@Item.Combattant.Blessures"/><span>/ @Item.Combattant.Blessures</span>
     </td>
     <td class="px-2">
-        <AptitudeAcquiseItemList Items="@Item.Combattant.AptitudesAcquises.Where(aa => aa.Aptitude.Parent?.Id == AptitudesService.IdMeleeGroupe).ToArray()"/>
-    </td>
-    <td class="px-2">
-        <ArmeItemList Items="@Item.Combattant.Armes"/>
-        <ArmureItemList Items="@Item.Combattant.Armures"/>
-        <SortilegeItemList Items="@Item.Combattant.Sorts"/>
+        <AptitudeAcquiseItemList Items="@Item.Combattant.AptitudesAcquises.Where(aa => aa.Aptitude.Parent?.Id is AptitudesService.IdMeleeGroupe or AptitudesService.IdTirGroupe).ToArray()"/>
     </td>
 </tr>
 @if (AfficherFiche)
 {
     <tr>
-        <td colspan="10" class="p-3">
+        <td colspan="7" class="p-3" style="max-width:500px;">
             <div class="bulle" style="padding-bottom: 0;">
                 <BestioleFiche Item="@Item.Combattant" NAfficherQueLeProfilActuel="@true"/>
+            </div>
+        </td>
+        <td colspan="1" class="p-3">
+            <div class="bulle" style="padding-bottom: 0;">
+                <BestioleFicheMatosSorts Item="@Item.Combattant"/>
             </div>
         </td>
     </tr>

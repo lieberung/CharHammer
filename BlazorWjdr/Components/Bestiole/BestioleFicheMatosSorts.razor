@@ -1,0 +1,32 @@
+﻿@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Arme
+@using BlazorWjdr.Components.Sortilege
+@using BlazorWjdr.Services
+
+@inject RacesService _racesService
+
+@if (Item.Armes.Any() || Item.Armures.Any() || Item.EquipementDeCarrieres != "")
+{
+    <h5 class="card-title">Equipement</h5>
+    <p>
+        <ArmeItemList Items="@Item.Armes"/>
+        <ArmureItemList Items="@Item.Armures"/>
+        @if (Item.EquipementDeCarrieres != "")
+        {
+            <br/>
+            <span>@Item.EquipementDeCarrieres</span>
+        }
+    </p>
+}
+@if (Item.Sorts.Any())
+{
+    <h5 class="card-title">Sortilèges</h5>
+    <p>
+        <SortilegeItemList Items="@Item.Sorts"/>
+    </p>
+}
+
+@code{
+    [Parameter]
+    public BestioleDto Item { get; set; } = null!;
+}

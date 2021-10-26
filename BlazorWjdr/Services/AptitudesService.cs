@@ -88,6 +88,7 @@ namespace BlazorWjdr.Services
         public const int IdMeleeEscrime = 1611;
         public const int IdMeleeBagarre = 1624;
         
+        public const int IdTirGroupe = 1620;
         public const int IdTirArbaletes = 1604;
         public const int IdTirArcs = 1615;
         public const int IdTirArmesAFeu = 1616;

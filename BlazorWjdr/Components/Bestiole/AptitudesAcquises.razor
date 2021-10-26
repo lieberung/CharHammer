@@ -3,29 +3,43 @@
 
 @if (Item.Competences.Any())
 {
-    <h4 class="card-title">Compétences</h4>
+    if (!MasquerTitres)
+    {
+        <h4 class="card-title">Compétences</h4>
+    }
     <p><AptitudeAcquiseItemList Items="@Item.Competences"/></p>
 }
 
 @if (Item.Talents.Any())
 {
-    <h4 class="card-title">Talents</h4>
+    if (!MasquerTitres)
+    {
+        <h4 class="card-title">Talents</h4>
+    }
     <p><AptitudeAcquiseItemList Items="@Item.Talents"/></p>
 }
 
 @if (Item.Traits.Any())
 {
-    <h4 class="card-title">Traits</h4>
+    if (!MasquerTitres)
+    {
+        <h4 class="card-title">Traits</h4>
+    }
     <p><AptitudeAcquiseItemList Items="@Item.Traits" /></p>
 }
 
 @if (Item.AptitudesOptionnels.Any())
 {
-    <h4 class="card-title">Traits optionnels</h4>
+    if (!MasquerTitres)
+    {
+        <h4 class="card-title">Traits optionnels</h4>
+    }
     <p><AptitudeAcquiseItemList Items="@Item.AptitudesOptionnels" /></p>
 }
 
 @code{
     [Parameter]
     public BestioleDto Item { get; set; } = null!;
+    [Parameter]
+    public bool MasquerTitres { get; set; }
 }

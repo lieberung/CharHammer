@@ -6,21 +6,12 @@
 
 @inject RacesService _racesService
 
-<h6 class="card-title">Plan de carrière</h6>
 <p>
     <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@NAfficherQueLeProfilActuel"/>
 </p>
-<p class="card-text">
-    <Blessures Item="@Item"/>
-</p>
-
-<AptitudesAcquises Item="@Item"/>
-
-@if (!string.IsNullOrWhiteSpace(Item.EquipementDeCarrieres))
-{
-    <h6 class="card-title">Equipement</h6>
-    <p>@Item.EquipementDeCarrieres</p>
-}
+<BestioleBlessuresEtMouvement Item="@Item"/>
+<h4 class="card-title">Aptitudes</h4>
+<AptitudesAcquises Item="@Item" MasquerTitres="@true"/>
 
 @code{
     [Parameter]
