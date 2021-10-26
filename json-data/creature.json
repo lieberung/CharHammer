@@ -2,7 +2,7 @@
   "items":[
 
     {"id":7,"race":1,"nom":"Febreize Ziberman","user":2,"teams":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,"main_directrice":1,
-      "armes":[116,141],
+      "armes":[116,126,141],
       "armures":[15],
       "notes":"J'avais paumé des données et j'ai rajouté les champs manquant dans creatures.json, tu peux y changer ce que tu veux.",
       "histoire":"Inspiration inspiration...",
@@ -90,6 +90,16 @@
       "cheminement":[39,375],
       "profil_actuel":{"cc":47,"ct":49,"f":41,"e":42,"i":51,"ag":43,"dex":38,"intel":38,"fm":40,"soc":39},
       "aptitudes":[1209,1026,1034,1220,1210,1001,1611,1611,1616,2021,2013,2218,2015,2085,2262],
+      "description":""},
+
+    {"id":404,"race":1,"nom":"Archétype","poids":69,"taille":169,"age":26,
+      "armes":[126],
+      "equipement":[1000,1001],
+      "richesses":["2d10 co, 4d10 pa"],
+      "sorts":[600,601,602],
+      "cheminement":[309],
+      "profil_actuel":{"cc":32,"ct":35,"f":30,"e":29,"i":34,"ag":31,"dex":33,"intel":53,"fm":32,"soc":45},
+      "aptitudes":[1031,1031,1170,1008,1008,1042,1010,2177,2179,3731],
       "description":""},
 
 {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
