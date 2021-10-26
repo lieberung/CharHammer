@@ -1,9 +1,12 @@
 ﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable PropertyCanBeMadeInitOnly.Global
 namespace BlazorWjdr.Models
 {
     public class ArmureDto
     {
         public int Id { get; set; }
+        public int? ParentId { get; init; }
+        public ArmureDto? Parent { get; set; }
         public string Nom { get; set; } = null!;
         public string Type { get; set; } = null!;
         public string Pa { get; set; } = null!;

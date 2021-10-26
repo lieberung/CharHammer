@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Linq;
 using System.Threading.Tasks;
 using BlazorWjdr.Components.Lieu;
+using BlazorWjdr.Components.Race;
 using BlazorWjdr.DataSource.JsonDto;
 using BlazorWjdr.Models;
 
@@ -358,12 +359,13 @@ namespace BlazorWjdr
 
         private static Dictionary<int, ArmureDto> InitializeArmures(
             IEnumerable<JsonArmure> items,
-            Dictionary<int, ArmeAttributDto> attributs)
+            IReadOnlyDictionary<int, ArmeAttributDto> attributs)
         {
-            return items
+            var result = items
                 .Select(a => new ArmureDto
                 {
                     Id = a.id,
+                    ParentId = a.parent, 
                     Type = a.type,
                     Nom = a.nom,
                     Description = a.description,
@@ -374,16 +376,24 @@ namespace BlazorWjdr
                     Zones = a.zones,
                     Attributs = (a.attributs ?? Array.Empty<int>()).Select(id => attributs[id]).OrderBy(at => at.Nom).ToArray()
                 }).ToDictionary(k => k.Id);
+            
+            foreach (var arme in result.Values.Where(a => a.ParentId.HasValue))
+            {
+                arme.Parent = result[arme.ParentId!.Value];
+            }
+            
+            return result;
         }
 
         private static Dictionary<int, EquipementDto> InitializeEquipements(
             IEnumerable<JsonEquipement> items,
             IReadOnlyDictionary<int, LieuDto> lieux)
         {
-            return items
+            var result = items
                 .Select(t => new EquipementDto
                 {
                     Id = t.id,
+                    ParentId = t.parent,
                     Dispo = t.dispo,
                     Nom = t.nom,
                     Description = t.description,
@@ -394,6 +404,12 @@ namespace BlazorWjdr
                     Addiction = t.addiction,
                     Lieux = (t.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray()
                 }).ToDictionary(k => k.Id);
+            
+            foreach (var equipement in result.Values.Where(e => e.ParentId.HasValue))
+            {
+                equipement.Parent = result[equipement.ParentId!.Value];
+            }
+            return result;
         }
 
         private static Dictionary<int, ArmeAttributDto> InitializeArmesAttributs(IEnumerable<JsonArmeAttribut> items)
@@ -413,10 +429,11 @@ namespace BlazorWjdr
             IReadOnlyDictionary<int, ArmeAttributDto> cacheAttributs,
             IReadOnlyDictionary<int, AptitudeDto> cacheCompetences)
         {
-            return items
+            var result = items
                 .Select(l => new ArmeDto
                 {
                     Id = l.id,
+                    ParentId = l.parent,
                     Nom = l.nom,
                     Description = l.description ?? "",
                     Attributs = (l.attributs ?? Array.Empty<int>()).Select(id => cacheAttributs[id]).ToList(),
@@ -431,6 +448,13 @@ namespace BlazorWjdr
                     CompetencesDeMaitrise = l.competences.Select(id => cacheCompetences[id]).ToList()
                 })
                 .ToDictionary(k => k.Id);
+
+            foreach (var arme in result.Values.Where(a => a.ParentId.HasValue))
+            {
+                arme.Parent = result[arme.ParentId!.Value];
+            }
+            
+            return result;
         }
 
         private static Dictionary<int, TableDto> InitializeTables(IEnumerable<JsonTable> items)

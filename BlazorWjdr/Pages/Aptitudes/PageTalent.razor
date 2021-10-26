@@ -1,13 +1,15 @@
 ﻿@page "/talents/{TalentId}/"
 
-@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Sortilege
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject AptitudesService _cttService
 @inject CarrieresService _carrieresService
 @inject ArmesService _armesService
+@inject SortilegesService _sortilegesService
 
 <MainTopRow/>
 
@@ -28,9 +30,18 @@
             @if (_carrieres.Any())
             {
                 <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                    <h3 class="card-title">Carrières proposant ce talent</h3>
+                    <h4 class="card-title">Carrières proposant ce talent</h4>
                     <p class="card-text">
                         <CarriereItemList Items="@_carrieres"/>
+                    </p>
+                </div>
+            }
+            @if (AptitudesService.DonneAccesADesSortileges(Item))
+            {
+                <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                    <h4 class="card-title">Sortilèges accessibles via ce talent</h4>
+                    <p class="card-text">
+                        <SortilegeItemList Items="@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray()"/>
                     </p>
                 </div>
             }

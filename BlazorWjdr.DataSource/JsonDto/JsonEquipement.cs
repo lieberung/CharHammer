@@ -8,6 +8,7 @@ namespace BlazorWjdr.DataSource.JsonDto
     public class JsonEquipement
     {
         public int id { get; set; }
+        public int? parent { get; set; }
         public string[]? groupes { get; set; }
         public string nom { get; set; } = null!;
         public string prix { get; set; } = null!;

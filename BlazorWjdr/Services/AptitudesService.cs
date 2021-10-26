@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Services
+﻿using System.Runtime.CompilerServices;
+
+namespace BlazorWjdr.Services
 {
     using Models;
     using System;
@@ -37,7 +39,7 @@
             .Where(a => a.EstUnTrait)
             .OrderBy(c => c.Nom).ThenBy(c => c.Spe);
 
-        public List<AptitudeDto> AllArmesSpecialisations
+        public IEnumerable<AptitudeDto> AllArmesSpecialisations
         {
             get
             {
@@ -51,6 +53,14 @@
             CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
         public List<AptitudeDto> AllTirSpecialisations =>
             CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
+
+        public bool DonneAccesADesArmes(AptitudeDto a)
+            => a.Parent == CompetenceGroupeMelee || a.Parent == CompetenceGroupeTir || a == CompetenceGroupeExplosifs;
+        public static bool DonneAccesADesSortileges(AptitudeDto a)
+            => a.Parent?.Id is AptitudeGroupeInspirationDivineId or AptitudeGroupeScienceDeLaMagieId;
+
+        public const int AptitudeGroupeInspirationDivineId = 2278;
+        public const int AptitudeGroupeScienceDeLaMagieId = 2179;
 
         public AptitudeDto[] RechercheAptitudes(string searchText)
         {

@@ -7,6 +7,8 @@ namespace BlazorWjdr.Models
     public class ArmeDto
     {
         public int Id { get; init; }
+        public int? ParentId { get; init; }
+        public ArmeDto? Parent { get; set; }
         public List<AptitudeDto> CompetencesDeMaitrise { get; init; } = null!;
         public List<ArmeAttributDto> Attributs { get; init; } = null!;
         public List<ArmeAttributDto> Groupes { get; init; } = null!;

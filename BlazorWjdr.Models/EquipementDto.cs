@@ -5,6 +5,8 @@ namespace BlazorWjdr.Models
     public class EquipementDto
     {
         public int Id { get; set; }
+        public int? ParentId { get; init; }
+        public EquipementDto? Parent { get; set; }
         public string[] Groupes { get; set; } = null!;
         public string Nom { get; set; } = null!;
         public string Prix { get; set; } = null!;

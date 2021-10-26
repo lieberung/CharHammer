@@ -254,6 +254,46 @@
                 _dieu = _dieuxSvc.GetDieu(19);
                 _inspirationDivine = _aptitudesService.InspirationDivineVerena;
                 break;
+            case "khorne":
+                _dieu = _dieuxSvc.GetDieu(20);
+                _inspirationDivine = null;
+                break;
+            case "nurgle":
+                _dieu = _dieuxSvc.GetDieu(21);
+                _inspirationDivine = _aptitudesService.TalentSombreSavoirNurgle;
+                break;
+            case "slaanesh":
+                _dieu = _dieuxSvc.GetDieu(22);
+                _inspirationDivine = _aptitudesService.TalentSombreSavoirSlaanesh;
+                break;
+            case "tzeench":
+                _dieu = _dieuxSvc.GetDieu(23);
+                _inspirationDivine = _aptitudesService.TalentSombreSavoirTzeench;
+                break;
+            case "arianka":
+                _dieu = _dieuxSvc.GetDieu(31);
+                _inspirationDivine = null;
+                break;
+            case "khaine":
+                _dieu = _dieuxSvc.GetDieu(24);
+                _inspirationDivine = null;
+                break;
+            case "stromfels":
+                _dieu = _dieuxSvc.GetDieu(25);
+                _inspirationDivine = null;
+                break;
+            case "haendrik":
+                _dieu = _dieuxSvc.GetDieu(26);
+                _inspirationDivine = null;
+                break;
+            case "solkan":
+                _dieu = _dieuxSvc.GetDieu(30);
+                _inspirationDivine = null;
+                break;
+            case "illuminas":
+                _dieu = _dieuxSvc.GetDieu(32);
+                _inspirationDivine = null;
+                break;
         }
         _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
         

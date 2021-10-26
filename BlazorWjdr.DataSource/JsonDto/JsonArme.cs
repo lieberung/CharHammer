@@ -15,6 +15,7 @@ namespace BlazorWjdr.DataSource.JsonDto
     public class JsonArme
     {
         public int id { get; set; }
+        public int? parent { get; set; }
         public int[] competences { get; set; } = null!;
         public int[]? groupes { get; set; }
         public int[]? attributs { get; set; } = null!;
@@ -32,6 +33,7 @@ namespace BlazorWjdr.DataSource.JsonDto
     public class JsonArmure
     {
         public int id { get; set; }
+        public int? parent { get; set; }
         public string nom { get; set; } = null!;
         public string type { get; set; } = null!;
         public string pa { get; set; } = null!;

@@ -1,11 +1,13 @@
 ﻿@page "/competences/{CompetenceId}/"
 
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject AptitudesService _aptitudesService
+@inject ArmesService _armesService
 @inject CarrieresService _carrieresService
 
 <MainTopRow/>
@@ -26,9 +28,18 @@
             {
                 <div class="card-body" style="padding-top: 0; padding-right: 0;">
 
-                    <h5 class="card-title title-primary">Carrières proposant cette compétence</h5>
+                    <h4 class="card-title title-primary">Carrières proposant cette compétence</h4>
                     <p class="card-text">
                         <CarriereItemList Items="@_carrieres"/>
+                    </p>
+                </div>
+            }
+            @if (_aptitudesService.DonneAccesADesArmes(Item))
+            {
+                <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                    <h4 class="card-title">Armes accessibles via ce talent</h4>
+                    <p class="card-text">
+                        <ArmeItemList Items="@_armesService.GetArmesDeMaitrise(Item).ToArray()"/>
                     </p>
                 </div>
             }
@@ -39,12 +50,9 @@
 </div>
 
 @code {
-
-    [Parameter]
-    public string CompetenceId { get; set; } = null!;
+    [Parameter] public string CompetenceId { get; set; } = null!;
 
     private AptitudeDto Item { get; set; } = null!;
-
     private CarriereDto[] _carrieres = null!;
 
     protected override void OnParametersSet()
@@ -52,5 +60,4 @@
         Item = _aptitudesService.GetAptitude(int.Parse(CompetenceId));
         _carrieres = _carrieresService.GetCarrieresProposant(Item);
     }
-
 }
