@@ -35,7 +35,13 @@
 {
     <tr>
         <td colspan="8" class="p-3">
-            <div class="bulle" style="padding-bottom: 0;">
+            <div class="bulle px-2">
+                @if (Item.Lien != "")
+                {
+                    <p class="card-text">
+                        <a href="@Item.Lien">Télécharger</a>
+                    </p>
+                }
                 @if (Item.DejaJoue != "")
                 {
                     <p class="card-text">

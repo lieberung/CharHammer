@@ -5,6 +5,7 @@
         public string Nom { get; init; } = null!;
         public int Note { get; init; }
         public string Difficulte { get; init; } = null!;
+        public string Lien { get; init; } = null!;
         public string Duree { get; init; } = null!;
         public string DejaJoue { get; init; } = null!;
         public string[] Styles { get; init; } = null!;

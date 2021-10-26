@@ -310,13 +310,12 @@
   },
   {
     "nom": "La Fleur de sang",
+    "lien": "scenarios/la-fleur-de-sang/",
     "note": 4,
     "duree": "Court",
     "styles":["Enquête","Action"],
     "resume": "Bon scénario d'introduction. Les PJ seront témoins d'un duel puis enquêtront pour libérer une jeune femme destinée à être sacrifiée pour Slaanesh",
-    "lieux": [
-      98
-    ],
+    "lieux":[98],
     "source": "Pierrick GARRY"
   },
   {

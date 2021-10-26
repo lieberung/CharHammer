@@ -83,6 +83,7 @@ namespace BlazorWjdr
                 Lieux = (s.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                 LieuxTypes = (s.lieuxtypes ?? Array.Empty<int>()).Select(id => lieuxTypes[id]).ToArray(),
                 Nom = s.nom,
+                Lien = s.lien ?? "",
                 Note = s.note,
                 Resume = s.resume ?? "",
                 Source = s.source ?? "",

@@ -1,11 +1,13 @@
 ﻿// ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
 namespace BlazorWjdr.DataSource.JsonDto
 {
     public class JsonScenario
     {
         public string nom { get; set; } = null!;
         public int note { get; set; }
+        public string? lien { get; set; }
         public string? duree { get; set; }
         public string? deja_joue { get; set; }
         public string? resume { get; set; }

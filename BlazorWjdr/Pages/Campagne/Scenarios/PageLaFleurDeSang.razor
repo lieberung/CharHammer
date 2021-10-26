@@ -1,0 +1,89 @@
+﻿@page "/scenarios/la-fleur-de-sang/"
+
+@using BlazorWjdr.Services
+
+@inject ScenariosService _scenariosService
+
+<MainTopRow>
+    <h3 class="card-title">La Fleur de Sang</h3>
+</MainTopRow>
+
+<div class="content px-4">
+
+    <div class="row">
+        <div class="col-4">
+            <div class="card-body">
+                <h3 class="card-title">Introduction</h3>
+                <p class="card-text">Une clairière éclairée par la lune. Sur une statue allégorique de la mort, une corneille est perchée. Derrière elle, on peut apercevoir un cimetière. Tout à coup, l'oiseau décolle. Il se dirige vers une immense muraille de rocs et se met à monter, monter... Soudain, il passe par dessus les murs d'une cité posée au sommet de l'immense piton rocheux. Les multiples lueurs issues de la vie humaine passent lentement sous les ailes noires de l’oiseau... Une voix s'élève dans la nuit. C'est celle d'une personne très âgée :</p>
+                <p class="card-text">
+                    <em>« Arrivé au terme de ma vie, désormais chenu et vieilli comme le monde, je m'apprête à laisser sur ce parchemin le témoignage des faits admirables et terribles auxquels j'ai assisté dans ma jeunesse. Que les Dieux m'accordent la sagesse et la grâce d'être le témoin transparent des événements qui survinrent dans la Cité de Middenheim, au plus sombre du nord de l'Empire. Mon histoire débute vers la fin de l'automne de l'année de Sigmar 2502 et comme beaucoup de grandes histoires en ce monde, celle-ci débute dans la pénombre d'une taverne enfumée... »</em>
+                </p>
+                <p class="card-text">A ce moment là, la corneille se pose délicatement sur le toit d'une taverne. La caméra entre à l'intérieur de la bâtisse en traversant le carreau teinté d'une fenêtre...</p>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Chapitre I : La Taverne de la Chope Moussue</h3>
+                <p class="card-text"><em>Le lieu :</em> une taverne de bonne réputation dans le quartier bourgeois du Nord Ouest de Middenheim.</p>
+                <p class="card-text">Au départ, les PJs se trouvent dans la taverne de la Chope Moussue, dont le propriétaire est Maître Kanter. Ils viennent certainement d’horizons différents, mais, par manque de place, ils sont obligés de se regrouper à la même tablée. Normalement, à ce stade, la difficulté pour qu’ils se lient doit être importante. Profitez donc de ce moment pour qu’ils se présentent, aient quelques interactions avec le personnel, voire qu’ils participent au concours organisé par Maître Kanter (quiconque veut participer raconte une histoire. Le vainqueur ne paye pas ses boissons). Quel que soit le nombre de PJs, il reste une place de libre à la table. Un jeune homme, visiblement de noble naissance, rentre. Pour sa description, souvenez vous de Vincent Pérez dans la Reine Margot, en plus coloré. Détail notable : il porte une bague sertie d’une grosse pierre bleue. Donc, cet homme entre et lance à la cantonade avec un fort accent du Reikland : "Mes amis, ce soir, tournée générale ! Je suis amoureux et l'amour donne soif !". Après quelques instants de liesses dans la salle (quels soiffards !), il vient s'asseoir, les bras chargés de chopes, à la dernière place de libre, près des PJs.</p>
+                <p class="card-text">Là, il engage la conversation avec eux en se présentant : "Christian Von Maule, pour vous servir" ce qui donne le moyen de faire parler les PJs entre eux et de faire en sorte qu'ils se lient encore un peu plus. Quant à Christian, son sujet de prédilection est une certaine Clara, "belle comme un ange de Shallya, à la longue chevelure couleur de blés mûrs, aux yeux limpides comme un ciel d'été...". Aujourd'hui, après avoir réussi à discrètement se rencontrer dans un parc de Middenheim (le Grand Parc) ils ont résolu en secret de partir et de se marier. Partir, oui, car les parents de Clara sont résolument contre ce mariage, peut-être ont-ils d'autres projets pour elle, et il est vrai que Christian n'est que le cadet d'une petite famille. Ils doivent se revoir le lendemain pour mettre au point "l'enlèvement" de la jeune femme. Au fur et à mesure de la discussion, alors que la soirée avance, quelques tables se libèrent...</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card-body">
+                <p class="card-text">Soudain, au milieu de la conversation, une demi-douzaine d'individus à la mine louche entre dans la salle. Parmi eux, un homme bien habillé qui ressemble à un noble estalien (Il est vêtu de noir, porte le bouc finement taillé et arbore une impressionnante cicatrice sur la joue gauche). Un des hommes qui l'accompagne désigne la table libre la plus proche de celle des PJs et le groupe se dirige vers elle. Arrivé à la hauteur de Christian, l'Estalien trébuche légèrement et le percute. De la bière gicle sur les vêtements sombres du balafré... Et c'est le drame ! Il sort à demi son épée du fourreau avant qu'un de ses hommes ne le retienne. Christian, éméché, semble consterné. Le silence se fait dans la taverne, la tension monte. Maître Kanter, l'aubergiste, se fraye un chemin vers la table...</p>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">La tirade</h5>
+                <p class="replique pnj-estalien"><em>L'Estalien :</em> Tou vas régrétter ta maladresse, Hombre ! Tou n'as même pas idée dou prix d'oune telle vétoure !</p>
+                <p class="replique pnj-christian"><em>Christian :</em> Un gentilhomme commence par se présenter, Je suis Christian Von Maule, pour vous servir.</p>
+                <p class="replique pnj-estalien"><em>L'Estalien :</em> Y moi, yé souis Juan Sanchez Villalobos de Ramirez et y'attend réparacion dé cette insoulte qué a été faite à mia personna.</p>
+                <p class="replique pnj-christian"><em>Christian :</em> Ne s'excuse pas l'innocent et...</p>
+                <p class="replique pnj-estalien"><em>L'Estalien :</em> Il souffit !</p>
+                <p class="kanter"><em>Maître Kanter :</em> Allez Messeigneurs, laissez-moi donc vous offrir une autre bière histoire d'oublier ce malheureux incident...</p>
+                <p class="replique pnj-christian"><em>Christian :</em> Vous n'êtes pas obligé ! Je peux régler ce problème moi-même !</p>
+                <p class="replique pnj-estalien"><em>L'Estalien :</em> Quelle impoudanza !</p>
+                <p class="replique pnj-kanter"><em>Maître Kanter (tout bas à Christian) :</em> Voyons Christian ! Je connais ce genre d'individus, il ne faut pas les provoquer ! Pensez à votre fiancée !</p>
+                <p class="replique pnj-christian"><em>Christian :</em> Je...</p>
+                <p class="replique pnj-estalien"><em>L'Estalien :</em> Oune fiancée ! Cé misérablé petit étron à réoussi à sédouir oune femme ! (Rires gras de ses compagnons) Il faudra qué yé loui rende visite quand y'en aurai fini avec loui ! Elle vérra la différenza ! (Nouveaux rire gras)</p>
+                <p class="replique pnj-christian"><em>Christian (qui se lève d'un bond et agrippe l'Estalien par le col) :</em> Bâtard !</p>
+                <p class="replique pnj-estalien">L'Estalien (en se dégageant, aidé de ses comparses) : Personne né traite Juan Sanchez Villalobos De Ramirez dé bâtard y sourvit !</p>
+                <p class="replique pnj-christian"><em>Christian (qui lui jette son gant au visage) :</em> Soit ! Demain, à la première heure ! Dans la clairière de Morr ! Prenez vos témoins !</p>
+                <p class="replique pnj-estalien">L'Estalien (un sourire menaçant aux lèvres) : y toi, petit roquet... n'oublis pas les tiens !</p>
+                <p class="replique pnj-christian"><em>Christian :</em> ils sont déjà là ! (Il désigne les PJs !)</p>
+                <p class="replique pnj-pjs"><em>Les PJs :</em> (!?!)</p>
+                <p class="replique pnj-estalien"><em>L'Estalien :</em> Démain, tou vas mourir !</p>
+                <p class="replique pnj-christian"><em>Christian :</em> Ne comptez pas trop là-dessus Monseigneur (il appuie le "monseigneur" de tout son mépris).</p>
+                <p class="replique pnj-estalien"><em>L'Estalien :</em> En tant qué offensé, yé choisi lé pistolet...</p>
+                <p class="replique pnj-christian"><em>Christian :</em> Comme il vous plaira Monseigneur !</p>
+                <p class="replique pnj-estalien"><em>L'Estalien :</em> Alors à demain ! Vamos, allons boire dans ounà casa plus acceuillanté (il sort avec ses comparses, mais avant de passer la porte, il lance un regard étrange, menaçant de bête sauvage).</p>
+                <p class="replique pnj-christian"><em>Christian (aux PJs) :</em> vous avez vu ? Cet abruti d'Estalien ne porte même pas de pistolet !</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card-body">
+                <p>Vous devez ici expliquer que <strong>les duels sont légaux à Middenheim, pourvu qu'ils aient lieu dans la clairière de Morr</strong>, un espace dégagé, non loin du pied du Fauschlag (le pic sur lequel est située Middenheim). <strong>Ils nécessitent les présences d'un membre de la guilde des notaires et d’un initié de Morr</strong>. On peut éventuellement y adjoindre un représentant du culte de Shallya, mais ce dernier point n’a rien d’obligatoire ! Il y a toujours au moins un initié de Morr près de l'oratoire qui se trouve dans la clairière. Quand au notaire, il va falloir le réveiller. Misons donc sur <strong>Maître Archibaldus Spitzfindig</strong> (ce qui signifie pointilleux) qui, lors de son réveil en fanfare prononcera ces mots qui resteront dans l'histoire :&nbsp;<em>« Par la divine providence de Véréna ! Encore un duel ! Avec quelles armes ? Pistolets ? Très bien, mais les balles et la poudre sont à la charge du perdant ! Plus de jeunesse, vraiment ! »</em></p>
+                <p class="card-text">Christian, particulièrement optimiste, leur donne rendez-vous pour le lendemain, à la porte de l'ouest (gérer les conversations qui peuvent naître...) et tout le monde peut aller se coucher. Vous pouvez ici jouer la recherche d’un endroit où dormir pour les persos qui ne sont pas originaires de la cité... notez que la taverne de la Chope Moussue ne propose ni lit ni dortoir : ce n’est pas une auberge.</p>
+            </div>
+            <div class="card-body">
+                <div class="bulle px-2">
+                    <h5 class="card-title">Comment gérer ce chapitre ?</h5>
+                    <p class="card-text">
+                        Cette partie fonctionne en réalité comme une scène cinématique de jeu vidéo, ce ne sera pas un problème avec des joueurs débutants, qui auront tendance à se laisser porter par le début de l’aventure. Mais certaines réactions des PJs peuvent être gênantes pour la suite : par exemple, ils peuvent prendre à parti les Estaliens. Dans ce cas, faites intervenir la garde. Le ton montera toujours, mais il y aura moins de chances que cela dégénère en bataille rangée dans l’auberge. Pour les magiciens à l’incantation trop facile, rappelez-leur l’Ordonnance de Sorcellerie de Magnus (cf. les Royaumes de Sorcellerie) ainsi que le fait qu’il est impossible de lancer un sort discrètement.
+                    </p>
+                    <p class="card-text">
+                        Mais surtout, pour la réussite du scénario, Christian ne doit pas donner d’informations précises sur Clara, comme son nom de famille ou le quartier où elle vit.
+                        De même, si vous pensez que vos joueurs ne feront pas le lien entre Maître Kanter et Christian dans le chapitre III, n’hésitez pas à appuyer un peu plus sur leurs bonnes relations. Attention cependant à ne pas trop en faire. Le rapport ne doit pas paraître absolument évident.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-6">
+            <div class="card-body">
+                <h3 class="card-title">Introduction</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
