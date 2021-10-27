@@ -31,9 +31,9 @@
                         }
                     }
                     <br/>
-                    @if (Item.Sexe != 0)
+                    @if (Item.Sexe.HasValue)
                     {
-                        <em>Genre :&nbsp;</em><span class="mr-3">@(Item.Sexe == 2 ? "féminin" : "masculin")</span>
+                        <em>Genre :&nbsp;</em><span class="mr-3">@(Item.Sexe == 1 ? "féminin" : "masculin")</span>
                     }
                     <em>Age :&nbsp;</em><span>@Item.Age ans</span>
                     @if (Item.EstUnPersonnageJoueur)

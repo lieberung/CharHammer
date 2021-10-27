@@ -1,8 +1,10 @@
 ﻿assistant de création de pnj (en fonctionn de classe sociale, province, ajouter des stéréotypes genre client de taverne avec cerrière aléatoire)
 assistant de création de creature
 assistant de création d'ennemi
-
 assistant de création de scénar
+<li>équipement contenance</li>
+<li>compétence de métier et statut social</li>
+<li>icônes des factions ds création perso</li>
 
 ajouter blasons empire / bretonnie / kislev sur les carrières
 

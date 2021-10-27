@@ -41,7 +41,7 @@
     
     protected override void OnParametersSet()
     {
-        _nomRace = (Item.Sexe == 1 || string.IsNullOrWhiteSpace(Item.Race.NomFeminin) ? Item.Race.NomMasculin : Item.Race.NomFeminin).ToLower();
+        _nomRace = (Item.Sexe != 1 || string.IsNullOrWhiteSpace(Item.Race.NomFeminin) ? Item.Race.NomMasculin : Item.Race.NomFeminin).ToLower();
         if (Item.Origines.Any())
         {
             _origines = Item.Origines.First().Nom ?? "";

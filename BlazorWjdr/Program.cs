@@ -239,7 +239,7 @@ namespace BlazorWjdr
                     Poids = c.poids,
                     Psychologie = c.psycho ?? "",
                     Race = races[c.race],
-                    Sexe = c.sexe ?? -1,
+                    Sexe = c.sexe,
                     Taille = c.taille,
                     ProfilActuel = GetProfilDtoFromJson(c.profil_actuel),
                     ProfilInitial = c.profil_initial != null ? GetProfilDtoFromJson(c.profil_initial) : null,
