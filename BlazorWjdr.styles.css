@@ -9,7 +9,8 @@ button.btn-sm[b-33fbycr4ot] {
 .replique[b-jmvq4la4t9] { margin-bottom:0.4em; }
 .pnj-christian[b-jmvq4la4t9] { color:#0056b3; }
 .pnj-estalien[b-jmvq4la4t9] { color:#5e1a05; }
-.pnj-kanter[b-jmvq4la4t9] { color:darkslategrey; }
+.pnj-kanter[b-jmvq4la4t9], .pnj-initie[b-jmvq4la4t9] { color:darkslategrey; }
+.pnj-maitre[b-jmvq4la4t9] { color: #a65a09 }
 /* /Pages/Matos/EquipementArmures.razor.rz.scp.css */
 .table tbody[b-0z5pwvloxm] { font-size: 14px; }
 [b-0z5pwvloxm] .btn.btn-item { font-size: 14px; }
@@ -36,7 +37,7 @@ button.btn-sm[b-33fbycr4ot] {
     }
 
     .sidebar[b-ptappyth0t] {
-        width: 250px;
+        width: 200px;
         height: 100vh;
         position: sticky;
         top: 0;
