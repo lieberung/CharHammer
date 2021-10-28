@@ -5,7 +5,8 @@
 
 @font-face {
     font-family: 'Caslon Antique', fantasy;
-    src: url('font/caslon-antique-regular.woff2') format('woff2'),
+    src: local('Caslon Antique'),
+         url('font/caslon-antique-regular.woff2') format('woff2'),
          url('font/caslon-antique-regular.woff') format('woff'),
          url('font/caslon-antique-regular.ttf') format('ttf');
     font-weight: normal;
