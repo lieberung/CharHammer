@@ -1,5 +1,5 @@
 ﻿{
- "items": [
+ "sortileges": [
  {"id":100,"aptitudes":[2280],"nom":"Soleil flamboyant","type":"miracle","distance":"Vous","cible":"Zone","duree":"Instantané",
    "effet":"Vous appelez Myrmidia à parcourir le champ de bataille des ennemis déshonorants, et un éclat aveuglant de lumière dorée éclate. Tous les non-myrmidiens qui regardent dans votre direction reçoivent 1 Condition Aveuglé. Pour chaque +2 SL, ils reçoivent +1 Aveuglé."},
  {"id":101,"aptitudes":[2280],"nom":"Oeil de l'aigle","type":"miracle","distance":"FM en mètres","cible":"Vous","duree":"BFM Rounds",

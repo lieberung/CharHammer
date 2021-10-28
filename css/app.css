@@ -1,26 +1,16 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url('caslon-antique-regular/font/css/caslon-antique-regular.css');
-/*
-@font-face{
-    font-family:CaleconAntique;
-    src:url(fonts/open-iconic.eot);
-    src:url(../fonts/open-iconic.eot?#iconic-sm) format('embedded-opentype'),
-        url(../fonts/open-iconic.woff) format('woff'),
-        url(../fonts/open-iconic.ttf) format('truetype'),
-        url(../fonts/open-iconic.otf) format('opentype'),
-        url(../fonts/open-iconic.svg#iconic-sm) format('svg');
-    font-weight:400;font-style:normal
+
+.fixed-header, .fixed-footer {
+    width: 100%;
+    position: fixed;
+    padding: 10px 0;
+    z-index: 1;
 }
-@font-face {
-    font-family: 'Caslon Antique', fantasy;
-    src: url('font/caslon-antique-regular.woff2') format('woff2'),
-         url('font/caslon-antique-regular.woff') format('woff'),
-         url('font/caslon-antique-regular.ttf') format('ttf');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+.fixed-header {
+    top: 0;
 }
-*/
+
 .thead {
     color: #5e1a05;
     font-family: 'calecon-antique', fantasy;
@@ -28,13 +18,13 @@
     font-size: x-large;
 }
 .tgroupe {
-    background-color:#5e1a05;
-    color:white;
+    background-color: #5e1a05;
+    color: white;
     font-family: 'calecon-antique', fantasy;
     font-weight: 500;
     font-size: large;
 }
-.saisie-score { width:25px; text-align:center; }
+.saisie-score { width: 25px; text-align: center; }
 .table thead th { border-bottom: none; }
 .table td, .table th { padding: .10rem; border-top: none; }
 .table td ul { margin-bottom: 0; }
