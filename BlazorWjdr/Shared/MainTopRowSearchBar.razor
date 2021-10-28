@@ -96,15 +96,15 @@
     private bool ResultFound => FilteredCarrieres.Any() || FilteredAptitudes.Any() || FilteredBestioles.Any();
 
     private CarriereDto[] FilteredCarrieres => _searchText.Length < 3
-        ? new CarriereDto[0]
+        ? Array.Empty<CarriereDto>()
         : CarrieresService.Recherche(_searchText);
     
     private AptitudeDto[] FilteredAptitudes => _searchText.Length < 3
-        ?  new AptitudeDto[0]
+        ?  Array.Empty<AptitudeDto>()
         : AptitudesService.RechercheAptitudes(_searchText);
 
     private BestioleDto[] FilteredBestioles => _searchText.Length < 3
-        ?  new BestioleDto[0]
+        ?  Array.Empty<BestioleDto>()
         : BestiolesService.Recherche(_searchText);
 
     private void ClearSearch()
