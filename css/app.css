@@ -11,12 +11,14 @@
     top: 0;
 }
 
-.thead {
+.theme-color { color: #5e1a05; }
+.insister { color: #5e1a05; font-weight: bold; }
+/*.thead {
     color: #5e1a05;
     font-family: 'calecon-antique', fantasy;
     font-weight: 600;
     font-size: x-large;
-}
+}*/
 .tgroupe {
     background-color: #5e1a05;
     color: white;
