@@ -1,24 +1,19 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 @import url('caslon-antique-regular/font/css/caslon-antique-regular.css');
 
+body { background-color: #f3e3c1; }
+
 .fixed-header, .fixed-footer {
     width: 100%;
     position: fixed;
     padding: 10px 0;
     z-index: 1;
-}
-.fixed-header {
     top: 0;
 }
 
 .theme-color { color: #5e1a05; }
 .insister { color: #5e1a05; font-weight: bold; }
-/*.thead {
-    color: #5e1a05;
-    font-family: 'calecon-antique', fantasy;
-    font-weight: 600;
-    font-size: x-large;
-}*/
+
 .tgroupe {
     background-color: #5e1a05;
     color: white;
