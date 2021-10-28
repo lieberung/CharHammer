@@ -44,7 +44,7 @@
         _nomRace = (Item.Sexe != 1 || string.IsNullOrWhiteSpace(Item.Race.NomFeminin) ? Item.Race.NomMasculin : Item.Race.NomFeminin).ToLower();
         if (Item.Origines.Any())
         {
-            _origines = Item.Origines.First().Nom ?? "";
+            _origines = Item.Origines.First().Nom;
             if (Item.Origines.First().Parent != null)
                 _origines += $", {Item.Origines.First().Parent!.Nom}";
         }

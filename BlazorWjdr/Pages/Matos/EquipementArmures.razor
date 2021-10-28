@@ -8,8 +8,7 @@
 @inject ArmesService _armesService
 @inject AptitudesService _aptitudesService
 
-<MainTopRow>
-    <h3 class="card-title" style="display:inline-block;">Armures et Vêtements</h3>
+<MainTopRow Title="Armures et Vêtements">
     <span style="margin-left: 160px;">
         <a style="width:120px; margin-top:-10px;" href="equipement/armures/toutes/" class="mr-2 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
         <a style="width:120px; margin-top:-10px;" href="equipement/armures/legeres/" class="mr-2 btn btn-sm @(Groupe == "legeres" ? "btn-primary" : "btn-secondary")">Légères</a>

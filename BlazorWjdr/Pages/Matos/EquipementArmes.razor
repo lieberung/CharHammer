@@ -7,8 +7,7 @@
 @inject ArmesService _armesService
 @inject AptitudesService _aptitudesService
 
-<MainTopRow>
-    <h3 class="card-title" style="display:inline-block;">Armes</h3>
+<MainTopRow Title="Armes">
     <span style="margin-left: 160px;">
         <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/toutes/@Groupe/" class="mr-2 btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
         <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/melee/@Groupe/" class="mr-2 btn btn-sm @(Filtre == "melee" ? "btn-primary" : "btn-secondary")">Mélee</a>

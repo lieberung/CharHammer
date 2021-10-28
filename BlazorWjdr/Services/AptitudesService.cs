@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services
 {
     using Models;
     using System;

@@ -21,6 +21,6 @@ namespace BlazorWjdr.DataSource.JsonDto
     
     public class RootScenario
     {
-        public JsonScenario[] items { get; set; } = null!;
+        public JsonScenario[] scenarios { get; set; } = null!;
     }
 }

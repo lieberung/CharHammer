@@ -20,6 +20,6 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class RootSortilege
     {
-        public JsonSortilege[] items { get; set; } = null!;
+        public JsonSortilege[] sortileges { get; set; } = null!;
     }
 }

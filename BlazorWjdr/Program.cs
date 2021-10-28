@@ -6,8 +6,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Linq;
 using System.Threading.Tasks;
-using BlazorWjdr.Components.Lieu;
-using BlazorWjdr.Components.Race;
 using BlazorWjdr.DataSource.JsonDto;
 using BlazorWjdr.Models;
 
@@ -38,7 +36,7 @@ namespace BlazorWjdr
             var dataArmesAttributs = InitializeArmesAttributs(data.Armes!.attributs);
             var dataArmes = InitializeArmes(data.Armes!.armes, dataArmesAttributs, dataAptitudes);
             var dataArmures = InitializeArmures(data.Armes!.armures, dataArmesAttributs);
-            var dataSortileges = InitializeSortileges(data.Sortileges!.items, dataAptitudes);
+            var dataSortileges = InitializeSortileges(data.Sortileges!.sortileges, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataSortileges, dataUsers);
@@ -46,7 +44,7 @@ namespace BlazorWjdr
 
             var dataTeams = InitializeTeams(data.Campagne!.teams);
             var listCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataBestioles, dataLieux);
-            var dataScenarios = InitializeScenarios(data.Scenarios!.items, dataLieux, dataLieuxTypes);
+            var dataScenarios = InitializeScenarios(data.Scenarios!.scenarios, dataLieux, dataLieuxTypes);
             
             Console.WriteLine($"Initializing data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
             
@@ -64,7 +62,7 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new BestiolesService(dataBestioles));
             builder.Services.AddSingleton(_ => new ReglesService(dataRegles));
             builder.Services.AddSingleton(_ => new SortilegesService(dataSortileges));
-            builder.Services.AddSingleton(_ => new CampagnesService(dataUsers, dataTeams, listCampagnes));
+            builder.Services.AddSingleton(_ => new CampagnesService(listCampagnes));
             builder.Services.AddSingleton(_ => new ScenariosService(dataScenarios));
 
             builder.RootComponents.Add<App>("#app");

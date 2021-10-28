@@ -64,17 +64,17 @@
                                                         && a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdMeleeOrdinaires)
                                                         && !a.Groupes.Contains(GroupeBouclier))
                         .ToList() },
-                    { "Armes de poing", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => a.Id == AptitudesService.IdMeleeBagarre)).ToList() },
+                    { "Armes de poing", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeBagarre)).ToList() },
                     { "Armes lourdes", AllArmes.Where(a => a.Groupes.Contains(GroupeADeuxMains)
                                                            && !a.Groupes.Contains(GroupeArmesDHast)
-                                                           && a.CompetencesDeMaitrise.All(c => c.Id != AptitudesService.IdMeleeFleaux))
+                                                           && a.CompetencesDeMaitrise.All(s => s.Id != AptitudesService.IdMeleeFleaux))
                         .ToList() },
                     { "Armes d'hast", AllArmes.Where(a => a.Groupes.Contains(GroupeArmesDHast)).ToList() },
-                    { "Fléaux", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(apt => apt.Id == AptitudesService.IdMeleeFleaux)).ToList() },
-                    { "Escrime", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => a.Id == AptitudesService.IdMeleeEscrime)).ToList() },
-                    { "Parade", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(apt => apt.Id == AptitudesService.IdMeleeParade)).ToList() },
-                    { "Paralysantes", AllArmes.Where(a => a.Groupes.Any(c => c.Id == AptitudesService.IdMeleeParalysantes)).ToList() },
-                    { "Cavalerie", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdMeleeCavalerie)).ToList() },
+                    { "Fléaux", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeFleaux)).ToList() },
+                    { "Escrime", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeEscrime)).ToList() },
+                    { "Parade", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeParade)).ToList() },
+                    { "Paralysantes", AllArmes.Where(a => a.Groupes.Any(s => s.Id == AptitudesService.IdMeleeParalysantes)).ToList() },
+                    { "Cavalerie", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeCavalerie)).ToList() },
                     { "Exotiques", AllArmes.Where(a => a.EstUneArmeDeCaC && a.Groupes.Contains(GroupeExotique)).ToList() }
                 };
                 return _armesDeContactPourTable;
