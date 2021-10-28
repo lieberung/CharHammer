@@ -1,0 +1,29 @@
+﻿@using BlazorWjdr.Models
+@code{ [Parameter] public IEnumerable<CarriereDto> Items { get; set; } = null!; }
+<table class="table">
+    <thead>
+        <tr>
+            <td style="width:125px;"></td>
+            <td></td>
+            <!--
+            <td></td>
+            <td>Académique</td>
+            <td>Rodeurs</td>
+            <td>De l'ombre</td>
+            <td>Au contact</td>
+            <td>A distance</td>
+            <td>Cavalerie</td>
+            <td>Social</td>
+            <td>Commerce</td>
+            <td>Arcanique</td>
+            <td>Artisanat</td>
+            -->
+        </tr>
+    </thead>
+    <tbody class="alternate-color-dark">
+    @foreach (var carriere in Items)
+    {
+        <CarriereRow Item="carriere"/>
+    }
+    </tbody>
+</table>

@@ -14,7 +14,7 @@
         </span>
         @if (Item.SousElements.Any())
         {
-            <span class="btn btn-primary btn-item-action table-btn mr-1 ml-4" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+            <span class="btn btn-primary btn-item-action table-btn mr-1 ml-3" @onclick="_ => AfficherSousElements = !AfficherSousElements">
                 <span class="oi oi-layers" aria-hidden="true"></span>
             </span>
         }
@@ -26,13 +26,13 @@
         }
         <CarriereItem Item="@Item"/>
     </td>
+    <!--
     <td>
         @if (Item.SourceLivre != null)
         {
             <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
         }
     </td>
-    <!--
     <td>@Item.ScoreAcademique</td>
     <td>@Item.ScoreRodeur</td>
     <td>@Item.ScoreDeLOmbre</td>

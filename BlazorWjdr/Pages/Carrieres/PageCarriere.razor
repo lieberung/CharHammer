@@ -61,7 +61,7 @@
                 <div class="card-body mt-2">
                     <h5 class="card-title">Débouchés</h5>
                     <p class="card-text">
-                        <CarriereItemList Items="@Item.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"
+                        <CarriereItemList Items="@Item.Debouches.ToArray()"
                                           SpecialCarriereId="@Item.Avancements.Select(a => a.Id).ToArray()"/>
                     </p>
 
@@ -69,7 +69,7 @@
                     <p class="card-text">
                         @if (Item.Filieres.Any())
                         {
-                            <CarriereItemList Items="@Item.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"
+                            <CarriereItemList Items="@Item.Filieres.ToArray()" HideIndicatorRestriction="true"
                                               SpecialCarriereId="@Item.Origines.Select(a => a.Id).ToArray()"/>
                         }
                         @if (Item.EstUneCarriereAvancee == false)
