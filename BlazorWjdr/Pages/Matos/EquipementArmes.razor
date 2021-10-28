@@ -22,7 +22,7 @@
     <div class="ml-3 mb-3 pl-2">
         <div class="row">
             <div class="col-12">
-                <a href="equipement/armes-liste/toutes/@Filtre/" class="mb-1 mr-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+                <a href="equipement/armes-liste/toutes/@Groupe/" class="mb-1 mr-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
                 
                 <span class="oi oi-infinity item-icon ml-3 mr-4" aria-hidden="true"></span>
                 
@@ -53,7 +53,7 @@
 
     @if (_armesDeCaC.Any())
     {
-        <h5 class="card-title">Armes de contact</h5>
+        <!--h5 class="card-title">Armes de contact</h5-->
         @foreach (var groupe in _armesService.ArmesDeContactPourTable)
         {
             if (GetArmesByGroupe(groupe.Value, _armesDeCaC, GroupeActuel).Any())
@@ -64,7 +64,7 @@
     }
     @if (_armesDeTir.Any())
     {
-        <h5 class="card-title">Armes à distance</h5>
+        <!--h5 class="card-title">Armes à distance</h5-->
         @foreach (var groupe in _armesService.ArmesADistancePourTable)
         {
             if (GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel).Any())
@@ -73,9 +73,9 @@
             }
         }
     }
-    @if (_munitions.Any())
+    @if (Groupe == "munitions" && _munitions.Any())
     {
-        <h5 class="card-title">Munitions</h5>
+        <!--h5 class="card-title">Munitions</h5-->
         <ArmeGroupeTable Armes="@_munitions" Groupe="Munitions" ArmesDeTir="@true"/>
     }
     
