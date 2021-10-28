@@ -13,6 +13,11 @@ namespace BlazorWjdr.Services
             _scenarios = scenarios.OrderBy(s => s.Nom).ToArray();
         }
 
-        public IEnumerable<ScenarioDto> AllScenarios() => _scenarios;
+        public IEnumerable<ScenarioDto> AllScenarios(bool pasDeDaubes, string filtre)
+        {
+            filtre = GenericService.NettoyerPourRecherche(filtre);
+            return _scenarios.Where(s =>
+                (s.Note is 0 or > 2 || pasDeDaubes == false) && (filtre == "" || GenericService.NettoyerPourRecherche(s.Nom).Contains(filtre)));
+        }
     }
 }

@@ -4,12 +4,24 @@
 @using BlazorWjdr.Services
 
 @inject ScenariosService _scenariosService
-
+@code{
+    private string Filtre { get; set; } = "";
+    private bool PasDeDaubes { get; set; } = true;
+}
 <MainTopRow>
     <h3 class="card-title">Scénarios</h3>
 </MainTopRow>
 
 <div class="content px-4">
+    
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-4">
+            <input type="text" @bind-value="@Filtre" @bind-value:event="oninput" placeholder="Filtrer"/>
+            <input class="ml-5" type="checkbox" @bind="@PasDeDaubes"/><span>Masquer les daubes</span>
+        </div>
+    </div>
     
     <div class="row">
         <div class="col-12">
@@ -28,7 +40,7 @@
                          </tr>
                     </thead>
                     <tbody class="alternate-color-dark">
-                    @foreach (var scenar in _scenariosService.AllScenarios())
+                    @foreach (var scenar in _scenariosService.AllScenarios(PasDeDaubes, Filtre))
                     {
                         <ScenarioRow Item="@scenar"/>
                     }
