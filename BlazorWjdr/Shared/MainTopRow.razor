@@ -3,18 +3,19 @@
     [Parameter] public string Title { get; set; } = "";
 }
 <div class="top-row px-4 fixed-header">
-    <div class="col-2">
-        <LogoWarhammer/>
-    </div>
     <div class="col-6">
+        <HomeIcon/>
         @if (Title != "")
         {
             <h3 class="card-title" style="display:inline-block;">@Title</h3>
         }
         @ChildContent
     </div>
-    <div class="col-4">
-        <MainTopRowSearchBar/>
+    <div class="col-6">
+        <div class="header-menu" style="display: inline-block;">
+            <MainTopRowSearchBar/>
+        </div>
+        <LogoWarhammer/>
     </div>
 </div>
 <div style="height:56px;"></div>

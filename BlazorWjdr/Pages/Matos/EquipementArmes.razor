@@ -3,6 +3,7 @@
 @using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
+@using System.Diagnostics
 
 @inject ArmesService _armesService
 @inject AptitudesService _aptitudesService
@@ -44,7 +45,7 @@
                 @foreach (var groupeDArmes in _armesService.AllGroupesDArmes)
                 {
                     var groupeDArme = GenericService.GetUrlChunck(groupeDArmes.Nom);
-                    <a href="equipement/armes-liste/@Filtre/@groupeDArme/" class="mb-1 mr-1 btn btn-sm @(Groupe == groupeDArme ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
+                    <a href="equipement/armes-liste/toutes/@groupeDArme/" class="mb-1 mr-1 btn btn-sm @(Groupe == groupeDArme ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
                 }
             </div>    
         </div>
@@ -92,10 +93,8 @@
 </div>
 
 @code {
-    [Parameter]
-    public string Filtre { get; set; } = "";
-    [Parameter]
-    public string Groupe { get; set; } = "";
+    [Parameter] public string Filtre { get; set; } = "";
+    [Parameter] public string Groupe { get; set; } = "";
 
     private AptitudeDto? CompetenceActuelle { get; set; }
     private ArmeAttributDto? GroupeActuel { get; set; }
@@ -110,9 +109,14 @@
         _armesDeCaC = new();
         _armesDeTir = new();
         _munitions = new();
+
+        //var filtresNonSpe = new List<string>{"toutes","melee","tir","boucliers","munitions"};
         
-        if (Filtre is not "toutes" or "melee" or "tir" or "boucliers" or "munitions")
+        if (Filtre is not ("toutes" or "melee" or "tir" or "boucliers" or "munitions"))
         {
+            Debug.WriteLine("Filtre = " + Filtre);
+            Console.WriteLine("Filtre = " + Filtre);
+            
             CompetenceActuelle = _aptitudesService.AllArmesSpecialisations.Single(a => GenericService.GetUrlChunck(a.Spe ?? "") == Filtre);
             if (CompetenceActuelle.Parent == _aptitudesService.CompetenceGroupeMelee)
             {

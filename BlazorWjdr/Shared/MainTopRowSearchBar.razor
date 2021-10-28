@@ -6,65 +6,62 @@
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Carriere
 
-<div class="header-menu">
-    <div class="btn-group" >
-        <div class="text-center">
-            <input class="dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
-                   @bind-value="_searchText"
-                   @bind-value:event="oninput"
-                   placeholder="Recherche..."
-                   style="width:256px;"/>
-            <span class="oi oi-magnifying-glass" aria-hidden="true" style="color:#5e1a05; font-size:1.3em; top:5px;"></span>
-        </div>
-        @if (_searchText.Length > 2 && ResultFound)
-        {
-            <div class="header-menu-list dropdown-menu show p-2" @onclick="ClearSearch">
-
-                @if (FilteredCarrieres.Any())
-                {
-                    <div class="mb-3">
-                        <h6 class="card-title">Carrières</h6>
-                        <CarriereItemList Items="@FilteredCarrieres" ItemClass=""/>
-                    </div>
-                }
-
-                @if (FilteredAptitudes.Any(a => a.EstUneCompetence))
-                {
-                    <div class="mb-3">
-                        <h6 class="card-title">Compétences</h6>
-                        <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUneCompetence).ToArray()" PasDeTooltip="@true"/>
-                    </div>
-                }
-                
-                @if (FilteredAptitudes.Any(a => a.EstUnTalent))
-                {
-                    <div class="mb-3">
-                        <h6 class="card-title">Talents</h6>
-                        <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTalent).ToArray()" PasDeTooltip="@true"/>
-                    </div>
-                }
-                
-                @if (FilteredAptitudes.Any(a => a.EstUnTrait))
-                {
-                    <div class="mb-3">
-                        <h6 class="card-title">Traits</h6>
-                        <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTrait).ToArray()" PasDeTooltip="@true"/>
-                    </div>
-                }
-                
-                @if (FilteredBestioles.Any())
-                {
-                    <div class="mb-3">
-                        <h6 class="card-title">Créatures</h6>
-                        <BestioleItemList Items="@FilteredBestioles" ItemClass=""/>
-                    </div>
-                }
-
-            </div>
-        }
+<div class="btn-group" >
+    <div class="text-center">
+        <input class="dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
+               @bind-value="_searchText"
+               @bind-value:event="oninput"
+               placeholder="Recherche..."
+               style="width:256px;"/>
+        <span class="oi oi-magnifying-glass theme-color" aria-hidden="true" style="font-size:1.3em; top:5px;"></span>
     </div>
-</div>
+    @if (_searchText.Length > 2 && ResultFound)
+    {
+        <div class="header-menu-list dropdown-menu show p-2" @onclick="ClearSearch">
 
+            @if (FilteredCarrieres.Any())
+            {
+                <div class="mb-3">
+                    <h6 class="card-title">Carrières</h6>
+                    <CarriereItemList Items="@FilteredCarrieres" ItemClass=""/>
+                </div>
+            }
+
+            @if (FilteredAptitudes.Any(a => a.EstUneCompetence))
+            {
+                <div class="mb-3">
+                    <h6 class="card-title">Compétences</h6>
+                    <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUneCompetence).ToArray()" PasDeTooltip="@true"/>
+                </div>
+            }
+            
+            @if (FilteredAptitudes.Any(a => a.EstUnTalent))
+            {
+                <div class="mb-3">
+                    <h6 class="card-title">Talents</h6>
+                    <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTalent).ToArray()" PasDeTooltip="@true"/>
+                </div>
+            }
+            
+            @if (FilteredAptitudes.Any(a => a.EstUnTrait))
+            {
+                <div class="mb-3">
+                    <h6 class="card-title">Traits</h6>
+                    <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTrait).ToArray()" PasDeTooltip="@true"/>
+                </div>
+            }
+            
+            @if (FilteredBestioles.Any())
+            {
+                <div class="mb-3">
+                    <h6 class="card-title">Créatures</h6>
+                    <BestioleItemList Items="@FilteredBestioles" ItemClass=""/>
+                </div>
+            }
+
+        </div>
+    }
+</div>
 
 @code {
     private IEnumerable<CarriereDto> AllCarrieres { get; set; } = new List<CarriereDto>();
