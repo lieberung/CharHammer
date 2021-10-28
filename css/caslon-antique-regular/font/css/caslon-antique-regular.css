@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'calecon-antique';
+	src: url('../fonts/caslon-antique-regular.eot');
+	src: local('☺'),
+		 url('../fonts/caslon-antique-regular.woff') format('woff'),
+		 url('../fonts/caslon-antique-regular.ttf') format('truetype'),
+		 url('../fonts/caslon-antique-regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
