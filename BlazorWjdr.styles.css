@@ -1,3 +1,7 @@
+/* /Components/Bestiole/CombattantRow.razor.rz.scp.css */
+/*
+.row-ennemi { background-color: #6f42c19e; }
+ */
 /* /Components/Regle/TraitsRaciauxHumains.razor.rz.scp.css */
 button[b-33fbycr4ot] {
     width:120px;
@@ -14,6 +18,8 @@ button.btn-sm[b-33fbycr4ot] {
 /* /Pages/Matos/EquipementArmures.razor.rz.scp.css */
 .table tbody[b-0z5pwvloxm] { font-size: 14px; }
 [b-0z5pwvloxm] .btn.btn-item { font-size: 14px; }
+/* /Shared/Compteur.razor.rz.scp.css */
+.ajuster:hover[b-2rnoz6s6p7] { cursor: pointer; }
 /* /Shared/ImageMax.razor.rz.scp.css */
 .career-img[b-swacsjmkup] { float:right; margin-left:15px; }
 /* /Shared/MainLayout.razor.rz.scp.css */
