@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Models
 <span class="btn btn-light btn-item@(_class)" target="_blank">
-    <span class="oi oi-shield item-icon mr-1" aria-hidden="true"></span>
+    <ItemIcon Icon="shield" Classes="mr-1"/>
     @if (string.IsNullOrWhiteSpace(Item.Description)) {
         @_nom
     } else {

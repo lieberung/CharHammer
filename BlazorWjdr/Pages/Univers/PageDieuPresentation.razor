@@ -47,7 +47,7 @@
 
                 <CardParagraphes Text="@_dieu.Dogme"/>
                 
-                <h4 class="card-title">Pénitences</h4>
+                <h5 class="card-title">Pénitences</h5>
                 <p class="card-text">@_dieu.Penitences</p>
             </CardBody>
         </div>
@@ -133,7 +133,7 @@
                 </CardBody>
             }
             <div class="card-body">
-                <h4 class="card-title">Croyances populaires</h4>
+                <h5 class="card-title">Croyances populaires</h5>
                 @foreach (var ambiance in _dieu.Ambiance)
                 {
                     <p class="card-text">
@@ -164,7 +164,7 @@
                 {
                     @if (!string.IsNullOrWhiteSpace(secte.Nom))
                     {
-                        <h4 class="card-title">@secte.Nom</h4>
+                        <h5 class="card-title">@secte.Nom</h5>
                     }
                     <CardParagraphes Text="@secte.Description"/>
                 }

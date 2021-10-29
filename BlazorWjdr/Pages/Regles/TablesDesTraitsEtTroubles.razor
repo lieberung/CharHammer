@@ -101,7 +101,7 @@
 
     private void TirerUnTraitAleatoire()
     {
-        var i = new Random().Next(0, Traits.Count);
+        var i = GenericService.RollIndex(Traits.Count);
         _traitAleatoire = Traits[i];
     }
 }

@@ -43,7 +43,7 @@
                     }
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">Carrières & Profil</h4>
+                    <h5 class="card-title">Carrières & Profil</h5>
                     <p>
                         <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@Item.EstUnPersonnageNonJoueur"/>
                     </p>
@@ -58,11 +58,11 @@
             <div class="col-5">
                 <div class="card-body">
                     <div style="display:inline-block;">
-                        <h4 class="card-title">Apparence</h4>
+                        <h5 class="card-title">Apparence</h5>
                         <PersoApparence Item="@Item"/>
                     </div>
                     <div style="display:inline-block;">
-                        <h4 class="card-title">Famille</h4>
+                        <h5 class="card-title">Famille</h5>
                         <PersoFamille Item="@Item"/>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                     
                     @if (!string.IsNullOrWhiteSpace(Item.EquipementDeCarrieres))
                     {
-                        <h4 class="card-title">Equipement</h4>
+                        <h5 class="card-title">Equipement</h5>
                         <p>@Item.EquipementDeCarrieres</p>
                     }
                 </div>

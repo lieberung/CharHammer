@@ -1,0 +1,6 @@
+﻿@code {
+    [Parameter] public string Icon { get; set; } = "ban";
+    [Parameter] public string Classes { get; set; } = "";
+    [Parameter] public string Style { get; set; } = "";
+}
+<span class="oi oi-@Icon item-icon @Classes" aria-hidden="true" style="@Style"></span>

@@ -25,7 +25,7 @@
             <div class="col-7">
 
                 <div class="card-body">
-                    <h5 class="card-title">Plan de carrière</h5>
+                    <h4 class="card-title">Plan de carrière</h4>
                     <p class="card-text">
                         <Profil PlanDeCarriere="@Item.PlanDeCarriere"/>
                     </p>
@@ -34,38 +34,38 @@
                         <CarriereNiveau Niveau="@Item.Niveau"/>
                     </p>
                     
-                    <h5 class="card-title">Compétences</h5>
+                    <h4 class="card-title">Compétences</h4>
                     <p class="card-text">
                         <AptitudeItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()"/>
                     </p>
 
-                    <h5 class="card-title">Talents</h5>
+                    <h4 class="card-title">Talents</h4>
                     <p class="card-text">
                         <AptitudeItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()"/>
                     </p>
 
                     @if (Item.ProposeAuMoinsUnTrait)
                     {
-                        <h5 class="card-title">Traits</h5>
+                        <h4 class="card-title">Traits</h4>
                         <p class="card-text">
                             <AptitudeItemList Items="@Item.Traits.ToArray()" ItemsChoix="@Item.ChoixTraits.ToArray()"/>
                         </p>
                     }
 
-                    <h5 class="card-title">Dotations</h5>
+                    <h4 class="card-title">Dotations</h4>
                     <p class="card-text">
                         <CarriereDotations Item="@Item"/>
                     </p>
                 </div>
 
                 <div class="card-body mt-2">
-                    <h5 class="card-title">Débouchés</h5>
+                    <h4 class="card-title">Débouchés</h4>
                     <p class="card-text">
                         <CarriereItemList Items="@Item.Debouches.ToArray()"
                                           SpecialCarriereId="@Item.Avancements.Select(a => a.Id).ToArray()"/>
                     </p>
 
-                    <h5 class="card-title">Filières</h5>
+                    <h4 class="card-title">Filières</h4>
                     <p class="card-text">
                         @if (Item.Filieres.Any())
                         {

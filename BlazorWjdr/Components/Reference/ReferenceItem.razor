@@ -1,9 +1,8 @@
 ﻿@using BlazorWjdr.Models
 <a href="references/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <span class="oi oi-book item-icon mr-1" aria-hidden="true"></span>
+    <ItemIcon Icon="book" Classes="mr-1"/>
     <em>@Item.AnneeDePublication</em>
     @Item.Titre
-    <!--em class="ml-2">(@Item.VersionStr)</em-->
     @if (!string.IsNullOrWhiteSpace(Page))
     {
         <strong class="ml-2">@Page</strong>
@@ -11,9 +10,6 @@
 </a>
 @code
 {
-    [Parameter]
-    public ReferenceDto Item { get; set; } = null!;
-
-    [Parameter]
-    public string Page { get; set; } = null!;
+    [Parameter] public ReferenceDto Item { get; set; } = null!;
+    [Parameter] public string Page { get; set; } = null!;
 }

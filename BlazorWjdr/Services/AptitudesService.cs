@@ -448,7 +448,7 @@
             )
             {
                 var sd = SignesDistinctifs;
-                var i = new Random().Next(0, sd.Count);
+                var i = GenericService.RollIndex(sd.Count);
                 ta = sd[i];
             }
             return ta;

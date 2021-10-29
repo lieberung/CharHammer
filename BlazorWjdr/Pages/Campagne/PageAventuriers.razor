@@ -13,50 +13,67 @@
     
     <div class="row">
         <div class="col-6">
-            <div class="card-body">
-                <h3 class="card-title">Aptitudes du groupe</h3>
-                <AptitudeItemListSummary Aptitudes="_aptitudes" CompetencesAvanceesUniquement="@true"/>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Aptitudes du groupe</h3>
+                    <AptitudeItemListSummary Aptitudes="_aptitudes" CompetencesAvanceesUniquement="@true"/>
+                </div>
             </div>
         </div>
     </div>
     
     <div class="row">
-        <div class="col-12">
+        <div class="col-8">
             <div class="card-body">
                 <h3 class="card-title">Assistant de combat</h3>
                 <p class="card-text">
-                    <button class="btn btn-primary" @onclick="() => CalculerInitiativeDeCombat()">Initiative de combat !</button>
+                    <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
                     @foreach (var rencontre in _seance.Rencontres)
                     {
-                        <button class="btn btn-primary ml-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe !</button>
+                        <button class="btn btn-secondary ml-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe</button>
                     }
                 </p>
-                @if (_combattants.Any())
-                {
-                    <table class="table">
-                        <thead>
-                             <tr>
-                                 <th class="tgroupe"></th>
-                                 <th class="tgroupe pl-2">Combattant</th>
-                                 <th class="tgroupe pl-2" style="text-align:center;">CC</th>
-                                 <th class="tgroupe pl-2" style="text-align:center;">BF</th>
-                                 <th class="tgroupe pl-2" style="text-align:center;">BE</th>
-                                 <th class="tgroupe pl-2">Avantage</th>
-                                 <th class="tgroupe pl-2">Blessures</th>
-                                 <th class="tgroupe pl-2">Aptitudes</th>
-                             </tr>
-                        </thead>
-                        <tbody class="alternate-color-dark">
-                        @foreach (var combattant in _combattants)
-                        {
-                            <CombattantRow Item="@combattant" Ennemi="@Rencontre!.Pnjs.Contains(combattant.Combattant)"/>
-                        }
-                        </tbody>
-                    </table>
-                }
-            </div>          
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="card-body">
+                <h5 class="card-title">Localisation</h5>
+                <p class="card-text">
+                    <button class="btn btn-secondary" @onclick="JetDeLocalisation">Roll !</button>
+                    <span class="insister ml-2">@_localisationRoll</span>
+                </p>
+            </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-12">
+        @if (_combattants.Any())
+        {
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="tgroupe"></th>
+                    <th class="tgroupe pl-2">Combattant</th>
+                    <th class="tgroupe pl-2" style="text-align:center;">CC</th>
+                    <th class="tgroupe pl-2" style="text-align:center;">BF</th>
+                    <th class="tgroupe pl-2" style="text-align:center;">BE</th>
+                    <th class="tgroupe pl-2">Avantage</th>
+                    <th class="tgroupe pl-2">Blessures</th>
+                    <th class="tgroupe pl-2">Aptitudes</th>
+                </tr>
+                </thead>
+                <tbody class="alternate-color-dark">
+                @foreach (var combattant in _combattants)
+                {
+                    <CombattantRow Item="@combattant" Ennemi="@Rencontre!.Pnjs.Contains(combattant.Combattant)"/>
+                }
+                </tbody>
+            </table>
+        }
+        </div>
+    </div>
+    
+    <PageSectionDivider/>
     
     @if (_seance.Pjs.Length > 0)
     {
@@ -131,7 +148,8 @@
     private RencontreDto? Rencontre { get; set; }
     private SeanceDto _seance = null!;
     private AptitudeDto[] _aptitudes = null!;
-    private List<CombattantDto> _combattants = new(); 
+    private List<CombattantDto> _combattants = new();
+    private string _localisationRoll = "...";
     
     protected override void OnParametersSet()
     {
@@ -145,7 +163,8 @@
         base.OnParametersSet();
     }
 
-    private void CalculerInitiativeDeCombat(RencontreDto? rencontre = null)
+    private void CalculerInitiativeDeCombatPjsUniquement() => CalculerInitiativeDeCombat(null);
+    private void CalculerInitiativeDeCombat(RencontreDto? rencontre)
     {
         Rencontre = rencontre;
 
@@ -156,4 +175,9 @@
         _combattants = BestiolesService.InitiativeDeCombat(protagonistes).ToList();
     }
 
+    private void JetDeLocalisation()
+    {
+        var d100 = GenericService.RollDice(100);
+        _localisationRoll = GenericService.GetLocalisation(d100);
+    }
 }

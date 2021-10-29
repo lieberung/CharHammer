@@ -28,7 +28,7 @@
             {
                 <div class="card-body" style="padding-top: 0; padding-right: 0;">
 
-                    <h4 class="card-title title-primary">Carrières proposant cette compétence</h4>
+                    <h5 class="card-title title-primary">Carrières proposant cette compétence</h5>
                     <p class="card-text">
                         <CarriereItemList Items="@_carrieres"/>
                     </p>
@@ -37,7 +37,7 @@
             @if (_aptitudesService.DonneAccesADesArmes(Item))
             {
                 <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                    <h4 class="card-title">Armes accessibles via ce talent</h4>
+                    <h5 class="card-title">Armes accessibles via ce talent</h5>
                     <p class="card-text">
                         <ArmeItemList Items="@_armesService.GetArmesDeMaitrise(Item).ToArray()"/>
                     </p>

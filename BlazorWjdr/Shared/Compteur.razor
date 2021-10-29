@@ -1,6 +1,10 @@
-﻿<button style="width:25px;" @onclick="Moins">-</button>
+﻿<span class="ajuster" @onclick="Moins">
+    <ItemIcon Icon="minus"/>
+</span>
 <input type="text" class="saisie-score" value="@CurrentValue"/>
-<button style="width:25px;" @onclick="Plus">+</button>
+<span class="ajuster" @onclick="Plus">
+    <ItemIcon Icon="plus"/>
+</span>
 @code {
     [Parameter] public int CurrentValue { get; set; }
     private void Plus() => CurrentValue++;

@@ -6,7 +6,7 @@
 
 @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
 {
-    <h4 class="card-title">@Item.Titre</h4>
+    <h5 class="card-title">@Item.Titre</h5>
 }
 @if (Item.Html) {
     @((MarkupString)Item.Regle)

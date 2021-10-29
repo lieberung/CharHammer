@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlazorWjdr.Services
@@ -11,6 +12,28 @@ namespace BlazorWjdr.Services
             {
                 yield return array.Skip(i * size).Take(size);
             }
+        }
+
+        public static int RollIndex(int max) =>  new Random().Next(0, max);
+        public static int RollDice(int nombreDeFaces, int nombreDeDes = 1)
+        {
+            var total = 0;
+            for (var i = 0; i < nombreDeDes; i++)
+                total += 1 + RollIndex(nombreDeFaces);
+            return total;
+        }
+
+        public static string GetLocalisation(int d100)
+        {
+            return d100 switch
+            {
+                < 10 => $"Tête ({d100})",
+                < 25 => $"Bras gauche ({d100})",
+                < 45 => $"Bras droit ({d100})",
+                < 80 => $"Torse ({d100})",
+                < 90 => $"Jambe droite ({d100})",
+                _ => $"Jambe gauche ({d100})"
+            };
         }
         
         #region Supprimer les caractères indésirables

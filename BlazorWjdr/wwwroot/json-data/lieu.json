@@ -149,6 +149,7 @@
     {"id":120,"type":26,"parent":3,"nom":"Saarbrucken","description":"Au nord de Marienburg"},
     {"id":121,"type":22,"parent":39,"nom":"Talabheim","description":""},
     {"id":122,"type":22,"parent":37,"nom":"Weilberg","description":"cf. Sombre est l'aîle de la mort"},
-    {"id":123,"type":10,"parent":40,"nom":"Nuln","description":""}
+    {"id":123,"type":10,"parent":40,"nom":"Nuln","description":""},
+    {"id":124,"type":11,"parent":5,"nom":"Kislev","description":""}
   ]
 }

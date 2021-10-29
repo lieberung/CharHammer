@@ -1,6 +1,16 @@
-﻿<span class="oi oi-chevron-right item-icon ml-3 mr-2" aria-hidden="true" style="color:#dca878;@(Hidden ? " visibility:hidden;" : "")"></span>
-@code
-{
-    [Parameter]
-    public bool Hidden { get; set; }
+﻿@code {
+    [Parameter] public bool Hidden { get; set; }
+
+    private string _style = "";
+    
+    protected override void OnParametersSet()
+    {
+        _style = "color:#dca878;";
+        if (Hidden)
+            _style += " visibility:hidden;";
+        base.OnParametersSet();
+    }
+
 }
+<ItemIcon Icon="chevron-right" Classes="ml-3 mr-2" Style="@_style"/>
+

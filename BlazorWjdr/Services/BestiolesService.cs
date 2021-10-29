@@ -118,7 +118,7 @@ namespace BlazorWjdr.Services
                 detail += $" + {reflexes * 2} (RdC)";
             }
             
-            var dice = 1 + new Random().Next(0, 10);
+            var dice = GenericService.RollDice(10);
             initiative += dice;
             detail += $" + {dice} (1d10)";
 

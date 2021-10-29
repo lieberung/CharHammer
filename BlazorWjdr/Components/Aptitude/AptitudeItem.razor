@@ -1,7 +1,7 @@
 ﻿@using BlazorWjdr.Models
 
 <a href="@_hrefBase/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <span class="oi oi-@(_oiIcon) item-icon mr-1" aria-hidden="true"></span>
+    <ItemIcon Icon="@_oiIcon" Classes="mr-1"/>
     @if (PasDeTooltip || string.IsNullOrWhiteSpace(_toolTipText)) {
         @_itemName
     } else {

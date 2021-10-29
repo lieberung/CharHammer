@@ -3,7 +3,7 @@
 @code{ [Parameter] public AptitudeAcquise Item { get; set; } = null!; }
 
 <a href="competences/@Item.Aptitude.Id.ToString()/" class="btn btn-light btn-item">
-    <span class="oi oi-@(Item.Icon) item-icon mr-1" aria-hidden="true"></span>
+    <ItemIcon Icon="@Item.Icon" Classes="mr-1"/>
     @if (Item.Resume == "") {
         @Item.Detail
     } else {

@@ -5,19 +5,19 @@
     @if (Item.EstUnPersonnageJoueur)
     {
         <Tooltip Text="@_tooltipNomJoueur">
-            <span class="oi oi-person item-icon ml-1 mr-1" aria-hidden="true"></span>
+            <ItemIcon Icon="person" Classes="ml-1 mr-1"/>
         </Tooltip>
     }
     else if (Item.EstUnPersonnage && Item.EstUnPersonnageJoueur == false)
     {
         <Tooltip Text="@Item.Description">
-            <span class="oi oi-person item-icon mr-1" aria-hidden="true"></span>
+            <ItemIcon Icon="person" Classes="mr-1"/>
         </Tooltip>
     }
     else
     {
         <Tooltip Text="@Item.Description">
-            <span class="oi oi-bug item-icon ml-1 mr-1" aria-hidden="true"></span>
+            <ItemIcon Icon="bug" Classes="ml-1 mr-1"/>
         </Tooltip>
     }
     <span>@Item.Nom</span>
@@ -27,7 +27,7 @@
     }
     @if (!Item.EstUnPersonnageJoueur && !string.IsNullOrWhiteSpace(Item.Notes))
     {
-        <ItemInfoRed TootipText="@Item.Notes"/>
+        <TooltipIcon Icon="info" Classes="ml-2" Style="color:#aa0101;" Text="@Item.Notes" />
     }
     @ChildContent
 </a>

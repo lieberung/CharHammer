@@ -8,7 +8,7 @@
     margin-bottom: 2px;
     letter-spacing: -1px;
     line-height: 1.4;
-    background-color: #cf8d4236;
+    background-color: #ecd1a6; /*#cf8d4236;*/
     border-color: #5e1a0559;
 }
 .btn.btn-item.btn-special {
@@ -27,3 +27,5 @@
 .btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus { box-shadow:0 0 0 .2rem #7c4814 }
 
 .btn-primary.span:hover { cursor:pointer; }
+
+.row-ennemi .btn-item { color: #a40012; }

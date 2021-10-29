@@ -3,6 +3,6 @@
     [Parameter] public LieuTypeDto Item { get; set; } = null!;
 }
 <a href="lieux/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <span class="oi oi-signpost item-icon mr-1" aria-hidden="true"></span>
+    <ItemIcon Icon="signpost" Classes="mr-1"/>
     @Item.Nom
 </a>

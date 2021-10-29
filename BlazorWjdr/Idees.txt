@@ -6,6 +6,9 @@ assistant de création de scénar
 <li>compétence de métier et statut social</li>
 <li>icônes des factions ds création perso</li>
 
+assist combat rencontre : pouvoir nommer chaque pnj de chaque rencontre (archétypes)
+armure : class avec zones et calcul des points 
+
 ajouter blasons empire / bretonnie / kislev sur les carrières
 
 Apprentissage : BFM + BInt * 2 + nb conn distinctes + nb éruditions * 2 

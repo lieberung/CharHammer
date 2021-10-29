@@ -23,7 +23,7 @@
                 Un petit nombre de fidèles se démarquent de leurs pairs, apparemment en mesure de faire appel à l'intervention directe de leur divinité dans la forme de miracles. Ceux qui accomplissent de tels exploits sont connus par de nombreux noms dans différentes parties du Vieux Monde - y compris : Saints vivants, serviteurs des dieux, les volontés divines sanctifiées - mais, dans l'Empire, ils sont le plus souvent appelé « Bienheureux », qui est souvent utilisé comme titre.
             </p>
 
-            <h4 class="card-title">Apprendre des sorts</h4>
+            <h5 class="card-title">Apprendre des sorts</h5>
             <p class="card-text">
                 Un personnage qui souhaite lancer des sorts divins doit montrer un intérêt certain pour les préceptes d'un dieu et généralement entamer une carrière d'<CarriereItem Item="@_carrSvc.CarriereInitie"/> ou de <CarriereItem Item="@_carrSvc.CarriereNovice"/>, qui lui permettront d'apprendre les Compétences <AptitudeItem Item="@_cttSvc.CompetencePriere"/> et <AptitudeItem Item="@_cttSvc.GetAptitude(1162)"/>.
                 <br/>
@@ -53,7 +53,7 @@
                     <li>De plus si deux personnages lance le même sort sur la même cible, leur effet n'est pas cumulatif.</li>
                 </ul>
             </p>
-            <h4 class="card-title">Bonus de Succès</h4>
+            <h5 class="card-title">Bonus de Succès</h5>
             <p class="card-text">
                 Pour chaque tranche de +2 BS que vous obtenez sur un Test de <AptitudeItem Item="@_cttSvc.CompetencePriere"/> pour lancer une <AptitudeItem Item="@_cttSvc.TalentBenediction"/>,
                 vous pouvez choisir l'un des bénéfices suivants (vous pouvez choisir plusieurs fois le même) :
@@ -79,9 +79,9 @@
                 Il y a pas de maximum au nombre de points de péché que vous pouvez gagner.
                 PLus vous en avez, plus votre dieu est susceptible d'être contrarié lorsque vous lui faites appel via vos prières.
             </p>
-            <h4 class="card-title">
+            <h5 class="card-title">
                 <em>Tu es dans le péché !</em>
-            </h4>
+            </h5>
             <p class="card-text">
                 <em>
                     Les prêtres bénis peuvent briser leur restrictions à de nombreuses occasions ;
@@ -92,7 +92,7 @@
                     Torturer ou tuer un prisonnier sans défense est inacceptable à Myrmidia, garantissant 3 points voir plus.
                 </em>
             </p>
-            <h4 class="card-title">Conséquences</h4>
+            <h5 class="card-title">Conséquences</h5>
             <p class="card-text">
                 Faire appel à votre divinité lorsque vous avez agi contrairement à sa volonté est risqué.
                 Chaque fois que vous faites un Test de <AptitudeItem Item="@_cttSvc.CompetencePriere"/>, si le dé des unités du jet est égal ou inférieur à votre Score de Péché actuel, vous subirez la Colère des Dieux, même si le test est réussi.

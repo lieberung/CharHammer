@@ -29,7 +29,7 @@ namespace BlazorWjdr.Services
                 }
             }
             
-            var dice = new Random().Next(1, plage + 1);
+            var dice = GenericService.RollDice(plage);
             return dico[dice];
         }
     }

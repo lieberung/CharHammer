@@ -7,15 +7,15 @@
 <tr>
     <td>
         <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
-            <span class="oi oi-eye" aria-hidden="true"></span>
+            <OiIcon Icon="eye"/>
         </span>
         <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFilieresEtDebouches = !AfficherFilieresEtDebouches">
-            <span class="oi oi-loop" aria-hidden="true"></span>
+            <OiIcon Icon="loop"/>
         </span>
         @if (Item.SousElements.Any())
         {
             <span class="btn btn-primary btn-item-action table-btn mr-1 ml-3" @onclick="_ => AfficherSousElements = !AfficherSousElements">
-                <span class="oi oi-layers" aria-hidden="true"></span>
+                <OiIcon Icon="layers"/>
             </span>
         }
     </td>
