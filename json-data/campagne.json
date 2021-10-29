@@ -4,7 +4,7 @@
     {"id":2,"email":"","pseudo":"Vincent"},
     {"id":3,"email":"","pseudo":"Jonathan"},
     {"id":4,"email":"","pseudo":"Stella"},
-    {"id":5,"email":"","pseudo":"Helene"}
+    {"id":5,"email":"","pseudo":"Hélène"}
   ],
   "teams": [
     {"id":1,"nom":"[2011] La Campagne Impériale Toulouse"},
