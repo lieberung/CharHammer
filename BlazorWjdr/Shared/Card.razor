@@ -1,0 +1,12 @@
+﻿@code {
+    [Parameter] public string Title { get; set; } = null!;
+    [Parameter] public RenderFragment ChildContent { get; set; } = null!;
+}
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">@Title</h4>
+        <p class="card-text">
+            @ChildContent
+        </p>
+    </div>
+</div>
