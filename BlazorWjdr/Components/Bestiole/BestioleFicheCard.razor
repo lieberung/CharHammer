@@ -1,0 +1,10 @@
+﻿@using BlazorWjdr.Models
+@code {
+    [Parameter] public BestioleDto Bestiole { get; set; } = null!;
+}
+<div class="card-body">
+    <div class="bulle px-3">
+        <h3 class="card-title">@Bestiole.Nom</h3>
+        <BestioleFiche Item="@Bestiole" NAfficherQueLeProfilActuel="@true"/>
+    </div>
+</div>

@@ -7,7 +7,7 @@
 
 @inject CampagnesService _campagnesService
 
-<MainTopRow Title="Aventuriers"/>
+<MainTopRow Title="@_topRowTitle"/>
 
 <div class="content px-4">
     
@@ -26,13 +26,21 @@
         <div class="col-8">
             <div class="card-body">
                 <h3 class="card-title">Assistant de combat</h3>
-                <p class="card-text">
-                    <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
-                    @foreach (var rencontre in _seance.Rencontres)
-                    {
-                        <button class="btn btn-secondary ml-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe</button>
-                    }
-                </p>
+                @if (!_unlocked)
+                {
+                    <span class="oi oi-lock-unlocked theme-color mr-3" style="font-size: 1.7rem;" aria-hidden="true"></span>
+                    <input placeholder="Password" @onchange="OnPasswordChange" />
+                }
+                @if (_unlocked)
+                {
+                    <p class="card-text">
+                        <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
+                        @foreach (var rencontre in _seance.Rencontres)
+                        {
+                            <button class="btn btn-secondary ml-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe</button>
+                        }
+                    </p>
+                }
             </div>
         </div>
         <div class="col-4">
@@ -79,14 +87,12 @@
     {
         <div class="row mt-3">
             <div class="col-6">
-                <h3 class="card-title">@_seance.Pjs[0].Nom</h3>
-                <BestioleFiche Item="@_seance.Pjs[0]" NAfficherQueLeProfilActuel="@true"/>
+                <BestioleFicheCard Bestiole="@_seance.Pjs[0]"/>
             </div>
             <div class="col-6">
                 @if (_seance.Pjs.Length > 1)
                 {
-                    <h3 class="card-title">@_seance.Pjs[1].Nom</h3>
-                    <BestioleFiche Item="@_seance.Pjs[1]" NAfficherQueLeProfilActuel="@true"/>
+                    <BestioleFicheCard Bestiole="@_seance.Pjs[1]"/>
                 }
             </div>
         </div>
@@ -95,14 +101,12 @@
     {
         <div class="row mt-3">
             <div class="col-6">
-                <h3 class="card-title">@_seance.Pjs[2].Nom</h3>
-                <BestioleFiche Item="@_seance.Pjs[2]" NAfficherQueLeProfilActuel="@true"/>
+                <BestioleFicheCard Bestiole="@_seance.Pjs[2]"/>
             </div>
             <div class="col-6">
                 @if (_seance.Pjs.Length > 3)
                 {
-                    <h3 class="card-title">@_seance.Pjs[3].Nom</h3>
-                    <BestioleFiche Item="@_seance.Pjs[3]" NAfficherQueLeProfilActuel="@true"/>
+                    <BestioleFicheCard Bestiole="@_seance.Pjs[3]"/>
                 }
             </div>
         </div>
@@ -111,14 +115,12 @@
     {
         <div class="row mt-3">
             <div class="col-6">
-                <h3 class="card-title">@_seance.Pjs[4].Nom</h3>
-                <BestioleFiche Item="@_seance.Pjs[4]" NAfficherQueLeProfilActuel="@true"/>
+                <BestioleFicheCard Bestiole="@_seance.Pjs[4]"/>
             </div>
             <div class="col-6">
                 @if (_seance.Pjs.Length > 5)
                 {
-                    <h3 class="card-title">@_seance.Pjs[5].Nom</h3>
-                    <BestioleFiche Item="@_seance.Pjs[5]" NAfficherQueLeProfilActuel="@true"/>
+                    <BestioleFicheCard Bestiole="@_seance.Pjs[5]"/>
                 }
             </div>
         </div>
@@ -127,14 +129,12 @@
     {
         <div class="row mt-3">
             <div class="col-6">
-                <h3 class="card-title">@_seance.Pjs[6].Nom</h3>
-                <BestioleFiche Item="@_seance.Pjs[6]" NAfficherQueLeProfilActuel="@true"/>
+                <BestioleFicheCard Bestiole="@_seance.Pjs[6]"/>
             </div>
             <div class="col-6">
                 @if (_seance.Pjs.Length > 7)
                 {
-                    <h3 class="card-title">@_seance.Pjs[7].Nom</h3>
-                    <BestioleFiche Item="@_seance.Pjs[7]" NAfficherQueLeProfilActuel="@true"/>
+                    <BestioleFicheCard Bestiole="@_seance.Pjs[7]"/>
                 }
             </div>
         </div>
@@ -149,12 +149,15 @@
     private SeanceDto _seance = null!;
     private AptitudeDto[] _aptitudes = null!;
     private List<CombattantDto> _combattants = new();
+    private string _topRowTitle = "";
     private string _localisationRoll = "...";
+    private bool _unlocked;
     
     protected override void OnParametersSet()
     {
         _seance = _campagnesService.GetSeance(int.Parse(CampagneId), DateSeance);
-
+        _topRowTitle = _seance.Quand + " - " + _seance.Titre;
+        
         _aptitudes = _seance.Pjs
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
             .Distinct()
@@ -179,5 +182,10 @@
     {
         var d100 = GenericService.RollDice(100);
         _localisationRoll = GenericService.GetLocalisation(d100);
+    }
+    
+    private void OnPasswordChange(Microsoft.AspNetCore.Components.ChangeEventArgs args)
+    {
+        _unlocked = GenericService.DieuEstDAccord((string)args.Value);
     }
 }

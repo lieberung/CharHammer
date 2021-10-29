@@ -1,5 +1,10 @@
 ﻿@page "/"
 
+@using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Services
+
+@inject BestiolesService _bestiolesService
+
 <MainTopRow Title="Charente Hammer - Index"/>
 
 <div class="content px-4">
@@ -81,7 +86,7 @@
                     <a href="regles/creation-de-personnage/65/" class="mb-1 btn btn-sm btn-secondary">Elfe sylvain</a>
                     <a href="regles/creation-de-personnage/66/" class="mb-1 btn btn-sm btn-secondary">Haut elfe</a>
                 </p>
-                <h4 class="card-title">Présentation des Races Jouables</h4>
+                <h5 class="card-title">Présentation des Races Jouables</h5>
                 <p>
                     <a href="univers/race/humains/" class="mb-1 btn btn-sm btn-secondary">Humain</a>
                     <a href="univers/race/halflings/" class="mb-1 btn btn-sm btn-secondary">Halfling</a>
@@ -90,7 +95,7 @@
                     <a href="univers/race/elfes-sylvains/" class="mb-1 btn btn-sm btn-secondary">Elfe sylvain</a>
                     <a href="univers/race/hauts-elfes/" class="mb-1 btn btn-sm btn-secondary">Haut elfe</a>
                 </p>
-                <h4 class="card-title">Table des Carrières Initiales</h4>
+                <h5 class="card-title">Table des Carrières Initiales</h5>
                 <p>
                     <a href="table-carrieres-initiales/1/" class="mb-1 btn btn-sm btn-secondary">Humain</a>
                     <a href="table-carrieres-initiales/26/" class="mb-1 btn btn-sm btn-secondary">Halfling</a>
@@ -99,6 +104,21 @@
                     <a href="table-carrieres-initiales/65/" class="mb-1 btn btn-sm btn-secondary">Elfe sylvain</a>
                     <a href="table-carrieres-initiales/66/" class="mb-1 btn btn-sm btn-secondary">Haut elfe</a>
                 </p>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">Dernières recrues</h4>
+                <table class="table">
+                    <tbody class="alternate-color-dark">
+                    @foreach (var aventurier in _bestiolesService.AllPjs.OrderByDescending(pj => pj.DateDeCreation))
+                    {
+                        <tr>
+                            <td>@aventurier.DateDeCreation</td>
+                            <td><BestioleItem Item="@aventurier"/></td>
+                            <td>@aventurier.Joueur</td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
             </div>
         </div>
         <div class="col-4">
@@ -175,7 +195,8 @@
             <div class="card-body">
                 <h4 class="card-title">Campagne</h4>
                 <p>
-                    <a href="campagne/13/seances/" class="mb-1 btn btn-sm btn-primary">Scéances</a>
+                    <a href="aventuriers/13/2021-10-30/" class="mb-1 btn btn-sm btn-primary">Prochaine séance</a>
+                    <a href="campagne/13/seances/" class="mb-1 btn btn-sm btn-secondary">Carnets de Route</a>
                     <a href="personnages/" class="mb-1 btn btn-sm btn-secondary">Personnages</a>
                 </p>
                 <p>

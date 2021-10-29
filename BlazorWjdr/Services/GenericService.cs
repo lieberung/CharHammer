@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace BlazorWjdr.Services
@@ -80,5 +81,7 @@ namespace BlazorWjdr.Services
         }
 
         #endregion
+
+        public static bool DieuEstDAccord(string? password) => password == "ramirez";
     }
 }
