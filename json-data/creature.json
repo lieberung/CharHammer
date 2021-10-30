@@ -13,7 +13,7 @@
       "profil_actuel":{"cc":40,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
       "cheminement":[68],"origines":[37],
       "carriere_du_pere":68,"carriere_de_la_mere":32,"freres_et_soeurs":"aucun",
-      "aptitudes":[3017,3019,2036,3917,2298,1618,1219,1008,1054,1055,3147,3130,3146,1220,2010,1048,1197,1209,1608,3903]
+      "aptitudes":[3017,3019,2036,3917,2298,1618,1219,1008,1054,1055,3147,3130,3146,1220,2010,1048,1197,1209,1608,3903,3913]
     },
     {"id":8,"race":26,"nom":"Pulpo Glascanon","user":1,"teams":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
       "histoire":"",
@@ -63,11 +63,11 @@
       "description":"",
       "ambitions":"... souhaite ...",
       "sexe":1,"poids":70,"taille":164,"age":24,"cheveux":"châtains","yeux":"gris pâle","main_directrice":1,
-      "profil_initial":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":36,"fm":38,"soc":31},
-      "profil_actuel":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":36,"fm":38,"soc":31},
+      "profil_initial":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":41,"fm":43,"soc":31},
+      "profil_actuel":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":41,"fm":48,"soc":31},
       "cheminement":[74],"origines":[37],
       "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"non",
-      "aptitudes":[3917,3018,2086,2032,1219,3017,1010,1618,1129,2203,1031,1053,1058,2163,1220,1162,1210,1048]
+      "aptitudes":[3917,3204,3117,3018,2086,2032,1219,3017,1010,1618,1129,2203,1031,1053,1058,2163,1220,1162,1210,1048]
     },
     
     {"id":401,"race":1,"nom":"Archétype","poids":72,"taille":169,"age":27,
