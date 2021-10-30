@@ -1,7 +1,6 @@
 ﻿namespace BlazorWjdr.Services
 {
     using Models;
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -48,9 +47,9 @@
         }
 
         public List<AptitudeDto> AllMeleeSpecialisations =>
-            CompetenceGroupeMelee.SousElements.Where(s => s.Ignore == false).ToList();
+            CompetenceGroupeMelee.SousElements.Where(s => !s.Ignore).OrderBy(a => a.Spe).ToList();
         public List<AptitudeDto> AllTirSpecialisations =>
-            CompetenceGroupeTir.SousElements.Where(s => s.Ignore == false).ToList();
+            CompetenceGroupeTir.SousElements.Where(s => !s.Ignore).OrderBy(a => a.Spe).ToList();
 
         public bool DonneAccesADesArmes(AptitudeDto a)
             => a.Parent == CompetenceGroupeMelee || a.Parent == CompetenceGroupeTir || a == CompetenceGroupeExplosifs;

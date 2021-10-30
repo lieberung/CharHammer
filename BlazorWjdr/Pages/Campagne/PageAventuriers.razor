@@ -184,8 +184,8 @@
         _localisationRoll = GenericService.GetLocalisation(d100);
     }
     
-    private void OnPasswordChange(Microsoft.AspNetCore.Components.ChangeEventArgs args)
+    private void OnPasswordChange(ChangeEventArgs args)
     {
-        _unlocked = GenericService.DieuEstDAccord((string)args.Value);
+        _unlocked = GenericService.DieuEstDAccord(Convert.ToString(args.Value));
     }
 }
