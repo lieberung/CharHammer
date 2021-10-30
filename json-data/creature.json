@@ -57,17 +57,17 @@
       "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"non",
       "aptitudes":[1042,1618,1224,1075,2245,1220,3018,1209,1034,1220,1618,3200,2021,1026,3152,3146,3198,3014,1096,1133,1136,2070,2074,3800,3701,3903,3906]
     },
-    {"id":11,"race":1,"nom":"Helhene de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":300,"xp_actuel":300,
+    {"id":11,"race":1,"nom":"Helhene de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":300,"xp_actuel":200,
       "notes":"",
       "histoire":"",
       "description":"",
       "ambitions":"... souhaite ...",
-      "sexe":1,"poids":66,"taille":138,"age":82,"cheveux":"bruns","yeux":"marrons","main_directrice":1,
-      "profil_initial":{"cc":44,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":28,"soc":19},
-      "profil_actuel":{"cc":44,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":28,"soc":19},
-      "cheminement":[57],"origines":[37],
+      "sexe":1,"poids":70,"taille":164,"age":24,"cheveux":"châtains","yeux":"gris pâle","main_directrice":1,
+      "profil_initial":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":36,"fm":38,"soc":31},
+      "profil_actuel":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":36,"fm":38,"soc":31},
+      "cheminement":[74],"origines":[37],
       "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"non",
-      "aptitudes":[3917]
+      "aptitudes":[3917,3018,2086,2032,1219,3017,1010,1618,1129,2203,1031,1053,1058,2163,1220,1162,1210,1048]
     },
     
     {"id":401,"race":1,"nom":"Archétype","poids":72,"taille":169,"age":27,
