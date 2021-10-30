@@ -16,7 +16,7 @@
   "campagnes": [
     {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
       "seances":[
-        {"quand":"2021-10-30","acte":1,"duree":4,"titre":"Premières armes",
+        {"quand":"2021-10-30","acte":1,"duree":4,"titre":"Premières armes","lieux":[101],
           "pjs":[7,9,10,11],"xp":0,"xp_comment":"",
           "rencontres": [
             {"groupe":"Rencontre 1","pnjs":[403,401,401,401]},
