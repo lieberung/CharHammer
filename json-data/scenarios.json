@@ -731,8 +731,14 @@
   {
     "nom": "Witch Hunter",
     "duree": "Court",
-    "resume": "Pas un grand souvenir…",
+    "resume": "Pas un grand souvenir",
     "deja_joue": "Joué avec Bruno, Jonathan et Jérémy"
-  }
-]
+  },
+    {
+      "nom": "Une fin brutale",
+      "source": "Les royaumes de sorcellerie (v2)",
+      "resume": "Pour 3 ou 4 joueurs au milieu de leur 2ème carrière, dont un sorcier.",
+      "lieux": [125]
+    }
+  ]
 }
