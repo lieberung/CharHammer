@@ -13,7 +13,7 @@
         <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/toutes/@Groupe/" class="mr-2 btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
         <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/melee/@Groupe/" class="mr-2 btn btn-sm @(Filtre == "melee" ? "btn-primary" : "btn-secondary")">Mélee</a>
         <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/tir/@Groupe/" class="mr-2 btn btn-sm @(Filtre == "tir" ? "btn-primary" : "btn-secondary")">Tir</a>
-        <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/munitions/toutes/" class="mr-2 btn btn-sm @(Filtre == "munitions" ? "btn-primary" : "btn-secondary")">Munitions</a>
+        <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/toutes/munitions/" class="mr-2 btn btn-sm @(Filtre == "munitions" ? "btn-primary" : "btn-secondary")">Munitions</a>
     </span>
 </MainTopRow>
 
@@ -73,10 +73,10 @@
             }
         }
     }
-    @if (Groupe == "munitions" && _munitions.Any())
+    @if (Groupe == "munitions")
     {
         <!--h5 class="card-title">Munitions</h5-->
-        <ArmeGroupeTable Armes="@_munitions" Groupe="Munitions" ArmesDeTir="@true"/>
+        <ArmeGroupeTable Armes="@_armesService.AllArmes.Where(a => a.EstUneMunition).ToList()" Groupe="Munitions" ArmesDeTir="@true"/>
     }
     
     @if (GroupeActuel != null)
@@ -101,18 +101,16 @@
     
     private List<ArmeDto> _armesDeCaC = null!;
     private List<ArmeDto> _armesDeTir = null!;
-    private List<ArmeDto> _munitions = null!;
 
     protected override void OnParametersSet()
     {
         var armes = _armesService.AllArmes;
         _armesDeCaC = new();
         _armesDeTir = new();
-        _munitions = new();
 
         //var filtresNonSpe = new List<string>{"toutes","melee","tir","boucliers","munitions"};
         
-        if (Filtre is not ("toutes" or "melee" or "tir" or "boucliers" or "munitions"))
+        if (Filtre is not ("toutes" or "melee" or "tir"))
         {
             Debug.WriteLine("Filtre = " + Filtre);
             Console.WriteLine("Filtre = " + Filtre);
@@ -136,13 +134,10 @@
                 _armesDeTir = armes.Where(a => a.EstUneArmeDeTir).ToList();
         }
 
-        if (Filtre is "toutes" or "munitions")
-            _munitions = armes.Where(a => a.EstUneMunition).ToList();
-
         GroupeActuel = Groupe != "toutes" ? _armesService.AllGroupesDArmes.Single(g => GenericService.GetUrlChunck(g.Nom) == Groupe) : null;
     }
 
-    private IEnumerable<ArmeDto> GetArmesByGroupe(IEnumerable<ArmeDto> armes, IEnumerable<ArmeDto> intersect, ArmeAttributDto? groupe)
+    private static IEnumerable<ArmeDto> GetArmesByGroupe(IEnumerable<ArmeDto> armes, IEnumerable<ArmeDto> intersect, ArmeAttributDto? groupe)
     {
         var result = armes.Intersect(intersect);
         if (groupe != null)
@@ -150,7 +145,7 @@
         return result;
     }
 
-    private string CleanMeleeSpeName(string spe)
+    private static string CleanMeleeSpeName(string spe)
     {
         var str = spe
             .Replace("Armes d'", "")

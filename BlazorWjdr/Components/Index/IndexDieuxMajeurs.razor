@@ -1,0 +1,22 @@
+﻿@code{
+    private bool _afficherLiens;
+}
+<h5 class="card-title" @onclick="_ => _afficherLiens = !_afficherLiens">
+    <ItemIcon Icon="chevron-bottom" Classes="ml-2"/>
+    Dieux majeurs dans l'Empire
+</h5>
+@if (_afficherLiens)
+{
+    <p>
+        <a href="univers/pantheon/manann/" class="mb-1 btn btn-sm btn-secondary">Manann</a>
+        <a href="univers/pantheon/morr/" class="mb-1 btn btn-sm btn-secondary">Morr</a>
+        <a href="univers/pantheon/myrmidia/" class="mb-1 btn btn-sm btn-secondary">Myrmidia</a>
+        <a href="univers/pantheon/ranald/" class="mb-1 btn btn-sm btn-secondary">Ranald</a>
+        <a href="univers/pantheon/rhya/" class="mb-1 btn btn-sm btn-secondary">Rhya</a>
+        <a href="univers/pantheon/shallya/" class="mb-1 btn btn-sm btn-secondary">Shallya</a>
+        <a href="univers/pantheon/sigmar/" class="mb-1 btn btn-sm btn-secondary">Sigmar</a>
+        <a href="univers/pantheon/taal/" class="mb-1 btn btn-sm btn-secondary">Taal</a>
+        <a href="univers/pantheon/ulric/" class="mb-1 btn btn-sm btn-secondary">Ulric</a>
+        <a href="univers/pantheon/verena/" class="mb-1 btn btn-sm btn-secondary">Verena</a>
+    </p>
+}

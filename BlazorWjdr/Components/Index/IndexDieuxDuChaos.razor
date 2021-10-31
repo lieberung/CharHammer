@@ -1,0 +1,16 @@
+﻿@code{
+    private bool _afficherLiens;
+}
+<h5 class="card-title" @onclick="_ => _afficherLiens = !_afficherLiens">
+    <ItemIcon Icon="chevron-bottom" Classes="ml-2"/>
+    Dieux du Chaos
+</h5>
+@if (_afficherLiens)
+{
+    <p>
+        <a href="univers/pantheon/khorne/" class="mb-1 btn btn-sm btn-secondary">Khorne</a>
+        <a href="univers/pantheon/nurgle/" class="mb-1 btn btn-sm btn-secondary">Nurgle</a>
+        <a href="univers/pantheon/slaanesh/" class="mb-1 btn btn-sm btn-secondary">Slaanesh</a>
+        <a href="univers/pantheon/tzeench/" class="mb-1 btn btn-sm btn-secondary">Tzeench</a>
+    </p>
+}

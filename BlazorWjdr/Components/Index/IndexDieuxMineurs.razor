@@ -1,0 +1,18 @@
+﻿@code{
+    private bool _afficherLiens;
+}
+<h5 class="card-title" @onclick="_ => _afficherLiens = !_afficherLiens">
+    <ItemIcon Icon="chevron-bottom" Classes="ml-2"/>
+    Dieux mineurs dans l'Empire
+</h5>
+@if (_afficherLiens)
+{
+    <p>
+        <a href="univers/pantheon/arianka/" class="mb-1 btn btn-sm btn-secondary">Arianka</a>
+        <a href="univers/pantheon/haendrik/" class="mb-1 btn btn-sm btn-secondary">Haendrik</a>
+        <a href="univers/pantheon/illuminas/" class="mb-1 btn btn-sm btn-secondary">Illuminas</a>
+        <a href="univers/pantheon/khaine/" class="mb-1 btn btn-sm btn-secondary">Khaine</a>
+        <a href="univers/pantheon/solkan/" class="mb-1 btn btn-sm btn-secondary">Solkan</a>
+        <a href="univers/pantheon/stromfels/" class="mb-1 btn btn-sm btn-secondary">Stromfels</a>
+    </p>
+}
