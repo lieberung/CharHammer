@@ -1,0 +1,18 @@
+﻿@code{
+    private bool _afficherLiens;
+}
+<h5 class="card-title" @onclick="_ => _afficherLiens = !_afficherLiens">
+    <ItemIcon Icon="chevron-bottom" Classes="ml-2"/>
+    Table des Carrières Initiales
+</h5>
+@if (_afficherLiens)
+{
+    <p>
+        <a href="table-carrieres-initiales/1/" class="mb-1 btn btn-sm btn-secondary">Humain</a>
+        <a href="table-carrieres-initiales/26/" class="mb-1 btn btn-sm btn-secondary">Halfling</a>
+        <a href="table-carrieres-initiales/27/" class="mb-1 btn btn-sm btn-secondary">Nain</a>
+        <a href="table-carrieres-initiales/63/" class="mb-1 btn btn-sm btn-secondary">Gnôme</a>
+        <a href="table-carrieres-initiales/65/" class="mb-1 btn btn-sm btn-secondary">Elfe sylvain</a>
+        <a href="table-carrieres-initiales/66/" class="mb-1 btn btn-sm btn-secondary">Haut elfe</a>
+    </p>
+}

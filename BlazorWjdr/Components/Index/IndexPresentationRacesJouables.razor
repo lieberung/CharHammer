@@ -1,0 +1,18 @@
+﻿@code{
+    private bool _afficherLiens;
+}
+<h5 class="card-title" @onclick="_ => _afficherLiens = !_afficherLiens">
+    <ItemIcon Icon="chevron-bottom" Classes="ml-2"/>
+    Présentation des Races Jouables
+</h5>
+@if (_afficherLiens)
+{
+    <p>
+        <a href="univers/race/humains/" class="mb-1 btn btn-sm btn-secondary">Humain</a>
+        <a href="univers/race/halflings/" class="mb-1 btn btn-sm btn-secondary">Halfling</a>
+        <a href="univers/race/nains/" class="mb-1 btn btn-sm btn-secondary">Nain</a>
+        <a href="univers/race/gnomes/" class="mb-1 btn btn-sm btn-secondary">Gnôme</a>
+        <a href="univers/race/elfes-sylvains/" class="mb-1 btn btn-sm btn-secondary">Elfe sylvain</a>
+        <a href="univers/race/hauts-elfes/" class="mb-1 btn btn-sm btn-secondary">Haut elfe</a>
+    </p>
+}

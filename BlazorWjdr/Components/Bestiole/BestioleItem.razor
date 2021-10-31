@@ -23,9 +23,9 @@
     <span>@Item.Nom</span>
     @if (Item.CheminementPro.Any())
     {
-        <span>, @Item.CarriereActuelle?.Nom @_nomRace</span>
+        <span>, @Item.CarriereActuelle?.Nom</span>
     }
-    @if (!Item.EstUnPersonnageJoueur && !string.IsNullOrWhiteSpace(Item.Notes))
+    @if (!Item.EstUnPersonnageJoueur && Item.Notes != "")
     {
         <TooltipIcon Icon="info" Classes="ml-2" Style="color:#aa0101;" Text="@Item.Notes" />
     }
@@ -41,7 +41,7 @@
     
     protected override void OnParametersSet()
     {
-        _nomRace = (Item.Sexe != 1 || string.IsNullOrWhiteSpace(Item.Race.NomFeminin) ? Item.Race.NomMasculin : Item.Race.NomFeminin).ToLower();
+        _nomRace = (Item.Sexe != 1 || Item.Race.NomFeminin == "" ? Item.Race.NomMasculin : Item.Race.NomFeminin).ToLower();
         if (Item.Origines.Any())
         {
             _origines = Item.Origines.First().Nom;
@@ -50,7 +50,7 @@
         }
 
         if (Item.EstUnPersonnageJoueur)
-            _tooltipNomJoueur = $"Créé le {Item.DateDeCreation} par {Item.Joueur}\nOrigines : {_origines}\n{Item.Notes}";
+            _tooltipNomJoueur = $"Créé le {Item.DateDeCreation} par {Item.Joueur}\nRace : {_nomRace}\nOrigines : {_origines}\n{Item.Notes}";
         
         base.OnParametersSet();
     }
