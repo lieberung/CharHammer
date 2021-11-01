@@ -2,21 +2,11 @@
 @using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Sortilege
 @using BlazorWjdr.Services
+@using System.ComponentModel.Design
 
 @inject RacesService _racesService
-
-@if (Item.Armes.Any() || Item.Armures.Any() || Item.EquipementDeCarrieres != "")
-{
-    <h5 class="card-title">Equipement</h5>
-    <p>
-        <ArmeItemList Items="@Item.Armes"/>
-        <ArmureItemList Items="@Item.Armures"/>
-        @if (Item.EquipementDeCarrieres != "")
-        {
-            <br/>
-            <span>@Item.EquipementDeCarrieres</span>
-        }
-    </p>
+@code{
+    [Parameter] public BestioleDto Item { get; set; } = null!;
 }
 @if (Item.Sorts.Any())
 {
@@ -25,8 +15,21 @@
         <SortilegeItemList Items="@Item.Sorts"/>
     </p>
 }
-
-@code{
-    [Parameter]
-    public BestioleDto Item { get; set; } = null!;
+@if (Item.Armes.Any() || Item.Armures.Any() || Item.EquipementDeCarrieres != "")
+{
+    <h4 class="card-title">Equipement</h4>
+    <p>
+        @if (Item.Armes.Any())
+        {
+            <ArmeItemList Items="@Item.Armes"/>
+        }
+        @if (Item.Armures.Any())
+        {
+            <ArmureItemList Items="@Item.Armures"/>
+        }
+        @if (Item.EquipementDeCarrieres != "")
+        {
+            <span>@Item.EquipementDeCarrieres</span>
+        }
+    </p>
 }

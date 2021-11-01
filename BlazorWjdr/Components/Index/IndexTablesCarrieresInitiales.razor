@@ -1,6 +1,6 @@
 ﻿@code{
     [Parameter] public bool AfficherLiens { get; set; }
-    private string _icon;
+    private string _icon = null!;
 
     protected override void OnParametersSet()
     {

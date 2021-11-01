@@ -19,8 +19,9 @@
     <div class="_container">
 
         <div class="row">
-            <div class="col-4">
-                <div class="card-body">
+            <div class="col-6">
+                <div class="card-body pt-0">
+                    <img alt="Portrait de @Item!.Nom" style="float:right; max-width:550px; max-height:450px;" src="images/beasts/@(Item.Id).png"/>
                     <h1 class="card-title" style="font-size: xxx-large;">@Item!.Nom</h1>
                     @if (Item.Origines.Any())
                     {
@@ -30,7 +31,6 @@
                             <LieuComplet Item="@lieu"/>
                         }
                     }
-                    <br/>
                     @if (Item.Sexe.HasValue)
                     {
                         <em>Genre :&nbsp;</em><span class="mr-3">@(Item.Sexe == 1 ? "féminin" : "masculin")</span>
@@ -42,20 +42,56 @@
                         <em>Expérience actuelle / totale :&nbsp;</em><span>@Item.XpActuel / @Item.XpTotal xp</span>
                     }
                 </div>
-                <div class="card-body">
+                <div class="card-body pt-0">
                     <h5 class="card-title">Carrières & Profil</h5>
-                    <p>
-                        <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@Item.EstUnPersonnageNonJoueur"/>
-                    </p>
+                    <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@Item.EstUnPersonnageNonJoueur"/>
                     <BestioleBlessuresEtMouvement Item="@Item"/>
+                </div>
+                <div class="card-body py-0">
+                    <h4 class="card-title">Aptitudes</h4>
+                    <AptitudesAcquises Item="@Item" MasquerTitres="@true"/>
+                </div>
+                <div class="card-body pt-1">
+                    <BestioleFicheMatosSorts Item="@Item"/>
                 </div>
             </div>
             
-            <div class="col-3">
-                <img alt="Portrait de @Item!.Nom" style="max-width:550px; max-height:450px;" src="images/beasts/@(Item.Id).png"/>
-            </div>
-            
             <div class="col-5">
+                @if (Item.Description != "")
+                {
+                    <div class="card-body pt-0">
+                        <h3 class="card-title">Description</h3>
+                        <CardParagraphes Text="@Item.Description"/>
+                    </div>
+                }
+                @if (Item.Psychologie != "")
+                {
+                    <div class="card-body pt-0">
+                        <h3 class="card-title">Psychologie</h3>
+                        <CardParagraphes Text="@Item.Psychologie"/>
+                    </div>
+                }
+                @if (Item.Histoire != "")
+                {
+                    <div class="card-body pt-0">
+                        <h3 class="card-title">Histoire</h3>
+                        <CardParagraphes Text="@Item.Histoire"/>
+                    </div>
+                }
+                @if (Item.Ambitions != "")
+                {
+                    <div class="card-body pt-0">
+                        <h3 class="card-title">Ambitions</h3>
+                        <CardParagraphes Text="@Item.Ambitions"/>
+                    </div>
+                }
+                @if (Item.Notes != "")
+                {
+                    <div class="card-body pt-0">
+                        <h3 class="card-title">Commentaires</h3>
+                        <CardParagraphes Text="@Item.Notes"/>
+                    </div>
+                }
                 <div class="card-body">
                     <div style="display:inline-block;">
                         <h5 class="card-title">Apparence</h5>
@@ -66,61 +102,6 @@
                         <PersoFamille Item="@Item"/>
                     </div>
                 </div>
-                
-                @if (Item.Description != "")
-                {
-                    <div class="card-body">
-                        <h3 class="card-title">Description</h3>
-                        <CardParagraphes Text="@Item.Description"/>
-                    </div>
-                }
-                @if (Item.Psychologie != "")
-                {
-                    <div class="card-body">
-                        <h3 class="card-title">Psychologie</h3>
-                        <CardParagraphes Text="@Item.Psychologie"/>
-                    </div>
-                }
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-6">
-                
-                <div class="card-body">
-                    <AptitudesAcquises Item="@Item"/>
-                    
-                    @if (!string.IsNullOrWhiteSpace(Item.EquipementDeCarrieres))
-                    {
-                        <h5 class="card-title">Equipement</h5>
-                        <p>@Item.EquipementDeCarrieres</p>
-                    }
-                </div>
-
-            </div>
-
-            <div class="col-6">
-                @if (Item.Histoire != "")
-                {
-                    <div class="card-body">
-                        <h3 class="card-title">Histoire</h3>
-                        <CardParagraphes Text="@Item.Histoire"/>
-                    </div>
-                }
-                @if (Item.Ambitions != "")
-                {
-                    <div class="card-body">
-                        <h3 class="card-title">Ambitions</h3>
-                        <CardParagraphes Text="@Item.Ambitions"/>
-                    </div>
-                }
-                @if (Item.Notes != "")
-                {
-                    <div class="card-body">
-                        <h3 class="card-title">Commentaires</h3>
-                        <CardParagraphes Text="@Item.Notes"/>
-                    </div>
-                }                  
             </div>
         </div>
         

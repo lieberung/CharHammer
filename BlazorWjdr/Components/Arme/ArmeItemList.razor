@@ -3,7 +3,7 @@
     [Parameter] public ArmeDto[] Items { get; set; } = null!;
     [Parameter] public bool EnColonne { get; set; }
 }
-<ul class="@(EnColonne ? "" : "list-inline")">
+<ul class="@(EnColonne ? "" : "list-inline mb-1")">
     @foreach (var arme in Items)
     {
         <li class="@(EnColonne ? "" : "list-inline-item")">

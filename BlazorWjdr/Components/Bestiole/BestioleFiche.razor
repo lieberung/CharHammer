@@ -6,16 +6,18 @@
 
 @inject RacesService _racesService
 
+@code{
+    [Parameter] public BestioleDto Item { get; set; } = null!;
+    [Parameter] public bool NAfficherQueLeProfilActuel { get; set; }
+    [Parameter] public bool NePasAfficherMatosEtSorts { get; set; }
+}
 <p>
     <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@NAfficherQueLeProfilActuel"/>
 </p>
 <BestioleBlessuresEtMouvement Item="@Item"/>
 <h5 class="card-title">Aptitudes</h5>
 <AptitudesAcquises Item="@Item" MasquerTitres="@true"/>
-
-@code{
-    [Parameter]
-    public BestioleDto Item { get; set; } = null!;
-    [Parameter]
-    public bool NAfficherQueLeProfilActuel { get; set; }
+@if (NePasAfficherMatosEtSorts == false)
+{
+    <BestioleFicheMatosSorts Item="@Item"/>
 }

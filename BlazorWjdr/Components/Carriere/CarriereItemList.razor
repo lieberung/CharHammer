@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Models
-<ul class="list-inline">
+<ul class="list-inline mb-0">
     @foreach (var carriere in Items.Where(c => SpecialCarriereId.Contains(c.Id)).OrderBy(c=>c.Nom))
     {
         <li class="@ItemClass"><CarriereItem Item="@carriere" HideIndicatorBase="@HideIndicatorBase" HideIndicatorRestriction="@HideIndicatorRestriction" Special="@true"/></li>

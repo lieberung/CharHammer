@@ -49,8 +49,8 @@
 @code {
     [Parameter]
     public AptitudeDto Item { get; set; } = null!;
-    private bool AfficherSousElements { get; set; } = false;
-    private bool AfficherCarrieres { get; set; } = false;
+    private bool AfficherSousElements { get; set; }
+    private bool AfficherCarrieres { get; set; }
 
     private CarriereDto[] _carrieresLiees = null!;
 

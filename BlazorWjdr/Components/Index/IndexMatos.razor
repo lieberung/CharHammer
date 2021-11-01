@@ -1,6 +1,6 @@
 ﻿@code{
     [Parameter] public bool AfficherLiens { get; set; }
-    private string _icon;
+    private string _icon = null!;
 
     protected override void OnParametersSet()
     {
@@ -10,8 +10,8 @@
     }
 }
 <h4 class="card-title" @onclick="_ => AfficherLiens = !AfficherLiens">
-    <ItemIcon Icon="@_icon" Classes="ml-2"/>
     Equipement
+    <ItemIcon Icon="@_icon" Classes="ml-2"/>
 </h4>
 @if (AfficherLiens)
 {
