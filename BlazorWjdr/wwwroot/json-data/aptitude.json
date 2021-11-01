@@ -473,6 +473,7 @@
   {"id":2184,"parent":2079,"categ":"talent","nom":"Tradition des sorcières - Vedma"},
   {"id":2185,"parent":2079,"categ":"talent","nom":"Tradition des sorcières - Glace"},
   {"id":2189,"parent":2079,"categ":"talent","nom":"Tradition des sorcières - Sorcellerie"},
+  {"id":2164,"parent":2079,"categ":"talent","nom":"Tradition des sorcières - Malédiction"},
 
   {"id":2168,"categ":"talent","nom":"Rune","resume":"","description":""},
   {"id":2169,"categ":"talent","nom":"Rune majeure","resume":"","description":""},

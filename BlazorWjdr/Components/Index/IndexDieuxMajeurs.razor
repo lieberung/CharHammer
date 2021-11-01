@@ -1,11 +1,18 @@
 ﻿@code{
-    private bool _afficherLiens;
+    [Parameter] public bool AfficherLiens { get; set; }
+    private string _icon;
+
+    protected override void OnParametersSet()
+    {
+        _icon = AfficherLiens ? "chevron-top" : "chevron-bottom";
+        base.OnParametersSet();
+    }
 }
-<h5 class="card-title" @onclick="_ => _afficherLiens = !_afficherLiens">
-    <ItemIcon Icon="chevron-bottom" Classes="ml-2"/>
+<h5 class="card-title" @onclick="_ => AfficherLiens = !AfficherLiens">
+    <ItemIcon Icon="@_icon" Classes="ml-2"/>
     Dieux majeurs dans l'Empire
 </h5>
-@if (_afficherLiens)
+@if (AfficherLiens)
 {
     <p>
         <a href="univers/pantheon/manann/" class="mb-1 btn btn-sm btn-secondary">Manann</a>

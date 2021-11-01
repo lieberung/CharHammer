@@ -1,0 +1,43 @@
+﻿@code{
+    [Parameter] public bool AfficherLiens { get; set; }
+    private string _icon;
+
+    protected override void OnParametersSet()
+    {
+        _icon = AfficherLiens ? "chevron-top" : "chevron-bottom";
+        InvokeAsync(StateHasChanged);
+        base.OnParametersSet();
+    }
+}
+<h4 class="card-title" @onclick="_ => AfficherLiens = !AfficherLiens">
+    <ItemIcon Icon="@_icon" Classes="ml-2"/>
+    Equipement
+</h4>
+@if (AfficherLiens)
+{
+    <p>
+        <a href="equipement/armes-liste/toutes/toutes/" class="mb-1 btn btn-sm btn-primary">Armes</a>
+        <a href="equipement/armes-liste/melee/toutes/" class="mb-1 btn btn-sm btn-secondary"><em>Mélée</em></a>
+        <a href="equipement/armes-liste/armes-de-parade/toutes/" class="mb-1 btn btn-sm btn-secondary"><em>Boucliers</em></a>
+        <a href="equipement/armes-liste/tir/toutes/" class="mb-1 btn btn-sm btn-secondary"><em>Tir</em></a>
+        <a href="equipement/armes-liste/toutes/munitions/" class="mb-1 btn btn-sm btn-secondary"><em>Munitions</em></a>
+    </p>
+    <p>
+        <a href="equipement/armures/toutes/" class="mb-1 btn btn-sm btn-primary">Armures</a>
+        <a href="equipement/armures/legeres/" class="mb-1 btn btn-sm btn-secondary"><em>Légères</em></a>
+        <a href="equipement/armures/moyennes/" class="mb-1 btn btn-sm btn-secondary"><em>Moyennes</em></a>
+        <a href="equipement/armures/lourdes/" class="mb-1 btn btn-sm btn-secondary"><em>Lourde</em></a>
+    </p>
+    <p>
+        <a href="guide-du-consommateur/tout/" class="mb-1 btn btn-sm btn-primary">Guide du Consommateur</a>
+        <a href="equipement-de-depart/" class="mb-1 btn btn-sm btn-secondary">Equipement de Départ</a>
+    </p>
+}
+else
+{
+    <p>
+        <a href="equipement/armes-liste/toutes/toutes/" class="mb-1 btn btn-sm btn-primary">Armes</a>
+        <a href="equipement/armures/toutes/" class="mb-1 btn btn-sm btn-primary">Armures</a>
+        <a href="guide-du-consommateur/tout/" class="mb-1 btn btn-sm btn-primary">Guide du Consommateur</a>
+    </p>
+}

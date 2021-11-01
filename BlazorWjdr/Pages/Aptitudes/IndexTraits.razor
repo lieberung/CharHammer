@@ -1,4 +1,4 @@
-﻿@page "/talents"
+﻿@page "/traits"
 
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Models
@@ -20,24 +20,16 @@
         <tr>
             <th></th>
             <th></th>
-            <th style="width:275px">Talent</th>
+            <th style="width:275px">Trait</th>
+            <th>Catégorie</th>
             <th>Aptitudes liées</th>
         </tr>
         </thead>
         <tbody>
-        @foreach (var talent in _talentsLines.Where(t => t.Ignore == false && t.Parent == null))
+        @foreach (var talent in _cttService.AllTraits.Where(t => t.Ignore == false && t.Parent == null))
         {
             <TalentRow Item="talent"/>
         }
         </tbody>
     </table>
 </div>
-
-@code {
-    private IEnumerable<AptitudeDto> _talentsLines = null!;
-
-    protected override void OnInitialized()
-    {
-        _talentsLines = _cttService.AllTalents.ToList();
-    }
-}

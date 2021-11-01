@@ -138,6 +138,32 @@
  {"id":603,"aptitudes":[2179],"ns":21,"nom":"Torrent doré","type":"sort rapide","distance":"24 mètres (12 cases)","cible":"1","duree":"BS+1 minutes","ingredient":"une flasque de vin (+2)",
    "effet":"Un rayon de lueur chaude et dorée jaillit de la paume de votre main. Le trait peut affecter une seule et unique cible que vous avez en ligne de mire dans un rayon de 24 mètres (12 cases). La cible éprouve alors une sensation agréable et engourdissante. Si la victime souhaite entreprendre une action au cours d’un round donné, elle doit au préalable réussir un test de Force Mentale, sans quoi elle reste immobile à sourire béatement, renonçant à toute action pour le round. Les cibles qui réussissent dans ce cadre trois tests d’Endurance consécutifs mettent un terme aux effets du sort."},
  {"id":604,"aptitudes":[2179],"ns":14,"nom":"Voile du désir","type":"sort rapide","distance":"Toucher","cible":"1","duree":"BS+1 heures","ingredient":"la langue d’une catin (+2)",
-   "effet":"La créature que vous touchez subit une profonde altération, tandis que des particules roses tourbillonnent contre sa chair, provoquant l’excitation et un plaisir intense. Voile du désir produit plusieurs effets. Tout d’abord, le sort contre tous les effets de l’ivresse, de l’abus de nourriture et du manque de sommeil. Ensuite, il efface tous les signes extérieurs d’atteinte physique, sans pour autant soigner véritablement les blessures. Enfin, il confère à la cible un bonus de +10% aux tests de Sociabilité pendant un nombre d’heures égal à votre BS+1."}
+   "effet":"La créature que vous touchez subit une profonde altération, tandis que des particules roses tourbillonnent contre sa chair, provoquant l’excitation et un plaisir intense. Voile du désir produit plusieurs effets. Tout d’abord, le sort contre tous les effets de l’ivresse, de l’abus de nourriture et du manque de sommeil. Ensuite, il efface tous les signes extérieurs d’atteinte physique, sans pour autant soigner véritablement les blessures. Enfin, il confère à la cible un bonus de +10% aux tests de Sociabilité pendant un nombre d’heures égal à votre BS+1."},
+
+   {"id":700,"aptitudes":[2189],"ns":0,"nom":"Enthousiasme","type":"sort rapide","distance":"Rayon de BFM mètres","cible":"Zone","duree":"BFM rounds","ingredient":"sorcellerie *",
+     "effet":"Vous créez une atmosphère propice à la convivialité et à la bonne humeur. Tous les Tests de Sociabilité dans la Zone d'Effet reçoivent un bonus de +10, et les Psychologies de l'Animosité et de la Haine n'ont aucun effet."},
+   {"id":701,"aptitudes":[2189],"ns":0,"nom":"Chevauchée de Mirk","type":"sort rapide","distance":"Vous","cible":"Vous","duree":"BFM minutes","ingredient":"sorcellerie *",
+     "effet":"Récitant d'anciennes formules magiques, votre esprit quitte votre corps, pénétrant dans l'Aethyre, l'espace sombre entre le monde matériel et le royaume spirituel. Pendant la durée du sort, votre essence se retourve à l'écart du monde, capable d'en être le témoin invisible, mais sans pouvoir l'affecter d'aucune façon. Les barrières physiques n'existent plus pour vous, et vous pouvez passer à travers les obstacles non magiques à volonté. Votre corps reste en place, immobile et insensible.\nA la fin du sort, vous serez soudainement ramené à votre corps. Si votre corps est tué pendant le sort, votre esprit errera sans but pour l'éternité."},
+   {"id":702,"aptitudes":[2189],"ns":0,"nom":"Néphente","type":"sort rapide","distance":"Toucher","cible":"Spécial","duree":"BFM rounds","ingredient":"sorcellerie *",
+     "effet":"Vous marmonnez des mots de pouvoir pour insufler l'énergie du Dhar dans une potion confectionnée à base d'herbes, la transformant magiquement en un philtre puissant. Si elle est bue pendant que le sort est en vigueur, la cible peut choisir d'oublier complètement un individu ou un évènement suffisemment bref (à la discrétion du MJ), de façon permanente."},
+   {"id":703,"aptitudes":[2189],"ns":0,"nom":"Nostrum","type":"sort rapide","distance":"Toucher","cible":"Spécial","duree":"BFM rounds","ingredient":"sorcellerie *",
+     "effet":""},
+   {"id":704,"aptitudes":[2189],"ns":0,"nom":"Dissiper le voile","type":"sort rapide","distance":"Vous","cible":"Vous","duree":"BFM minutes","ingredient":"sorcellerie *",
+     "effet":""},
+   {"id":705,"aptitudes":[2189],"ns":0,"nom":"Charme protecteur","type":"sort rapide","distance":"Toucher","cible":"Spécial","duree":"BFM jours","ingredient":"sorcellerie *",
+     "effet":""},
+   
+   {"id":720,"aptitudes":[2164],"ns":14,"nom":"Flétrissement","type":"sort rapide","distance":"Rayon de BFM mètres","cible":"Zone","duree":"BFM rounds","ingredient":"sorcellerie *",
+     "effet":""},
+   {"id":721,"aptitudes":[2164],"ns":6,"nom":"Menace rampante","type":"sort rapide","distance":"Vous","cible":"Vous","duree":"BFM minutes","ingredient":"sorcellerie *",
+     "effet":""},
+   {"id":722,"aptitudes":[2164],"ns":10,"nom":"Douleur paralysante","type":"sort rapide","distance":"Toucher","cible":"Spécial","duree":"BFM rounds","ingredient":"sorcellerie *",
+     "effet":""},
+   {"id":723,"aptitudes":[2164],"ns":8,"nom":"Malchance","type":"sort rapide","distance":"Toucher","cible":"Spécial","duree":"BFM rounds","ingredient":"sorcellerie *",
+     "effet":""},
+   {"id":724,"aptitudes":[2164],"ns":8,"nom":"Horreur hantée","type":"sort rapide","distance":"Vous","cible":"Vous","duree":"BFM minutes","ingredient":"sorcellerie *",
+     "effet":""},
+   {"id":725,"aptitudes":[2164],"ns":6,"nom":"Mauvais oeil","type":"sort rapide","distance":"Toucher","cible":"Spécial","duree":"BFM jours","ingredient":"sorcellerie *",
+     "effet":""}
  ]
 }
