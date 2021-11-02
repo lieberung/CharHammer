@@ -139,10 +139,21 @@ namespace BlazorWjdr
             return new RencontreDto
             {
                 Groupe = r.groupe,
-                Pnjs = r.pnjs.Select(id => bestioles[id]).ToArray()
+                Allies = (r.allies ?? Array.Empty<JsonCombattant>()).Select(a => GetRencontreCombattantDtoFromJson(a, bestioles)).ToArray(),
+                Ennemis = (r.ennemis ?? Array.Empty<JsonCombattant>()).Select(a => GetRencontreCombattantDtoFromJson(a, bestioles)).ToArray()
             };
         }
 
+        private static RencontreCombattantDto GetRencontreCombattantDtoFromJson(JsonCombattant c,
+            IReadOnlyDictionary<int, BestioleDto> bestioles)
+        {
+            return new RencontreCombattantDto
+            {
+                Combattant = bestioles[c.id],
+                Nom = c.nom ?? bestioles[c.id].Nom,
+            };
+        }
+        
         private static Dictionary<int, TeamDto> InitializeTeams(IEnumerable<JsonTeam> teams)
         {
             return teams.Select(t => new TeamDto { Id = t.id, Nom = t.nom }).ToDictionary(k => k.Id);

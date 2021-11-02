@@ -5,16 +5,21 @@
         <tr class="tgroupe">
             <td>Nom</td>
             <td>Enc.</td>
+            @if (AfficherContenance)
+            {
+                <td>Capacité</td>
+            }
             <td>Prix</td>
             <td>Disponibilité</td>
         </tr>
     @foreach (var item in Items)
     {
-        <EquipementRow Item="@item"/>
+        <EquipementRow Item="@item" AfficherContenance="@AfficherContenance" />
     }
     </tbody>
 </table>
 
 @code {
     [Parameter] public EquipementDto[] Items { get; set; } = null!;
+    [Parameter] public bool AfficherContenance { get; set; }
 }

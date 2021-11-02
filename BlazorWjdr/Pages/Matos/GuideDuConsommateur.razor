@@ -78,7 +78,7 @@
             <div class="row">
                 <div class="col-5">
                     <h3 class="card-title">@grp</h3>
-                    <TableEquipements Items="@GetEquipement(grp)"/>
+                    <TableEquipements Items="@GetEquipement(grp)" AfficherContenance="@(grp == "contenants")"/>
                 </div>
             </div>
         }
@@ -87,9 +87,7 @@
 </div>
 
 @code {
-
-    [Parameter]
-    public string Groupe { get; set; } = "";
+    [Parameter] public string Groupe { get; set; } = "";
 
     private List<string> _allGroupes = null!;
     private List<string> _showGroupes = null!;
@@ -111,5 +109,4 @@
 
         base.OnParametersSet();
     }
-
 }

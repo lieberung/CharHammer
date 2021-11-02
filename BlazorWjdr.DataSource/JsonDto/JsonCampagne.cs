@@ -36,10 +36,17 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonRencontre
     {
-        public int[] pnjs { get; init; } = null!;
         public string groupe { get; init; } = null!;
+        public JsonCombattant[]? ennemis { get; set; }
+        public JsonCombattant[]? allies { get; set; }
     }
     
+    public class JsonCombattant
+    {
+        public int id { get; set; }
+        public string? nom { get; set; }
+    }
+
     public class JsonSeance
     {
         public string quand { get; set; } = null!;

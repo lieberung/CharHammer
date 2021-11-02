@@ -1,13 +1,11 @@
 ﻿@using BlazorWjdr.Models
 
-<p class="card-text">
-    <Blessures Item="@Item"/>
-    @if (Item.ProfilActuel.M > 0)
-    {
-        <br/>
-        <strong>Mouvement :&nbsp;</strong><span>&nbsp;@Item.ProfilActuel.M</span>
-    }
-</p>
+<Blessures Item="@Item"/>
+@if (Item.ProfilActuel.M > 0)
+{
+    <br/>
+    <strong>Mouvement :&nbsp;</strong><span>&nbsp;@Item.ProfilActuel.M</span>
+}
 @code{
     [Parameter]
     public BestioleDto Item { get; set; } = null!;

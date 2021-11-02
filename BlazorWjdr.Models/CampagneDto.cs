@@ -47,7 +47,14 @@
     
     public class RencontreDto
     {
-        public BestioleDto[] Pnjs { get; init; } = null!;
         public string Groupe { get; init; } = null!;
+        public RencontreCombattantDto[] Allies { get; init; } = null!;
+        public RencontreCombattantDto[] Ennemis { get; init; } = null!;
+    }
+
+    public class RencontreCombattantDto
+    {
+        public BestioleDto Combattant { get; init; } = null!;
+        public string Nom { get; init; } = null!;
     }
 }

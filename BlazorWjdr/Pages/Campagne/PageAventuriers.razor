@@ -73,7 +73,7 @@
                 <tbody class="alternate-color-dark">
                 @foreach (var combattant in _combattants)
                 {
-                    <CombattantRow Item="@combattant" Ennemi="@Rencontre!.Pnjs.Contains(combattant.Combattant)"/>
+                    <CombattantRow Item="@combattant" Ennemi="@Rencontre!.Ennemis.Any(e => e.Combattant == combattant.Combattant)"/>
                 }
                 </tbody>
             </table>
@@ -173,7 +173,10 @@
 
         var protagonistes = _seance.Pjs.ToList();
         if (Rencontre != null)
-            protagonistes.AddRange(Rencontre.Pnjs);
+        {
+            protagonistes.AddRange(Rencontre.Allies.Select(a => a.Combattant));
+            protagonistes.AddRange(Rencontre.Ennemis.Select(a => a.Combattant));
+        }
 
         _combattants = BestiolesService.InitiativeDeCombat(protagonistes).ToList();
     }

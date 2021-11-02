@@ -14,8 +14,9 @@
     <div class="_container">
 
         <div class="row">
-            <div class="col-4">
-                <div class="card-body">
+            <div class="col-6">
+                <div class="card-body pt-0">
+                    <img alt="Portrait de @Item!.Nom" style="float:right; max-width:550px; max-height:450px;" src="images/beasts/@(Item.Id).png"/>
                     <h1 class="card-title" style="font-size: xxx-large;">@Item!.Nom</h1>
                     @if (Item.Origines.Any())
                     {
@@ -26,14 +27,13 @@
                         }
                     }
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Profil</h5>
+                <div class="card-body pt-0">
                     <p>
                         <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@true"/>
                     </p>
                     <BestioleBlessuresEtMouvement Item="@Item"/>
                 </div>
-                <div class="card-body">
+                <div class="card-body pt-0">
                     <AptitudesAcquises Item="@Item"/>
                     @if (Item.EquipementDeCarrieres != "")
                     {
@@ -42,13 +42,6 @@
                     }
                     <BestioleFicheMatosSorts Item="@Item"/>
                 </div>
-                <div class="card-body">
-                    
-                </div>
-            </div>
-            
-            <div class="col-3">
-                <img alt="Portrait de @Item!.Nom" style="max-width:550px; max-height:450px;" src="images/beasts/@(Item.Id).png"/>
             </div>
             
             <div class="col-5">

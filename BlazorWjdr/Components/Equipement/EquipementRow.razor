@@ -8,6 +8,10 @@
         @Item.Nom
     </td>
     <td>@Item.Enc</td>
+    @if (AfficherContenance)
+    {
+        <td>@Item.Contenance</td>
+    }
     <td>@Item.Prix</td>
     <td>@Item.Dispo</td>
 </tr>
@@ -23,6 +27,7 @@
 }
 @code {
     [Parameter] public EquipementDto Item { get; set; } = null!;
+    [Parameter] public bool AfficherContenance { get; set; }
     
     private bool AfficherFiche { get; set; }
 }

@@ -2,9 +2,8 @@
 assistant de création de creature
 assistant de création d'ennemi
 assistant de création de scénar
-<li>équipement contenance</li>
-<li>compétence de métier et statut social</li>
-<li>icônes des factions ds création perso</li>
+compétence de métier et statut social
+icônes des factions ds création perso
 
 assist combat rencontre : pouvoir nommer chaque pnj de chaque rencontre (archétypes)
 armure : class avec zones et calcul des points 
