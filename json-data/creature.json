@@ -351,12 +351,17 @@
   "aptitudes":[4020,4206,3903],"aptitudes_facultatives":[4050,4050,4050,4050,4050,4050,4050,4001,4021,4003,3417,4024,4031,3831],
   "description":"Les Ungors ont des vestiges de cornes ou des cornes très courtes et sont donc à peine considérés Gor par le reste du troupeau. Certains ont même des visages ressemblant à des humains, ce qui en fait des infiltrateurs efficaces, mais aussi une cible pour le ridicule. En effet, les Ungors sont mal traités par les Gors, et sont souvent rabougris ou mal nourris par rapport à leurs frères à cornes , ce qui en fait des êtres amers désireux de faire retomber leur jalousie sur autrui."},
 
-{"id":63,"race":55,"nom":"Minotaure","membrede":["Hommes-bêtes"],
+    {"id":63,"race":55,"nom":"Minotaure","membrede":["Hommes-bêtes"],
   "profil_actuel":{"cc":45,"ct":25,"f":44,"e":45,"i":20,"ag":35,"dex":25,"intel":20,"fm":30,"soc":15},
   "aptitudes":[4209,4007,4007,4007,4007,4007,4007,4007,4007,4007,3832,4002,3903],"aptitudes_facultatives":[4020,4012,4021,4003,3417,4024,4031,4103],
   "description":"Les Minotaures son massifs et monstrueux, semblables à des taureaux, dominen même les plus grands Bestigors. Les troupeaux avec un grand contingent de Minotaures se considèrent particulièrement bénis par les Dieux Noirs. Les hommesbêtes se rassemblent autour des Minotaures car leur présence imposante donne du courage."},
 
-{"id":601,"race":68,"nom":"Sanguinaire de Khorne","membrede":["Démons"],
+    {"id":64,"race":55,"nom":"Sanglebouc","membrede":["Hommes-bêtes"],
+      "profil_actuel":{"cc":33,"ct":0,"f":36,"e":44,"i":32,"ag":32,"dex":0,"intel":20,"fm":37,"soc":12,"m":7},
+      "aptitudes":[2008,2008,2008,1048,1049,1049,1055,3904,2021,2030,2080,2297,2091],
+      "description":"Les sangleboucs sont les rejetons d’hommes-bêtes. Étranges hybrides de sangliers sauvages et d’hommes-bêtes, ces féroces créatures ont conservé l’intelligence de leurs congénères tout en prenant une apparence complètement animale. Les sangleboucs ressemblent à d’immenses sangliers couverts de pointes et de cornes, à la mâchoire dégoulinante de bave et hérissée de défenses. Les hommes-bêtes les utilisent comme gardiens ou animaux de trait pour tirer leurs chars sur le champ de bataille.\nRègles spéciales:\n• Charge de sanglebouc : quand un sanglebouc effectue une Charge, ses armes naturelles gagnent l’attribut percutante.\n• Mutations du Chaos : aspect bestial et cornes. Il existe 25% de chances qu’apparaisse une mutation supplémentaire. Lancez les dés sur la Table 3–1 : mutations, pages 30 et 31, si c’est le cas et modifiez le profil en conséquence.\n• Silencieux comme les animaux des bois: les sangleboucs font preuve d’une discrétion naturelle, et la plupart sont des traqueurs et chasseurs expérimentés. Ils bénéficient d’un bonus de +20% aux tests de Déplacement silencieux et d’un bonus de +10% aux tests de Dissimulation."},
+
+    {"id":601,"race":68,"nom":"Sanguinaire de Khorne","membrede":["Démons"],
  "profil_actuel":{"cc":55,"ct":35,"f":45,"e":35,"i":60,"ag":40,"dex":30,"intel":25,"fm":70,"soc":15,"m":5},
  "aptitudes":[4001,4001,4001,4001,4001,4070,3904,4022,4072,4072,4072,4072,4072,4072,4072,4072,4027,4027,4027,3508,4007,4007,4007,4007,4007,4007,4007,4007,4029,4209,4132],"aptitudes_facultatives":[],
  "description":"Les Sanguinaires de Khorne, choisies par Khorne, sillonnent les champs de bataille de l'Ancien Monde, emportant crânes et vies en l'honneur du Dieu du sang. Des dents tranchantes et aiguës en forme d'aiguilles dépassent des visages monstrueux et cornés. Leur peau rouge sang est dure comme du cuivre, forgée sur l'enclume d'une guerre incessante. Chaque Sanguinaire porte une lame Hellblade, une lame méchamment tranchante, trempée dans le sang, qu'elle manie avec un déchaînement imprudent, se livrant à la douce sensation d'un massacre impitoyable."},
