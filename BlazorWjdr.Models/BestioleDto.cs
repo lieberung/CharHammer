@@ -35,6 +35,7 @@ namespace BlazorWjdr.Models
         public int? Taille { get; init; }
         public int? Age { get; init; }
         public int? Sexe { get; init; }
+        public bool Masquer { get; init; }
         public string Psychologie { get; init; } = null!;
 
         public ArmeDto[] Armes { get; init; } = null!;

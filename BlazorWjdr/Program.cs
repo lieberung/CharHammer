@@ -253,6 +253,7 @@ namespace BlazorWjdr
                     Race = races[c.race],
                     Sexe = c.sexe,
                     Taille = c.taille,
+                    Masquer = c.masquer,
                     ProfilActuel = GetProfilDtoFromJson(c.profil_actuel),
                     ProfilInitial = c.profil_initial != null ? GetProfilDtoFromJson(c.profil_initial) : null,
                     AptitudesAcquises = AptitudeAcquise.GetList(

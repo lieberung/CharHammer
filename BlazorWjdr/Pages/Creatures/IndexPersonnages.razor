@@ -4,6 +4,7 @@
 @using BlazorWjdr.Services
 
 @inject BestiolesService _bestiolesService
+@inject AppState _appState
 
 <MainTopRow Title="Personnages"/>
 
@@ -12,7 +13,7 @@
     <div class="row">
         <div class="col-6">
             <h3 class="card-title">Archétypes et PNJs</h3>
-            <BestioleTable Items="@_bestiolesService.AllPnjs.ToArray()"/>
+            <BestioleTable Items="@_bestiolesService.AllPnjs.Where(p => p.Masquer == false || _appState.JeSuisDieu).ToArray()"/>
         </div>
         <div class="col-6">
             <h3 class="card-title">Personnages incarnés par des joueurs</h3>

@@ -23,8 +23,9 @@ namespace BlazorWjdr.Services
             .Where(b => b.EstUnPersonnageJoueur).OrderBy(b => b.Nom).ToArray()
             .ToList();
 
-        private IEnumerable<string> GroupesDeBestioles() => AllBestioles
+        private IEnumerable<string> GroupesDeBestioles(bool jeSuisDieu) => AllBestioles
             .Where(b => b.EstUnPersonnage == false)
+            .Where(p => p.Masquer == false || jeSuisDieu)
             .SelectMany(b => b.MembreDe)
             .Distinct()
             .OrderBy(g => g); 
@@ -32,8 +33,8 @@ namespace BlazorWjdr.Services
             .Where(b => b.EstUnPersonnage == false && b.MembreDe.Contains(groupe))
             .OrderBy(b => b.Nom)
             .ToArray();
-        public IReadOnlyDictionary<string, IEnumerable<BestioleDto>> BestiolesRegroupees()
-            => GroupesDeBestioles().ToDictionary(k => k, BestiolesMembreDuGroupe);
+        public IReadOnlyDictionary<string, IEnumerable<BestioleDto>> BestiolesRegroupees(bool jeSuisDieu)
+            => GroupesDeBestioles(jeSuisDieu).ToDictionary(k => k, BestiolesMembreDuGroupe);
 
         public BestioleDto GetBestiole(int id) => _cacheBestiole[id];
 
