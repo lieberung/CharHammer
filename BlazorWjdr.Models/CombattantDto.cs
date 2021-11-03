@@ -1,16 +1,22 @@
-﻿namespace BlazorWjdr.Models
+﻿using System.Linq;
+
+namespace BlazorWjdr.Models
 {
     public class CombattantDto
     {
-        public CombattantDto(BestioleDto combattant, int jetDInitiative, string detailDuJet)
-        {
-            Combattant = combattant;
-            JetDInitiative = jetDInitiative;
-            DetailDuJet = detailDuJet;
-        }
+        public string Code => $"{Combattant.Id}#{Nom}";
 
-        public BestioleDto Combattant { get; }
-        public int JetDInitiative { get; }
-        public string DetailDuJet { get; }
+        public BestioleDto Combattant { get; init; } = null!;
+        public string Nom { get; init; } = null!;
+        public bool Ennemi { get; init; }
+
+        public int JetDInitiative { get; set; }
+        public string DetailDuJet { get; set; } = "";
+        public CombattantDto? EngageContre { get; set; }
+
+        public AptitudeAcquise[] CompetencesMartiales => Combattant.AptitudesAcquises
+            .Where(aa => aa.Aptitude.Martial && aa.Aptitude.EstUneCompetence).ToArray();
+        public AptitudeAcquise[] AutresTraitsMartiaux => Combattant.AptitudesAcquises
+            .Where(aa => aa.Aptitude.Martial && !aa.Aptitude.EstUneCompetence).ToArray();
     }
 }

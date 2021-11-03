@@ -1,7 +1,7 @@
 ﻿@using BlazorWjdr.Shared.Oi
 @using BlazorWjdr.Models
 
-<a href="carrieres/@Item.Id.ToString()/" class="btn btn-light btn-item@(Special ? " btn-special mr-1" : "")">
+<a href="carrieres/@Item.Id.ToString()/" class="btn btn-light btn-item@(Special ? " btn-special" : "")">
     <ItemIcon Icon="badge" Classes="mr-1"/>
     @if (!string.IsNullOrWhiteSpace(Tooltip))
     {

@@ -18,6 +18,7 @@ namespace BlazorWjdr.Models
         public bool EstUneCarriereAvancee { get; init; }
         public string Restriction { get; init; } = null!;
         public string Source { get; init; } = null!;
+        public string Leitmotiv { get; init; } = null!;
         public int[] DebouchesIds { get; init; } = null!;
         public int[] AvancementsIds { get; init; } = null!;
         public string Dotations { get; init; } = null!;
@@ -50,6 +51,7 @@ namespace BlazorWjdr.Models
         public List<CarriereDto> Origines = new();
 
         public ReferenceDto? SourceLivre { get; init; }
+        public RaceDto[] Races { get; init; } = null!;
 
         public int Niveau
         {

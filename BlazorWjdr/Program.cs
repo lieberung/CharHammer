@@ -26,7 +26,6 @@ namespace BlazorWjdr
             var dataAptitudes = InitializeAptitudes(data.Aptitudes!.items);
             var dataProfils = InitializeProfils(data.Profils!.items);
             var dataReferences = InitializeReferences(data.References!.items);
-            var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataAptitudes, dataReferences);
             var listChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
             var dataLieuxTypes = InitializeLieuxTypes(data.Lieux!.types);
             var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
@@ -38,6 +37,7 @@ namespace BlazorWjdr
             var dataArmures = InitializeArmures(data.Armes!.armures, dataArmesAttributs);
             var dataSortileges = InitializeSortileges(data.Sortileges!.sortileges, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
+            var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataRaces, dataAptitudes, dataReferences);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataSortileges, dataUsers);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
@@ -64,6 +64,8 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new SortilegesService(dataSortileges));
             builder.Services.AddSingleton(_ => new CampagnesService(listCampagnes));
             builder.Services.AddSingleton(_ => new ScenariosService(dataScenarios));
+            
+            builder.Services.AddSingleton(_ => new AppState());
 
             builder.RootComponents.Add<App>("#app");
 
@@ -139,18 +141,19 @@ namespace BlazorWjdr
             return new RencontreDto
             {
                 Groupe = r.groupe,
-                Allies = (r.allies ?? Array.Empty<JsonCombattant>()).Select(a => GetRencontreCombattantDtoFromJson(a, bestioles)).ToArray(),
-                Ennemis = (r.ennemis ?? Array.Empty<JsonCombattant>()).Select(a => GetRencontreCombattantDtoFromJson(a, bestioles)).ToArray()
+                Allies = (r.allies ?? Array.Empty<JsonCombattant>()).Select(a => GetRencontreCombattantDtoFromJson(a, false, bestioles)).ToArray(),
+                Ennemis = (r.ennemis ?? Array.Empty<JsonCombattant>()).Select(a => GetRencontreCombattantDtoFromJson(a, true, bestioles)).ToArray()
             };
         }
 
-        private static RencontreCombattantDto GetRencontreCombattantDtoFromJson(JsonCombattant c,
+        private static CombattantDto GetRencontreCombattantDtoFromJson(JsonCombattant c, bool ennemi,
             IReadOnlyDictionary<int, BestioleDto> bestioles)
         {
-            return new RencontreCombattantDto
+            return new CombattantDto
             {
                 Combattant = bestioles[c.id],
                 Nom = c.nom ?? bestioles[c.id].Nom,
+                Ennemi = ennemi
             };
         }
         
@@ -263,7 +266,6 @@ namespace BlazorWjdr
                     Armures = (c.armures ?? Array.Empty<int>()).Select(id => armures[id]).ToArray(),
                     Equipement = (c.equipement ?? Array.Empty<int>()).Select(id => equipement[id]).ToArray(),
                     Sorts = (c.sorts ?? Array.Empty<int>()).Select(id => sorts[id]).ToArray(),
-                    // Personnage
                     SigneAstralId = c.fk_signeastralid,
                     Cheveux = c.cheveux,
                     Yeux = c.yeux,
@@ -272,7 +274,6 @@ namespace BlazorWjdr
                     Mort = c.mort,
                     CarriereDuPere = c.carriere_du_pere.HasValue ? carrieres[c.carriere_du_pere.Value] : null,
                     CarriereDeLaMere = c.carriere_de_la_mere.HasValue ? carrieres[c.carriere_de_la_mere.Value] : null,
-                    // PJ
                     Joueur = c.user != null ? users[c.user.Value].Pseudo : "",
                     CheminementPro = c.cheminement != null ? c.cheminement!.Select(id => carrieres[id]).ToArray() : Array.Empty<CarriereDto>(),
                     XpActuel = c.xp_actuel ?? 0,
@@ -287,7 +288,7 @@ namespace BlazorWjdr
                     bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId));
                 bestiole.BlessuresDetailDuCalcul = BestiolesService.GetBlessuresDetailDuCalcul(bestiole.Gabarit, bestiole.ProfilActuel,
                     bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId));
-                bestiole.BlessuresFormuleDeCalcul = BestiolesService.GetBlessuresFormuleDeCalcul(bestiole.Gabarit, bestiole.ProfilActuel,
+                bestiole.BlessuresFormuleDeCalcul = BestiolesService.GetBlessuresFormuleDeCalcul(bestiole.Gabarit,
                     bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId));
             }
 
@@ -589,16 +590,10 @@ namespace BlazorWjdr
                 lieu.Parent = result[parentId];
                 lieu.Parent.SousElements.Add(lieu);
             }
-
-            //foreach (var lieu in result.Values.Where(l => l.ParentId == null))
+            
             foreach (var lieuId in (parents))
             {
                 result[lieuId].SousElements = result[lieuId].SousElements.OrderBy(c => c.Nom).ToList();
-                /*
-                .AddRange(result.Values
-                .Where(c=>c.Parent == lieu)
-                .OrderBy(c => c.Nom));
-                */
             }
 
             return result;
@@ -625,6 +620,7 @@ namespace BlazorWjdr
                 {
                     Id = c.id,
                     Ignore = c.ignorer,
+                    Martial = c.martial,
                     Nom = $"{c.nom}{(!string.IsNullOrWhiteSpace(c.spe) ? $" : {c.spe}" : "")}",
                     NomEn = c.nom_en,
                     Spe = c.spe ?? "",
@@ -714,6 +710,7 @@ namespace BlazorWjdr
         private static Dictionary<int, CarriereDto> InitializeCarrieres(
             IEnumerable<JsonCarriere> carrieres,
             IReadOnlyDictionary<int, ProfilDto> cacheProfils,
+            IReadOnlyDictionary<int, RaceDto> cacheRaces,
             IReadOnlyDictionary<int, AptitudeDto> cacheAptitudes,
             IReadOnlyDictionary<int, ReferenceDto> cacheReferences)
         {
@@ -730,6 +727,7 @@ namespace BlazorWjdr
                     CarriereMereId = c.parent,
                     DebouchesIds = c.debouch ?? Array.Empty<int>(),
                     AvancementsIds = c.avancements ?? Array.Empty<int>(),
+                    Races = (c.races ?? Array.Empty<int>()).Select(id => cacheRaces[id]).ToArray(),
                     Dotations = c.dotations,
                     EstUneCarriereAvancee = c.avancee,
                     Image = $"images/careers/{c.id}.png",
@@ -737,10 +735,9 @@ namespace BlazorWjdr
                     Restriction = c.restriction ?? "",
                     Source = c.source_page ?? "",
                     SourceLivre = c.source_livre == null ? null : cacheReferences[c.source_livre.Value],
+                    Leitmotiv = c.leitmotiv ?? "",
                     Aptitudes = GetAptitudes(c.aptitudes, cacheAptitudes),
-                    AptitudesChoix = c.aptitudes_choix != null
-                        ? c.aptitudes_choix.Select(choix => GetAptitudes(choix, cacheAptitudes).ToArray()).ToList()
-                        : new List<AptitudeDto[]>(),
+                    AptitudesChoix = (c.aptitudes_choix ?? Array.Empty<int[]>()).Select(choix => GetAptitudes(choix, cacheAptitudes).ToArray()).ToList(),
                 })
                 .ToDictionary(k => k.Id, v => v);
 

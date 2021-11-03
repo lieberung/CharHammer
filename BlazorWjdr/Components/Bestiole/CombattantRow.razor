@@ -3,37 +3,74 @@
 @using BlazorWjdr.Components.Sortilege
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
+
+@inject AppState _appState
+
 @code {
     [Parameter] public CombattantDto Item { get; set; } = null!;
-    [Parameter] public bool Ennemi { get; set; }
-    
+    [Parameter] public CombattantDto[] Adversaires { get; set; } = null!;
+
+    private string AdversaireActuel { get; set; } = "";
     private bool AfficherFiche { get; set; }
+    
+    void EngageContre(ChangeEventArgs e)
+    {
+        AdversaireActuel = e.Value?.ToString() ?? "";
+        if (AdversaireActuel == "")
+        {
+            Item.EngageContre = null;
+            return;
+        }
+        var adversaire = Adversaires.Single(a => a.Code == AdversaireActuel);
+        Item.EngageContre = adversaire;
+        adversaire.EngageContre ??= Item;
+        //StateHasChanged();
+        _appState.UnCombattantEnEngageUnAutre();
+    }
 }
-<tr class="@(Ennemi ? "row-ennemi" : "")">
+<tr class="@(Item.Ennemi ? "row-ennemi" : "")">
     <td>
         <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
             <OiIcon Icon="eye"/>
         </span>
     </td>
     <td class="px-2">
-        <CombattantItem Item="@Item" Ennemi="@Ennemi"/>
+        <CombattantItem Item="@Item" Ennemi="@Item.Ennemi"/>
+    </td>
+    <td>
+        <select value="@AdversaireActuel" @onchange="EngageContre">
+            <option value="">--select--</option>
+            @foreach (var adversaire in Adversaires)
+            {
+                var isSelected = Item.EngageContre == adversaire;
+                <CombattantOption Item="@adversaire" Selected="@isSelected"/>
+            }
+        </select>
+    </td>
+    <td>
+        <select value="@AdversaireActuel">
+            @foreach (var competence in Item.CompetencesMartiales)
+            {
+                <option>@competence.Detail</option> // Blazor needs to know what values it binds to!
+            }
+        </select>
     </td>
     <td style="text-align:center;">@Item.Combattant.ProfilActuel.Cc</td>
     <td style="text-align:center;">@Item.Combattant.ProfilActuel.Bf</td>
     <td style="text-align:center;">@Item.Combattant.ProfilActuel.Be</td>
     <td>
-        <Compteur CurrentValue="0"/> (max @Item.Combattant.ProfilActuel.BonusDInitiative)
+        <Compteur CurrentValue="0"/><span>&nbsp;/@Item.Combattant.ProfilActuel.BonusDInitiative</span>
     </td>
     <td>
-        <Compteur CurrentValue="@Item.Combattant.Blessures"/><span>/ @Item.Combattant.Blessures</span>
+        <Compteur CurrentValue="@Item.Combattant.Blessures"/><span>&nbsp;/@Item.Combattant.Blessures</span>
     </td>
     <td class="px-2">
-        <AptitudeAcquiseItemList Items="@Item.Combattant.AptitudesAcquises.Where(aa => aa.Aptitude.Parent?.Id is AptitudesService.IdMeleeGroupe or AptitudesService.IdTirGroupe).ToArray()"/>
+        <AptitudeAcquiseItemList Items="@Item.AutresTraitsMartiaux"/>
     </td>
 </tr>
 @if (AfficherFiche)
 {
-    <tr class="@(Ennemi ? "row-ennemi" : "")">
+    <tr class="@(Item.Ennemi ? "row-ennemi" : "")">
         <td colspan="7" class="p-3" style="max-width:500px;">
             <div class="bulle" style="padding-bottom: 0;">
                 <BestioleFiche Item="@Item.Combattant" NAfficherQueLeProfilActuel="@true"/>

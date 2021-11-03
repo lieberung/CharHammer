@@ -20,7 +20,7 @@
             <ItemIcon Icon="bug" Classes="ml-1 mr-1"/>
         </Tooltip>
     }
-    <span>@Item.Nom</span>
+    <span>@(Nom ?? Item.Nom)</span>
     @if (Item.CheminementPro.Any())
     {
         <span>, @Item.CarriereActuelle?.Nom</span>
@@ -33,6 +33,7 @@
 </a>
 @code{
     [Parameter] public BestioleDto Item { get; set; } = null!;
+    [Parameter] public string? Nom { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
 
     private string _nomRace = "";

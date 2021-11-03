@@ -317,6 +317,7 @@
     "styles":["Enquête","Action"],
     "resume": "Bon scénario d'introduction. Les PJ seront témoins d'un duel puis enquêtront pour libérer une jeune femme destinée à être sacrifiée pour Slaanesh",
     "lieux":[98],
+    "lieuxtypes": [22],
     "source": "Pierrick GARRY",
     "deja_joue": "2021-10-30 (4h30) Hélène, Stella, Vincent, Jonathan"
   },
@@ -741,6 +742,24 @@
       "source": "Les royaumes de sorcellerie (v2)",
       "resume": "Pour 3 ou 4 joueurs au milieu de leur 2ème carrière, dont un sorcier.",
       "lieux": [125]
+    },
+    {
+      "nom": "Frères de sang",
+      "source": "Le Premier Compagnon (v1)",
+      "resume": "Pour un groupe chevronné avec un sorcier et un guerrier efficace.\nDans un petit village proche d'une route importante (ou d'un fleuve) dans une zone forestière.\nLCI : section 'voyage' de Il y a quelque chose de pourri à Kislev ou de L'Empire en flammes.",
+      "lieux": [127],
+      "lieuxtypes": [23,28]
+    },
+    {
+      "nom": "Avec l'aide de mes amis",
+      "source": "Le Premier Compagnon (v1)",
+      "resume": "Pour un groupe débutant avec éventuellement un apprenti sorcier et un filou.\nLCI : Le pouvoir derrière le trône.",
+      "lieuxtypes": [22]
+    },
+    {
+      "nom": "Le temps des hurlements",
+      "source": "Le Premier Compagnon (v1)",
+      "resume": ""
     }
   ]
 }

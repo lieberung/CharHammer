@@ -2,10 +2,12 @@
 
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Bestiole
+@using BlazorWjdr.Components.Campagne
 @using BlazorWjdr.Models
 @using BlazorWjdr.Services
 
 @inject CampagnesService _campagnesService
+@inject AppState _appState
 
 <MainTopRow Title="@_topRowTitle"/>
 
@@ -26,12 +28,7 @@
         <div class="col-8">
             <div class="card-body">
                 <h3 class="card-title">Assistant de combat</h3>
-                @if (!_unlocked)
-                {
-                    <span class="oi oi-lock-unlocked theme-color mr-3" style="font-size: 1.7rem;" aria-hidden="true"></span>
-                    <input placeholder="Password" @onchange="OnPasswordChange" />
-                }
-                @if (_unlocked)
+                @if (_appState.JeSuisDieu)
                 {
                     <p class="card-text">
                         <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
@@ -57,26 +54,7 @@
         <div class="col-12">
         @if (_combattants.Any())
         {
-            <table class="table">
-                <thead>
-                <tr>
-                    <th class="tgroupe"></th>
-                    <th class="tgroupe pl-2">Combattant</th>
-                    <th class="tgroupe pl-2" style="text-align:center;">CC</th>
-                    <th class="tgroupe pl-2" style="text-align:center;">BF</th>
-                    <th class="tgroupe pl-2" style="text-align:center;">BE</th>
-                    <th class="tgroupe pl-2">Avantage</th>
-                    <th class="tgroupe pl-2">Blessures</th>
-                    <th class="tgroupe pl-2">Aptitudes</th>
-                </tr>
-                </thead>
-                <tbody class="alternate-color-dark">
-                @foreach (var combattant in _combattants)
-                {
-                    <CombattantRow Item="@combattant" Ennemi="@Rencontre!.Ennemis.Any(e => e.Combattant == combattant.Combattant)"/>
-                }
-                </tbody>
-            </table>
+            <AssistantBataille Protagonistes="@_combattants.ToArray()"/>
         }
         </div>
     </div>
@@ -151,7 +129,6 @@
     private List<CombattantDto> _combattants = new();
     private string _topRowTitle = "";
     private string _localisationRoll = "...";
-    private bool _unlocked;
     
     protected override void OnParametersSet()
     {
@@ -171,11 +148,11 @@
     {
         Rencontre = rencontre;
 
-        var protagonistes = _seance.Pjs.ToList();
+        var protagonistes = _seance.Pjs.Select(pj => new CombattantDto { Combattant = pj, Nom = pj.Nom }).ToList();
         if (Rencontre != null)
         {
-            protagonistes.AddRange(Rencontre.Allies.Select(a => a.Combattant));
-            protagonistes.AddRange(Rencontre.Ennemis.Select(a => a.Combattant));
+            protagonistes.AddRange(Rencontre.Allies);
+            protagonistes.AddRange(Rencontre.Ennemis);
         }
 
         _combattants = BestiolesService.InitiativeDeCombat(protagonistes).ToList();
@@ -185,10 +162,5 @@
     {
         var d100 = GenericService.RollDice(100);
         _localisationRoll = GenericService.GetLocalisation(d100);
-    }
-    
-    private void OnPasswordChange(ChangeEventArgs args)
-    {
-        _unlocked = GenericService.DieuEstDAccord(Convert.ToString(args.Value));
     }
 }

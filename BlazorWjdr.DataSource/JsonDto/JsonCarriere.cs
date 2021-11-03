@@ -14,6 +14,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string nom { get; set; } = null!;
         public bool avancee { get; set; }
         public int plan { get; set; }
+        public int[]? races { get; set; }
         public int[]? avancements { get; set; }
         public int[]? debouch { get; set; }
         public int[]? aptitudes { get; set; }
@@ -21,6 +22,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? groupe { get; set; }
         public int? source_livre { get; set; }
         public string? source_page { get; set; }
+        public string? leitmotiv { get; set; }
         public string description { get; set; } = null!;
         public string[]? ambiance { get; set; }
         public string? restriction { get; set; }

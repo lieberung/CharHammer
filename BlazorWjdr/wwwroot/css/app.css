@@ -7,7 +7,7 @@ body { background-color: #f3e3c1; }
     width: 100%;
     position: fixed;
     padding: 10px 0;
-    z-index: 1;
+    z-index: 666;
     top: 0;
 }
 

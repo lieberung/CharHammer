@@ -3,7 +3,7 @@
     [Parameter] public CombattantDto Item { get; set; } = null!;
     [Parameter] public bool Ennemi { get; set; }
 }
-<BestioleItem Item="@Item.Combattant">
+<BestioleItem Item="@Item.Combattant" Nom="@Item.Nom">
     <Tooltip Text="@Item.DetailDuJet">
         <span class="insister ml-2">@Item.JetDInitiative</span>
     </Tooltip>

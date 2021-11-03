@@ -21,6 +21,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public List<int>? incompatibles { get; set; }
 
         public bool ignorer { get; set; }
+        public bool martial { get; set; }
         public string? carac { get; set; }
         public string? resume { get; set; }
         public string? description { get; set; }

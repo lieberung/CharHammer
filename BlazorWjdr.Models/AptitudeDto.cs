@@ -7,6 +7,7 @@
     {
         public int Id { get; init; }
         public bool Ignore { get; init; }
+        public bool Martial { get; init; }
         
         public string Nom { get; init; } = null!;
         public string? NomEn { get; init; }

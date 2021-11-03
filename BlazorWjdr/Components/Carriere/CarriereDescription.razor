@@ -14,6 +14,13 @@
 }
 <ImageMax Image="@Item.Image" Nom="@Item.Nom" MaxHeight="450px" MaxWidth="300px"/>
 
+@if (Item.Leitmotiv != "")
+{
+    <p class="card-text">
+        <em>@Item.Leitmotiv</em>
+    </p>
+}
+
 <div style="min-height:400px;">
     <CardParagraphes Text="@Item.Description" CardTextClass="pr-3"/>
 </div>

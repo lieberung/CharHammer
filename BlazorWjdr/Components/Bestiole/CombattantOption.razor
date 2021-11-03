@@ -1,0 +1,10 @@
+﻿@using BlazorWjdr.Models
+@code {
+    [Parameter] public CombattantDto Item { get; set; } = null!;
+    [Parameter] public bool Selected { get; set; }
+}
+@if (Selected) {
+    <option value="@Item.Code" selected="selected">@Item.Nom</option>
+} else {
+    <option value="@Item.Code">@Item.Nom</option>    
+}

@@ -79,7 +79,7 @@ namespace BlazorWjdr.Services
             return blessures;
         }
 
-        public static string GetBlessuresFormuleDeCalcul(AptitudeDto gabarit, ProfilDto profil, bool durACuir)
+        public static string GetBlessuresFormuleDeCalcul(AptitudeDto gabarit, bool durACuir)
         {
             var blessures = gabarit.Id switch
             {
@@ -97,7 +97,7 @@ namespace BlazorWjdr.Services
             return blessures;
         }
 
-        public static CombattantDto[] InitiativeDeCombat(IEnumerable<BestioleDto> combattants)
+        public static IEnumerable<CombattantDto> InitiativeDeCombat(IEnumerable<CombattantDto> combattants)
         {
             return combattants
                 .Select(JetDInitiativeDeCombat)
@@ -106,12 +106,13 @@ namespace BlazorWjdr.Services
                 .ToArray();
         }
 
-        private static CombattantDto JetDInitiativeDeCombat(BestioleDto combattant)
+        private static CombattantDto JetDInitiativeDeCombat(CombattantDto combattant)
         {
-            var initiative = (combattant.ProfilActuel.BonusDInitiative * 2) + combattant.ProfilActuel.BonusDAgilite;
-            var detail = $"2 x {combattant.ProfilActuel.BonusDInitiative} (BI) + {combattant.ProfilActuel.BonusDAgilite} (BAg)";
+            var profil = combattant.Combattant.ProfilActuel;
+            var initiative = (profil.BonusDInitiative * 2) + profil.BonusDAgilite;
+            var detail = $"2 x {profil.BonusDInitiative} (BI) + {profil.BonusDAgilite} (BAg)";
             
-            var reflexes = combattant.AptitudesAcquises.Count(a => a.Aptitude.Id == AptitudesService.TalentReflexesDeCombatId);
+            var reflexes = combattant.Combattant.AptitudesAcquises.Count(a => a.Aptitude.Id == AptitudesService.TalentReflexesDeCombatId);
             if (reflexes != 0)
             {
                 initiative += reflexes * 2;
@@ -122,7 +123,10 @@ namespace BlazorWjdr.Services
             initiative += dice;
             detail += $" + {dice} (1d10)";
 
-            return new CombattantDto(combattant, initiative, detail);
+            combattant.JetDInitiative = initiative;
+            combattant.DetailDuJet = detail;
+            
+            return combattant;
         }
         
         public BestioleDto[] Recherche(string searchText)
