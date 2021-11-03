@@ -24,20 +24,19 @@
         </div>
     </div>
     
+    @if (_appState.JeSuisDieu)
+    {
     <div class="row">
         <div class="col-8">
             <div class="card-body">
                 <h3 class="card-title">Assistant de combat</h3>
-                @if (_appState.JeSuisDieu)
-                {
-                    <p class="card-text">
-                        <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
-                        @foreach (var rencontre in _seance.Rencontres)
-                        {
-                            <button class="btn btn-secondary ml-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe</button>
-                        }
-                    </p>
-                }
+                <p class="card-text">
+                    <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
+                    @foreach (var rencontre in _seance.Rencontres)
+                    {
+                        <button class="btn btn-secondary ml-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe</button>
+                    }
+                </p>
             </div>
         </div>
         <div class="col-4">
@@ -58,6 +57,7 @@
         }
         </div>
     </div>
+    }
     
     <PageSectionDivider/>
     

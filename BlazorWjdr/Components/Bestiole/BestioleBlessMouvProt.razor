@@ -1,6 +1,11 @@
 ﻿@using BlazorWjdr.Models
 
 <Blessures Item="@Item"/>
+@if (Item.Protections.Aucune == false)
+{
+    <br/>
+    <strong>Protections :&nbsp;</strong><span>&nbsp;@Item.Protections.ToString()</span>
+}
 @if (Item.ProfilActuel.M > 0)
 {
     <br/>

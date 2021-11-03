@@ -1,5 +1,8 @@
 ﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
+
+using System.Collections.Generic;
 using System.Linq;
+using static System.Int32;
 
 namespace BlazorWjdr.Models
 {
@@ -43,18 +46,28 @@ namespace BlazorWjdr.Models
         public EquipementDto[] Equipement { get; init; } = null!;
         public SortilegeDto[] Sorts { get; init; } = null!;
 
-        public string ArmureSynthese {
+        public ProtectionsDto Protections {
             get
             {
-                return "ToDo";
+                var synthese = new ProtectionsDto();
+                foreach (var armure in Armures)
+                {
+                    var zones = armure.Zones.ToLower();
+                    TryParse(armure.Pa, out var pa);
+                    if (pa == 0) continue;
+                    if (zones.Contains("toutes") || zones.Contains("tête"))
+                        synthese.Tete += pa;
+                    if (zones.Contains("toutes") || zones.Contains("bras"))
+                        synthese.Bras += pa;
+                    if (zones.Contains("toutes") || zones.Contains("torse"))
+                        synthese.Torse += pa;
+                    if (zones.Contains("toutes") || zones.Contains("jambes"))
+                        synthese.Jambes += pa;
+                }
+                return synthese;
             }
         }
 
-        public class SyntheseArmure
-        {
-        }
-
-        // Personnage
         public CarriereDto? CarriereDuPere { get; init; }
         public CarriereDto? CarriereDeLaMere { get; init; }
         public int? SigneAstralId { get; set; }
@@ -67,7 +80,6 @@ namespace BlazorWjdr.Models
 
         public CarriereDto? CarriereActuelle => CheminementPro.LastOrDefault();
         
-        // PJ
         public string DateDeCreation { get; init; } = null!;
         public string Joueur { get; init; } = null!;
         public int XpActuel { get; init; }
@@ -85,6 +97,36 @@ namespace BlazorWjdr.Models
                 return string.Join(", ",  
                     CheminementPro.SelectMany(c => c.Dotations.Split(", ")).Distinct().OrderBy(s => s).ToArray()
                 );
+            }
+        }
+
+        public class ProtectionsDto
+        {
+            public int Tete { get; set; }
+            public int Bras { get; set; }
+            public int Torse { get; set; }
+            public int Jambes { get; set; }
+
+            private int Total => Tete + Bras + Torse + Jambes;
+            public bool Aucune => Total == 0;
+            public override string ToString()
+            {
+                if (Aucune) return "";
+                
+                var toStr = new List<string>();
+                if (Tete != 0)
+                    toStr.Add($"Tête {Tete}");
+                if (Bras != 0)
+                    toStr.Add($"Bras {Bras}");
+                if (Torse != 0)
+                    toStr.Add($"Torse {Torse}");
+                if (Jambes != 0)
+                    toStr.Add($"Jambes {Jambes}");
+
+                if (Tete == Bras && Tete == Torse && Tete == Jambes)
+                    return $"Toutes les zones {Total}";
+
+                return string.Join(", ", toStr);
             }
         }
     }
