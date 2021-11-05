@@ -158,7 +158,6 @@
   {"id":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","aptitudes":[2017,2036],"carac":"Int/Soc","resume":"Permet de divertir un groupe de spectateurs. Acteur, bouffon, chanteur, chiromancien, clown, comédien et conteur sont les domaines les plus répandus.","description":""},
   {"id":1167,"parent":1029,"categ":"skill","categ_spe":"adv","nom":"Divertissement (une au choix)","ignorer":true},
   {"id":1150,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement (deux au choix)","ignorer":true},
-  {"id":1122,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","spe":"Comédien","carac":"Int","resume":"","description":""},
   {"id":1123,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","spe":"Conteur","carac":"Int"},
   {"id":1118,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","spe":"Bouffon","carac":"Int/Soc"},
   {"id":1119,"parent":1029,"categ":"skill","categ_spe":"bas","nom":"Divertissement","spe":"Chanteur","carac":"Int/Soc"},
@@ -331,6 +330,9 @@
   {"id":1603,"parent":1600,"categ":"skill","categ_spe":"adv","nom":"Mélée ou Tir (trois au choix)","ignorer":true,"martial":true,"carac":"CC/CT"},
 
   {"id":1020,"categ":"skill","categ_spe":"bas","nom":"Dissimulation","aptitudes":[2008,2009,2010,2279,2248],"carac":"Ag",
+    "resume":"Permet de se cacher de ses ennemis. Le terrain doit être adapté. Souvent opposé à un test de Perception de l’adversaire.",
+    "description":"Allows you to creep quietly and conceal yourself in shadows more readily than most. Stealth is generally Opposed by an opponent’s Perception Skill, and Tests will be modified by how dark or well concealed your route is, as well as how circumspectly you are dressed. Un Echec Critique sur un test de Dissimulation attirera immédiatement l'attention des ennemis dont vous vous cachiez.\nStealth has many potential applications in combat, most usefully to hide oneself in preparation for an Ambush, or to creep around an opponent in order to attack from behind. See Chapter 5: Rules for the implications of this. Of course, you can also use the Skill to escape a conflict unseen..."},
+  {"id":1240,"parent":1020,"categ":"skill","categ_spe":"bas","nom":"Dissimulation (une au choix)","aptitudes":[2008,2009,2010,2279,2248],"carac":"Ag","ignorer":true,
     "resume":"Permet de se cacher de ses ennemis. Le terrain doit être adapté. Souvent opposé à un test de Perception de l’adversaire.",
     "description":"Allows you to creep quietly and conceal yourself in shadows more readily than most. Stealth is generally Opposed by an opponent’s Perception Skill, and Tests will be modified by how dark or well concealed your route is, as well as how circumspectly you are dressed. Un Echec Critique sur un test de Dissimulation attirera immédiatement l'attention des ennemis dont vous vous cachiez.\nStealth has many potential applications in combat, most usefully to hide oneself in preparation for an Ambush, or to creep around an opponent in order to attack from behind. See Chapter 5: Rules for the implications of this. Of course, you can also use the Skill to escape a conflict unseen..."},
   {"id":2008,"parent":1020,"categ":"skill","categ_spe":"bas","nom":"Dissimulation","spe":"Rural","aptitudes":[2279,2248],"resume":"Vous êtes parfaitement dans votre élément dans la nature."},
