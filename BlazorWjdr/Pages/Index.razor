@@ -1,6 +1,8 @@
 ﻿@page "/"
 
 @using BlazorWjdr.Components.Index
+@using BlazorWjdr.Services
+@inject CarrieresService _carrSvc
 
 <MainTopRow Title="Charente Hammer - Index"/>
 
@@ -113,6 +115,9 @@
                 </p>
                 <p>
                     <a href="scenarios/" class="mb-1 btn btn-sm btn-primary">Scénarios</a>
+                </p>
+                <p>
+                    <textarea>@_carrSvc.Json</textarea>
                 </p>
             </div>
         </div>

@@ -8,10 +8,12 @@
     public class CarrieresService
     {
         private Dictionary<int, CarriereDto> _cacheCarrieres;
+        public string Json { get; set; }
 
-        public CarrieresService(Dictionary<int, CarriereDto> dataCarrieres)
+        public CarrieresService(Dictionary<int, CarriereDto> dataCarrieres, string json)
         {
             _cacheCarrieres = dataCarrieres;
+            Json = json;
             //Initialize();
         }
 

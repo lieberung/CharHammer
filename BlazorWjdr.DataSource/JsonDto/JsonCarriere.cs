@@ -27,6 +27,21 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string[]? ambiance { get; set; }
         public string? restriction { get; set; }
         public string dotations { get; set; } = null!;
+        public JsonCarriereInitiale[]? tirage { get; set; }
+        public JsonProfil profil { get; set; }
+        public JsonSource? source { get; set; }
+    }
+
+    public class JsonCarriereInitiale
+    {
+        public int race { get; set; }
+        public int facteur { get; set; }
+    }
+
+    public class JsonSource
+    {
+        public int? id { get; set; }
+        public string? info { get; set; }
     }
     
     public class RootCarriere

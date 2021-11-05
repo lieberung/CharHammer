@@ -1,5 +1,8 @@
 {
   "items": [
+    {"race":1,"carriere":267,"facteur":1},
+    {"race":1,"carriere":295,"facteur":1},
+    {"race":1,"carriere":301,"facteur":1},
     {"race":1,"carriere":365,"facteur":1},
     {"race":1,"carriere":368,"facteur":1},
     {"race":1,"carriere":369,"facteur":1},
@@ -111,6 +114,7 @@
     {"race":65,"carriere":83,"facteur":6},
     {"race":65,"carriere":86,"facteur":2},
     
+    {"race":26,"carriere":295,"facteur":2},
     {"race":26,"carriere":365,"facteur":2},
     {"race":26,"carriere":368,"facteur":4},
     {"race":26,"carriere":127,"facteur":3},
@@ -159,6 +163,7 @@
     {"race":26,"carriere":88,"facteur":3},
     {"race":26,"carriere":369,"facteur":2},
     
+    {"race":27,"carriere":295,"facteur":2},
     {"race":27,"carriere":365,"facteur":2},
     {"race":27,"carriere":368,"facteur":4},
     {"race":27,"carriere":127,"facteur":3},
@@ -205,6 +210,7 @@
     {"race":27,"carriere":87,"facteur":4},
     {"race":27,"carriere":88,"facteur":2},
     
+    {"race":63,"carriere":295,"facteur":2},
     {"race":63,"carriere":192,"facteur":2},
     {"race":63,"carriere":21,"facteur":1},
     {"race":63,"carriere":22,"facteur":4},
@@ -239,6 +245,7 @@
     {"race":63,"carriere":82,"facteur":2},
     {"race":63,"carriere":84,"facteur":2},
     
+    {"race":66,"carriere":301,"facteur":1},
     {"race":66,"carriere":58,"facteur":1},
     {"race":66,"carriere":25,"facteur":1},
     {"race":66,"carriere":33,"facteur":2},

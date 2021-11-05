@@ -16,12 +16,12 @@
         <div class="col-6">
             <div class="card-body">
                 <p class="card-text">
-                    <LinkCarrieresInitiales Actif="@_racesService.Humains.Id.Equals(Race.Id)" Race="@_racesService.Humains"/>
-                    <LinkCarrieresInitiales Actif="@_racesService.Halflings.Id.Equals(Race.Id)" Race="@_racesService.Halflings"/>
-                    <LinkCarrieresInitiales Actif="@_racesService.Nains.Id.Equals(Race.Id)" Race="@_racesService.Nains"/>
-                    <LinkCarrieresInitiales Actif="@_racesService.ElfesSylvains.Id.Equals(Race.Id)" Race="@_racesService.ElfesSylvains"/>
-                    <LinkCarrieresInitiales Actif="@_racesService.HautsElfes.Id.Equals(Race.Id)" Race="@_racesService.HautsElfes"/>
-                    <LinkCarrieresInitiales Actif="@_racesService.Gnomes.Id.Equals(Race.Id)" Race="@_racesService.Gnomes"/>
+                    <LinkCarrieresInitiales Actif="@(Race == _racesService.Humains)" Race="@_racesService.Humains"/>
+                    <LinkCarrieresInitiales Actif="@(Race == _racesService.Halflings)" Race="@_racesService.Halflings"/>
+                    <LinkCarrieresInitiales Actif="@(Race == _racesService.Nains)" Race="@_racesService.Nains"/>
+                    <LinkCarrieresInitiales Actif="@(Race == _racesService.ElfesSylvains)" Race="@_racesService.ElfesSylvains"/>
+                    <LinkCarrieresInitiales Actif="@(Race == _racesService.HautsElfes)" Race="@_racesService.HautsElfes"/>
+                    <LinkCarrieresInitiales Actif="@(Race == _racesService.Gnomes)" Race="@_racesService.Gnomes"/>
                 </p>
             </div>
         </div>

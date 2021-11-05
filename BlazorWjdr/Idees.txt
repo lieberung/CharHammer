@@ -1,9 +1,11 @@
-﻿assistant de création de pnj (en fonctionn de classe sociale, province, ajouter des stéréotypes genre client de taverne avec cerrière aléatoire)
+﻿assistant de création de pnj (en fonctionn de classe sociale, province, ajouter des stéréotypes genre client de taverne avec carrière aléatoire)
 assistant de création de creature
 assistant de création d'ennemi
 assistant de création de scénar
 compétence de métier et statut social
 icônes des factions ds création perso
+rentrer le cursus espion : informateur, espion, agent, maître espion
+traduire tables coups critiques
 
 assist combat rencontre : pouvoir nommer chaque pnj de chaque rencontre (archétypes)
 armure : class avec zones et calcul des points 
