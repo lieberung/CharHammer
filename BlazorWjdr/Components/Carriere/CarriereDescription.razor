@@ -35,9 +35,9 @@
     }
     </div>
 }
-@if (Item.SourceLivre != null || !string.IsNullOrWhiteSpace(Item.Source))
+@if (Item.Source?.Book != null || !string.IsNullOrWhiteSpace(Item.Source?.Info))
 {
-    <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
+    <ReferenceItem Item="@Item.Source?.Book" Page="@Item.Source?.Info"/>
 }
 @if (Item.SousElements.Any())
 {

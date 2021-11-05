@@ -28,9 +28,9 @@
     </td>
     <!--
     <td>
-        @if (Item.SourceLivre != null)
+        @if (Item.Source?.Book != null)
         {
-            <ReferenceItem Item="@Item.SourceLivre" Page="@Item.Source"/>
+            <ReferenceItem Item="@Item.Source?.Book" Page="@Item.Source"/>
         }
     </td>
     <td>@Item.ScoreAcademique</td>

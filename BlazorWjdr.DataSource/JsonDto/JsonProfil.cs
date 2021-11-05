@@ -7,7 +7,6 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonProfil
     {
-        public int id { get; set; }
         public int cc { get; set; }
         public int ct { get; set; }
         public int f { get; set; }

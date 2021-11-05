@@ -4,7 +4,6 @@ namespace BlazorWjdr.Models
 {
     public class ProfilDto
     {
-        public int Id { get; init; }
         public int Cc { get; init; }
         public int Ct { get; init; }
         public int F { get; init; }

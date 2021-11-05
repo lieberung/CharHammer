@@ -8,12 +8,10 @@
     public class CarrieresService
     {
         private Dictionary<int, CarriereDto> _cacheCarrieres;
-        public string Json { get; set; }
 
-        public CarrieresService(Dictionary<int, CarriereDto> dataCarrieres, string json)
+        public CarrieresService(Dictionary<int, CarriereDto> dataCarrieres)
         {
             _cacheCarrieres = dataCarrieres;
-            Json = json;
             //Initialize();
         }
 
@@ -30,7 +28,7 @@
 
         public CarriereDto[] GetCarrieresParuesDans(ReferenceDto reference)
             => AllCarrieres
-                .Where(c => c.SourceLivre?.Id == reference.Id)
+                .Where(c => c.Source?.Book == reference)
                 .ToArray();
 
         /*
@@ -631,15 +629,15 @@
         }
 
         public IEnumerable<CarriereDto> CarrieresDeBretonnie => AllCarrieres
-            .Where(c => c.SourceLivre?.Id == 15 || c.SourceLivre?.Id == 16)
+            .Where(c => c.Source?.Book?.Id == 15 || c.Source?.Book?.Id == 16)
             .ToList();
 
         public IEnumerable<CarriereDto> CarrieresDuKislev => AllCarrieres
-            .Where(c => c.Id == 53 || c.SourceLivre?.Id == 14)
+            .Where(c => c.Id == 53 || c.Source?.Book?.Id == 14)
             .ToList();
 
         public List<int> CarrieresSkaven => AllCarrieres
-            .Where(c => c.SourceLivre?.Id == 17)
+            .Where(c => c.Source?.Book?.Id == 17)
             .Select(c => c.Id)
             .ToList();
 
@@ -675,7 +673,7 @@
                 {
                     CarriereInitie, CarrierePretre, CarriereGrandPretre, CarrierePretreConsacre, CarriereChevalierDeLEmpire
                 };
-                list.AddRange(AllCarrieres.Where(c => c.SourceLivre?.Id == 13 || c.Parent != null && list.Contains(c.Parent)));
+                list.AddRange(AllCarrieres.Where(c => c.Source?.Book?.Id == 13 || c.Parent != null && list.Contains(c.Parent)));
                 list.AddRange(new []
                 {
                     CarriereFanatique, CarriereFlagellant, CarriereAnachorete, CarriereMystique, CarriereExorciste, CarriereLayPriest, CarrierePrelat

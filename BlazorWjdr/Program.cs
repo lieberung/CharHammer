@@ -25,7 +25,6 @@ namespace BlazorWjdr
             var dataUsers = InitializeUsers(data.Campagne!.users);
 
             var dataAptitudes = InitializeAptitudes(data.Aptitudes!.items);
-            var dataProfils = InitializeProfils(data.Profils!.items);
             var dataReferences = InitializeReferences(data.References!.items);
             var listChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
             var dataLieuxTypes = InitializeLieuxTypes(data.Lieux!.types);
@@ -38,8 +37,8 @@ namespace BlazorWjdr
             var dataArmures = InitializeArmures(data.Armes!.armures, dataArmesAttributs);
             var dataSortileges = InitializeSortileges(data.Sortileges!.sortileges, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
-            var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataProfils, dataRaces, dataAptitudes, dataReferences);
-            var dataTablesCarrInit = InitializeTablesCarrieresInitiales(data.CarrieresInitiales!.items, dataRaces, dataCarrieres);
+            var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataRaces, dataAptitudes, dataReferences);
+            var dataTablesCarrInit = InitializeTablesCarrieresInitiales(dataCarrieres);
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataSortileges, dataUsers);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
 
@@ -48,19 +47,15 @@ namespace BlazorWjdr
             var dataScenarios = InitializeScenarios(data.Scenarios!.scenarios, dataLieux, dataLieuxTypes);
             
             Console.WriteLine($"Initializing data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
-
-            var refonte = GetJsonRefonte(data.Carrieres!.items.ToArray(), data.Profils.items.ToDictionary(p => p.id),
-                dataTablesCarrInit);
             
             builder.Services.AddSingleton(_ => new AptitudesService(dataAptitudes));
             builder.Services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
             builder.Services.AddSingleton(_ => new DieuxService(dataDieux));
             builder.Services.AddSingleton(_ => new ReferencesService(dataReferences));
-            builder.Services.AddSingleton(_ => new ProfilsService(dataProfils));
             builder.Services.AddSingleton(_ => new TablesService(dataTables));
             builder.Services.AddSingleton(_ => new ChronologieService(listChrono));
             builder.Services.AddSingleton(_ => new ArmesService(dataArmesAttributs, dataArmes, dataArmures, dataEquipements));
-            builder.Services.AddSingleton(_ => new CarrieresService(dataCarrieres, JsonConvert.SerializeObject(refonte)));
+            builder.Services.AddSingleton(_ => new CarrieresService(dataCarrieres));
             builder.Services.AddSingleton(_ => new RacesService(dataRaces));
             builder.Services.AddSingleton(_ => new TableDesCarrieresInitialesService(dataTablesCarrInit));
             builder.Services.AddSingleton(_ => new BestiolesService(dataBestioles));
@@ -301,34 +296,36 @@ namespace BlazorWjdr
         }
 
         private static Dictionary<int, List<LigneDeCarriereInitialeDto>> InitializeTablesCarrieresInitiales(
-            IEnumerable<JsonTableCarriereInitiale> items,
-            IReadOnlyDictionary<int, RaceDto> races,
             IReadOnlyDictionary<int, CarriereDto> carrieres)
         {
-            var lignesEnVrac = items
-                .Select(l => new LigneDeCarriereInitialeDto
-                {
-                    Carriere = carrieres[l.carriere],
-                    Facteur = l.facteur,
-                    Race = races[l.race]
-                })
-                .ToList();
-
-            var allLignes = lignesEnVrac
-                .Select(l => l.Race.Id)
-                .Distinct()
-                .ToDictionary(k => k, _ => new List<LigneDeCarriereInitialeDto>());
-
-            foreach (var raceId in allLignes.Keys)
+            var result = new Dictionary<int, List<LigneDeCarriereInitialeDto>>
             {
-                allLignes[raceId].AddRange(lignesEnVrac
-                    .Where(l => l.Race.Id == raceId)
-                    .OrderBy(l => l.Carriere.Groupe)
-                    .ThenBy(l => l.Carriere.Nom)
-                );
+                { 1, new List<LigneDeCarriereInitialeDto>() },
+                { 26, new List<LigneDeCarriereInitialeDto>() },
+                { 27, new List<LigneDeCarriereInitialeDto>() },
+                { 63, new List<LigneDeCarriereInitialeDto>() },
+                { 65, new List<LigneDeCarriereInitialeDto>() },
+                { 66, new List<LigneDeCarriereInitialeDto>() }
+            };
+            
+            var carrieresInitiales = carrieres.Values
+                .Where(c => c.TirageInitial != null && c.TirageInitial.Any());
+
+            foreach (var ci in carrieresInitiales)
+            {
+                foreach (var ti in ci.TirageInitial)
+                {
+                    result[ti.Race.Id].Add(new LigneDeCarriereInitialeDto { Carriere = ci, Facteur = ti.Facteur });
+                }
             }
 
-            return allLignes;
+            foreach (var key in result.Keys)
+                result[key] = result[key]
+                    .OrderBy(l => l.Carriere.Groupe)
+                    .ThenBy(l => l.Carriere.Nom)
+                    .ToList();
+
+            return result;
         }
 
         private static Dictionary<int, RaceDto> InitializeRaces(IEnumerable<JsonRace> items,
@@ -686,15 +683,10 @@ namespace BlazorWjdr
 
             return result;
         }
-
-        private static Dictionary<int, ProfilDto> InitializeProfils(IEnumerable<JsonProfil> profils)
-        {
-            return profils.Select(GetProfilDtoFromJson).ToDictionary(k => k.Id, v => v);
-        }
+        
         private static ProfilDto GetProfilDtoFromJson(JsonProfil p)
         {
             return new ProfilDto {
-                Id = p.id,
                 Ag = p.ag,
                 Cc = p.cc,
                 Ct = p.ct,
@@ -714,7 +706,6 @@ namespace BlazorWjdr
 
         private static Dictionary<int, CarriereDto> InitializeCarrieres(
             IEnumerable<JsonCarriere> carrieres,
-            IReadOnlyDictionary<int, ProfilDto> cacheProfils,
             IReadOnlyDictionary<int, RaceDto> cacheRaces,
             IReadOnlyDictionary<int, AptitudeDto> cacheAptitudes,
             IReadOnlyDictionary<int, ReferenceDto> cacheReferences)
@@ -732,14 +723,14 @@ namespace BlazorWjdr
                     CarriereMereId = c.parent,
                     DebouchesIds = c.debouch ?? Array.Empty<int>(),
                     AvancementsIds = c.avancements ?? Array.Empty<int>(),
-                    Races = (c.races ?? Array.Empty<int>()).Select(id => cacheRaces[id]).ToArray(),
+                    TirageInitial = (c.tirage ?? Array.Empty<JsonCarriereInitiale>())
+                        .Select(ti => new TirageDto { Facteur = ti.facteur, Race = cacheRaces[ti.race]}).ToArray(),
                     Dotations = c.dotations,
                     EstUneCarriereAvancee = c.avancee,
                     Image = $"images/careers/{c.id}.png",
-                    PlanDeCarriere = cacheProfils[c.plan],
+                    PlanDeCarriere = GetProfilDtoFromJson(c.profil),
                     Restriction = c.restriction ?? "",
-                    Source = c.source_page ?? "",
-                    SourceLivre = c.source_livre == null ? null : cacheReferences[c.source_livre.Value],
+                    Source = GetSourceFromJsonToDto(c.source, cacheReferences),
                     Leitmotiv = c.leitmotiv ?? "",
                     Aptitudes = GetAptitudes(c.aptitudes, cacheAptitudes),
                     AptitudesChoix = (c.aptitudes_choix ?? Array.Empty<int[]>()).Select(choix => GetAptitudes(choix, cacheAptitudes).ToArray()).ToList(),
@@ -779,29 +770,14 @@ namespace BlazorWjdr
             return cacheCarrieres;
         }
 
-        private static JsonCarriere[] GetJsonRefonte(
-            JsonCarriere[] carrieres,
-            IReadOnlyDictionary<int, JsonProfil> cacheProfils,
-            Dictionary<int, List<LigneDeCarriereInitialeDto>> tables)
+        private static SourceDto? GetSourceFromJsonToDto(JsonSource? source, IReadOnlyDictionary<int, ReferenceDto> references)
         {
-            foreach (var carriere in carrieres)
+            if (source?.id == null) return null;
+            return new SourceDto
             {
-                carriere.profil = cacheProfils[carriere.plan];
-                if (carriere.source_livre.HasValue || (carriere.source_page ?? "") != "")
-                {
-                    carriere.source = new JsonSource { id = carriere.source_livre, info = carriere.source_page };
-                }
-                var liste = new List<JsonCarriereInitiale>();
-                foreach (var raceId in tables.Keys)
-                {
-                    var toto = tables[raceId].SingleOrDefault(l => l.Carriere.Id == carriere.id);
-                    if (toto != null)
-                        liste.Add(new JsonCarriereInitiale { facteur = toto.Facteur, race = raceId });
-                }
-                if (liste.Any())
-                    carriere.tirage = liste.ToArray();
-            }
-            return carrieres.ToArray();
+                Book = references[source.id!.Value],
+                Info = source.info ?? ""
+            };
         }
 
         private static List<AptitudeDto> GetAptitudes(int[]? argAptitudes, IReadOnlyDictionary<int, AptitudeDto> cacheAptitudes)

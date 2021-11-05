@@ -5,6 +5,18 @@ namespace BlazorWjdr.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    public class TirageDto
+    {
+        public RaceDto Race { get; init; } = null!;
+        public int Facteur { get; init; }
+    }
+    
+    public class SourceDto
+    {
+        public ReferenceDto Book { get; init; } = null!;
+        public string Info { get; init; } = null!;
+    }
+
     public class CarriereDto
     {
         public int Id { get; init; }
@@ -17,7 +29,6 @@ namespace BlazorWjdr.Models
         public string Image { get; init; } = null!;
         public bool EstUneCarriereAvancee { get; init; }
         public string Restriction { get; init; } = null!;
-        public string Source { get; init; } = null!;
         public string Leitmotiv { get; init; } = null!;
         public int[] DebouchesIds { get; init; } = null!;
         public int[] AvancementsIds { get; init; } = null!;
@@ -50,8 +61,8 @@ namespace BlazorWjdr.Models
         public List<CarriereDto> Avancements = new();
         public List<CarriereDto> Origines = new();
 
-        public ReferenceDto? SourceLivre { get; init; }
-        public RaceDto[] Races { get; init; } = null!;
+        public TirageDto[] TirageInitial { get; init; } = null!;
+        public SourceDto? Source { get; init; }
 
         public int Niveau
         {
