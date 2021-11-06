@@ -111,6 +111,13 @@
       "aptitudes":[1026,1048,2031],
       "description":""},
 
+    {"id":406,"race":26,"nom":"Eustase Salingher","poids":47,"taille":111,"age":48,"cheveux":"blonds","yeux":"noisettes","masquer":true,
+      "armes":[126],
+      "cheminement":[134],
+      "profil_actuel":{"cc":19,"ct":42,"f":19,"e":21,"i":35,"ag":43,"dex":41,"intel":38,"fm":37,"soc":46},
+      "aptitudes":[1094,1106,1132,1136,2071,3831,3903, 1008,1010,1210,1048,2010,1043, 3017,2002, 1008,1010,2010,1001,1004,1030,1048,1219],
+      "description":""},
+
 {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
   "aptitudes":[3903,4206,4003,4225],"aptitudes_facultatives":[4004,4016,4017],
