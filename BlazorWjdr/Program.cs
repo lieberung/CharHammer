@@ -716,6 +716,7 @@ namespace BlazorWjdr
                     Id = c.id,
                     Groupe = c.groupe ?? "",
                     Nom = c.nom,
+                    NomAnglais = c.nom_en ?? "",
                     NiveauSpecifie = c.niveau,
                     MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.NettoyerPourRecherche(c.nom)),
                     Description = c.description,

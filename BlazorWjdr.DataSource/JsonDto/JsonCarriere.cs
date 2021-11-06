@@ -12,6 +12,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int? parent { get; set; }
         public int? niveau { get; set; }
         public string nom { get; set; } = null!;
+        public string? nom_en { get; set; }
         public bool avancee { get; set; }
         public int[]? avancements { get; set; }
         public int[]? debouch { get; set; }
