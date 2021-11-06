@@ -114,7 +114,8 @@
     {"id":406,"race":26,"nom":"Eustase Salingher","poids":47,"taille":111,"age":48,"cheveux":"blonds","yeux":"noisettes","masquer":true,
       "armes":[126],
       "cheminement":[134],
-      "profil_actuel":{"cc":19,"ct":42,"f":19,"e":21,"i":35,"ag":43,"dex":41,"intel":38,"fm":37,"soc":46},
+      "profil_initial":{"cc":19,"ct":42,"f":19,"e":21,"i":33,"ag":45,"dex":41,"intel":43,"fm":37,"soc":46},
+      "profil_actuel":{"cc":19,"ct":42,"f":19,"e":21,"i":33,"ag":50,"dex":41,"intel":43,"fm":37,"soc":46},
       "aptitudes":[1094,1106,1132,1136,2071,3831,3903, 1008,1010,1210,1048,2010,1043, 3017,2002, 1008,1010,2010,1001,1004,1030,1048,1219],
       "description":""},
 
