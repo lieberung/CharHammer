@@ -154,6 +154,8 @@
     {"id":125,"type":10,"parent":30,"nom":"Averheim","description":""},
     {"id":126,"type":23,"parent":39,"nom":"Auerswald","description":""},
     {"id":127,"type":23,"parent":39,"nom":"Gladish","description":""},
-    {"id":128,"type":23,"parent":39,"nom":"Stimmigen","description":""}
+    {"id":128,"type":23,"parent":39,"nom":"Stimmigen","description":""},
+    {"id":129,"type":22,"parent":37,"nom":"Ubersreik","population":"3 500 habitants","allegeance":"Conseil municipal (auparavant, le Graf Sigismund von Jungfreud)","industrie":"Commerce, Minerai, Ferronnerie",
+      "description":"Ville franche, ancien siège des terres de von Jungfreud. Bac."}
   ]
 }

@@ -2,7 +2,7 @@
     position: relative;
     display: inline-block;
     /*border-bottom: 1px dotted black;*/
-    cursor: help;
+    /*cursor: help;*/
 }
 a:-webkit-any-link .tooltip-wrapper { cursor:pointer; }
 
@@ -20,7 +20,7 @@ span {
     text-align: justify;
     padding: 5px 7px;
     border-radius: 6px;
-    z-index: 10;
+    z-index: 777;
 }
 
 span::after {
