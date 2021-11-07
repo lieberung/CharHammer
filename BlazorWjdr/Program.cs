@@ -67,6 +67,8 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new AppState());
 
             builder.RootComponents.Add<App>("#app");
+            
+            data.Dispose();
 
             await builder.Build().RunAsync();
         }

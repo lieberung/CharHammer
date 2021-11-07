@@ -76,5 +76,28 @@ namespace BlazorWjdr.Services
         private async Task<RootTable> GetRootTable() => await LoadRootFromJson<RootTable>($"{JsonDataPath}/table.json");
         private async Task<RootRegle> GetRootRegle() => await LoadRootFromJson<RootRegle>($"{JsonDataPath}/regle.json");
         private async Task<RootScenario> GetRootScenarios() => await LoadRootFromJson<RootScenario>($"{JsonDataPath}/scenarios.json");
+
+        public void Dispose()
+        {
+            Aptitudes!.items.Clear();
+            Armes!.armes.Clear();
+            Armes.armures.Clear();
+            Campagne!.campagnes.Clear();
+            Campagne.teams.Clear();
+            Campagne.users.Clear();
+            Creatures!.items.Clear();
+            Carrieres!.items.Clear();
+            Chrono!.items.Clear();
+            Dieux!.items.Clear();
+            Equipements!.items.Clear();
+            Lieux!.items.Clear();
+            Races!.items.Clear();
+            References!.items.Clear();
+            Regles!.items.Clear();
+            Sortileges!.sortileges = Array.Empty<JsonSortilege>();
+            Tables!.items.Clear();
+            Scenarios!.scenarios = Array.Empty<JsonScenario>();
+            _httpClient.Dispose();
+        }
     }
 }
