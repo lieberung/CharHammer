@@ -25,7 +25,7 @@
           ],
           "resume":""
         },
-        {"quand":"2021-10-30","acte":1,"duree":4,"titre":"La Fleur de Sang","lieux":[101],
+        {"quand":"2021-10-30","acte":1,"duree":4,"titre":"La promesse","scenario":"La Fleur de Sang","lieux":[101],
           "pjs":[7,9,10,11],"xp":200,"xp_comment":"",
           "rencontres": [
             {"groupe":"Les estaliens","ennemis":[{"nom":"Juan Sanchez","id":403},{"nom":"Paolo","id":401},{"nom":"Sanche","id":401},{"nom":"Ramon","id":401}]},

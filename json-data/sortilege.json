@@ -162,6 +162,11 @@
    {"id":617,"aptitudes":[2180],"ns":6,"nom":"Malédiction de Tzeentch","type":"sort rapide","distance":"Intelligence en mètres","cible":"1","duree":"Variable",
      "effet":"Tzeentchian Lore has it that all spells ultimately derive from the God’s will, and so belong to him. Using this spell, a Tzeentch sorcerer  can cause another wizard to lose the knowledge and ability to cast a spell they previously had mastery of.\nShould the curse of Tzeentch be successfully cast, the caster must then make an opposed Willpower Test against the target. If the caster wins, the target loses access to a randomly selected spell. The effects of the spell lasts for one day for every level of success scored by the caster during the opposed test."},
 
+   {"id":647,"aptitudes":[2046],"ns":4,"nom":"Détection d'un démon","type":"sort rapide","distance":"FM mètres","cible":"Spécial","duree":"Instantané",
+     "effet":"Vous détectez toutes les influences démoniaques de la zone. Vous savez immédiatement s'il y a un démon actif à portée, qu'il ait été invoqué ou qu'il soit lié à un artefact, s'il possède quelqu'un d'autre, etc."},
+   {"id":648,"aptitudes":[2046],"ns":10,"nom":"Octogramme","type":"sort rapide","distance":"Zone de BFM mètres de diamètre","cible":"Personnes dans la zone d'effet","duree":"FM minutes",
+     "effet":"Vous dessinez un octogramme sur le sol et y apposez des symboles maudits qui vous protègerons des influences démoniaques. Quiconque possède le trait Démoniaque ne peut ni entrer ni sortir de la zone à moins que sa Force Mentale ne soit deux fois supérieure à la votre."},
+
    {"id":700,"aptitudes":[2189],"ns":0,"nom":"Enthousiasme","type":"sort rapide","distance":"Rayon de BFM mètres","cible":"Zone","duree":"BFM rounds","ingredient":"sorcellerie *",
      "effet":"Vous créez une atmosphère propice à la convivialité et à la bonne humeur. Tous les Tests de Sociabilité dans la Zone d'Effet reçoivent un bonus de +10, et les Psychologies de l'Animosité et de la Haine n'ont aucun effet."},
    {"id":701,"aptitudes":[2189],"ns":0,"nom":"Chevauchée l'obscurité","type":"sort rapide","distance":"Vous","cible":"Vous","duree":"BFM minutes","ingredient":"sorcellerie *",
@@ -177,8 +182,8 @@
    
    {"id":720,"aptitudes":[2164],"ns":14,"nom":"Flétrissement","type":"sort rapide","distance":"Rayon de BFM mètres","cible":"Zone","duree":"BFM rounds","ingredient":"sorcellerie *",
      "effet":""},
-   {"id":721,"aptitudes":[2164],"ns":6,"nom":"Menace rampante","type":"sort rapide","distance":"Vous","cible":"Vous","duree":"BFM minutes","ingredient":"sorcellerie *",
-     "effet":""},
+   {"id":721,"aptitudes":[2164],"ns":6,"nom":"Menace rampante","type":"sort rapide","distance":"FM mètres","cible":"1","duree":"BFM rounds","ingredient":"sorcellerie *",
+     "effet":"Vous invoquez une nuée de créatures rampantes et envahissantes qui viennent harceler votre adversaire. La cible se retrouve Engagée contre une nuée de rats, d'araignées géantes ou de serpents. Utilisez les caractéristiques classiques du type d'animal et ajoutez lui le trait Nuée. Au prix de votre Action, vous pouvez effectuer un test d'Emprise sur les animaux pour envoyer une ou plusieurs nuées attaquer une autre cible. Lorsque le sort s'arrête, les nuées restantes disparaissent dans les ombres."},
    {"id":722,"aptitudes":[2164],"ns":10,"nom":"Douleur paralysante","type":"sort rapide","distance":"Toucher","cible":"Spécial","duree":"BFM rounds","ingredient":"sorcellerie *",
      "effet":""},
    {"id":723,"aptitudes":[2164],"ns":8,"nom":"Malchance","type":"sort rapide","distance":"Toucher","cible":"Spécial","duree":"BFM rounds","ingredient":"sorcellerie *",
