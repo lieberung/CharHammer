@@ -190,7 +190,7 @@
       "Ambiance",
       "Action"
     ],
-    "resume": "Introduction ambiance puis anéantir un groupe de cultistes de Slaanesh dans les bois",
+    "resume": "Introduction ambiance, courte enquête dans un villagen puis interrompre un rituel et anéantir un groupe de cultistes de Slaanesh dans les bois. Peut servir de diversion lors d'un voyage.",
     "source": "Encyclopedia"
   },
   {
@@ -309,7 +309,7 @@
     "resume": "Classique, étoffable, pour Klanyss et Grounch"
   },
   {
-    "nom": "La Fleur de sang",
+    "nom": "La Fleur de Sang",
     "lien": "scenarios/la-fleur-de-sang/",
     "note": 4,
     "difficulte": "Scénario d'introduction",
@@ -760,6 +760,19 @@
       "nom": "Le temps des hurlements",
       "source": "Le Premier Compagnon (v1)",
       "resume": ""
+    },
+    {
+      "nom": "Les archers",
+      "lieux":[23],
+      "source": "Casus Belli",
+      "resume": "Inspiré d'un album de Thorgal"
+    },
+    {
+      "nom": "L'escorte",
+      "note": 3,
+      "lieux":[],
+      "source": "SDEN",
+      "resume": "Les pjs sont engagés pour escorter un collecteur de taxes qui doit récolter la dîme dans chaque relais entre deux grandes villes. Le fonctionnaire s'avèrera être accroc au jeu. Une attaque de hors-la-loi est également au programme. Peut servir à égayer un trajet."
     }
   ]
 }

@@ -1,0 +1,19 @@
+﻿@page "/CarrieresDeBaseSansTirage"
+
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Services
+
+@inject CarrieresService _carrieresService
+
+<h3>CarrieresDeBaseSansTirage</h3>
+
+<ul>
+    @foreach (var carr in _carrieresService.AllCarrieres.Where(c => c.EstUneCarriereDeBase && !c.TirageInitial.Any()).ToArray())
+    {
+        <li><CarriereItem Item="@carr"/></li>
+    }
+</ul>
+
+@code {
+    
+}

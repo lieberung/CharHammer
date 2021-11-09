@@ -75,7 +75,9 @@
       {"id":2,"parent":1,"lieux":[2],"pj":true,"nom_masculin":"Impérial","nom_feminin":"Impériale","nom_autoch":"impériaux",
   "aptitudes":[1092,1136,3917],
   "description":""},
+      
 {"id":3,"parent":1,"lieux":[3],"pj":true,"nom_masculin":"Wastlandais","nom_feminin":"Wastlandaise","description":""},
+      
 {"id":4,"parent":1,"lieux":[4],"pj":true,"nom_masculin":"Bretonnien","nom_feminin":"Bretonniène","nom_autoch":"brétonniens","description":""},
 {"id":5,"parent":1,"lieux":[5],"pj":true,"nom_masculin":"Kislevite","nom_feminin":"","description":""},
 {"id":6,"parent":1,"lieux":[6],"pj":true,"nom_masculin":"Estalien","nom_feminin":"","description":""},
@@ -94,6 +96,7 @@
 {"id":19,"parent":4,"lieux":[4],"pj":true,"nom_masculin":"Moussillonais","nom_feminin":"","description":""},
 {"id":20,"parent":4,"lieux":[4],"pj":true,"nom_masculin":"Parravonais","nom_feminin":"","description":""},
 {"id":21,"parent":4,"lieux":[4],"pj":true,"nom_masculin":"Quenellois","nom_feminin":"","description":""},
+      
 {"id":22,"parent":1,"lieux":[5],"pj":true,"nom_masculin":"Gospodar","nom_feminin":"","description":""},
 {"id":23,"parent":1,"lieux":[5],"pj":true,"nom_masculin":"Ungol","nom_feminin":"","description":""},
 {"id":24,"parent":1,"lieux":[5],"pj":true,"nom_masculin":"Sang-mélé","nom_feminin":"","description":""},

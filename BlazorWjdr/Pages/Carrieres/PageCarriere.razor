@@ -72,7 +72,7 @@
                             <CarriereItemList Items="@Item.Filieres.ToArray()" HideIndicatorRestriction="true"
                                               SpecialCarriereId="@Item.Origines.Select(a => a.Id).ToArray()"/>
                         }
-                        @if (Item.EstUneCarriereAvancee == false)
+                        @if (Item.EstUneCarriereDeBase)
                         {
                             <CarriereDeBase/>
                         }

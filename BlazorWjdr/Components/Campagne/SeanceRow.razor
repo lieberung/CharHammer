@@ -2,7 +2,11 @@
 @using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Components.Campagne
 @using BlazorWjdr.Models
+@using BlazorWjdr.Services
 @using BlazorWjdr.Shared.Oi
+
+@inject AppState _appState
+
 @code{
     [Parameter] public SeanceDto Item { get; set; } = null!;
     [Parameter] public int CampagneId { get; set; }
@@ -17,6 +21,12 @@
     </td>
     <td class="px-2">@Item.Quand</td>
     <td class="px-2"><span class="insister">@Item.Titre</span></td>
+    <td class="px-2">
+        @if (Item.Scenario != null && _appState.JeSuisDieu)
+        {
+            <a href="@Item.Scenario.Lien">@Item.Scenario.Nom</a>
+        }
+    </td>
     <td class="px-2" style="text-align:center;">@(Item.Duree)h</td>
     <td class="px-2" style="text-align:center;">@(Item.Xp) xp</td>
     <td class="px-2">

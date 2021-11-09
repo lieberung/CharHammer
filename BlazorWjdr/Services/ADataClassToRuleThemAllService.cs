@@ -82,9 +82,9 @@ namespace BlazorWjdr.Services
             Aptitudes!.items.Clear();
             Armes!.armes.Clear();
             Armes.armures.Clear();
-            Campagne!.campagnes.Clear();
-            Campagne.teams.Clear();
-            Campagne.users.Clear();
+            Campagne!.campagnes = Array.Empty<JsonCampagne>();
+            Campagne.teams = Array.Empty<JsonTeam>();
+            Campagne.users = Array.Empty<JsonUser>();
             Creatures!.items.Clear();
             Carrieres!.items.Clear();
             Chrono!.items.Clear();

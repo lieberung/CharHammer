@@ -53,6 +53,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int acte { get; set; }
         public int duree { get; set; }
         public string titre { get; set; } = null!;
+        public string? scenario { get; set; } = null!;
         public int xp { get; set; }
         public string? xp_comment { get; set; }
         public string? resume { get; set; }
@@ -64,8 +65,8 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class RootCampagne
     {
-        public List<JsonUser> users { get; set; } = null!;
-        public List<JsonCampagne> campagnes { get; set; } = null!;
-        public List<JsonTeam> teams { get; set; } = null!;
+        public JsonUser[] users { get; set; } = null!;
+        public JsonCampagne[] campagnes { get; set; } = null!;
+        public JsonTeam[] teams { get; set; } = null!;
     }
 }

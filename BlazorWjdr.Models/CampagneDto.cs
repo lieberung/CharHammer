@@ -29,6 +29,7 @@
         public int Acte { get; init; }
         public int Duree { get; init; }
         public string Titre { get; init; } = null!;
+        public ScenarioDto? Scenario { get; init; }
         public int Xp { get; init; }
         public string? XpComment { get; init; }
         public string Resume { get; init; } = null!;

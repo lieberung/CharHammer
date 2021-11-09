@@ -11,7 +11,7 @@
     {
         @Item.Nom   
     }
-    @if (!HideIndicatorBase && !Item.EstUneCarriereAvancee)
+    @if (!HideIndicatorBase && Item.EstUneCarriereDeBase)
     {
         <TooltipIcon Icon="home" Classes="ml-2" Style="color:#a46022;"
                      Text="Vous pouvez entreprendre cette carrière à tout moment contre 200 points d'expérience (100 si vous avez complété votre carrière actuelle)."/>

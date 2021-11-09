@@ -8,7 +8,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using BlazorWjdr.DataSource.JsonDto;
 using BlazorWjdr.Models;
-using Newtonsoft.Json;
 
 namespace BlazorWjdr
 {
@@ -42,10 +41,10 @@ namespace BlazorWjdr
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataSortileges, dataUsers);
             var dataRegles = InitializeRegles(data.Regles!.items, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
 
-            var dataTeams = InitializeTeams(data.Campagne!.teams);
-            var listCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataBestioles, dataLieux);
             var dataScenarios = InitializeScenarios(data.Scenarios!.scenarios, dataLieux, dataLieuxTypes);
-            
+            var dataTeams = InitializeTeams(data.Campagne!.teams);
+            var dataCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataScenarios, dataBestioles, dataLieux);
+
             Console.WriteLine($"Initializing data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
             
             builder.Services.AddSingleton(_ => new AptitudesService(dataAptitudes));
@@ -61,7 +60,7 @@ namespace BlazorWjdr
             builder.Services.AddSingleton(_ => new BestiolesService(dataBestioles));
             builder.Services.AddSingleton(_ => new ReglesService(dataRegles));
             builder.Services.AddSingleton(_ => new SortilegesService(dataSortileges));
-            builder.Services.AddSingleton(_ => new CampagnesService(listCampagnes));
+            builder.Services.AddSingleton(_ => new CampagnesService(dataCampagnes));
             builder.Services.AddSingleton(_ => new ScenariosService(dataScenarios));
             
             builder.Services.AddSingleton(_ => new AppState());
@@ -73,7 +72,7 @@ namespace BlazorWjdr
             await builder.Build().RunAsync();
         }
 
-        private static IEnumerable<ScenarioDto> InitializeScenarios(IEnumerable<JsonScenario> items,
+        private static ScenarioDto[] InitializeScenarios(IEnumerable<JsonScenario> items,
             IReadOnlyDictionary<int, LieuDto> lieux,
             IReadOnlyDictionary<int, LieuTypeDto> lieuxTypes)
         {
@@ -90,13 +89,14 @@ namespace BlazorWjdr
                 Source = s.source ?? "",
                 Styles = s.styles ?? Array.Empty<string>(),
                 DejaJoue = s.deja_joue ?? ""
-            });
+            }).ToArray();
         }
 
-        private static IEnumerable<CampagneDto> InitializeCampagnes(
+        private static CampagneDto[] InitializeCampagnes(
             IReadOnlyDictionary<int, UserDto> users, 
             IReadOnlyDictionary<int, TeamDto> teams,
             IEnumerable<JsonCampagne> campagnes,
+            IEnumerable<ScenarioDto> scenarios,
             IReadOnlyDictionary<int, BestioleDto> bestioles,
             IReadOnlyDictionary<int, LieuDto> lieux)
         {
@@ -104,14 +104,15 @@ namespace BlazorWjdr
             {
                 Id = c.id,
                 Mj = users[c.mj],
-                Seances = (c.seances ?? Array.Empty<JsonSeance>()).Select(s => GetSeanceDtoFromJson(s, bestioles, lieux)).ToArray(),
+                Seances = (c.seances ?? Array.Empty<JsonSeance>()).Select(s => GetSeanceDtoFromJson(s, bestioles, scenarios, lieux)).ToArray(),
                 Team = teams[c.team],
                 Titre = c.titre
-            });
+            }).ToArray();
         }
 
         private static SeanceDto GetSeanceDtoFromJson(JsonSeance s,
             IReadOnlyDictionary<int, BestioleDto> bestioles,
+            IEnumerable<ScenarioDto> scenarios,
             IReadOnlyDictionary<int, LieuDto> lieux)
         {
             return new SeanceDto
@@ -129,6 +130,7 @@ namespace BlazorWjdr
                 Quand = s.quand,
                 Resume = s.resume ?? "",
                 Titre = s.titre,
+                Scenario = s.scenario == null ? null : scenarios.SingleOrDefault(sc => sc.Nom.ToLower() == s.scenario.ToLower()),
                 Xp = s.xp,
                 XpComment = s.xp_comment,
                 Rencontres = (s.rencontres ?? Array.Empty<JsonRencontre>())
@@ -303,6 +305,7 @@ namespace BlazorWjdr
             var result = new Dictionary<int, List<LigneDeCarriereInitialeDto>>
             {
                 { 1, new List<LigneDeCarriereInitialeDto>() },
+                { 4, new List<LigneDeCarriereInitialeDto>() },
                 { 26, new List<LigneDeCarriereInitialeDto>() },
                 { 27, new List<LigneDeCarriereInitialeDto>() },
                 { 63, new List<LigneDeCarriereInitialeDto>() },
@@ -311,7 +314,7 @@ namespace BlazorWjdr
             };
             
             var carrieresInitiales = carrieres.Values
-                .Where(c => c.TirageInitial != null && c.TirageInitial.Any());
+                .Where(c => c.TirageInitial.Any());
 
             foreach (var ci in carrieresInitiales)
             {
@@ -729,7 +732,6 @@ namespace BlazorWjdr
                     TirageInitial = (c.tirage ?? Array.Empty<JsonCarriereInitiale>())
                         .Select(ti => new TirageDto { Facteur = ti.facteur, Race = cacheRaces[ti.race]}).ToArray(),
                     Dotations = c.dotations,
-                    EstUneCarriereAvancee = c.avancee,
                     Image = $"images/careers/{c.id}.png",
                     PlanDeCarriere = GetProfilDtoFromJson(c.profil),
                     Restriction = c.restriction ?? "",

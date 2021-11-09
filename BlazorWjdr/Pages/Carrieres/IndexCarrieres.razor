@@ -115,7 +115,7 @@
         if (Filtre != "toutes")
             _carrieresLines.RemoveAll(c => c.EstUneCarriereAvancee == (Filtre == "de-base"));
 
-        _carrieresDeBase = _carrieresLines.Where(c => c.Parent == null && c.EstUneCarriereAvancee == false);
+        _carrieresDeBase = _carrieresLines.Where(c => c.Parent == null && c.EstUneCarriereDeBase);
         _carrieresAvancees = _carrieresLines.Where(c => c.Parent == null && c.EstUneCarriereAvancee);
     }
 }

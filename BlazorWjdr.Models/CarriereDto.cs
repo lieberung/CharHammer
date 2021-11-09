@@ -28,7 +28,8 @@ namespace BlazorWjdr.Models
         public string Description { get; init; } = null!;
         public string[] Ambiance { get; init; } = null!;
         public string Image { get; init; } = null!;
-        public bool EstUneCarriereAvancee { get; init; }
+        public bool EstUneCarriereDeBase => TirageInitial.Any() ||  Parent is { EstUneCarriereDeBase: true };
+        public bool EstUneCarriereAvancee => !EstUneCarriereDeBase;
         public string Restriction { get; init; } = null!;
         public string Leitmotiv { get; init; } = null!;
         public int[] DebouchesIds { get; init; } = null!;
@@ -71,9 +72,9 @@ namespace BlazorWjdr.Models
             {
                 if (NiveauSpecifie.HasValue)
                     return NiveauSpecifie.Value;
-                if (EstUneCarriereAvancee == false)
+                if (EstUneCarriereDeBase)
                     return 1;
-                return Filieres.Any(f => f.EstUneCarriereAvancee == false) ? 2 : 3;
+                return Filieres.Any(f => f.EstUneCarriereDeBase) ? 2 : 3;
             }
         }
 
