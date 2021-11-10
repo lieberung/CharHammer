@@ -306,8 +306,11 @@ namespace BlazorWjdr
             {
                 { 1, new List<LigneDeCarriereInitialeDto>() },
                 { 4, new List<LigneDeCarriereInitialeDto>() },
+                { 22, new List<LigneDeCarriereInitialeDto>() },
+                { 23, new List<LigneDeCarriereInitialeDto>() },
                 { 26, new List<LigneDeCarriereInitialeDto>() },
                 { 27, new List<LigneDeCarriereInitialeDto>() },
+                { 28, new List<LigneDeCarriereInitialeDto>() },
                 { 63, new List<LigneDeCarriereInitialeDto>() },
                 { 65, new List<LigneDeCarriereInitialeDto>() },
                 { 66, new List<LigneDeCarriereInitialeDto>() }
