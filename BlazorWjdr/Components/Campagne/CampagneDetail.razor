@@ -11,7 +11,7 @@
     </ul>
 </div>
 </div>
-@foreach (var acte in Campagne.Seances.Select(s => s.Acte).Distinct().OrderBy(a => a))
+@foreach (var acte in Campagne.Seances.Select(s => s.Acte).Distinct().OrderBy(a => a).ToArray())
 {
     <div class="card-body">
         <h3 class="card-title">@(acte == 0 ? "Introduction" : $"Acte {acte}")</h3>

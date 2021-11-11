@@ -773,6 +773,33 @@
       "lieux":[],
       "source": "SDEN",
       "resume": "Les pjs sont engagés pour escorter un collecteur de taxes qui doit récolter la dîme dans chaque relais entre deux grandes villes. Le fonctionnaire s'avèrera être accroc au jeu. Une attaque de hors-la-loi est également au programme. Peut servir à égayer un trajet."
+    },
+    {
+      "nom": "Témoin gênant",
+      "lieux":[],
+      "source": "La Gazette de Nuln Tome 2"
+    },
+    {
+      "nom": "Au secours des corbeaux",
+      "lieux":[23],
+      "source": "Casus Belli"
+    },
+    {
+      "nom": "Dormez tranquilles, la milice veille",
+      "lieux":[23],
+      "source": "Casus Belli"
+    },
+    {
+      "nom": "RsP - Nuit de sang",
+      "lieuxtypes":[30],
+      "source": "Repose Sans Paix",
+      "resume": "Les PJs s'arrêtent dans une auberge dans laquelle le personnel a été massacré par un groupe de cultistes qui se font maintenant passer pour le personnel de l'auberge et tentent d'empoisonner les visiteurs."
+    },
+    {
+      "nom": "RsP - Les raisins de la colère",
+      "lieux":[130],
+      "source": "Repose Sans Paix",
+      "resume": "Lien idéal entre LCI - MslR et LCI - LPdlT."
     }
   ]
 }

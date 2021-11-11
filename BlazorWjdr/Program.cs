@@ -120,8 +120,7 @@ namespace BlazorWjdr
                 Acte = s.acte,
                 Duree = s.duree,
                 Lieux = (s.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
-                Facts = (s.facts ?? Array.Empty<JsonFact>()).Select(f => new FactDto
-                {
+                Facts = (s.facts ?? Array.Empty<JsonFact>()).Select(f => new FactDto {
                     Fact = f.fact,
                     Pjs = (f.pjs ?? Array.Empty<int>()).Select(id => bestioles[id]).ToArray(),
                     Tri = f.tri
@@ -129,6 +128,7 @@ namespace BlazorWjdr
                 Pjs = (s.pjs ?? Array.Empty<int>()).Select(id => bestioles[id]).ToArray(),
                 Quand = s.quand,
                 Resume = s.resume ?? "",
+                Secret = s.secret,
                 Titre = s.titre,
                 Scenario = s.scenario == null ? null : scenarios.SingleOrDefault(sc => sc.Nom.ToLower() == s.scenario.ToLower()),
                 Xp = s.xp,

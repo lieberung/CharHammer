@@ -1,4 +1,6 @@
-﻿namespace BlazorWjdr.Models
+﻿using System.Linq;
+
+namespace BlazorWjdr.Models
 {
     public class UserDto
     {
@@ -21,11 +23,17 @@
         public UserDto Mj { get; init; } = null!;
         public TeamDto Team { get; init; } = null!;
         public SeanceDto[] Seances { get; init; } = null!;
+
+        public SeanceDto[] SeancesPourLActe(int acte, bool godMode) => Seances
+                .Where(s => s.Acte == acte && (godMode || s.Secret == false))
+                .OrderBy(s => s.Quand)
+                .ToArray();
     }
 
     public class SeanceDto
     {
         public string Quand { get; init; } = null!;
+        public bool Secret { get; set; }
         public int Acte { get; init; }
         public int Duree { get; init; }
         public string Titre { get; init; } = null!;
