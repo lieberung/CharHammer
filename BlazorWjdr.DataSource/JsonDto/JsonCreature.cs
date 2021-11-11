@@ -26,7 +26,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? description { get; set; }
         public string? psycho { get; set; }
         public string? histoire { get; set; }
-        public string? ambitions { get; set; }
+        public string[]? ambitions { get; set; }
         public string? notes { get; set; }
 
         public string? date_creation { get; set; }

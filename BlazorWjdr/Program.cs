@@ -248,7 +248,7 @@ namespace BlazorWjdr
                     DateDeCreation = c.date_creation ?? "",
                     Notes = c.notes ?? string.Empty,
                     Histoire = c.histoire ?? string.Empty,
-                    Ambitions = c.ambitions ?? string.Empty,
+                    Ambitions = c.ambitions ?? Array.Empty<string>(),
                     Description = c.description ?? string.Empty,
                     Nom = c.nom,
                     Poids = c.poids,
