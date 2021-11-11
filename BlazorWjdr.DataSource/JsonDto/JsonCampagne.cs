@@ -3,8 +3,6 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 namespace BlazorWjdr.DataSource.JsonDto
 {
-    using System.Collections.Generic;
-
     public class JsonUser
     {
         public int id { get; set; }

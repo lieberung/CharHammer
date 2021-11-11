@@ -629,15 +629,15 @@
         }
 
         public IEnumerable<CarriereDto> CarrieresDeBretonnie => AllCarrieres
-            .Where(c => c.Source?.Book?.Id == 15 || c.Source?.Book?.Id == 16)
+            .Where(c => c.Source?.Book.Id is 15 or 16)
             .ToList();
 
         public IEnumerable<CarriereDto> CarrieresDuKislev => AllCarrieres
-            .Where(c => c.Id == 53 || c.Source?.Book?.Id == 14)
+            .Where(c => c.Id == 53 || c.Source?.Book.Id == 14)
             .ToList();
 
         public List<int> CarrieresSkaven => AllCarrieres
-            .Where(c => c.Source?.Book?.Id == 17)
+            .Where(c => c.Source?.Book.Id == 17)
             .Select(c => c.Id)
             .ToList();
 
@@ -673,7 +673,7 @@
                 {
                     CarriereInitie, CarrierePretre, CarriereGrandPretre, CarrierePretreConsacre, CarriereChevalierDeLEmpire
                 };
-                list.AddRange(AllCarrieres.Where(c => c.Source?.Book?.Id == 13 || c.Parent != null && list.Contains(c.Parent)));
+                list.AddRange(AllCarrieres.Where(c => c.Source?.Book.Id == 13 || c.Parent != null && list.Contains(c.Parent)));
                 list.AddRange(new []
                 {
                     CarriereFanatique, CarriereFlagellant, CarriereAnachorete, CarriereMystique, CarriereExorciste, CarriereLayPriest, CarrierePrelat
