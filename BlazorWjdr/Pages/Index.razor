@@ -2,7 +2,9 @@
 
 @using BlazorWjdr.Components.Index
 @using BlazorWjdr.Services
+
 @inject CarrieresService _carrSvc
+@inject AppState _appState
 
 <MainTopRow Title="Charente Hammer - Index"/>
 
@@ -85,14 +87,14 @@
             <div class="card-body">
                 <h4 class="card-title">Le Vieux Monde</h4>
                 <p>
-                    <a href="univers/introduction/" class="mb-1 btn btn-sm btn-secondary">Introduction</a>
-                    <a href="chronologie/" class="mb-1 btn btn-sm btn-secondary">Chronologie</a>
-                    <a href="lieux/" class="mb-1 btn btn-sm btn-secondary">Lieux</a>
+                    <a href="univers/introduction/" class="btn btn-sm btn-secondary">Introduction</a>
+                    <a href="chronologie/" class="btn btn-sm btn-secondary">Chronologie</a>
+                    <a href="lieux/" class="btn btn-sm btn-secondary">Lieux</a>
                 </p>
                 <p>
-                    <a href="bestiaire/" class="mb-1 btn btn-sm btn-primary">Bestiaire</a>
-                    <a href="personnages/" class="mb-1 btn btn-sm btn-secondary">Archétypes</a>
-                    <a href="races/" class="mb-1 btn btn-sm btn-secondary">Races</a>
+                    <a href="bestiaire/" class="btn btn-sm btn-primary">Bestiaire</a>
+                    <a href="personnages/" class="btn btn-sm btn-secondary">Archétypes</a>
+                    <a href="races/" class="btn btn-sm btn-secondary">Races</a>
                 </p>
             </div>
             
@@ -109,13 +111,20 @@
             <div class="card-body">
                 <h4 class="card-title">Campagne</h4>
                 <p>
-                    <a href="aventuriers/13/2021-10-30/" class="mb-1 btn btn-sm btn-primary">Prochaine séance</a>
-                    <a href="campagne/13/seances/" class="mb-1 btn btn-sm btn-secondary">Carnets de Route</a>
-                    <a href="personnages/" class="mb-1 btn btn-sm btn-secondary">Personnages</a>
+                    <a href="campagne/13/seances/" class="btn btn-sm btn-primary">Carnets de Route</a>
+                    <a href="aventuriers/13/2021-10-30/" class="btn btn-sm btn-secondary mr-1">Dernière séance</a>
+                    @if (_appState.JeSuisDieu)
+                    {
+                        <a href="aventuriers/13/2021-11-20/" class="btn btn-sm btn-secondary mr-1">Prochaine séance</a>
+                    }
+                    <a href="personnages/" class="btn btn-sm btn-secondary mr-1">Personnages</a>
                 </p>
-                <p>
-                    <a href="scenarios/" class="mb-1 btn btn-sm btn-primary">Scénarios</a>
-                </p>
+                @if (_appState.JeSuisDieu)
+                {
+                    <p>
+                        <a href="scenarios/" class="btn btn-sm btn-primary mr-1">Scénarios</a>
+                    </p>
+                }
             </div>
         </div>
     </div>

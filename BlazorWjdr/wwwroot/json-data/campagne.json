@@ -16,7 +16,7 @@
   "campagnes": [
     {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
       "seances":[
-        {"quand":"2021-11-20","acte":1,"duree":4,"titre":"Le journal","lieux":[101],
+        {"quand":"2021-11-20","acte":1,"duree":4,"titre":"Le journal","lieux":[101],"secret":true,
           "pjs":[7,9,10,11],"xp":0,"xp_comment":"",
           "rencontres": [
             {"groupe":"Drôle de rencontre","allies":[{"nom":"Eustase Salingher","id":406}]}

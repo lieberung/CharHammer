@@ -81,6 +81,6 @@ namespace BlazorWjdr.Services
 
         #endregion
 
-        public static bool DieuEstDAccord(string? password) => password == "ramirez";
+        public static bool DieuEstDAccord(string? password) => password == "wjdr";
     }
 }
