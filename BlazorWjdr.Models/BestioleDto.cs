@@ -20,7 +20,7 @@ namespace BlazorWjdr.Models
         public int Userid { get; init; }
         public string Nom { get; init; } = null!;
         public string Histoire { get; init; } = null!;
-        public string Ambitions { get; init; } = null!;
+        public string[] Ambitions { get; init; } = null!;
         public string Description { get; init; } = null!;
         public string Notes { get; init; } = "";
         

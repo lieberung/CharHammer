@@ -78,11 +78,16 @@
                         <CardParagraphes Text="@Item.Histoire"/>
                     </div>
                 }
-                @if (Item.Ambitions != "")
+                @if (Item.Ambitions.Any())
                 {
                     <div class="card-body pt-0">
                         <h3 class="card-title">Ambitions</h3>
-                        <CardParagraphes Text="@Item.Ambitions"/>
+                        <ul>
+                        @foreach (var ambition in Item.Ambitions)
+                        {
+                            <li>@ambition</li>   
+                        }
+                        </ul>
                     </div>
                 }
                 @if (Item.Notes != "")
