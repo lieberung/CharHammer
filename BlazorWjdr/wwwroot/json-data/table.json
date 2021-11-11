@@ -320,13 +320,13 @@
       "styles_th":["width:55px;"],
       "lignes":[
         ["d100","Résultat"],
-        ["01–20","You catch a part of your anatomy (we recommend you play this for laughs) — lose 1 Wound, ignoring Toughness Bonus or Armour Points."],
-        ["21–40","Your melee weapon jars badly, or ranged weapon malfunctions or slightly breaks – your weapon suffers 1 Damage. Next round, you will act last regardless of Initiative order, Talents, or special rules as you recover (see page 156)."],
-        ["41–60","Your manoeuvre was misjudged, leaving you out of position, or you lose grip of a ranged weapon. Next round, your Action suffers a penalty of –10."],
-        ["61–70","You stumble badly, finding it hard to right yourself. Lose your next Move."],
-        ["71–80","You mishandle your weapon, or you drop your ammunition. Miss your next Action."],
-        ["81–90","You overextend yourself or stumble and twist your ankle. Suffer a Torn Muscle (Minor) injury (see page 179). This counts as a Critical Wound."],
-        ["91–00","You completely mess up, hitting 1 random ally in range using your rolled units die to determine the SL of the hit. If that’s not possible, you somehow hit yourself in the face and gain a Stunned Condition (see page 169)."]      ]
+        ["01–20","Vous vous blessez tout seul en attaquant (nous vous suggérons d'interpréter cet incident pour son côté amusant) — perdez une Blessure, sans tenir compte de votre endurance ou de vos PA."],
+        ["21–40","Votre arme de corps à corps s'ébrèche salement, ou votre arme à Distance ne fonctionne pas, voire est sur le point de se briser - votre arme subit 1 Dégât. Le prochain Round, vous agirez en dernier, sans tenir compte de l'Ordre d'Initiative, ou de vos talents, ou de toute règle spéciale alors que vous la réparez (voir page 156)."],
+        ["41–60","Vous avez mal négocié votre manoeuvre, ce qui vous met en mauvaise posture, ou vous perdez la prise de votre arme à distance. au prochain Round votre Action subira une pénalité de -10."],
+        ["61–70","Vous trébuchez franchement et peinez à vous redresser. Vous perdez votre prochain Mouvement."],
+        ["71–80","Vous ne tenez pas votre arme correctement, ou vous laissez tomber vos munitions. Vous perdez votre prochaine Action."],
+        ["81–90","Vous effectuez un mouvement trop ample, ou vous trébuchez et vous vous tordez la cheville. Subissez le Traumatisme Déchirure musculaire (Mineur) (Voir page 179). Ce dernier compte comme une Blessure Critique."],
+        ["91–00","Vous manquez complètement votre cible et touchez 1 allié au hasard à distance en utilisant le chiffre des unités de votre lancer de dés pour déterminer la BS. Si personne n'est à distance, vous vous frappez tout seul et obtenez l'Etat Sonné (Voir page 167)."]      ]
     },
     {"id":60,"titre":"Coups critiques (Tête)",
       "description": "",
