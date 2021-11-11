@@ -13,7 +13,7 @@
       "notes":"",
       "histoire":"Inspiration inspiration...",
       "description":"Febreize possède une marque de naissance sur la fesse droite ; si un simple coup d'oeil révèle une forme rappelant un phalus, une obsevation plus attentive et un peu de mauvaise foi permettent d'y voir une comête à deux queues. Serait-ce un signe ? Il n'a cependant toujours pas franchit le pas pour la soumettre à une observation plus approfondie au temple de Sigmar.",
-      "ambitions":"Febreize se demande si sa marque de naissance est un signe... Peut-être qu'en se mettant au service de Sigmar, une destinée particulière pourrait se dessiner."
+      "ambitions": ["Court terme : Evoluer au sein de sa guilde","Long terme : Febreize se demande si sa marque de naissance est un signe... Peut-être qu'en se mettant au service de Sigmar, une destinée particulière pourrait se dessiner."]
     },
     {"id":8,"race":26,"nom":"Pulpo Glascanon","user":1,"teams":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
       "sexe":0,"poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
@@ -24,7 +24,7 @@
       "aptitudes":[3147,3193,3103,1025,1026,1608,2010,1048,1094,1106,1132,1136,3831,2071,3903,3012,2298,1068],
       "histoire":"",
       "description":"",
-      "ambitions":"Pulpo souhaite ..."
+      "ambitions":["Pulpo souhaite ..."]
     },
     {"id":9,"race":1,"nom":"Huguette Heinrich","user":4,"teams":[5],"date_creation":"2021-10-10","xp_total":300,"xp_actuel":200,
       "sexe":1,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
@@ -39,7 +39,7 @@
       "histoire":"Elevée par sa mère, qui se consacrait à ses études et recherchait la connaissance. Père absent, mais qui fait parvenir de l'argent au foyer. Depuis décédé dans des circonstances obscures. Huguette a reçu une très bonne éduction. Elevée en tant que petite dernière avec quatre grands frères, elle a toujours su se défendre et un côté garçon manqué.",
       "description":"",
       "psychologie":"Pas du matin",
-      "ambitions":"Huguette souhaite en savoir plus sur qui était son père"
+      "ambitions":["Long terme : Huguette souhaite en savoir plus sur qui était son père.","Moyen terme : Réunir de quoi payer des études à sa mère."]
     },
     {"id":10,"race":27,"nom":"Rhaimon Bahrr de Fer","user":3,"teams":[5],"date_creation":"2021-10-17","xp_total":300,"xp_actuel":100,
       "sexe":0,"poids":66,"taille":138,"age":82,"cheveux":"bruns","yeux":"marrons","main_directrice":1,
@@ -55,7 +55,7 @@
       "description":"",
       "psychologie":"Rhaimon a toujours eu une curiosité atypique pour une divinité humaine, Morr, dans laquelle il semble percevoir certains aspects de {dieu nain à déterminer}.",
       "histoire":"Rhaimon a travaillé occasionnelement comme main d'oeuvre dans des forges, mais, scandalisé par la radinerie et l'incompétences des artisans humains, il a fini par prendre goûts pour des petits boulots moins reluisants mais plus lucratifs, au moins le temps de se refaire une santé.",
-      "ambitions":"Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !\nLong terme : Intégrer une guilde de forgerons et disposer de sa propre forge.\nTrès long terme : Forger une arme runnique."
+      "ambitions":["Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !","Long terme : Intégrer une guilde de forgerons et disposer de sa propre forge.","Très long terme : Forger une arme runnique."]
     },
     {"id":11,"race":1,"nom":"Ostelle de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":300,"xp_actuel":200,
       "sexe":1,"poids":70,"taille":164,"age":24,"cheveux":"châtains","yeux":"gris pâle","main_directrice":1,
@@ -69,7 +69,7 @@
       "notes":"",
       "histoire":"",
       "description":"",
-      "ambitions":"... souhaite ..."
+      "ambitions":["Moyen terme : Approfondir ses connaissances en botanique."]
     },
     
     {"id":401,"race":1,"nom":"Archétype","poids":72,"taille":169,"age":27,
