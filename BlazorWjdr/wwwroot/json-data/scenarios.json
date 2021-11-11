@@ -1,104 +1,53 @@
 ﻿{
   "scenarios": [
+    {
+      "nom": "Deux bêtes pour le prix d'une","note": 4,"duree": "Long","source":"Casus Bell- Encyclopédie Méd.Fan. vol. 2",
+      "styles": ["Chasse au monstre","Enquête","Magie","Malédiction"]
+    },
   {
-    "nom": "1,2,3 allons au bois",
-    "note": 3,
-    "duree": "Court",
-    "lieuxtypes": [13],
+    "nom": "1,2,3 allons au bois","note": 3,"duree": "Court","lieuxtypes": [13],
     "deja_joue": "x",
     "resume": "Ballade en forêt instructive avec des gosses"
   },
   {
-    "nom": "A la recherche de Luther FAZE",
-    "note": 1,
-    "resume": "Daube..."
-  },
-  {
-    "nom": "A la recherche du héro tombé",
-    "note": 2,
-    "duree": "Moyenne",
-    "styles": [
-      "Action"
-    ],
+    "nom": "A la recherche du héro tombé","note": 2,"duree": "Moyenne",
+    "styles": ["Action"],
     "resume": "Auteur jeune"
   },
   {
-    "nom": "A la recherche du poignard de lune (L'âge de glace 1)",
-    "note": 2,
-    "resume": "« Livre dont vous êtes le héro » like, quelques bonnes idées, se termine sur un changement climatique majeur donc délicat...",
-    "lieux": [98],
-    "source": "Kundïn"
+    "nom": "A la recherche du poignard de lune (L'âge de glace 1)","note": 2,"lieux": [98],"source": "Kundïn",
+    "resume": "« Livre dont vous êtes le héro » like, quelques bonnes idées, se termine sur un changement climatique majeur donc délicat..."
   },
   {
-    "nom": "Anarchy in Bretonia",
-    "note": 4,
+    "nom": "Anarchy in Bretonia","note": 4,"lieux": [4],
     "styles":["Enquête politique","Dirigiste"],
-    "resume": "Bon scénar difficile",
-    "lieux": [4]
+    "resume": "Bon scénar difficile"
   },
   {
-    "nom": "Anatomie",
-    "note": 4,
+    "nom": "Anatomie","note": 4,"lieux": [98],"source": "Encyclopedia - Emmanuel Granier",
     "styles": ["Enquête"],
-    "resume": "Enquête sur des trafiquants de cadavres commanditée par le temple de Morr et qui mettra à l'épreuve l'alignement des PJ. Il peut-être interressant d'y ajouter le docteur de « Y a-t-il un docteur dans la maison » du « Premier compagnon »",
-    "lieux": [98],
-    "source": "Encyclopedia - Emmanuel Granier"
+    "resume": "Enquête sur des trafiquants de cadavres commanditée par le temple de Morr et qui mettra à l'épreuve l'alignement des PJ. Il peut-être interressant d'y ajouter le docteur de « Y a-t-il un docteur dans la maison » du « Premier compagnon »"
   },
   {
-    "nom": "A qui le tank",
-    "note": 2,
-    "duree": "Très court",
+    "nom": "A qui le tank","note": 2,"duree": "Très court",
     "styles": ["Action"],
     "resume": "Non développé. Un engingneur nain assassiné hante un tank."
   },
   {
-    "nom": "Beau voyage, pas cher le billet",
-    "note": 4,
+    "nom": "Beau voyage, pas cher le billet","note": 4,"lieux": [120],"source": "Backstab - CROC",
     "styles": ["Enquête","Action","Evènements fixes"],
-    "resume": "Libertée et nombreuses issues",
-    "lieux": [120],
-    "source": "Backstab - CROC"
+    "resume": "Libertée et nombreuses issues"
   },
   {
-    "nom": "Brouillard en mer des griffes",
-    "source": "Kundïn"
+    "nom": "Brouillard en mer des griffes","source": "Kundïn"
   },
   {
-    "nom": "Chasse au troll dans les marais",
-    "note": 1,
-    "duree": "Court",
-    "styles": [
-      "Action"
-    ],
-    "resume": "Sans intérêt"
+    "nom": "D'or et de Sang","note": 4,"source": "Kundïn"
   },
   {
-    "nom": "Coeur de dragon",
-    "note": 1,
-    "duree": "Court",
-    "styles": [
-      "Action"
-    ],
-    "resume": "Sans intérêt"
-  },
-  {
-    "nom": "Cours toujours",
-    "note": 1,
-    "resume": "Auteur jeune",
-    "source": "X1"
-  },
-  {
-    "nom": "D'or et de Sang",
-    "note": 4,
-    "source": "Kundïn"
-  },
-  {
-    "nom": "Dans les griffes d'Hashut",
-    "note": 4,
-    "duree": "Variable",
+    "nom": "Dans les griffes d'Hashut","note": 4,"duree": "Variable","source": "Kundïn",
     "styles": ["Mission évasion"],
-    "resume": "Très risqué, perte de matos, devenir esclave des nains du Chaos et en réchaper.",
-    "source": "Kundïn"
+    "resume": "Très risqué, perte de matos, devenir esclave des nains du Chaos et en réchaper."
   },
   {
     "nom": "Danse macabre",
@@ -106,337 +55,152 @@
     "resume": "Pas lu mais le synopsis et le style sont excellents"
   },
   {
-    "nom": "Des bébés, en veux-tu en voilà",
-    "source": "Casus Belli",
+    "nom": "Des bébés, en veux-tu en voilà","source": "Casus Belli",
     "deja_joue": "Déjà joué ?"
   },
   {
-    "nom": "Deux rêves pour Manon",
-    "source": "Kundïn"
+    "nom": "Deux rêves pour Manon","source": "Kundïn"
   },
   {
-    "nom": "Elentari",
-    "note": 1,
-    "duree": "Court",
-    "styles": [
-      "Action"
-    ],
-    "resume": "Sans intérêt"
+    "nom": "Elfe artiste et pièces factices","note": 3,"duree": "Moyenne","lieux": [121],
+    "styles": ["Enquête"],
+    "resume": "Pas trop dur, l'occasion d'être présenté à un graf"
   },
   {
-    "nom": "Elfe artiste et pièces factices",
-    "note": 3,
-    "duree": "Moyenne",
-    "styles": [
-      "Enquête"
-    ],
-    "resume": "Pas trop dur, l'occasion d'être présenté à un graf",
-    "lieux": [
-      121
-    ]
+    "nom": "En terrain découvert","note": 5,"lieux": [98],"source": "Mario Heimburger",
+    "styles": ["Enquête 75%","Action 25%"],
+    "resume": "Introduit le rotzball, idéal pour débutants, très bonne moralité"
   },
   {
-    "nom": "Elisa",
-    "note": 1,
-    "duree": "",
-    "resume": "Sous développé et rien d'intéressant"
-  },
-  {
-    "nom": "En terrain découvert",
-    "note": 5,
-    "styles": [
-      "Enquête 75%",
-      "Action 25%"
-    ],
-    "resume": "Introduit le rotzball, idéal pour débutants, très bonne moralité",
-    "lieux": [
-      98
-    ],
-    "source": "Mario Heimburger"
-  },
-  {
-    "nom": "Fallait pas y aller",
-    "note": 2,
-    "styles": [
-      "Enquête 25%",
-      "Action 75%"
-    ],
+    "nom": "Fallait pas y aller","note": 2,
+    "styles": ["Enquête 25%","Action 75%"],
     "resume": "Auteur jeune, quelques bonnes idées quand même"
   },
   {
-    "nom": "Filouteries en sous-sol",
-    "note": 4,
-    "styles": [
-      "Enquête",
-      "Action"
-    ],
-    "resume": "Enquête sur des trafiquants de lingots de fer (sous la couverture des métiers d'égoutiers et de passeurs)",
-    "lieux": [
-      99
-    ],
-    "source": "Pitche"
+    "nom": "Filouteries en sous-sol","note": 4,"lieux": [99],"source": "Pitche",
+    "styles": ["Enquête","Action"],
+    "resume": "Enquête sur des trafiquants de lingots de fer (sous la couverture des métiers d'égoutiers et de passeurs)"
   },
   {
-    "nom": "Fléchettes empoisonnées",
-    "note": 1,
-    "resume": "Auteur jeune",
-    "source": "X1"
+    "nom": "Geheimnisnacht","note": 3,"duree": "Très court","source": "Encyclopedia",
+    "styles": ["Ambiance","Action"],
+    "resume": "Introduction ambiance, courte enquête dans un villagen puis interrompre un rituel et anéantir un groupe de cultistes de Slaanesh dans les bois. Peut servir de diversion lors d'un voyage."
   },
   {
-    "nom": "Geheimnisnacht",
-    "note": 3,
-    "duree": "Très court",
-    "styles": [
-      "Ambiance",
-      "Action"
-    ],
-    "resume": "Introduction ambiance, courte enquête dans un villagen puis interrompre un rituel et anéantir un groupe de cultistes de Slaanesh dans les bois. Peut servir de diversion lors d'un voyage.",
-    "source": "Encyclopedia"
-  },
-  {
-    "nom": "GefräBburg, le fief des goules",
-    "note": 1,
-    "duree": "Moyenne",
-    "styles":["Voyage","Action","Stratégie"],
-    "resume": "Auteur jeune, style pénible, non-respect de l'univers",
-    "lieux": [
-      2
-    ],
-    "source": "Akshaan"
-  },
-  {
-    "nom": "Gloating Boar",
-    "note": 4,
-    "duree": "Moyenne",
-    "styles": [
-      "Murder party"
-    ],
+    "nom": "Gloating Boar","note": 4,"duree": "Moyenne",
+    "styles": ["Murder party"],
     "resume": "Enquête au sein d'une troupe de bateleurs"
   },
   {
-    "nom": "Gros problèmes",
-    "note": 2,
-    "duree": "Court",
-    "styles": [
-      "Action",
-      "Horreur"
-    ],
+    "nom": "Gros problèmes","note": 2,"duree": "Court",
+    "styles": ["Action","Horreur"],
     "resume": "Une bonne idée : des caisses sur un navire qui contiennent des sales bestioles qui s'échappent.",
     "source": "DEMS Samir"
   },
   {
-    "nom": "Heimburg",
-    "source": "Imprimé",
+    "nom": "Heimburg","source": "Imprimé",
     "deja_joue": "Joué avec Bruno, Jonathan, Jérémy, Nico"
   },
   {
-    "nom": "Ils s'approchent",
-    "note": 1,
-    "resume": "Auteur jeune"
-  },
-  {
-    "nom": "Invocation",
-    "note": 1,
-    "duree": "Court",
-    "styles": [
-      "Action"
-    ],
-    "resume": "Sans intérêt"
-  },
-  {
-    "nom": "J'ai engagé un tueur",
-    "note": 2,
-    "duree": "Très court",
+    "nom": "J'ai engagé un tueur","note": 2,"duree": "Très court",
     "resume": "Un homme qui n'arrive pas à se suicider engage des assassins pour le tuer mais change d'avis entre temps",
     "source": "Encyclopaedia - John Foody"
   },
   {
-    "nom": "Justice sommaire",
-    "note": 4,
-    "duree": "Court",
-    "styles": [
-      "Voyage",
-      "Ambiance"
-    ],
-    "lieux": [
-      5
-    ],
-    "source": "WJDR2 La reine des glaces"
+    "nom": "Justice sommaire","note": 4,"duree": "Court","lieux": [5],"source": "WJDR2 La reine des glaces",
+    "styles": ["Voyage","Ambiance"]
   },
   {
-    "nom": "Kazidon, diplomate",
-    "note": 4,
-    "duree": "Long, 3 actes",
+    "nom": "Kazidon, diplomate","note": 4,"duree": "Long, 3 actes","lieux": [99],"source": "Groule",
     "styles":["Enquête","Action","Diplomatie"],
-    "resume": "Beaucoup de possibilités (acquisition d'une auberge, contacts), demande un peu de préparation. Se passe à Altorf, une ville plus petite serait préférable.",
-    "lieux": [99],
-    "source": "Groule"
+    "resume": "Beaucoup de possibilités (acquisition d'une auberge, contacts), demande un peu de préparation. Se passe à Altorf, une ville plus petite serait préférable."
   },
   {
-    "nom": "L'accouheur d'esprit",
-    "note": 3,
-    "duree": "Court",
+    "nom": "L'accouheur d'esprit","note": 3,"duree": "Court","source": "La Cité de Warhammer",
     "styles":["Escroquerie"],
-    "resume": "Incomplet ? Basé sur une nouvelle ? On ne comprend pas tout mais de bonnes idées.",
-    "source": "La Cité de Warhammer"
+    "resume": "Incomplet ? Basé sur une nouvelle ? On ne comprend pas tout mais de bonnes idées."
   },
   {
-    "nom": "L’écu de Baine",
+    "nom": "L’écu de Baine","source": "Casus Belli",
     "resume": "D&D",
-    "source": "Casus Belli",
     "deja_joue": "Joué en Simulacres"
   },
   {
-    "nom": "L'épée oubliée",
-    "note": 3,
-    "duree": "Moyenne",
+    "nom": "L'épée oubliée","note": 3,"duree": "Moyenne",
     "styles":["Intrigue, objets à trouver"],
     "resume": "Sympa, style simple, beaucoup de pnj, quête divine pour Véréna"
   },
   {
-    "nom": "L'épée sacrée",
-    "note": 1,
-    "duree": "Court",
-    "styles":["Livre dont vous êtes le héros !"],
-    "resume": "Auteur jeune",
-    "source": "Dallbill@aol.com"
-  },
-  {
-    "nom": "L'île inconnue",
-    "note": 3,
-    "duree": "Moyenne",
+    "nom": "L'île inconnue","note": 3,"duree": "Moyenne",
     "styles":["Exploration","Action"],
     "resume": "Classique, étoffable, pour Klanyss et Grounch"
   },
   {
-    "nom": "La Fleur de Sang",
+    "nom": "La Fleur de Sang","note": 4,"difficulte": "Scénario d'introduction","duree": "Court (4-5h)","lieux":[98],"lieuxtypes": [22],"source": "Pierrick GARRY",
+    "deja_joue": "2021-10-30 (4h30) Hélène, Stella, Vincent, Jonathan",
     "lien": "scenarios/la-fleur-de-sang/",
-    "note": 4,
-    "difficulte": "Scénario d'introduction",
-    "duree": "Court (4-5h)",
     "styles":["Enquête","Action"],
-    "resume": "Bon scénario d'introduction. Les PJ seront témoins d'un duel puis enquêtront pour libérer une jeune femme destinée à être sacrifiée pour Slaanesh",
-    "lieux":[98],
-    "lieuxtypes": [22],
-    "source": "Pierrick GARRY",
-    "deja_joue": "2021-10-30 (4h30) Hélène, Stella, Vincent, Jonathan"
+    "resume": "Bon scénario d'introduction. Les PJ seront témoins d'un duel puis enquêtront pour libérer une jeune femme destinée à être sacrifiée pour Slaanesh"
   },
   {
-    "nom": "La Forteresse De Wacheberg",
-    "note": 2,
-    "duree": "Très court",
-    "styles": [
-      "Action"
-    ],
-    "resume": "Seuls les plans du château sont inéressants",
-    "source": "Azathoth"
-  },
-  {
-    "nom": "La geste du Corbeau Blanc",
-    "note": 3,
-    "duree": "Moyenne",
-    "styles":["Ballade","Prise de position"],
-    "resume": "Adaptable à la Bretonnie avec des Herimaults",
-    "lieux": [
-      4
-    ],
-    "source": "JdR Mag 2"
-  },
-  {
-    "nom": "La guerre de la bière",
-    "note": 3,
-    "duree": "Court",
-    "styles":["Enquête facile","Action"],
-    "resume": "Les PJ doivent démanteler un trafic de bière avec des orques menés par un gobelin-vampire. Route commerciale entre Altdorf et Middenheim",
-    "deja_joue": "Oui",
-    "source": "Casus Belli - Xavier Langlet"
-  },
-  {
-    "nom": "La guilde de Parravon",
-    "note": 1,
-    "resume": "Auteur jeune"
-  },
-  {
-    "nom": "La Mascarade des Horreurs",
-    "note": 4,
-    "duree": "Très court",
+    "nom": "La Forteresse De Wacheberg","note": 2,"duree": "Très court","source": "Azathoth",
     "styles": ["Action"],
-    "lieux": [37],
+    "resume": "Seuls les plans du château sont inéressants"
+  },
+  {
+    "nom": "La geste du Corbeau Blanc","note": 3,"duree": "Moyenne","lieux": [4],"source": "JdR Mag 2",
+    "styles":["Ballade","Prise de position"],
+    "resume": "Adaptable à la Bretonnie avec des Herimaults"
+  },
+  {
+    "nom": "La guerre de la bière","note": 3,"duree": "Court","deja_joue": "Oui","source": "Casus Belli - Xavier Langlet",
+    "styles":["Enquête facile","Action"],
+    "resume": "Les PJ doivent démanteler un trafic de bière avec des orques menés par un gobelin-vampire. Route commerciale entre Altdorf et Middenheim"
+  },
+  {
+    "nom": "La Mascarade des Horreurs","note": 4,"duree": "Très court","lieux": [37],
+    "styles": ["Action"],
     "resume": "Sympa, peu de moments de répit. Le long du Reik"
   },
   {
-    "nom": "La nuit des sorcières",
-    "note": 2,
-    "duree": "Court",
+    "nom": "La nuit des sorcières","note": 2,"duree": "Court",
     "styles": ["Action"],
     "resume": "Quelques bonnes idées, quelques incohérences. Esselfurt, petit village"
   },
   {
-    "nom": "La Reine Louve (JRTM)",
-    "note": 4,
-    "duree": "Moyenne",
-    "styles": [
-      "Voyage",
-      "Ambiance",
-      "Missions"
-    ],
-    "lieux": [5],
-    "resume": "Un peu d'action, un peu de développement possible, bon scénar. Adaptable au Kislev",
-    "source": "Helkus"
+    "nom": "La Reine Louve (JRTM)","note": 4,"duree": "Moyenne","lieux": [5],"source": "Helkus",
+    "styles": ["Voyage","Ambiance","Missions"],
+    "resume": "Un peu d'action, un peu de développement possible, bon scénar. Adaptable au Kislev"
   },
   {
-    "nom": "La rose éternelle",
-    "note": 3,
-    "duree": "Moyenne",
-    "styles": [
-      "Action",
-      "Intrigue"
-    ],
+    "nom": "La rose éternelle","note": 3,"duree": "Moyenne",
+    "styles": ["Action","Intrigue"],
     "resume": "De bonnes idées, beaucoup de confusion Empire/Bretonnie",
-    "lieux": [
-      20
-    ]
+    "lieux": [20]
   },
   {
-    "nom": "La veuve noire",
-    "note": 2,
-    "duree": "Moyenne",
+    "nom": "La veuve noire","note": 2,"duree": "Moyenne",
     "styles":["Chasse à la sorcière"],
     "resume": "Auteur jeune, pas complètement nul mais pas très intéressant"
   },
   {
-    "nom": "Las Plagas",
-    "note": 2,
-    "duree": "Long",
+    "nom": "Las Plagas","note": 2,"duree": "Long",
     "resume": "Adaptation de Resident Evil 4, style pénible",
     "source": "Maxime Fourmont"
   },
   {
-    "nom": "Le baiser volé",
-    "note": 4,
-    "duree": "Très court",
+    "nom": "Le baiser volé","note": 4,"duree": "Très court","source": "Encyclopaedia - Emmanuel Granier",
     "styles":["Furtivité","Action"],
-    "resume": "Original, contact éventuel (templier de Solkan), culte de Véréna, licorne",
-    "source": "Encyclopaedia - Emmanuel Granier"
+    "resume": "Original, contact éventuel (templier de Solkan), culte de Véréna, licorne"
   },
   {
-    "nom": "Le Chaudron d'Esméralda",
-    "note": 2,
-    "duree": "Court",
-    "styles": [
-      "Action"
-    ],
-    "resume": "Auteur jeune",
-    "source": "Kundïn"
+    "nom": "Le Chaudron d'Esméralda","note": 2,"duree": "Court","source": "Kundïn",
+    "styles": ["Action"],
+    "resume": "Auteur jeune"
   },
   {
-    "nom": "Le Coeur impur",
-    "note": 3,
-    "duree": "Moyenne",
-    "styles": [
-      "Action",
-      "Dirigiste"
-    ],
+    "nom": "Le Coeur impur","note": 3,"duree": "Moyenne",
+    "styles": ["Action","Dirigiste"],
     "resume": "Scénario bourrin néanmoins intéressant, avec quelques adaptations",
     "source": "Roysten Crow"
   },
@@ -446,23 +210,17 @@
     "deja_joue": "Joué en Simulacres"
   },
   {
-    "nom": "Le Dieu sans nom",
-    "note": 3,
-    "duree": "Moyenne",
+    "nom": "Le Dieu sans nom","note": 3,"duree": "Moyenne","source": "Casus Belli - Nenad Cetkovik",
     "styles":["Action","Dirigiste"],
-    "resume": "Scénario bourrin à l'ancienne, quête divine (Véréna), objets magiques, points de folies. Village à l'orée de la Reikwald (forêt)",
-    "source": "Casus Belli - Nenad Cetkovik"
+    "resume": "Scénario bourrin à l'ancienne, quête divine (Véréna), objets magiques, points de folies. Village à l'orée de la Reikwald (forêt)"
   },
   {
-    "nom": "Le filet du ciel",
-    "source": "Casus Belli",
+    "nom": "Le filet du ciel","source": "Casus Belli",
     "deja_joue": "Joué avec Jonathan, Vincent, Nico, Marie, Claire et Alexis (!)"
   },
   {
-    "nom": "Le Fléau des Dieux",
-    "note": 4,
+    "nom": "Le Fléau des Dieux","note": 4,"source": "Kundïn",
     "resume": "En Bretonnie (mais le rédacteur connaît mal l’univers)\n\nDe :  Kundin <khroumir@yah00.fr> \nEnvoyé :  lundi 6 février 2006 13:11:26 \nÀ :  laurent bernard <laurentbernard_69@h0tmail.c0m> \nObjet :  RE: Scenar. Wjrf \"Le fléau des dieux\" \n \nSalut Laurent ! Merci beaucoup pour ton commentaire, je suis ravi que ton groupe ait pu passer de bon moments avec mon scenario ! (18 heures ! C'est ce qui s'appelle exploiter au maximum toutes les ressources d'un scenar ! Chapeau ! :)\nTes remarques sont effectivement très intéressantes : j'aime beaucoup la recherche d'ingrédients à cause d'Arthus ! Ca doit rendre les PJ fous de rage lorsqu'ils voient qu'ils ont galéré pour rien du tout ! Une pointe de sadisme de plus pour le MJ est toujours la bienvenue, eh eh eh !\nEn ce qui concerne Sunna, tu as mis le doigt sur une invraisemblance qui m'avait échappé... En effet il n'y a aucune raison qu'elle attende sagement la fin du rituel pour se manifester. D'un autre côté c'est un peu dommage de la faire intervenir (et donc mourir si on veut que les PJ soient guéris, quand même !) avant le rituel car cela prive le scenario de son final dramatique ! Il faudrait que je trouve une astuce pour justifier le retardement de son intervention. Elle pourrait par exemple attendre histoire de vérifier si Citrine est bien capable de guérir la peste de Nurgle, mais c'est un peu faible je te l'accorde... Je vais y réfléchir...\nJe corrigerai et améliorerai sans doute ce scenario en le transposant pour la deuxième édition, mais ce ne sera pas avant un petit moment car auparavant, il faut que je finisse de transposer ma campagne de l'Age de glace... Et je suis à la bourre !!\nEn tout cas merci encore pour tes commentaires ! Si tu joues d'autres de mes scenars et si tu vois des choses a améliorer, je suis preneur également !\nBien à toi,\nKundïn\n\nlaurent bernard <laurentbernard_69@h0tmail.c0m> a écrit :\nAh! ça fait plaisir de tomber sur un scénario d'aussi bonne qualité (Le fléau des dieux) ! 18h de jeu, ils n'ont pas tout résolu dans les règles de l'art (alcool n'aidant pas) mais on a tous aimé et passé d'excellents moments ! J'ai beaucoup joué du répurgateur pour les déloger et les contrarier dans leurs plans, ça rajoutait du piment. En tout cas l'histoire offre de nombreuses possibilités. On pourrait l'agrandir avec une recherche d'ingrédients périlleuse commanditée par Arthus (si son enjeu véritable est dévoilé) pensant avoir trouvé un remède à la peste et qui se solderait naturellement par un échec... histoire qu'ils décrépissent un peu plus jusqu'à être obligés de n'agir plus que dans l'ombre (pour MJ sadiques). Une remarque sur Sunna : il peut paraître étrange qu'elle n'essaie pas d'éliminer Citrine avant l'acommplissement du rituel pour l'empécher de guérrir à nouveau la peste (c'est pas bon la réputation de sa maladie incurrable favorite !).\nExcellent travail en tout cas !\nLaurent",
-    "source": "Kundïn",
     "deja_joue": "Joué avec Georges, Thorg et Klanyss, scénar de putte (peste de nurgle), point de destin à la clef"
   },
   {
@@ -470,208 +228,125 @@
     "source": "Kundïn"
   },
   {
-    "nom": "Le maître chanteur",
+    "nom": "Le maître chanteur","source": "Casus Belli",
     "resume": "JRTM",
-    "source": "Casus Belli",
     "deja_joue": "Joué en Simulacres"
   },
   {
-    "nom": "Le Maître de l'Extase",
-    "note": 3,
-    "duree": "Moyenne",
+    "nom": "Le Maître de l'Extase","note": 3,"duree": "Moyenne","lieux": [16,23],"source": "Angegardien",
     "styles":["Enquête","Mini missions"],
-    "resume": "Sympa sans plus, permet de cotoyer les milieux underground, une famille puissante de Marienburg et un culte puissant de Slaanesh",
-    "lieux": [16,23],
-    "source": "Angegardien"
+    "resume": "Sympa sans plus, permet de cotoyer les milieux underground, une famille puissante de Marienburg et un culte puissant de Slaanesh"
   },
   {
-    "nom": "Le mal en héritage",
-    "lieux": [8],
-    "resume": "L’Anguille, cité portuaire bretonnienne",
-    "source": "Kundïn"
+    "nom": "Le mal en héritage","lieux": [8],"source": "Kundïn",
+    "resume": "L’Anguille, cité portuaire bretonnienne"
   },
   {
-    "nom": "Le prix d'une chimère",
-    "lieux": [119],
-    "source": "cmonin@libertysurf.fr"
+    "nom": "Le prix d'une chimère","lieux": [119],"source": "cmonin@libertysurf.fr"
   },
   {
-    "nom": "Le roi du nord",
-    "note": 4,
+    "nom": "Le roi du nord","note": 4,"lieux": [41,23],
     "styles": ["Intrigue politique"],
-    "resume": "Intrigue politique et casus belli",
-    "lieux": [41,23]
+    "resume": "Intrigue politique et casus belli"
   },
   {
-    "nom": "Le sablier d'opale",
-    "lieux": [119]
+    "nom": "Le sablier d'opale","lieux": [119]
   },
   {
-    "nom": "Le schisme de l'Ordre Bleu",
-    "source": "Kundïn",
+    "nom": "Le schisme de l'Ordre Bleu","source": "Kundïn",
     "deja_joue": "Possible"
   },
   {
-    "nom": "Le silence est une vertu",
-    "note": 3,
-    "duree": "Moyenne",
+    "nom": "Le silence est une vertu","note": 3,"duree": "Moyenne","lieux": [12],"source": "Maxime Fourmont",
     "styles": ["Mystère","Magie","Exploration"],
-    "lieux": [12],
-    "resume": "Peu d'action, long passage où les PJ sont sourds et muets, sorcier elfe noir. Bordeleaux, île muette",
-    "source": "Maxime Fourmont"
+    "resume": "Peu d'action, long passage où les PJ sont sourds et muets, sorcier elfe noir. Bordeleaux, île muette"
   },
   {
-    "nom": "Le soleil chasse les ténèbres",
-    "note": 2,
+    "nom": "Le soleil chasse les ténèbres","note": 2,
     "styles": ["Action","Plus ou moins linéaire"]
   },
   {
-    "nom": "Le trésor de l’aubergiste",
+    "nom": "Le trésor de l’aubergiste","source": "Mario Heimburger",
     "resume": "Auberge bloquée dans le temps, un peu zarb de mémoire",
-    "source": "Mario Heimburger",
     "deja_joue": "Joué avec Nico en MJ"
   },
   {
-    "nom": "Le trésor du vieux Teapot",
-    "note": 4,
-    "duree": "Long",
+    "nom": "Le trésor du vieux Teapot","note": 4,"duree": "Long",
     "styles": ["Action"],
     "resume": "Courses entre navires, trahison, île au trésor, baston, ensemble sympa, prévoir deux séances"
   },
   {
-    "nom": "Les entrailles du rat cornu",
-    "note": 4,
-    "duree": "Moyenne",
+    "nom": "Les entrailles du rat cornu","note": 4,"duree": "Moyenne","lieux": [2],"source": "Backstab - Timbre poste",
     "styles": ["Enquête succinte","Action"],
-    "resume": "Pour PJ très haut niveau (après la CI), grand spectacle, final explosif (guerre et démon majeur)",
-    "lieux": [2],
-    "source": "Backstab - Timbre poste"
+    "resume": "Pour PJ très haut niveau (après la CI), grand spectacle, final explosif (guerre et démon majeur)"
   },
   {
-    "nom": "Les esclaves du destin",
-    "note": 4,
-    "duree": "Court",
+    "nom": "Les esclaves du destin","note": 4,"duree": "Court","lieux": [2,4],"source": "Les fils du Rat Cornu",
     "styles": ["Enquête succinte]","Action"],
-    "resume": "Bétail qui disparaît, le sergent de la garde retrouvé mort, les PJ doivent enquêter",
-    "lieux": [2,4],
-    "source": "Les fils du Rat Cornu"
+    "resume": "Bétail qui disparaît, le sergent de la garde retrouvé mort, les PJ doivent enquêter"
   },
   {
-    "nom": "Les gobelins y'en a jamais assez",
-    "note": 1,
-    "duree": "Court",
-    "resume": "Auteur jeune"
-  },
-  {
-    "nom": "Linceul de brume",
-    "note": 1,
-    "duree": "Court",
-    "styles": ["Pas d'enquête"],
-    "resume": "Village, mer, île, repaire d'un nécromant, nul (pour MJ fatiqué, perché, bourré, arraché, fainéant ou pris de cours). Nebeldorf, Côte de la Mer des Griffes",
-    "deja_joue": "Oui",
-    "source": "tonito.free.fr"
-  },
-  {
-    "nom": "Marées maudites",
-    "note": 4,
+    "nom": "Marées maudites","note": 4,"lieux": [23],"source": "James Wallis",
     "styles":["Enquête","Action"],
-    "resume": "Une histoire de voleur et de crustacé, très bon mais compliqué à faire jouer",
-    "lieux": [23],
-    "source": "James Wallis"
+    "resume": "Une histoire de voleur et de crustacé, très bon mais compliqué à faire jouer"
   },
   {
-    "nom": "Marienburg Chronicles",
-    "note": 3,
-    "duree": "Moyenne",
+    "nom": "Marienburg Chronicles","note": 3,"duree": "Moyenne","lieux": [23],"source": "GenCon - Mario Mora & Eric Ruocco",
     "styles": ["Enquête","Réflexion","Action"],
-    "lieux": [23],
-    "resume": "Dirigiste, bien mené, bonnes idées. Marienburg, bâteau, île oubliée",
-    "source": "GenCon - Mario Mora & Eric Ruocco"
+    "resume": "Dirigiste, bien mené, bonnes idées. Marienburg, bâteau, île oubliée"
   },
   {
-    "nom": "Ne noyez pas mon cognac",
-    "source": "Casus Belli",
+    "nom": "Ne noyez pas mon cognac","source": "Casus Belli",
     "deja_joue": "Déjà joué"
   },
   {
-    "nom": "On the road",
-    "note": 4,
-    "duree": "Très court",
-    "styles": [
-      "Evènement",
-      "Action"
-    ],
+    "nom": "On the road","note": 4,"duree": "Très court",
+    "styles": ["Evènement","Action"],
     "resume": "Une diligence impériale incontrôlable se dirige droit sur les PJ. Des gobelins saouls s'en sont rendus maîtres."
   },
   {
-    "nom": "Où sont passés les enfants",
-    "note": 2,
-    "duree": "Court",
-    "styles": [
-      "Ballade",
-      "Action"
-    ],
+    "nom": "Où sont passés les enfants","note": 2,"duree": "Court",
+    "styles": ["Ballade","Action"],
     "resume": "Auteur jeune, un illusionniste capture des enfants pour un rituel chaotique"
   },
   {
-    "nom": "Perfide Albion",
-    "source": "Casus Belli",
+    "nom": "Perfide Albion","source": "Casus Belli",
     "deja_joue": "Joué dans le hangar chez Jonathan"
   },
   {
-    "nom": "Perd ton sang-froid",
-    "note": 2,
+    "nom": "Perd ton sang-froid","note": 2,"lieux": [2,5],
     "styles": ["Psycho pour perso jetables"],
-    "lieux": [2,5],
     "resume": "Très difficile à adapter, plus à jouer pour le délire (les persos sont fous et recherchés dans tout l'empire à la fin). De l'Empire au Kislev"
   },
   {
-    "nom": "Quand on parle du loup",
-    "note": 5,
+    "nom": "Quand on parle du loup","note": 5,"lieux":[122],
     "styles": ["Enquête","Ambiance"],
-    "lieux":[122],
     "resume": "A intégrer dans la campagne v1 Sombre est l'aîle de la mort"
   },
   {
-    "nom": "Que la bête meure !",
-    "note": 5,
+    "nom": "Que la bête meure !","note": 5,"lieux": [99,119,53],"source": "Inconnu",
     "styles": ["Enquête 50%","Baston 50%"],
-    "resume": "Excellent, en 3 parties, la dernière est introuvable.",
-    "lieux": [99,119,53],
-    "source": "Inconnu"
+    "resume": "Excellent, en 3 parties, la dernière est introuvable."
   },
   {
-    "nom": "Que la fête continue...",
-    "note": 4,
-    "duree": "Court",
+    "nom": "Que la fête continue...","note": 4,"duree": "Court","lieux":[123],
     "styles": ["Théâtrale"],
-    "resume":"Style et ensemble excellent surtout si beaucoup de roleplay",
-    "lieux":[123]
+    "resume":"Style et ensemble excellent surtout si beaucoup de roleplay"
   },
   {
-    "nom": "Ratiboises",
-    "note": 3,
-    "duree": "Court",
+    "nom": "Ratiboises","note": 3,"duree": "Court","lieuxtypes": [29],"source": "Pitche",
     "styles": ["Action"],
-    "resume": "Endiguer une épidémie, ballade dans les égouts",
-    "lieuxtypes": [29],
-    "source": "Pitche"
+    "resume": "Endiguer une épidémie, ballade dans les égouts"
   },
   {
-    "nom": "Rôtir, c'est mourir un peu",
-    "note": 5,
-    "duree": "Moyenne",
+    "nom": "Rôtir, c'est mourir un peu","note": 5,"duree": "Moyenne","source": "Backstab - Hièronimus Kartak",
     "styles":["Enquête facile","Action spectacle"],
-    "resume": "Pour PJ expérimentés, plaira à Klanyss et Grounch. Sud de l'Empire",
-    "source": "Backstab - Hièronimus Kartak"
+    "resume": "Pour PJ expérimentés, plaira à Klanyss et Grounch. Sud de l'Empire"
   },
   {
-    "nom": "Sourire jaune",
-    "note": 4,
-    "duree": "Moyenne",
+    "nom": "Sourire jaune","note": 4,"duree": "Moyenne","source": "Warhammer Team - ZedroS",
     "styles":["Dépaysant","Escorte","Humour"],
-    "resume": "Une histoire de tournesols...",
-    "source": "Warhammer Team - ZedroS"
+    "resume": "Une histoire de tournesols..."
   },
   {
     "nom": "Sous le regard de Solkan",
@@ -679,127 +354,99 @@
     "deja_joue": "Joué il y a très longtemps"
   },
   {
-    "nom": "Tempêtes sur Brionne",
-    "lieux": [4],
-    "source": "Kundïn"
+    "nom": "Tempêtes sur Brionne","lieux": [4],"source": "Kundïn"
   },
   {
-    "nom": "Tueurs de géant",
-    "note": 2,
-    "duree": "Court",
+    "nom": "Tueurs de géant","note": 2,"duree": "Court","source": "Valrak de Nuln",
     "styles": ["Chasse au monstre"],
-    "resume": "Pas de morale, auteur jeune",
-    "source": "Valrak de Nuln"
+    "resume": "Pas de morale, auteur jeune"
   },
   {
-    "nom": "Un rat peut en cacher un autre",
-    "note": 2,
-    "duree": "Très court",
+    "nom": "Un rat peut en cacher un autre","note": 2,"duree": "Très court",
     "resume": "Très court, peut servir d'introduction à autre chose. Le lieu importe peu"
   },
   {
-    "nom": "Un voleur dans la tempête",
-    "note": 5,
-    "styles": ["Enquête"],
-    "difficulte": "Assez difficile",
-    "source": "Helkus"
+    "nom": "Un voleur dans la tempête","note": 5,"difficulte": "Assez difficile","source": "Helkus",
+    "styles": ["Enquête"]
   },
   {
-    "nom": "Une femme en or",
-    "note": 2,
-    "resume": "Voir « Gros problèmes »",
-    "source": "DEMS Samir"
+    "nom": "Une femme en or","note": 2,"source": "DEMS Samir",
+    "resume": "Voir « Gros problèmes »"
   },
   {
-    "nom": "Une histoire de fantômes",
-    "note": 4,
-    "duree": "Court",
+    "nom": "Une histoire de fantômes","note": 4,"duree": "Court","difficulte": "Facile",
     "styles": ["Enquête"],
-    "difficulte": "Facile",
     "resume": "Un des Pjs devient un fantôme, et le groupe doit découvrir pourquoi en évitant le groupe d'un chasseur de sorcières. Diesdorf (sur la route entre Altdorf et Nuln)"
   },
   {
-    "nom": "Une histoire de fesses",
-    "note": 5,
-    "duree": "Moyenne",
+    "nom": "Une histoire de fesses","note": 5,"duree": "Moyenne","source": "Casus Belli",
     "styles": ["Enquête","Action"],
-    "resume": "Possibilité de contact",
-    "source": "Casus Belli"
+    "resume": "Possibilité de contact"
   },
   {
-    "nom": "Vert Crescendo",
-    "source": "Casus Belli",
+    "nom": "Vert Crescendo","source": "Casus Belli",
     "deja_joue": "Joué en Simulacres"
   },
   {
-    "nom": "Witch Hunter",
-    "duree": "Court",
+    "nom": "Witch Hunter","duree": "Court",
     "resume": "Pas un grand souvenir",
     "deja_joue": "Joué avec Bruno, Jonathan et Jérémy"
   },
     {
-      "nom": "Une fin brutale",
-      "source": "Les royaumes de sorcellerie (v2)",
-      "resume": "Pour 3 ou 4 joueurs au milieu de leur 2ème carrière, dont un sorcier.",
-      "lieux": [125]
+      "nom": "Une fin brutale","source": "Les royaumes de sorcellerie (v2)","lieux": [125],
+      "resume": "Pour 3 ou 4 joueurs au milieu de leur 2ème carrière, dont un sorcier."
     },
     {
-      "nom": "Frères de sang",
-      "source": "Le Premier Compagnon (v1)",
-      "resume": "Pour un groupe chevronné avec un sorcier et un guerrier efficace.\nDans un petit village proche d'une route importante (ou d'un fleuve) dans une zone forestière.\nLCI : section 'voyage' de Il y a quelque chose de pourri à Kislev ou de L'Empire en flammes.",
-      "lieux": [127],
-      "lieuxtypes": [23,28]
+      "nom": "Frères de sang","lieux": [127],"lieuxtypes": [23,28],"source": "Le Premier Compagnon (v1)",
+      "resume": "Pour un groupe chevronné avec un sorcier et un guerrier efficace.\nDans un petit village proche d'une route importante (ou d'un fleuve) dans une zone forestière.\nLCI : section 'voyage' de Il y a quelque chose de pourri à Kislev ou de L'Empire en flammes."
     },
     {
-      "nom": "Avec l'aide de mes amis",
-      "source": "Le Premier Compagnon (v1)",
-      "resume": "Pour un groupe débutant avec éventuellement un apprenti sorcier et un filou.\nLCI : Le pouvoir derrière le trône.",
-      "lieuxtypes": [22]
+      "nom": "Avec l'aide de mes amis","source": "Le Premier Compagnon (v1)","lieuxtypes": [22],
+      "resume": "Pour un groupe débutant avec éventuellement un apprenti sorcier et un filou.\nLCI : Le pouvoir derrière le trône."
     },
     {
       "nom": "Le temps des hurlements",
-      "source": "Le Premier Compagnon (v1)",
-      "resume": ""
+      "source": "Le Premier Compagnon (v1)"
     },
     {
-      "nom": "Les archers",
-      "lieux":[23],
-      "source": "Casus Belli",
+      "nom": "Les archers","lieux":[23],"source": "Casus Belli",
       "resume": "Inspiré d'un album de Thorgal"
     },
     {
-      "nom": "L'escorte",
-      "note": 3,
-      "lieux":[],
-      "source": "SDEN",
+      "nom": "L'escorte","note": 3,"source": "SDEN",
       "resume": "Les pjs sont engagés pour escorter un collecteur de taxes qui doit récolter la dîme dans chaque relais entre deux grandes villes. Le fonctionnaire s'avèrera être accroc au jeu. Une attaque de hors-la-loi est également au programme. Peut servir à égayer un trajet."
     },
     {
-      "nom": "Témoin gênant",
-      "lieux":[],
-      "source": "La Gazette de Nuln Tome 2"
+      "nom": "Témoin gênant","source": "La Gazette de Nuln Tome 2"
     },
     {
-      "nom": "Au secours des corbeaux",
-      "lieux":[23],
-      "source": "Casus Belli"
+      "nom": "Au secours des corbeaux","lieux":[23],"source": "Casus Belli"
     },
     {
-      "nom": "Dormez tranquilles, la milice veille",
-      "lieux":[23],
-      "source": "Casus Belli"
+      "nom": "Dormez tranquilles, la milice veille","lieux":[23],"source": "Casus Belli"
     },
     {
-      "nom": "RsP - Nuit de sang",
-      "lieuxtypes":[30],
-      "source": "Repose Sans Paix",
+      "nom": "RsP - Nuit de sang","lieuxtypes":[30],"source": "Repose Sans Paix",
       "resume": "Les PJs s'arrêtent dans une auberge dans laquelle le personnel a été massacré par un groupe de cultistes qui se font maintenant passer pour le personnel de l'auberge et tentent d'empoisonner les visiteurs."
     },
     {
-      "nom": "RsP - Les raisins de la colère",
-      "lieux":[130],
-      "source": "Repose Sans Paix",
+      "nom": "RsP - Les raisins de la colère","lieux":[130],"source": "Repose Sans Paix",
       "resume": "Lien idéal entre LCI - MslR et LCI - LPdlT."
-    }
+    },
+    
+    {"nom": "Les gobelins y'en a jamais assez","note": 1,"duree": "Court","resume": "Auteur jeune"},
+    {"nom": "Linceul de brume","note": 1,"duree": "Court","styles": ["Pas d'enquête"],"resume": "Village, mer, île, repaire d'un nécromant, nul (pour MJ fatiqué, perché, bourré, arraché, fainéant ou pris de cours). Nebeldorf, Côte de la Mer des Griffes","deja_joue": "Oui","source": "tonito.free.fr"},
+    {"nom": "Chasse au troll dans les marais","note": 1,"duree": "Court","styles": ["Action"],"resume": "Sans intérêt"},
+    {"nom": "Coeur de dragon","note": 1,"duree": "Court","styles": ["Action"],"resume": "Sans intérêt"},
+    {"nom": "Cours toujours","note": 1,"resume": "Auteur jeune","source": "X1"},
+    {"nom": "A la recherche de Luther FAZE","note": 1,"resume": "Daube..."},
+    {"nom": "Elentari","note": 1,"duree": "Court","styles": ["Action"],"resume": "Sans intérêt"},
+    {"nom": "Elisa","note": 1,"duree": "","resume": "Sous développé et rien d'intéressant"},
+    {"nom": "La guilde de Parravon","note": 1,"resume": "Auteur jeune"},
+    {"nom": "Fléchettes empoisonnées","note": 1,"source": "X1","resume": "Auteur jeune"},
+    {"nom": "GefräBburg, le fief des goules","note": 1,"duree": "Moyenne","lieux": [2],"source": "Akshaan","styles":["Voyage","Action","Stratégie"],"resume": "Auteur jeune, style pénible, non-respect de l'univers"},
+    {"nom": "Ils s'approchent","note": 1,"resume": "Auteur jeune"},
+    {"nom": "Invocation","note": 1,"duree": "Court","styles": ["Action"],"resume": "Sans intérêt"},
+    {"nom": "L'épée sacrée","note": 1,"duree": "Court","source": "Dallbill@aol.com","styles":["Livre dont vous êtes le héros !"],"resume": "Auteur jeune"}
   ]
 }
