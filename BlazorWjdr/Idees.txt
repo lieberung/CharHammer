@@ -6,9 +6,7 @@ compétence de métier et statut social
 icônes des factions ds création perso
 rentrer le cursus espion : informateur, espion, agent, maître espion
 traduire tables coups critiques
-
-assist combat rencontre : pouvoir nommer chaque pnj de chaque rencontre (archétypes)
-armure : class avec zones et calcul des points 
+carriere detail : races proposant la carrière
 
 ajouter blasons empire / bretonnie / kislev sur les carrières
 
@@ -37,19 +35,8 @@ Autorité naturelle (Trait) : +10% lié à Charisme (pour la persuasion), Intimi
 Blasé (Trait) : -10% aux jets d'intimidation qui vous prennent pour cible.
 Esprit créatif : +10% aux jets d'Int visant à inventer des stratgèmes, mécanismes, +10% aux jets d'ingégnirie
 
-Action de combat : frappe à deux armes (action complète), -20 CC si 1A, -10 CC si 2A, pas de malus si 3 A, si réussi 2 jets de dégâts successif (1 de chaque arme).
-
 Cri de guerre : Test contre la Peur des ennemis, si Echec -10 à tous ses jets pendant un Round
 
 Bunit 
 
 #fef4d9 #faf1d0 #f3e3c1
-
-L'arène, peut se jouer entre les scénar
-X combats d'affilée, avec des thèmes, différents niveaux de difficulté
-genre une arme obligatoire (fléau à grain) éventuellement choisie par les spectateurs
-certaines épreuves sont définies en fonction des affinités (arme de maîtrise) du personnage
-un combat par jour max, entrée payante, gradins payants, récompense en fonction du nombre de spectateurs pour inciter le candidat à faire de la pub avant, et pour payer l'achat des créatures de l'arème
-l'équipement du personnage est gagné par l'arène si elle vient à bout de lui
-récompenses armes/armures/objets/or/instructeur, l'épée magique de tel héro qui vient d'y mourrir
-aventure où ils rencontrent un chasseur de monstre qui vend régulièrement à l'arène, et ils peuvent découvrir ce lieu reclu
