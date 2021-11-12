@@ -86,6 +86,8 @@
       "description":""},
     {"id":228,"groupes":["Restauration"],"nom":"Fromages divers (la livre)","prix":"7 s","enc":"0","dispo":"Commun",
       "description":""},
+    {"id":229,"groupes":["Restauration"],"nom":"Grand vin (bouteille)","prix":"10/-","enc":"0","dispo":"Peu commun",
+      "description":""},
 
     {"id":301,"groupes":["Outils"],"nom":"Aiguille","prix":"1/-","enc":"0","dispo":"Commun",
       "description":""},

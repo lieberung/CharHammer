@@ -5,7 +5,7 @@
       "styles": ["Chasse au monstre","Enquête","Magie","Malédiction"]
     },
   {
-    "nom": "1,2,3 allons au bois","note": 3,"duree": "Court","lieuxtypes": [13],
+    "nom": "Un, deux, trois, allons au bois","note": 3,"duree": "Court","lieuxtypes": [13],
     "deja_joue": "x",
     "resume": "Ballade en forêt instructive avec des gosses"
   },
@@ -362,10 +362,6 @@
     "resume": "Pas de morale, auteur jeune"
   },
   {
-    "nom": "Un rat peut en cacher un autre","note": 2,"duree": "Très court",
-    "resume": "Très court, peut servir d'introduction à autre chose. Le lieu importe peu"
-  },
-  {
     "nom": "Un voleur dans la tempête","note": 5,"difficulte": "Assez difficile","source": "Helkus",
     "styles": ["Enquête"]
   },
@@ -433,7 +429,12 @@
       "nom": "RsP - Les raisins de la colère","lieux":[130],"source": "Repose Sans Paix",
       "resume": "Lien idéal entre LCI - MslR et LCI - LPdlT."
     },
-    
+    {
+      "nom": "Les jolies choses","note": 3,"lieux":[131,133,132],"lieuxtypes":[33,32],"difficulte":"Scénario d'introduction","source": "Wjdr2 Kit du meneur de jeu",
+      "resume": "Scénario d'introduction. Acte 1 dans une auberge ou un chef bandit est retenu prisonnier en attendant que des patrouilleurs viennent appliquer la justice. Acte 2 Voyage sur route."
+    },
+
+    {"nom": "Un rat peut en cacher un autre","note": 1,"duree": "Très court","resume": "Auteur jeune. Très court, peut servir d'introduction à autre chose. Le lieu importe peu."},
     {"nom": "Les gobelins y'en a jamais assez","note": 1,"duree": "Court","resume": "Auteur jeune"},
     {"nom": "Linceul de brume","note": 1,"duree": "Court","styles": ["Pas d'enquête"],"resume": "Village, mer, île, repaire d'un nécromant, nul (pour MJ fatiqué, perché, bourré, arraché, fainéant ou pris de cours). Nebeldorf, Côte de la Mer des Griffes","deja_joue": "Oui","source": "tonito.free.fr"},
     {"nom": "Chasse au troll dans les marais","note": 1,"duree": "Court","styles": ["Action"],"resume": "Sans intérêt"},

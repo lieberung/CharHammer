@@ -4,7 +4,8 @@
     {"id":2,"email":"","pseudo":"Vincent"},
     {"id":3,"email":"","pseudo":"Jonathan"},
     {"id":4,"email":"","pseudo":"Stella"},
-    {"id":5,"email":"","pseudo":"Hélène"}
+    {"id":5,"email":"","pseudo":"Hélène"},
+    {"id":999,"email":"","pseudo":"Prétirés"}
   ],
   "teams": [
     {"id":1,"nom":"[2011] La Campagne Impériale Toulouse"},
@@ -16,23 +17,37 @@
   "campagnes": [
     {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
       "seances":[
+        {"quand":"2021-04-01","acte":1,"duree":4,"titre":"Ombres sur Bögenhafen","lieux":[101],"secret":true,
+          "pjs":[7,9,10,11],"xp":200,
+          "resume":"Sur la route pour rejoindre le village d'Ostelle"
+        },
+        {"quand":"2021-03-01","acte":1,"duree":4,"titre":"Erreur sur la personne","lieux":[99,104],"secret":true,
+          "pjs":[7,9,10,11],"xp":200,
+          "resume":"Sur la route pour rejoindre le village d'Ostelle"
+        },
+        {"quand":"2021-02-01","acte":1,"duree":4,"titre":"Un, deux, trois, allons au bois","lieux":[101],"secret":true,
+          "pjs":[7,9,10,11],"xp":200,
+          "resume":"Sur la route pour rejoindre le village d'Ostelle"
+        },
+        {"quand":"2021-12-20","acte":1,"duree":4,"titre":"Les jolies choses","scenario":"Les jolies choses","lieux":[101],"secret":true,
+          "pjs":[7,9,10,11],"xp":200,
+          "resume":"Sur la route pour rejoindre le village d'Ostelle"
+        },
         {"quand":"2021-11-20","acte":1,"duree":4,"titre":"Le journal","lieux":[101],"secret":true,
-          "pjs":[7,9,10,11],"xp":0,"xp_comment":"",
+          "pjs":[7,9,10,11],"xp":100,
           "rencontres": [
             {"groupe":"Drôle de rencontre","allies":[{"nom":"Eustase Salingher","id":406}]}
-          ],
-          "facts":[
           ],
           "resume":""
         },
         {"quand":"2021-10-30","acte":1,"duree":4,"titre":"La promesse","scenario":"La Fleur de Sang","lieux":[101],
-          "pjs":[7,9,10,11],"xp":200,"xp_comment":"",
+          "pjs":[7,9,10,11],"xp":200,
           "rencontres": [
             {"groupe":"Les estaliens","ennemis":[{"nom":"Juan Sanchez","id":403},{"nom":"Paolo","id":401},{"nom":"Sanche","id":401},{"nom":"Ramon","id":401}]},
             {"groupe":"Les cultistes","ennemis":[{"nom":"Démonette","id":602},{"nom":"Hector","id":404},{"nom":"Helga","id":404},{"nom":"Werner","id":405},{"nom":"Rudolf","id":405},{"nom":"Franz","id":405}]}
           ],
           "facts":[
-            {"tri":1,"pjs":[11],"fact":"Ostelle fournie de la tisane pour la taverne rafinée de Maître Kanter."},
+            {"tri":1,"pjs":[11],"fact":"Ostelle fournie de la tisane pour La Chope Moussue, la taverne rafinée de Maître Kanter."},
             {"tri":2,"pjs":[8],"fact":"Dans la clairière de Morr, Febreize fait la promesse à Christian, mourant, de remettre sa chevalière à Clara, sa bien aimée."},
             {"tri":3,"pjs":[10],"fact":"Rhaimon achète un bouclier."},
             {"tri":4,"pjs":[9],"fact":"Febreize, suite à une maladresse, endomage son épée. Il a également reçu une blessure qui mérite une attention particulière, Ostelle n'ayant pas réussi à la nettoyer proprement."},
