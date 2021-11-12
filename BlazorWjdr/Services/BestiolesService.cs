@@ -16,12 +16,22 @@ namespace BlazorWjdr.Services
         }
         
         public IEnumerable<BestioleDto> AllBestioles => _cacheBestiole.Values.ToList();
-        public IEnumerable<BestioleDto> AllPnjs => _cacheBestiole.Values
-            .Where(b => b.EstUnPersonnage && !b.EstUnPersonnageJoueur).OrderBy(b => b.Nom).ToArray()
-            .ToList();
+        public IEnumerable<BestioleDto> AllArchetypes => _cacheBestiole.Values
+            .Where(b => b.EstUnArchetype)
+            .OrderBy(b => b.Nom)
+            .ToArray();
+        public IEnumerable<BestioleDto> AllPnjs(bool godMode) => _cacheBestiole.Values
+            .Where(b => b.EstUnPersonnageNonJoueur && (godMode || b.Masquer == false))
+            .OrderBy(b => b.Nom)
+            .ToArray();
         public IEnumerable<BestioleDto> AllPjs => _cacheBestiole.Values
-            .Where(b => b.EstUnPersonnageJoueur).OrderBy(b => b.Nom).ToArray()
-            .ToList();
+            .Where(b => b.EstUnPersonnageJoueur)
+            .OrderBy(b => b.Nom)
+            .ToArray();
+        public IEnumerable<BestioleDto> AllPretires => _cacheBestiole.Values
+            .Where(b => b.EstUnPersonnagePretire)
+            .OrderBy(b => b.Nom)
+            .ToArray();
 
         private IEnumerable<string> GroupesDeBestioles(bool jeSuisDieu) => AllBestioles
             .Where(b => b.EstUnPersonnage == false)

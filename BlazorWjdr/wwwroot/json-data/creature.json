@@ -10,10 +10,10 @@
       "aptitudes":[3017,3019,2036,3917,2298,1618,1219,1008,1054,1055,3147,3130,3146,1220,2010,1048,1197,1209,1608,3903,3913],
       "armes":[116,126,141],
       "armures":[15],
-      "notes":"",
       "histoire":"Inspiration inspiration...",
       "description":"Febreize possède une marque de naissance sur la fesse droite ; si un simple coup d'oeil révèle une forme rappelant un phalus, une obsevation plus attentive et un peu de mauvaise foi permettent d'y voir une comête à deux queues. Serait-ce un signe ? Il n'a cependant toujours pas franchit le pas pour la soumettre à une observation plus approfondie au temple de Sigmar.",
-      "ambitions": ["Court terme : Evoluer au sein de sa guilde","Long terme : Febreize se demande si sa marque de naissance est un signe... Peut-être qu'en se mettant au service de Sigmar, une destinée particulière pourrait se dessiner."]
+      "ambitions": ["Court terme : Evoluer au sein de sa guilde","Long terme : Febreize se demande si sa marque de naissance est un signe... Peut-être qu'en se mettant au service de Sigmar, une destinée particulière pourrait se dessiner."],
+      "notes":""
     },
     {"id":8,"race":26,"nom":"Pulpo Glascanon","user":1,"teams":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
       "sexe":0,"poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
@@ -35,11 +35,11 @@
       "aptitudes":[2032,1018,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085,3018,1148,3917],
       "armes":[113,132],
       "armures":[19,15],
-      "notes":"Destinée : Une chute fatale...",
       "histoire":"Elevée par sa mère, qui se consacrait à ses études et recherchait la connaissance. Père absent, mais qui fait parvenir de l'argent au foyer. Depuis décédé dans des circonstances obscures. Huguette a reçu une très bonne éduction. Elevée en tant que petite dernière avec quatre grands frères, elle a toujours su se défendre et un côté garçon manqué.",
       "description":"",
       "psychologie":"Pas du matin",
-      "ambitions":["Long terme : Huguette souhaite en savoir plus sur qui était son père.","Moyen terme : Réunir de quoi payer des études à sa mère."]
+      "ambitions":["Long terme : Huguette souhaite en savoir plus sur qui était son père.","Moyen terme : Réunir de quoi payer des études à sa mère."],
+      "notes":"Destinée : Une chute fatale..."
     },
     {"id":10,"race":27,"nom":"Rhaimon Bahrr de Fer","user":3,"teams":[5],"date_creation":"2021-10-17","xp_total":300,"xp_actuel":100,
       "sexe":0,"poids":66,"taille":138,"age":82,"cheveux":"bruns","yeux":"marrons","main_directrice":1,
@@ -51,11 +51,11 @@
       "armes":[114,200],
       "armures":[14,17],
       "equipement":[],
-      "notes":"",
       "description":"",
       "psychologie":"Rhaimon a toujours eu une curiosité atypique pour une divinité humaine, Morr, dans laquelle il semble percevoir certains aspects de {dieu nain à déterminer}.",
       "histoire":"Rhaimon a travaillé occasionnelement comme main d'oeuvre dans des forges, mais, scandalisé par la radinerie et l'incompétences des artisans humains, il a fini par prendre goûts pour des petits boulots moins reluisants mais plus lucratifs, au moins le temps de se refaire une santé.",
-      "ambitions":["Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !","Long terme : Intégrer une guilde de forgerons et disposer de sa propre forge.","Très long terme : Forger une arme runnique."]
+      "ambitions":["Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !","Long terme : Intégrer une guilde de forgerons et disposer de sa propre forge.","Très long terme : Forger une arme runnique."],
+      "notes":""
     },
     {"id":11,"race":1,"nom":"Ostelle de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":300,"xp_actuel":200,
       "sexe":1,"poids":70,"taille":164,"age":24,"cheveux":"châtains","yeux":"gris pâle","main_directrice":1,
@@ -66,10 +66,10 @@
       "aptitudes":[1136,1092,3917, 3204,3117,3123, 3018,2086,2032, 1010,1129,1618,1219,3017,2203, 1031,1053,1155,1220,1162,1210,1048,2163],
       "armes":[114],
       "sorts":[301],
-      "notes":"",
       "histoire":"",
       "description":"",
-      "ambitions":["Moyen terme : Approfondir ses connaissances en botanique."]
+      "ambitions":["Moyen terme : Approfondir ses connaissances en botanique."],
+      "notes":""
     },
     
     {"id":401,"race":1,"nom":"Archétype","poids":72,"taille":169,"age":27,
@@ -359,17 +359,17 @@
   "aptitudes":[4020,4206,3903],"aptitudes_facultatives":[4050,4050,4050,4050,4050,4050,4050,4001,4021,4003,3417,4024,4031,3831],
   "description":"Les Ungors ont des vestiges de cornes ou des cornes très courtes et sont donc à peine considérés Gor par le reste du troupeau. Certains ont même des visages ressemblant à des humains, ce qui en fait des infiltrateurs efficaces, mais aussi une cible pour le ridicule. En effet, les Ungors sont mal traités par les Gors, et sont souvent rabougris ou mal nourris par rapport à leurs frères à cornes , ce qui en fait des êtres amers désireux de faire retomber leur jalousie sur autrui."},
 
-    {"id":63,"race":55,"nom":"Minotaure","membrede":["Hommes-bêtes"],
+{"id":63,"race":55,"nom":"Minotaure","membrede":["Hommes-bêtes"],
   "profil_actuel":{"cc":45,"ct":25,"f":44,"e":45,"i":20,"ag":35,"dex":25,"intel":20,"fm":30,"soc":15},
   "aptitudes":[4209,4007,4007,4007,4007,4007,4007,4007,4007,4007,3832,4002,3903],"aptitudes_facultatives":[4020,4012,4021,4003,3417,4024,4031,4103],
   "description":"Les Minotaures son massifs et monstrueux, semblables à des taureaux, dominen même les plus grands Bestigors. Les troupeaux avec un grand contingent de Minotaures se considèrent particulièrement bénis par les Dieux Noirs. Les hommesbêtes se rassemblent autour des Minotaures car leur présence imposante donne du courage."},
 
-    {"id":64,"race":55,"nom":"Sanglebouc","membrede":["Hommes-bêtes"],
-      "profil_actuel":{"cc":33,"ct":0,"f":36,"e":44,"i":32,"ag":32,"dex":0,"intel":20,"fm":37,"soc":12,"m":7},
-      "aptitudes":[2008,2008,2008,1048,1049,1049,1055,3904,2021,2030,2080,2297,2091],
-      "description":"Les sangleboucs sont les rejetons d’hommes-bêtes. Étranges hybrides de sangliers sauvages et d’hommes-bêtes, ces féroces créatures ont conservé l’intelligence de leurs congénères tout en prenant une apparence complètement animale. Les sangleboucs ressemblent à d’immenses sangliers couverts de pointes et de cornes, à la mâchoire dégoulinante de bave et hérissée de défenses. Les hommes-bêtes les utilisent comme gardiens ou animaux de trait pour tirer leurs chars sur le champ de bataille.\nRègles spéciales:\n• Charge de sanglebouc : quand un sanglebouc effectue une Charge, ses armes naturelles gagnent l’attribut percutante.\n• Mutations du Chaos : aspect bestial et cornes. Il existe 25% de chances qu’apparaisse une mutation supplémentaire. Lancez les dés sur la Table 3–1 : mutations, pages 30 et 31, si c’est le cas et modifiez le profil en conséquence.\n• Silencieux comme les animaux des bois: les sangleboucs font preuve d’une discrétion naturelle, et la plupart sont des traqueurs et chasseurs expérimentés. Ils bénéficient d’un bonus de +20% aux tests de Déplacement silencieux et d’un bonus de +10% aux tests de Dissimulation."},
+{"id":64,"race":55,"nom":"Sanglebouc","membrede":["Hommes-bêtes"],
+  "profil_actuel":{"cc":33,"ct":0,"f":36,"e":44,"i":32,"ag":32,"dex":0,"intel":20,"fm":37,"soc":12,"m":7},
+  "aptitudes":[2008,2008,2008,1048,1049,1049,1055,3904,2021,2030,2080,2297,2091],
+  "description":"Les sangleboucs sont les rejetons d’hommes-bêtes. Étranges hybrides de sangliers sauvages et d’hommes-bêtes, ces féroces créatures ont conservé l’intelligence de leurs congénères tout en prenant une apparence complètement animale. Les sangleboucs ressemblent à d’immenses sangliers couverts de pointes et de cornes, à la mâchoire dégoulinante de bave et hérissée de défenses. Les hommes-bêtes les utilisent comme gardiens ou animaux de trait pour tirer leurs chars sur le champ de bataille.\nRègles spéciales:\n• Charge de sanglebouc : quand un sanglebouc effectue une Charge, ses armes naturelles gagnent l’attribut percutante.\n• Mutations du Chaos : aspect bestial et cornes. Il existe 25% de chances qu’apparaisse une mutation supplémentaire. Lancez les dés sur la Table 3–1 : mutations, pages 30 et 31, si c’est le cas et modifiez le profil en conséquence.\n• Silencieux comme les animaux des bois: les sangleboucs font preuve d’une discrétion naturelle, et la plupart sont des traqueurs et chasseurs expérimentés. Ils bénéficient d’un bonus de +20% aux tests de Déplacement silencieux et d’un bonus de +10% aux tests de Dissimulation."},
 
-    {"id":601,"race":68,"nom":"Sanguinaire de Khorne","membrede":["Démons"],
+{"id":601,"race":68,"nom":"Sanguinaire de Khorne","membrede":["Démons"],
  "profil_actuel":{"cc":55,"ct":35,"f":45,"e":35,"i":60,"ag":40,"dex":30,"intel":25,"fm":70,"soc":15,"m":5},
  "aptitudes":[4001,4001,4001,4001,4001,4070,3904,4022,4072,4072,4072,4072,4072,4072,4072,4072,4027,4027,4027,3508,4007,4007,4007,4007,4007,4007,4007,4007,4029,4209,4132],"aptitudes_facultatives":[],
  "description":"Les Sanguinaires de Khorne, choisies par Khorne, sillonnent les champs de bataille de l'Ancien Monde, emportant crânes et vies en l'honneur du Dieu du sang. Des dents tranchantes et aiguës en forme d'aiguilles dépassent des visages monstrueux et cornés. Leur peau rouge sang est dure comme du cuivre, forgée sur l'enclume d'une guerre incessante. Chaque Sanguinaire porte une lame Hellblade, une lame méchamment tranchante, trempée dans le sang, qu'elle manie avec un déchaînement imprudent, se livrant à la douce sensation d'un massacre impitoyable."},
@@ -377,6 +377,19 @@
 {"id":602,"race":68,"nom":"Démonette de Slaanesh","membrede":["Démons"],
   "profil_actuel":{"cc":60,"ct":50,"f":40,"e":30,"i":65,"ag":60,"dex":35,"intel":30,"fm":70,"soc":45,"m":4},
   "aptitudes":[4070,4022,4072,4072,4072,4072,4072,4072,4072,4072,4072,4072,3251,4027,4027,3903,4029,4209],"aptitudes_facultatives":[],
-  "description":"Comme toutes les créatures du Prince de la Douleur et du Plaisir, les Demonettes de Slaanesh sont à la fois belles et horribles. Possédant une allure surnaturelle qui défie tout sens et toute rationalité, ils rendent leurs ennemis impuissants à résister, tant ils sont enchantés par la sensualité profane de leurs formes monstrueuses. Ils ont une peau crémeuse et pâle et de grands yeux noirs de jais. Des cheveux sauvages, fluides et anormalement colorés ornent leurs couronnes délicates. Au lieu de leurs mains, leurs bras minces se terminent par des griffes sinueuses en forme de pince de crabe."}
+  "description":"Comme toutes les créatures du Prince de la Douleur et du Plaisir, les Demonettes de Slaanesh sont à la fois belles et horribles. Possédant une allure surnaturelle qui défie tout sens et toute rationalité, ils rendent leurs ennemis impuissants à résister, tant ils sont enchantés par la sensualité profane de leurs formes monstrueuses. Ils ont une peau crémeuse et pâle et de grands yeux noirs de jais. Des cheveux sauvages, fluides et anormalement colorés ornent leurs couronnes délicates. Au lieu de leurs mains, leurs bras minces se terminent par des griffes sinueuses en forme de pince de crabe."},
+
+    {"id": 901,"race": 26,"user": 999,"nom":"Futé Hauts-de-chausses","cheminement":[57],"origines":[5],
+      "profil_actuel":{},
+      "histoire": "Vos parents ont servi sous le tsar Boris, mais dans le ravitaillement et la restauration. Ils vous ont élevé en vous contant le courage et la grandeur du Tsar Rouge, et leurs récits vous ont tellement marqué que vous avez vous aussi décidé de servir la couronne, mais sur le plan militaire. Toutefois, aucune rota n’accepte les halflings, si bien que vous louez vos talents d’arbalétrier au plus offrant. Vous tentez de vous montrer digne de la mémoire du tsar Boris et espérez gagner un jour votre place dans un grand pulk.","description": "Dans le grand sac que vous portez sur le dos se trouvent une lourde marmite en fonte, un assortiment de panais, carottes, patates et d’autres légumes. Vous disposez également d’une potion de soins accrochée à une lanière de cuir fixée au cou, que vous ne pourrez ainsi pas oublier. Enfin, dans votre botte gauche sont cachés 11 ducats qui tintent et vous donnent une démarche singulière dès que vous faites un pas."},
+    {"id": 902,"race": 22,"user": 999,"nom":"Mitri Lehedyenko","cheminement":[107],"origines":[5],
+      "profil_actuel":{},
+      "histoire": "Enfant, vous avez été abandonné et élevé dans la grande ville de Kislev. Un orphelin n’ayant guère de perspectives d’avenir, vous vous êtes tourné vers l’armée dès qu’elle a bien voulu de vous et êtes devenu l’un des streltsi de la cité. Vous avez alors découvert le courage de Tor, les vertus d’un tir bien placé et l’infaillibilité de la tsarine. Vous ne connaissez pas grand-chose du monde extérieur à la capitale, mais c’est pour vous un grand honneur de défendre la cité de la Reine de Glace. Vous rêvez du jour où vous servirez directement la tsarine parmi ses tchékistes, comme le font aujourd’hui certains de vos anciens frères d’armes. Peut-être cette mission est-elle l’occasion de faire vos preuves et de rendre vos rêves possibles.","description": "Vous portez un uniforme de streltsi, une tenue élaborée incluant de multiples couches de tissu rouge et vert. Au cou, vous portez l’image de la tsarine. Votre bourse est presque vide puisqu’elle ne renferme que 4 ducats."},
+    {"id": 903,"race": 23,"user": 999,"nom":"Jaran","cheminement":[50],"origines":[5],
+      "profil_actuel":{},
+      "histoire": "Enfant, vous aimiez déjà vous battre. Rapidement, vous avez été attiré par l’adrénaline des arènes et avez commencé à gagner de l’argent facile grâce à votre talent, argent que vous dépensiez aussitôt en femmes et en samogon (alcool de contrebande kislevite). Après avoir fait le tour des cercles de gladiateurs des environs de votre stanitsa, vous avez entendu dire qu’il était possible de se faire plus d’argent encore au sud, mais pour l’instant, vous n’avez connu ni la gloire ni la fortune. Vous vous demandez même si vous n’allez pas devoir rentrer chez vous la tête basse. Ceci dit, un emploi de garde du corps vous permettrait de rester en ville quelques mois de plus.","description": "Hormis quelques vêtements qui ont connu des jours meilleurs, vous ne possédez pas grand-chose. Une imposante peau de koumiss vous aide à oublier le froid, et si vous veniez à la perdre, les 9 ducats qui occupent votre bourse vous permettraient certainement de trouver un autre moyen de vous réchauffer."},
+    {"id": 904,"race": 23,"user": 999,"nom":"Baba Tuli","cheminement":[104],"origines":[5],"sexe": 1,
+      "profil_actuel":{},
+      "histoire": "Chacun s’est toujours accordé à dire qu’avec vos cheveux roux, vous étiez destinée à devenir femme-médecine. Toutefois, vous ne pensiez pas que cela arriverait si vite. Mais lorsque les kyazaks sont arrivés et ont brûlé la palissade et tué les guerriers et Baba Olna, vous vous êtes retrouvée en charge de responsabilités inattendues. Avec l’attaque, votre stanitsa a besoin d’hommes forts pour rebâtir le village, si bien que vous êtes partie en direction du sud pour y retrouver votre frère avec pour seule compagnie votre chien fidèle. En effet, vous avez entendu dire que votre frère a tenu un emploi d’éclaireur près de Vitkal récemment. Vous espérez le retrouver et en apprendre plus au sujet de votre travail.","description": "Contrairement à vos compagnons, vous vous êtes préparée à un long voyage. Dans le grand sac que vous portez sur le dos se trouvent un nécessaire antipoison, une potion de soins, un cataplasme médicinal et une peau de koumiss. Vous portez une longue robe fourrée et un châle bleu autour de la tête. Vous ne disposez que de 2 ducats, c’est-à-dire pas grand-chose. Toutefois, Dazhy, votre chien, vous est totalement fidèle."}
   ]
 }

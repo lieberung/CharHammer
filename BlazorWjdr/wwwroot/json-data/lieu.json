@@ -23,14 +23,17 @@
     {"id":21,"parentid":1,"libelle":"Archipel"},
     {"id":22,"parentid":2,"libelle":"Ville (1000-10000 hab.)"},
     {"id":23,"parentid":2,"libelle":"Village (1-100 hab.)"},
+    {"id":34,"parentid":23,"libelle":"Village fortifié"},
     {"id":24,"parentid":null,"libelle":"Fort"},
     {"id":25,"parentid":1,"libelle":"Mine"},
     {"id":26,"parentid":1,"libelle":"Bourg (100-1000 hab.)"},
     {"id":27,"parentid":15,"libelle":"Montagne"},
-    {"id":28,"parentid":1,"libelle":"Route commerciale"},
+    {"id":32,"parentid":30,"libelle":"Route"},
+    {"id":28,"parentid":32,"libelle":"Route commerciale"},
     {"id":29,"parentid":1,"libelle":"Egouts"},
     {"id":30,"parentid":1,"libelle":"Auberge"},
-    {"id":31,"parentid":30,"libelle":"Auberge-relais"}
+    {"id":31,"parentid":30,"libelle":"Auberge-relais"},
+    {"id":33,"parentid":30,"libelle":"Auberge fluviale"}
   ],
   "items":[
     {"id":3,"type":2,"parent":1,"nom":"Le Pays-Perdu","description":""},
@@ -160,6 +163,9 @@
     {"id":128,"type":23,"parent":39,"nom":"Stimmigen","description":""},
     {"id":129,"type":22,"parent":37,"nom":"Ubersreik","population":"3 500 habitants","allegeance":"Conseil municipal (auparavant, le Graf Sigismund von Jungfreud)","industrie":"Commerce, Minerai, Ferronnerie",
       "description":"Ville franche, ancien siège des terres de von Jungfreud. Bac."},
-    {"id":130,"type":23,"parent":32,"nom":"Pritzstock","population":"48 habitants","industrie":"Vigne"}
+    {"id":130,"type":23,"parent":32,"nom":"Pritzstock","population":"48 habitants","industrie":"Vigne"},
+    {"id":131,"type":26,"parent":39,"nom":"Gersdorf","description": "Petit bourg du sud-est du Talabecland."},
+    {"id":132,"type":26,"parent":39,"nom":"Hermsdorf","description": ""},
+    {"id":133,"type":34,"parent":39,"nom":"Ossino","description": "Village fortifié banal avec un temple de Taal et Rhya."}
   ]
 }

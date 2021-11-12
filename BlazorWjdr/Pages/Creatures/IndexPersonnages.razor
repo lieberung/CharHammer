@@ -12,12 +12,24 @@
     
     <div class="row">
         <div class="col-6">
-            <h3 class="card-title">Archétypes et PNJs</h3>
-            <BestioleTable Items="@_bestiolesService.AllPnjs.Where(p => p.Masquer == false || _appState.JeSuisDieu).ToArray()"/>
+            <div class="card-body">
+                <h3 class="card-title">Archétypes de PNJs</h3>
+                <BestioleTable Items="@_bestiolesService.AllArchetypes.ToArray()"/>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Personnages incarnés par le meneur de jeu</h3>
+                <BestioleTable Items="@_bestiolesService.AllPnjs(_appState.JeSuisDieu).ToArray()"/>
+            </div>
         </div>
         <div class="col-6">
-            <h3 class="card-title">Personnages incarnés par des joueurs</h3>
-            <BestioleTable Items="@_bestiolesService.AllPjs.ToArray()"/>
+            <div class="card-body">
+                <h3 class="card-title">Personnages incarnés par des joueurs</h3>
+                <BestioleTable Items="@_bestiolesService.AllPjs.ToArray()"/>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Personnages prétirés</h3>
+                <BestioleTable Items="@_bestiolesService.AllPretires.ToArray()"/>
+            </div>
         </div>
     </div>
 </div>
