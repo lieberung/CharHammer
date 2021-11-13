@@ -118,8 +118,22 @@
       "profil_actuel":{"cc":19,"ct":42,"f":19,"e":21,"i":33,"ag":50,"dex":41,"intel":43,"fm":37,"soc":46},
       "aptitudes":[1094,1106,1132,1136,2071,3831,3903, 1008,1010,1210,1048,2010,1043, 3017,2002, 1008,1010,2010,1001,1004,1030,1048,1219],
       "description":""},
+    
+    {"id":407,"race":1,"nom":"E. Herzen","origines":[123],"poids":57,"taille":169,"age":31,"cheveux":"blonds","yeux":"bleu lumineux","masquer":true,
+      "cheminement":[44,22,163,178],
+      "profil_actuel":{},
+      "aptitudes":[2452,3181],
+      "sorts":[330,331,332],
+      "description":""},
 
-{"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
+    {"id":408,"race":1,"nom":"Ernst","origines":[99],"poids":67,"taille":167,"age":22,"cheveux":"chataîns","yeux":"marrons","masquer":true,
+      "cheminement":[44,22,163,178],
+      "profil_actuel":{},
+      "aptitudes":[2452,3181],
+      "sorts":[675,676],
+      "description":""},
+
+    {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
   "aptitudes":[3903,4206,4003,4225],"aptitudes_facultatives":[4004,4016,4017],
   "description":"Certaines des créatures les plus pitoyables de l'Ancien Monde, les Ghouls de la crypte sont des créatures laides, courbées, à la peau jaunâtre et sale, aux dents pointues et jaunes capables de déchirer la chair de leurs victimes. Les Ghouls sont attirés par les énergies magiques de Shyish et de Dhar, ce qui signifie en pratique qu'ils sont attirés par les cimetières et les cryptes, et autour des champs de bataille."},
