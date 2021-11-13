@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Models
 @code { [Parameter] public LieuDto Item { get; set; } = null!; }
-<a href="lieux/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="lieu/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <ItemIcon Icon="compass" Classes="mr-1"/>
     @Item.Nom
 </a>

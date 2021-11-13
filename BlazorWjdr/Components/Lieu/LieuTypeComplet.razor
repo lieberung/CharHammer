@@ -1,0 +1,24 @@
+﻿@using BlazorWjdr.Models
+
+<ul class="list-inline">
+    @if (Item.Parent != null)
+    {
+        @if (Item.Parent.Parent != null)
+        {
+            <li class="list-inline-item">
+                <LieuTypeItem Item="@Item.Parent.Parent"/>
+            </li>
+        }
+        <li class="list-inline-item">
+            <LieuTypeItem Item="@Item.Parent"/>
+        </li>
+    }
+    <li class="list-inline-item">
+        <LieuTypeItem Item="@Item"/>
+    </li>
+</ul>
+
+@code {
+    [Parameter]
+    public LieuTypeDto Item { get; set; } = null!;
+}

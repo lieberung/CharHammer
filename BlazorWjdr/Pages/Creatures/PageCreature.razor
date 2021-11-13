@@ -8,6 +8,19 @@
 @inject BestiolesService _bestiolesService
 @inject CampagnesService _campagnesService
 
+@code{
+    [Parameter]
+    public string CreatureId { get; set; } = null!;
+    
+    private BestioleDto? Item { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        Item = _bestiolesService.GetBestiole(int.Parse(CreatureId));
+        base.OnParametersSet();
+    }
+}
+
 <MainTopRow/>
 
 <div class="content px-4">
@@ -70,15 +83,3 @@
         </div>
     </div>
 </div>
-@code{
-    [Parameter]
-    public string CreatureId { get; set; } = null!;
-    
-    private BestioleDto? Item { get; set; }
-
-    protected override void OnParametersSet()
-    {
-        Item = _bestiolesService.GetBestiole(int.Parse(CreatureId));
-        base.OnParametersSet();
-    }
-}

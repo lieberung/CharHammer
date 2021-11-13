@@ -16,10 +16,19 @@
         }
         
         protected Dictionary<int, LieuTypeDto> AllTypesDeLieu => _cacheLieuType;
-        public List<LieuDto> AllLieux => _cacheLieu.Values.ToList();
+        public List<LieuDto> AllLieux => _cacheLieu.Values.OrderBy(l => l.Nom).ToList();
         public LieuTypeDto GetTypeDeLieu(int id) => _cacheLieuType[id];
 
         public IEnumerable<LieuDto> GetLieux(IEnumerable<int> ids) => ids.Select(GetLieu).ToArray();
         public LieuDto GetLieu(int id) => _cacheLieu[id];
+        
+        public LieuDto[] Recherche(string searchText)
+        {
+            searchText = GenericService.NettoyerPourRecherche(searchText);
+            return AllLieux
+                .Where(c => GenericService.NettoyerPourRecherche(c.Nom).Contains(searchText))
+                .OrderBy(c => c.Nom)
+                .ToArray();
+        }
     }
 }

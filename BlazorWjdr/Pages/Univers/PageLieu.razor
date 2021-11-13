@@ -1,0 +1,62 @@
+﻿@page "/lieu/{LieuId}"
+
+@using BlazorWjdr.Components.Lieu
+@using BlazorWjdr.Components.Campagne
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+
+@inject LieuxService _lieuxService
+@inject ScenariosService _scenariosService
+@inject AppState _appState
+
+@code{
+    [Parameter]
+    public string LieuId { get; set; } = null!;
+
+    private LieuDto Item { get; set; } = null!;
+    private ScenarioDto[] _scenarios = Array.Empty<ScenarioDto>();
+
+    protected override void OnParametersSet()
+    {
+        Item = _lieuxService.GetLieu(int.Parse(LieuId));
+        if (_appState.JeSuisDieu)
+        {
+            var lieux = new List<LieuDto> { Item }.ToArray();
+            _scenarios = _scenariosService
+                .AllScenarios(lieux, Array.Empty<LieuTypeDto>())
+                .Where(s => s.Note is 0 or > 2)
+                .ToArray();
+        }
+        base.OnParametersSet();
+    }
+}
+
+<MainTopRow Title="@Item.TypeDeLieu.Nom"/>
+
+<div class="content px-4">
+    <div class="row">
+        <div class="col-6">
+            <div class="card-body">
+                <h3 class="card-title">@Item.Nom</h3>
+                <LieuTypeComplet Item="@Item.TypeDeLieu"/> 
+                <CardParagraphes Text="@Item.Description"/>
+            </div>
+            @if (_scenarios.Any())
+            {
+                <div class="card-body">
+                    <h4 class="card-title">Scénarios</h4>
+                    <ScenarioTable Items="@_scenarios" LigneCourte="@true"/>
+                </div>
+            }
+        </div>
+        <div class="col-6">
+            <img alt="Blason" src="images/lieux/@(Item.Id)-blas.png"/>
+            <img alt="Localisation" src="images/lieux/@(Item.Id)-loc.png"/>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <img alt="Plan" src="images/lieux/@(Item.Id)-plan.jpg"/>
+        </div>
+    </div>
+</div>

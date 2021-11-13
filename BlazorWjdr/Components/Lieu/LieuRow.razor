@@ -8,7 +8,7 @@
     <td>
         @if (Item.SousElements.Any())
         {
-            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+            <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
                 <OiIcon Icon="layers"/>
             </span>
         }
@@ -20,8 +20,10 @@
             <SousElement Hidden="@hidden"/>
         }
         <LieuItem Item="@Item" /></td>
-    <td>@Item.TypeDeLieu.Nom</td>
-    <td>@Item.Description</td>
+    <td><LieuTypeItem Item="@Item.TypeDeLieu"/></td>
+    <td>@Item.Population</td>
+    <td>@Item.Industrie</td>
+    <td>@Item.Allegeance</td>
 </tr>
 @if (AfficherSousElements && Item.SousElements.Any())
 {

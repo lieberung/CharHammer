@@ -21,7 +21,7 @@ namespace BlazorWjdr.Services
             .OrderBy(b => b.Nom)
             .ToArray();
         public IEnumerable<BestioleDto> AllPnjs(bool godMode) => _cacheBestiole.Values
-            .Where(b => b.EstUnPersonnageNonJoueur && (godMode || b.Masquer == false))
+            .Where(b => b.EstUnPersonnageNonJoueur && !b.EstUnArchetype && (godMode || b.Masquer == false))
             .OrderBy(b => b.Nom)
             .ToArray();
         public IEnumerable<BestioleDto> AllPjs => _cacheBestiole.Values

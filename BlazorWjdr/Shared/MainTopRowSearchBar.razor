@@ -5,6 +5,7 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Lieu
 
 <div class="btn-group" >
     <div class="text-center">
@@ -58,7 +59,14 @@
                     <BestioleItemList Items="@FilteredBestioles" ItemClass=""/>
                 </div>
             }
-
+            
+            @if (FilteredLieux.Any())
+            {
+                <div class="mb-3">
+                    <h6 class="card-title">Lieux</h6>
+                    <LieuItemList Items="@FilteredLieux"/>
+                </div>
+            }
         </div>
     }
 </div>
@@ -67,6 +75,7 @@
     private IEnumerable<CarriereDto> AllCarrieres { get; set; } = new List<CarriereDto>();
     private IEnumerable<AptitudeDto> AllAptitudes { get; set; } = new List<AptitudeDto>();
     private IEnumerable<BestioleDto> AllBestioles { get; set; } = new List<BestioleDto>();
+    private IEnumerable<LieuDto> AllLieux { get; set; } = new List<LieuDto>();
 
     [Parameter]
     public string Text { get; set; } = "";
@@ -76,12 +85,14 @@
     [Inject] private CarrieresService CarrieresService { get; set; } = null!;
     [Inject] private AptitudesService AptitudesService { get; set; } = null!;
     [Inject] private BestiolesService BestiolesService { get; set; } = null!;
+    [Inject] private LieuxService LieuxService { get; set; } = null!;
         
     protected override void OnInitialized()
     {
         AllCarrieres = CarrieresService.AllCarrieres;
         AllAptitudes = AptitudesService.AllAptitudes;
         AllBestioles = BestiolesService.AllBestioles;
+        AllLieux = LieuxService.AllLieux;
     }
 
     protected override void OnParametersSet()
@@ -90,7 +101,7 @@
         base.OnParametersSet();
     }
 
-    private bool ResultFound => FilteredCarrieres.Any() || FilteredAptitudes.Any() || FilteredBestioles.Any();
+    private bool ResultFound => FilteredCarrieres.Any() || FilteredAptitudes.Any() || FilteredBestioles.Any() || FilteredLieux.Any();
 
     private CarriereDto[] FilteredCarrieres => _searchText.Length < 3
         ? Array.Empty<CarriereDto>()
@@ -103,6 +114,10 @@
     private BestioleDto[] FilteredBestioles => _searchText.Length < 3
         ?  Array.Empty<BestioleDto>()
         : BestiolesService.Recherche(_searchText);
+
+    private LieuDto[] FilteredLieux => _searchText.Length < 3
+        ?  Array.Empty<LieuDto>()
+        : LieuxService.Recherche(_searchText);
 
     private void ClearSearch()
     {

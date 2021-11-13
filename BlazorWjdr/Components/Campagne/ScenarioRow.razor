@@ -3,6 +3,7 @@
 @using BlazorWjdr.Models
 @code{
     [Parameter] public ScenarioDto Item { get; set; } = null!;
+    [Parameter] public bool LigneCourte { get; set; }
     
     private bool AfficherFiche { get; set; }
 }
@@ -14,22 +15,35 @@
     </td>
     <td>@Item.Nom</td>
     <td>
-        <Notation Note="@Item.Note"/>
+        @if (LigneCourte)
+        {
+            <span class="insister">@(Item.Note == 0 ? "-" : Item.Note)</span>
+        }
+        else
+        {
+            <Notation Note="@Item.Note"/>
+        }
     </td>
-    <td>@Item.Duree</td>
+    @if (LigneCourte == false)
+    {
+        <td>@Item.Duree</td>
+    }
     <td>@Item.Difficulte</td>
     <td>@string.Join(", ", Item.Styles)</td>
-    <td>
-        @if (Item.LieuxTypes.Any())
-        {
-            <LieuTypeItemList Items="@Item.LieuxTypes"/>
-        }
-        @if (Item.Lieux.Any())
-        {
-            <LieuItemList Items="@Item.Lieux"/>
-        }
-    </td>
-    <td>@Item.Source</td>
+    @if (LigneCourte == false)
+    {
+        <td>
+            @if (Item.LieuxTypes.Any())
+            {
+                <LieuTypeItemList Items="@Item.LieuxTypes"/>
+            }
+            @if (Item.Lieux.Any())
+            {
+                <LieuItemList Items="@Item.Lieux"/>
+            }
+        </td>
+        <td>@Item.Source</td>
+    }
 </tr>
 @if (AfficherFiche)
 {
@@ -44,9 +58,29 @@
                 }
                 @if (Item.DejaJoue != "")
                 {
-                    <p class="card-text">
-                        <strong>Déjà joué :</strong>&nbsp;@Item.DejaJoue
-                    </p>
+                    <span class="insister">Déjà joué :&nbsp;</span>@Item.DejaJoue
+                    <br/>                                  
+                }
+                @if (LigneCourte)
+                {
+                    if (Item.Duree != "")
+                    {
+                        <span class="insister">Durée :&nbsp;</span>@Item.Duree
+                        <br/>
+                    }
+                    if (Item.Source != "")
+                    {
+                        <span class="insister">Durée :&nbsp;</span>@Item.Source
+                        <br/>
+                    }
+                    @if (Item.LieuxTypes.Any())
+                    {
+                        <LieuTypeItemList Items="@Item.LieuxTypes"/>
+                    }
+                    @if (Item.Lieux.Any())
+                    {
+                        <LieuItemList Items="@Item.Lieux"/>
+                    }
                 }
                 <CardParagraphes Text="@Item.Resume"/>
             </div>

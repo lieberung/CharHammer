@@ -19,5 +19,11 @@ namespace BlazorWjdr.Services
             return _scenarios.Where(s =>
                 (s.Note is 0 or > 2 || pasDeDaubes == false) && (filtre == "" || GenericService.NettoyerPourRecherche(s.Nom).Contains(filtre)));
         }
+        public IEnumerable<ScenarioDto> AllScenarios(LieuDto[] lieux, LieuTypeDto[] typesDeLieux)
+        {
+            var tousLesTypes = new List<LieuTypeDto>(typesDeLieux);
+            tousLesTypes.AddRange(lieux.Select(l => l.TypeDeLieu).Distinct());
+            return _scenarios.Where(s => s.Lieux.Intersect(lieux).Any() || s.LieuxTypes.Intersect(tousLesTypes).Any());
+        }
     }
 }
