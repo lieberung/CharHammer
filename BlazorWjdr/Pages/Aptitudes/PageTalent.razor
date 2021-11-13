@@ -17,8 +17,9 @@
 
     <div class="row">
 
-        <div class="col-6" style="padding-right: 0;">
-            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+        <ColFrise/>
+        <div class="col-5">
+            <div class="card-body" style="padding-top: 0;">
 
                 <h1 class="card-title" style="font-size: xxx-large;">@Item.Nom</h1>
                 <AptitudeDescription Item="@Item"/>
@@ -26,11 +27,11 @@
             </div>
         </div>
 
-        <div class="col-6">
+        <div class="col-5">
             @if (_carrieres.Any())
             {
                 <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                    <h5 class="card-title">Carrières proposant ce talent</h5>
+                    <h4 class="card-title">Carrières proposant ce talent</h4>
                     <p class="card-text">
                         <CarriereItemList Items="@_carrieres"/>
                     </p>
@@ -39,7 +40,7 @@
             @if (AptitudesService.DonneAccesADesSortileges(Item))
             {
                 <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                    <h5 class="card-title">Sortilèges accessibles via ce talent</h5>
+                    <h4 class="card-title">Sortilèges accessibles via ce talent</h4>
                     <p class="card-text">
                         <SortilegeItemList Items="@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray()"/>
                     </p>

@@ -12,6 +12,10 @@
         <strong>Nom anglais</strong> : @Item.NomEn
     </p>
 }
+@if (Item.Parent != null)
+{
+    <AptitudeItem Item="@Item.Parent"/>
+}
 @if (!string.IsNullOrWhiteSpace(Item.CaracteristiqueAssociee))
 {
     <p class="card-text">
@@ -89,8 +93,10 @@
 {
     @if (_sortilegesService.AllSortileges.Any(s => s.Aptitudes.Contains(Item)))
     {
+        <!--
         <h3 class="card-title">Sortilèges</h3>
         <SortilegeItemList Items="_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray()"/>
+        -->
     }
 }
 

@@ -57,7 +57,7 @@
             => a.Parent?.Id is AptitudeGroupeInspirationDivineId or AptitudeGroupeScienceDeLaMagieId;
 
         public const int AptitudeGroupeInspirationDivineId = 2278;
-        public const int AptitudeGroupeScienceDeLaMagieId = 2179;
+        public const int AptitudeGroupeScienceDeLaMagieId = 2079;
 
         public AptitudeDto[] RechercheAptitudes(string searchText)
         {
@@ -145,7 +145,7 @@
         public AptitudeDto CompetenceFocalisation => GetAptitude(1031);
         public AptitudeDto CompetenceLangageMystique => GetAptitude(1036);
         public AptitudeDto CompetenceLangageMystiqueMagick => GetAptitude(1162);
-        public AptitudeDto CompetenceScienceDeLaMagie => GetAptitude(2079);
+        public AptitudeDto CompetenceScienceDeLaMagie => GetAptitude(AptitudeGroupeScienceDeLaMagieId);
         
         public AptitudeDto InspirationDivineManann => GetAptitude(2281);
         public AptitudeDto InspirationDivineMorr => GetAptitude(2282);
@@ -373,7 +373,7 @@
 
         public AptitudeDto CompetencePriere => GetAptitude(1225);
         public AptitudeDto TalentBenediction => GetTalent(2277);
-        public AptitudeDto TalentInspirationDivine => GetTalent(2278);
+        public AptitudeDto TalentInspirationDivine => GetTalent(AptitudeGroupeInspirationDivineId);
 
         #endregion
 

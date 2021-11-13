@@ -20,7 +20,7 @@
     {
         _itemName = Item.Nom;
         if (Item.NS.HasValue)
-            _itemName += $" ns{Item.NS}"; 
+            _itemName += $" ({Item.NS})"; 
         _toolTipText = $"{Item.Effet}\n\nCibles : {Item.Cible} / Distance : {Item.Distance} / Durée : {Item.Duree}";
         
         base.OnParametersSet();
