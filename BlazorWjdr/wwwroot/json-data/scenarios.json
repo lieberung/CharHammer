@@ -441,7 +441,35 @@
       "nom": "Drôles de rencontres à Bögenhafen","note": 3,"styles":["Enquête"],"lieux":[101],"source": "Wjdr2",
       "resume": ""
     },
-
+    {
+      "nom": "Quand Annalisa vint à la ville","lieux":[99],"source": "Casus Belli",
+      "resume": "Pour aventuriers achevant leur deuxième carrière."
+    },
+    {
+      "nom": "LC1 - Erreur sur la personne","lieux":[104,99],"source": "La Campagne Impériale !",
+      "resume": ""
+    },
+    {
+      "nom": "LC1 - Ombres sur Bögenhafen","lieux":[101],"source": "La Campagne Impériale !",
+      "resume": ""
+    },
+    {
+      "nom": "LC2 - Mort sur le Reik","lieux":[99,92,119,136,134,135,103],"source": "La Campagne Impériale !",
+      "resume": ""
+    },
+    {
+      "nom": "LC3 - Le Pouvoir derrière le Trône","lieux":[98],"source": "La Campagne Impériale !",
+      "resume": "Pour aventuriers ayant entamé leur troisième carrière."
+    },
+    {
+      "nom": "LC4 - Quelque chose de pourri à Kislev","lieux":[124],"source": "La Campagne Impériale !",
+      "resume": ""
+    },
+    {
+      "nom": "LC5 - L'Empire en flammes","lieux":[],"source": "La Campagne Impériale !",
+      "resume": ""
+    },
+    
     {"nom": "Un rat peut en cacher un autre","note": 1,"duree": "Très court","resume": "Auteur jeune. Très court, peut servir d'introduction à autre chose. Le lieu importe peu."},
     {"nom": "Les gobelins y'en a jamais assez","note": 1,"duree": "Court","resume": "Auteur jeune"},
     {"nom": "Linceul de brume","note": 1,"duree": "Court","styles": ["Pas d'enquête"],"resume": "Village, mer, île, repaire d'un nécromant, nul (pour MJ fatiqué, perché, bourré, arraché, fainéant ou pris de cours). Nebeldorf, Côte de la Mer des Griffes","deja_joue": "Oui","source": "tonito.free.fr"},

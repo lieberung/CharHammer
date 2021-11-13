@@ -2,7 +2,7 @@
 @using BlazorWjdr.Components.Profil
 @using BlazorWjdr.Models
 
-@if (Item.CheminementPro.Any())
+@if (NAfficherQueLeProfilActuel == false && Item.CheminementPro.Any())
 {
     <CarriereItemList Items="@Item.CheminementPro" HideIndicatorBase="true" HideIndicatorRestriction="true"/>
 }

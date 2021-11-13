@@ -33,7 +33,8 @@
     {"id":29,"parentid":1,"libelle":"Egouts"},
     {"id":30,"parentid":1,"libelle":"Auberge"},
     {"id":31,"parentid":30,"libelle":"Auberge-relais"},
-    {"id":33,"parentid":30,"libelle":"Auberge fluviale"}
+    {"id":33,"parentid":30,"libelle":"Auberge fluviale"},
+    {"id":35,"parentid":2,"libelle":"Colonie"}
   ],
   "items":[
     {"id":3,"type":2,"parent":1,"nom":"Le Pays-Perdu","description":""},
@@ -166,6 +167,9 @@
     {"id":130,"type":23,"parent":32,"nom":"Pritzstock","population":"48 habitants","industrie":"Vigne"},
     {"id":131,"type":26,"parent":39,"nom":"Gersdorf","description": "Petit bourg du sud-est du Talabecland."},
     {"id":132,"type":26,"parent":39,"nom":"Hermsdorf","description": ""},
-    {"id":133,"type":34,"parent":39,"nom":"Ossino","description": "Village fortifié banal avec un temple de Taal et Rhya."}
+    {"id":133,"type":34,"parent":39,"nom":"Ossino","description": "Village fortifié banal avec un temple de Taal et Rhya."},
+    {"id":134,"type":25,"parent":37,"nom":"Les Crêtes Noires","description": ""},
+    {"id":135,"type":19,"parent":37,"nom":"Les Collines Stériles","description": ""},
+    {"id":136,"type":35,"parent":37,"nom":"Grissenwald","description": ""}
   ]
 }
