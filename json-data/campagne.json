@@ -17,6 +17,21 @@
   "campagnes": [
     {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
       "seances":[
+        {"quand":"2021-06-66","acte":1,"duree":4,"titre":"Planification","lieux":[],"secret":true,
+          "pjs":[7,9,10,11],"xp":1200,
+          "resume":"",
+          "facts":[
+            {"tri":1,"fact":"Bog - village d'Ostelle : Le sorcier du village a disparu"},
+            {"tri":2,"fact":"village d'Ostelle - Altdorf Les jolies choses"},
+            {"tri":3,"fact":"Altdorf - Xxx Les jolies choses"},
+            {"tri":4,"fact":"Xxx - Une histoire de fesses"},
+            {"tri":5,"fact":"Xxx - Altdorf Erreur sur la personne - Ostelle doit pouvoir passer Apprenti Apothicaire si elle le souhaite"},
+            {"tri":6,"fact":"Altdorf - Bogen : Ombres sur B."},
+            {"tri":7,"fact":"Bogen - ??? : Mort sur le reik"},
+            {"tri":8,"fact":"Caser : La mascarade des horreurs"},
+            {"tri":9,"fact":""}
+          ]
+        },
         {"quand":"2021-04-01","acte":1,"duree":4,"titre":"Ombres sur Bögenhafen","lieux":[101],"secret":true,
           "pjs":[7,9,10,11],"xp":200,
           "resume":"Sur la route pour rejoindre le village d'Ostelle"

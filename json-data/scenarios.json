@@ -433,6 +433,14 @@
       "nom": "Les jolies choses","note": 3,"lieux":[131,133,132],"lieuxtypes":[33,32],"difficulte":"Scénario d'introduction","source": "Wjdr2 Kit du meneur de jeu",
       "resume": "Scénario d'introduction. Acte 1 dans une auberge ou un chef bandit est retenu prisonnier en attendant que des patrouilleurs viennent appliquer la justice. Acte 2 Voyage sur route."
     },
+    {
+      "nom": "A vue de nez","note": 3,"lieuxtypes":[22],"difficulte":"Assez difficile","source": "Xamaris, 2ème prix d'un concours",
+      "resume": "Enquête urbaine sympa à développer. Un incendie, trois victimes, un temple, un nouveau culte."
+    },
+    {
+      "nom": "Drôles de rencontres à Bögenhafen","note": 3,"styles":["Enquête"],"lieux":[101],"source": "Wjdr2",
+      "resume": ""
+    },
 
     {"nom": "Un rat peut en cacher un autre","note": 1,"duree": "Très court","resume": "Auteur jeune. Très court, peut servir d'introduction à autre chose. Le lieu importe peu."},
     {"nom": "Les gobelins y'en a jamais assez","note": 1,"duree": "Court","resume": "Auteur jeune"},
