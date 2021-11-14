@@ -164,13 +164,14 @@
     {"id":128,"type":23,"parent":39,"nom":"Stimmigen","description":""},
     {"id":129,"type":22,"parent":37,"nom":"Ubersreik","population":"3 500 habitants","allegeance":"Conseil municipal (auparavant, le Graf Sigismund von Jungfreud)","industrie":"Commerce, Minerai, Ferronnerie",
       "description":"Ville franche, ancien siège des terres de von Jungfreud. Bac."},
-    {"id":130,"type":23,"parent":32,"nom":"Pritzstock","population":"48 habitants","industrie":"Vigne"},
+    {"id":130,"type":23,"parent":32,"nom":"Pritzstock","population":"48 habitants","industrie":"Vigne","description": "Village vinicole prospère proche de Middenheim"},
     {"id":131,"type":26,"parent":39,"nom":"Gersdorf","description": "Petit bourg du sud-est du Talabecland."},
     {"id":132,"type":26,"parent":39,"nom":"Hermsdorf","description": ""},
     {"id":133,"type":34,"parent":39,"nom":"Ossino","description": "Village fortifié banal avec un temple de Taal et Rhya."},
     {"id":134,"type":25,"parent":37,"nom":"Les Crêtes Noires","description": ""},
     {"id":135,"type":19,"parent":37,"nom":"Les Collines Stériles","description": ""},
     {"id":136,"type":35,"parent":37,"nom":"Grissenwald","description": ""},
-    {"id":137,"type":26,"parent":40,"nom":"Kreutzhofen","description": ""}
+    {"id":137,"type":26,"parent":40,"nom":"Kreutzhofen","description": ""},
+    {"id":138,"type":23,"parent":32,"nom":"Grubentreich","population":"88 habitants","industrie":"Agriculture, Elevage","description": "On y trouve l'unique auberge du Mouton Noir."}
   ]
 }

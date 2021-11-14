@@ -20,12 +20,14 @@
     protected override void OnParametersSet()
     {
         Item = _lieuxService.GetLieu(int.Parse(LieuId));
-        _topRowTitle = (Item.Parent?.Nom ?? "") + ", " + Item.TypeDeLieu.Nom;
+        _topRowTitle = $"{Item.Nom}, {Item.TypeDeLieu.Nom}{($" ({Item.Parent?.Nom})" ?? "")}";
         if (_appState.JeSuisDieu)
         {
-            var lieux = new List<LieuDto> { Item }.ToArray();
+            var lieux = new List<LieuDto> { Item };
+            if (Item.SousElements.Any())
+                lieux.AddRange(Item.SousElements);
             _scenarios = _scenariosService
-                .AllScenarios(lieux, Array.Empty<LieuTypeDto>())
+                .AllScenarios(lieux.ToArray(), Array.Empty<LieuTypeDto>())
                 .Where(s => s.Note is 0 or > 2)
                 .ToArray();
         }
@@ -40,9 +42,16 @@
         <div class="col-6">
             <div class="card-body">
                 <h3 class="card-title">@Item.Nom</h3>
-                <span class="insister">Localisation : </span><LieuItem Item="@Item.Parent"/>
-                <br/>
-                <LieuTypeItem Item="@Item.TypeDeLieu"/> 
+                <p class="card-text">
+                    <span class="insister">Type : </span><LieuTypeItem Item="@Item.TypeDeLieu"/> 
+                    <br/>
+                    <span class="insister">Localisation : </span><LieuItem Item="@Item.Parent"/>
+                    @if (Item.SousElements.Any())
+                    {
+                        <br/>
+                        <span class="insister">Regroupe : </span><LieuItemList Items="@Item.SousElements.ToArray()"/>
+                    }
+                </p>
                 <CardParagraphes Text="@Item.Description"/>
             </div>
             @if (_scenarios.Any())
