@@ -15,10 +15,12 @@
 
     private LieuDto Item { get; set; } = null!;
     private ScenarioDto[] _scenarios = Array.Empty<ScenarioDto>();
+    private string _topRowTitle = "";
 
     protected override void OnParametersSet()
     {
         Item = _lieuxService.GetLieu(int.Parse(LieuId));
+        _topRowTitle = (Item.Parent?.Nom ?? "") + ", " + Item.TypeDeLieu.Nom;
         if (_appState.JeSuisDieu)
         {
             var lieux = new List<LieuDto> { Item }.ToArray();
@@ -31,13 +33,15 @@
     }
 }
 
-<MainTopRow Title="@Item.TypeDeLieu.Nom"/>
+<MainTopRow Title="@_topRowTitle"/>
 
 <div class="content px-4">
     <div class="row">
         <div class="col-6">
             <div class="card-body">
                 <h3 class="card-title">@Item.Nom</h3>
+                <span class="insister">Localisation : </span><LieuItem Item="@Item.Parent"/>
+                <br/>
                 <LieuTypeItem Item="@Item.TypeDeLieu"/> 
                 <CardParagraphes Text="@Item.Description"/>
             </div>

@@ -397,7 +397,11 @@
       "resume": "Pour un groupe chevronné avec un sorcier et un guerrier efficace.\nDans un petit village proche d'une route importante (ou d'un fleuve) dans une zone forestière.\nLCI : section 'voyage' de Il y a quelque chose de pourri à Kislev ou de L'Empire en flammes."
     },
     {
-      "nom": "Avec l'aide de mes amis","source": "Le Premier Compagnon (v1)","lieuxtypes": [22],
+      "nom": "Avec l'aide de mes amis","lieux":[98],"lieuxtypes": [22],"source": "Le Premier Compagnon (v1)",
+      "resume": "Pour un groupe débutant avec éventuellement un apprenti sorcier et un filou.\nLCI : Le pouvoir derrière le trône."
+    },
+    {
+      "nom": "Nuit de sang","lieux":[98],"lieuxtypes": [22],"source": "Le Premier Compagnon (v1)",
       "resume": "Pour un groupe débutant avec éventuellement un apprenti sorcier et un filou.\nLCI : Le pouvoir derrière le trône."
     },
     {
@@ -469,7 +473,19 @@
       "nom": "LC5 - L'Empire en flammes","lieux":[],"source": "La Campagne Impériale !",
       "resume": ""
     },
-    
+    {
+      "nom": "Sombre est l'aile de la mort","lieux":[137,77],"source": "Wjdr v1",
+      "resume": "Idéalement après Quelque chose de pourri à Kislev. Possible après Mort sur le Reik."
+    },
+    {
+      "nom": "Eurêka !","lieux":[123],"source": "Wjdr v1 - Repose sans Paix",
+      "resume": ""
+    },
+    {
+      "nom": "Les sclupteur","lieux":[43,123],"lieuxtypes":[25],"source": "Wjdr v1 - Repose sans Paix",
+      "resume": "Recrutés pour l'ouverture d'une mine."
+    },
+
     {"nom": "Un rat peut en cacher un autre","note": 1,"duree": "Très court","resume": "Auteur jeune. Très court, peut servir d'introduction à autre chose. Le lieu importe peu."},
     {"nom": "Les gobelins y'en a jamais assez","note": 1,"duree": "Court","resume": "Auteur jeune"},
     {"nom": "Linceul de brume","note": 1,"duree": "Court","styles": ["Pas d'enquête"],"resume": "Village, mer, île, repaire d'un nécromant, nul (pour MJ fatiqué, perché, bourré, arraché, fainéant ou pris de cours). Nebeldorf, Côte de la Mer des Griffes","deja_joue": "Oui","source": "tonito.free.fr"},

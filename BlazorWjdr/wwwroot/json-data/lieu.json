@@ -170,6 +170,7 @@
     {"id":133,"type":34,"parent":39,"nom":"Ossino","description": "Village fortifié banal avec un temple de Taal et Rhya."},
     {"id":134,"type":25,"parent":37,"nom":"Les Crêtes Noires","description": ""},
     {"id":135,"type":19,"parent":37,"nom":"Les Collines Stériles","description": ""},
-    {"id":136,"type":35,"parent":37,"nom":"Grissenwald","description": ""}
+    {"id":136,"type":35,"parent":37,"nom":"Grissenwald","description": ""},
+    {"id":137,"type":26,"parent":40,"nom":"Kreutzhofen","description": ""}
   ]
 }

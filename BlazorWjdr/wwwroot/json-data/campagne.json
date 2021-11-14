@@ -21,15 +21,21 @@
           "pjs":[7,9,10,11],"xp":1200,
           "resume":"",
           "facts":[
+            {"tri":0,"fact":"Bog - Le journal"},
             {"tri":1,"fact":"Bog - village d'Ostelle : Le sorcier du village a disparu"},
-            {"tri":2,"fact":"village d'Ostelle - Altdorf Les jolies choses"},
-            {"tri":3,"fact":"Altdorf - Xxx Les jolies choses"},
-            {"tri":4,"fact":"Xxx - Une histoire de fesses"},
-            {"tri":5,"fact":"Xxx - Altdorf Erreur sur la personne - Ostelle doit pouvoir passer Apprenti Apothicaire si elle le souhaite"},
-            {"tri":6,"fact":"Altdorf - Bogen : Ombres sur B."},
-            {"tri":7,"fact":"Bogen - ??? : Mort sur le reik"},
-            {"tri":8,"fact":"Caser : La mascarade des horreurs"},
-            {"tri":9,"fact":""}
+            {"tri":2,"fact":"village d'Ostelle - Altdorf Une nuit agitée"},
+            {"tri":3,"fact":"Altdorf - Avec l'aide mes amis"},
+            {"tri":4,"fact":"Altdorf - Xxx Les jolies choses"},
+            {"tri":5,"fact":"Xxx - Une histoire de fesses"},
+            {"tri":6,"fact":"Xxx - Le baiser volé - épreuve Huguette qui devient initiée de Ranald"},
+            {"tri":7,"fact":"LCI 1 - Xxx - Altdorf Erreur sur la personne - Ostelle doit pouvoir passer Apprenti Apothicaire si elle le souhaite"},
+            {"tri":8,"fact":"LCI 1 - Altdorf - Bogen : Ombres sur B."},
+            {"tri":9,"fact":"Bogenhafen, Weissbruck, alentours - Temps hors jeu, changement de carrière se donnent rdv pour le Schaffenfest, Ratiboise ? Febreyze deveint égoutier et doit travailler dur pour prévenir une infestation de rats avant le Shaffenfest. Ostelle peut devenir apothicaire ou apprentie sorcier."},
+            {"tri":10,"fact":"LCI 2 - Bogen - ??? : Mort sur le reik"},
+            {"tri":11,"fact":"Caser : La mascarade des horreurs"},
+            {"tri":12,"fact":"LC1 3"},
+            {"tri":13,"fact":"Le boucher..."},
+            {"tri":14,"fact":""}
           ]
         },
         {"quand":"2021-04-01","acte":1,"duree":4,"titre":"Ombres sur Bögenhafen","lieux":[101],"secret":true,
@@ -40,9 +46,9 @@
           "pjs":[7,9,10,11],"xp":200,
           "resume":"Sur la route pour rejoindre le village d'Ostelle"
         },
-        {"quand":"2021-02-01","acte":1,"duree":4,"titre":"Un, deux, trois, allons au bois","lieux":[101],"secret":true,
+        {"quand":"2021-02-01","acte":1,"duree":4,"titre":"???????????????????","lieux":[101],"secret":true,
           "pjs":[7,9,10,11],"xp":200,
-          "resume":"Sur la route pour rejoindre le village d'Ostelle"
+          "resume":""
         },
         {"quand":"2021-12-20","acte":1,"duree":4,"titre":"Les jolies choses","scenario":"Les jolies choses","lieux":[101],"secret":true,
           "pjs":[7,9,10,11],"xp":200,
