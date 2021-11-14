@@ -430,7 +430,7 @@
       "resume": "Les PJs s'arrêtent dans une auberge dans laquelle le personnel a été massacré par un groupe de cultistes qui se font maintenant passer pour le personnel de l'auberge et tentent d'empoisonner les visiteurs."
     },
     {
-      "nom": "RsP - Les raisins de la colère","lieux":[130],"source": "Repose Sans Paix",
+      "nom": "RsP - Les raisins de la colère","lieux":[130,138],"source": "Repose Sans Paix",
       "resume": "Lien idéal entre LCI - MslR et LCI - LPdlT."
     },
     {
