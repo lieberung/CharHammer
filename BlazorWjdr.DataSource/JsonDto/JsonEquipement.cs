@@ -12,7 +12,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string[]? groupes { get; set; }
         public string nom { get; set; } = null!;
         public string prix { get; set; } = null!;
-        public string enc { get; set; } = null!;
+        public string? enc { get; set; }
         public string dispo { get; set; } = null!;
         public string description { get; set; } = null!;
         

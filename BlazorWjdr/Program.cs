@@ -420,7 +420,7 @@ namespace BlazorWjdr
                     Dispo = t.dispo,
                     Nom = t.nom,
                     Description = t.description,
-                    Enc = t.enc,
+                    Enc = t.enc ?? "-",
                     Groupes = (t.groupes ?? Array.Empty<string>()).ToArray(),
                     Prix = t.prix,
                     Contenance = t.contenance,
