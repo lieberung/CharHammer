@@ -133,6 +133,12 @@
       "sorts":[618,690],
       "description":""},
 
+    {"id":409,"race":1,"nom":"Adolphus Kuftsos","origines":[99],"poids":67,"taille":167,"age":22,"cheveux":"chataîns","yeux":"marrons","masquer":true,
+      "cheminement":[75,375],
+      "profil_actuel":{},
+      "aptitudes":[],
+      "description":""},
+
     {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
   "aptitudes":[3903,4206,4003,4225],"aptitudes_facultatives":[4004,4016,4017],

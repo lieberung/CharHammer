@@ -296,7 +296,7 @@
     "resume": "Dirigiste, bien mené, bonnes idées. Marienburg, bâteau, île oubliée"
   },
   {
-    "nom": "Ne noyez pas mon cognac","source": "Casus Belli",
+    "nom": "Ne noyez pas mon cognac","lieux":[23],"source": "Casus Belli",
     "deja_joue": "Déjà joué"
   },
   {
@@ -482,7 +482,7 @@
       "resume": ""
     },
     {
-      "nom": "Les sclupteur","lieux":[43,123],"lieuxtypes":[25],"source": "Wjdr v1 - Repose sans Paix",
+      "nom": "Le sculpteur","lieux":[43,123],"lieuxtypes":[25],"source": "Wjdr v1 - Repose sans Paix",
       "resume": "Recrutés pour l'ouverture d'une mine."
     },
 
