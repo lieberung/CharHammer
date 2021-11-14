@@ -3,9 +3,9 @@
 <a href="@_hrefBase/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <ItemIcon Icon="@_oiIcon" Classes="mr-1"/>
     @if (PasDeTooltip || string.IsNullOrWhiteSpace(_toolTipText)) {
-        @_itemName
+        @Item.Nom
     } else {
-        <Tooltip Text="@(_toolTipText)">@_itemName</Tooltip>
+        <Tooltip Text="@(_toolTipText)">@Item.Nom</Tooltip>
     }
 </a>
 
@@ -16,7 +16,6 @@
     private string _hrefBase = null!;
     private string _oiIcon = null!;
     private string _toolTipText = null!;
-    private string _itemName = null!;
 
     protected override void OnParametersSet()
     {
@@ -24,21 +23,18 @@
         {
             _hrefBase = "competences";
             _oiIcon = "target";
-            _itemName = Item.Nom;
             _toolTipText = "["+Item.CaracteristiqueAssociee+"] " + Item.ResumeComplet;
         }
         else if (Item.EstUnTalent)
         {
             _hrefBase = "talents";
             _oiIcon = "brush";
-            _itemName = Item.Nom;
             _toolTipText = Item.ResumeComplet;
         }
         else if (Item.EstUnTrait)
         {
             _hrefBase = "traits";
             _oiIcon = "droplet";
-            _itemName = Item.Nom;
             _toolTipText = string.IsNullOrWhiteSpace(Item.ResumeComplet) ? Item.Description : Item.ResumeComplet;
         }
         
