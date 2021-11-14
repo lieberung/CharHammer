@@ -129,8 +129,8 @@
     {"id":408,"race":1,"nom":"Ernst","origines":[99],"poids":67,"taille":167,"age":22,"cheveux":"chataîns","yeux":"marrons","masquer":true,
       "cheminement":[44,22,163,178],
       "profil_actuel":{},
-      "aptitudes":[2452,3181],
-      "sorts":[675,676],
+      "aptitudes":[2180,2452,3181],
+      "sorts":[618,690],
       "description":""},
 
     {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
