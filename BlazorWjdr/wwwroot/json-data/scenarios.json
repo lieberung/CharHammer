@@ -42,7 +42,7 @@
     "nom": "Brouillard en mer des griffes","source": "Kundïn"
   },
   {
-    "nom": "D'or et de Sang","note": 4,"source": "Kundïn"
+    "nom": "D'or et de Sang","note": 4,"lieux": [139],"source": "Kundïn"
   },
   {
     "nom": "Dans les griffes d'Hashut","note": 4,"duree": "Variable","source": "Kundïn",
@@ -500,6 +500,7 @@
     {"nom": "GefräBburg, le fief des goules","note": 1,"duree": "Moyenne","lieux": [2],"source": "Akshaan","styles":["Voyage","Action","Stratégie"],"resume": "Auteur jeune, style pénible, non-respect de l'univers"},
     {"nom": "Ils s'approchent","note": 1,"resume": "Auteur jeune"},
     {"nom": "Invocation","note": 1,"duree": "Court","styles": ["Action"],"resume": "Sans intérêt"},
+    {"nom": "Jeux de dieux","note": 1,"resume": "Sans intérêt"},
     {"nom": "L'épée sacrée","note": 1,"duree": "Court","source": "Dallbill@aol.com","styles":["Livre dont vous êtes le héros !"],"resume": "Auteur jeune"}
   ]
 }

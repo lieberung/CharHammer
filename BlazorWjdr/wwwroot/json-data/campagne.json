@@ -33,10 +33,11 @@
             {"tri":9,"fact":"LCI 1 - Altdorf - Bogen : Ombres sur B."},
             {"tri":10,"fact":"LCI 2 - Bogen - ??? : Mort sur le reik"},
             {"tri":11,"fact":"Caser : La mascarade des horreurs"},
-            {"tri":12,"fact":"Rsp - Les raisins de la colère"},
-            {"tri":13,"fact":"LC1 3"},
-            {"tri":14,"fact":"Le boucher..."},
-            {"tri":15,"fact":""}
+            {"tri":12,"fact":"Kemperbad - Caser : Une fin brutale"},
+            {"tri":13,"fact":"Rsp - Les raisins de la colère"},
+            {"tri":14,"fact":"LC1 3"},
+            {"tri":15,"fact":"Le boucher..."},
+            {"tri":16,"fact":""}
           ]
         },
         {"quand":"2021-04-01","acte":1,"duree":4,"titre":"Ombres sur Bögenhafen","lieux":[101],"secret":true,
