@@ -133,11 +133,17 @@
       "sorts":[618,690],
       "description":""},
 
-    {"id":409,"race":1,"nom":"Adolphus Kuftsos","origines":[99],"poids":67,"taille":167,"age":22,"cheveux":"chataîns","yeux":"marrons","masquer":true,
+    {"id":409,"race":1,"nom":"Adolphus Kuftsos","origines":[99],"poids":81,"taille":176,"age":32,"cheveux":"noirs","yeux":"verts","masquer":true,
       "cheminement":[75,375],
       "profil_actuel":{},
       "aptitudes":[],
       "description":""},
+
+    {"id":410,"race":1,"nom":"Ludwig Grotius","origines":[23],"poids":78,"taille":161,"age":43,"cheveux":"noirs","yeux":"marrons","masquer":true,
+      "cheminement":[368,37],
+      "profil_actuel":{"cc":34,"ct":31,"f":32,"e":31,"i":35,"ag":28,"dex":30,"intel":45,"fm":37,"soc":40},
+      "aptitudes":[1042,1008,1008,1001,1004,1012,2246,1219,1043,2013,2259],
+      "description":"Expansif, souriant, hâbleur. Compagnon de route agréable qui a sans doute breaucoup bourlingué. Il semble heureux de faire profiter 'les petits jeunes' de son expérience. Il aime raconter des anecdotes sur ses exploits, même si elle ne sont pas toujours cohérentes."},
 
     {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
