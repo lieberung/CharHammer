@@ -1,7 +1,7 @@
 ﻿@using BlazorWjdr.Models
 
 <a href="@_hrefBase/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="@_oiIcon" Classes="mr-1"/>
+    <ItemIcon Icon="@Item.Icon" Classes="mr-1"/>
     @if (PasDeTooltip || string.IsNullOrWhiteSpace(_toolTipText)) {
         @Item.Nom
     } else {
@@ -14,7 +14,6 @@
     [Parameter] public bool PasDeTooltip { get; set; }
 
     private string _hrefBase = null!;
-    private string _oiIcon = null!;
     private string _toolTipText = null!;
 
     protected override void OnParametersSet()
@@ -22,23 +21,19 @@
         if (Item.EstUneCompetence)
         {
             _hrefBase = "competences";
-            _oiIcon = "target";
             _toolTipText = "["+Item.CaracteristiqueAssociee+"] " + Item.ResumeComplet;
         }
         else if (Item.EstUnTalent)
         {
             _hrefBase = "talents";
-            _oiIcon = "brush";
             _toolTipText = Item.ResumeComplet;
         }
         else if (Item.EstUnTrait)
         {
             _hrefBase = "traits";
-            _oiIcon = "droplet";
             _toolTipText = string.IsNullOrWhiteSpace(Item.ResumeComplet) ? Item.Description : Item.ResumeComplet;
         }
         
         base.OnParametersSet();
     }
-
 }

@@ -50,6 +50,7 @@
         public List<AptitudeDto> TalentsLies => AptitudesLiees.Where(a => a.EstUnTalent).ToList();
         public List<AptitudeDto> TraitsLies => AptitudesLiees.Where(a => a.EstUnTrait).ToList();
 
+        public string Icon => EstUneCompetence ? "target" : EstUnTalent ? "brush" : EstUnTrait ? "droplet" : "error";
         public string NomComplet => Nom + (string.IsNullOrWhiteSpace(Spe) ? "" : $" : {Spe}");
         public string CategSpeSexy {
             get
@@ -107,20 +108,16 @@
         }
 
         public AptitudeDto Aptitude { get; }
-        private int Niveau { get; set; }
-        private int Score { get; set; }
-
-        public string Resume => Aptitude.EstUneCompetence
-            ? $"[{Aptitude.CaracteristiqueAssociee}] {Aptitude.Resume}"
-            : Aptitude.Resume;
-        public string Icon => Aptitude.EstUneCompetence ? "target" : Aptitude.EstUnTalent ? "brush" : Aptitude.EstUnTrait ? "droplet" : "error";
+        public int Niveau { get; set; }
+        private int ChancesDeSucces { get; set; }
+        
         public string Detail
         {
             get
             {
                 if (Aptitude.EstUneCompetence)
                 {
-                    return $"{Aptitude.Nom} ({Score}%)"; // (+{Niveau * 5}%)
+                    return $"{Aptitude.Nom} ({ChancesDeSucces}%)"; // (+{Niveau * 5}%)
                 }
                 if (Aptitude.EstUnTalent)
                 {
@@ -146,7 +143,7 @@
 
             foreach (var aptAcq in liste.Where(aa => aa.Aptitude.EstUneCompetence))
             {
-                aptAcq.Score = profil.GetStat(aptAcq.Aptitude.CaracteristiqueAssociee) + aptAcq.Niveau * 5;
+                aptAcq.ChancesDeSucces = profil.GetStat(aptAcq.Aptitude.CaracteristiqueAssociee) + aptAcq.Niveau * 5;
             }
             return liste.OrderBy(c => c.Detail).ToArray();
         }

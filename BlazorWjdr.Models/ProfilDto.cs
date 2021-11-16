@@ -15,6 +15,7 @@ namespace BlazorWjdr.Models
         public int Fm { get; init; }
         public int Soc { get; init; }
         public int M { get; init; }
+        public int B { get; init; }
         public int Bf => F / 10;
         public int Be => E / 10;
         public int BonusDInitiative => I / 10;

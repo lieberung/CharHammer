@@ -66,6 +66,14 @@ namespace BlazorWjdr.Models
                     if (zones.Contains("toutes") || zones.Contains("jambes"))
                         synthese.Jambes += pa;
                 }
+                var armureNaturelle = AptitudesAcquises.SingleOrDefault(aa => aa.Aptitude.Id == 4001);
+                if (armureNaturelle != null)
+                {
+                    synthese.Tete += armureNaturelle.Niveau;
+                    synthese.Bras += armureNaturelle.Niveau;
+                    synthese.Torse += armureNaturelle.Niveau;
+                    synthese.Jambes += armureNaturelle.Niveau;
+                }
                 return synthese;
             }
         }

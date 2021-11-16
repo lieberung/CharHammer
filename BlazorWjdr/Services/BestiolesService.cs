@@ -123,7 +123,7 @@ namespace BlazorWjdr.Services
             var initiative = (profil.BonusDInitiative * 2) + profil.BonusDAgilite;
             var detail = $"2 x {profil.BonusDInitiative} (BI) + {profil.BonusDAgilite} (BAg)";
             
-            var reflexes = combattant.Combattant.AptitudesAcquises.Count(a => a.Aptitude.Id == AptitudesService.TalentReflexesDeCombatId);
+            var reflexes = combattant.Combattant.AptitudesAcquises.SingleOrDefault(a => a.Aptitude.Id == AptitudesService.TalentReflexesDeCombatId)?.Niveau ?? 0;
             if (reflexes != 0)
             {
                 initiative += reflexes * 2;

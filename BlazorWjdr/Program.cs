@@ -288,8 +288,8 @@ namespace BlazorWjdr
             foreach (var bestiole in bestioles.Values)
             {
                 bestiole.Gabarit = BestiolesService.GetGabarit(bestiole) ?? aptitudes[AptitudesService.TraitGabaritMoyenId];
-                bestiole.Blessures = BestiolesService.CalculBlessures(bestiole.Gabarit, bestiole.ProfilActuel,
-                    bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId));
+                bestiole.Blessures = bestiole.ProfilActuel.B == 0 ? BestiolesService.CalculBlessures(bestiole.Gabarit, bestiole.ProfilActuel,
+                    bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId)) : bestiole.ProfilActuel.B;
                 bestiole.BlessuresDetailDuCalcul = BestiolesService.GetBlessuresDetailDuCalcul(bestiole.Gabarit, bestiole.ProfilActuel,
                     bestiole.AptitudesAcquises.Any(aa => aa.Aptitude.Id == AptitudesService.TraitDurACuirId));
                 bestiole.BlessuresFormuleDeCalcul = BestiolesService.GetBlessuresFormuleDeCalcul(bestiole.Gabarit,
@@ -705,7 +705,9 @@ namespace BlazorWjdr
                 I = p.i,
                 Int = p.intel,
                 Soc = p.soc,
-                M = p.m };
+                M = p.m,
+                B = p.b
+            };
         }
 
         private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids,
