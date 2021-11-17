@@ -20,7 +20,9 @@
     protected override void OnParametersSet()
     {
         Item = _lieuxService.GetLieu(int.Parse(LieuId));
-        _topRowTitle = $"{Item.Nom}, {Item.TypeDeLieu.Nom}{($" ({Item.Parent?.Nom})" ?? "")}";
+        _topRowTitle = $"{Item.Nom}, {Item.TypeDeLieu.Nom}";
+        if (Item.Parent != null)
+            _topRowTitle += $" ({Item.Parent?.Nom})";
         if (_appState.JeSuisDieu)
         {
             var lieux = new List<LieuDto> { Item };

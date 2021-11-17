@@ -19,7 +19,7 @@
         else if (Reference == "bretonnie")
             _lines = _lieuxService.AllLieux.Where(l => l.ParentId == 4).ToList();
         else
-            _lines = _lieuxService.AllLieux.Where(l => l.ParentsCount == 1).ToList();;
+            _lines = _lieuxService.AllLieux.Where(l => l.ParentsCount == 1).ToList();
         
         base.OnParametersSet();
     }
