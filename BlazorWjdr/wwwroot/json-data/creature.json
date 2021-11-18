@@ -1,7 +1,7 @@
 {
   "items":[
 
-    {"id":7,"race":1,"nom":"Febreize Ziberman","user":2,"teams":[5],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,"main_directrice":1,
+    {"id":7,"race":1,"nom":"Febreize Ziberman","user":2,"teams":[5],"date_creation":"2021-10-02","xp_total":500,"xp_actuel":300,"main_directrice":1,
       "sexe":0,"poids":82,"taille":177,"age":36,"cheveux":"bruns","yeux":"vairons orange et pourpre",
       "profil_initial":{"cc":35,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
       "profil_actuel":{"cc":40,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
@@ -26,13 +26,13 @@
       "description":"",
       "ambitions":["Pulpo souhaite ..."]
     },
-    {"id":9,"race":1,"nom":"Huguette Heinrich","user":4,"teams":[5],"date_creation":"2021-10-10","xp_total":300,"xp_actuel":200,
+    {"id":9,"race":1,"nom":"Huguette Heinrich","user":4,"teams":[5],"date_creation":"2021-10-10","xp_total":500,"xp_actuel":50,
       "sexe":1,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
       "profil_initial":{"cc":28,"ct":38,"f":30,"e":35,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
-      "profil_actuel":{"cc":33,"ct":38,"f":30,"e":40,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
+      "profil_actuel":{"cc":38,"ct":38,"f":30,"e":40,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
       "cheminement":[57],"origines":[37],
       "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"4 frères",
-      "aptitudes":[2032,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085,3018,1148,3917],
+      "aptitudes":[2032,2073,3184,3205,3179,1008,1219,1615,3017,1618,1043,1219,1615,1043,1618,1048,1045,1023,1148,2085,3018,1148,3917, 2021],
       "armes":[113,132],
       "armures":[19,15],
       "histoire":"Elevée par sa mère, qui se consacrait à ses études et recherchait la connaissance. Père absent, mais qui fait parvenir de l'argent au foyer. Depuis décédé dans des circonstances obscures. Huguette a reçu une très bonne éduction. Elevée en tant que petite dernière avec quatre grands frères, elle a toujours su se défendre et un côté garçon manqué.",
@@ -41,13 +41,13 @@
       "ambitions":["Long terme : Huguette souhaite en savoir plus sur qui était son père.","Moyen terme : Réunir de quoi payer des études à sa mère."],
       "notes":"Destinée : Une chute fatale..."
     },
-    {"id":10,"race":27,"nom":"Rhaimon Bahrr de Fer","user":3,"teams":[5],"date_creation":"2021-10-17","xp_total":300,"xp_actuel":100,
+    {"id":10,"race":27,"nom":"Rhaimon Bahrr de Fer","user":3,"teams":[5],"date_creation":"2021-10-17","xp_total":500,"xp_actuel":100,
       "sexe":0,"poids":66,"taille":138,"age":82,"cheveux":"bruns","yeux":"marrons","main_directrice":1,
       "profil_initial":{"cc":44,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":33,"soc":19},
       "profil_actuel":{"cc":49,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":33,"soc":19},
       "cheminement":[75],"origines":[76],
       "carriere_du_pere":38,"carriere_de_la_mere":44,"freres_et_soeurs":"non",
-      "aptitudes":[1042,1618,1224,1075,2245,1220,3018,1209,1034,1220,1618,3200,2021,1026,3152,3146,3198,3014,1096,1133,1136,2070,2074,3800,3701,3903,3906],
+      "aptitudes":[3800,1096,3701,1133,1136,2070,2074,3903,3906, 3152,3198,3146,3014, 2245,1224,1042,1075,1618,3018,1220, 1209,1026,1618,1034,1220,2021,3200],
       "armes":[114,200],
       "armures":[14,17],
       "equipement":[],
@@ -57,7 +57,7 @@
       "ambitions":["Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !","Long terme : Intégrer une guilde de forgerons et disposer de sa propre forge.","Très long terme : Forger une arme runnique."],
       "notes":""
     },
-    {"id":11,"race":1,"nom":"Ostelle de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":300,"xp_actuel":200,
+    {"id":11,"race":1,"nom":"Ostelle de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":500,"xp_actuel":200,
       "sexe":1,"poids":70,"taille":164,"age":24,"cheveux":"châtains","yeux":"gris pâle","main_directrice":1,
       "profil_initial":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":41,"fm":43,"soc":31},
       "profil_actuel":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":41,"fm":48,"soc":31},
