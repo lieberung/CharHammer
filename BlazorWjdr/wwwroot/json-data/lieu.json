@@ -34,7 +34,14 @@
     {"id":30,"parentid":1,"libelle":"Auberge"},
     {"id":31,"parentid":30,"libelle":"Auberge-relais"},
     {"id":33,"parentid":30,"libelle":"Auberge fluviale"},
-    {"id":35,"parentid":2,"libelle":"Colonie"}
+    {"id":35,"parentid":2,"libelle":"Colonie"},
+    {"id":36,"parentid":1,"libelle":"Zone marécageuse"},
+    {"id":37,"parentid":1,"libelle":"Etablissement de loisir"},
+    {"id":38,"parentid":1,"libelle":"Taverne"},
+    {"id":39,"parentid":1,"libelle":"Commerce"},
+    {"id":40,"parentid":1,"libelle":"Armurerie"},
+    {"id":41,"parentid":1,"libelle":"Forge"},
+    {"id":42,"parentid":1,"libelle":"Guilde"}
   ],
   "items":[
     {"id":3,"type":2,"parent":1,"nom":"Le Pays-Perdu","description":""},
@@ -177,6 +184,7 @@
     {"id":140,"type":5,"parent":7,"nom":"Rémas","description": ""},
     {"id":141,"type":5,"parent":7,"nom":"Tobaro","description": ""},
     {"id":142,"type":5,"parent":7,"nom":"Trantio","description": ""},
-    {"id":143,"type":5,"parent":7,"nom":"Verezzo","description": ""}
+    {"id":143,"type":5,"parent":7,"nom":"Verezzo","description": ""},
+    {"id":144,"type":37,"parent":101,"nom":"Le Refuge du Voyageur","description": "Le  refuge des voyageurs est un petit établissement dédié à la consommation de breuvages et d’herbes tranquillisantes. La pièce principale est une petite salle généralement enfumée, composée d’un bar et de quelques tables ainsi que de banquettes. Derrière le bar, Astolfo Küttner, un homme maigre au crâne rasé, de nombreux piercings aux oreilles, sert les clients et leur permet ou non de descendre dans “l’espace des voyageurs”.\nIl s’agit d’un sous-sol munie d’aérations ou des petites chambres individuelles sont disponibles. On y accède par un petit escalier donnant sur une épaisse porte en bois. Pour y descendre, il faut consommer. Un homme énorme aux traits kislévites, torse nu avec de larges bretelles en cuir s’assure que personne n’aille déranger les clients."}
   ]
 }

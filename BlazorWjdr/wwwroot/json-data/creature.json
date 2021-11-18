@@ -145,10 +145,10 @@
       "aptitudes":[1042,1008,1008,1001,1004,1012,2246,1219,1043,2013,2259],
       "description":"Expansif, souriant, hâbleur. Compagnon de route agréable qui a sans doute breaucoup bourlingué. Il semble heureux de faire profiter 'les petits jeunes' de son expérience. Il aime raconter des anecdotes sur ses exploits, même si elle ne sont pas toujours cohérentes."},
 
-    {"id":411,"race":1,"nom":"Dame Isolde","origines":[98],"poids":62,"taille":168,"age":23,"cheveux":"noirs","yeux":"marrons","masquer":true,
-      "cheminement":[368,37],
-      "profil_actuel":{"cc":34,"ct":31,"f":32,"e":31,"i":35,"ag":28,"dex":30,"intel":45,"fm":37,"soc":40},
-      "aptitudes":[1042,1008,1008,1001,1004,1012,2246,1219,1043,2013,2259],
+    {"id":411,"race":1,"nom":"Isolde Von Strudeldorf","origines":[98],"poids":62,"taille":168,"age":22,"cheveux":"noirs","yeux":"marrons","masquer":true,
+      "cheminement":[61],
+      "profil_actuel":{"cc":36,"ct":32,"f":31,"e":32,"i":35,"ag":31,"dex":43,"intel":30,"fm":33,"soc":28,"m":4},
+      "aptitudes":[1212,1212,1034,1034,1009,1106,1106,2028,2011,1042],
       "description":"Expansif, souriant, hâbleur. Compagnon de route agréable qui a sans doute breaucoup bourlingué. Il semble heureux de faire profiter 'les petits jeunes' de son expérience. Il aime raconter des anecdotes sur ses exploits, même si elle ne sont pas toujours cohérentes."},
 
     {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
