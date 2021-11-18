@@ -57,7 +57,7 @@
       "ambitions":["Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !","Long terme : Intégrer une guilde de forgerons et disposer de sa propre forge.","Très long terme : Forger une arme runnique."],
       "notes":""
     },
-    {"id":11,"race":1,"nom":"Ostelle de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":500,"xp_actuel":200,
+    {"id":11,"race":1,"nom":"Ostelle de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":500,"xp_actuel":400,
       "sexe":1,"poids":70,"taille":164,"age":24,"cheveux":"châtains","yeux":"gris pâle","main_directrice":1,
       "profil_initial":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":41,"fm":43,"soc":31},
       "profil_actuel":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":41,"fm":48,"soc":31},

@@ -1,5 +1,9 @@
 ﻿@using BlazorWjdr.Models
-
+@code{
+    [Parameter] public AptitudeDto[] Items { get; set; } = null!;
+    [Parameter] public AptitudeDto[][] ItemsChoix { get; set; } = Array.Empty<AptitudeDto[]>();
+    [Parameter] public bool PasDeTooltip { get; set; }
+}
 <ul class="list-inline">
     @foreach (var item in Items)
     {
@@ -7,12 +11,6 @@
     }
     @foreach (var choix in ItemsChoix)
     {
-        <li class="list-inline-item"><ChoixDAptitudeItem Choix="@choix" PasDeTooltip="@PasDeTooltip"/></li>
+        <li class="list-inline-item ml-2"><ChoixDAptitudeItem Choix="@choix" PasDeTooltip="@PasDeTooltip"/></li>
     }
 </ul>
-
-@code{
-    [Parameter] public AptitudeDto[] Items { get; set; } = null!;
-    [Parameter] public AptitudeDto[][] ItemsChoix { get; set; } = Array.Empty<AptitudeDto[]>();
-    [Parameter] public bool PasDeTooltip { get; set; }
-}
