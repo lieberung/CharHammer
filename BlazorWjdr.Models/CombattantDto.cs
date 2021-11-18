@@ -14,9 +14,9 @@ namespace BlazorWjdr.Models
         public string DetailDuJet { get; set; } = "";
         public CombattantDto? EngageContre { get; set; }
 
-        public AptitudeAcquise[] CompetencesMartiales => Combattant.AptitudesAcquises
+        public AptitudeAcquiseDto[] CompetencesMartiales => Combattant.AptitudesAcquises
             .Where(aa => aa.Aptitude.Martial && aa.Aptitude.EstUneCompetence).ToArray();
-        public AptitudeAcquise[] AutresTraitsMartiaux => Combattant.AptitudesAcquises
+        public AptitudeAcquiseDto[] AutresTraitsMartiaux => Combattant.AptitudesAcquises
             .Where(aa => aa.Aptitude.Martial && !aa.Aptitude.EstUneCompetence).ToArray();
     }
 }

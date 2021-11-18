@@ -259,10 +259,10 @@ namespace BlazorWjdr
                     Masquer = c.masquer,
                     ProfilActuel = GetProfilDtoFromJson(c.profil_actuel),
                     ProfilInitial = c.profil_initial != null ? GetProfilDtoFromJson(c.profil_initial) : null,
-                    AptitudesAcquises = AptitudeAcquise.GetList(
+                    AptitudesAcquises = AptitudeAcquiseDto.GetList(
                         (c.aptitudes ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray(),
                         GetProfilDtoFromJson(c.profil_actuel)),
-                    AptitudesOptionnels = AptitudeAcquise.GetList(
+                    AptitudesOptionnels = AptitudeAcquiseDto.GetList(
                         (c.aptitudes_facultatives ?? Array.Empty<int>()).Select(id => aptitudes[id]).ToArray(),
                         GetProfilDtoFromJson(c.profil_actuel)),
                     Origines = (c.origines ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),

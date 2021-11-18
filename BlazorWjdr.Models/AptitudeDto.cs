@@ -99,44 +99,41 @@
         }
     }
 
-    public class AptitudeAcquise
+    public class AptitudeAcquiseDto
     {
-        private AptitudeAcquise(AptitudeDto aptitude, int niveau)
+        private AptitudeAcquiseDto(AptitudeDto aptitude, int niveau)
         {
             Aptitude = aptitude;
             Niveau = niveau;
         }
 
         public AptitudeDto Aptitude { get; }
-        public int Niveau { get; set; }
+        public int Niveau { get; private set; }
         private int ChancesDeSucces { get; set; }
-        
-        public string Detail
+
+        public string Detail(bool afficherBonusDeCompetence)
         {
-            get
+            if (Aptitude.EstUneCompetence)
             {
-                if (Aptitude.EstUneCompetence)
-                {
-                    return $"{Aptitude.Nom} ({ChancesDeSucces}%)"; // (+{Niveau * 5}%)
-                }
-                if (Aptitude.EstUnTalent)
-                {
-                    var rating = Niveau == 1 ? "" : $" ({Niveau})";
-                    return $"{Aptitude.Nom}{rating}";
-                }
-                var niveau = Niveau == 1 ? "" : $" (+{Niveau})";
-                return $"{Aptitude.Nom}{niveau}";
+                return afficherBonusDeCompetence ? $"{Aptitude.Nom} (+{Niveau * 5}%)" : $"{Aptitude.Nom} ({ChancesDeSucces}%)";
             }
+            if (Aptitude.EstUnTalent)
+            {
+                var rating = Niveau == 1 ? "" : $" ({Niveau})";
+                return $"{Aptitude.Nom}{rating}";
+            }
+            var niveau = Niveau == 1 ? "" : $" (+{Niveau})";
+            return $"{Aptitude.Nom}{niveau}";
         }
 
-        public static AptitudeAcquise[] GetList(IEnumerable<AptitudeDto> aptitudes, ProfilDto profil)
+        public static AptitudeAcquiseDto[] GetList(IEnumerable<AptitudeDto> aptitudes, ProfilDto profil)
         {
-            var liste = new List<AptitudeAcquise>();
+            var liste = new List<AptitudeAcquiseDto>();
             foreach (var apt in aptitudes)
             {
                 var ca = liste.FirstOrDefault(c => c.Aptitude == apt);
                 if (ca == null)
-                    liste.Add(new AptitudeAcquise(apt, 1));
+                    liste.Add(new AptitudeAcquiseDto(apt, 1));
                 else
                     ca.Niveau += 1;
             }
@@ -145,7 +142,7 @@
             {
                 aptAcq.ChancesDeSucces = profil.GetStat(aptAcq.Aptitude.CaracteristiqueAssociee) + aptAcq.Niveau * 5;
             }
-            return liste.OrderBy(c => c.Detail).ToArray();
+            return liste.OrderBy(c => c.Aptitude.NomComplet).ToArray();
         }
     }
 }

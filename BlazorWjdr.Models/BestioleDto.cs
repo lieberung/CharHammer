@@ -26,12 +26,12 @@ namespace BlazorWjdr.Models
         public string Description { get; init; } = null!;
         public string Notes { get; init; } = "";
         
-        public AptitudeAcquise[] AptitudesAcquises { get; init; } = null!;
-        public AptitudeAcquise[] AptitudesOptionnels { get; init; } = null!;
+        public AptitudeAcquiseDto[] AptitudesAcquises { get; init; } = null!;
+        public AptitudeAcquiseDto[] AptitudesOptionnels { get; init; } = null!;
         
-        public AptitudeAcquise[] Competences => AptitudesAcquises.Where(a => a.Aptitude.EstUneCompetence).ToArray();
-        public AptitudeAcquise[] Talents => AptitudesAcquises.Where(a => a.Aptitude.EstUnTalent).ToArray();
-        public AptitudeAcquise[] Traits => AptitudesAcquises.Where(a => a.Aptitude.EstUnTrait).ToArray();
+        public AptitudeAcquiseDto[] Competences => AptitudesAcquises.Where(a => a.Aptitude.EstUneCompetence).ToArray();
+        public AptitudeAcquiseDto[] Talents => AptitudesAcquises.Where(a => a.Aptitude.EstUnTalent).ToArray();
+        public AptitudeAcquiseDto[] Traits => AptitudesAcquises.Where(a => a.Aptitude.EstUnTrait).ToArray();
 
         public LieuDto[] Origines { get; init; } = null!;
         public RaceDto Race { get; init; } = null!;
@@ -134,7 +134,7 @@ namespace BlazorWjdr.Models
                     toStr.Add($"Jambes {Jambes}");
 
                 if (Tete == Bras && Tete == Torse && Tete == Jambes)
-                    return $"Toutes les zones {Total}";
+                    return $"Toutes les zones {Tete}";
 
                 return string.Join(", ", toStr);
             }

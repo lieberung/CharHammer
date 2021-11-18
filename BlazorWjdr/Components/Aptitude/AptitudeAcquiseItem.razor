@@ -1,9 +1,11 @@
 ﻿@using BlazorWjdr.Models
 @using BlazorWjdr.Services
 @code{
-    [Parameter] public AptitudeAcquise Item { get; set; } = null!;
+    [Parameter] public AptitudeAcquiseDto Item { get; set; } = null!;
+    [Parameter] public bool AfficherBonusDeCompetence { get; set; }
     
     private string _hrefBase = null!;
+    private string _titre = null!;
     private string _toolTipText = null!;
 
     protected override void OnParametersSet()
@@ -11,16 +13,19 @@
         if (Item.Aptitude.EstUneCompetence)
         {
             _hrefBase = "competences";
+            _titre = Item.Detail(AfficherBonusDeCompetence);
             _toolTipText = "["+Item.Aptitude.CaracteristiqueAssociee+"] " + Item.Aptitude.ResumeComplet;
         }
         else if (Item.Aptitude.EstUnTalent)
         {
             _hrefBase = "talents";
+            _titre = Item.Detail(false);
             _toolTipText = Item.Aptitude.ResumeComplet;
         }
         else if (Item.Aptitude.EstUnTrait)
         {
             _hrefBase = "traits";
+            _titre = Item.Detail(false);
             _toolTipText = string.IsNullOrWhiteSpace(Item.Aptitude.ResumeComplet) ? Item.Aptitude.Description : Item.Aptitude.ResumeComplet;
         }
         
@@ -31,8 +36,8 @@
 <a href="@_hrefBase/@Item.Aptitude.Id.ToString()/" class="btn btn-light btn-item">
     <ItemIcon Icon="@Item.Aptitude.Icon" Classes="mr-1"/>
     @if (_toolTipText == "") {
-        @Item.Detail
+        @_titre
     } else {
-        <Tooltip Text="@_toolTipText">@Item.Detail</Tooltip>
+        <Tooltip Text="@_toolTipText">@_titre</Tooltip>
     }
 </a>

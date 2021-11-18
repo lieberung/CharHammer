@@ -1,5 +1,10 @@
 ﻿@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Models
+@code{
+    [Parameter] public BestioleDto Item { get; set; } = null!;
+    [Parameter] public bool MasquerTitres { get; set; }
+    [Parameter] public bool AfficherBonusDeCompetence { get; set; }
+}
 
 @if (Item.Competences.Any())
 {
@@ -7,7 +12,7 @@
     {
         <h5 class="card-title">Compétences</h5>
     }
-    <p><AptitudeAcquiseItemList Items="@Item.Competences"/></p>
+    <p><AptitudeAcquiseItemList Items="@Item.Competences" AfficherBonusDeCompetence="@AfficherBonusDeCompetence"/></p>
 }
 
 @if (Item.Talents.Any())
@@ -35,11 +40,4 @@
         <h5 class="card-title">Traits optionnels</h5>
     }
     <p><AptitudeAcquiseItemList Items="@Item.AptitudesOptionnels" /></p>
-}
-
-@code{
-    [Parameter]
-    public BestioleDto Item { get; set; } = null!;
-    [Parameter]
-    public bool MasquerTitres { get; set; }
 }

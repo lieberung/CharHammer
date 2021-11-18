@@ -51,7 +51,7 @@
         <select value="@AdversaireActuel">
             @foreach (var competence in Item.CompetencesMartiales)
             {
-                <option>@competence.Detail</option> // Blazor needs to know what values it binds to!
+                <option>@competence.Detail(false)</option> // Blazor needs to know what values it binds to!
             }
         </select>
     </td>
