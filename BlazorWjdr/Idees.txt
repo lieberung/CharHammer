@@ -8,6 +8,8 @@ rentrer le cursus espion : informateur, espion, agent, maître espion
 traduire tables coups critiques
 carriere detail : races proposant la carrière
 
+marchand d'esclaves
+
 intégrer passé des personnages prétirés :
 LC1 (toute fin, annexes)
 Wjdr2 Guide du MJ

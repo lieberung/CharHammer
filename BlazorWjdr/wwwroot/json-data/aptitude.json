@@ -192,6 +192,7 @@
   {"id":1188,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Erudition","spe":"zoologie"},
   {"id":1189,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Erudition","spe":"potamologie","resume":"Connaissance des fleuves"},
   {"id":1224,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Erudition","spe":"métallurgie","carac":"Int","resume":"La métallurgie est la science des matériaux qui étudie les métaux, leurs élaborations, leurs propriétés, leurs traitements.","description":""},
+  {"id":1229,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Erudition","spe":"médecine","carac":"Int","resume":"Connaissance des maladies et de leurs symptômes","description":""},
 
   {"id":1196,"parent":1021,"categ":"skill","categ_spe":"adv","nom":"Dressage","spe":"Demi-gryphon","carac":"Int"},
   {"id":1197,"parent":1021,"categ":"skill","categ_spe":"adv","nom":"Dressage","spe":"Chien","carac":"Int"},

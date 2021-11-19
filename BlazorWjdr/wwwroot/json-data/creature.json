@@ -151,6 +151,12 @@
       "aptitudes":[1212,1212,1034,1034,1009,1106,1106,2028,2011,1042],
       "description":"Expansif, souriant, hâbleur. Compagnon de route agréable qui a sans doute breaucoup bourlingué. Il semble heureux de faire profiter 'les petits jeunes' de son expérience. Il aime raconter des anecdotes sur ses exploits, même si elle ne sont pas toujours cohérentes."},
 
+    {"id":412,"race":1,"nom":"Elvira Kleinestun","origines":[98],"poids":62,"taille":168,"age":30,"cheveux":"noirs","yeux":"marrons","masquer":true,
+      "cheminement":[81,130,158],
+      "profil_actuel":{"cc":31,"ct":24,"f":27,"e":53,"i":59,"ag":36,"dex":69,"intel":65,"fm":64,"soc":62,"m":4},
+      "aptitudes":[],
+      "description":""},
+
     {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},
   "aptitudes":[3903,4206,4003,4225],"aptitudes_facultatives":[4004,4016,4017],
