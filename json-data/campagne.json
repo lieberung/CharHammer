@@ -17,7 +17,7 @@
   "campagnes": [
     {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
       "seances":[
-        {"quand":"2021-06-66","acte":1,"duree":4,"titre":"Planification","lieux":[],"secret":true,
+        {"quand":"2021-06-66","acte":0,"duree":4,"titre":"Planification","lieux":[],"secret":true,
           "pjs":[7,9,10,11],"xp":1200,
           "resume":"",
           "facts":[
@@ -38,8 +38,7 @@
             {"tri":22,"fact":"Kemperbad - Caser : Une fin brutale"},
             {"tri":24,"fact":"Rsp - Les raisins de la colère"},
             {"tri":26,"fact":"LC1 3"},
-            {"tri":28,"fact":"Le boucher..."},
-            {"tri":30,"fact":""}
+            {"tri":28,"fact":"Le boucher..."}
           ]
         },
         {"quand":"2021-12-20","acte":1,"duree":4,"titre":"Les jolies choses","scenario":"Les jolies choses","lieux":[101],"secret":true,
@@ -63,7 +62,6 @@
             {"tri":1,"pjs":[11],"fact":"Ostelle fournie de la tisane pour La Chope Moussue, la taverne rafinée de Maître Kanter."},
             {"tri":2,"pjs":[7],"fact":"Dans la clairière de Morr, Febreize fait la promesse à Christian, mourant, de remettre sa chevalière à Clara, sa bien aimée. Febreize se gratte les couilles."},
             {"tri":3,"pjs":[10],"fact":"Rhaimon achète un bouclier. Je lui fait pouette pouette!!"},
-            {"tri":4,"pjs":[9],"fact":"Il me fait pouette pouette!!"},
             {"tri":5,"pjs":[7],"fact":"Febreize, suite à une maladresse, endomage son marteau. Il a également reçu une blessure qui mérite une attention particulière, Ostelle n'ayant pas réussi à la nettoyer proprement."},
             {"tri":6,"fact":"Sur les corps des estaliens et des cultistes, le groupe récupère un total de 13 co et 36/-."}
           ],
