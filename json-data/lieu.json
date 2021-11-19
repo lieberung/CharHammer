@@ -72,7 +72,7 @@
     {"id":34,"type":7,"parent":2,"nom":"Nordland","description":""},
     {"id":35,"type":7,"parent":2,"nom":"Ostermark","description":""},
     {"id":36,"type":7,"parent":2,"nom":"Ostland","description":""},
-    {"id":37,"type":7,"parent":2,"nom":"Reikland","description":""},
+    {"id":37,"type":7,"parent":2,"nom":"Reikland","allegeance":"Empereur Karl Franz, Comte Électeur et grand prince du Reikland, prince d'Altdorf, comte de la marche Occidentale","industrie":"vin, textiles, métaux précieux, minerai de fer, fromage","description":""},
     {"id":38,"type":7,"parent":2,"nom":"Stirland","description":""},
     {"id":39,"type":7,"parent":2,"nom":"Talabecland","description":""},
     {"id":40,"type":7,"parent":2,"nom":"Wissenland","description":""},
