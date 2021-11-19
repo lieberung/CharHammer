@@ -48,6 +48,18 @@
                     <span class="insister">Type : </span><LieuTypeItem Item="@Item.TypeDeLieu"/> 
                     <br/>
                     <span class="insister">Localisation : </span><LieuItem Item="@Item.Parent"/>
+                    @if (Item.Population != "")
+                    {
+                        <br/><span class="insister">Population : </span><span>@Item.Population</span>
+                    }
+                    @if (Item.Industrie != "")
+                    {
+                        <br/><span class="insister">Industrie : </span><span>@Item.Industrie</span>
+                    }
+                    @if (Item.Allegeance != "")
+                    {
+                        <br/><span class="insister">Allégeance : </span><span>@Item.Allegeance</span>
+                    }
                     @if (Item.SousElements.Any())
                     {
                         <br/>
