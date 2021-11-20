@@ -404,6 +404,10 @@
     {"id":26,"nom":"Haume complet","type":"Plaques","pa":"2","zones":"Tête","prix":"3 co","enc":"2","dispo":"Peu commun","attributs":[44,44,43,41,45],
       "description":""},
     {"id":27,"nom":"Casque ouvert","type":"Plaques","pa":"2","zones":"Tête","prix":"2 co","enc":"1","dispo":"Commun","attributs":[40,44,45],
-      "description":""}
+      "description":""},
+    
+    {"id":28,"nom":"Bottes de Chuck Mhoriss","type":"Cuir","pa":"0","zones":"Pieds","prix":"-","enc":"-","disponibilite": "Unique",
+      "description":"En plus d'être exceptionnellement stylées et immunisées à la salissure, les bottes s'avèrent être LA solution à l'ouverture des portes récalcitrantes. Magiques ; Confère le talent Roi de l'effraction au Niveau 2."}
+
   ]
 }

@@ -41,14 +41,28 @@
             {"tri":28,"fact":"Le boucher..."}
           ]
         },
-        {"quand":"2021-12-20","acte":1,"duree":4,"titre":"Les jolies choses","scenario":"Les jolies choses","lieux":[101],"secret":true,
+        {"quand":"2022-01-20","acte":1,"duree":4,"titre":"Les jolies choses","scenario":"Les jolies choses","lieux":[101],"secret":true,
           "pjs":[7,9,10,11],"xp":200,
           "resume":"Sur la route pour rejoindre le village d'Ostelle"
         },
-        {"quand":"2021-11-20","acte":1,"duree":4,"titre":"Ne noyez pas mon cognac","lieux":[101],"secret":true,
-          "pjs":[7,9,10,11],"xp":100,
+        {"quand":"2021-12-20","acte":1,"duree":4,"titre":"Ne noyez pas mon cognac","lieux":[101],"secret":true,
+          "pjs":[7,9,10,11],"xp":150,
           "rencontres": [
             {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406},{"nom":"Ludvig Grotius","id":410}]}
+          ],
+          "resume":""
+        },
+        {"quand":"2021-11-20","acte":1,"duree":4,"titre":"Le journal","lieux":[101],"secret":true,
+          "pjs":[7,9,10,11],"xp":50,
+          "rencontres": [
+            {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406}]}
+          ],
+          "facts":[
+            {"tri":1,"pjs":[9,10],"fact":"Huguette négocie avec Eustase pour obtenir 20% du bénéfice obtenu grâce à la parution du numéro 1. Rhaimon de renouveler ce genre d'arrangements suite à de futures aventures épiques."},
+            {"tri":2,"pjs":[10],"fact":"Dans le bureau des Mundtuck, Rhaimon rhaimon récupère un livre traitant du commerce."},
+            {"tri":3,"pjs":[10,11],"fact":"Dans l'antichambre des Mundtuck, Rhaimon rhaimon trouve un livre volumineux traitant d'herboristerie qu'il remet à Ostelle. Ce livre s'intéresse tout particulièrement à la confection de drogues et de poisons."},
+            {"tri":4,"pjs":[7],"fact":"Febreyze échange ses bottes avec celle de feu Chuck Mhoriss, brutalement décédé dans une explosion. En plus d'être exceptionnellement stylées et immunisées à la salissure, les bottes s'avèrent être LA solution à l'ouverture des portes récalcitrantes."},
+            {"tri":5,"fact":"Le groupe s'équipe en armures de cuir et Febreyze achète un nouveau marteau de guerre."}
           ],
           "resume":""
         },
@@ -70,10 +84,10 @@
         {"quand":"2021-10-02","acte":0,"duree":5,"titre":"Création des personnages cobayes v4",
           "pjs":[7,8,9,10,11],"xp":300,"xp_comment":"300 xp octroyés à la création",
           "facts":[
-            {"tri":1,"pjs":[7],"fact":"(-100 xp) Ré-organise ses stats\nSignes distinctifs : Yeux vairons, Zézaiement, Marque de naissance\nTalents aléatoires : Affable, Imitation, Affinité animale\n6 aptitudes culturelles : Mélée, Sang-froid, Charisme, Soins des animaux, Perspicace\nCarrière : Athlétisme, Braconnage, Dressage, Dissimulation, Perception, Résistance, Tir : Lance-pierre, Vision nocture\nChoisi +5% CC.\nDoit choisir sa Destinée ?\nDépense 100 xp dans Etiquette - Guildes."},
+            {"tri":1,"pjs":[7],"fact":"(-100 xp) Ré-organise ses stats\nSignes distinctifs : Yeux vairons, Zézaiement, Marque de naissance\nTalents aléatoires : Affable, Imitation, Affinité animale\n6 aptitudes culturelles : Mélée, Sang-froid, Charisme, Soins des animaux, Perspicace\nCarrière : Athlétisme, Braconnage, Dressage, Dissimulation, Perception, Résistance, Tir : Lance-pierre, Vision nocture\nChoisi +5% CC.\nDoit choisir sa Destinée ?\n-100xp : Etiquette - Guildes.\n-100xp : +5 FM\n-100xp : +5 E\n-100xp : Mélée ordinaires"},
             {"tri":2,"pjs":[8],"fact":"(-100 xp) Tirage ré-ordonné : cc:2, ct:13, f:15, e:12, i:9, ag:9, dex:17, int:17, fm:9, soc:6\nTalents aléatoires : Force accrue, Affinité animale\nSignes dist. : Enfant de la nuit, Victime de la mode, Yeux vairons\n6 aptitudes culturelles : Escamotage, Esquive, Tir Lance-pierre, Dissimulation (Urbaine), Perception, Métier (cuisinier)\nSa Destinée ..."},
             {"tri":3,"pjs":[9],"fact":"(-100 xp) Tirage ré-ordonné : cc:8, ct:18, f:10, e:15, i:13, ag:16, dex:12, int:18, fm:9, soc:16\nTalents aléatoires : Séduction, Calme, Résistance aux poisons\nSignes dist. : Pas du matin, Phéromones puissants, Démarche atypique\n6 aptitudes culturelles : Charisme, Mélée, Marchandage, Tir : Arc, Sang-froid, Perspicace\nCarrière : Perception, Natation, Mélée, Marchandage, Tir : Arc, Equitation, Jargon des batailles, Sur ses gardes\nSa Destinée (gratuit) la conduira vers une chute fatale.\nPromotion gratuite : +5 CC\nDépense 100 xp : +5 E\nDépense 150xp : +10 CC\nDépense 100 xp : Coups puissants"},
-            {"tri":4,"pjs":[10],"fact":"(-100 xp) Choix Nain\n(-100 xp) Tirage ré-ordonné : cc:14, ct:2, f:12, e:20, i:11, ag:9, dex:9, int:9, fm:8, soc:9\nSignes dist. : Corps d'athlète, Zézaiement, Avantagé (Esprit vif)\n7 compétences culturelles : Métallurgie, Lire/Ecrire, Mélée, Forgeron, Résistance\nCarrière : Athlétisme, Esquive, Mélée, Intimidation, Résistance, Coups puissants, Menaçant\nChoisit +5 CC\nDépense 100 xp dans..."},
+            {"tri":4,"pjs":[10],"fact":"(-100 xp) Choix Nain\n(-100 xp) Tirage ré-ordonné : cc:14, ct:2, f:12, e:20, i:11, ag:9, dex:9, int:9, fm:8, soc:9\nSignes dist. : Corps d'athlète, Zézaiement, Avantagé (Esprit vif)\n7 compétences culturelles : Métallurgie, Lire/Ecrire, Mélée, Forgeron, Résistance\nCarrière : Athlétisme, Esquive, Mélée, Intimidation, Résistance, Coups puissants, Menaçant\nChoisit +5 CC\n-100xp : Empoignade"},
             {"tri":5,"pjs":[11],"fact":"(-100 xp) Tirage ré-ordonné : cc:8, ct:10, f:10, e:10, i:16, ag:10, dex:11, int:16, fm:18, soc:11\nTalents aléatoires : Calme, Séduction, Talent artistique\nSignes dist. : Chicots, Bâtard, Forte pilosité\n6 compétences culturelles : Commérages, Mélée, Sang-froid, Bretonnien, Affinité provinciale, Perspicace\nCarrière : Erud. Plantes, Focalisation, Intuition, Magick, Perception, Sang-froid, Soins, Magie mineure\nPromotion gratuite : +5 FM."}
           ],
           "resume":"Expérimentation des règles v4 pour la création de personnages. Chaque personnage reçoit 300 xp et peut choisir 7 aptitudes dans sa carrière initale (max 1 talent, 1 trait)."
