@@ -450,27 +450,27 @@
       "resume": "Pour aventuriers achevant leur deuxième carrière."
     },
     {
-      "nom": "LC1 - Erreur sur la personne","lieux":[104,99],"source": "La Campagne Impériale !",
+      "nom": "LC1 - Erreur sur la personne","lieux":[104,99],"duree":"4-8 heures","source": "La Campagne Impériale !",
       "resume": ""
     },
     {
-      "nom": "LC1 - Ombres sur Bögenhafen","lieux":[101],"source": "La Campagne Impériale !",
+      "nom": "LC1 - Ombres sur Bögenhafen","lieux":[101],"duree":"8-12 heures","source": "La Campagne Impériale !",
       "resume": ""
     },
     {
-      "nom": "LC2 - Mort sur le Reik","lieux":[99,92,119,136,134,135,103],"source": "La Campagne Impériale !",
+      "nom": "LC2 - Mort sur le Reik","lieux":[99,92,119,136,134,135,103],"duree":"40-80 heures","source": "La Campagne Impériale !",
       "resume": ""
     },
     {
-      "nom": "LC3 - Le Pouvoir derrière le Trône","lieux":[98],"source": "La Campagne Impériale !",
+      "nom": "LC3 - Le Pouvoir derrière le Trône","lieux":[98],"duree":"30-50 heures","source": "La Campagne Impériale !",
       "resume": "Pour aventuriers ayant entamé leur troisième carrière."
     },
     {
-      "nom": "LC4 - Quelque chose de pourri à Kislev","lieux":[124],"source": "La Campagne Impériale !",
+      "nom": "LC4 - Quelque chose de pourri à Kislev","lieux":[124],"duree":"30-50 heures","source": "La Campagne Impériale !",
       "resume": ""
     },
     {
-      "nom": "LC5 - L'Empire en flammes","lieux":[],"source": "La Campagne Impériale !",
+      "nom": "LC5 - L'Empire en flammes","lieux":[],"duree":"40-80 heures","source": "La Campagne Impériale !",
       "resume": ""
     },
     {
