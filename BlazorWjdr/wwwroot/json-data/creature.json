@@ -43,7 +43,7 @@
       "description":"",
       "psychologie":"Rhaimon a toujours eu une curiosité atypique pour une divinité humaine, Morr, dans laquelle il semble percevoir certains aspects de {dieu nain à déterminer}.",
       "histoire":"Rhaimon a travaillé occasionnelement comme main d'oeuvre dans des forges, mais, scandalisé par la radinerie et l'incompétences des artisans humains, il a fini par prendre goûts pour des petits boulots moins reluisants mais plus lucratifs, au moins le temps de se refaire une santé.",
-      "ambitions":["Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !","Long terme : Intégrer une guilde de forgerons et disposer de sa propre forge.","Très long terme : Forger une arme runnique."],
+      "ambitions":["Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !"],
       "notes":""
     },
     {"id":11,"race":1,"nom":"Ostelle de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":500,"xp_actuel":400,

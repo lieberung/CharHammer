@@ -1,7 +1,9 @@
 ﻿@using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Models
 <tr style="border-top:1px dotted;">
-    <td><BestioleItemList Items="@Fact.Pjs"/></td>
+    <td style="width: 270px;">
+        <BestioleItemList Items="@Fact.Pjs"/>
+    </td>
     <td>
         <ul>
             @foreach (var line in Fact.Fact.Split('\n'))
