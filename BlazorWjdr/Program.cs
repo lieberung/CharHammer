@@ -425,14 +425,31 @@ namespace BlazorWjdr
                     Prix = t.prix,
                     Contenance = t.contenance,
                     Addiction = t.addiction,
-                    Lieux = (t.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray()
-                }).ToDictionary(k => k.Id);
+                    Lieux = (t.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    Potion = t.potion == null ? null : GetPotionDtoFromJson(t.potion)  
+                })
+                .ToDictionary(k => k.Id);
             
             foreach (var equipement in result.Values.Where(e => e.ParentId.HasValue))
             {
                 equipement.Parent = result[equipement.ParentId!.Value];
             }
             return result;
+        }
+
+        private static PotionDto GetPotionDtoFromJson(JsonPotion item)
+        {
+            return new PotionDto
+            {
+                Creation = new CreationDto { Difficulte = item.creation.difficulte, Temps = item.creation.temps },
+                Ingredients = new IngredientsDto
+                {
+                    Localisation = item.ingredients.localisation, Prix = item.ingredients.prix,
+                    Difficulte = item.ingredients.difficulte
+                },
+                Instabilite = item.instabilite,
+                Reaction = item.reaction
+            };
         }
 
         private static Dictionary<int, ArmeAttributDto> InitializeArmesAttributs(IEnumerable<JsonArmeAttribut> items)

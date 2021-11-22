@@ -5,6 +5,27 @@
 
 namespace BlazorWjdr.DataSource.JsonDto
 {
+    public class JsonIngredients
+    {
+        public string prix { get; set; } = null!;
+        public string localisation { get; set; } = null!;
+        public string difficulte { get; set; } = null!;
+    }
+
+    public class JsonCreation
+    {
+        public string difficulte { get; set; } = null!;
+        public string temps { get; set; } = null!;
+    }
+
+    public class JsonPotion
+    {
+        public string reaction { get; set; } = null!;
+        public string instabilite { get; set; } = null!;
+        public JsonIngredients ingredients { get; set; } = null!;
+        public JsonCreation creation { get; set; } = null!;
+    }
+    
     public class JsonEquipement
     {
         public int id { get; set; }
@@ -19,6 +40,8 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? contenance { get; set; }
         public int? addiction { get; set; }
         public int[]? lieux { get; set; }
+
+        public JsonPotion? potion { get; set; }
     }
 
     public class RootEquipement
