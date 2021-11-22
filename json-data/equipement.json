@@ -311,6 +311,9 @@
       "description":"Cette herbe est ingérée pour annuler les effets des ampoules causées par la peste noire (bien que les gonflements soient encore importants). De plus, gagnez un bonus de +10 sur tous les Tests concernant la maladie. Dose : 1 par jour."},
     {"id":467,"groupes":["Potions"],"nom":"Tonique digestif","prix":"3/-","enc":"0","dispo":"Commun",
       "description":"Fournit +20 aux Tests de Récupération des maux d'estomac tels que les Trots Galopants ou le Flux Sanglant (voir Maladies et Infections à la page 186)."},
+    {"id":468,"groupes":["Potions"],"nom":"Potion de vigueur","prix":"35 co","enc":"0","dispo":"Rare",
+      "potion":{"reaction":"1d10/2 rounds","instabilite":"Mineure","ingredients":{"prix":"250 co (pour 10 potions)","localisation":"Forêts tempérées","difficulte":"Moyenne (+0%)"},"creation":{"difficulte":"Assez difficile (-10%)","temps":"1 mois"}},
+      "description":"Vous êtes sacrément vigoureux et voyez vos caractériques de Force et d'Endurance de +15%, augmentant par conséquents vos BF et BE, pendant 1d10 heures."},
 
     {"id":500,"groupes":["Divers"],"nom":"Allumette","prix":"1s","enc":"0","dispo":"Commun",
       "description":""},

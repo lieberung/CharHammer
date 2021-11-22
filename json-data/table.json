@@ -643,6 +643,41 @@
       ]
     },
     
+    {"id":100,"titre":"Artisanat - Difficulté du Test de Métier",
+      "description": "Pour créer l'équipement, effectuez un Test étendu de Métier, dont la Difficulté est fixée par le MJ, généralement basé sur la Disponibilité de l'Équipement.",
+      "lignes":[
+        ["Disponibilité","Difficulté"],
+        ["Commune","+20"],
+        ["Limitée","+0"],
+        ["Rare","-10"],
+        ["Exotique","-30"]
+      ]
+    },
+    {"id":101,"titre":"Artisanat - BS requis pour le Test de Métier",
+      "description": "Le BS requis pour finaliser sa création est aussi fixé par le MJ, en utilisant les prix courants des équipements dans le Guide du Consommateur comme référence.",
+      "lignes":[
+        ["Prix courant","BS"],
+        ["Bronze","5"],
+        ["Argent","10"],
+        ["Or","15"]
+      ]
+    },
+    {"id":102,"titre":"Catastrophes de concotion",
+      "description": "N'oubliez pas d'ajouter le nombre de degrés d'échec obtenu au résultat du jet de dé.\nLa table 7-9 : effets des potions avariées se trouve dans Les Royaumes de Sorcellerie p.194.",
+      "lignes":[
+        ["1","Aucun effet","Vous n'arrivez à créer rien d'utile. mais vos ennuis s'arrêtent là."],
+        ["2","Près du but","Vous réussissez à créer la potion, mais elle est avariée. Lancez les dés sur la Table 7-9: effets des potions avariées pour en déterminer les effets secondaires."],
+        ["3","Pas si près que ça","Vous créez la potion. mais elle est sérieusement avariée. lancez les dés deux fois sur la Table 7-9: effets des potions avariées pour en déterminer les effets secondaires."],
+        ["4","Fumée el miasmes","Votre tentative de concoction échoue et une épaisse fumée. qui résiste à tous vos efforts pour la dissiper. demeure durant des jours. Elle imprègne tout l'équipement de votre laboratoire d'une répugnante odeur de souffre. Il faut voir le bon côté des choses: cela donne à votre laboratoire une certaine crédibilité auprès des alchimistes et des apothicaires."],
+        ["5","Espèce de maladroit !","À mi-chemin du processus. vous ratez la concoction. détruisant 10% de votre équipement et ruinant vos chances d'obtenir quelque chose avec ce lot. D'un autre côté, vous avez terminé en avance."],
+        ["6","Migraine.","Les vapeurs libérées par vos distillations vous font souffrir. Vous subissez tan malus de -5% aux tests effectués pendant que vous préparez cette potion. y compris pour toutes les actions que vous entreprenez hors de votre laboratoire."],
+        ["7","Brûlure d'acide.","Vous êtes éclaboussé par des réactifs acides. Vous subissez un coup d'une valeur de dégâts de 3. et à moins que vous ne receviez des soins d'un guérisseur dans l'heure. vous aurez une cicatrice localisée au hasard. Bien des alchimistes et des apothicaires sont suspicieux à l'égard de ceux qui portent de telles marques."],
+        ["8","Légère explosion.","Votre laboratoire est détruit à 15% et vous subissez un coup d'une valeur de dégâts de 2."],
+        ["9","Explosion","Votre laboratoire est détruit à 25% et vous subissez un coup d'une valeur de dégâts de 4."],
+        ["10","Au feu !","Votre laboratoire prend feu. Votre équipement est détruit à 35% quand vous réussissez à éteindre l'incendie et le feu peut gagner des bâtiments proches si le 11.1 le décide. II+ Énorme explosion. Votre laboratoire est totalement détruit et vous subissez un coup d'une valeur de dégâts de 6."]
+      ]
+    },
+    
     {"id":666,"titre":"Colère Divine !",
       "description": "Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.\nAprès avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.",
       "styles_th":["width:80px;",""],

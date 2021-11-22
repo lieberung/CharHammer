@@ -16,6 +16,14 @@
   ],
   "campagnes": [
     {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
+      "contacts":[
+        {"pnj":406,"rencontre":101,"residence":101,"employeur":[248],
+          "notes":[
+            "Propose 20% du bénéfice des ventes du premier numéro de son journal.",
+            "Accepte de renouveler son offre pour de futures aventures ; le montant sera négocié en fonction de l'envergure de l'épopée proposée."
+          ],
+          "description":""}
+      ],
       "seances":[
         {"quand":"2021-06-66","acte":0,"duree":4,"titre":"Planification","lieux":[],"secret":true,
           "pjs":[7,9,10,11],"xp":1200,
