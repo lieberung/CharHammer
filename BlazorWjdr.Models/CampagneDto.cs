@@ -23,6 +23,7 @@ namespace BlazorWjdr.Models
         public UserDto Mj { get; init; } = null!;
         public TeamDto Team { get; init; } = null!;
         public SeanceDto[] Seances { get; init; } = null!;
+        public ContactDeCampagneDto[] Contacts { get; init; } = null!;
 
         public SeanceDto[] SeancesPourLActe(int acte, bool godMode) => Seances
                 .Where(s => s.Acte == acte && (godMode || s.Secret == false))
@@ -47,6 +48,16 @@ namespace BlazorWjdr.Models
         public RencontreDto[] Rencontres { get; init; } = null!;
     }
 
+    public class ContactDeCampagneDto
+    {
+        public BestioleDto Pnj { get; set; } = null!;
+        public LieuDto LieuDeRencontre { get; set; } = null!;
+        public LieuDto? LieuDeResidence { get; set; }
+        public CarriereDto[] ProposeLesCarrieres { get; set; } = null!;
+        public string[] Notes { get; set; } = null!;
+        public string Description { get; set; } = null!;
+    }
+    
     public class FactDto
     {
         public int Tri { get; init; }

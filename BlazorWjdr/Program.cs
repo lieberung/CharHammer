@@ -43,7 +43,7 @@ namespace BlazorWjdr
 
             var dataScenarios = InitializeScenarios(data.Scenarios!.scenarios, dataLieux, dataLieuxTypes);
             var dataTeams = InitializeTeams(data.Campagne!.teams);
-            var dataCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataScenarios, dataBestioles, dataLieux);
+            var dataCampagnes = InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataScenarios, dataBestioles, dataCarrieres, dataLieux);
 
             Console.WriteLine($"Initializing data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
             
@@ -98,6 +98,7 @@ namespace BlazorWjdr
             IEnumerable<JsonCampagne> campagnes,
             IEnumerable<ScenarioDto> scenarios,
             IReadOnlyDictionary<int, BestioleDto> bestioles,
+            IReadOnlyDictionary<int, CarriereDto> carrieres,
             IReadOnlyDictionary<int, LieuDto> lieux)
         {
             return campagnes.Select(c => new CampagneDto()
@@ -105,6 +106,7 @@ namespace BlazorWjdr
                 Id = c.id,
                 Mj = users[c.mj],
                 Seances = (c.seances ?? Array.Empty<JsonSeance>()).Select(s => GetSeanceDtoFromJson(s, bestioles, scenarios, lieux)).ToArray(),
+                Contacts = (c.contacts ?? Array.Empty<JsonContactDeCampagne>()).Select(s => GetContactDeCampagneDtoFromJson(s, bestioles, carrieres, lieux)).ToArray(),
                 Team = teams[c.team],
                 Titre = c.titre
             }).ToArray();
@@ -135,6 +137,22 @@ namespace BlazorWjdr
                 XpComment = s.xp_comment,
                 Rencontres = (s.rencontres ?? Array.Empty<JsonRencontre>())
                     .Select(r => GetRencontreDtoFromJson(r, bestioles)).ToArray()
+            };
+        }
+
+        private static ContactDeCampagneDto GetContactDeCampagneDtoFromJson(JsonContactDeCampagne s,
+            IReadOnlyDictionary<int, BestioleDto> bestioles,
+            IReadOnlyDictionary<int, CarriereDto> carrieres,
+            IReadOnlyDictionary<int, LieuDto> lieux)
+        {
+            return new ContactDeCampagneDto
+            {
+                Description = s.description ?? "",
+                Notes = s.notes ?? Array.Empty<string>(),
+                Pnj = bestioles[s.pnj],
+                LieuDeRencontre = lieux[s.lieu_de_rencontre],
+                LieuDeResidence = s.lieu_de_residence == 0 ? null : lieux[s.lieu_de_residence],
+                ProposeLesCarrieres = (s.employeur ?? Array.Empty<int>()).Select(id => carrieres[id]).ToArray()
             };
         }
 

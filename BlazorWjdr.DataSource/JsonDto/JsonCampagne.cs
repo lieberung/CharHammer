@@ -9,7 +9,17 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string email { get; set; } = null!;
         public string pseudo { get; set; } = null!;
     }
-
+    
+    public class JsonContactDeCampagne
+    {
+        public int pnj { get; set; }
+        public int lieu_de_rencontre { get; set; }
+        public int lieu_de_residence { get; set; }
+        public int[]? employeur { get; set; }
+        public string[]? notes { get; set; }
+        public string? description { get; set; }
+    }
+    
     public class JsonCampagne
     {
         public int id { get; set; }
@@ -17,6 +27,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public int mj { get; set; }
         public int team { get; set; }
         public JsonSeance[]? seances { get; set; }
+        public JsonContactDeCampagne[]? contacts { get; set; }
     }
 
     public class JsonTeam
