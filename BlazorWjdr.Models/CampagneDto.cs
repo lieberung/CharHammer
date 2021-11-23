@@ -25,6 +25,9 @@ namespace BlazorWjdr.Models
         public SeanceDto[] Seances { get; init; } = null!;
         public ContactDeCampagneDto[] Contacts { get; init; } = null!;
 
+        public SeanceDto SeancePrecedente() => Seances.Where(s => s.Secret == false).OrderByDescending(s => s.Quand).First();
+        public SeanceDto SeanceActuelle() => Seances.Where(s => s.Secret).OrderBy(s => s.Quand).First();
+        
         public SeanceDto[] SeancesPourLActe(int acte, bool godMode) => Seances
                 .Where(s => s.Acte == acte && (godMode || s.Secret == false))
                 .OrderBy(s => s.Quand)

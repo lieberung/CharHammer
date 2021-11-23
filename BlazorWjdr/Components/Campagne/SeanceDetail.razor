@@ -7,16 +7,23 @@
 }
 
 <p class="card-text">
-    <span class="mr-3">Durée : @(Item.Duree)h</span>
-    <ItemIcon Icon="infinity" Classes="mr-3"/>
-    <span>@Item.Xp xp</span>
+    @if (Item.Lieux.Any())
+    {
+        <span style="display:inline-block;">
+            <LieuItemList Items="@Item.Lieux"/>
+        </span>
+        <ItemIcon Icon="infinity" Classes="mx-3"/>
+    }
+    <span class="mr-3">Durée : </span><span class="insister">@(Item.Duree)h</span>
+    <ItemIcon Icon="infinity" Classes="mx-3"/>
+    <span class="insister">@Item.Xp xp</span>
     @if (!string.IsNullOrWhiteSpace(Item.XpComment))
     {
         <em class="ml-2">@Item.XpComment</em>
     }
 </p>
 <p class="card-text">
-    <a class="mr-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/" >Aventuriers : </a>
+    <a class="mr-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/">Aventuriers : </a>
     <BestioleItemList Items="@Item.Pjs"/>
 </p>
 <CardParagraphes Text="@Item.Resume"/>

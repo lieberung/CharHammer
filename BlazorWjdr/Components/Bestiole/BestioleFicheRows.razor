@@ -1,0 +1,11 @@
+﻿@using BlazorWjdr.Models
+
+@code {
+    [Parameter] public BestioleDto[] Items { get; set; } = null!;
+}
+<BestioleFicheRow Items="@Items" Index="0"/>
+<BestioleFicheRow Items="@Items" Index="2"/>
+<BestioleFicheRow Items="@Items" Index="4"/>
+<BestioleFicheRow Items="@Items" Index="6"/>
+<BestioleFicheRow Items="@Items" Index="8"/>
+<BestioleFicheRow Items="@Items" Index="10"/>

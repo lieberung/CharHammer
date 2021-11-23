@@ -25,7 +25,7 @@
           "description":""}
       ],
       "seances":[
-        {"quand":"2021-06-66","acte":0,"duree":4,"titre":"Planification","lieux":[],"secret":true,
+        {"quand":"2666-06-66","acte":0,"duree":4,"titre":"Planification","lieux":[],"secret":true,
           "pjs":[7,9,10,11],"xp":1200,
           "resume":"",
           "facts":[
@@ -53,15 +53,17 @@
           "pjs":[7,9,10,11],"xp":200,
           "resume":"Sur la route pour rejoindre le village d'Ostelle"
         },
-        {"quand":"2021-12-20","acte":1,"duree":4,"titre":"Ne noyez pas mon cognac","lieux":[101],"secret":true,
+        
+        {"quand":"2021-12-04","acte":1,"duree":4,"titre":"Ne noyez pas mon cognac","lieux":[101],"secret":true,
           "pjs":[7,9,10,11],"xp":150,
           "rencontres": [
             {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406},{"nom":"Ludvig Grotius","id":410}]}
           ],
           "resume":""
         },
-        {"quand":"2021-11-20","acte":1,"duree":4,"titre":"Le journal","lieux":[101],"secret":true,
-          "pjs":[7,9,10,11],"xp":50,
+        
+        {"quand":"2021-11-20","acte":1,"duree":4,"titre":"Le journal","lieux":[101],
+          "pjs":[7,9,10,11],"xp":0,
           "rencontres": [
             {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406}]}
           ],
