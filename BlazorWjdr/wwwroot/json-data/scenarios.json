@@ -493,6 +493,10 @@
       "nom": "Le sculpteur","lieux":[43,123],"lieuxtypes":[25],"source": "Wjdr v1 - Repose sans Paix",
       "resume": "Recrutés pour l'ouverture d'une mine."
     },
+    {
+      "nom": "Terreur à Talabheim","lieux":[121],"source": "Wjdr v2",
+      "resume": "Substituable à Il y a quelque chose de pourri à Kislev dans le cadre de LCI."
+    },
 
     {"nom": "Un rat peut en cacher un autre","note": 1,"duree": "Très court","resume": "Auteur jeune. Très court, peut servir d'introduction à autre chose. Le lieu importe peu."},
     {"nom": "Les gobelins y'en a jamais assez","note": 1,"duree": "Court","resume": "Auteur jeune"},
