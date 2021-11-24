@@ -19,10 +19,11 @@
       "contacts":[
         {"pnj":406,"lieu_de_rencontre":101,"lieu_de_residence":101,"employeur":[248],
           "notes":[
+            "Eustase vit dans une petite bicoque tout proche de l’hôtel de ville, avec son cousin Bargol, étudiant et artiste.",
             "Propose 20% du bénéfice des ventes du premier numéro de son journal.",
             "Accepte de renouveler son offre pour de futures aventures ; le montant sera négocié en fonction de l'envergure de l'épopée proposée."
           ],
-          "description":""}
+          "description":"Alors que vous vous apprêtez à quitter l’entrepôt, un bruit attire votre attention. Une petite silhouette émerge des ombres. La lueur de votre torche dessine un halfling relativement bien vêtu qui s’exclame enthousiaste “Rangez vos armes, la chance nous sourit. D’un air affecté - Comment va-t-elle ? Pauvre petite… Réjoui - Mais vous avez évité le pire ! Quels héros vous faites !” Sautillant sur place et se frottant les mains - Par Tartelance, c’est vous que j’attendais ! Se reprenant - Excusez ma grossièreté, je suis Eustase Salingher, journaliste, et je vous ai vu entrer dans l’entrepôt ! Quand j’ai entendu le raffut et vu les deux autres types patibulaires entrer à leur tour, j’ai attendu que ça se calme, et voyant que vous vous en étiez visiblement bien tiré, je suis entré pour, disons, assurer vos arrières et ne pas louper toute l’action ! On peut dire que j’ai été servi ! Quel coup d’éclat ! J’ai une proposition à vous faire, venez souffler un peu chez moi et je vous explique tout ! Votre princesse pourra reprendre ses esprits dans un endroit plus chaleureux.\n\n"}
       ],
       "seances":[
         {"quand":"2666-06-66","acte":0,"duree":4,"titre":"Planification","lieux":[],"secret":true,
@@ -70,7 +71,7 @@
           "facts":[
             {"tri":1,"pjs":[9,10],"fact":"Huguette négocie avec Eustase pour obtenir 20% du bénéfice obtenu grâce à la parution du numéro 1. Rhaimon de renouveler ce genre d'arrangements suite à de futures aventures épiques."},
             {"tri":2,"pjs":[10],"fact":"Dans le bureau des Mundtuck, Rhaimon rhaimon récupère un livre traitant du commerce."},
-            {"tri":3,"pjs":[10,11],"fact":"Dans l'antichambre des Mundtuck, Rhaimon rhaimon trouve un livre volumineux traitant d'herboristerie qu'il remet à Ostelle. Ce livre s'intéresse tout particulièrement à la confection de drogues et de poisons."},
+            {"tri":3,"pjs":[10,11],"fact":"Dans l'antichambre des Mundtuck, Rhaimon rhaimon trouve un livre volumineux traitant d'herboristerie qu'il remet à Ostelle. Ce livre traite tout particulièrement de la confection de drogues et de poisons."},
             {"tri":4,"pjs":[7],"fact":"Febreyze échange ses bottes avec celle de feu Chuck Mhoriss, brutalement décédé dans une explosion. En plus d'être exceptionnellement stylées et immunisées à la salissure, les bottes s'avèrent être LA solution à l'ouverture des portes récalcitrantes."},
             {"tri":5,"fact":"Le groupe s'équipe en armures de cuir et Febreyze achète un nouveau marteau de guerre."}
           ],
