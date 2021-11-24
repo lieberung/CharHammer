@@ -677,6 +677,20 @@
         ["10","Au feu !","Votre laboratoire prend feu. Votre équipement est détruit à 35% quand vous réussissez à éteindre l'incendie et le feu peut gagner des bâtiments proches si le 11.1 le décide. II+ Énorme explosion. Votre laboratoire est totalement détruit et vous subissez un coup d'une valeur de dégâts de 6."]
       ]
     },
+    {"id":103,"titre":"Rencontres - Les égouts",
+      "description": "",
+      "lignes":[
+        ["Créature de vase",""],
+        ["Chauves-souris",""],
+        ["Moisissures mortelles",""],
+        ["Rats d'égouts",""],
+        ["Voleur",""],
+        ["Poche de méthane",""],
+        ["Chemin dangereux",""],
+        ["Obstacle invisible",""],
+        ["Trou",""]
+      ]
+    },
     
     {"id":666,"titre":"Colère Divine !",
       "description": "Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.\nAprès avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.",
