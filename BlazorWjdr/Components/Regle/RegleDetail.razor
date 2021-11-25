@@ -28,16 +28,14 @@
 
 @if (Item.Bestioles.Any())
 {
-    <p class="card-text">
-        <table class="table">
-            <tbody>
-            @foreach (var bestiole in Item.Bestioles)
-            {
-                <BestioleRow Item="@bestiole"/>
-            }
-            </tbody>
-        </table>
-    </p>
+    <table class="table">
+        <tbody>
+        @foreach (var bestiole in Item.Bestioles)
+        {
+            <BestioleRow Item="@bestiole"/>
+        }
+        </tbody>
+    </table>
 }
 
 @if (Item.Carrieres.Any())
