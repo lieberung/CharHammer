@@ -678,17 +678,18 @@
       ]
     },
     {"id":103,"titre":"Rencontres - Les égouts",
-      "description": "",
+      "description": "You should mark the location of these encounters on your sewer map, as they will be in the same place should the Characters return. Obviously, a methane pocket does not remain if it is ignited.",
       "lignes":[
-        ["Créature de vase",""],
-        ["Chauves-souris",""],
-        ["Moisissures mortelles",""],
-        ["Rats d'égouts",""],
-        ["Voleur",""],
-        ["Poche de méthane",""],
-        ["Chemin dangereux",""],
-        ["Obstacle invisible",""],
-        ["Trou",""]
+        ["Collecteur","Conduit","Rencontre"],
+        ["01-05","01-10","Créature de vase"],
+        ["06-15","11-15","Chauves-souris"],
+        ["16-25","16-40","Moisissures mortelles"],
+        ["26-35","-","Rats d'égouts"],
+        ["36-40","-","Voleur"],
+        ["41-50","41-70","Poche de méthane *"],
+        ["51-80","-","Chemin dangereux *"],
+        ["81-00","71-90","Obstacle invisible *"],
+        ["-","91-00","Trou *"]
       ]
     },
     
