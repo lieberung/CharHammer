@@ -770,7 +770,7 @@ namespace BlazorWjdr
                     DebouchesIds = c.debouch ?? Array.Empty<int>(),
                     AvancementsIds = c.avancements ?? Array.Empty<int>(),
                     TirageInitial = (c.tirage ?? Array.Empty<JsonCarriereInitiale>())
-                        .Select(ti => new TirageDto { Facteur = ti.facteur, Race = cacheRaces[ti.race]}).ToArray(),
+                        .Select(ti => new TirageDto { Facteur = ti.f, Race = cacheRaces[ti.r]}).ToArray(),
                     Dotations = c.dotations,
                     Image = $"images/careers/{c.id}.png",
                     PlanDeCarriere = GetProfilDtoFromJson(c.profil),

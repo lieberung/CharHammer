@@ -30,8 +30,8 @@ namespace BlazorWjdr.DataSource.JsonDto
 
     public class JsonCarriereInitiale
     {
-        public int race { get; set; }
-        public int facteur { get; set; }
+        public int r { get; set; }
+        public int f { get; set; }
     }
 
     public class JsonSource

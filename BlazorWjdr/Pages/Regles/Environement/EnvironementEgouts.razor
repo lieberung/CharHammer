@@ -12,7 +12,6 @@
 
 <div class="content px-4">
     
-    <h1 class="card-title ml-3">Règles générales</h1>
     <div class="row">
         <div class="col-4">
             <RegleBody Item="@_reglesService.GetRegle(246)"/>
@@ -39,10 +38,10 @@
 
     <PageSectionDivider/>
     
-    <h1 class="card-title ml-3">Idées de rencontres</h1>
     <div class="row">
         <div class="col-4">
             <div class="card-body">
+                <h3 class="card-title">Idées de rencontres (1d100)</h3>
                 <TableDetail Item="@_tablesService.GetTable(103)" MasquerTitre="@true"/>
             </div>
             <RegleBody Item="@_reglesService.GetRegle(252)"/>
