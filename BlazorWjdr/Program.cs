@@ -36,6 +36,7 @@ namespace BlazorWjdr
             var dataArmures = InitializeArmures(data.Armes!.armures, dataArmesAttributs);
             var dataSortileges = InitializeSortileges(data.Sortileges!.sortileges, dataAptitudes);
             var dataRaces = InitializeRaces(data.Races!.items, dataAptitudes, dataLieux);
+            dataRaces.Add(0,dataRaces[4]);
             var dataCarrieres = InitializeCarrieres(data.Carrieres!.items, dataRaces, dataAptitudes, dataReferences);
             var dataTablesCarrInit = InitializeTablesCarrieresInitiales(dataCarrieres);
             var dataBestioles = InitializeCreatures(data.Creatures!.items, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataSortileges, dataUsers);
