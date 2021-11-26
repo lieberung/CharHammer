@@ -1,5 +1,6 @@
 ﻿@page "/environement/egouts/"
 
+@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
 @using BlazorWjdr.Services
@@ -13,6 +14,10 @@
 <div class="content px-4">
     
     <div class="row">
+        <div class="card-body">
+            <h3 class="card-title">Aptitudes utiles dans les égouts</h3>
+            <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres"/>
+        </div>
         <div class="col-4">
             <RegleBody Item="@_reglesService.GetRegle(246)"/>
         </div>
@@ -60,6 +65,10 @@
             <RegleBody Item="@_reglesService.GetRegle(259)"/>
             <RegleBody Item="@_reglesService.GetRegle(258)"/>
             <RegleBody Item="@_reglesService.GetRegle(254)"/>
+            <div class="card-body">
+                <h3 class="card-title">Carrières familières avec les égouts</h3>
+                <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres"/>
+            </div>
         </div>
     </div>
 
