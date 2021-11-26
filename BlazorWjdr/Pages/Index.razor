@@ -1,137 +1,1 @@
-﻿@page "/"
-
-@using BlazorWjdr.Components.Index
-@using BlazorWjdr.Services
-
-@inject CarrieresService _carrSvc
-@inject AppState _appState
-
-<MainTopRow Title="Charente Hammer - Index"/>
-
-<div class="content px-4">
-
-    <div class="row">
-
-        <div class="col-4">
-            <div class="card-body">
-                <IndexCarrieresEtAptitudes/>
-            </div>
-            
-            <div class="card-body">
-                <h4 class="card-title">Création de Personnage</h4>
-                <div class="mb-2">
-                    <ItemIcon Icon="document" Classes="ml-2 mr-1"/>
-                    <em class="mr-2">Feuille de personnage</em>
-                    <a style="font-weight:bold;" target="_blank" href="download/feuille-de-perso_wjdr.docx">DOCX</a>
-                    <a style="font-weight:bold;" target="_blank" href="download/feuille-de-perso_wjdr.pdf">PDF</a>
-                </div>
-                <p>
-                    <a href="regles/creation-de-personnage/1/" class="btn btn-sm btn-secondary">Humain</a>
-                    <a href="regles/creation-de-personnage/26/" class="btn btn-sm btn-secondary">Halfling</a>
-                    <a href="regles/creation-de-personnage/27/" class="btn btn-sm btn-secondary">Nain</a>
-                    <a href="regles/creation-de-personnage/63/" class="btn btn-sm btn-secondary">Gnôme</a>
-                    <a href="regles/creation-de-personnage/65/" class="btn btn-sm btn-secondary">Elfe sylvain</a>
-                    <a href="regles/creation-de-personnage/66/" class="btn btn-sm btn-secondary">Haut elfe</a>
-                </p>
-                <IndexPresentationRacesJouables/>
-                <IndexTablesCarrieresInitiales/>
-            </div>
-            
-            <div class="card-body">
-                <IndexDernieresRecrues/>
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="card-body">
-                <IndexMatos/>
-            </div>
-            
-            <div class="card-body">
-                <h4 class="card-title">La Vie d'Aventurier</h4>
-                <p>
-                    <a href="regles/base/" class="mb-1 btn btn-sm btn-secondary">Les Tests, la base</a>
-                    <a href="regles/combat/" class="mb-1 btn btn-sm btn-secondary">Combats</a>
-                    <a href="regles/sauts-chutes-poursuites/" class="mb-1 btn btn-sm btn-secondary">Sauts, chutes, poursuites</a>
-                    <a href="regles/blessures/" class="mb-1 btn btn-sm btn-secondary">Blessures et Soins</a>
-                    <a href="regles/maladies/" class="mb-1 btn btn-sm btn-secondary">Maladies</a>
-                    <a href="regles/folie/" class="mb-1 btn btn-sm btn-secondary">Folie</a>
-                    <a href="regles/corruption/" class="mb-1 btn btn-sm btn-secondary">Corruption</a>
-                </p>
-                <h5 class="card-title">Tables des Coups Critiques</h5>
-                <p>
-                    <a href="table-coups-critiques/tete/" class="mb-1 btn btn-sm btn-secondary">Tête</a>
-                    <a href="table-coups-critiques/bras/" class="mb-1 btn btn-sm btn-secondary">Bras</a>
-                    <a href="table-coups-critiques/torse/" class="mb-1 btn btn-sm btn-secondary">Torse</a>
-                    <a href="table-coups-critiques/jambe/" class="mb-1 btn btn-sm btn-secondary">Jambe</a>
-                    <a href="table-coups-critiques/fumbles/" class="mb-1 btn btn-sm btn-secondary">Oops!</a>
-                </p>
-                <h5 class="card-title">Tables des Traits et Troubles</h5>
-                <p>
-                    <a href="tables-traits-et-troubles/troubles-mineurs/" class="mb-1 btn btn-sm btn-secondary">Troubles mineurs</a>
-                    <a href="tables-traits-et-troubles/folies/" class="mb-1 btn btn-sm btn-secondary">Folies</a>
-                    <a href="tables-traits-et-troubles/maladies/" class="mb-1 btn btn-sm btn-secondary">Maladies</a>
-                </p>
-            </div>
-            <div class="card-body">
-                <h4 class="card-title">Sorcellerie et Inspiration Divine</h4>
-                <p>
-                    <a href="regles/inspiration-divine/" class="mb-1 btn btn-sm btn-secondary">Inspiration et Colère Divine</a>
-                    <a href="regles/sorcellerie/" class="mb-1 btn btn-sm btn-secondary">Sorcellerie</a>
-                    <a href="regles/tables-des-echos-du-chaos/" class="mb-1 btn btn-sm btn-secondary">Tables des Echos du Chaos</a>
-                </p>
-            </div>
-        </div>
-        
-        <div class="col-3">
-            <div class="card-body">
-                <h4 class="card-title">Le Vieux Monde</h4>
-                <p>
-                    <a href="univers/introduction/" class="btn btn-sm btn-secondary">Introduction</a>
-                    <a href="chronologie/" class="btn btn-sm btn-secondary">Chronologie</a>
-                    <a href="lieux/vieux-monde/" class="btn btn-sm btn-secondary">Lieux</a>
-                </p>
-                <p>
-                    <a href="bestiaire/" class="btn btn-sm btn-primary">Bestiaire</a>
-                    <a href="personnages/" class="btn btn-sm btn-secondary">Archétypes</a>
-                    <a href="races/" class="btn btn-sm btn-secondary">Races</a>
-                </p>
-                <h4 class="card-title">Environements</h4>
-                <p>
-                    <a href="environement/egouts/" class="btn btn-sm btn-secondary">Les égouts</a>
-                </p>
-            </div>
-            
-            <div class="card-body">
-                <h4 class="card-title">Religion</h4>
-                <p>
-                    <a href="univers/pantheon/" class="mb-1 btn btn-sm btn-primary">Le Panthéon Divin</a>
-                </p>
-                <IndexDieuxMajeurs/>
-                <IndexDieuxMineurs/>
-                <IndexDieuxDuChaos/>
-            </div>
-            
-            <div class="card-body">
-                <h4 class="card-title">Campagne</h4>
-                <p>
-                    <a href="campagne/13/seances/" class="btn btn-sm btn-primary">Carnets de Route</a>
-                    <a href="aventuriers/13/" class="btn btn-sm btn-secondary mr-1">Prochaine séance</a>
-                    @if (_appState.JeSuisDieu)
-                    {
-                        <a href="maitre-du-jeu/13/seance-actuelle/" class="btn btn-sm btn-secondary mr-1">Prochaine séance</a>
-                    }
-                </p>
-                @if (_appState.JeSuisDieu)
-                {
-                    <p>
-                        <a href="personnages/" class="btn btn-sm btn-secondary mr-1">Personnages</a>
-                        <a href="scenarios/" class="btn btn-sm btn-secondary mr-1">Scénarios</a>
-                        <a href="regles/" class="btn btn-sm btn-secondary mr-1">Règles</a>
-                    </p>
-                }
-            </div>
-        </div>
-    </div>
-
-</div>
+﻿@page "/"@using BlazorWjdr.Components.Index@using BlazorWjdr.Services@inject CarrieresService _carrSvc@inject AppState _appState<MainTopRow Title="Charente Hammer - Index"/><div class="content px-4">    <div class="row">        <div class="col-4">            <div class="card-body">                <IndexCarrieresEtAptitudes/>            </div>                        <div class="card-body">                <h4 class="card-title">Création de Personnage</h4>                <div class="mb-2">                    <ItemIcon Icon="document" Classes="ml-2 mr-1"/>                    <em class="mr-2">Feuille de personnage</em>                    <a style="font-weight:bold;" target="_blank" href="download/feuille-de-perso_wjdr.docx">DOCX</a>                    <a style="font-weight:bold;" target="_blank" href="download/feuille-de-perso_wjdr.pdf">PDF</a>                </div>                <p>                    <IndexLink Href="regles/creation-de-personnage/1/" Title="Humain"/>                    <IndexLink Href="regles/creation-de-personnage/26/" Title="Halfling"/>                    <IndexLink Href="regles/creation-de-personnage/27/" Title="Nain"/>                    <IndexLink Href="regles/creation-de-personnage/63/" Title="Gnôme"/>                    <IndexLink Href="regles/creation-de-personnage/65/" Title="Elfe sylvain"/>                    <IndexLink Href="regles/creation-de-personnage/66/" Title="Haut elfe"/>                </p>                <IndexPresentationRacesJouables/>                <IndexTablesCarrieresInitiales/>            </div>                        <div class="card-body">                <IndexDernieresRecrues/>            </div>        </div>        <div class="col-4">            <div class="card-body">                <IndexMatos/>            </div>                        <div class="card-body">                <h4 class="card-title">La Vie d'Aventurier</h4>                <p class="mb-2">                    <IndexLink Href="regles/base/" Title="Les Tests, la base"/>                    <IndexLink Href="regles/combat/" Title="Combats"/>                    <IndexLink Href="regles/sauts-chutes-poursuites/" Title="Sauts, chutes, poursuites"/>                </p>                <p>                    <IndexLink Href="regles/blessures/" Title="Blessures et Soins"/>                    <IndexLink Href="regles/maladies/" Title="Maladies"/>                    <IndexLink Href="regles/folie/" Title="Folie"/>                    <IndexLink Href="regles/corruption/" Title="Corruption"/>                </p>                <h5 class="card-title">Tables des Coups Critiques</h5>                <p>                    <IndexLink Href="table-coups-critiques/tete/" Title="Tête"/>                    <IndexLink Href="table-coups-critiques/bras/" Title="Bras"/>                    <IndexLink Href="table-coups-critiques/torse/" Title="Torse"/>                    <IndexLink Href="table-coups-critiques/jambe/" Title="Jambe"/>                    <IndexLink Href="table-coups-critiques/fumbles/" Title="Oops!"/>                </p>                <h5 class="card-title">Tables des Traits et Troubles</h5>                <p>                    <IndexLink Href="tables-traits-et-troubles/troubles-mineurs/" Title="Troubles mineurs"/>                    <IndexLink Href="tables-traits-et-troubles/folies/" Title="Folies"/>                    <IndexLink Href="tables-traits-et-troubles/maladies/" Title="Maladies"/>                </p>            </div>            <div class="card-body">                <h4 class="card-title">Sorcellerie et Inspiration Divine</h4>                <p>                    <IndexLink Href="regles/inspiration-divine/" Title="Inspiration et Colère Divine"/>                    <IndexLink Href="regles/sorcellerie/" Title="Sorcellerie"/>                    <IndexLink Href="regles/tables-des-echos-du-chaos/" Title="Tables des Echos du Chaos"/>                </p>            </div>        </div>                <div class="col-3">            <div class="card-body">                <h4 class="card-title">Le Vieux Monde</h4>                <p class="mb-2">                    <IndexLink Href="univers/introduction/" Title="Introduction"/>                    <IndexLink Href="chronologie/" Title="Chronologie"/>                    <IndexLink Href="lieux/vieux-monde/" Title="Lieux"/>                </p>                <p>                    <IndexLink Href="bestiaire/" Title="Bestiaire" Primary="@true"/>                    <IndexLink Href="personnages/" Title="Archétypes"/>                    <IndexLink Href="races/" Title="Races"/>                </p>                <h4 class="card-title">Environements</h4>                <p>                    <IndexLink Href="environement/egouts/" Title="Les égouts"/>                </p>            </div>                        <div class="card-body">                <h4 class="card-title">Religion</h4>                <p class="mb-2">                    <IndexLink Href="univers/pantheon/" Title="Le Panthéon Divin" Primary="@true"/>                </p>                <IndexDieuxMajeurs/>                <IndexDieuxMineurs/>                <IndexDieuxDuChaos/>            </div>                        <div class="card-body">                <IndexCampagne/>            </div>        </div>    </div></div>

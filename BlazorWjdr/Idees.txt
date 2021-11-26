@@ -1,5 +1,5 @@
 ﻿page contacts avec lieux de rencontre
-
+«»
 assistant de création de pnj (en fonctionn de classe sociale, province, ajouter des stéréotypes genre client de taverne avec carrière aléatoire)
 assistant de création de creature
 assistant de création d'ennemi
@@ -59,3 +59,12 @@ Cri de guerre : Test contre la Peur des ennemis, si Echec -10 à tous ses jets p
 Bunit 
 
 #fef4d9 #faf1d0 #f3e3c1
+
+Déviation
+En combat de percussion (escrime, boxe, karaté, etc.) la déviation détourne l’arme adverse de sa trajectoire. En plus de se garantir contre une attaque, elle présente l’avantage de créer une ouverture dans la défense adverse voire de provoquer un déséquilibre corporel. Bien sûr, ces deux effets pourront être exploités.
+
+---------------------------------------
+
+// reload current page
+@inject NavigationManager _uriHelper;
+_uriHelper.NavigateTo(_uriHelper.Uri, forceLoad: true);

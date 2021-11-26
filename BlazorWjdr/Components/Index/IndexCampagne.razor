@@ -1,0 +1,28 @@
+@using BlazorWjdr.Services
+
+@implements IDisposable
+
+@inject AppState _appState
+
+@code {
+    protected override void OnInitialized() => _appState.OnChange += StateHasChanged;
+    public void Dispose() => _appState.OnChange -= StateHasChanged;
+}
+
+<h4 class="card-title">Campagne</h4>
+<p>
+    <IndexLink Href="campagne/13/seances/" Title="Carnets de Route"/>
+    <IndexLink Href="aventuriers/13/" Title="Dernière séance"/>
+    @if (_appState.JeSuisDieu)
+    {
+        <IndexLink Href="maitre-du-jeu/13/seance-actuelle/" Title="Prochaine séance"/>
+    }
+</p>
+@if (_appState.JeSuisDieu)
+{
+    <p>
+        <IndexLink Href="personnages/" Title="Personnages"/>
+        <IndexLink Href="scenarios/" Title="Scénarios"/>
+        <IndexLink Href="regles/" Title="Règles"/>
+    </p>
+}

@@ -24,7 +24,7 @@
         var adversaire = Adversaires.Single(a => a.Code == AdversaireActuel);
         Item.EngageContre = adversaire;
         adversaire.EngageContre ??= Item;
-        //StateHasChanged();
+        
         _appState.UnCombattantEnEngageUnAutre();
     }
 }
