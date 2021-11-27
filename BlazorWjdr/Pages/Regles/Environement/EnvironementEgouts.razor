@@ -14,11 +14,11 @@
 <div class="content px-4">
     
     <div class="row">
-        <div class="card-body">
-            <h3 class="card-title">Aptitudes utiles dans les égouts</h3>
-            <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres"/>
-        </div>
         <div class="col-4">
+            <div class="card-body">
+                <h3 class="card-title">Aptitudes utiles dans les égouts</h3>
+                <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres"/>
+            </div>
             <RegleBody Item="@_reglesService.GetRegle(246)"/>
         </div>
         <div class="col-4">

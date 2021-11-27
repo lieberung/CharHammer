@@ -761,6 +761,7 @@ namespace BlazorWjdr
                 {
                     Id = c.id,
                     Groupe = c.groupe ?? "",
+                    Revenu = c.revenu ?? "",
                     Nom = c.nom,
                     NomAnglais = c.nom_en ?? "",
                     NiveauSpecifie = c.niveau,

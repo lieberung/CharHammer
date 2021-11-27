@@ -22,6 +22,7 @@ namespace BlazorWjdr.Models
         public int Id { get; init; }
         public int? NiveauSpecifie { get; init; }
         public string Groupe { get; init; } = null!;
+        public string Revenu { get; init; } = null!;
         public string Nom { get; init; } = null!;
         public string NomAnglais { get; init; } = null!;
         public List<string> MotsClefDeRecherche { get; init; } = null!;

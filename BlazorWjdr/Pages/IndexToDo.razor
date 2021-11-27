@@ -1,0 +1,34 @@
+﻿@page "/todo"
+
+@using BlazorWjdr.Models
+@using BlazorWjdr.Services
+@using BlazorWjdr.Components.Carriere
+@using BlazorWjdr.Components.Aptitude
+
+@inject CarrieresService _cs
+@inject AptitudesService _as
+
+<MainTopRow Title="Au travail !"/>
+
+<div class="content px-4">
+    <div class="row">
+        <div class="col-1"></div>    
+        <div class="col-10">
+            <h4 class="card-title">Carrières de base sans description</h4>
+            <CarriereItemList Items="@_cs.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Description)).ToArray()"/>
+            <h4 class="card-title">Carrières de base sans vocation</h4>
+            <CarriereItemList Items="@_cs.AllCarrieres.Where(c => c.EstUneCarriereDeBase && string.IsNullOrWhiteSpace(c.Groupe)).ToArray()"/>
+            <h4 class="card-title">Carrières sans revenu</h4>
+            <CarriereItemList Items="@_cs.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Revenu)).ToArray()"/>
+
+            <h4 class="card-title">Aptitudes sans resume</h4>
+            <AptitudeItemList Items="@_as.AllAptitudes.Where(a => string.IsNullOrWhiteSpace(a.Resume)).ToArray()"/>
+            <h4 class="card-title">Aptitudes sans description</h4>
+            <AptitudeItemList Items="@_as.AllAptitudes.Where(a => string.IsNullOrWhiteSpace(a.Description)).ToArray()"/>
+            <h4 class="card-title">Aptitudes sans carrières</h4>
+            <AptitudeItemList Items="@_as.AllAptitudes.Where(a => !_cs.AllCarrieres.Any(c => c.Aptitudes.Contains(a))).ToArray()"/>
+
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
