@@ -15,7 +15,7 @@
     {"id":5,"nom":"[2021] Frères à la Chope d'Obsidienne Charente"}
   ],
   "campagnes": [
-    {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,
+    {"id":13,"titre":"Renouveau - Charente 2021","mj":1,"team":5,"richesses":{"or":0,"argent":0,"bronze":0},
       "contacts":[
         {"pnj":406,"lieu_de_rencontre":101,"lieu_de_residence":101,"employeur":[248],
           "notes":[
