@@ -142,6 +142,7 @@
   {"id":1177,"parent":1044,"categ":"skill","categ_spe":"adv","nom":"Métier","spe":"vendeur de chevaux","carac":"Int"},
   {"id":1180,"parent":1044,"categ":"skill","categ_spe":"adv","nom":"Métier","spe":"garçon d'écurie","carac":"Int"},
   {"id":1179,"parent":1044,"categ":"skill","categ_spe":"adv","nom":"Métier","spe":"fauconnerie","carac":"Int"},
+  {"id":1032,"parent":1044,"categ":"skill","categ_spe":"adv","nom":"Métier","spe":"imprimeur","carac":"Int"},
 
   {"id":1635,"categ":"skill","categ_spe":"adv","nom":"Représentation","aptitudes":[],"carac":"Ag","resume":"","description":"Vous avez appris un art physiquement exigeant, probablement pour gagner votre vie, peut-être en temps que saltimbanque ou membre d'un carnaval itinérant. Un test réussi de cette compétence vous permet de divertir tous les spectateurs suffisamment proches pour vous voir et vous entendre ; le BS indique à quel point vous avez réussi."},
   {"id":1636,"parent":1635,"categ":"skill","categ_spe":"adv","nom":"Représentation (une au choix)","ignorer":true},
