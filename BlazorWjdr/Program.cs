@@ -762,7 +762,7 @@ namespace BlazorWjdr
                 {
                     Id = c.id,
                     Groupe = c.groupe ?? "",
-                    Revenu = c.revenu ?? "",
+                    Statut = c.revenu ?? "",
                     Nom = c.nom,
                     NomAnglais = c.nom_en ?? "",
                     NiveauSpecifie = c.niveau,
@@ -780,6 +780,7 @@ namespace BlazorWjdr
                     Restriction = c.restriction ?? "",
                     Source = GetSourceFromJsonToDto(c.source, cacheReferences),
                     Leitmotiv = c.leitmotiv ?? "",
+                    CompetenceDeMetier = c.metier == null ? null : cacheAptitudes[c.metier.Value],
                     Aptitudes = GetAptitudes(c.aptitudes, cacheAptitudes),
                     AptitudesChoix = (c.aptitudes_choix ?? Array.Empty<int[]>()).Select(choix => GetAptitudes(choix, cacheAptitudes).ToArray()).ToList(),
                 })

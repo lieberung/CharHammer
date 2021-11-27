@@ -14,13 +14,14 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? nom_en { get; set; }
         public string? revenu { get; set; }
         public int? niveau { get; set; }
-        public int[]? avancements { get; set; }
-        public int[]? debouch { get; set; }
-        public JsonCarriereInitiale[]? tirage { get; set; }
         public string? groupe { get; set; }
         public string? restriction { get; set; }
         public JsonSource? source { get; set; }
+        public int[]? avancements { get; set; }
+        public int[]? debouch { get; set; }
+        public JsonCarriereInitiale[]? tirage { get; set; }
         public JsonProfil profil { get; set; } = null!;
+        public int? metier { get; set; }
         public int[]? aptitudes { get; set; }
         public int[][]? aptitudes_choix { get; set; }
         public string? leitmotiv { get; set; }

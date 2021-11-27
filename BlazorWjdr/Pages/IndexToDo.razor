@@ -19,7 +19,7 @@
             <h4 class="card-title">Carrières de base sans vocation</h4>
             <CarriereItemList Items="@_cs.AllCarrieres.Where(c => c.EstUneCarriereDeBase && string.IsNullOrWhiteSpace(c.Groupe)).ToArray()"/>
             <h4 class="card-title">Carrières sans revenu</h4>
-            <CarriereItemList Items="@_cs.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Revenu)).ToArray()"/>
+            <CarriereItemList Items="@_cs.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Statut)).ToArray()"/>
 
             <h4 class="card-title">Aptitudes sans resume</h4>
             <AptitudeItemList Items="@_as.AllAptitudes.Where(a => string.IsNullOrWhiteSpace(a.Resume)).ToArray()"/>

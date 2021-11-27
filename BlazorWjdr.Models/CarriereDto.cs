@@ -22,7 +22,7 @@ namespace BlazorWjdr.Models
         public int Id { get; init; }
         public int? NiveauSpecifie { get; init; }
         public string Groupe { get; init; } = null!;
-        public string Revenu { get; init; } = null!;
+        public string Statut { get; init; } = null!;
         public string Nom { get; init; } = null!;
         public string NomAnglais { get; init; } = null!;
         public List<string> MotsClefDeRecherche { get; init; } = null!;
@@ -42,6 +42,7 @@ namespace BlazorWjdr.Models
 
         public ProfilDto PlanDeCarriere { get; init; } = null!;
 
+        public AptitudeDto? CompetenceDeMetier { get; set; }
         public List<AptitudeDto> Aptitudes { get; set; } = new();
         public List<AptitudeDto[]> AptitudesChoix { get; set; } = new();
 
