@@ -49,6 +49,8 @@
     {"id":49,"titre":"Arsenal du Vieux Monde","publishyear":2005,"code":"ARSENAL","version":2},
     {"id":50,"titre":"Karak Azgal","publishyear":2006,"code":"KARAK","version":2},
     {"id":51,"titre":"Le Seigneur Liche","publishyear":2007,"code":"LSLICHE","version":2},
-    {"id":52,"titre":"Warhammer Fantasy Roleplay 4th edition","publishyear":2019,"code":"WFRP4","version":4}
+    {"id":52,"titre":"Warhammer Fantasy Roleplay 4th edition","publishyear":2019,"code":"WFRP4","version":4},
+    {"id":53,"titre":"Manuel du joueur (Le Grimoire Tome 15)","publishyear":1996,"code":"WFRP4","version":1},
+    {"id":666,"titre":"Inspiration personnelle","publishyear":2021,"code":"PERSO","version":666}
   ]
 }
