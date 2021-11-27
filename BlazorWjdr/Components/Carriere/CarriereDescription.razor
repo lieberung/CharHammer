@@ -5,22 +5,19 @@
     [Parameter] public CarriereDto Item { get; set; } = null!;
     [Parameter] public bool AfficherCitations { get; set; }
 }
-
+<ImageMax Image="@Item.Image" Nom="@Item.Nom" MaxHeight="450px" MaxWidth="300px"/>
 @if (Item.Origines.Any())
 {
     <p class="card-text">
         <CarriereAvancement Origines="@Item.Origines"/>
     </p>
 }
-<ImageMax Image="@Item.Image" Nom="@Item.Nom" MaxHeight="450px" MaxWidth="300px"/>
-
 @if (Item.Leitmotiv != "")
 {
     <p class="card-text">
         <em>@Item.Leitmotiv</em>
     </p>
 }
-
 <div class="mb-3" style="min-height:400px;">
     <CardParagraphes Text="@Item.Description" CardTextClass="pr-3"/>
 </div>
