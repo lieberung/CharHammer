@@ -28,9 +28,9 @@ namespace BlazorWjdr.Models
         {
             return Statut[..1] switch
             {
-                "B" => "2d10 sous de cuivre",
-                "A" => "1d10 pistoles d'argent",
-                "O" => "1 couronne d'or",
+                "B" => "Bronze",
+                "A" => "Argent",
+                "O" => "Or",
                 _ => "inconnu"
             } + " " + Statut.Substring(1,1);
         }
