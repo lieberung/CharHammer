@@ -23,6 +23,18 @@ namespace BlazorWjdr.Models
         public int? NiveauSpecifie { get; init; }
         public string Groupe { get; init; } = null!;
         public string Statut { get; init; } = null!;
+
+        public string StatutPretty()
+        {
+            return Statut[..1] switch
+            {
+                "B" => "2d10 sous de cuivre",
+                "A" => "1d10 pistoles d'argent",
+                "O" => "1 couronne d'or",
+                _ => "inconnu"
+            } + " " + Statut.Substring(1,1);
+        }
+
         public string SalaireHebdo
         {
             get
