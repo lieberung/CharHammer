@@ -23,6 +23,24 @@ namespace BlazorWjdr.Models
         public int? NiveauSpecifie { get; init; }
         public string Groupe { get; init; } = null!;
         public string Statut { get; init; } = null!;
+        public string SalaireHebdo
+        {
+            get
+            {
+                if (Statut == "") return "";
+                var echelon = Statut[..1];
+                var standing = int.Parse(Statut.Substring(1, 1));
+                var calcul = echelon switch
+                {
+                    "B" => "2d10 sous de cuivre",
+                    "A" => "1d10 pistoles d'argent",
+                    "O" => "1 couronne d'or",
+                    _ => "inconnu"
+                };
+                return $"Revenus pour une semaine (8 jours) de travail :\n{standing} x [{calcul}]";
+            }
+        }
+
         public string Nom { get; init; } = null!;
         public string NomAnglais { get; init; } = null!;
         public List<string> MotsClefDeRecherche { get; init; } = null!;

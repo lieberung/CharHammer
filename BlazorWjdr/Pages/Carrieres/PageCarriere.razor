@@ -34,13 +34,13 @@
                         <CarriereNiveau Niveau="@Item.Niveau"/>
                         @if (Item.CompetenceDeMetier != null)
                         {
-                            <ItemIcon Icon="infinity" Classes="ml-3 mr-4"/>
+                            <ItemIcon Icon="infinity" Classes="ml-3 mr-3"/>
                             <AptitudeItem Item="@Item.CompetenceDeMetier"/>
                         }
                         @if (Item.Statut != "")
                         {
                             <ItemIcon Icon="infinity" Classes="ml-3 mr-4"/>
-                            <Tooltip Text="Permet de calculer vos revenus pour une semaine (8 jours) de travail.\n\nBronze : 2d10 sous de cuivre (par standing)\nArgent : 1d10 pistoles d'argent (par standing)\Or : 1 couronne d'or (par standing)">
+                            <Tooltip Text="@Item.SalaireHebdo">
                                 <span class="insister">@Item.Statut</span>
                             </Tooltip>
                         }
