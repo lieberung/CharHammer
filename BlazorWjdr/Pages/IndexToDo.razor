@@ -1,6 +1,5 @@
 ﻿@page "/todo"
 
-@using BlazorWjdr.Models
 @using BlazorWjdr.Services
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
@@ -14,12 +13,16 @@
     <div class="row">
         <div class="col-1"></div>    
         <div class="col-10">
-            <h4 class="card-title">Carrières de base sans description</h4>
+            <h4 class="card-title">Carrières de base sans Description</h4>
             <CarriereItemList Items="@_cs.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Description)).ToArray()"/>
-            <h4 class="card-title">Carrières de base sans vocation</h4>
+            <h4 class="card-title">Carrières de base sans Vocation/Groupe</h4>
             <CarriereItemList Items="@_cs.AllCarrieres.Where(c => c.EstUneCarriereDeBase && string.IsNullOrWhiteSpace(c.Groupe)).ToArray()"/>
-            <h4 class="card-title">Carrières sans revenu</h4>
+            <h4 class="card-title">Carrières sans Statut</h4>
             <CarriereItemList Items="@_cs.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Statut)).ToArray()"/>
+            <h4 class="card-title">Carrières de base sans Métier</h4>
+            <CarriereItemList Items="@_cs.AllCarrieres.Where(c => c.EstUneCarriereDeBase && c.CompetenceDeMetier == null).ToArray()"/>
+            <h4 class="card-title">Carrières de base sans Ambiance</h4>
+            <CarriereItemList Items="@_cs.AllCarrieres.Where(c => c.EstUneCarriereDeBase && !c.Ambiance.Any()).ToArray()"/>
 
             <h4 class="card-title">Aptitudes sans resume</h4>
             <AptitudeItemList Items="@_as.AllAptitudes.Where(a => string.IsNullOrWhiteSpace(a.Resume)).ToArray()"/>
