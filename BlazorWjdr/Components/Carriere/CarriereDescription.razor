@@ -5,7 +5,7 @@
     [Parameter] public CarriereDto Item { get; set; } = null!;
     [Parameter] public bool AfficherCitations { get; set; }
 }
-<ImageMax Image="@Item.Image" Nom="@Item.Nom" MaxHeight="450px" MaxWidth="300px"/>
+<ImageMax Image="@Item.Image" Nom="@Item.Nom" MaxHeight="450px" MaxWidth="450px"/>
 @if (Item.Origines.Any())
 {
     <p class="card-text">
