@@ -18,20 +18,21 @@
 
     protected override void OnParametersSet()
     {
+        var resumeComplet = Item.ResumeComplet == "" ? Item.DescriptionComplete : Item.ResumeComplet;
         if (Item.EstUneCompetence)
         {
             _hrefBase = "competences";
-            _toolTipText = "["+Item.CaracteristiqueAssociee+"] " + Item.ResumeComplet;
+            _toolTipText = "["+Item.CaracteristiqueAssociee+"] " + resumeComplet;
         }
         else if (Item.EstUnTalent)
         {
             _hrefBase = "talents";
-            _toolTipText = Item.ResumeComplet;
+            _toolTipText = resumeComplet;
         }
         else if (Item.EstUnTrait)
         {
             _hrefBase = "traits";
-            _toolTipText = string.IsNullOrWhiteSpace(Item.ResumeComplet) ? Item.Description : Item.ResumeComplet;
+            _toolTipText = resumeComplet;
         }
         
         base.OnParametersSet();

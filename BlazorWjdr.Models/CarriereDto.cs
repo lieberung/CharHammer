@@ -44,7 +44,7 @@ namespace BlazorWjdr.Models
         public string Nom { get; init; } = null!;
         public string NomAnglais { get; init; } = null!;
         public List<string> MotsClefDeRecherche { get; init; } = null!;
-        public string Description { get; init; } = null!;
+        public string Description { get; set; } = null!;
         public string[] Ambiance { get; init; } = null!;
         public string Image { get; init; } = null!;
         public bool EstUneCarriereDeBase => TirageInitial.Any() ||  Parent is { EstUneCarriereDeBase: true };
@@ -79,9 +79,9 @@ namespace BlazorWjdr.Models
 
         public List<CarriereDto> Debouches = new();
         public List<CarriereDto> Filieres = new();
-        
-        public List<CarriereDto> Avancements = new();
-        public List<CarriereDto> Origines = new();
+
+        public List<CarriereDto> FilieresDAvancement = new();
+        public List<CarriereDto> DebouchesDAvancements = new();
 
         public TirageDto[] TirageInitial { get; init; } = null!;
         public SourceDto? Source { get; init; }

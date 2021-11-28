@@ -6,16 +6,16 @@
     [Parameter] public bool AfficherCitations { get; set; }
 }
 <ImageMax Image="@Item.Image" Nom="@Item.Nom" MaxHeight="450px" MaxWidth="450px"/>
-@if (Item.Origines.Any())
+@if (Item.FilieresDAvancement.Any())
 {
     <p class="card-text">
-        <CarriereAvancement Origines="@Item.Origines"/>
+        <CarriereAvancement Origines="@Item.FilieresDAvancement"/>
     </p>
 }
 @if (Item.Leitmotiv != "")
 {
     <p class="card-text">
-        <em>@Item.Leitmotiv</em>
+        <em class="insister">@Item.Leitmotiv</em>
     </p>
 }
 <div class="mb-3" style="min-height:400px;">

@@ -74,7 +74,7 @@
                     <h4 class="card-title">Débouchés</h4>
                     <p class="card-text">
                         <CarriereItemList Items="@Item.Debouches.ToArray()"
-                                          SpecialCarriereId="@Item.Avancements.Select(a => a.Id).ToArray()"/>
+                                          SpecialCarriereId="@Item.DebouchesDAvancements.Select(a => a.Id).ToArray()"/>
                     </p>
 
                     <h4 class="card-title">Filières</h4>
@@ -82,7 +82,7 @@
                         @if (Item.Filieres.Any())
                         {
                             <CarriereItemList Items="@Item.Filieres.ToArray()" HideIndicatorRestriction="true"
-                                              SpecialCarriereId="@Item.Origines.Select(a => a.Id).ToArray()"/>
+                                              SpecialCarriereId="@Item.FilieresDAvancement.Select(a => a.Id).ToArray()"/>
                         }
                         @if (Item.EstUneCarriereDeBase)
                         {

@@ -793,28 +793,35 @@ namespace BlazorWjdr
 
             foreach (var carriere in cacheCarrieres.Values.Where(c => c.DebouchesIds.Any()))
                 carriere.Debouches = GetCarrieres(carriere.DebouchesIds, cacheCarrieres).ToList();
+            
             foreach (var carriere in cacheCarrieres.Values.Where(c => c.AvancementsIds.Any()))
-                carriere.Avancements = GetCarrieres(carriere.AvancementsIds, cacheCarrieres).ToList();
+                carriere.DebouchesDAvancements = GetCarrieres(carriere.AvancementsIds, cacheCarrieres).ToList();
 
-            foreach (var carriere in cacheCarrieres.Values.Where(c => c.Parent != null).Select(c => c.Parent)
-                .Distinct())
+            var tousLesAvancements = cacheCarrieres.Values.SelectMany(c => c.DebouchesDAvancements).Distinct().ToArray();
+            foreach (var carriere in tousLesAvancements)
             {
+                carriere.FilieresDAvancement = cacheCarrieres.Values.Where(c => c.DebouchesDAvancements.Contains(carriere)).OrderBy(c => c.Nom).ToList();
+                if (carriere.Description == "")
+                {
+                    var first = carriere.FilieresDAvancement.First();
+                    if (first.Description == "" && first.FilieresDAvancement.Any())
+                        first = first.FilieresDAvancement.First();
+                    if (first.Description == "" && first.FilieresDAvancement.Any())
+                        first = first.FilieresDAvancement.First();
+                    carriere.Description = first.Description;
+                }
+            }
+
+            foreach (var carriere in cacheCarrieres.Values.Where(c => c.Parent != null).Select(c => c.Parent).Distinct())
                 carriere!.SousElements.AddRange(cacheCarrieres.Values
                     .Where(c => c.Parent == carriere)
                     .OrderBy(c => c.Nom));
-            }
 
             foreach (var carriere in cacheCarrieres.Values)
-            {
                 carriere.Filieres = cacheCarrieres.Values
                     .Where(c => c.Debouches.Contains(carriere))
                     .OrderBy(c => c.Nom)
                     .ToList();
-                carriere.Origines = cacheCarrieres.Values
-                    .Where(c => c.Avancements.Contains(carriere))
-                    .OrderBy(c => c.Nom)
-                    .ToList();
-            }
 
             return cacheCarrieres;
         }
