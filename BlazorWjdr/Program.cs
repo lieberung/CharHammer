@@ -687,15 +687,6 @@ namespace BlazorWjdr
                 })
                 .ToDictionary(k => k.Id, v => v);
 
-            foreach (var aptitude in result.Values.Where(c => c.AptitudeMereId.HasValue))
-            {
-                aptitude.Parent = result[aptitude.AptitudeMereId!.Value];
-                if (aptitude.CaracteristiqueAssociee == "" && aptitude.Parent.CaracteristiqueAssociee != "")
-                    aptitude.CaracteristiqueAssociee = aptitude.Parent.CaracteristiqueAssociee;
-                if (aptitude.Tests == "" && aptitude.Parent.Tests != "")
-                    aptitude.Tests = aptitude.Parent.Tests;
-            }
-
             foreach (var apt in result.Values)
             {
                 apt.NomPourRecherche = GenericService.NettoyerPourRecherche(apt.Nom);
@@ -710,13 +701,20 @@ namespace BlazorWjdr
             foreach (var apt in result.Values)
             {
                 foreach (var aptLiee in apt.AptitudesLiees.Where(aptLiee => !aptLiee.AptitudesLiees.Contains(apt)))
-                {
                     aptLiee.AptitudesLiees.Add(apt);
-                }
                 foreach (var aptInc in apt.Incompatibles.Where(aptInc => !aptInc.Incompatibles.Contains(apt)))
-                {
                     aptInc.Incompatibles.Add(apt);
-                }
+            }
+
+            foreach (var aptitude in result.Values.Where(c => c.AptitudeMereId.HasValue))
+            {
+                aptitude.Parent = result[aptitude.AptitudeMereId!.Value];
+                if (aptitude.CaracteristiqueAssociee == "" && aptitude.Parent.CaracteristiqueAssociee != "")
+                    aptitude.CaracteristiqueAssociee = aptitude.Parent.CaracteristiqueAssociee;
+                if (aptitude.Tests == "" && aptitude.Parent.Tests != "")
+                    aptitude.Tests = aptitude.Parent.Tests;
+                if (!aptitude.AptitudesLiees.Any())
+                    aptitude.AptitudesLiees = aptitude.Parent.AptitudesLiees;
             }
             
             foreach (var aptitude in result.Values.Where(t => t.Parent != null).Select(t => t.Parent).Distinct())
