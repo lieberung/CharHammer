@@ -10,11 +10,6 @@
     "resume": "Ballade en forêt instructive avec des gosses"
   },
   {
-    "nom": "A la recherche du héro tombé","note": 2,"duree": "Moyenne",
-    "styles": ["Action"],
-    "resume": "Auteur jeune"
-  },
-  {
     "nom": "A la recherche du poignard de lune (L'âge de glace 1)","note": 2,"lieux": [98],"source": "Kundïn",
     "resume": "« Livre dont vous êtes le héro » like, quelques bonnes idées, se termine sur un changement climatique majeur donc délicat..."
   },
@@ -27,11 +22,6 @@
     "nom": "Anatomie","note": 4,"lieux": [98],"source": "Encyclopedia - Emmanuel Granier",
     "styles": ["Enquête"],
     "resume": "Enquête sur des trafiquants de cadavres commanditée par le temple de Morr et qui mettra à l'épreuve l'alignement des PJ. Il peut-être interressant d'y ajouter le docteur de « Y a-t-il un docteur dans la maison » du « Premier compagnon »"
-  },
-  {
-    "nom": "A qui le tank","note": 2,"duree": "Très court",
-    "styles": ["Action"],
-    "resume": "Non développé. Un engingneur nain assassiné hante un tank."
   },
   {
     "nom": "Beau voyage, pas cher le billet","note": 4,"lieux": [120],"source": "Backstab - CROC",
@@ -72,11 +62,6 @@
     "resume": "Introduit le rotzball, idéal pour débutants, très bonne moralité"
   },
   {
-    "nom": "Fallait pas y aller","note": 2,
-    "styles": ["Enquête 25%","Action 75%"],
-    "resume": "Auteur jeune, quelques bonnes idées quand même"
-  },
-  {
     "nom": "Filouteries en sous-sol","note": 4,"lieux": [99],"source": "Pitche",
     "styles": ["Enquête","Action"],
     "resume": "Enquête sur des trafiquants de lingots de fer (sous la couverture des métiers d'égoutiers et de passeurs)"
@@ -92,19 +77,8 @@
     "resume": "Enquête au sein d'une troupe de bateleurs"
   },
   {
-    "nom": "Gros problèmes","note": 2,"duree": "Court",
-    "styles": ["Action","Horreur"],
-    "resume": "Une bonne idée : des caisses sur un navire qui contiennent des sales bestioles qui s'échappent.",
-    "source": "DEMS Samir"
-  },
-  {
     "nom": "Heimburg","source": "Imprimé",
     "deja_joue": "Joué avec Bruno, Jonathan, Jérémy, Nico"
-  },
-  {
-    "nom": "J'ai engagé un tueur","note": 2,"duree": "Très court",
-    "resume": "Un homme qui n'arrive pas à se suicider engage des assassins pour le tuer mais change d'avis entre temps",
-    "source": "Encyclopaedia - John Foody"
   },
   {
     "nom": "Justice sommaire","note": 4,"duree": "Court","lieux": [5],"source": "WJDR2 La reine des glaces",
@@ -143,11 +117,6 @@
     "resume": "Bon scénario d'introduction. Les PJ seront témoins d'un duel puis enquêtront pour libérer une jeune femme destinée à être sacrifiée pour Slaanesh"
   },
   {
-    "nom": "La Forteresse De Wacheberg","note": 2,"duree": "Très court","source": "Azathoth",
-    "styles": ["Action"],
-    "resume": "Seuls les plans du château sont inéressants"
-  },
-  {
     "nom": "La geste du Corbeau Blanc","note": 3,"duree": "Moyenne","lieux": [4],"source": "JdR Mag 2",
     "styles":["Ballade","Prise de position"],
     "resume": "Adaptable à la Bretonnie avec des Herimaults"
@@ -163,11 +132,6 @@
     "resume": "Sympa, peu de moments de répit. Le long du Reik"
   },
   {
-    "nom": "La nuit des sorcières","note": 2,"duree": "Court",
-    "styles": ["Action"],
-    "resume": "Quelques bonnes idées, quelques incohérences. Esselfurt, petit village"
-  },
-  {
     "nom": "La Reine Louve (JRTM)","note": 4,"duree": "Moyenne","lieux": [5],"source": "Helkus",
     "styles": ["Voyage","Ambiance","Missions"],
     "resume": "Un peu d'action, un peu de développement possible, bon scénar. Adaptable au Kislev"
@@ -179,24 +143,9 @@
     "lieux": [20]
   },
   {
-    "nom": "La veuve noire","note": 2,"duree": "Moyenne",
-    "styles":["Chasse à la sorcière"],
-    "resume": "Auteur jeune, pas complètement nul mais pas très intéressant"
-  },
-  {
-    "nom": "Las Plagas","note": 2,"duree": "Long",
-    "resume": "Adaptation de Resident Evil 4, style pénible",
-    "source": "Maxime Fourmont"
-  },
-  {
     "nom": "Le baiser volé","note": 4,"duree": "Très court","source": "Encyclopaedia - Emmanuel Granier",
     "styles":["Furtivité","Action"],
     "resume": "Original, contact éventuel (templier de Solkan), culte de Véréna, licorne"
-  },
-  {
-    "nom": "Le Chaudron d'Esméralda","note": 2,"duree": "Court","source": "Kundïn",
-    "styles": ["Action"],
-    "resume": "Auteur jeune"
   },
   {
     "nom": "Le Coeur impur","note": 3,"duree": "Moyenne",
@@ -262,10 +211,6 @@
     "resume": "Peu d'action, long passage où les PJ sont sourds et muets, sorcier elfe noir. Bordeleaux, île muette"
   },
   {
-    "nom": "Le soleil chasse les ténèbres","note": 2,
-    "styles": ["Action","Plus ou moins linéaire"]
-  },
-  {
     "nom": "Le trésor de l’aubergiste","source": "Mario Heimburger",
     "resume": "Auberge bloquée dans le temps, un peu zarb de mémoire",
     "deja_joue": "Joué avec Nico en MJ"
@@ -305,18 +250,8 @@
     "resume": "Une diligence impériale incontrôlable se dirige droit sur les PJ. Des gobelins saouls s'en sont rendus maîtres."
   },
   {
-    "nom": "Où sont passés les enfants","note": 2,"duree": "Court",
-    "styles": ["Ballade","Action"],
-    "resume": "Auteur jeune, un illusionniste capture des enfants pour un rituel chaotique"
-  },
-  {
     "nom": "Perfide Albion","source": "Casus Belli",
     "deja_joue": "Joué dans le hangar chez Jonathan"
-  },
-  {
-    "nom": "Perd ton sang-froid","note": 2,"lieux": [2,5],
-    "styles": ["Psycho pour perso jetables"],
-    "resume": "Très difficile à adapter, plus à jouer pour le délire (les persos sont fous et recherchés dans tout l'empire à la fin). De l'Empire au Kislev"
   },
   {
     "nom": "Quand on parle du loup","note": 5,"lieux":[122],
@@ -357,17 +292,8 @@
     "nom": "Tempêtes sur Brionne","lieux": [4],"source": "Kundïn"
   },
   {
-    "nom": "Tueurs de géant","note": 2,"duree": "Court","source": "Valrak de Nuln",
-    "styles": ["Chasse au monstre"],
-    "resume": "Pas de morale, auteur jeune"
-  },
-  {
     "nom": "Un voleur dans la tempête","note": 5,"difficulte": "Assez difficile","source": "Helkus",
     "styles": ["Enquête"]
-  },
-  {
-    "nom": "Une femme en or","note": 2,"source": "DEMS Samir",
-    "resume": "Voir « Gros problèmes »"
   },
   {
     "nom": "Une histoire de fantômes","note": 4,"duree": "Court","difficulte": "Facile",
@@ -513,6 +439,21 @@
     {"nom": "Ils s'approchent","note": 1,"resume": "Auteur jeune"},
     {"nom": "Invocation","note": 1,"duree": "Court","styles": ["Action"],"resume": "Sans intérêt"},
     {"nom": "Jeux de dieux","note": 1,"resume": "Sans intérêt"},
+    {"nom": "A la recherche du héro tombé","note":2,"duree":"Moyenne","styles":["Action"],"resume":"Auteur jeune"},
+    {"nom": "Fallait pas y aller","note":2,"styles":["Enquête 25%","Action 75%"],"resume":"Auteur jeune, quelques bonnes idées quand même"},
+    {"nom": "Tueurs de géant","note": 2,"duree": "Court","source": "Valrak de Nuln","styles": ["Chasse au monstre"],"resume": "Pas de morale, auteur jeune"},
+    {"nom": "Une femme en or","note": 2,"source": "DEMS Samir","resume": "Voir « Gros problèmes »"},
+    {"nom": "Où sont passés les enfants","note": 2,"duree": "Court","styles": ["Ballade","Action"],"resume": "Auteur jeune, un illusionniste capture des enfants pour un rituel chaotique"},
+    {"nom": "Perd ton sang-froid","note": 2,"lieux": [2,5],"styles": ["Psycho pour perso jetables"],"resume": "Très difficile à adapter, plus à jouer pour le délire (les persos sont fous et recherchés dans tout l'empire à la fin). De l'Empire au Kislev"},
+    {"nom": "Le soleil chasse les ténèbres","note": 2,"styles": ["Action","Plus ou moins linéaire"]},
+    {"nom": "La nuit des sorcières","note": 2,"duree": "Court","styles": ["Action"],"resume": "Quelques bonnes idées, quelques incohérences. Esselfurt, petit village"},
+    {"nom": "La veuve noire","note": 2,"duree": "Moyenne","styles":["Chasse à la sorcière"],"resume": "Auteur jeune, pas complètement nul mais pas très intéressant"},
+    {"nom": "Las Plagas","note": 2,"duree": "Long","resume": "Adaptation de Resident Evil 4, style pénible","source": "Maxime Fourmont"},
+    {"nom": "Gros problèmes","note": 2,"duree": "Court","styles": ["Action","Horreur"],"resume": "Une bonne idée : des caisses sur un navire qui contiennent des sales bestioles qui s'échappent.","source": "DEMS Samir"},
+    {"nom": "La Forteresse De Wacheberg","note": 2,"duree": "Très court","source": "Azathoth","styles": ["Action"],"resume": "Seuls les plans du château sont inéressants"},
+    {"nom": "J'ai engagé un tueur","note": 2,"duree": "Très court","resume": "Un homme qui n'arrive pas à se suicider engage des assassins pour le tuer mais change d'avis entre temps","source": "Encyclopaedia - John Foody"},
+    {"nom": "Le Chaudron d'Esméralda","note": 2,"duree": "Court","source": "Kundïn","styles": ["Action"],"resume": "Auteur jeune"},
+    {"nom": "A qui le tank","note": 2,"duree": "Très court","styles": ["Action"],"resume": "Non développé. Un engingneur nain assassiné hante un tank."},
     {"nom": "L'épée sacrée","note": 1,"duree": "Court","source": "Dallbill@aol.com","styles":["Livre dont vous êtes le héros !"],"resume": "Auteur jeune"}
   ]
 }
