@@ -1,7 +1,7 @@
 {
   "items":[
 
-    {"id":7,"race":1,"nom":"Febreize Ziberman","user":2,"teams":[5],"date_creation":"2021-10-02","xp_total":500,"xp_actuel":0,"main_directrice":1,
+    {"id":7,"race":1,"nom":"Febreize Ziberman","nom_court":"Febreize","user":2,"teams":[5],"date_creation":"2021-10-02","xp_total":500,"xp_actuel":0,"main_directrice":1,
       "sexe":0,"poids":82,"taille":177,"age":36,"cheveux":"bruns","yeux":"vairons orange et pourpre",
       "profil_initial":{"cc":35,"ct":25,"f":32,"e":30,"i":32,"ag":30,"dex":27,"intel":35,"fm":30,"soc":34},
       "profil_actuel":{"cc":40,"ct":25,"f":32,"e":35,"i":32,"ag":30,"dex":27,"intel":35,"fm":35,"soc":34},
@@ -15,7 +15,7 @@
       "ambitions": ["Court terme : Evoluer au sein de sa guilde","Long terme : Febreize se demande si sa marque de naissance est un signe... Peut-être qu'en se mettant au service de Sigmar, une destinée particulière pourrait se dessiner."],
       "notes":""
     },
-    {"id":9,"race":1,"nom":"Huguette Heinrich","user":4,"teams":[5],"date_creation":"2021-10-10","xp_total":500,"xp_actuel":50,
+    {"id":9,"race":1,"nom":"Huguette Heinrich","nom_court":"Huguette","user":4,"teams":[5],"date_creation":"2021-10-10","xp_total":500,"xp_actuel":50,
       "sexe":1,"poids":68,"taille":168,"age":22,"cheveux":"châtains","yeux":"marrons","main_directrice":1,
       "profil_initial":{"cc":28,"ct":38,"f":30,"e":35,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
       "profil_actuel":{"cc":38,"ct":38,"f":30,"e":40,"i":33,"ag":36,"dex":32,"intel":43,"fm":34,"soc":36},
@@ -30,7 +30,7 @@
       "ambitions":["Long terme : Huguette souhaite en savoir plus sur qui était son père.","Moyen terme : Réunir de quoi payer des études à sa mère."],
       "notes":"Destinée : Une chute fatale..."
     },
-    {"id":10,"race":27,"nom":"Rhaimon Bahrr de Fer","user":3,"teams":[5],"date_creation":"2021-10-17","xp_total":500,"xp_actuel":100,
+    {"id":10,"race":27,"nom":"Rhaimon Bahrr de Fer","nom_court":"Rhaimon","user":3,"teams":[5],"date_creation":"2021-10-17","xp_total":500,"xp_actuel":100,
       "sexe":0,"poids":66,"taille":138,"age":82,"cheveux":"bruns","yeux":"marrons","main_directrice":1,
       "profil_initial":{"cc":44,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":33,"soc":19},
       "profil_actuel":{"cc":49,"ct":22,"f":32,"e":50,"i":36,"ag":25,"dex":39,"intel":29,"fm":33,"soc":19},
@@ -46,7 +46,7 @@
       "ambitions":["Court terme : l'aventure lui permettra peut-être d'avoir une vie un peu plus remarquable et de saisir des opportunités afin d'améliorer sa condition, et tous les groupes d'aventurier ont besoin de muscles et de bon sens nain !"],
       "notes":""
     },
-    {"id":11,"race":1,"nom":"Ostelle de Brionne","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":500,"xp_actuel":400,
+    {"id":11,"race":1,"nom":"Ostelle de Brionne","nom_court":"Ostelle","user":5,"teams":[5],"date_creation":"2021-10-30","xp_total":500,"xp_actuel":400,
       "sexe":1,"poids":70,"taille":164,"age":24,"cheveux":"châtains","yeux":"gris pâle","main_directrice":1,
       "profil_initial":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":41,"fm":43,"soc":31},
       "profil_actuel":{"cc":28,"ct":30,"f":30,"e":30,"i":36,"ag":30,"dex":31,"intel":41,"fm":48,"soc":31},
@@ -61,7 +61,7 @@
       "notes":""
     },
     
-    {"id":8,"race":26,"nom":"Pulpo Glascanon","user":null,"teams":[],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
+    {"id":8,"race":26,"nom":"Pulpo Glascanon","nom_court":"Pulpo","user":null,"teams":[],"date_creation":"2021-10-02","xp_total":300,"xp_actuel":200,
       "sexe":0,"poids":45,"taille":113,"age":54,"cheveux":"bruns","yeux":"vairons noir et bleu",
       "profil_initial":{"cc":12,"ct":43,"f":30,"e":22,"i":29,"ag":39,"dex":47,"intel":37,"fm":29,"soc":36},
       "profil_actuel":{"cc":12,"ct":43,"f":30,"e":22,"i":29,"ag":39,"dex":47,"intel":37,"fm":29,"soc":36},
@@ -88,7 +88,7 @@
       "aptitudes":[1092,1092,1158,1012,1027,1136,1136,1137,1043,1048,1008,1010,1010,1042,1048,1078,2007,2011,2025,3017,3019],"aptitudes_facultatives":[],
       "description":""},
 
-    {"id":403,"race":1,"nom":"Juan Sanchez Villalobos de Ramirez","poids":72,"taille":169,"age":32,"masquer":true,
+    {"id":403,"race":1,"nom":"Juan Sanchez Villalobos de Ramirez","nom_court":"De Ramirez","poids":72,"taille":169,"age":32,"masquer":true,
       "armes":[167],
       "armures":[16,15],
       "cheminement":[39,375],
@@ -113,7 +113,7 @@
       "aptitudes":[1026,1048,2031],
       "description":""},
 
-    {"id":406,"race":26,"nom":"Eustase Salingher","poids":47,"taille":111,"age":48,"cheveux":"blonds","yeux":"noisettes","masquer":true,
+    {"id":406,"race":26,"nom":"Eustase Salingher","nom_court":"Eustase","poids":47,"taille":111,"age":48,"cheveux":"blonds","yeux":"noisettes","masquer":true,
       "armes":[126],
       "cheminement":[134,137],
       "profil_initial":{"cc":19,"ct":42,"f":19,"e":21,"i":33,"ag":45,"dex":41,"intel":43,"fm":37,"soc":46},
@@ -135,25 +135,25 @@
       "sorts":[618,690],
       "description":""},
 
-    {"id":409,"race":1,"nom":"Adolphus Kuftsos","origines":[99],"poids":81,"taille":176,"age":32,"cheveux":"noirs","yeux":"verts","masquer":true,
+    {"id":409,"race":1,"nom":"Adolphus Kuftsos","nom_court":"A. Kuftsos","origines":[99],"poids":81,"taille":176,"age":32,"cheveux":"noirs","yeux":"verts","masquer":true,
       "cheminement":[75,375],
       "profil_actuel":{},
       "aptitudes":[],
       "description":""},
 
-    {"id":410,"race":1,"nom":"Ludwig Grotius","origines":[23],"poids":78,"taille":161,"age":43,"cheveux":"noirs","yeux":"marrons","masquer":true,
+    {"id":410,"race":1,"nom":"Ludwig Grotius","nom_court":"Grotius","origines":[23],"poids":78,"taille":161,"age":43,"cheveux":"noirs","yeux":"marrons","masquer":true,
       "cheminement":[368,37],
       "profil_actuel":{"cc":34,"ct":31,"f":32,"e":31,"i":35,"ag":28,"dex":30,"intel":45,"fm":37,"soc":40},
       "aptitudes":[1042,1008,1008,1001,1004,1012,2246,1219,1043,2013,2259],
       "description":"Expansif, souriant, hâbleur. Compagnon de route agréable qui a sans doute breaucoup bourlingué. Il semble heureux de faire profiter 'les petits jeunes' de son expérience. Il aime raconter des anecdotes sur ses exploits, même si elle ne sont pas toujours cohérentes."},
 
-    {"id":411,"race":1,"nom":"Isolde Von Strudeldorf","origines":[98],"poids":62,"taille":168,"age":22,"cheveux":"noirs","yeux":"marrons","masquer":true,
+    {"id":411,"race":1,"nom":"Isolde Von Strudeldorf","nom_court":"Dame Isolde","origines":[98],"poids":62,"taille":168,"age":22,"cheveux":"noirs","yeux":"marrons","masquer":true,
       "cheminement":[61],
       "profil_actuel":{"cc":36,"ct":32,"f":31,"e":32,"i":35,"ag":31,"dex":43,"intel":30,"fm":33,"soc":28,"m":4},
       "aptitudes":[1212,1212,1034,1034,1009,1106,1106,2028,2011,1042],
       "description":"Expansif, souriant, hâbleur. Compagnon de route agréable qui a sans doute breaucoup bourlingué. Il semble heureux de faire profiter 'les petits jeunes' de son expérience. Il aime raconter des anecdotes sur ses exploits, même si elle ne sont pas toujours cohérentes."},
 
-    {"id":412,"race":1,"nom":"Elvira Kleinestun","origines":[98],"poids":62,"taille":168,"age":30,"cheveux":"noirs","yeux":"marrons","masquer":true,
+    {"id":412,"race":1,"nom":"Elvira Kleinestun","nom_court":"Elvira","origines":[98],"poids":62,"taille":168,"age":30,"cheveux":"noirs","yeux":"marrons","masquer":true,
       "cheminement":[81,130,158],
       "profil_actuel":{"cc":31,"ct":24,"f":27,"e":53,"i":59,"ag":36,"dex":69,"intel":65,"fm":64,"soc":62,"m":4},
       "aptitudes":[],
