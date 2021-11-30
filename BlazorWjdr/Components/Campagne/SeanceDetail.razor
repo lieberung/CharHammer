@@ -4,6 +4,7 @@
 @code {
     [Parameter] public SeanceDto Item { get; set; } = null!;
     [Parameter] public int CampagneId { get; set; }
+    [Parameter] public bool MasquerAventuriers { get; set; }
 }
 @if (Item.Debut != "")
 {
@@ -27,10 +28,13 @@
         <em class="ml-2">@Item.XpComment</em>
     }
 </p>
-<p class="card-text">
-    <a class="mr-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/">Aventuriers : </a>
-    <BestioleItemList Items="@Item.Pjs"/>
-</p>
+@if (MasquerAventuriers == false)
+{
+    <p class="card-text">
+        <a class="mr-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/">Aventuriers : </a>
+        <BestioleItemList Items="@Item.Pjs"/>
+    </p>
+}
 <CardParagraphes Text="@Item.Resume"/>
 
 <div class="p-3">

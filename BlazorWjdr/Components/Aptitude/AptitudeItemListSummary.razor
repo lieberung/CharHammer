@@ -2,25 +2,38 @@
 
 @if (_competences.Any())
 {
-    <h6 class="card-title">Compétences</h6>
+    @if (GrosTitres) {
+        <h4 class="card-title">Compétences</h4>
+    } else {
+        <h6 class="card-title">Compétences</h6>   
+    }
     <p><AptitudeItemList Items="@_competences"/></p>
 }
 
 @if (_talents.Any())
 {
-    <h6 class="card-title">Talents</h6>
+    @if (GrosTitres) {
+        <h4 class="card-title">Talents</h4>
+    } else {
+        <h6 class="card-title">Talents</h6>   
+    }
     <p><AptitudeItemList Items="@_talents"/></p>
 }
 
 @if (_traits.Any())
 {
-    <h6 class="card-title">Traits</h6>
+    @if (GrosTitres) {
+        <h4 class="card-title">Traits</h4>
+    } else {
+        <h6 class="card-title">Traits</h6>   
+    }
     <p><AptitudeItemList Items="@_traits" /></p>
 }
 
 @code {
     [Parameter] public AptitudeDto[] Aptitudes { get; set; } = null!;
     [Parameter] public bool CompetencesAvanceesUniquement { get; set; }
+    [Parameter] public bool GrosTitres { get; set; }
 
     private AptitudeDto[] _competences = null!;
     private AptitudeDto[] _talents = null!;

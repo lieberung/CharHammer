@@ -3,9 +3,10 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Campagne
-@using BlazorWjdr.Components.Campagne.Contact
-@using BlazorWjdr.Models
+@using BlazorWjdr.Components.Sortilege
 @using BlazorWjdr.Services
+@using BlazorWjdr.Models>
+@using System.Linq
 
 @inject CampagnesService _campagnesService
 
@@ -18,15 +19,21 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="card-title">@_seancePrecedente.Titre</h3>
-                    <SeanceDetail Item="@_seancePrecedente" CampagneId="@int.Parse(CampagneId)"/>
+                    <SeanceDetail Item="@_seancePrecedente" CampagneId="@int.Parse(CampagneId)" MasquerAventuriers="@true"/>
                 </div>
             </div>
         </div>
         <div class="col-6">
             <div class="card">
                 <div class="card-body">
-                    <h3 class="card-title">Aptitudes du groupe</h3>
-                    <AptitudeItemListSummary Aptitudes="@_aptitudes" CompetencesAvanceesUniquement="@true"/>
+                    <h3 class="card-title">Aventuriers</h3>
+                    <BestioleItemList Items="@_seanceActuelle.Pjs"/>
+                    <AptitudeItemListSummary Aptitudes="@_aptitudes" CompetencesAvanceesUniquement="@true" GrosTitres="@true"/>
+                    @if (_seanceActuelle.Pjs.Any(p => p.Sorts.Any()))
+                    {
+                        <h4 class="card-title">Sortilèges</h4>
+                        <SortilegeItemList Items="@_sortileges"/>
+                    }
                 </div>
             </div>
         </div>
@@ -50,6 +57,7 @@
     private SeanceDto _seancePrecedente = null!;
     private SeanceDto _seanceActuelle = null!;
     private AptitudeDto[] _aptitudes = null!;
+    private SortilegeDto[] _sortileges = null!;
     private string _topRowTitle = "";
     
     protected override void OnParametersSet()
@@ -63,6 +71,11 @@
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
             .Distinct()
             .OrderBy(a => a.NomComplet).ToArray();
+
+        _sortileges = _seanceActuelle.Pjs
+            .SelectMany(p => p.Sorts)
+            .Distinct()
+            .OrderBy(a => a.Nom).ToArray();
         
         base.OnParametersSet();
     }

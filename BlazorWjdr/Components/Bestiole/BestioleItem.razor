@@ -21,7 +21,7 @@
         </Tooltip>
     }
     <span>@(Nom ?? Item.Nom)</span>
-    @if (Item.CheminementPro.Any())
+    @if (MasquerCarriere == false && Item.CheminementPro.Any())
     {
         <span>, @Item.CarriereActuelle?.Nom</span>
     }
@@ -35,7 +35,8 @@
     [Parameter] public BestioleDto Item { get; set; } = null!;
     [Parameter] public string? Nom { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
-
+    [Parameter] public bool MasquerCarriere { get; set; }
+    
     private string _nomRace = "";
     private string _origines = "inconnu";
     private string _tooltipNomJoueur = "";

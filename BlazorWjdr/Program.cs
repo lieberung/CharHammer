@@ -271,6 +271,7 @@ namespace BlazorWjdr
                     Ambitions = c.ambitions ?? Array.Empty<string>(),
                     Description = c.description ?? string.Empty,
                     Nom = c.nom,
+                    NomCourt = c.nom_court ?? c.nom,
                     Poids = c.poids,
                     Psychologie = c.psycho ?? "",
                     Race = races[c.race],
