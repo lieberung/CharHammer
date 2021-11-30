@@ -61,6 +61,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string quand { get; set; } = null!;
         public bool secret { get; set; }
         public int acte { get; set; }
+        public string? debut { get; set; }
         public int duree { get; set; }
         public string titre { get; set; } = null!;
         public string? scenario { get; set; } = null!;

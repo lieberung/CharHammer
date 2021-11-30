@@ -9,7 +9,7 @@
 @if (!string.IsNullOrWhiteSpace(Item.NomEn))
 {
     <p class="card-text">
-        <em>@Item.NomEn</em> : 
+        <em>@Item.NomEn</em>
     </p>
 }
 @if (Item.Parent != null)
@@ -114,7 +114,7 @@
     
     protected override void OnParametersSet()
     {
-        _description = string.IsNullOrWhiteSpace(Item.DescriptionComplete) ? Item.ResumeComplet : Item.DescriptionComplete;
+        _description = string.IsNullOrWhiteSpace(Item.Description) ? Item.Resume : Item.Description;
 
         _competencesLiees = Item.CompetencesLiees;
         _talentsLies = Item.TalentsLies;

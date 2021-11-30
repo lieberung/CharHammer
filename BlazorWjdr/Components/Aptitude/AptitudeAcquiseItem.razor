@@ -14,19 +14,19 @@
         {
             _hrefBase = "competences";
             _titre = Item.Detail(AfficherBonusDeCompetence);
-            _toolTipText = "["+Item.Aptitude.CaracteristiqueAssociee+"] " + Item.Aptitude.ResumeComplet;
+            _toolTipText = "["+Item.Aptitude.CaracteristiqueAssociee+"] " + Item.Aptitude.Resume;
         }
         else if (Item.Aptitude.EstUnTalent)
         {
             _hrefBase = "talents";
             _titre = Item.Detail(false);
-            _toolTipText = Item.Aptitude.ResumeComplet;
+            _toolTipText = Item.Aptitude.Resume;
         }
         else if (Item.Aptitude.EstUnTrait)
         {
             _hrefBase = "traits";
             _titre = Item.Detail(false);
-            _toolTipText = string.IsNullOrWhiteSpace(Item.Aptitude.ResumeComplet) ? Item.Aptitude.Description : Item.Aptitude.ResumeComplet;
+            _toolTipText = string.IsNullOrWhiteSpace(Item.Aptitude.Resume) ? Item.Aptitude.Description : Item.Aptitude.Resume;
         }
         
         base.OnParametersSet();

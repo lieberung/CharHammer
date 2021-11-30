@@ -121,6 +121,7 @@ namespace BlazorWjdr
             return new SeanceDto
             {
                 Acte = s.acte,
+                Debut = s.debut ?? "",
                 Duree = s.duree,
                 Lieux = (s.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
                 Facts = (s.facts ?? Array.Empty<JsonFact>()).Select(f => new FactDto {
@@ -691,8 +692,8 @@ namespace BlazorWjdr
             {
                 apt.NomPourRecherche = GenericService.NettoyerPourRecherche(apt.Nom);
                 apt.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(apt.NomPourRecherche);
-                apt.SetResume();
-                apt.SetDescription();
+                //apt.SetResume();
+                //apt.SetDescription();
                 apt.AptitudesLiees = apt.AptitudesLieesIds.Select(id => result[id]).OrderBy(a => a.NomComplet).ToList();
                 apt.Incompatibles = apt.IncompatiblesIds.Select(id => result[id]).OrderBy(a => a.NomComplet).ToList();
             }

@@ -39,6 +39,7 @@ namespace BlazorWjdr.Models
         public string Quand { get; init; } = null!;
         public bool Secret { get; set; }
         public int Acte { get; init; }
+        public string Debut { get; init; } = null!;
         public int Duree { get; init; }
         public string Titre { get; init; } = null!;
         public ScenarioDto? Scenario { get; init; }

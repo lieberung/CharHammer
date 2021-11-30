@@ -20,8 +20,8 @@
         
         public string Resume { get; set; } = null!;
         public string Description { get; set; } = null!;
-        public string ResumeComplet { get; private set; } = "";
-        public string DescriptionComplete { get; private set; } = "";
+        //public string ResumeComplet { get; private set; } = "";
+        //public string DescriptionComplete { get; private set; } = "";
 
         public bool EstUneCompetence => Categ == "skill";
         public bool EstUneCompetenceDeBase => EstUneCompetence && CategSpe == "bas";
@@ -70,33 +70,33 @@
             }
         }
         
-        public void SetResume()
-        {
-            ResumeComplet = GetResume();
-        }
-
-        private string GetResume()
-        {
-            if (!string.IsNullOrWhiteSpace(Resume))
-                return Resume;
-            if (Parent == null || string.IsNullOrWhiteSpace(Parent.Resume))
-                return "";
-            return Parent.Resume;
-        }
-        
-        public void SetDescription()
-        {
-            DescriptionComplete = GetDescription();
-        }
-
-        private string GetDescription()
-        {
-            if (!string.IsNullOrWhiteSpace(Description))
-                return Description;
-            if (Parent == null || string.IsNullOrWhiteSpace(Parent.Description))
-                return "";
-            return Parent.Description;
-        }
+        // public void SetResume()
+        // {
+        //     ResumeComplet = GetResume();
+        // }
+        //
+        // private string GetResume()
+        // {
+        //     if (!string.IsNullOrWhiteSpace(Resume))
+        //         return Resume;
+        //     if (Parent == null || string.IsNullOrWhiteSpace(Parent.Resume))
+        //         return "";
+        //     return Parent.Resume;
+        // }
+        //
+        // public void SetDescription()
+        // {
+        //     DescriptionComplete = GetDescription();
+        // }
+        //
+        // private string GetDescription()
+        // {
+        //     if (!string.IsNullOrWhiteSpace(Description))
+        //         return Description;
+        //     if (Parent == null || string.IsNullOrWhiteSpace(Parent.Description))
+        //         return "";
+        //     return Parent.Description;
+        // }
     }
 
     public class AptitudeAcquiseDto

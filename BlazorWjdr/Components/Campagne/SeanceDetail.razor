@@ -5,7 +5,12 @@
     [Parameter] public SeanceDto Item { get; set; } = null!;
     [Parameter] public int CampagneId { get; set; }
 }
-
+@if (Item.Debut != "")
+{
+<p class="card-text">
+    <em class="insister">@Item.Debut</em>
+</p>
+}
 <p class="card-text">
     @if (Item.Lieux.Any())
     {

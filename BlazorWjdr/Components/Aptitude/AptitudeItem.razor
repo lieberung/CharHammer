@@ -18,7 +18,7 @@
 
     protected override void OnParametersSet()
     {
-        var resumeComplet = Item.ResumeComplet == "" ? Item.DescriptionComplete : Item.ResumeComplet;
+        var resumeComplet = Item.Resume == "" ? Item.Description : Item.Resume;
         if (Item.EstUneCompetence)
         {
             _hrefBase = "competences";
