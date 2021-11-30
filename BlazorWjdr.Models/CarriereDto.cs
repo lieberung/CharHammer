@@ -21,8 +21,8 @@ namespace BlazorWjdr.Models
     {
         public int Id { get; init; }
         public int? NiveauSpecifie { get; init; }
-        public string Groupe { get; init; } = null!;
-        public string Statut { get; init; } = null!;
+        public string Groupe { get; set; } = null!;
+        public string Statut { get; set; } = null!;
 
         public string StatutPretty()
         {

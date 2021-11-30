@@ -18,8 +18,8 @@
         public string Categ { get; init; } = null!;
         public string CategSpe { get; init; } = null!;
         
-        public string Resume { get; init; } = null!;
-        public string Description { get; init; } = null!;
+        public string Resume { get; set; } = null!;
+        public string Description { get; set; } = null!;
         public string ResumeComplet { get; private set; } = "";
         public string DescriptionComplete { get; private set; } = "";
 

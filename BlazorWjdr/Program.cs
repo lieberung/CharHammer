@@ -709,6 +709,10 @@ namespace BlazorWjdr
             foreach (var aptitude in result.Values.Where(c => c.AptitudeMereId.HasValue))
             {
                 aptitude.Parent = result[aptitude.AptitudeMereId!.Value];
+                if (aptitude.Description == "")
+                    aptitude.Description = aptitude.Parent.Description;
+                if (aptitude.Resume == "")
+                    aptitude.Resume = aptitude.Parent.Resume;
                 if (aptitude.CaracteristiqueAssociee == "" && aptitude.Parent.CaracteristiqueAssociee != "")
                     aptitude.CaracteristiqueAssociee = aptitude.Parent.CaracteristiqueAssociee;
                 if (aptitude.Tests == "" && aptitude.Parent.Tests != "")
@@ -787,6 +791,13 @@ namespace BlazorWjdr
             foreach (var carriere in cacheCarrieres.Values.Where(c => c.CarriereMereId.HasValue))
             {
                 carriere.Parent = cacheCarrieres[carriere.CarriereMereId!.Value];
+                if (carriere.Description == "")
+                    carriere.Description = carriere.Parent.Description;
+                if (carriere.Groupe == "")
+                    carriere.Groupe = carriere.Parent.Groupe;
+                if (carriere.Statut == "")
+                    carriere.Statut = carriere.Parent.Statut;
+                carriere.CompetenceDeMetier ??= carriere.Parent.CompetenceDeMetier;
             }
 
             foreach (var carriere in cacheCarrieres.Values.Where(c => c.DebouchesIds.Any()))
