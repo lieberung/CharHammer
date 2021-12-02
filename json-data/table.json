@@ -613,6 +613,17 @@
         ["Serviteur","17%","59%","100%","100%"]
       ]
     },
+    {"id":86,"titre":"Disponibilité",
+      "description": "",
+      "lignes":[
+        ["","Village","Boug","Ville","Cité"],
+        ["","100- hab.","100-1000 hab.","1000-10000 hab.","10000+ hab."],
+        ["Commune","30%","En stock","En stock","En stock"],
+        ["Limitée","10%","30%","60%","90%"],
+        ["Rare","Pas en stock%","15%","30%","45%"],
+        ["Exotique","Pas en stock","Pas en stock","Pas en stock","Pas en stock"]
+      ]
+    },
     {"id":87,"titre":"Compétences de base - apprentissage automatique",
       "description": "Si au cours d'une aventure (durée à la discrétion du MJ) un personnage réussit suffisamment de jets dans une Compétence de Base (6 x 1 + Niveau de la compétence), il passe gratuitement au niveau supérieur.\nExceptions : Connaissances?",
       "lignes":[
