@@ -1,0 +1,47 @@
+﻿@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Services
+
+@inject AptitudesService _aptitudesService
+
+<div class="row mb-3">
+    <div class="col-7">
+        <h3 class="card-title">Encombrement</h3>
+        <ul>
+            <li>Pour un personnage, l'encombrement <strong>maximum</strong> est égal à <strong>BF + BE</strong>.</li>
+            <li>Les talents <AptitudeItem Item="@_aptitudesService.TalentCostaud"/> et <AptitudeItem Item="@_aptitudesService.TalentRobuste"/> viennent augmenter cette valeur.</li>
+            <li>Les points d'Encombrement pour les mulets, les chevaux, les charrettes et les diligences sont énumérés dans leurs descriptions. Chaque passager de taille humaine est supposé peser environ 10 points encombrement, modifiés par l'AG si nécessaire.</li>
+        </ul>
+        <h5 class="card-title">Petits objets</h5>
+        <p class="card-text">
+            Le bon sens dicte habituellement le nombre d'articles plus petits qu'une personne peut transporter avant de se retrouver Encombrée. A titre indicatif, l'argent pèse 1 point encombrement pour 200 pièces.
+        </p>
+        <h5 class="card-title">Objets surdimensionnés</h5>
+        <p class="card-text">
+            Certains gros articles pèsent 4 points d'encombrement ou plus, comme les tonneaux ou les sacoches. Normalement, vous ne pouvez transporter qu'un seul objet surdimensionné, et cela nécessite probablement les deux mains.
+        </p>
+        <h5 class="card-title">Objets portés</h5>
+        <p class="card-text">
+            Les articles portés, comme les armures, les vêtements et les bijoux, ont tous leur charge diminuée de 1, ce qui signifie souvent qu'ils comptent pour une charge de 0 quand ils sont portés.
+        </p>
+    </div>
+    <div class="col-5">
+        <h5 class="card-title">Surchargé</h5>
+        <p class="card-text">
+            Les personnages qui dépassent leur capacité d'encombrement peuvent être ralentis et devenir fatigués par les voyages. Réduction des mouvements et de la fatigue de déplacement occasionnés par les empilements de charges avec toutes les pénalités d'armures. De plus, chaque fois que vous devez prendre une Condition <AptitudeItem Item="@_aptitudesService.ConditionExtenue"/> lorsque vous êtes surchargé pour une raison autre que le fait d'être surchargé, gagnez un +1 supplémentaire.
+        </p>
+        <table class="table">
+            <tbody class="alternate-color-dark">
+                <tr><td>Jusqu'à la limite</td><td>Pas de pénalité</td></tr>
+                <tr><td>Jusqu'à 2 fois la limite</td><td>-1 Mouvement (min : 3), -10 Agilité, +1 <AptitudeItem Item="@_aptitudesService.ConditionExtenue"/> du voyage</td></tr>
+                <tr><td>Jusqu'à 3 fois la limite</td><td>-2 Mouvement (min : 2), -20 Agilité (min : 10), +2 <AptitudeItem Item="@_aptitudesService.ConditionExtenue"/> de voyage</td></tr>
+                <tr><td>Plus de 3 fois</td><td>Immobilisé</td></tr>
+            </tbody>
+        </table>
+        <p class="card-text">
+            Les pénalités de mouvement pour Encombrement sont appliquées immédiatement et ne peuvent être enlevées qu'en laissant tomber l'équipement.
+        </p>
+        <p class="card-text">
+            Les conditions <AptitudeItem Item="@_aptitudesService.ConditionExtenue"/> s'accumulent à la fin d'une journée de voyage et ne peuvent être éliminées qu'avec un long repos.
+        </p>
+    </div>
+</div>
