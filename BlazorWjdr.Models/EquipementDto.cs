@@ -38,6 +38,7 @@ namespace BlazorWjdr.Models
         public string? Contenance { get; init; }
         public int? Addiction { get; init; }
         public LieuDto[] Lieux { get; init; } = null!;
+        public LieuTypeDto[] LieuxTypes { get; init; } = null!;
 
         public PotionDto? Potion { get; init; }
     }

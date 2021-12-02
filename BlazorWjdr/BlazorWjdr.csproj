@@ -19,36 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\json-data\arme.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\chrono.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\dieu.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\equipement.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\lieu.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\race.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\reference.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\campagne.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Update="wwwroot\json-data\table.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\sample-data\weather.json" />
     <_ContentIncludedByDefault Remove="wwwroot\font\caslon-antique-regular.ttf" />
     <_ContentIncludedByDefault Remove="wwwroot\font\caslon-antique-regular.woff" />
@@ -77,10 +47,7 @@
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\armes\170.png" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\armes\173.png" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\armes\195.png" />
-    <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\armes\Scimitar.png" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\beasts\20.png" />
-    <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\beasts\external-content.duckduckgo.com.png" />
-    <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\beasts\minotaur.png" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\books\1.jpg" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\books\10.jpg" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\books\11.jpg" />
@@ -521,7 +488,6 @@
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\races\63f.png" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\races\63m.png" />
     <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\races\63S.png" />
-    <_ContentIncludedByDefault Remove="wwwroot\blazor-wjdr\images\town.jpg" />
   </ItemGroup>
 
 </Project>

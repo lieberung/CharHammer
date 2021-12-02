@@ -1,4 +1,7 @@
-﻿page contacts avec lieux de rencontre
+﻿faire les carrières possibles des joueurs actuels
+calculer xp des joueurs pour compléter leur carrière
+
+page contacts avec lieux de rencontre
 « »
 assistant de création de pnj (en fonctionn de classe sociale, province, ajouter des stéréotypes genre client de taverne avec carrière aléatoire)
 assistant de création de creature
@@ -15,8 +18,6 @@ Wjdr2 Guide du MJ
 
 tome redemption p.161,162
 +p163 myrmidia 
-
-faire les carrières possibles des joueurs actuels
 
 ----- scénarios à lire -----
 elfe artiste et pièces factices

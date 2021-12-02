@@ -40,6 +40,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? contenance { get; set; }
         public int? addiction { get; set; }
         public int[]? lieux { get; set; }
+        public int[]? lieuxtypes { get; set; }
 
         public JsonPotion? potion { get; set; }
     }

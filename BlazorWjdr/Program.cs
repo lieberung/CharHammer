@@ -28,7 +28,7 @@ namespace BlazorWjdr
             var listChrono = InitializeChronologie(data.Chrono!.items, dataReferences);
             var dataLieuxTypes = InitializeLieuxTypes(data.Lieux!.types);
             var dataLieux = InitializeLieux(data.Lieux!.items, dataLieuxTypes);
-            var dataEquipements = InitializeEquipements(data.Equipements!.items, dataLieux);
+            var dataEquipements = InitializeEquipements(data.Equipements!.items, dataLieux, dataLieuxTypes);
             var dataDieux = InitializeDieux(data.Dieux!.items, dataAptitudes, dataLieux);
             var dataTables = InitializeTables(data.Tables!.items);
             var dataArmesAttributs = InitializeArmesAttributs(data.Armes!.attributs);
@@ -432,7 +432,8 @@ namespace BlazorWjdr
 
         private static Dictionary<int, EquipementDto> InitializeEquipements(
             IEnumerable<JsonEquipement> items,
-            IReadOnlyDictionary<int, LieuDto> lieux)
+            IReadOnlyDictionary<int, LieuDto> lieux,
+            IReadOnlyDictionary<int, LieuTypeDto> lieuxtypes)
         {
             var result = items
                 .Select(t => new EquipementDto
@@ -448,6 +449,7 @@ namespace BlazorWjdr
                     Contenance = t.contenance,
                     Addiction = t.addiction,
                     Lieux = (t.lieux ?? Array.Empty<int>()).Select(id => lieux[id]).ToArray(),
+                    LieuxTypes = (t.lieuxtypes ?? Array.Empty<int>()).Select(id => lieuxtypes[id]).ToArray(),
                     Potion = t.potion == null ? null : GetPotionDtoFromJson(t.potion)  
                 })
                 .ToDictionary(k => k.Id);
