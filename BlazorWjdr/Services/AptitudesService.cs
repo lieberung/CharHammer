@@ -129,11 +129,9 @@
 
 
         // Académique
-        public AptitudeDto CompetenceGroupeConnaissancesAcademiques => GetAptitude(1013);
-        public AptitudeDto CompetenceGroupeConnaissancesGenerales => GetAptitude(1014);
+        public AptitudeDto CompetenceGroupeSavoir => GetAptitude(1013);
         public AptitudeDto CompetenceGroupeLangue => GetAptitude(1039);
-        public AptitudeDto CompetenceConnaissancesAcademiquesDeuxAuChoix => GetAptitude(1169);
-        public AptitudeDto CompetenceConnaissancesAcademiquesTroisAuChoix => GetAptitude(1166);
+        public AptitudeDto CompetenceSavoirDeuxAuChoix => GetAptitude(1151);
         public AptitudeDto CompetenceLireEcrire => GetAptitude(1042);
         public AptitudeDto TalentCalculMental => GetTalent(2007);
         public AptitudeDto TalentLinguistique => GetTalent(2042);
@@ -297,10 +295,10 @@
         public AptitudeDto CompetenceGroupeMetier => GetAptitude(1044);
         public AptitudeDto CompetenceMetierDeuxAuChoix => GetAptitude(1159);
         public AptitudeDto CompetenceMetierTroisAuChoix => GetAptitude(1172);
-        public AptitudeDto CompetenceConnaissancesAcademiquesArts => GetAptitude(1102);
-        public AptitudeDto CompetenceConnaissancesAcademiquesIngénierie => GetAptitude(1108);
-        public AptitudeDto CompetenceConnaissancesAcademiquesRunes => GetAptitude(1112);
-        public AptitudeDto CompetenceConnaissancesAcademiquesSciences => GetAptitude(1113);
+        public AptitudeDto CompetenceSavoirArts => GetAptitude(1102);
+        public AptitudeDto CompetenceSavoirIngénierie => GetAptitude(1108);
+        public AptitudeDto CompetenceSavoirRunes => GetAptitude(1112);
+        public AptitudeDto CompetenceSavoirSciences => GetAptitude(1113);
         public AptitudeDto CompetenceLangageMystiqueNain => GetAptitude(1003);
         public AptitudeDto TalentRuneDeuxAuChoix => GetTalent(2170);
         public AptitudeDto TalentRuneSixAuChoix => GetTalent(2171);

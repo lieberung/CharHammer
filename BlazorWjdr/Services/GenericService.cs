@@ -47,11 +47,6 @@ namespace BlazorWjdr.Services
         {
             chaine = chaine.ToLower();
             chaine = chaine.Replace("armes", "arme");
-            chaine = chaine.Replace("connaissances", "conn");
-            chaine = chaine.Replace("connaissance", "conn");
-            chaine = chaine.Replace("conn.", "conn");
-            chaine = chaine.Replace("académiques", "acad");
-            chaine = chaine.Replace("générales", "gene");
             return ConvertirCaracteres(chaine);
         }
 

@@ -40,16 +40,21 @@
                 </div>
                 @if (_showGroupes.Count == 1)
                 {
+                    <div class="col-1"></div>
                     <div class="col-4">
-                        <TableDetail Item="@_tablesService.GetTable(86)"/>
+                        <div class="card-body">
+                            <TableDetail Item="@_tablesService.GetTable(86)"/>
+                        </div>
                     </div>
                 }
             </div>
         }
     </div>
     
-    <RowEncombrement/>
-
+    @if (_showGroupes.Count == 1)
+    {
+        <RowEncombrement/>
+    }
 </div>
 
 @code {
