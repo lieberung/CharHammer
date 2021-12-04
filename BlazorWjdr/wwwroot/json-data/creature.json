@@ -158,6 +158,14 @@
       "profil_actuel":{"cc":31,"ct":24,"f":27,"e":53,"i":59,"ag":36,"dex":69,"intel":65,"fm":64,"soc":62,"m":4},
       "aptitudes":[],
       "description":""},
+    
+    {"id":413,"race":1,"nom":"Archétype","poids":82,"taille":175,"age":25,
+      "armes":[113],
+      "armures":[14],
+      "cheminement":[126],
+      "profil_actuel":{"cc":31,"ct":31,"f":36,"e":38,"i":29,"ag":32,"dex":29,"intel":27,"fm":30,"soc":30},
+      "aptitudes":[1618,1624,2014],
+      "description":""},
 
     {"id":6,"race":57,"nom":"Goule de crypte","membrede":["Morts-vivants"],"origines":[],
   "profil_actuel":{"cc":30,"ct":0,"f":35,"e":30,"i":30,"ag":35,"dex":25,"intel":20,"fm":20,"soc":5},

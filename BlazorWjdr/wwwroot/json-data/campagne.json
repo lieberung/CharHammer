@@ -66,7 +66,8 @@
         {"quand":"2021-11-20","acte":1,"debut":"Jour 2, 23h, dans l'entrepôt des Mundtuch","duree":4,"titre":"Le journal","lieux":[101],
           "pjs":[7,9,10,11],"xp":0,
           "rencontres": [
-            {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406}]}
+            {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406}]},
+            {"groupe":"Les débardeurs","ennemis":[{"nom":"Bertram","id":413},{"nom":"Kléber","id":413},{"nom":"Hasso","id":413}]}
           ],
           "facts":[
             {"tri":1,"pjs":[9,10],"fact":"Huguette négocie avec Eustase pour obtenir 20% du bénéfice obtenu grâce à la parution du numéro 1. Rhaimon de renouveler ce genre d'arrangements suite à de futures aventures épiques."},
