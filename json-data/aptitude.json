@@ -289,6 +289,7 @@
   {"id":1188,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Savoir","spe":"Zoologie"},
   {"id":1224,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Savoir","spe":"Métallurgie","resume":"La métallurgie est la science des matériaux qui étudie les métaux, leurs élaborations, leurs propriétés, leurs traitements."},
   {"id":1229,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Savoir","spe":"Médecine","resume":"Connaissance des maladies et de leurs symptômes"},
+  {"id":1122,"parent":1013,"categ":"skill","categ_spe":"adv","nom":"Savoir","spe":"Taxes","resume":""},
 
   {"id":1600,"categ":"skill","categ_spe":"bas","nom":"Mélée","carac":"CC","martial":true,
     "resume":"Vous êtes capable d’utiliser un type d’arme de mélée nécessitant une formation particulière. Ex : armes ordinaires, de cavalerie, de parade, d’escrime, lourdes, paralysantes et fléaux.",
