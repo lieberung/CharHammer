@@ -57,12 +57,12 @@ namespace BlazorWjdr.Models
         public string NomAnglais { get; init; } = null!;
         public List<string> MotsClefDeRecherche { get; init; } = null!;
         public string Description { get; set; } = null!;
-        public string[] Ambiance { get; init; } = null!;
+        public string[] Ambiance { get; set; } = null!;
         public string Image { get; init; } = null!;
         public bool EstUneCarriereDeBase => TirageInitial.Any() ||  Parent is { EstUneCarriereDeBase: true };
         public bool EstUneCarriereAvancee => !EstUneCarriereDeBase;
-        public string Restriction { get; init; } = null!;
-        public string Leitmotiv { get; init; } = null!;
+        public string Restriction { get; set; } = null!;
+        public string Leitmotiv { get; set; } = null!;
         public int[] DebouchesIds { get; init; } = null!;
         public int[] AvancementsIds { get; init; } = null!;
         public string Dotations { get; init; } = null!;

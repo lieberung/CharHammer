@@ -56,7 +56,7 @@
         },
         
         {"quand":"2021-12-04","acte":1,"debut":"Jour 3, 10h, en sortant de la cave de Monsieur Mhoriss","duree":4,"titre":"Ne noyez pas mon cognac","lieux":[101],"secret":true,
-          "pjs":[7,9,10,11],"xp":150,
+          "pjs":[7,9,10,11],"xp":200,
           "rencontres": [
             {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406},{"nom":"Ludvig Grotius","id":410}]}
           ],

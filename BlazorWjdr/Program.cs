@@ -797,6 +797,12 @@ namespace BlazorWjdr
                 carriere.Parent = cacheCarrieres[carriere.CarriereMereId!.Value];
                 if (carriere.Description == "")
                     carriere.Description = carriere.Parent.Description;
+                if (carriere.Restriction == "")
+                    carriere.Restriction = carriere.Parent.Restriction;
+                if (carriere.Leitmotiv == "")
+                    carriere.Leitmotiv = carriere.Parent.Leitmotiv;
+                if (!carriere.Ambiance.Any())
+                    carriere.Ambiance = carriere.Parent.Ambiance;
                 if (carriere.Groupe == "")
                     carriere.Groupe = carriere.Parent.Groupe;
                 if (carriere.Statut == "")
