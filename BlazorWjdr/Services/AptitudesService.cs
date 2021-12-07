@@ -294,7 +294,6 @@
         public AptitudeDto CompetenceLangageSecretGuilde => GetAptitude(1158);
         public AptitudeDto CompetenceGroupeMetier => GetAptitude(1044);
         public AptitudeDto CompetenceMetierDeuxAuChoix => GetAptitude(1159);
-        public AptitudeDto CompetenceMetierTroisAuChoix => GetAptitude(1172);
         public AptitudeDto CompetenceSavoirArts => GetAptitude(1102);
         public AptitudeDto CompetenceSavoirIngénierie => GetAptitude(1108);
         public AptitudeDto CompetenceSavoirRunes => GetAptitude(1112);
