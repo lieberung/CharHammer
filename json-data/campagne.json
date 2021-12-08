@@ -55,19 +55,19 @@
           "resume":"Sur la route pour rejoindre le village d'Ostelle"
         },
         
-        {"quand":"2021-12-04","acte":1,"debut":"Jour 3, 10h, en sortant de la cave de Monsieur Mhoriss","duree":4,"titre":"Ne noyez pas mon cognac","lieux":[101],"secret":true,
-          "pjs":[7,9,10,11],"xp":200,
+        {"quand":"2021-12-04","acte":1,"titre":"Ne noyez pas mon cognac","lieux":[101],"duree":6,"xp":200,"pjs":[7,9,10,11],
+          "debut":"Jour 3, 10h, en sortant de la cave de Monsieur Mhoriss",
           "rencontres": [
-            {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406},{"nom":"Ludvig Grotius","id":410}]}
+            {"groupe":"Drôles de rencontres","allies":[{"nom":"Ludvig Grotius","id":410}]},
+            {"groupe":"Les débardeurs","ennemis":[{"nom":"Bertram","id":413},{"nom":"Kléber","id":413},{"nom":"Hasso","id":413}]}
           ],
           "resume":""
         },
         
-        {"quand":"2021-11-20","acte":1,"debut":"Jour 2, 23h, dans l'entrepôt des Mundtuch","duree":4,"titre":"Le journal","lieux":[101],
-          "pjs":[7,9,10,11],"xp":0,
+        {"quand":"2021-11-20","acte":1,"titre":"Le journal","lieux":[101],"duree":4,"xp":0,"pjs":[7,9,10,11],
+          "debut":"Jour 2, 23h, dans l'entrepôt des Mundtuch",
           "rencontres": [
-            {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406}]},
-            {"groupe":"Les débardeurs","ennemis":[{"nom":"Bertram","id":413},{"nom":"Kléber","id":413},{"nom":"Hasso","id":413}]}
+            {"groupe":"Drôles de rencontres","allies":[{"nom":"Eustase Salingher","id":406}]}
           ],
           "facts":[
             {"tri":1,"pjs":[9,10],"fact":"Huguette négocie avec Eustase pour obtenir 20% du bénéfice obtenu grâce à la parution du numéro 1. Rhaimon de renouveler ce genre d'arrangements suite à de futures aventures épiques."},
@@ -78,7 +78,9 @@
           ],
           "resume":"Alors que vous vous apprêtiez à quitter l’entrepôt des Mundtuch, un halfling sort de l’ombre, se présente comme étant Eustase Stalhinger, rédacteur en chef en recherche de scoop, et confesse vous épier depuis votre entrée dans l’entrepôt.\nVous menant chez lui, ou il vit avec son cousin Bargol, étudiant et artiste, et vous propose d’exposer les récents évènements en première page du numéro de son journal révolutionnaire. Clara reprend ses esprits peu après et vous lui exposez avec tact les décès de son amant et de ses parents. Vous rendant par la suite au manoir Mundtuch avec sa bénédiction, vous y récupérez des documents sensibles pour étoffer l’article d’Eustase, et peut-être y trouver des indices sur les activités occultes des Mundtuch.\nAu lendemain d’une nuit inconfortable chez Febreize, un messager porte un message à ce dernier, l’enjoignant à se rendre à la Guilde des ratiers. Monsieur Mhorris y attend, renfrogné, car suite à un malentendu c’était à Febreize de s’occuper de sa cave.\nVous rendant chez lui, vous croisez Norbert, trempé et confus, explique avoir eu un imprévu, affecté sa tâche à Febreize puis oublié de l’en prévenir.\nFebreize pose des pièges mais Himler flaire un rat et se faufile dans un trou. Les aboiements du chien semblant s’être déplacé sous vos pieds, vous ne tardez pas à découvrir un accès oublié à une pièce souterraine.\nChuck Mhorris, torche en main, y descend pour y découvrir une lourde porte en métal. Celle-ci n’est toutefois pas suffisamment solide pour résister à quelque coups de pieds biens placés de Chuck, muni d’une paire de bottes rutilantes. S’engageant, enthousiaste, dans un couloir grossier à l’odeur épouvantable, il s’effondre quelques mètres plus loin dans une prodigieuse explosion.\nAprès que Febreize aie pris soin d’échanger ses bottes avec celles de Chuck, qui n’en aura plus besoins, vous débouchez sur un collecteur d’égoûts. Des traces laissées par Himler et ses aboiements étouffés vous conduisent, quelques mètres plus loin, devant une volée de marches donnant sur une nouvelle porte, entrouverte. Dans l’encadrement, vous remarquez un symbole peint représentant deux rames munies d’un œil."
         },
-        {"quand":"2021-10-30","acte":1,"debut":"Jour 1, 20h, à la taverne de Maître Kanter","duree":4,"titre":"La promesse","scenario":"La Fleur de Sang","lieux":[101],
+        
+        {"quand":"2021-10-30","acte":1,"duree":4,"titre":"La promesse","scenario":"La Fleur de Sang","lieux":[101],
+          "debut":"Jour 1, 20h, à la taverne de Maître Kanter",
           "pjs":[7,9,10,11],"xp":200,
           "rencontres": [
             {"groupe":"Les estaliens","ennemis":[{"nom":"Juan Sanchez","id":403},{"nom":"Paolo","id":401},{"nom":"Sanche","id":401},{"nom":"Ramon","id":401}]},
@@ -93,6 +95,7 @@
           ],
           "resume":"A la taverne de la Chope Moussue, vous vous retrouvez mélés à une querelle entre nobles aboutissant à un duel auquel vous assistez en tant que témoins.\nVotre récent 'ami', Christian von Maule, cadet d'une famille noble de Bogenhafen, y perd la vie mais vous fait promettre de remettre sa chevalière à sa bien aimée, Clara.\nA l'issue d'une rapide enquête pour identifier cette dernière, fille d'une famille de marchand de drapiers, les Mundtuch, vous découvrez que les Mundtuch ont payé les estaliens pour, probablement, écarter le jeune prétendant, et qu'ils ont quitté leur domaine en compagnie de Clara tombée subitemment très malade.\nUn mendiant, contact de Rhaimon, ayant aperçu leur carosse, vous oriente vers les quais sur la rive est du canal. Apprenant que les Mundtuch y possèdent un entrepôt, Febreize en obtient l'adresse à la guilde des ratiers qui y ont déjà envoyé des hommes.\nArrivé à l'entrepôt, vous essuiyez une embuscade des estaliens, dont Juan Sanchez Villabollos de Ramirez sort indemne, puis parvenez à interrompre une sombre cérémonie sacrificielle en l'honneur de Slaanesh et à sauver Clara."
         },
+        
         {"quand":"2021-10-02","acte":0,"duree":5,"titre":"Création des personnages cobayes v4",
           "pjs":[7,8,9,10,11],"xp":300,"xp_comment":"300 xp octroyés à la création",
           "facts":[
