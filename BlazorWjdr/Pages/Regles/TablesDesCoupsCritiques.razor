@@ -30,11 +30,25 @@
                 </p>
                 <RegleDetail Item="_reglesService.GetRegle(214)" MasquerTitre="true" MasquerTables="true"/>
                 <p class="card-text">
-                    <LinkLocalisation Actif="@(Zone == "tete")" Zone="tete"/>
-                    <LinkLocalisation Actif="@(Zone == "bras")" Zone="bras"/>
-                    <LinkLocalisation Actif="@(Zone == "torse")" Zone="torse"/>
-                    <LinkLocalisation Actif="@(Zone == "jambe")" Zone="jambe"/>
-                    <LinkLocalisation Actif="@(Zone == "fumbles")" Zone="fumbles"/>
+                    <div class="row">
+                        <div class="col"><h5 class="card-title">Tables des coups critiques</h5></div>
+                        <div class="col"><h5 class="card-title">Tables des maladresses critiques</h5></div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <LinkLocalisation Actif="@(Zone == "tete")" Zone="tete" />
+                            <LinkLocalisation Actif="@(Zone == "bras")" Zone="bras" />
+                            <LinkLocalisation Actif="@(Zone == "torse")" Zone="torse" />
+                            <LinkLocalisation Actif="@(Zone == "jambe")" Zone="jambe" />
+                        </div>
+                        <div class="col">
+                            <LinkLocalisation Actif="@(Zone == "fumbles")" Zone="fumbles" />
+                            <LinkLocalisation Actif="@(Zone == "arme-a-distance")" Zone="arme-a-distance" />
+                            <LinkLocalisation Actif="@(Zone == "arme-de-jet")" Zone="arme-de-jet" />
+                            <LinkLocalisation Actif="@(Zone == "arme-de-parade")" Zone="arme-de-parade" />
+                            <LinkLocalisation Actif="@(Zone == "arme-de-poing")" Zone="arme-de-poing" />
+                        </div>
+                    </div>
                 </p>
                 <h5 class="card-title">Conditions</h5>
                 <p class="card-text">
@@ -80,6 +94,10 @@
             "torse" => 62,
             "jambe" => 63,
             "fumbles" => 53,
+            "arme-a-distance" => 54,
+            "arme-de-jet" => 56,
+            "arme-de-parade" => 57,
+            "arme-de-poing" => 55,
             _ => _tableId
         };
         base.OnParametersSet();

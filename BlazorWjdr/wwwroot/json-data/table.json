@@ -1,798 +1,976 @@
 ﻿{
   "items": [
-     {"id":10,"titre":"Déterminer votre race",
+    {
+      "id": 10,
+      "titre": "Déterminer votre race",
       "description": "",
-      "lignes":[
-        ["d100","Proba.","Race"  ,"Choisir"],
-        ["01-89","89%","Humain"       ,"50 xp"],
-        ["90-93","4%" ,"Halfling"     ,"100 xp"],
-        ["94-97","4%" ,"Nain"         ,"100 xp"],
-        ["98"   ,"1%" ,"Elfe sylvain" ,"200 xp"],
-        ["99"   ,"1%" ,"Haut elfe"    ,"200 xp"],
-        ["100"  ,"1%" ,"Gnôme"        ,"200 xp"]
+      "lignes": [
+        [ "d100", "Proba.", "Race", "Choisir" ],
+        [ "01-89", "89%", "Humain", "50 xp" ],
+        [ "90-93", "4%", "Halfling", "100 xp" ],
+        [ "94-97", "4%", "Nain", "100 xp" ],
+        [ "98", "1%", "Elfe sylvain", "200 xp" ],
+        [ "99", "1%", "Haut elfe", "200 xp" ],
+        [ "100", "1%", "Gnôme", "200 xp" ]
       ]
     },
-    {"id":11,"titre":"Détermination des caractéristiques",
+    {
+      "id": 11,
+      "titre": "Détermination des caractéristiques",
       "description": "",
-      "lignes":[
-        ["Caractéristique"          ,"Elfe"   ,"Gnôme"  ,"Halfling","Humain" ,"Nain"],
-        ["CC - Capacité de Combat"  ,"20+2d10","20+2d10","10+2d10" ,"20+2d10","30+2d10"],
-        ["CT - Capacité de Tir"     ,"30+2d10","10+2d10","30+2d10" ,"20+2d10","20+2d10"],
-        ["F  - Force"               ,"20+2d10","10+2d10","10+2d10" ,"20+2d10","20+2d10"],
-        ["E  - Endurance"           ,"20+2d10","15+2d10","10+2d10" ,"20+2d10","30+2d10"],
-        ["I - Initiative"           ,"40+2d10","30+2d10","20+2d10" ,"20+2d10","20+2d10"],
-        ["Ag - Agilité"             ,"30+2d10","30+2d10","30+2d10" ,"20+2d10","10+2d10"],
-        ["Dex - Dexterité"          ,"30+2d10","30+2d10","30+2d10" ,"20+2d10","30+2d10"],
-        ["Int - Intelligence"       ,"20+2d10","30+2d10","20+2d10" ,"20+2d10","20+2d10"],
-        ["FM - Force Mentale"       ,"20+2d10","40+2d10","20+2d10" ,"20+2d10","20+2d10"],
-        ["Soc - Sociabilité"        ,"20+2d10","15+2d10","30+2d10" ,"20+2d10","10+2d10"],
-        ["Destin"                   ,"0"      ,"2"      ,"0"       ,"2"      ,"0"      ],
-        ["Résilience"               ,"0"      ,"0"      ,"2"       ,"1"      ,"2"      ],
-        ["Points Bonus"             ,"2"      ,"2"      ,"3"       ,"3"      ,"2"      ],
-        ["B - Points de Blessures","BF+(2xBE)+BFM","(2xBE)+BFM","(2xBE)+BFM","BF+(2xBE)+BFM","BF+(2xBE)+BFM"],
-        ["M - Mouvement","5","3","4","4","3"]
+      "lignes": [
+        [ "Caractéristique", "Elfe", "Gnôme", "Halfling", "Humain", "Nain" ],
+        [ "CC - Capacité de Combat", "20+2d10", "20+2d10", "10+2d10", "20+2d10", "30+2d10" ],
+        [ "CT - Capacité de Tir", "30+2d10", "10+2d10", "30+2d10", "20+2d10", "20+2d10" ],
+        [ "F  - Force", "20+2d10", "10+2d10", "10+2d10", "20+2d10", "20+2d10" ],
+        [ "E  - Endurance", "20+2d10", "15+2d10", "10+2d10", "20+2d10", "30+2d10" ],
+        [ "I - Initiative", "40+2d10", "30+2d10", "20+2d10", "20+2d10", "20+2d10" ],
+        [ "Ag - Agilité", "30+2d10", "30+2d10", "30+2d10", "20+2d10", "10+2d10" ],
+        [ "Dex - Dexterité", "30+2d10", "30+2d10", "30+2d10", "20+2d10", "30+2d10" ],
+        [ "Int - Intelligence", "20+2d10", "30+2d10", "20+2d10", "20+2d10", "20+2d10" ],
+        [ "FM - Force Mentale", "20+2d10", "40+2d10", "20+2d10", "20+2d10", "20+2d10" ],
+        [ "Soc - Sociabilité", "20+2d10", "15+2d10", "30+2d10", "20+2d10", "10+2d10" ],
+        [ "Destin", "0", "2", "0", "2", "0" ],
+        [ "Résilience", "0", "0", "2", "1", "2" ],
+        [ "Points Bonus", "2", "2", "3", "3", "2" ],
+        [ "B - Points de Blessures", "BF+(2xBE)+BFM", "(2xBE)+BFM", "(2xBE)+BFM", "BF+(2xBE)+BFM", "BF+(2xBE)+BFM" ],
+        [ "M - Mouvement", "5", "3", "4", "4", "3" ]
       ]
     },
-    {"id":12,"titre":"Points de Blessures de départ",
+    {
+      "id": 12,
+      "titre": "Points de Blessures de départ",
       "description": "Régles de la v2 - référez-vous au tableau des caractéristiques pour les règles de la v4.",
-      "lignes":[
-        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
-        ["1-3","9","8","8","10","11"],
-        ["4-6","10","9","9","11","12"],
-        ["7-9","11","10","10","12","13"],
-        ["10","12","11","11","13","14"]
+      "lignes": [
+        [ "d10", "Elfe", "Gnôme", "Halfling", "Humain", "Nain" ],
+        [ "1-3", "9", "8", "8", "10", "11" ],
+        [ "4-6", "10", "9", "9", "11", "12" ],
+        [ "7-9", "11", "10", "10", "12", "13" ],
+        [ "10", "12", "11", "11", "13", "14" ]
       ]
     },
-    {"id":13,"titre":"Points de Destin de départ",
+    {
+      "id": 13,
+      "titre": "Points de Destin de départ",
       "description": "Le meneur de jeu peut décider de faire ce jet pour vous et de garder le résultat secret, auquel cas les Points de Fortune sont basés sur une valeur fixe en fonction de votre race.\nSi vous êtes un mutant, faite un jet pour votre race et soustrayez 1 (1 minimum).",
-      "lignes":[
-        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
-        ["1-4","1","2","2","2","1"],
-        ["5-7","2","3","2","3","2"],
-        ["8-10","2","3","3","3","3"]
+      "lignes": [
+        [ "d10", "Elfe", "Gnôme", "Halfling", "Humain", "Nain" ],
+        [ "1-4", "1", "2", "2", "2", "1" ],
+        [ "5-7", "2", "3", "2", "3", "2" ],
+        [ "8-10", "2", "3", "3", "3", "3" ]
       ]
     },
-    {"id":14,"titre":"Age, poids et taille",
+    {
+      "id": 14,
+      "titre": "Age, poids et taille",
       "description": "Choisissez ou déterminez aléatoirement en utilisant la table.",
-      "lignes":[
-        [""                 ,"Elfe"         ,"Gnôme"        ,"Halfling"     ,"Humain"       ,"Nain"],
-        ["Espérance de vie" ,"~ 1000 ans"   ,"~ 300 ans"    ,"~ 120 ans"    ,"~ 60 ans"     ,"~ 200 ans"],
-        ["Age"              ,"30+10d10"     ,"30+5d10"      ,"25+7d6"       ,"13+3d10"      ,"35+5d10"],
-        ["Poids"            ,"30+5d10"      ,"30+5d10"      ,"25+7d6"       ,"40+6d10"      ,"35+5d10"],
-        ["Taille (femme)"   ,"1m50+3d10cm"  ,"1m10+3d10cm"  ,"0m91+3d10cm"  ,"1m50+3d10cm"  ,"1m21+3d10cm"],
-        ["Taille (homme)"   ,"1m50+3d10cm"  ,"1m15+3d10cm"  ,"0m96+3d10cm"  ,"1m60+3d10cm"  ,"1m26+3d10cm"]
+      "lignes": [
+        [ "", "Elfe", "Gnôme", "Halfling", "Humain", "Nain" ],
+        [ "Espérance de vie", "~ 1000 ans", "~ 300 ans", "~ 120 ans", "~ 60 ans", "~ 200 ans" ],
+        [ "Age", "30+10d10", "30+5d10", "25+7d6", "13+3d10", "35+5d10" ],
+        [ "Poids", "30+5d10", "30+5d10", "25+7d6", "40+6d10", "35+5d10" ],
+        [ "Taille (femme)", "1m50+3d10cm", "1m10+3d10cm", "0m91+3d10cm", "1m50+3d10cm", "1m21+3d10cm" ],
+        [ "Taille (homme)", "1m50+3d10cm", "1m15+3d10cm", "0m96+3d10cm", "1m60+3d10cm", "1m26+3d10cm" ]
       ]
     },
-    {"id":15,"titre":"Couleur des cheveux et des yeux (Elfes)",
+    {
+      "id": 15,
+      "titre": "Couleur des cheveux et des yeux (Elfes)",
       "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
-      "lignes":[
-        ["d10"      ,"Cheveux"      ,"Yeux"      ],
-        ["2"         ,"Argenté"      ,"Ivoire"    ],
-        ["3"         ,"Blond cendré" ,"Fusain"    ],
-        ["4"         ,"Paille"       ,"Emeraude"  ],
-        ["5-7"       ,"Blond"        ,"Vert"      ],
-        ["8-11"      ,"Châtain clair","Châtain"   ],
-        ["12-14"     ,"Chataîn"      ,"Châtain"   ],
-        ["15-17"     ,"Auburn"       ,"Brun"      ],
-        ["18"        ,"Brun"         ,"Brun roux" ],
-        ["19"        ,"Noir"         ,"Brun clair"],
-        ["20"        ,"Gris"         ,"Violet"    ]
+      "lignes": [
+        [ "d10", "Cheveux", "Yeux" ],
+        [ "2", "Argenté", "Ivoire" ],
+        [ "3", "Blond cendré", "Fusain" ],
+        [ "4", "Paille", "Emeraude" ],
+        [ "5-7", "Blond", "Vert" ],
+        [ "8-11", "Châtain clair", "Châtain" ],
+        [ "12-14", "Chataîn", "Châtain" ],
+        [ "15-17", "Auburn", "Brun" ],
+        [ "18", "Brun", "Brun roux" ],
+        [ "19", "Noir", "Brun clair" ],
+        [ "20", "Gris", "Violet" ]
       ]
     },
-    {"id":16,"titre":"Couleur des cheveux et des yeux (Gnômes) [Alpha]",
+    {
+      "id": 16,
+      "titre": "Couleur des cheveux et des yeux (Gnômes) [Alpha]",
       "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
-      "lignes":[
-        ["d10"      ,"Cheveux"      ,"Yeux"      ],
-        ["2"         ,"Argenté"      ,"Ivoire"    ],
-        ["3"         ,"Blond cendré" ,"Fusain"    ],
-        ["4"         ,"Paille"       ,"Emeraude"  ],
-        ["5-7"       ,"Blond"        ,"Vert"      ],
-        ["8-11"      ,"Châtain clair","Châtain"   ],
-        ["12-14"     ,"Chataîn"      ,"Châtain"   ],
-        ["15-17"     ,"Auburn"       ,"Brun"      ],
-        ["18"        ,"Brun"         ,"Brun roux" ],
-        ["19"        ,"Noir"         ,"Brun clair"],
-        ["20"        ,"Gris"         ,"Violet"    ]
+      "lignes": [
+        [ "d10", "Cheveux", "Yeux" ],
+        [ "2", "Argenté", "Ivoire" ],
+        [ "3", "Blond cendré", "Fusain" ],
+        [ "4", "Paille", "Emeraude" ],
+        [ "5-7", "Blond", "Vert" ],
+        [ "8-11", "Châtain clair", "Châtain" ],
+        [ "12-14", "Chataîn", "Châtain" ],
+        [ "15-17", "Auburn", "Brun" ],
+        [ "18", "Brun", "Brun roux" ],
+        [ "19", "Noir", "Brun clair" ],
+        [ "20", "Gris", "Violet" ]
       ]
     },
-    {"id":17,"titre":"Couleur des cheveux et des yeux (Halflings)",
+    {
+      "id": 17,
+      "titre": "Couleur des cheveux et des yeux (Halflings)",
       "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
-      "lignes":[
-        ["d10"      ,"Cheveux"      ,"Yeux"],
-        ["2"         ,"Gris"         ,"Gris clair"],
-        ["3"         ,"Auburn"       ,"Gris"],
-        ["4"         ,"Roux"         ,"Bleu pâle"],
-        ["5-7"       ,"Blond"        ,"Bleu"],
-        ["8-11"      ,"Blond"        ,"Vert"],
-        ["12-14"     ,"Châtain clair","Noisette"],
-        ["15-17"     ,"Châtain"      ,"Marron"],
-        ["18"        ,"Brun"         ,"Cuivre"],
-        ["19"        ,"Noir"         ,"Marron"],
-        ["20"        ,"Noir"         ,"Marron"]
+      "lignes": [
+        [ "d10", "Cheveux", "Yeux" ],
+        [ "2", "Gris", "Gris clair" ],
+        [ "3", "Auburn", "Gris" ],
+        [ "4", "Roux", "Bleu pâle" ],
+        [ "5-7", "Blond", "Bleu" ],
+        [ "8-11", "Blond", "Vert" ],
+        [ "12-14", "Châtain clair", "Noisette" ],
+        [ "15-17", "Châtain", "Marron" ],
+        [ "18", "Brun", "Cuivre" ],
+        [ "19", "Noir", "Marron" ],
+        [ "20", "Noir", "Marron" ]
       ]
     },
-    {"id":18,"titre":"Couleur des cheveux et des yeux (Reiklanders)",
+    {
+      "id": 18,
+      "titre": "Couleur des cheveux et des yeux (Reiklanders)",
       "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
-      "lignes":[
-        ["d10"      ,"Cheveux"      ,"Yeux"],
-        ["2"         ,"Gris clair"   ,"Blond cendré"],
-        ["3"         ,"Gris"         ,"Paille"],
-        ["4"         ,"Auburn"       ,"Bleu clair"],
-        ["5-7"       ,"Brun"         ,"Bleu"],
-        ["8-11"      ,"Châtain"      ,"Gris pâle"],
-        ["12-14"     ,"Châtain"      ,"Gris"],
-        ["15-17"     ,"Châtain clair","Marron"],
-        ["18"        ,"Roux"         ,"Noisette"],
-        ["19"        ,"Brun"         ,"Marron"],
-        ["20"        ,"Noir"         ,"Noir"]
+      "lignes": [
+        [ "d10", "Cheveux", "Yeux" ],
+        [ "2", "Gris clair", "Blond cendré" ],
+        [ "3", "Gris", "Paille" ],
+        [ "4", "Auburn", "Bleu clair" ],
+        [ "5-7", "Brun", "Bleu" ],
+        [ "8-11", "Châtain", "Gris pâle" ],
+        [ "12-14", "Châtain", "Gris" ],
+        [ "15-17", "Châtain clair", "Marron" ],
+        [ "18", "Roux", "Noisette" ],
+        [ "19", "Brun", "Marron" ],
+        [ "20", "Noir", "Noir" ]
       ]
     },
-    {"id":19,"titre":"Couleur des cheveux et des yeux (Nains)",
+    {
+      "id": 19,
+      "titre": "Couleur des cheveux et des yeux (Nains)",
       "description": "Choisissez ou déterminez aléatoirement en faisant deux jets.",
-      "lignes":[
-        ["d10"      ,"Cheveux" ,"Yeux"],
-        ["2"         ,"Blanc"   ,"Charbon"],
-        ["3"         ,"Gris"    ,"Plomb"],
-        ["4"         ,"Blond cendré","Acier"],
-        ["5-7"       ,"Doré"    ,"Bleu"],
-        ["8-11"      ,"Cuivré"  ,"Marron terre"],
-        ["12-14"     ,"Bronze"  ,"Brun"],
-        ["15-17"     ,"Châtain" ,"Noisette"],
-        ["18"        ,"Brun"    ,"Vert"],
-        ["19"        ,"Auburn"  ,"Cuivre"],
-        ["20"        ,"Noir"    ,"Or"]
+      "lignes": [
+        [ "d10", "Cheveux", "Yeux" ],
+        [ "2", "Blanc", "Charbon" ],
+        [ "3", "Gris", "Plomb" ],
+        [ "4", "Blond cendré", "Acier" ],
+        [ "5-7", "Doré", "Bleu" ],
+        [ "8-11", "Cuivré", "Marron terre" ],
+        [ "12-14", "Bronze", "Brun" ],
+        [ "15-17", "Châtain", "Noisette" ],
+        [ "18", "Brun", "Vert" ],
+        [ "19", "Auburn", "Cuivre" ],
+        [ "20", "Noir", "Or" ]
       ]
     },
-    {"id":22,"titre":"Frères et soeurs",
+    {
+      "id": 22,
+      "titre": "Frères et soeurs",
       "description": "Choisissez ou déterminez aléatoirement en faisant un jet.",
-      "lignes":[
-        ["d10","Elfe","Gnôme","Halfling","Humain","Nain"],
-        ["1"  ,"0","0","1","0","0"],
-        ["2-3","1","0","2","1","0"],
-        ["4-5","1","0","3","2","1"],
-        ["6-7","2","1","4","3","1"],
-        ["8-9","2","1","5","4","2"],
-        ["10" ,"3","2","6","5","3"]
+      "lignes": [
+        [ "d10", "Elfe", "Gnôme", "Halfling", "Humain", "Nain" ],
+        [ "1", "0", "0", "1", "0", "0" ],
+        [ "2-3", "1", "0", "2", "1", "0" ],
+        [ "4-5", "1", "0", "3", "2", "1" ],
+        [ "6-7", "2", "1", "4", "3", "1" ],
+        [ "8-9", "2", "1", "5", "4", "2" ],
+        [ "10", "3", "2", "6", "5", "3" ]
       ]
     },
-    {"id":20,"titre":"Coût d'amélioration d'une caractéristique",
+    {
+      "id": 20,
+      "titre": "Coût d'amélioration d'une caractéristique",
       "description": "Si la promotion n'est pas comprise dans votre profil de carrière, le coup en xp est doublé.",
-      "lignes":[
-        ["Promotion","Caractéristique"],
-        ["+5%" ,"100 xp"],
-        ["+10%","150 xp"],
-        ["+15%","200 xp"],
-        ["+20%","250 xp"],
-        ["+25%","300 xp"],
-        ["+30%","350 xp"],
-        ["+35%","400 xp"],
-        ["+40%","450 xp"]
+      "lignes": [
+        [ "Promotion", "Caractéristique" ],
+        [ "+5%", "100 xp" ],
+        [ "+10%", "150 xp" ],
+        [ "+15%", "200 xp" ],
+        [ "+20%", "250 xp" ],
+        [ "+25%", "300 xp" ],
+        [ "+30%", "350 xp" ],
+        [ "+35%", "400 xp" ],
+        [ "+40%", "450 xp" ]
       ]
     },
-    {"id":21,"titre":"Dépenser ses XP (points d'expérience)",
+    {
+      "id": 21,
+      "titre": "Dépenser ses XP (points d'expérience)",
       "description": "",
-      "lignes":[
-        ["","Coût",""],
-        ["Acheter une Compétence","De base","Avancée"],
-        ["- 1ère fois (+5%)","75 xp","100 xp"],
-        ["- 2nd fois (+10%)","100 xp","150 xp"],
-        ["- 3ème fois (+15%)","150 xp","200 xp"],
-        ["- 4ème fois (+20%)","200 xp","250 xp"],
-        ["Acheter un Talent","",""],
-        ["- 1ère fois (niveau 1)","100 xp",""],
-        ["- Nième fois (niveau N)","N x 75 xp",""],
-        ["Acheter un Trait","100 xp","La carrière actuelle doit être Complétée"],
-        ["Acheter un/e Compétence/Talent/Trait...","",""],
-        ["- via le 2ème choix dans une carrière","+50 xp",""],
-        ["- via un instructeur ou une formation","+100 xp","Accord du MJ requis"],
-        ["Choisir une nouvelle carrière de base","200 xp","100 xp si carrière actuelle complétée"],
-        ["Choisir une carrière parmi ses débouchés","100 xp","gratuit si carrière actuelle complétée"]
+      "lignes": [
+        [ "", "Coût", "" ],
+        [ "Acheter une Compétence", "De base", "Avancée" ],
+        [ "- 1ère fois (+5%)", "75 xp", "100 xp" ],
+        [ "- 2nd fois (+10%)", "100 xp", "150 xp" ],
+        [ "- 3ème fois (+15%)", "150 xp", "200 xp" ],
+        [ "- 4ème fois (+20%)", "200 xp", "250 xp" ],
+        [ "Acheter un Talent", "", "" ],
+        [ "- 1ère fois (niveau 1)", "100 xp", "" ],
+        [ "- Nième fois (niveau N)", "N x 75 xp", "" ],
+        [ "Acheter un Trait", "100 xp", "La carrière actuelle doit être Complétée" ],
+        [ "Acheter un/e Compétence/Talent/Trait...", "", "" ],
+        [ "- via le 2ème choix dans une carrière", "+50 xp", "" ],
+        [ "- via un instructeur ou une formation", "+100 xp", "Accord du MJ requis" ],
+        [ "Choisir une nouvelle carrière de base", "200 xp", "100 xp si carrière actuelle complétée" ],
+        [ "Choisir une carrière parmi ses débouchés", "100 xp", "gratuit si carrière actuelle complétée" ]
       ]
     },
-    {"id":25,"titre":"Lieu de naissance (Elfes sylvains)",
+    {
+      "id": 25,
+      "titre": "Lieu de naissance (Elfes sylvains)",
       "description": "",
-      "lignes":[
-        ["d100","Lieu de naissance"],
-        ["01-20","Cité d'Altdorf"],
-        ["21-40","Cité de Marienburg"],
-        ["41-70","Forêt de Laurelorn"],
-        ["71-85","Grande Forêt"],
-        ["86-00","Forêt de Reikwald"]
+      "lignes": [
+        [ "d100", "Lieu de naissance" ],
+        [ "01-20", "Cité d'Altdorf" ],
+        [ "21-40", "Cité de Marienburg" ],
+        [ "41-70", "Forêt de Laurelorn" ],
+        [ "71-85", "Grande Forêt" ],
+        [ "86-00", "Forêt de Reikwald" ]
       ]
     },
-    {"id":26,"titre":"Lieu de naissance (Gnômes)",
+    {
+      "id": 26,
+      "titre": "Lieu de naissance (Gnômes)",
       "description": "",
-      "lignes":[
-        ["d100","Lieu de naissance"],
-        ["01-00","Retirez sur la table des humains (Empire)"]
+      "lignes": [
+        [ "d100", "Lieu de naissance" ],
+        [ "01-00", "Retirez sur la table des humains (Empire)" ]
       ]
     },
-    {"id":27,"titre":"Lieu de naissance (Halflings)",
+    {
+      "id": 27,
+      "titre": "Lieu de naissance (Halflings)",
       "description": "",
-      "lignes":[
-        ["d100","Lieu de naissance"],
-        ["01-50","Le Moot"],
-        ["51-00","Retirez sur la table des humains (Empire)"]
+      "lignes": [
+        [ "d100", "Lieu de naissance" ],
+        [ "01-50", "Le Moot" ],
+        [ "51-00", "Retirez sur la table des humains (Empire)" ]
       ]
     },
-    {"id":28,"titre":"Lieu de naissance (Humains de l'Empire)",
+    {
+      "id": 28,
+      "titre": "Lieu de naissance (Humains de l'Empire)",
       "description": "Si vos jets vous donnent un résultat vraiment incohérent (ex : un noble dans un taudis), retirez ou montrez-vous inventif dans le développement de votre histoire.",
-      "lignes":[
-        ["d10","Province","d10","Environnement"],
-        ["1","Averland","1","Cité"],
-        ["2","Hochland","2","Ville prospère"],
-        ["3","Middenland","3","Bourg"],
-        ["4","Nordland","4","Ville fortifiée"],
-        ["5","Ostermark","5","Village agricole"],
-        ["6","Ostland","6","Village pauvre"],
-        ["7","Reikland","7","Petite communauté"],
-        ["8","Stirland","8","Ferme (élevage)"],
-        ["9","Talabecland","9","Ferme (culture)"],
-        ["10","Wissenland","10","Taudis"]
-        
+      "lignes": [
+        [ "d10", "Province", "d10", "Environnement" ],
+        [ "1", "Averland", "1", "Cité" ],
+        [ "2", "Hochland", "2", "Ville prospère" ],
+        [ "3", "Middenland", "3", "Bourg" ],
+        [ "4", "Nordland", "4", "Ville fortifiée" ],
+        [ "5", "Ostermark", "5", "Village agricole" ],
+        [ "6", "Ostland", "6", "Village pauvre" ],
+        [ "7", "Reikland", "7", "Petite communauté" ],
+        [ "8", "Stirland", "8", "Ferme (élevage)" ],
+        [ "9", "Talabecland", "9", "Ferme (culture)" ],
+        [ "10", "Wissenland", "10", "Taudis" ]
+
       ]
     },
-    {"id":29,"titre":"Lieu de naissance (Nains)",
+    {
+      "id": 29,
+      "titre": "Lieu de naissance (Nains)",
       "description": "",
-      "lignes":[
-        ["d100","Lieu de naissance"],
-        ["01-30","Retirez sur la table des humains (Empire)"],
-        ["31-40","Karak Norn (Montagnes Grises)"],
-        ["41-50","Karak Izor (la Voûte)"],
-        ["51-60","Karak Hirn (Montagnes Noires)"],
-        ["61-70","Karak Kadrin (Montagnes du Bord du Monde)"],
-        ["71-80","Karak-a-Karak Norn (Montagnes du Bord du Monde)"],
-        ["81-90","Zhufbar (Montagnes du Bord du Monde)"],
-        ["91-00","Barak Var (Golfe Noir)"]
-        
+      "lignes": [
+        [ "d100", "Lieu de naissance" ],
+        [ "01-30", "Retirez sur la table des humains (Empire)" ],
+        [ "31-40", "Karak Norn (Montagnes Grises)" ],
+        [ "41-50", "Karak Izor (la Voûte)" ],
+        [ "51-60", "Karak Hirn (Montagnes Noires)" ],
+        [ "61-70", "Karak Kadrin (Montagnes du Bord du Monde)" ],
+        [ "71-80", "Karak-a-Karak Norn (Montagnes du Bord du Monde)" ],
+        [ "81-90", "Zhufbar (Montagnes du Bord du Monde)" ],
+        [ "91-00", "Barak Var (Golfe Noir)" ]
+
       ]
     },
-    {"id":30,"titre":"Lieu de naissance (Hauts elfes)",
+    {
+      "id": 30,
+      "titre": "Lieu de naissance (Hauts elfes)",
       "description": "",
-      "lignes":[
-        ["d100","Lieu de naissance"],
-        ["01-15","Cité de Marienburg"],
-        ["16-20","Ville de Carroburg"],
-        ["21-35","Cité d'Altdorf"],
-        ["36-45","Cité de Nuln"],
-        ["46-00","Ulthuan"]
+      "lignes": [
+        [ "d100", "Lieu de naissance" ],
+        [ "01-15", "Cité de Marienburg" ],
+        [ "16-20", "Ville de Carroburg" ],
+        [ "21-35", "Cité d'Altdorf" ],
+        [ "36-45", "Cité de Nuln" ],
+        [ "46-00", "Ulthuan" ]
       ]
     },
-    {"id":31,"titre":"Lieu de naissance (Estalie)",
+    {
+      "id": 31,
+      "titre": "Lieu de naissance (Estalie)",
       "description": "",
-      "lignes":[
-        ["d100","Lieu de naissance"],
-        ["01-20","Royaume d’Astarios"],
-        ["21-40","Royaume d’Obregon"],
-        ["41-60","Royaume de cantonia"],
-        ["61-80","Royaume de Tigarre"],
-        ["81-00","Les montagnes d’Irrina"]
+      "lignes": [
+        [ "d100", "Lieu de naissance" ],
+        [ "01-20", "Royaume d’Astarios" ],
+        [ "21-40", "Royaume d’Obregon" ],
+        [ "41-60", "Royaume de cantonia" ],
+        [ "61-80", "Royaume de Tigarre" ],
+        [ "81-00", "Les montagnes d’Irrina" ]
       ]
     },
-    {"id":32,"titre":"Lieu de naissance (Tilée)",
+    {
+      "id": 32,
+      "titre": "Lieu de naissance (Tilée)",
       "description": "",
-      "lignes":[
-        ["d100","Lieu de naissance"],
-        ["01-25","Cité état de Luccini"],
-        ["26-50","Cité état de Remas"],
-        ["51-75","Cité état de Miragliano"],
-        ["76-90","Cité état de Tobaro"],
-        ["91-00","Ile de Sartosa"]
+      "lignes": [
+        [ "d100", "Lieu de naissance" ],
+        [ "01-25", "Cité état de Luccini" ],
+        [ "26-50", "Cité état de Remas" ],
+        [ "51-75", "Cité état de Miragliano" ],
+        [ "76-90", "Cité état de Tobaro" ],
+        [ "91-00", "Ile de Sartosa" ]
       ]
     },
-    {"id":50,"titre":"Marchand : Traits aléatoires",
+    {
+      "id": 50,
+      "titre": "Marchand : Traits aléatoires",
       "description": "",
-      "lignes":[
-        ["1d10","Trait","Effet"],
-        ["1","Bureaucrate","ce marchand s'assure que ses transactions s'accompagnent de tous les actes et documents légaux, en triple exemplaire si nécessaire. Chaque transaction demande donc 1d10 jours."],
-        ["2","D'une honnêteté scrupuleuse","le marchand fait toujours de justes propositions d'achat et de vente, si bien qu'aucun test d'Évaluation n'est nécessaire. En revanche, il refuse de marchander."],
-        ["3","Profondément pieux","le marchand appartient à une société secrète de Händrich ou de Ranald le Bonimenteur (cf. Le compagnon p.32 pour plus de détails sur l'influence que cela peut avoir sur les transactions)."],
-        ["4","Habile","le marchand à la compétence Marchandage +10%."],
-        ["5","Cupide","le marchand sous-estime toujours la valeur des biens des P) tout en gonflant celle de ses propres articles. Des tests d'Évaluation sont nécessaires pour réaliser des alfaires honnêtes."],
-        ["6","Entrepreneur","le marchand accepte aussi de prêter de l'argent aux habitants de la ville ou fait le commerce de produits locaux pour arrondir ses fins de mois."],
-        ["7","Relations criminelles","le marchand est impliqué dans le commerce de biens illicites, si bien qu'il est possible de lui demander d'en rechercher. Lorsqu'il s'agit de déterminer la disponibilité de biens illicites, les joueurs bénéficient d'un bonus de +10%."],
-        ["8","Grand voyageur","le marchand a des contacts dans remouille de l'Empire et les personnages joueurs qui ont affaire à lui ont droit à un jet de spéculation (cf Le compagnon p.31)."],
-        ["9","Charlatan","le marchand est un charlatan. S'il en a l'occasion il n'hésitera pas à vendre des caisses vides ou à filer avec la marchandise des sans les payer. Des tests d'Évaluation sont nécessaires pour réaliser des affaires hommes."],
-        ["10","Bourré d'oseille","le marchand est en mesure d'acheter bien plus que tous ses concurrents. Les joueurs pourront lui vendre toutes leurs UC en réussissant un test de demande, quelle que soit la quantité indiquée par les dés."]
+      "lignes": [
+        [ "1d10", "Trait", "Effet" ],
+        [ "1", "Bureaucrate", "ce marchand s'assure que ses transactions s'accompagnent de tous les actes et documents légaux, en triple exemplaire si nécessaire. Chaque transaction demande donc 1d10 jours." ],
+        [ "2", "D'une honnêteté scrupuleuse", "le marchand fait toujours de justes propositions d'achat et de vente, si bien qu'aucun test d'Évaluation n'est nécessaire. En revanche, il refuse de marchander." ],
+        [ "3", "Profondément pieux", "le marchand appartient à une société secrète de Händrich ou de Ranald le Bonimenteur (cf. Le compagnon p.32 pour plus de détails sur l'influence que cela peut avoir sur les transactions)." ],
+        [ "4", "Habile", "le marchand à la compétence Marchandage +10%." ],
+        [ "5", "Cupide", "le marchand sous-estime toujours la valeur des biens des P) tout en gonflant celle de ses propres articles. Des tests d'Évaluation sont nécessaires pour réaliser des alfaires honnêtes." ],
+        [ "6", "Entrepreneur", "le marchand accepte aussi de prêter de l'argent aux habitants de la ville ou fait le commerce de produits locaux pour arrondir ses fins de mois." ],
+        [ "7", "Relations criminelles", "le marchand est impliqué dans le commerce de biens illicites, si bien qu'il est possible de lui demander d'en rechercher. Lorsqu'il s'agit de déterminer la disponibilité de biens illicites, les joueurs bénéficient d'un bonus de +10%." ],
+        [ "8", "Grand voyageur", "le marchand a des contacts dans remouille de l'Empire et les personnages joueurs qui ont affaire à lui ont droit à un jet de spéculation (cf Le compagnon p.31)." ],
+        [ "9", "Charlatan", "le marchand est un charlatan. S'il en a l'occasion il n'hésitera pas à vendre des caisses vides ou à filer avec la marchandise des sans les payer. Des tests d'Évaluation sont nécessaires pour réaliser des affaires hommes." ],
+        [ "10", "Bourré d'oseille", "le marchand est en mesure d'acheter bien plus que tous ses concurrents. Les joueurs pourront lui vendre toutes leurs UC en réussissant un test de demande, quelle que soit la quantité indiquée par les dés." ]
       ]
     },
-    {"id":51,"titre":"Les avantages - perte et gain",
+    {
+      "id": 51,
+      "titre": "Les avantages - perte et gain",
       "description": "",
-      "lignes":[
-        ["Condition","Conséquence"],
-        ["Vous êtes affublé d'une Condition","Perte de tous les Avantages"]
+      "lignes": [
+        [ "Condition", "Conséquence" ],
+        [ "Vous êtes affublé d'une Condition", "Perte de tous les Avantages" ]
       ]
     },
-    {"id":52,"titre":"Tir - Taille de la cible",
+    {
+      "id": 52,
+      "titre": "Tir - Taille de la cible",
       "description": "Size is an important factor when shooting at a target: it is far easier to hit a barn door than an apple. For more on Size, refer to Traits in Chapter 12: Bestiary. If this modifier allows you to hit when the Test would otherwise have failed, you succeed with +0 SL.",
-      "lignes":[
-        ["Taille","Hauteur/Longueur","Exemples","Modificateur"],
-        ["Tiny","Less than a foot","Butterfly, Mouse, Pigeon","–30"],
-        ["Little","Up to 2 feet","Cat, Hawk, Human Baby","–20"],
-        ["Small","Up to 4 feet","Giant Rat, Halfling, Human Child","–10"],
-        ["Average","Up to 7 feet","Dwarf, Elf, Human","0"],
-        ["Large","Up to 12 feet","Horse, Ogre, Troll","+20"],
-        ["Enormous","Up to 20 feet","Griffon, Wyvern, Manticore","+40"],
-        ["Monstrous","20 feet+","Dragon, Giant, Daemon Prince","+60"]      ]
+      "lignes": [
+        [ "Taille", "Hauteur/Longueur", "Exemples", "Modificateur" ],
+        [ "Tiny", "Less than a foot", "Butterfly, Mouse, Pigeon", "–30" ],
+        [ "Little", "Up to 2 feet", "Cat, Hawk, Human Baby", "–20" ],
+        [ "Small", "Up to 4 feet", "Giant Rat, Halfling, Human Child", "–10" ],
+        [ "Average", "Up to 7 feet", "Dwarf, Elf, Human", "0" ],
+        [ "Large", "Up to 12 feet", "Horse, Ogre, Troll", "+20" ],
+        [ "Enormous", "Up to 20 feet", "Griffon, Wyvern, Manticore", "+40" ],
+        [ "Monstrous", "20 feet+", "Dragon, Giant, Daemon Prince", "+60" ]
+      ]
     },
-    {"id":53,"titre":"Echecs critiques (combat)",
+    {
+      "id": 53,
+      "titre": "Echecs critiques (combat)",
       "description": "Tout test de combat échoué qui est aussi un multiple de 11 est un échec critique, qui se traduit par un jet sur cette table.",
-      "styles_th":["width:55px;"],
-      "lignes":[
-        ["d100","Résultat"],
-        ["01–20","Vous vous blessez tout seul en attaquant (nous vous suggérons d'interpréter cet incident pour son côté amusant) — perdez une Blessure, sans tenir compte de votre endurance ou de vos PA."],
-        ["21–40","Votre arme de corps à corps s'ébrèche salement, ou votre arme à Distance ne fonctionne pas, voire est sur le point de se briser — votre arme subit 1 Dégât. Le prochain Round, vous agirez en dernier, sans tenir compte de l'Ordre d'Initiative, ou de vos talents, ou de toute règle spéciale alors que vous la réparez (voir page 156)."],
-        ["41–60","Vous avez mal négocié votre manoeuvre, ce qui vous met en mauvaise posture, ou vous perdez la prise de votre arme à distance. au prochain Round votre Action subira une pénalité de -10."],
-        ["61–70","Vous trébuchez franchement et peinez à vous redresser. Vous perdez votre prochain Mouvement."],
-        ["71–80","Vous ne tenez pas votre arme correctement, ou vous laissez tomber vos munitions. Vous perdez votre prochaine Action."],
-        ["81–90","Vous effectuez un mouvement trop ample, ou vous trébuchez et vous vous tordez la cheville. Subissez le Traumatisme Déchirure musculaire (Mineur) (Voir page 179). Ce dernier compte comme une Blessure Critique."],
-        ["91–00","Vous manquez complètement votre cible et touchez 1 allié au hasard à distance en utilisant le chiffre des unités de votre lancer de dés pour déterminer la BS. Si personne n'est à distance, vous vous frappez tout seul et obtenez l'Etat Assommé (Voir page 167)."]      ]
-    },
-    {"id":60,"titre":"Coups critiques (Tête)",
-      "description": "",
-      "styles_th":["width:55px;","width:130px;","",""],
-      "styles_td":["","","text-align:center;",""],
-      "lignes":[
-        ["Violence","Description","Blessures","Effets supplémentaires"],
-        ["03-","Blessure spectaculaire","1","Une fine entaille qui va du frond jusqu'à la joue. Subissez 1 Condition Saignement. Une fois que la blessure est guérie, l'impressionnante cicatrice vous permet d'obtenir BS +1 à certains tests sociaux."],
-        ["04","Coupure mineure","1","Le coup vous entalle la joue et le sang dégouline partout. Subissez 1 Condition Saignement."],
-        ["05","Coup à l'oeil","1","Le coup vous touche à l'orbite de l'oeil. Subissez 1 Condition Aveublé."],
-        ["06","Frappe à l'oreille","1","Un coup à l'oreille provoque un bruit ignoble qui bourdonne sans s'arrêter. Subissez 1 Condition Assourdi."],
-        ["07","Coup percutant","2","Le sang obscurcit votre vision, et vous percevez des points blancs et des flashs de lumière. Subissez 1 Condition Assommé."],
-        ["08","Oeil eu beurre noir","2","Un coup massif au niveau des yeux, très douloureux et qui fait pleurer. Subissez 2 Conditions Aveuglé."],
-        ["09","Oreille tranchée","2","Vous recevez un coup très violant sur le côté de la tête qui vous entaille profondément l'oreille. Subissez 2 Conditions Assourdi et 1 Condition Saignement."],
-        ["10","En plein front","2","Un coup percutant vous atteind en plein front. Subissez 2 Conditions Saignement et 1 Condition Aveuglé qui ne peut pas être retiré tant que toutes les Condisions Saingnement n'ont pas été éliminées."],
-        ["11","Mâchoire fracturée","3","Le coup vous fracture la mâchoire avec un bruit dégoûtant. Les vagues de douleur déferlent instantanément. Gagnez 2 Conditions Assommé. Subissez le traumatisme Fracture (Mineur)."],
-        ["12","Blessure majeure à l'oeil","3","Le coup lézarde votre orbite. Subissez 1 Condition Saignement. Gagnez également 1 Condition Aveuglé qui ne pourra être retiré que lorsqu'on vous appliquera Aide Médicale."],
-        ["13","Blessure majeure à l'oreille","3","Le coup endommage votre oreille, causant une perte auditive permanante. Vous subissez une pénalité de -20 à tous les tests ayant un rapport avec l'audition. Si vous tombez une seconde fois sur cette blessure, vous perdez totalement l'audition, car votre deuxième oreille devient elle aussi silencieuse. Ne peut être guéri que par la magie."],
-        ["14","Nez cassé","3","Un coup violent porté au centre de votre visage déverse des flots de sang. Subissez 2 Conditions Saignement. Réussissez un test de Résistance intermédiare (+0), ou gagnez 1 Condition Assommé. Une fois cette blessure guérie, gagnez BS +1/-1 aux test sociaux, en fonction du contexte, jusqu'à ce qu'une Chirurgie soit effectuée sur le nez pour le réparer."],
-        ["15","Mâchoire cassée","4","Le coup qui vous brise la mâchoire est accompagné d'un bruit ignoble. Subissez 3 Conditions Assommé. Réussissez un test de Résistance intermédiare (+0) ou gagnez 1 Condition Inconscient. Subissez le Traumatisme Fracture (Majeur)."],
-        ["16","Commotion cérébrale","4","Votre cerveau va percuter votre boite crânienne alors que e sang coule de votre nez et de vos oreilles. Gagnez les conditions suivantes: 1 Assourdi, 2 Saignements et 1d10 Assommé. Gagnez également 1 Condition Exténué qui va durer 1d10 jours. Si vous recevez une autre Blessure Critique à la tête alors que vous êtes Exténué, reussissez un test de Résistance Accéssible (+20) ou gagnez 1 Condition Inconscient."],
-        ["17","Bouche explosée","4","Votre bouche se remplit de sang et de dents cassées avec un bruit répugnant. Subissez 2 Conditions Saignement. Perdez 1d10 dents — Amputation (Facile)."],
-        ["18","Oreille mutilée","4","Il ne reste plus grand chose de votre oreille alors que le coup la déchiquette. Gagnez 3 Conditions Assourdi et 2 Conditions Saignement. Vous perdez votre oreille — Amputation (Accessible)."],
-        ["19","Oeil crevé","5","Le coup porté à votre oeil le crève, ce qui provoque une douleur quasi insoutenable. Gagnez les Conditions suivantes: 3 Aveuglé, 2 Saignement et 1 Assommé. Perdez votre oeil — Amputation (Complexe)."],
-        ["20","Coup défigurant","5","Le coup vous explose le visage, crevant un oeil et vous brisant le nez. Gagnez les Conditions suivante: 3 Saignements, 3 Aveuglé et 2 Assommé. Perdez votre oeil et votre nez — Ampitation (Difficile)."],
-        ["21","Mâchoire mutilée","5","Le coup vous arrache presque complètement la mâchoire, détruit votre langue et envoie vos dents à plusieurs mètres dans une pluie de sang. Subissez 4 Conditions Saignement  et 3 Conditions Assommé. Réussissez un test de Résistance Très Difficile (-30) ou gagnez 1 Condition Inconscient. Subissez le Traumatisme Fracture (Majeur), perdez votre langue et 1d10 dents — Amputation (Difficile)."],
-        ["22+","Décapitation","Mort","Votre tête est tranchée au niveau de votre cou et part dans les airs, atterrissant à 1d4 mètres de votre corps dans une direction aléatoire (voir Dispersion). Votre corps s'effondre, mort sur le coup."]
+      "styles_th": [ "width:55px;" ],
+      "lignes": [
+        [ "d100", "Résultat" ],
+        [ "01–20", "Vous vous blessez tout seul en attaquant (nous vous suggérons d'interpréter cet incident pour son côté amusant) — perdez une Blessure, sans tenir compte de votre endurance ou de vos PA." ],
+        [ "21–40", "Votre arme de corps à corps s'ébrèche salement, ou votre arme à Distance ne fonctionne pas, voire est sur le point de se briser — votre arme subit 1 Dégât. Le prochain Round, vous agirez en dernier, sans tenir compte de l'Ordre d'Initiative, ou de vos talents, ou de toute règle spéciale alors que vous la réparez (voir page 156)." ],
+        [ "41–60", "Vous avez mal négocié votre manoeuvre, ce qui vous met en mauvaise posture, ou vous perdez la prise de votre arme à distance. au prochain Round votre Action subira une pénalité de -10." ],
+        [ "61–70", "Vous trébuchez franchement et peinez à vous redresser. Vous perdez votre prochain Mouvement." ],
+        [ "71–80", "Vous ne tenez pas votre arme correctement, ou vous laissez tomber vos munitions. Vous perdez votre prochaine Action." ],
+        [ "81–90", "Vous effectuez un mouvement trop ample, ou vous trébuchez et vous vous tordez la cheville. Subissez le Traumatisme Déchirure musculaire (Mineur) (Voir page 179). Ce dernier compte comme une Blessure Critique." ],
+        [ "91–00", "Vous manquez complètement votre cible et touchez 1 allié au hasard à distance en utilisant le chiffre des unités de votre lancer de dés pour déterminer la BS. Si personne n'est à distance, vous vous frappez tout seul et obtenez l'Etat Assommé (Voir page 167)." ]
       ]
     },
-    {"id":61,"titre":"Coups critiques (Bras)",
-      "description": "",
-      "styles_th":["width:55px;","width:130px;","",""],
-      "styles_td":["","","text-align:center;",""],
-      "lignes":[
-        ["Violence","Description","Blessures","Effets supplémentaires"],
-        ["03-","Choc au bras","1","Votre bras prend un choc au coursde l'attaque. Lâchez ce que vous teniez'"],
-        ["04","Coupure mineure","1","Subissez 1 Condition Saignement car vous saignez abondamment au niveau de l'avant-bras."],
-        ["05","Torsion","1","Vous vous tordez le bras, vous occasionnant un trammatisme Déchirure Musculaire (mineur)."],
-        ["06","Choc violent au bras","2","Vous recevez un coups particuliairement violent au cours de l'attaque. Vous lâchez ce que vous teniez en main, et cette dernière devient inutilisable pendant 1d10-BE Rounds (minimum 1). Pendant ce temps, considérez votre main comme perdue (voir Menbres amputés)."],
-        ["07","Déchirure musculaire","2","Le coup écrase votre avant-bras. Gagnez 1 condition Saignement et un Traumatisme Déchirure Musculaire (Mineur)."],
-        ["08","Main ensanglantée","2","Votre main est méchamment coupée, ce qui rend votre prise glissante. Recevez 1 Condition Saignement. Tant que vous êtes sous l'effet de cette Condition, effectuez un test de Dextérité Accéssible (+20) avant d'effectuer une action qui nécéssite que vous teniez quoi que ce soit dans cette main ; sur un echec l'objet vous glisse de la main."],
-        ["09","Clef de bras","2","Votre bras est presque arravhé de son logement. Lâchez immédiatement ce que la main correspondante tenait ; le bras est inutilisable peandant 1d10 Rounds (voir Membres Amputés)."],
-        ["10","Blessure béante","3","Le coup ouvre une profonde blessure béante. Gagnez 2 Conditions Saignement. Jusqu'à ce que vous soyez soigné par Chirurgie afin de résorber la blessure, tout nouveau dégât au bras vous fera gagner 1 Condition Saignement à cause de la blessure qui se sera réouverte.'"],
-        ["11","Cassure nette","3","Un craquement se fait entendre au moment où le coup s'abat sur votre bras. L^chez tout objet tenu par la main correspondante, et subissez un Traumatisme Fracture (Mineur). Réussissez un test de Résistance complexe (-10) ou subissez 1 Condition Assomé."],
-        ["12","Rupture des ligaments","3","Vous lâchez immédiatemnt ce que vous teniez dans la main correspondante. Subissez un Traumatisme Déchirure Musculaire (Majeur)."],
-        ["13","Coupure profonde","3","Gagnez 2 Conditions Saignement alors que votre bras subit une forte mutilation. Gagnez 1 Condition Assomé et un Traumatisme Déchirure Musculaire (Mineur). Réussissez un test de Résistance Difficile (-20) ou gagnez 1 Condition Inconscient."],
-        ["14","Artère endommagée","4","Subissez 4 Conditions Saignement. Tant que vous n'avez pas été soigné par Chirurgie, à chaque fois que vous subissez des dégâts à cette Localisation, vous gagnez 2 Conditions Saignement."],
-        ["15","Coude cassé","4","Le coup fracasse votre coude, faisant voler en éclat l'os et le cartilage. Vous lâchez immédiatement ce que vous teniez dans la main corespondante et vous subissez un Traumatisme Fracture (majeur)."],
-        ["16","Epaule disloquée","4","Votre bras est démis de son logement. Réussissez un Test de Résistance Difficile (-20) ou gagnez 1 Condition Assomé et A Terre. Lâchez ce que vous teniez dans la main. Le bras est innutilisable et est concidéré comme perdu (voir Membre Amputé). Gagnez 1 Condition Assomé jusqu'à bénéficier d'Aide Médicale. Après application de cette Aide, un Test Etendu de Guérison Accessible (+20) avec un BS+6 est nécéssaire pour pouvoir récupérer l'usage du bras. Les tests effectués avec ce bras subissent une pénalité de -10 pendant 1d10 jours."],
-        ["17","Doigt sectionné","4","L'horreur vous saisit alors que votre doigt s'envole — Amputation (Complexe). Subissez 1 Condition Saignement."],
-        ["18","Main ouverte","5","Votre main s'ouvre sous la puissance du coup. Vous perdez 1 doigt — Amputation (Complexe). gagnez 2 Conditions Saignement et 1 Condition Assomé. Pour chaque Round au cours duquel vous ne recevez pas d'Aide Médicale, vous perdez un autre doigt. Si vous perdez tous vos doigt, vous perdez votre main — Amputation (Complexe)."],
-        ["19","Biceps déchiqueté","5","Le coup sépare presque entièrement le biceps et le tendon de l'os, laissant une blessure effrayante de laquelle le sang gicle, autant sur votre adversaire que sur vous. Vous lâchez ce que vous teniez dans la main et subissez un Traumatisme Déchirure Musculaire (Majeur) en plus de gagner 2 Conditions Saignement et 1 Condition Assomé."],
-        ["20","Main mutilée","5","Votre main n'est plus qu'un tas de chair sanguinolente. Vous perdez votre main — Amputation (Très Difficile). Gagnez 2 Conditions Saignement. Réussissez un test de Résistance Difficile (-20) ou gagnez 1 Condition Assomé et A Terre."],
-        ["21","Tendons coupés","5","Vos tendons sont tranchés par la force du coup, et votre bras est devenu inutilisable — Amputation (Très Difficile). Gagnez 3 Conditions Saignement, 1 Condition A Terre et 1 Condition Assomé. Réussissez un test de Résistance Difficile (-20) ou gagnez 1 Condition Inconscient."],
-        ["22+","Démembrement brutal","Mort","Votre bras est coupé, faisant gicler votre sang jusqu'à 1d3 mètres dans une direction au hasard (voir Dispertsion), avant que le coup termine sa course dans votre poitrine."]
+    {
+      "id": 54,
+      "titre": "Echecs critiques (armes à distance sans poudre)",
+      "description": "Tout test de combat échoué qui est aussi un multiple de 11 est un échec critique, qui se traduit par un jet sur cette table.",
+      "styles_th": [ "width:55px;" ],
+      "lignes": [
+        [ "d100", "Résultat" ],
+        [ "11", "Alors que vous vous préparez à libérer votre projectile, votre main glisse et il s'embroche proprement sur votre pied Vous perdez normalement des B et passez le round suivant à vous remettre Si l'arme est un arc ou une arbalète, vos déplacements sont limités à de tout petits cercles pendant ce temps." ],
+        [ "22", "Votre arme se fend ou se déchire et devient inutilisable. S'il s'agit d'un arc ou d'une arbalète, la tension de la corde vous projette un éclat de bois dans la figure, vous perdez 1B à moins que vous ne portiez un casque fermé. L'arme est inutilisable." ],
+        [ "33", "Une tissure ou une déchirure apparait sur l'arme Chaque fois que vous l'utilisez, il y a 20% de chances pour qu'elle se brise, avec les conséquences indiquées en 22." ],
+        [ "44", "Votre arme tombe de vos doigts gourds, vous perdez votre attaque pour ce round." ],
+        [ "55", "La corde de votre arc ou de votre fronde se casse et vous ne pouvez pas vous en servir avant de l'avoir remplacée." ],
+        [ "66", "Votre carreau ou votre flèche, ou la pierre tombe de la fronde. Vous perdez cette attaque." ],
+        [ "77-88", "Vous n'avez pas bien chargé votre arme et votre projectile tombe. Vous pouvez recharger pour tirer au début du prochain round." ],
+        [ "99-00", "Vous faites tomber toutes vos munitions. À moins de passer 1d3 rounds à toutes les ramasser, votre I est réduite de moitié quand vous déterminez le moment où vous tirez pendant toute la durée de la bataille." ]
       ]
     },
-    {"id":62,"titre":"Coups critiques (Torse)",
-      "description": "",
-      "styles_th":["width:55px;","width:130px;","",""],
-      "styles_td":["","","text-align:center;",""],
-      "lignes":[
-        ["Violence","Description","Blessures","Effets supplémentaires"],
-        ["03-","A peine une égratinure","1","Subissez 1 Condition Saignement."],
-        ["04","Dans le bide !","1","Subissez 1 Condition Assommé. Réussisez un test de Résistance Facile (+40) ou vomissez et subissez la Condition A Terre."],
-        ["05","Dans les parties !","1","Réussisez un test de Résistance Difficile (-20) ou subissez 3 Conditions Assommé. Pendant 1d4 Rounds, votre voix monte de 2 octaves (Très Aigue)."],
-        ["06","Torsion du dos","1","Vous subissez un Traumatisme Déchirure musculaire (Mineur)."],
-        ["07","Souffle coupé","2","Subissez 1 Condition Assommé. Réussisez un test de Résistance Accéssible (+20), ou subissez la Condition A Terre. Votre Mouvement est divisé par deux pour 1d10 Rounds le temps que vous retrouviez votre souffle."],
-        ["08","Côtes meurtries","2","Tous vos tests basés sur l'Agilité subissent un malus de -10 pour 1d10 jours."],
-        ["09","Clavicule arclée","2","Sélectionnez un bras aléatoirement. Vous lâchez ce que vous teniez en main ; le bras est inutilisable pour 1d10 rounds (voir Membres amputés)."],
-        ["10","Déchiqueté","2","Subissez 2 Conditions Saignement."],
-        ["11","Côtes félées","3","Le coup vous brise une ou plusieurs côtes. Subissez une Condition Assommé et un Traumatisme Fracture (Mineur)."],
-        ["12","Blessure ouverte","3","Subissez 3 Conditions Saignement. Jusqu'à ce que vous receviez des soins par Chirurgie, toute Blessure supplémentaire reçue au Torse vous inflige une Condition Saignement Supplémentaire car la plaie se réouvre."],
-        ["13","Entaille douloureuse","3","Subissez 2 Conditions Saignement et 1 Condition Assommé. Réussissez un test de Résistance Difficile (-20) ou subissez une Condition Inconscient à cause de la douleur. A moins que vous n'obteniez un BS de 4+, vous hurlez de douleur."],
-        ["14","Dégâts artériels","3","Subissez 4 Conditions Saignement. Tant que vous n'aurais pas été soigné ar chirurgie, chaque nouvelle blessure à cette localisation vous fera gagner 2 Conditions Saignement."],
-        ["15","Dos froissé","4","Une horrible douleur parcours votre dos alors qu'un de vos muscles se déchire. Subissez une Blessure Déchirure musculaire (Majeure)."],
-        ["16","Hanche fracturée","4","Subissez 1 Condition Assommé. Réussissez un Test de Résistance Intermédiaire (+0) ou gagnez également la Condition A Terre. Subissez un Traumatisme Fracture (Mineur)."],
-        ["17","Blessure majeure au torse","4","Vous recevez une blessure importante au torse qui arrache la peau de vos muscles et de vos tendons. Recevez 4 Conditions Saignement. Tant que vous n'aurez pas été soigné par Chirurgie afin de recoudre la blessure, toute nouvelle blessure que vous recevrez au torse vous fera gagner 2 Conditions Saignement supplémentaires à cause de la réouverture de la plaie.'"],
-        ["18","Blessure au ventre","4","Vous contractez une Blessure Purulente (voir Maladie et Infection) et gagnez 2 Conditions Saignement."],
-        ["19","Cage thoracique perforée","5","Gagnez 1 Condition Assomé qui ne peut être retirée que par Aide Médicale, et subussez un Traumatisme Fracture (Majeur)."],
-        ["20","Clavicule fracturée","5","Gagnez 1 Condition Inconscient jusqu'à ce que vous soyez soigné par AIde Médicale et subissez un Traumatisme Fracture (Majeur)."],
-        ["21","Hémoragie interne","5","Subissez 1 Condition Saignement qui ne peut être stoppée que par Chirurgie. Vous contractez une Infection Sanguine (voir Maladie et Infection)."],
-        ["22+","Eventré","Mort","Vous êtes littéralement coupé en deux. La moitié supérieur de votre corps tombe dans une direction aléatoire au sol, et tous les personnages dans un rayon de 2 mètres sont éclaboussés par votre sang."]
+    {
+      "id": 55,
+      "titre": "Echecs critiques (armes de poing / naturelles)",
+      "description": "Tout test de combat échoué qui est aussi un multiple de 11 est un échec critique, qui se traduit par un jet sur cette table.",
+      "styles_th": [ "width:55px;" ],
+      "lignes": [
+        [ "d100", "Résultat" ],
+        [ "11", "Avec un craquement bruyant et douloureux, les os de votre main/mâchoire/autre se brisent. Vous perdez 1B ; le mode d'attaque est inutilisable jusqu'à ce que vous receviez des soins médicaux et la douleur réduit de moitié toutes vos caractéristiques basées sur les pourcentages." ],
+        [ "22", "Une douleur soudaine jaillit car vous venez de vous déchirer des muscles ; le mode d'attaque est inutilisable pendant 1d6 rounds, la CC est ensuite réduite de moitié jusqu'à l'application de soins médicaux." ],
+        [ "33", "Ayant atraque avec pius a enthousiasme que de précision, vous vous retrouvez par terre. II vous faut 1d4 rounds pour vous relever, pendant ce temps, votre adversaire bénéficie d'un bonus de +1O en CC et vous ne pouvez que parer." ],
+        [ "44", "Votre coup rate votre adversaire et votre élan vous entraîne. Au round suivant vous ne pouvezpas attaquer et votre adversaire bénéficie d'un bonus de +10 en CC." ],
+        [ "55", "Vous vous surestimez, trébuchez presque et vous vous tordez la cheville en tentant de vous rétablir. Vous perdez 1 M et 10 I pendant cinq rounds." ],
+        [ "66", "Un coup trop ambitieux manque sa cible et offre une ouverture à votre adversaire. Vous perdez 20 en I au prochain round ; vous pourrez parer mais pas attaquer." ],
+        [ "77", "Votre coup se termine douloureusement dans quelque chose de solide - ce mode d'attaque est inutilisable jusqu'à la fin du round suivant." ],
+        [ "88", "Votre arme s'écrase contre la garde de votre adversaire, et vous bras/jambe/autre en est tout engourdi. Vous perdez votre prochaine occasion d'attaquer." ],
+        [ "99", "Vous perdez le contrôle de votre coup, ce qui vous laisse dans une position gênante Votre adversaire attaquera le premier au round suivant, quel que soit votre score en 1." ],
+        [ "00", "Votre attaque est maladroite, vous devez vous resaisir avant de frapper à nouveau. Vous perdez 10 en CC et en I au round suivant." ]
       ]
     },
-    {"id":63,"titre":"Coups critiques (Jambe)",
-      "description": "",
-      "styles_th":["width:55px;","width:130px;","",""],
-      "styles_td":["","","text-align:center;",""],
-      "lignes":[
-        ["Violence","Description","Blessures","Effets supplémentaires"],
-        ["03-","Orteil contusionné","1","Dans le feu de la bataille, vous vous cognez l'orteil. Réussissez un Test de Résistance Accéssible (+20) ou subissez une pénalité de -10 à tous vos Tests d'Agilité jusqu'à la fin du prochain tour."],
-        ["04","Cheville tordue","1","Vous vous tordez la cheville, vous blessant au passge. Tous vos Test d'Agilité subissent une pénalité de -10 pendant 1d10 Rounds.'"],
-        ["05","Coupure mineure","1","Subissez 1 Condition Saignement."],
-        ["06","Perte d'équilibre","1","Dans le feu du combat, vous perdez l'équilibre. Réussissez un Test de Résistance Intermédiaire (+0) ou gagnez la Condition A Terre."],
-        ["07","Coup à la cuisse","2","Vous recevez un coup violent sur le haut de la cuisse. Gagnez 1 Condition Saignement et réussissez un Test de Résistance Accéssible (+20) sous peine de trébucher et de gagner la Condition A Terre."],
-        ["08","Cheville foulée","2","Vous vous foulez la cheville ; subissez un Traumatisme Déchirure musculaire (Mineur)."],
-        ["09","Genou tordu","2","Votre genou pivote un peu trop loin. Vos Tests d'Agilité subissent un malus de -20 pendant 1d10 Rounds."],
-        ["10","Coupure à l'orteil","2","Subissez 1 Condition Saignement. Une fois la rencontre terminée, effectuez un Test de Résistance Intermédiare (+0). Sur un échec, vous perdez un orteil — Amputation (Accéssible)."],
-        ["11","Mauvaise coupure","3","Subissez 2 Conditions Saignement à cause de la profonde blessure au niveau de votre tibia. Réussissez un Test de Résistance Intermédiaire (+0) ou gagnez la Condition A Terre."],
-        ["12","Genou méchamment tordu","3","Vous vous tordez méchamment le genou en tentant d'éviter votre adversire. Subissez un Traumatisme Déchirure musculaire (Majeur)."],
-        ["13","Jambe charcutée","3","Blessure profonde au niveau de la hanche. Gagnez 2 Conditions Saignement et 1 Condition A Terre, puis gagnez un Traumatisme Facture (Mineure). De plus, réussissez un Test de Résistance Difficile (-20) ou gagnez 1 Condition Assomé à cause de la douleur."],
-        ["14","Cuisse lacérée","3","Subissez 3 Conditions Saignement alors que l'arme entaille profondément votre cuisse. Réussissez un Test de Résistance Intermédiaire (+0) ou gagnez la Condition A Terre. Tant que vous n'aurez pas été soigné par chirurgie afin de refermer la plaie, toute nouvelle blessure que vous recevrez au torse vous fera gagner 1 Condition Saignement supplémentaire."],
-        ["15","Rupture des ligaments croisés","4","Gagnez les Conditions A Terre et Assomé au moment ou vos ligaments cèdent. Réussissez un Test de Résistance Difficile (-20) ou gagnez 1 Condition Inconscient. Votre jambe est inutilisable (voir Membes Amputés). Subissez un Traumatisme Déchirure musculaire (Majeur)."],
-        ["16","Entaille au tibia","4","L'arme passe à travers votre jambe au niveau du genou, touchant à la fois le tendon et l'os. Gagnez 1 Condition Assomé et A Terre. De plus subissez les Traumatismes Déchirure musculaire (Majeure) et Fracture (Majeure)."],
-        ["17","Genou cassé","4","Le coup atteind la rotule, la brisant en plusieurs morceaux. Vous gagnez 1 Condition Assomé et A terre, et subissez un Traumatisme Fracture (Majeure) qlors que vous vous effondrez au sol, empoignant votre jambe abimée."],
-        ["18","Genou démis","4","Votre genou se déboîte de son emplacement.Gagnez la Condition A Terre, réussissez un Test de Résistance Difficile (-20) ou gagnez 1 Condition Assomé, qui ne pourrat être retiré que pas Aide Médicale. Après cette Aide Médicale, il est nécessaire de réussir un Test de Guérison Accéssible (+20) avec un Bs 6+ afin de remettre le genou en place et récupérer l'usage de la jabe. Le Mouvement est réduit de moitié et les Test impliquant l'utilisation de cette jambe subissent un malus de -10 pendant 1d10 jours."],
-        ["19","Pied écrasé","5","Le coup explose votre pied. Effectuez un Test de Résistance Accéssible (+20) ; sur un échec, vous gagnez la Condition A Terre et perdez un orteil, plus 1 orteil par BS en dessous de 0 — Amputation (Accéssible). Gagnez 2 Condition Saignement. Si vous n'êtes pas soigné par chirurgie au cours des 1d10 jours suivants, vous perdez votre pied."],
-        ["20","Pied sectionné","5","Votre pied est sectionné au niveau de la cheville et atterrit 1d3 mètres plus loin dans une direction au hasard — Amputation (Difficile). Vous gagnez les Conditions suivantes: 3 Saignements, 2 Assomé, 1 A Terre."],
-        ["21","Tendon coupé","5","un des tendons principaux à l'arrière de votre jambe est coupé, vous faisant hurler de douleur alors que votre jambe s'effondre sous le poids de votre corps. Vous gagnez 2 Conditions Saignement, 2 Conditions Assomé et 1 A Terre."],
-        ["22+","Bassin fracassé","Mort","Le coup fracasse votre bassin, coupant une jambe et atteignant la seconde. Vous mourez instantanément sous la violence du coup."]      ]
+    {
+      "id": 56,
+      "titre": "Echecs critiques (armes de jet)",
+      "description": "Tout test de combat échoué qui est aussi un multiple de 11 est un échec critique, qui se traduit par un jet sur cette table.",
+      "styles_th": [ "width:55px;" ],
+      "lignes": [
+        [ "d100", "Résultat" ],
+        [ "11", "Vous lancez votre arme avec une force sauvage, et quelque chose se rompt dans votre épaule. Vous perdez 1 B. Vous ne pouvez rien faire d'autre que gémir jusqu'à ce que l'on vous soigne." ],
+        [ "22-33", "Vous vous déchirez un muscle dans le haut du dos. Vous perdez toutes vos actions sauf les déplacements pendant 1D4 rounds. CC, CT et Dex avec ce bras sont réduites de moitié jusqu'à l'application de soins." ],
+        [ "44", "Votre projectile part n'importe où. Jet de 1d6 : 1-3 gauche, 4-6 droite Testez de nouveau votre CT si des créatures risquent d'être touchées." ],
+        [ "55", "Vous lancez votre arme et tombez face contre terre. II vous faut 1d3 rounds pour vous relever, et pendant ce temps quiconque vous attaque au corps à corps bénéficie d'un bonus de +10 en CC." ],
+        [ "66-77", "Vous lancez votre arme et vous perdez brièvement l'équilibre. Vous perdez votre prochaine attaque." ],
+        [ "88-99", "Vous lancez votre arme, perdez légèrement l'équilibre et pivotez pour vous retrouver orienté dans la mauvaise direction. Votre I est réduite de moitié lorsque vous déterminez le moment de votre actlon du round suivant." ],
+        [ "00", "Votre projectile vous échappe des mains à un moment critique et tombe à vos pieds." ]
+      ]
     },
-    {"id":64,"titre":"Localisation des coups (humanoïdes)",
+    {
+      "id": 57,
+      "titre": "Echecs critiques (armes de parade et boucliers)",
+      "description": "Tout test de combat échoué qui est aussi un multiple de 11 est un échec critique, qui se traduit par un jet sur cette table.",
+      "styles_th": [ "width:55px;" ],
+      "lignes": [
+        [ "d100", "Résultat" ],
+        [ "11", "Votre parade échoue misérablement et vous vous précipitez droit sur le coup qui vous est destiné. Calculez normalement les dommages et doublez le résultat obtenu." ],
+        [ "22", "Vous parez avec panache, mais l'effet est quelque peu gâché par votre arme qui s'envole et atterrit à 1d6 x 30cm de vous, ou par votre bouclier qui tombe à vos pieds. Vous ne pouvez plus vous protéger avant d'avoir préparé une autre arme de parade." ],
+        [ "33", "Vous parez la feinte de votre adversaire et foncez droit sur son uppercut. Vous perdez 1 B supplémentaire à cause de ce coup." ],
+        [ "44", "Balayant votre parade, le coup vous renverse. II vous faut 1d4 rounds pour vous relever, période pendant laquelle vous ne pouvez que parer et votre adversaire bénéficie d'un bonus de +1O en CC." ],
+        [ "55-66", "Votre parade est si faible qu'elle ne peut arrêter l'impact qui vous coupe le souffle. Vous ne pouvez que parer jusqu'à la fin du round suivant." ],
+        [ "77-88", "Le coup de votre adversaire fracasse votre action, détruit votre arme de parade et vous entame le bras, infligeant un coup normal. L'arme de parade arrête toutefois un peu de la puissance du coup : considérez avoir un point d'armure. Vous ne pourrez plus parer tant que vous n'aurez pas de nouvelle arme de parade." ],
+        [ "99-00", "Le coup de votre adversaire vous arrache des mains votre arme de parade ou déchire les courroies de votre bouclier. Vous ne pourrez plus parer avant d'avoir sorti une nouvelle arme de parade." ]
+      ]
+    },
+    {
+      "id": 60,
+      "titre": "Coups critiques (Tête)",
+      "description": "",
+      "styles_th": [ "width:55px;", "width:130px;", "", "" ],
+      "styles_td": [ "", "", "text-align:center;", "" ],
+      "lignes": [
+        [ "Violence", "Description", "Blessures", "Effets supplémentaires" ],
+        [ "03-", "Blessure spectaculaire", "1", "Une fine entaille qui va du frond jusqu'à la joue. Subissez 1 Condition Saignement. Une fois que la blessure est guérie, l'impressionnante cicatrice vous permet d'obtenir BS +1 à certains tests sociaux." ],
+        [ "04", "Coupure mineure", "1", "Le coup vous entalle la joue et le sang dégouline partout. Subissez 1 Condition Saignement." ],
+        [ "05", "Coup à l'oeil", "1", "Le coup vous touche à l'orbite de l'oeil. Subissez 1 Condition Aveublé." ],
+        [ "06", "Frappe à l'oreille", "1", "Un coup à l'oreille provoque un bruit ignoble qui bourdonne sans s'arrêter. Subissez 1 Condition Assourdi." ],
+        [ "07", "Coup percutant", "2", "Le sang obscurcit votre vision, et vous percevez des points blancs et des flashs de lumière. Subissez 1 Condition Assommé." ],
+        [ "08", "Oeil eu beurre noir", "2", "Un coup massif au niveau des yeux, très douloureux et qui fait pleurer. Subissez 2 Conditions Aveuglé." ],
+        [ "09", "Oreille tranchée", "2", "Vous recevez un coup très violant sur le côté de la tête qui vous entaille profondément l'oreille. Subissez 2 Conditions Assourdi et 1 Condition Saignement." ],
+        [ "10", "En plein front", "2", "Un coup percutant vous atteind en plein front. Subissez 2 Conditions Saignement et 1 Condition Aveuglé qui ne peut pas être retiré tant que toutes les Condisions Saingnement n'ont pas été éliminées." ],
+        [ "11", "Mâchoire fracturée", "3", "Le coup vous fracture la mâchoire avec un bruit dégoûtant. Les vagues de douleur déferlent instantanément. Gagnez 2 Conditions Assommé. Subissez le traumatisme Fracture (Mineur)." ],
+        [ "12", "Blessure majeure à l'oeil", "3", "Le coup lézarde votre orbite. Subissez 1 Condition Saignement. Gagnez également 1 Condition Aveuglé qui ne pourra être retiré que lorsqu'on vous appliquera Aide Médicale." ],
+        [ "13", "Blessure majeure à l'oreille", "3", "Le coup endommage votre oreille, causant une perte auditive permanante. Vous subissez une pénalité de -20 à tous les tests ayant un rapport avec l'audition. Si vous tombez une seconde fois sur cette blessure, vous perdez totalement l'audition, car votre deuxième oreille devient elle aussi silencieuse. Ne peut être guéri que par la magie." ],
+        [ "14", "Nez cassé", "3", "Un coup violent porté au centre de votre visage déverse des flots de sang. Subissez 2 Conditions Saignement. Réussissez un test de Résistance intermédiare (+0), ou gagnez 1 Condition Assommé. Une fois cette blessure guérie, gagnez BS +1/-1 aux test sociaux, en fonction du contexte, jusqu'à ce qu'une Chirurgie soit effectuée sur le nez pour le réparer." ],
+        [ "15", "Mâchoire cassée", "4", "Le coup qui vous brise la mâchoire est accompagné d'un bruit ignoble. Subissez 3 Conditions Assommé. Réussissez un test de Résistance intermédiare (+0) ou gagnez 1 Condition Inconscient. Subissez le Traumatisme Fracture (Majeur)." ],
+        [ "16", "Commotion cérébrale", "4", "Votre cerveau va percuter votre boite crânienne alors que e sang coule de votre nez et de vos oreilles. Gagnez les conditions suivantes: 1 Assourdi, 2 Saignements et 1d10 Assommé. Gagnez également 1 Condition Exténué qui va durer 1d10 jours. Si vous recevez une autre Blessure Critique à la tête alors que vous êtes Exténué, reussissez un test de Résistance Accéssible (+20) ou gagnez 1 Condition Inconscient." ],
+        [ "17", "Bouche explosée", "4", "Votre bouche se remplit de sang et de dents cassées avec un bruit répugnant. Subissez 2 Conditions Saignement. Perdez 1d10 dents — Amputation (Facile)." ],
+        [ "18", "Oreille mutilée", "4", "Il ne reste plus grand chose de votre oreille alors que le coup la déchiquette. Gagnez 3 Conditions Assourdi et 2 Conditions Saignement. Vous perdez votre oreille — Amputation (Accessible)." ],
+        [ "19", "Oeil crevé", "5", "Le coup porté à votre oeil le crève, ce qui provoque une douleur quasi insoutenable. Gagnez les Conditions suivantes: 3 Aveuglé, 2 Saignement et 1 Assommé. Perdez votre oeil — Amputation (Complexe)." ],
+        [ "20", "Coup défigurant", "5", "Le coup vous explose le visage, crevant un oeil et vous brisant le nez. Gagnez les Conditions suivante: 3 Saignements, 3 Aveuglé et 2 Assommé. Perdez votre oeil et votre nez — Ampitation (Difficile)." ],
+        [ "21", "Mâchoire mutilée", "5", "Le coup vous arrache presque complètement la mâchoire, détruit votre langue et envoie vos dents à plusieurs mètres dans une pluie de sang. Subissez 4 Conditions Saignement  et 3 Conditions Assommé. Réussissez un test de Résistance Très Difficile (-30) ou gagnez 1 Condition Inconscient. Subissez le Traumatisme Fracture (Majeur), perdez votre langue et 1d10 dents — Amputation (Difficile)." ],
+        [ "22+", "Décapitation", "Mort", "Votre tête est tranchée au niveau de votre cou et part dans les airs, atterrissant à 1d4 mètres de votre corps dans une direction aléatoire (voir Dispersion). Votre corps s'effondre, mort sur le coup." ]
+      ]
+    },
+    {
+      "id": 61,
+      "titre": "Coups critiques (Bras)",
+      "description": "",
+      "styles_th": [ "width:55px;", "width:130px;", "", "" ],
+      "styles_td": [ "", "", "text-align:center;", "" ],
+      "lignes": [
+        [ "Violence", "Description", "Blessures", "Effets supplémentaires" ],
+        [ "03-", "Choc au bras", "1", "Votre bras prend un choc au coursde l'attaque. Lâchez ce que vous teniez'" ],
+        [ "04", "Coupure mineure", "1", "Subissez 1 Condition Saignement car vous saignez abondamment au niveau de l'avant-bras." ],
+        [ "05", "Torsion", "1", "Vous vous tordez le bras, vous occasionnant un trammatisme Déchirure Musculaire (mineur)." ],
+        [ "06", "Choc violent au bras", "2", "Vous recevez un coups particuliairement violent au cours de l'attaque. Vous lâchez ce que vous teniez en main, et cette dernière devient inutilisable pendant 1d10-BE Rounds (minimum 1). Pendant ce temps, considérez votre main comme perdue (voir Menbres amputés)." ],
+        [ "07", "Déchirure musculaire", "2", "Le coup écrase votre avant-bras. Gagnez 1 condition Saignement et un Traumatisme Déchirure Musculaire (Mineur)." ],
+        [ "08", "Main ensanglantée", "2", "Votre main est méchamment coupée, ce qui rend votre prise glissante. Recevez 1 Condition Saignement. Tant que vous êtes sous l'effet de cette Condition, effectuez un test de Dextérité Accéssible (+20) avant d'effectuer une action qui nécéssite que vous teniez quoi que ce soit dans cette main ; sur un echec l'objet vous glisse de la main." ],
+        [ "09", "Clef de bras", "2", "Votre bras est presque arravhé de son logement. Lâchez immédiatement ce que la main correspondante tenait ; le bras est inutilisable peandant 1d10 Rounds (voir Membres Amputés)." ],
+        [ "10", "Blessure béante", "3", "Le coup ouvre une profonde blessure béante. Gagnez 2 Conditions Saignement. Jusqu'à ce que vous soyez soigné par Chirurgie afin de résorber la blessure, tout nouveau dégât au bras vous fera gagner 1 Condition Saignement à cause de la blessure qui se sera réouverte.'" ],
+        [ "11", "Cassure nette", "3", "Un craquement se fait entendre au moment où le coup s'abat sur votre bras. L^chez tout objet tenu par la main correspondante, et subissez un Traumatisme Fracture (Mineur). Réussissez un test de Résistance complexe (-10) ou subissez 1 Condition Assomé." ],
+        [ "12", "Rupture des ligaments", "3", "Vous lâchez immédiatemnt ce que vous teniez dans la main correspondante. Subissez un Traumatisme Déchirure Musculaire (Majeur)." ],
+        [ "13", "Coupure profonde", "3", "Gagnez 2 Conditions Saignement alors que votre bras subit une forte mutilation. Gagnez 1 Condition Assomé et un Traumatisme Déchirure Musculaire (Mineur). Réussissez un test de Résistance Difficile (-20) ou gagnez 1 Condition Inconscient." ],
+        [ "14", "Artère endommagée", "4", "Subissez 4 Conditions Saignement. Tant que vous n'avez pas été soigné par Chirurgie, à chaque fois que vous subissez des dégâts à cette Localisation, vous gagnez 2 Conditions Saignement." ],
+        [ "15", "Coude cassé", "4", "Le coup fracasse votre coude, faisant voler en éclat l'os et le cartilage. Vous lâchez immédiatement ce que vous teniez dans la main corespondante et vous subissez un Traumatisme Fracture (majeur)." ],
+        [ "16", "Epaule disloquée", "4", "Votre bras est démis de son logement. Réussissez un Test de Résistance Difficile (-20) ou gagnez 1 Condition Assomé et A Terre. Lâchez ce que vous teniez dans la main. Le bras est innutilisable et est concidéré comme perdu (voir Membre Amputé). Gagnez 1 Condition Assomé jusqu'à bénéficier d'Aide Médicale. Après application de cette Aide, un Test Etendu de Guérison Accessible (+20) avec un BS+6 est nécéssaire pour pouvoir récupérer l'usage du bras. Les tests effectués avec ce bras subissent une pénalité de -10 pendant 1d10 jours." ],
+        [ "17", "Doigt sectionné", "4", "L'horreur vous saisit alors que votre doigt s'envole — Amputation (Complexe). Subissez 1 Condition Saignement." ],
+        [ "18", "Main ouverte", "5", "Votre main s'ouvre sous la puissance du coup. Vous perdez 1 doigt — Amputation (Complexe). gagnez 2 Conditions Saignement et 1 Condition Assomé. Pour chaque Round au cours duquel vous ne recevez pas d'Aide Médicale, vous perdez un autre doigt. Si vous perdez tous vos doigt, vous perdez votre main — Amputation (Complexe)." ],
+        [ "19", "Biceps déchiqueté", "5", "Le coup sépare presque entièrement le biceps et le tendon de l'os, laissant une blessure effrayante de laquelle le sang gicle, autant sur votre adversaire que sur vous. Vous lâchez ce que vous teniez dans la main et subissez un Traumatisme Déchirure Musculaire (Majeur) en plus de gagner 2 Conditions Saignement et 1 Condition Assomé." ],
+        [ "20", "Main mutilée", "5", "Votre main n'est plus qu'un tas de chair sanguinolente. Vous perdez votre main — Amputation (Très Difficile). Gagnez 2 Conditions Saignement. Réussissez un test de Résistance Difficile (-20) ou gagnez 1 Condition Assomé et A Terre." ],
+        [ "21", "Tendons coupés", "5", "Vos tendons sont tranchés par la force du coup, et votre bras est devenu inutilisable — Amputation (Très Difficile). Gagnez 3 Conditions Saignement, 1 Condition A Terre et 1 Condition Assomé. Réussissez un test de Résistance Difficile (-20) ou gagnez 1 Condition Inconscient." ],
+        [ "22+", "Démembrement brutal", "Mort", "Votre bras est coupé, faisant gicler votre sang jusqu'à 1d3 mètres dans une direction au hasard (voir Dispertsion), avant que le coup termine sa course dans votre poitrine." ]
+      ]
+    },
+    {
+      "id": 62,
+      "titre": "Coups critiques (Torse)",
+      "description": "",
+      "styles_th": [ "width:55px;", "width:130px;", "", "" ],
+      "styles_td": [ "", "", "text-align:center;", "" ],
+      "lignes": [
+        [ "Violence", "Description", "Blessures", "Effets supplémentaires" ],
+        [ "03-", "A peine une égratinure", "1", "Subissez 1 Condition Saignement." ],
+        [ "04", "Dans le bide !", "1", "Subissez 1 Condition Assommé. Réussisez un test de Résistance Facile (+40) ou vomissez et subissez la Condition A Terre." ],
+        [ "05", "Dans les parties !", "1", "Réussisez un test de Résistance Difficile (-20) ou subissez 3 Conditions Assommé. Pendant 1d4 Rounds, votre voix monte de 2 octaves (Très Aigue)." ],
+        [ "06", "Torsion du dos", "1", "Vous subissez un Traumatisme Déchirure musculaire (Mineur)." ],
+        [ "07", "Souffle coupé", "2", "Subissez 1 Condition Assommé. Réussisez un test de Résistance Accéssible (+20), ou subissez la Condition A Terre. Votre Mouvement est divisé par deux pour 1d10 Rounds le temps que vous retrouviez votre souffle." ],
+        [ "08", "Côtes meurtries", "2", "Tous vos tests basés sur l'Agilité subissent un malus de -10 pour 1d10 jours." ],
+        [ "09", "Clavicule arclée", "2", "Sélectionnez un bras aléatoirement. Vous lâchez ce que vous teniez en main ; le bras est inutilisable pour 1d10 rounds (voir Membres amputés)." ],
+        [ "10", "Déchiqueté", "2", "Subissez 2 Conditions Saignement." ],
+        [ "11", "Côtes félées", "3", "Le coup vous brise une ou plusieurs côtes. Subissez une Condition Assommé et un Traumatisme Fracture (Mineur)." ],
+        [ "12", "Blessure ouverte", "3", "Subissez 3 Conditions Saignement. Jusqu'à ce que vous receviez des soins par Chirurgie, toute Blessure supplémentaire reçue au Torse vous inflige une Condition Saignement Supplémentaire car la plaie se réouvre." ],
+        [ "13", "Entaille douloureuse", "3", "Subissez 2 Conditions Saignement et 1 Condition Assommé. Réussissez un test de Résistance Difficile (-20) ou subissez une Condition Inconscient à cause de la douleur. A moins que vous n'obteniez un BS de 4+, vous hurlez de douleur." ],
+        [ "14", "Dégâts artériels", "3", "Subissez 4 Conditions Saignement. Tant que vous n'aurais pas été soigné ar chirurgie, chaque nouvelle blessure à cette localisation vous fera gagner 2 Conditions Saignement." ],
+        [ "15", "Dos froissé", "4", "Une horrible douleur parcours votre dos alors qu'un de vos muscles se déchire. Subissez une Blessure Déchirure musculaire (Majeure)." ],
+        [ "16", "Hanche fracturée", "4", "Subissez 1 Condition Assommé. Réussissez un Test de Résistance Intermédiaire (+0) ou gagnez également la Condition A Terre. Subissez un Traumatisme Fracture (Mineur)." ],
+        [ "17", "Blessure majeure au torse", "4", "Vous recevez une blessure importante au torse qui arrache la peau de vos muscles et de vos tendons. Recevez 4 Conditions Saignement. Tant que vous n'aurez pas été soigné par Chirurgie afin de recoudre la blessure, toute nouvelle blessure que vous recevrez au torse vous fera gagner 2 Conditions Saignement supplémentaires à cause de la réouverture de la plaie.'" ],
+        [ "18", "Blessure au ventre", "4", "Vous contractez une Blessure Purulente (voir Maladie et Infection) et gagnez 2 Conditions Saignement." ],
+        [ "19", "Cage thoracique perforée", "5", "Gagnez 1 Condition Assomé qui ne peut être retirée que par Aide Médicale, et subussez un Traumatisme Fracture (Majeur)." ],
+        [ "20", "Clavicule fracturée", "5", "Gagnez 1 Condition Inconscient jusqu'à ce que vous soyez soigné par AIde Médicale et subissez un Traumatisme Fracture (Majeur)." ],
+        [ "21", "Hémoragie interne", "5", "Subissez 1 Condition Saignement qui ne peut être stoppée que par Chirurgie. Vous contractez une Infection Sanguine (voir Maladie et Infection)." ],
+        [ "22+", "Eventré", "Mort", "Vous êtes littéralement coupé en deux. La moitié supérieur de votre corps tombe dans une direction aléatoire au sol, et tous les personnages dans un rayon de 2 mètres sont éclaboussés par votre sang." ]
+      ]
+    },
+    {
+      "id": 63,
+      "titre": "Coups critiques (Jambe)",
+      "description": "",
+      "styles_th": [ "width:55px;", "width:130px;", "", "" ],
+      "styles_td": [ "", "", "text-align:center;", "" ],
+      "lignes": [
+        [ "Violence", "Description", "Blessures", "Effets supplémentaires" ],
+        [ "03-", "Orteil contusionné", "1", "Dans le feu de la bataille, vous vous cognez l'orteil. Réussissez un Test de Résistance Accéssible (+20) ou subissez une pénalité de -10 à tous vos Tests d'Agilité jusqu'à la fin du prochain tour." ],
+        [ "04", "Cheville tordue", "1", "Vous vous tordez la cheville, vous blessant au passge. Tous vos Test d'Agilité subissent une pénalité de -10 pendant 1d10 Rounds.'" ],
+        [ "05", "Coupure mineure", "1", "Subissez 1 Condition Saignement." ],
+        [ "06", "Perte d'équilibre", "1", "Dans le feu du combat, vous perdez l'équilibre. Réussissez un Test de Résistance Intermédiaire (+0) ou gagnez la Condition A Terre." ],
+        [ "07", "Coup à la cuisse", "2", "Vous recevez un coup violent sur le haut de la cuisse. Gagnez 1 Condition Saignement et réussissez un Test de Résistance Accéssible (+20) sous peine de trébucher et de gagner la Condition A Terre." ],
+        [ "08", "Cheville foulée", "2", "Vous vous foulez la cheville ; subissez un Traumatisme Déchirure musculaire (Mineur)." ],
+        [ "09", "Genou tordu", "2", "Votre genou pivote un peu trop loin. Vos Tests d'Agilité subissent un malus de -20 pendant 1d10 Rounds." ],
+        [ "10", "Coupure à l'orteil", "2", "Subissez 1 Condition Saignement. Une fois la rencontre terminée, effectuez un Test de Résistance Intermédiare (+0). Sur un échec, vous perdez un orteil — Amputation (Accéssible)." ],
+        [ "11", "Mauvaise coupure", "3", "Subissez 2 Conditions Saignement à cause de la profonde blessure au niveau de votre tibia. Réussissez un Test de Résistance Intermédiaire (+0) ou gagnez la Condition A Terre." ],
+        [ "12", "Genou méchamment tordu", "3", "Vous vous tordez méchamment le genou en tentant d'éviter votre adversire. Subissez un Traumatisme Déchirure musculaire (Majeur)." ],
+        [ "13", "Jambe charcutée", "3", "Blessure profonde au niveau de la hanche. Gagnez 2 Conditions Saignement et 1 Condition A Terre, puis gagnez un Traumatisme Facture (Mineure). De plus, réussissez un Test de Résistance Difficile (-20) ou gagnez 1 Condition Assomé à cause de la douleur." ],
+        [ "14", "Cuisse lacérée", "3", "Subissez 3 Conditions Saignement alors que l'arme entaille profondément votre cuisse. Réussissez un Test de Résistance Intermédiaire (+0) ou gagnez la Condition A Terre. Tant que vous n'aurez pas été soigné par chirurgie afin de refermer la plaie, toute nouvelle blessure que vous recevrez au torse vous fera gagner 1 Condition Saignement supplémentaire." ],
+        [ "15", "Rupture des ligaments croisés", "4", "Gagnez les Conditions A Terre et Assomé au moment ou vos ligaments cèdent. Réussissez un Test de Résistance Difficile (-20) ou gagnez 1 Condition Inconscient. Votre jambe est inutilisable (voir Membes Amputés). Subissez un Traumatisme Déchirure musculaire (Majeur)." ],
+        [ "16", "Entaille au tibia", "4", "L'arme passe à travers votre jambe au niveau du genou, touchant à la fois le tendon et l'os. Gagnez 1 Condition Assomé et A Terre. De plus subissez les Traumatismes Déchirure musculaire (Majeure) et Fracture (Majeure)." ],
+        [ "17", "Genou cassé", "4", "Le coup atteind la rotule, la brisant en plusieurs morceaux. Vous gagnez 1 Condition Assomé et A terre, et subissez un Traumatisme Fracture (Majeure) qlors que vous vous effondrez au sol, empoignant votre jambe abimée." ],
+        [ "18", "Genou démis", "4", "Votre genou se déboîte de son emplacement.Gagnez la Condition A Terre, réussissez un Test de Résistance Difficile (-20) ou gagnez 1 Condition Assomé, qui ne pourrat être retiré que pas Aide Médicale. Après cette Aide Médicale, il est nécessaire de réussir un Test de Guérison Accéssible (+20) avec un Bs 6+ afin de remettre le genou en place et récupérer l'usage de la jabe. Le Mouvement est réduit de moitié et les Test impliquant l'utilisation de cette jambe subissent un malus de -10 pendant 1d10 jours." ],
+        [ "19", "Pied écrasé", "5", "Le coup explose votre pied. Effectuez un Test de Résistance Accéssible (+20) ; sur un échec, vous gagnez la Condition A Terre et perdez un orteil, plus 1 orteil par BS en dessous de 0 — Amputation (Accéssible). Gagnez 2 Condition Saignement. Si vous n'êtes pas soigné par chirurgie au cours des 1d10 jours suivants, vous perdez votre pied." ],
+        [ "20", "Pied sectionné", "5", "Votre pied est sectionné au niveau de la cheville et atterrit 1d3 mètres plus loin dans une direction au hasard — Amputation (Difficile). Vous gagnez les Conditions suivantes: 3 Saignements, 2 Assomé, 1 A Terre." ],
+        [ "21", "Tendon coupé", "5", "un des tendons principaux à l'arrière de votre jambe est coupé, vous faisant hurler de douleur alors que votre jambe s'effondre sous le poids de votre corps. Vous gagnez 2 Conditions Saignement, 2 Conditions Assomé et 1 A Terre." ],
+        [ "22+", "Bassin fracassé", "Mort", "Le coup fracasse votre bassin, coupant une jambe et atteignant la seconde. Vous mourez instantanément sous la violence du coup." ]
+      ]
+    },
+    {
+      "id": 64,
+      "titre": "Localisation des coups (humanoïdes)",
       "description": "Creatures with different body shapes may use different hit location tables.",
-      "styles_th":["width:55px;",""],
-      "styles_td":["text-align:center;",""],
-      "lignes":[
-        ["d100","Localisation"],
-        ["01-09","Tête"],
-        ["10-24","Bras gauche/secondaire"],
-        ["25-44","Bras droit/principal"],
-        ["45-79","Torse"],
-        ["80-89","Jambe gauche"],
-        ["90-00","Jambe droite"]
+      "styles_th": [ "width:55px;", "" ],
+      "styles_td": [ "text-align:center;", "" ],
+      "lignes": [
+        [ "d100", "Localisation" ],
+        [ "01-09", "Tête" ],
+        [ "10-24", "Bras gauche/secondaire" ],
+        [ "25-44", "Bras droit/principal" ],
+        [ "45-79", "Torse" ],
+        [ "80-89", "Jambe gauche" ],
+        [ "90-00", "Jambe droite" ]
       ]
     },
-    {"id":65,"titre":"Combat - Action (A) et Déplacement (D)",
+    {
+      "id": 65,
+      "titre": "Combat - Action (A) et Déplacement (D)",
       "description": "",
-      "lignes":[
-        ["Coût","Vous pouvez...","Effets"],
-        ["D","Vous déplacer","Distance maximum en fonction de votre caractéristique Mouvement."],
-        ["D+A","Sprinter","Vous pouvez utiliser votre Action en plus de votre Déplacement pour effectuer un test d'Athléthisme et dépasser la distance maximum."],
-        ["-","Retarder votre tour","Pour ce tour, vous pouvez retarder votre Tour de 10+2d10. Si aucun autre personnage ne joue entre-temps, vous jouerez après le prochain."],
-        ["A","Attaquer au contact","Un adversaire à portée de votre arme si vous êtes engagé, de charge sinon."],
-        ["D","Viser avec concentration","Si vous enchaîner une attaque à distance, vous bénéficiez d'un bonus de +10 pour toucher (+20 avec le talent Coups au but)."],
-        ["A","Attaquer à distance","Un adversaire à portée de vue et de votre arme, et si votre arme est chargée, sans quoi vous devrez la recharger."],
-        ["A","Prendre une posture défensive","Se préparer à esquiver ou parer, tenir une position défensive, or use language magick to deploy an array of dispels. Choisissez une compétence Défensive pour laquelle vous bénéficierez de +20 aux tests défensifs jusqu'au début de votre prochain Tour."],
-        ["A","Utiliser une compétence","Voir la liste des compétences Offensives"],
-        ["A","Fouiller votre sac","Si vous n'êtes pas engagé, vous pouvez extirper un objet de votre sac. Le MJ peut exiger un jet de Dextérité ou d'Initiative pour déterminer si le personnage pourra faire d'autres petites actions."],
-        ["-","Ne rien faire","...et attendre le Round suivant."]
+      "lignes": [
+        [ "Coût", "Vous pouvez...", "Effets" ],
+        [ "D", "Vous déplacer", "Distance maximum en fonction de votre caractéristique Mouvement." ],
+        [ "D+A", "Sprinter", "Vous pouvez utiliser votre Action en plus de votre Déplacement pour effectuer un test d'Athléthisme et dépasser la distance maximum." ],
+        [ "-", "Retarder votre tour", "Pour ce tour, vous pouvez retarder votre Tour de 10+2d10. Si aucun autre personnage ne joue entre-temps, vous jouerez après le prochain." ],
+        [ "A", "Attaquer au contact", "Un adversaire à portée de votre arme si vous êtes engagé, de charge sinon." ],
+        [ "D", "Viser avec concentration", "Si vous enchaîner une attaque à distance, vous bénéficiez d'un bonus de +10 pour toucher (+20 avec le talent Coups au but)." ],
+        [ "A", "Attaquer à distance", "Un adversaire à portée de vue et de votre arme, et si votre arme est chargée, sans quoi vous devrez la recharger." ],
+        [ "A", "Prendre une posture défensive", "Se préparer à esquiver ou parer, tenir une position défensive, or use language magick to deploy an array of dispels. Choisissez une compétence Défensive pour laquelle vous bénéficierez de +20 aux tests défensifs jusqu'au début de votre prochain Tour." ],
+        [ "A", "Utiliser une compétence", "Voir la liste des compétences Offensives" ],
+        [ "A", "Fouiller votre sac", "Si vous n'êtes pas engagé, vous pouvez extirper un objet de votre sac. Le MJ peut exiger un jet de Dextérité ou d'Initiative pour déterminer si le personnage pourra faire d'autres petites actions." ],
+        [ "-", "Ne rien faire", "...et attendre le Round suivant." ]
       ]
     },
-    {"id":66,"titre":"Gabarit",
+    {
+      "id": 66,
+      "titre": "Gabarit",
       "description": "",
-      "lignes":[
-        ["Gabarits","Exemples","Blessures"],
-        ["Minuscule","Papillon, Souris, Pigeon","1"],
-        ["Tout petit","Chat, Faucon, Bébé humain","BE"],
-        ["Petit","Rat géant, Halfling, Enfant humain","(2 x BE) + BFM"],
-        ["Moyen","Elfe, Humain, Nain","BF + (2 x BE) + BFM"],
-        ["Large","Cheval, Ogre, Troll","2 x (BF + (2 x BE) + BFM)"],
-        ["Enorme","Griffon, Wyverne, Manticore","4 x (BF + (2 x BE) + BFM)"],
-        ["Monstrueux","Dragon, Géant, Démon majeur","8 x (BF + (2 x BE) + BFM)"]
+      "lignes": [
+        [ "Gabarits", "Exemples", "Blessures" ],
+        [ "Minuscule", "Papillon, Souris, Pigeon", "1" ],
+        [ "Tout petit", "Chat, Faucon, Bébé humain", "BE" ],
+        [ "Petit", "Rat géant, Halfling, Enfant humain", "(2 x BE) + BFM" ],
+        [ "Moyen", "Elfe, Humain, Nain", "BF + (2 x BE) + BFM" ],
+        [ "Large", "Cheval, Ogre, Troll", "2 x (BF + (2 x BE) + BFM)" ],
+        [ "Enorme", "Griffon, Wyverne, Manticore", "4 x (BF + (2 x BE) + BFM)" ],
+        [ "Monstrueux", "Dragon, Géant, Démon majeur", "8 x (BF + (2 x BE) + BFM)" ]
       ]
     },
-    {"id":67,"titre":"Mouvement et distances",
+    {
+      "id": 67,
+      "titre": "Mouvement et distances",
       "description": "Indique combien de mètres vous pouvez parcourir en un seul Tour, sans sprinter (compétence Athlétisme). Faire cela utilisera votre Déplacement.",
-      "lignes":[
-        ["M","Marche","Charge","Course","Km/h"],
-        ["1","2 m","4 m","6 m","1,5"],
-        ["2","4 m","8 m","12 m","3"],
-        ["3","6 m","12 m","18 m","4"],
-        ["4","8 m","16 m","24 m","5,5"],
-        ["5","10 m","20 m","30 m","7"],
-        ["6","12 m","24 m","36 m","8,5"],
-        ["7","14 m","28 m","42 m","9,5"],
-        ["8","16 m","32 m","48 m","11"],
-        ["9","18 m","36 m","54 m","12,5"],
-        ["10","20 m","40 m","60 m","14"]
+      "lignes": [
+        [ "M", "Marche", "Charge", "Course", "Km/h" ],
+        [ "1", "2 m", "4 m", "6 m", "1,5" ],
+        [ "2", "4 m", "8 m", "12 m", "3" ],
+        [ "3", "6 m", "12 m", "18 m", "4" ],
+        [ "4", "8 m", "16 m", "24 m", "5,5" ],
+        [ "5", "10 m", "20 m", "30 m", "7" ],
+        [ "6", "12 m", "24 m", "36 m", "8,5" ],
+        [ "7", "14 m", "28 m", "42 m", "9,5" ],
+        [ "8", "16 m", "32 m", "48 m", "11" ],
+        [ "9", "18 m", "36 m", "54 m", "12,5" ],
+        [ "10", "20 m", "40 m", "60 m", "14" ]
       ]
     },
-    {"id":70,"titre":"Chirurgie psychiatrique",
+    {
+      "id": 70,
+      "titre": "Chirurgie psychiatrique",
       "description": "",
-      "lignes":[
-        ["Difficulté","Effets si succés"],
-        ["-10%","Le patient perd 1 PF"],
-        ["-20%","Le patient perd 1d10 PF"],
-        ["-30%","Le patient est guéri d'une folie"]
+      "lignes": [
+        [ "Difficulté", "Effets si succés" ],
+        [ "-10%", "Le patient perd 1 PF" ],
+        [ "-20%", "Le patient perd 1d10 PF" ],
+        [ "-30%", "Le patient est guéri d'une folie" ]
       ]
     },
-    {"id":71,"titre":"Complications chirurgicales",
+    {
+      "id": 71,
+      "titre": "Complications chirurgicales",
       "description": "Dans ce contexte le BS est toujours négatif ou nul (au mieux) et vient donc augmenter le résultat du d10.",
-      "lignes":[
-        ["d10-BS","Complication",""],
-        ["3-","Triomphe chirurgical","L'opération est infructueuse mais le patient en ressort indemne."],
-        ["4-5","Vous ne sentirez rien !","Le patient reçoit 1d10 pts de folie."],
-        ["6-7","Oups !","Le patient perd 1d10 pts d'Intelligence de manière permanente."],
-        ["8-9","Pourquoi il s'agite comme ça ?","Le patient doit réussir un Test de Résistance ou mourrir pendant l'opération.\nS'il survit, il perd 1d10 pts d'Intelligence et reçoit 1d10 pts de folie."],
-        ["9+","Docteur, c'est normal la flaque de sang ?","Le patient meurt sur la table d'opération, le cerveau en bouillie et vidé de son sang."]
+      "lignes": [
+        [ "d10-BS", "Complication", "" ],
+        [ "3-", "Triomphe chirurgical", "L'opération est infructueuse mais le patient en ressort indemne." ],
+        [ "4-5", "Vous ne sentirez rien !", "Le patient reçoit 1d10 pts de folie." ],
+        [ "6-7", "Oups !", "Le patient perd 1d10 pts d'Intelligence de manière permanente." ],
+        [ "8-9", "Pourquoi il s'agite comme ça ?", "Le patient doit réussir un Test de Résistance ou mourrir pendant l'opération.\nS'il survit, il perd 1d10 pts d'Intelligence et reçoit 1d10 pts de folie." ],
+        [ "9+", "Docteur, c'est normal la flaque de sang ?", "Le patient meurt sur la table d'opération, le cerveau en bouillie et vidé de son sang." ]
       ]
     },
-    {"id":72,"titre":"Remèdes de charlatan",
+    {
+      "id": 72,
+      "titre": "Remèdes de charlatan",
       "description": "Dans ce contexte le BS est toujours négatif ou nul (au mieux) et vient donc augmenter le résultat du d10.",
-      "lignes":[
-        ["d10-BS","Présentation du remède",""],
-        ["3-","Guérison garantie","Le médicament n'a pas le moindre effet et l'apothicaire la sait."],
-        ["4-5","Fortifiant","Le médicament n'a d'autre effet que celui d'une boisson alcoolisée."],
-        ["6-7","Risques de somnolence","Absorber le remède rend inconscient pendant 1d10 heures."],
-        ["8-9","Solution de mercure","Absorber le remède octroie 1 point de folie."],
-        ["9+","Purge médicinale","Poison. Le consommateur doit réussir un Test de Résistance sous peine de recevoir une Condition Empoisonné."]
+      "lignes": [
+        [ "d10-BS", "Présentation du remède", "" ],
+        [ "3-", "Guérison garantie", "Le médicament n'a pas le moindre effet et l'apothicaire la sait." ],
+        [ "4-5", "Fortifiant", "Le médicament n'a d'autre effet que celui d'une boisson alcoolisée." ],
+        [ "6-7", "Risques de somnolence", "Absorber le remède rend inconscient pendant 1d10 heures." ],
+        [ "8-9", "Solution de mercure", "Absorber le remède octroie 1 point de folie." ],
+        [ "9+", "Purge médicinale", "Poison. Le consommateur doit réussir un Test de Résistance sous peine de recevoir une Condition Empoisonné." ]
       ]
     },
-    {"id":73,"titre":"Fluctuation des vents",
-      "lignes":[
-        ["d10","Modificateur"],
-        ["1","-30"],
-        ["2-3","-10"],
-        ["4-7-","-"],
-        ["8-9-","+10"],
-        ["10","+30"]
+    {
+      "id": 73,
+      "titre": "Fluctuation des vents",
+      "lignes": [
+        [ "d10", "Modificateur" ],
+        [ "1", "-30" ],
+        [ "2-3", "-10" ],
+        [ "4-7-", "-" ],
+        [ "8-9-", "+10" ],
+        [ "10", "+30" ]
       ]
     },
-    
-    {"id":80,"titre":"Médecins - Catégories de Praticiens",
+
+    {
+      "id": 80,
+      "titre": "Médecins - Catégories de Praticiens",
       "description": "",
-      "lignes":[
-        ["Qualité","Médiocre","Moyenne","Bonne","Exceptionnelle"],
-        ["Disponibilité","Très courante","Courante","Inhabituelle","Très Rare"],
-        ["Compétence de Soins","33%","45%","66%","80%"],
-        ["Risques d'infection","30%","20%","10%","0%"],
-        ["% de Charlatanisme","10%","20%","30%","40%"],
-        ["Honoraires","1/-","5/-","1 co","10 co"]
+      "lignes": [
+        [ "Qualité", "Médiocre", "Moyenne", "Bonne", "Exceptionnelle" ],
+        [ "Disponibilité", "Très courante", "Courante", "Inhabituelle", "Très Rare" ],
+        [ "Compétence de Soins", "33%", "45%", "66%", "80%" ],
+        [ "Risques d'infection", "30%", "20%", "10%", "0%" ],
+        [ "% de Charlatanisme", "10%", "20%", "30%", "40%" ],
+        [ "Honoraires", "1/-", "5/-", "1 co", "10 co" ]
       ]
     },
-    {"id":81,"titre":"Risques d'infection dus à une Blessure",
+    {
+      "id": 81,
+      "titre": "Risques d'infection dus à une Blessure",
       "description": "",
-      "lignes":[
-        ["Condition","Malus au test de Résistance"],
-        ["Par jour durant lequel la blessure n’a pas été traitée","-10%"],
-        ["Par coup critique subi","-10%"],
-        ["Blessure causée par des skavens ou des morts-vivants","-10%"],
-        ["Blessure reçue dans un lieu insalubre (égout, prison, tas d’ordures, marais)","-10% à -30%"]
+      "lignes": [
+        [ "Condition", "Malus au test de Résistance" ],
+        [ "Par jour durant lequel la blessure n’a pas été traitée", "-10%" ],
+        [ "Par coup critique subi", "-10%" ],
+        [ "Blessure causée par des skavens ou des morts-vivants", "-10%" ],
+        [ "Blessure reçue dans un lieu insalubre (égout, prison, tas d’ordures, marais)", "-10% à -30%" ]
       ]
     },
-    {"id":82,"titre":"Risques d'infection dus à une Opération Chirurgicale",
+    {
+      "id": 82,
+      "titre": "Risques d'infection dus à une Opération Chirurgicale",
       "description": "",
-      "lignes":[
-        ["Condition","Malus au test de Résistance"],
-        ["Lorsque le chirurgien a manqué son test de Soins, par tranche de 10%","-5%"],
-        ["Opération effectuée dans un lieu insalubre (égout, prison, tas d’ordures, marais)","-10% à -30%"],
-        ["Opération effectuée à l’aide d’outils improvisés","-10%"]
+      "lignes": [
+        [ "Condition", "Malus au test de Résistance" ],
+        [ "Lorsque le chirurgien a manqué son test de Soins, par tranche de 10%", "-5%" ],
+        [ "Opération effectuée dans un lieu insalubre (égout, prison, tas d’ordures, marais)", "-10% à -30%" ],
+        [ "Opération effectuée à l’aide d’outils improvisés", "-10%" ]
       ]
     },
-    {"id":83,"titre":"Remèdes de Charlatan",
+    {
+      "id": 83,
+      "titre": "Remèdes de Charlatan",
       "description": "",
-      "styles_th":["width:40px;",""],
-      "styles_td":["text-align:center;",""],
-      "lignes":[
-        ["d10","Remède"],
-        ["1","Frotter une plaie ouverte à l’aide d’une pâte faite d’ail, de miel et de limaces écrasées, préalablement mâchée par le praticien."],
-        ["2","Attacher une roue de moulin à la poitrine du patient puis tambouriner sur la roue à coups de marteaux."],
-        ["3","Manger de la viande crue à chaque repas durant une semaine."],
-        ["4","Courir nu dans les rues sous une pluie torrentielle alors que le vent souffle vers l’ouest."],
-        ["5","Se faire arracher toutes les dents pour mieux digérer."],
-        ["6","Se faire attacher les poignets dans le dos à l’aided’une corde mouillée de vin et rester ainsi jusqu’à guérison complète."],
-        ["7","Se frotter le crâne avec la bave d’un hibou, d’un faucon ou (dans l’idéal) d’un griffon, qui devra ensuite être tué à la pleine lune."],
-        ["8","Boire le contenu d’un tonneau d’eau en une seule fois (on fournit l’entonnoir)."],
-        ["9","Partager sa couche une nuit durant avec quatre poulets noirs vivants puis les faire cuire en tourte et les manger."],
-        ["0","Lécher un crapaud tous les matins."]
+      "styles_th": [ "width:40px;", "" ],
+      "styles_td": [ "text-align:center;", "" ],
+      "lignes": [
+        [ "d10", "Remède" ],
+        [ "1", "Frotter une plaie ouverte à l’aide d’une pâte faite d’ail, de miel et de limaces écrasées, préalablement mâchée par le praticien." ],
+        [ "2", "Attacher une roue de moulin à la poitrine du patient puis tambouriner sur la roue à coups de marteaux." ],
+        [ "3", "Manger de la viande crue à chaque repas durant une semaine." ],
+        [ "4", "Courir nu dans les rues sous une pluie torrentielle alors que le vent souffle vers l’ouest." ],
+        [ "5", "Se faire arracher toutes les dents pour mieux digérer." ],
+        [ "6", "Se faire attacher les poignets dans le dos à l’aided’une corde mouillée de vin et rester ainsi jusqu’à guérison complète." ],
+        [ "7", "Se frotter le crâne avec la bave d’un hibou, d’un faucon ou (dans l’idéal) d’un griffon, qui devra ensuite être tué à la pleine lune." ],
+        [ "8", "Boire le contenu d’un tonneau d’eau en une seule fois (on fournit l’entonnoir)." ],
+        [ "9", "Partager sa couche une nuit durant avec quatre poulets noirs vivants puis les faire cuire en tourte et les manger." ],
+        [ "0", "Lécher un crapaud tous les matins." ]
       ]
     },
-    {"id":84,"titre":"Cloisons, portes et serrures (v1)",
+    {
+      "id": 84,
+      "titre": "Cloisons, portes et serrures (v1)",
       "description": "Note : les portes sont considérées comme inertes (toucher automatique et dégâts doublés).",
-      "lignes":[
-        ["Emplacement","Résistance","Dommages","Difficulté serrure"],
-        ["Armoire / Placard","1","1D6","(1D4 – 2) x 10%"],
-        ["Pièce domestique","2","1D6","(1D4 – 1) x 10%"],
-        ["Entrée de service","3","2D6","1D4 x 10%"],
-        ["Chambre forte / Pièces communicantes","4","3D6","(1D4 + 1) x 10%"],
-        ["Porte de cachot / Entrée de corridor","5","3D6","(1D4 + 1) x 10%"],
-        ["Maîtresse-tour (donjon)","6","5D6","(1D4 + 2) x 10%"],
-        ["Porte principale d’une forteresse / prison","8","6D6","(1D4 + 3) x 10%"],
-        ["Panneau / Trappe d’accès","2","1D6","(1D4 + 1) x 10%"]
+      "lignes": [
+        [ "Emplacement", "Résistance", "Dommages", "Difficulté serrure" ],
+        [ "Armoire / Placard", "1", "1D6", "(1D4 – 2) x 10%" ],
+        [ "Pièce domestique", "2", "1D6", "(1D4 – 1) x 10%" ],
+        [ "Entrée de service", "3", "2D6", "1D4 x 10%" ],
+        [ "Chambre forte / Pièces communicantes", "4", "3D6", "(1D4 + 1) x 10%" ],
+        [ "Porte de cachot / Entrée de corridor", "5", "3D6", "(1D4 + 1) x 10%" ],
+        [ "Maîtresse-tour (donjon)", "6", "5D6", "(1D4 + 2) x 10%" ],
+        [ "Porte principale d’une forteresse / prison", "8", "6D6", "(1D4 + 3) x 10%" ],
+        [ "Panneau / Trappe d’accès", "2", "1D6", "(1D4 + 1) x 10%" ]
       ]
     },
-    {"id":85,"titre":"Quémendage",
+    {
+      "id": 85,
+      "titre": "Quémendage",
       "description": "",
-      "lignes":[
-        ["Population","< 100","100-1000","1000-10000","10000 +"],
-        ["Artisan","3%","9%","42%","59%"],
-        ["Bateleur","3%","17%","73%","100%"],
-        ["Manouvrier","17%","73%","100%","100%"],
-        ["Serviteur","17%","59%","100%","100%"]
+      "lignes": [
+        [ "Population", "< 100", "100-1000", "1000-10000", "10000 +" ],
+        [ "Artisan", "3%", "9%", "42%", "59%" ],
+        [ "Bateleur", "3%", "17%", "73%", "100%" ],
+        [ "Manouvrier", "17%", "73%", "100%", "100%" ],
+        [ "Serviteur", "17%", "59%", "100%", "100%" ]
       ]
     },
-    {"id":86,"titre":"Disponibilité",
+    {
+      "id": 86,
+      "titre": "Disponibilité",
       "description": "",
-      "lignes":[
-        ["","Village","Boug","Ville","Cité"],
-        ["","100- hab.","100-1000 hab.","1000-10000 hab.","10000+ hab."],
-        ["Commune","30%","En stock","En stock","En stock"],
-        ["Limitée","10%","30%","60%","90%"],
-        ["Rare","Pas en stock%","15%","30%","45%"],
-        ["Exotique","Pas en stock","Pas en stock","Pas en stock","Pas en stock"]
+      "lignes": [
+        [ "", "Village", "Boug", "Ville", "Cité" ],
+        [ "", "100- hab.", "100-1000 hab.", "1000-10000 hab.", "10000+ hab." ],
+        [ "Commune", "30%", "En stock", "En stock", "En stock" ],
+        [ "Limitée", "10%", "30%", "60%", "90%" ],
+        [ "Rare", "Pas en stock%", "15%", "30%", "45%" ],
+        [ "Exotique", "Pas en stock", "Pas en stock", "Pas en stock", "Pas en stock" ]
       ]
     },
-    {"id":87,"titre":"Compétences de base - apprentissage automatique",
+    {
+      "id": 87,
+      "titre": "Compétences de base - apprentissage automatique",
       "description": "Si au cours d'une aventure (durée à la discrétion du MJ) un personnage réussit suffisamment de jets dans une Compétence de Base (6 x 1 + Niveau de la compétence), il passe gratuitement au niveau supérieur.\nExceptions : Connaissances?",
-      "lignes":[
-        ["Niveau actuel","Nombre de tests"],
-        ["0 (+0%)","6 tests réussis"],
-        ["1 (+5%)","12 tests réussis"],
-        ["2 (+10%)","18 tests réussis"],
-        ["3 (+15%)","24 tests réussis"]
+      "lignes": [
+        [ "Niveau actuel", "Nombre de tests" ],
+        [ "0 (+0%)", "6 tests réussis" ],
+        [ "1 (+5%)", "12 tests réussis" ],
+        [ "2 (+10%)", "18 tests réussis" ],
+        [ "3 (+15%)", "24 tests réussis" ]
       ]
     },
-    {"id":91,"titre":"Prénoms halflings","description": "",
-      "lignes":[
-        ["Adam","Alabert","Albi","Anatole"],
-        ["Aristide","Bargol","Berrylla","Carl"],
-        ["Dabbul","Dibbul","Drogon","Erika"],
-        ["Erling","Ernest","Eustase","Felix"],
-        ["Ferdo","Friedrich (Fred)","Frengar","Gaspard"],
-        ["Gobbul","Halfred","Hanbul","Hando"],
-        ["Haribul","Harthol","Hiero","Hildegarde (Hilde)"],
-        ["Hildebrandt","Horace","Hugo","Humfried"],
-        ["Isidor","Leonard (Leo)","Lily","Logar"],
-        ["Lothon","Mangul","Maximilien (Max)","Melilot"],
-        ["Mimosa","Minton","Molly","Peregrin"],
-        ["Philibert","Poldo","Primevère","Prisca"],
-        ["Salvia","Saturnin","Simeon","Theodosius"],
-        ["Theodule (Theo)"],
-        ["Thomas (Tom)","Ursul","Wanda","Willfried (Will)"]
+    {
+      "id": 91,
+      "titre": "Prénoms halflings",
+      "description": "",
+      "lignes": [
+        [ "Adam", "Alabert", "Albi", "Anatole" ],
+        [ "Aristide", "Bargol", "Berrylla", "Carl" ],
+        [ "Dabbul", "Dibbul", "Drogon", "Erika" ],
+        [ "Erling", "Ernest", "Eustase", "Felix" ],
+        [ "Ferdo", "Friedrich (Fred)", "Frengar", "Gaspard" ],
+        [ "Gobbul", "Halfred", "Hanbul", "Hando" ],
+        [ "Haribul", "Harthol", "Hiero", "Hildegarde (Hilde)" ],
+        [ "Hildebrandt", "Horace", "Hugo", "Humfried" ],
+        [ "Isidor", "Leonard (Leo)", "Lily", "Logar" ],
+        [ "Lothon", "Mangul", "Maximilien (Max)", "Melilot" ],
+        [ "Mimosa", "Minton", "Molly", "Peregrin" ],
+        [ "Philibert", "Poldo", "Primevère", "Prisca" ],
+        [ "Salvia", "Saturnin", "Simeon", "Theodosius" ],
+        [ "Theodule (Theo)" ],
+        [ "Thomas (Tom)", "Ursul", "Wanda", "Willfried (Will)" ]
       ]
     },
-    
-    {"id":100,"titre":"Artisanat - Difficulté du Test de Métier",
+
+    {
+      "id": 100,
+      "titre": "Artisanat - Difficulté du Test de Métier",
       "description": "Pour créer l'équipement, effectuez un Test étendu de Métier, dont la Difficulté est fixée par le MJ, généralement basé sur la Disponibilité de l'Équipement.",
-      "lignes":[
-        ["Disponibilité","Difficulté"],
-        ["Commune","+20"],
-        ["Limitée","+0"],
-        ["Rare","-10"],
-        ["Exotique","-30"]
+      "lignes": [
+        [ "Disponibilité", "Difficulté" ],
+        [ "Commune", "+20" ],
+        [ "Limitée", "+0" ],
+        [ "Rare", "-10" ],
+        [ "Exotique", "-30" ]
       ]
     },
-    {"id":101,"titre":"Artisanat - BS requis pour le Test de Métier",
+    {
+      "id": 101,
+      "titre": "Artisanat - BS requis pour le Test de Métier",
       "description": "Le BS requis pour finaliser sa création est aussi fixé par le MJ, en utilisant les prix courants des équipements dans le Guide du Consommateur comme référence.",
-      "lignes":[
-        ["Prix courant","BS"],
-        ["Bronze","5"],
-        ["Argent","10"],
-        ["Or","15"]
+      "lignes": [
+        [ "Prix courant", "BS" ],
+        [ "Bronze", "5" ],
+        [ "Argent", "10" ],
+        [ "Or", "15" ]
       ]
     },
-    {"id":102,"titre":"Catastrophes de concotion",
+    {
+      "id": 102,
+      "titre": "Catastrophes de concotion",
       "description": "N'oubliez pas d'ajouter le nombre de degrés d'échec obtenu au résultat du jet de dé.\nLa table 7-9 : effets des potions avariées se trouve dans Les Royaumes de Sorcellerie p.194.",
-      "lignes":[
-        ["1","Aucun effet","Vous n'arrivez à créer rien d'utile. mais vos ennuis s'arrêtent là."],
-        ["2","Près du but","Vous réussissez à créer la potion, mais elle est avariée. Lancez les dés sur la Table 7-9: effets des potions avariées pour en déterminer les effets secondaires."],
-        ["3","Pas si près que ça","Vous créez la potion. mais elle est sérieusement avariée. lancez les dés deux fois sur la Table 7-9: effets des potions avariées pour en déterminer les effets secondaires."],
-        ["4","Fumée el miasmes","Votre tentative de concoction échoue et une épaisse fumée. qui résiste à tous vos efforts pour la dissiper. demeure durant des jours. Elle imprègne tout l'équipement de votre laboratoire d'une répugnante odeur de souffre. Il faut voir le bon côté des choses: cela donne à votre laboratoire une certaine crédibilité auprès des alchimistes et des apothicaires."],
-        ["5","Espèce de maladroit !","À mi-chemin du processus. vous ratez la concoction. détruisant 10% de votre équipement et ruinant vos chances d'obtenir quelque chose avec ce lot. D'un autre côté, vous avez terminé en avance."],
-        ["6","Migraine.","Les vapeurs libérées par vos distillations vous font souffrir. Vous subissez tan malus de -5% aux tests effectués pendant que vous préparez cette potion. y compris pour toutes les actions que vous entreprenez hors de votre laboratoire."],
-        ["7","Brûlure d'acide.","Vous êtes éclaboussé par des réactifs acides. Vous subissez un coup d'une valeur de dégâts de 3. et à moins que vous ne receviez des soins d'un guérisseur dans l'heure. vous aurez une cicatrice localisée au hasard. Bien des alchimistes et des apothicaires sont suspicieux à l'égard de ceux qui portent de telles marques."],
-        ["8","Légère explosion.","Votre laboratoire est détruit à 15% et vous subissez un coup d'une valeur de dégâts de 2."],
-        ["9","Explosion","Votre laboratoire est détruit à 25% et vous subissez un coup d'une valeur de dégâts de 4."],
-        ["10","Au feu !","Votre laboratoire prend feu. Votre équipement est détruit à 35% quand vous réussissez à éteindre l'incendie et le feu peut gagner des bâtiments proches si le 11.1 le décide. II+ Énorme explosion. Votre laboratoire est totalement détruit et vous subissez un coup d'une valeur de dégâts de 6."]
+      "lignes": [
+        [ "1", "Aucun effet", "Vous n'arrivez à créer rien d'utile. mais vos ennuis s'arrêtent là." ],
+        [ "2", "Près du but", "Vous réussissez à créer la potion, mais elle est avariée. Lancez les dés sur la Table 7-9: effets des potions avariées pour en déterminer les effets secondaires." ],
+        [ "3", "Pas si près que ça", "Vous créez la potion. mais elle est sérieusement avariée. lancez les dés deux fois sur la Table 7-9: effets des potions avariées pour en déterminer les effets secondaires." ],
+        [ "4", "Fumée el miasmes", "Votre tentative de concoction échoue et une épaisse fumée. qui résiste à tous vos efforts pour la dissiper. demeure durant des jours. Elle imprègne tout l'équipement de votre laboratoire d'une répugnante odeur de souffre. Il faut voir le bon côté des choses: cela donne à votre laboratoire une certaine crédibilité auprès des alchimistes et des apothicaires." ],
+        [ "5", "Espèce de maladroit !", "À mi-chemin du processus. vous ratez la concoction. détruisant 10% de votre équipement et ruinant vos chances d'obtenir quelque chose avec ce lot. D'un autre côté, vous avez terminé en avance." ],
+        [ "6", "Migraine.", "Les vapeurs libérées par vos distillations vous font souffrir. Vous subissez tan malus de -5% aux tests effectués pendant que vous préparez cette potion. y compris pour toutes les actions que vous entreprenez hors de votre laboratoire." ],
+        [ "7", "Brûlure d'acide.", "Vous êtes éclaboussé par des réactifs acides. Vous subissez un coup d'une valeur de dégâts de 3. et à moins que vous ne receviez des soins d'un guérisseur dans l'heure. vous aurez une cicatrice localisée au hasard. Bien des alchimistes et des apothicaires sont suspicieux à l'égard de ceux qui portent de telles marques." ],
+        [ "8", "Légère explosion.", "Votre laboratoire est détruit à 15% et vous subissez un coup d'une valeur de dégâts de 2." ],
+        [ "9", "Explosion", "Votre laboratoire est détruit à 25% et vous subissez un coup d'une valeur de dégâts de 4." ],
+        [ "10", "Au feu !", "Votre laboratoire prend feu. Votre équipement est détruit à 35% quand vous réussissez à éteindre l'incendie et le feu peut gagner des bâtiments proches si le 11.1 le décide. II+ Énorme explosion. Votre laboratoire est totalement détruit et vous subissez un coup d'une valeur de dégâts de 6." ]
       ]
     },
-    {"id":103,"titre":"Rencontres - Les égouts",
+    {
+      "id": 103,
+      "titre": "Rencontres - Les égouts",
       "description": "You should mark the location of these encounters on your sewer map, as they will be in the same place should the Characters return. Obviously, a methane pocket does not remain if it is ignited.",
-      "lignes":[
-        ["Collecteur","Conduit","Rencontre"],
-        ["01-05","01-10","Créature de vase"],
-        ["06-15","11-15","Chauves-souris"],
-        ["16-25","16-40","Moisissures mortelles"],
-        ["26-35","-","Rats d'égouts"],
-        ["36-40","-","Voleur"],
-        ["41-50","41-70","Poche de méthane *"],
-        ["51-80","-","Chemin dangereux *"],
-        ["81-00","71-90","Obstacle invisible *"],
-        ["-","91-00","Trou *"]
+      "lignes": [
+        [ "Collecteur", "Conduit", "Rencontre" ],
+        [ "01-05", "01-10", "Créature de vase" ],
+        [ "06-15", "11-15", "Chauves-souris" ],
+        [ "16-25", "16-40", "Moisissures mortelles" ],
+        [ "26-35", "-", "Rats d'égouts" ],
+        [ "36-40", "-", "Voleur" ],
+        [ "41-50", "41-70", "Poche de méthane *" ],
+        [ "51-80", "-", "Chemin dangereux *" ],
+        [ "81-00", "71-90", "Obstacle invisible *" ],
+        [ "-", "91-00", "Trou *" ]
       ]
     },
-    
-    {"id":666,"titre":"Colère Divine !",
+
+    {
+      "id": 666,
+      "titre": "Colère Divine !",
       "description": "Lorsqu'un personnage fait un jet sur la table, ajoutez +10 au résultat pour chacun de ses Points de Péché.\nAprès avoir considéré les conséquences, réduisez ses Points de Péché de 1, jusqu'à un minimum de 0.",
-      "styles_th":["width:80px;",""],
-      "lignes":[
-        ["Score","Conséquences"],
-        ["01-05","Saintes Visions: : Les visions de ton dieu empoisonnent tes sens. Tenter un Test de Résistance Moyenne (+20). Si vous échouez, gagnez une Condition Étourdie. Le MJ détermine ce que peuvent être les visions."],
-        ["06-10","Réfléchissez à vos actes : Tout Test de Prière réussi ne peut pas atteindre plus de +0 SL pour la semaine suivante."],
-        ["11-15","Tenez compte de mes leçons : Vous souffrez d'une pénalité de -10 à votre Habileté de Prière pour les 1d10+Points de Pêché prochains Rounds."],
-        ["16-20","Prouvez votre dévotion : Acquérir la condition de A Terre. Cette condition n'est pas supprimée tant que vous n'avez pas réussi un Test de Prière Moyen (+20)."],
-        ["21-25","Testez ma patience : Vous ne pouvez pas faire de Tests de Prière pour 1d10 Rounds."],
-        ["26-30","Vous ne comprenez pas mon intention : Vous subissez une pénalité de -10 à toute compétence associée à votre déité (telle que déterminée par le MJ) pour les 1d10+Points de Pêché heures suivantes."],
-        ["31-35","Je trouve votre manque de foi troublant : Vous ne pouvez pas faire de Tests de Prières pour 1d10+Points de Péché Rounds."],
-        ["36-40","Partagez ma douleur : Vous souffrez de blessures de 1+points de péché, ignorant le bonus d'Endurance et les PA. Tentez également un Test de Résistance Moyenne (+20). Si vous échouez, gagnez une Condition Étourdie."],
-        ["41-45","Votre cause est indigne : Vos cibles gagnent la condition A Terre. Toutes les bénédictions ou miracles de votre divinité qui les ciblent échouent automatiquement pour les prochains 1d10+points de Péché jours."],
-        ["46-50","Cessez de jacasser :  Vous ne pouvez pas faire de Tests de Prière pour les prochains 2d10+Points de Péché rounds."],
-        ["51-55","Sentez Ma Colère : Vous souffrez de 1d10+Points de péché Blessures. Tentez également un Test de Résistance Stimulent (+0). Si vous échouez, gagnez une Condition Étourdie."],
-        ["56-60","Je ne vous aiderai pas : Vous subissez une pénalité de -10 à une compétence associée à votre déité (telle que déterminée par le MJ) pour les prochains 1d10+points de péché jours ."],
-        ["61-65","Blessures divines : Gagnez 1+Points de péché Conditions de Saignement."],
-        ["66-70","Frappé de cécité : Acquérir la condition de A Terre Gagnez 1+points de péché de Condition Aveugle, qui ne peut être éliminé qu'en passant un Test de Prière Stimulent (+0), avec succès en éliminant 1 + SL Conditions Aveuglées."],
-        ["71-75","Que Sacrifierez-vous : Vous souffrez 1d10+Points de péché Blessures, ignorant le Bonus d'Endurance et les PAs. Essayez également un Test de Résistance Difficile (-10). Si vous échouez, gagnez une Condition Étourdie."],
-        ["76-80","Vous avez péché contre moi : Votre dieu est extrêmement agacé et vous force à faire des Tests de Prière en guise d'Action pour les prochains 1d10+Points Péché Rounds en pénitence."],
-        ["81-87","Purgez la chair : Vous souffrez de 2d10+Points de péché Blessures, ignorant le bonus d'Endurance et les PA. Tentez également un Test de Résistance Dur (-20). Si vous échouez, gagnez une Condition Étourdie. Si vous échouez avec -4 SL ou moins, obtenez une Condition Inconsciente qui dure un minimum de 1d10 Rounds."],
-        ["88","Interférence démoniaque : Les Dieux des Ténèbres répondent à vos supplications au lieu de votre dieux. 1d10 Petits Démons apparaissent à moins de 2d10 mètres de votre position, et attaquent les cibles les plus proches."],
-        ["89-95","Craignez ma colère : Gagnez 1+Points de péché en Conditions Brisées."],
-        ["96-100","Va faire pénitence : Tu dois faire une pénitence."],
-        ["101-105","Châtiment : Vous êtes réduit à 0 Blessures (si vous n'y êtes pas déjà) puis gagnez une Condition Inconsciente, qui ne peut pas être enlevée tant que vous n'avez pas récupéré au moins 1 Blessures."],
-        ["106-110","N'utilisez pas mon nom en Vain : Vous perdez les Talents Bénis et Invoqués pour les prochains 1d10+Points de Péché jours."],
-        ["111-115","Ne comptez pas sur vos vanités : Toutes vos Objet sont retirées, vous laissant nue. Pour chaque pénitence que vous complétez, vous avez un objet magique pris qui vous sera retourné, si vous en avez un."],
-        ["116-120","Vous abusez de ma pitié : Vous perdez les Talents d’invoquer et de Bénir pour les prochains 2d10+Jours de Points de Péché."],
-        ["121-125","Vois Ta méchanceté : Vous souffrez de visions atroces de tous vos échecs, qui semblent durer une éternité, mais qui sont terminés en un instant. Discutez avec votre MJ pour crée une psychologie personnalisée (voir page 190) qui reflète votre personnage qui vit l'expérience traumatisante."],
-        ["126-130","Éclairs et Tonnerre : Ton dieu te frappe. Vous êtes réduit à 0 Blessures (si vous n'y êtes pas déjà) et obtenez la condition de Brûlure."],
-        ["131-135","Souffrez comme je souffre : Vous gagnez 1+Points de péché chaque matin, jusqu'à ce que vous ayez fait une pénitence."],
-        ["136-140","Excommunication : Vous perdez les Talents Invoquer et Bénir jusqu'à ce que vous exécutiez 2 Pénitences ; la première Pénitence rend le Talent Bénir, et la seconde rend le Talent Invoquer. Tous les adeptes de votre dieu sont automatiquement conscients de votre situation ; tous les Tests pour interagir avec eux sont automatiquement Très Difficile (-30), et ne peuvent être modifiés positivement au-delà de cela."],
-        ["141-145","Prouvez votre valeur : Un serviteur divin de votre divinité apparaît à moins de 100 mètres et attaque, intervient, réprimande ou similaire selon la nature du dieu offensé."],
-        ["146-150","Je t'ai jeté dehors : Tu es abandonné par ton dieu. Vous perdez définitivement les Talents Bénis et Invoqués, et vous perdez toutes les Avancées de Prière. De plus, tous les adeptes de votre dieu sont automatiquement conscients de votre situation ; tous les Tests pour interagir avec eux sont automatiquement très difficiles (-30), et ne peuvent être modifiés positivement au-delà."],
-        ["151+","Appelé  à  rendre  des  comptes  :  Tu  es  convoqué  devant  ton  dieu  pour  faire  face  au  jugement  final.  A moins d'avoir un Point de Destins, vous ne revenez jamais. Si vous dépensez un Point de Destin, vous êtes renvoyé à un point choisi par le MJ, et vous subissez également les effets de Je vous chasse."]
+      "styles_th": [ "width:80px;", "" ],
+      "lignes": [
+        [ "Score", "Conséquences" ],
+        [ "01-05", "Saintes Visions: : Les visions de ton dieu empoisonnent tes sens. Tenter un Test de Résistance Moyenne (+20). Si vous échouez, gagnez une Condition Étourdie. Le MJ détermine ce que peuvent être les visions." ],
+        [ "06-10", "Réfléchissez à vos actes : Tout Test de Prière réussi ne peut pas atteindre plus de +0 SL pour la semaine suivante." ],
+        [ "11-15", "Tenez compte de mes leçons : Vous souffrez d'une pénalité de -10 à votre Habileté de Prière pour les 1d10+Points de Pêché prochains Rounds." ],
+        [ "16-20", "Prouvez votre dévotion : Acquérir la condition de A Terre. Cette condition n'est pas supprimée tant que vous n'avez pas réussi un Test de Prière Moyen (+20)." ],
+        [ "21-25", "Testez ma patience : Vous ne pouvez pas faire de Tests de Prière pour 1d10 Rounds." ],
+        [ "26-30", "Vous ne comprenez pas mon intention : Vous subissez une pénalité de -10 à toute compétence associée à votre déité (telle que déterminée par le MJ) pour les 1d10+Points de Pêché heures suivantes." ],
+        [ "31-35", "Je trouve votre manque de foi troublant : Vous ne pouvez pas faire de Tests de Prières pour 1d10+Points de Péché Rounds." ],
+        [ "36-40", "Partagez ma douleur : Vous souffrez de blessures de 1+points de péché, ignorant le bonus d'Endurance et les PA. Tentez également un Test de Résistance Moyenne (+20). Si vous échouez, gagnez une Condition Étourdie." ],
+        [ "41-45", "Votre cause est indigne : Vos cibles gagnent la condition A Terre. Toutes les bénédictions ou miracles de votre divinité qui les ciblent échouent automatiquement pour les prochains 1d10+points de Péché jours." ],
+        [ "46-50", "Cessez de jacasser :  Vous ne pouvez pas faire de Tests de Prière pour les prochains 2d10+Points de Péché rounds." ],
+        [ "51-55", "Sentez Ma Colère : Vous souffrez de 1d10+Points de péché Blessures. Tentez également un Test de Résistance Stimulent (+0). Si vous échouez, gagnez une Condition Étourdie." ],
+        [ "56-60", "Je ne vous aiderai pas : Vous subissez une pénalité de -10 à une compétence associée à votre déité (telle que déterminée par le MJ) pour les prochains 1d10+points de péché jours ." ],
+        [ "61-65", "Blessures divines : Gagnez 1+Points de péché Conditions de Saignement." ],
+        [ "66-70", "Frappé de cécité : Acquérir la condition de A Terre Gagnez 1+points de péché de Condition Aveugle, qui ne peut être éliminé qu'en passant un Test de Prière Stimulent (+0), avec succès en éliminant 1 + SL Conditions Aveuglées." ],
+        [ "71-75", "Que Sacrifierez-vous : Vous souffrez 1d10+Points de péché Blessures, ignorant le Bonus d'Endurance et les PAs. Essayez également un Test de Résistance Difficile (-10). Si vous échouez, gagnez une Condition Étourdie." ],
+        [ "76-80", "Vous avez péché contre moi : Votre dieu est extrêmement agacé et vous force à faire des Tests de Prière en guise d'Action pour les prochains 1d10+Points Péché Rounds en pénitence." ],
+        [ "81-87", "Purgez la chair : Vous souffrez de 2d10+Points de péché Blessures, ignorant le bonus d'Endurance et les PA. Tentez également un Test de Résistance Dur (-20). Si vous échouez, gagnez une Condition Étourdie. Si vous échouez avec -4 SL ou moins, obtenez une Condition Inconsciente qui dure un minimum de 1d10 Rounds." ],
+        [ "88", "Interférence démoniaque : Les Dieux des Ténèbres répondent à vos supplications au lieu de votre dieux. 1d10 Petits Démons apparaissent à moins de 2d10 mètres de votre position, et attaquent les cibles les plus proches." ],
+        [ "89-95", "Craignez ma colère : Gagnez 1+Points de péché en Conditions Brisées." ],
+        [ "96-100", "Va faire pénitence : Tu dois faire une pénitence." ],
+        [ "101-105", "Châtiment : Vous êtes réduit à 0 Blessures (si vous n'y êtes pas déjà) puis gagnez une Condition Inconsciente, qui ne peut pas être enlevée tant que vous n'avez pas récupéré au moins 1 Blessures." ],
+        [ "106-110", "N'utilisez pas mon nom en Vain : Vous perdez les Talents Bénis et Invoqués pour les prochains 1d10+Points de Péché jours." ],
+        [ "111-115", "Ne comptez pas sur vos vanités : Toutes vos Objet sont retirées, vous laissant nue. Pour chaque pénitence que vous complétez, vous avez un objet magique pris qui vous sera retourné, si vous en avez un." ],
+        [ "116-120", "Vous abusez de ma pitié : Vous perdez les Talents d’invoquer et de Bénir pour les prochains 2d10+Jours de Points de Péché." ],
+        [ "121-125", "Vois Ta méchanceté : Vous souffrez de visions atroces de tous vos échecs, qui semblent durer une éternité, mais qui sont terminés en un instant. Discutez avec votre MJ pour crée une psychologie personnalisée (voir page 190) qui reflète votre personnage qui vit l'expérience traumatisante." ],
+        [ "126-130", "Éclairs et Tonnerre : Ton dieu te frappe. Vous êtes réduit à 0 Blessures (si vous n'y êtes pas déjà) et obtenez la condition de Brûlure." ],
+        [ "131-135", "Souffrez comme je souffre : Vous gagnez 1+Points de péché chaque matin, jusqu'à ce que vous ayez fait une pénitence." ],
+        [ "136-140", "Excommunication : Vous perdez les Talents Invoquer et Bénir jusqu'à ce que vous exécutiez 2 Pénitences ; la première Pénitence rend le Talent Bénir, et la seconde rend le Talent Invoquer. Tous les adeptes de votre dieu sont automatiquement conscients de votre situation ; tous les Tests pour interagir avec eux sont automatiquement Très Difficile (-30), et ne peuvent être modifiés positivement au-delà de cela." ],
+        [ "141-145", "Prouvez votre valeur : Un serviteur divin de votre divinité apparaît à moins de 100 mètres et attaque, intervient, réprimande ou similaire selon la nature du dieu offensé." ],
+        [ "146-150", "Je t'ai jeté dehors : Tu es abandonné par ton dieu. Vous perdez définitivement les Talents Bénis et Invoqués, et vous perdez toutes les Avancées de Prière. De plus, tous les adeptes de votre dieu sont automatiquement conscients de votre situation ; tous les Tests pour interagir avec eux sont automatiquement très difficiles (-30), et ne peuvent être modifiés positivement au-delà." ],
+        [ "151+", "Appelé  à  rendre  des  comptes  :  Tu  es  convoqué  devant  ton  dieu  pour  faire  face  au  jugement  final.  A moins d'avoir un Point de Destins, vous ne revenez jamais. Si vous dépensez un Point de Destin, vous êtes renvoyé à un point choisi par le MJ, et vous subissez également les effets de Je vous chasse." ]
       ]
     },
-    {"id":667,"titre":"Table des Echos Mineurs du Chaos",
+    {
+      "id": 667,
+      "titre": "Table des Echos Mineurs du Chaos",
       "description": "",
-      "styles_th":["width:55px;",""],
-      "lignes":[
-        ["Score","Conséquences"],
-        ["01-05","Signe de la sorcière : la prochaine créature vivante née dans un rayon d'un kilomètre est mutée."],
-        ["06-10","Lait aigre : Tout le lait dans un rayon de 1d100 mètres devient aigre instantanément."],
-        ["11-15","Brûlure : Les champs à vole d'oiseaux égale a votre bonus de Force Mental en kilomètres souffrent d'un fléau, et toutes les cultures pourrissent pendant la nuit."],
-        ["16-20","De la cire d'âme : Vos oreilles se bouchent instantanément avec une cire épaisse. Gagnez 1 état de surdité, qui n'est pas enlevé jusqu'à ce que quelqu'un les nettoie pour vous (avec une utilisation réussie de la compétence Soins)."],
-        ["21-25","Lumière de sorcière : Vous brillez d'une lumière étrange liée à vos Connaissances, émettant autant de lumière qu'un grand feu de joie, qui dure 1d10 Rounds."],
-        ["26-30","Les murmures de la chute : Passez un Test de Force Mental de Routine (+20) ou gagnez 1 Point de Corruption."],
-        ["31-35","Déchirures : Votre nez, vos yeux et vos oreilles saignent abondamment. Gagner 1d10 Conditions de saignement."],
-        ["36-40","Tremblement de terre de l'âme : Gagnez la condition A Terre."],
-        ["41-45","Détaché : Sur votre personne, chaque boucle se détache et chaque lacet se détache, ce qui peut faire tomber les ceintures, ouvrir les poches, faire tomber les sacs et faire glisser les armures."],
-        ["46-50","Habit Rebelle : vos vêtements semblent se tordre avec leur propre intelligence. Recevez 1 Condition enchevêtrée avec une Force de 1d10×5 pour résister."],
-        ["51-55","Malédiction de la sobriété : Tout l'alcool dans un rayon de 1d100 mètres se dégrade, avec un goût amer et désagréable."],
-        ["56-60","Drainage de l'âme : Gagner 1 Condition Fatiguée, qui reste pendant 1d10 heures."],
-        ["61-65","Conduit à la distraction : Si vous êtes engagé dans un combat, obtenez la condition Surpris. Par ailleurs, vous êtes complètement effrayé, votre cœur s'emballe et vous êtes incapable de vous concentrer pendant quelques instants."],
-        ["66-70","Visions impie : Des visions fugaces d'actes profanes et impurs vous harcèlent. Recevez un état d'aveuglement ; passez un test de calme stimulant (+0) ou gagnez-en un autre."],
-        ["71-75","Langue Mielleuse : Tous les tests de langue (y compris les tests de d'Incantation) subissent une pénalité de -10 pour 1d10 Rounds."],
-        ["76-80","L’Horreur ! Réussir un test de calme dur (-20) ou gagner 1 état brisé."],
-        ["81-85","Malédiction de la corruption : Gagnez 1 point de corruption."],
-        ["86-90","Double Problèmes : L'effet du sort que vous avez lancé se produit ailleurs dans un rayon de 1d10 km. A la discrétion du MJ, dans la mesure du possible, cela devrait avoir des conséquences."],
-        ["91-95","Multiplier les malheurs : Lancez deux fois sur cette table, en relançant tous les résultats entre 91-00."],
-        ["96-00","Chaos en cascade : Lancez à nouveau le dé sur la Table des Echos Majeures."]
+      "styles_th": [ "width:55px;", "" ],
+      "lignes": [
+        [ "Score", "Conséquences" ],
+        [ "01-05", "Signe de la sorcière : la prochaine créature vivante née dans un rayon d'un kilomètre est mutée." ],
+        [ "06-10", "Lait aigre : Tout le lait dans un rayon de 1d100 mètres devient aigre instantanément." ],
+        [ "11-15", "Brûlure : Les champs à vole d'oiseaux égale a votre bonus de Force Mental en kilomètres souffrent d'un fléau, et toutes les cultures pourrissent pendant la nuit." ],
+        [ "16-20", "De la cire d'âme : Vos oreilles se bouchent instantanément avec une cire épaisse. Gagnez 1 état de surdité, qui n'est pas enlevé jusqu'à ce que quelqu'un les nettoie pour vous (avec une utilisation réussie de la compétence Soins)." ],
+        [ "21-25", "Lumière de sorcière : Vous brillez d'une lumière étrange liée à vos Connaissances, émettant autant de lumière qu'un grand feu de joie, qui dure 1d10 Rounds." ],
+        [ "26-30", "Les murmures de la chute : Passez un Test de Force Mental de Routine (+20) ou gagnez 1 Point de Corruption." ],
+        [ "31-35", "Déchirures : Votre nez, vos yeux et vos oreilles saignent abondamment. Gagner 1d10 Conditions de saignement." ],
+        [ "36-40", "Tremblement de terre de l'âme : Gagnez la condition A Terre." ],
+        [ "41-45", "Détaché : Sur votre personne, chaque boucle se détache et chaque lacet se détache, ce qui peut faire tomber les ceintures, ouvrir les poches, faire tomber les sacs et faire glisser les armures." ],
+        [ "46-50", "Habit Rebelle : vos vêtements semblent se tordre avec leur propre intelligence. Recevez 1 Condition enchevêtrée avec une Force de 1d10×5 pour résister." ],
+        [ "51-55", "Malédiction de la sobriété : Tout l'alcool dans un rayon de 1d100 mètres se dégrade, avec un goût amer et désagréable." ],
+        [ "56-60", "Drainage de l'âme : Gagner 1 Condition Fatiguée, qui reste pendant 1d10 heures." ],
+        [ "61-65", "Conduit à la distraction : Si vous êtes engagé dans un combat, obtenez la condition Surpris. Par ailleurs, vous êtes complètement effrayé, votre cœur s'emballe et vous êtes incapable de vous concentrer pendant quelques instants." ],
+        [ "66-70", "Visions impie : Des visions fugaces d'actes profanes et impurs vous harcèlent. Recevez un état d'aveuglement ; passez un test de calme stimulant (+0) ou gagnez-en un autre." ],
+        [ "71-75", "Langue Mielleuse : Tous les tests de langue (y compris les tests de d'Incantation) subissent une pénalité de -10 pour 1d10 Rounds." ],
+        [ "76-80", "L’Horreur ! Réussir un test de calme dur (-20) ou gagner 1 état brisé." ],
+        [ "81-85", "Malédiction de la corruption : Gagnez 1 point de corruption." ],
+        [ "86-90", "Double Problèmes : L'effet du sort que vous avez lancé se produit ailleurs dans un rayon de 1d10 km. A la discrétion du MJ, dans la mesure du possible, cela devrait avoir des conséquences." ],
+        [ "91-95", "Multiplier les malheurs : Lancez deux fois sur cette table, en relançant tous les résultats entre 91-00." ],
+        [ "96-00", "Chaos en cascade : Lancez à nouveau le dé sur la Table des Echos Majeures." ]
       ]
     },
-    {"id":668,"titre":"Table des Echos Majeurs du Chaos",
+    {
+      "id": 668,
+      "titre": "Table des Echos Majeurs du Chaos",
       "description": "",
-      "styles_th":["width:55px;",""],
-      "lignes":[
-        ["Score","Conséquences"],
-        ["01-05","Voix Fantomatiques: Tout le monde dans les Force Mentale Mètres entend un murmure sombre et séduisant de voix émanant du \nRoyaume du Chaos. Toutes les créatures sensibles doivent réussir un Test de Calme Modéré (+20) ou gagner 1 point de Corruption."],
-        ["06-10","Hexeyes: Vos yeux prennent une couleur non naturelle associée à vos Traditions pendant 1d10 heures. Bien que \nvos yeux soient décolorés, vous avez un problème de cécité qui ne peut être résolu par aucun moyen."],
-        ["11-15","Choc Aéthyrique: vous subissez 1d10 blessures, ignorant votre Bonus de D’endurance et vos Points de \nProtection. Réussir un test de résistance moyenne (+20), ou également obtenir une Condition Étourdie."],
-        ["16-20","Marcheur de la mort: Vos pas laissent la mort dans leur sillage. Pour les prochaines 1d10 heures, toute vie \nvégétale près de vous mourront."],
-        ["21-25","Rébellion intestinale: Vos intestins bougent de façon incontrôlable et vous vous salissez. Gagnez une Condition \nFatiguée, qui ne peut pas être enlevée jusqu'à ce que vous puissiez changer vos vêtements et vous nettoyer."],
-        ["26-30","La flamme de l'âme: Obtenez une Condition Enflammée, alors que vous êtes enveloppé de flammes \nimpie avec une couleur associée à vos Traditions."],
-        ["31-35","Parlez en Langues : Vous bavardez inintelligiblement pendant 1d10 rounds. Pendant ce temps, vous ne \npouvez pas communiquer verbalement, ni lancer de sort, bien que vous puissiez agir normalement."],
-        ["36-40","Plein de monde: Vous êtes engagé par un essaim de rats aéthyriques, d'araignées géantes, de serpents, ou \nsimilaires (au choix du MJ). Utilisez les profils standard pour le type de créature concerné, en ajoutant le Trait de \nCréature de l'essaim. Après 1d10 rounds, si elle n'est pas encore détruite, l'essaim bat en retraite."],
-        ["41-45","Poupée de chiffon: Vous êtes projeté à 1d10 mètres dans les airs dans une direction aléatoire, perdant 1d10 blessures à l'atterrissage, ignorer les points de protection, et recevez la Condition A Terre."],
-        ["46-50","Membre congelé: Un membre (déterminé au hasard) est congelé sur place pendant 1d10 heures. Le membre est \ninutile, comme s'il avait été amputé (voir page 180)."],
-        ["51-55","Ombre à paupières : Vous perdez le bénéfice du Talent de la Seconde Vue pendant 1d10 heures. Les tests de \nCanalisation subissent également une pénalité de -20 pour la durée."],
-        ["56-60","Prospective chaotique : Gagnez un bonus de 1d10 points Fortune (cela peut vous amener au-delà de votre limite \nnaturelle). Chaque fois que vous dépensez un de ces points, gagnez 1 point de corruption. Tous les points restants \nà la fin de la session sont perdus."],
-        ["61-65","Lévitation : Vous êtes porté dans les airs sur les vents de la magie, flottant à 1d10 mètres au-dessus du sol pendant \n1d10 Minutes. D'autres personnages peuvent vous déplacer de force, et vous pouvez vous déplacer en utilisant des \nsorts, des ailes ou similaires, mais continueront à revenir à votre position de lévitation si vous ne le faites rien. \nReportez-vous aux règles de chute (voir page 166) pour savoir ce qui se passe lorsque la lévitation prend fin."],
-        ["66-70","Régurgitation : Vous vomissez de façon incontrôlable, vomissant beaucoup plus de vomissures nauséabondes \nque votre corps ne peut en contenir. Obtenez la Condition Étourdie, qui dure 1d10 Rounds."],
-        ["71-75","Tremblement de terre du chaos : Toutes les créatures dans un rayon de 1d100 mètres doivent réussir un Test \nAthlétisme moyen (+20) ou obtenir la Condition A Terre"],
-        ["76-80","Cœur de traître : Les Dieux Noirs vous incitent à commettre d'horribles perfidies. Si vous attaquez ou \ntrahissez un allié dans toute la mesure de vos capacités, regagnez tous vos points de Fortune. Si vous faites \nperdre un Point de Destin à un autre personnage, gagnez +1 Point de Destin."],
-        ["81-85","Mauvaise répression : Gagnez 1 point de Corruption, la Condition A Terre, et une Condition Fatiguée"],
-        ["86-90","Puanteur de l'enfer : Tu sens vraiment mauvais maintenant ! Vous gagnez le Trait de Créature Distrayant (voir \npage 339), et probablement l'inimitié de toute personne ayant un sens de l'odorat. Cela dure 1d10 heures."],
-        ["91-95","Drainage de Puissance : Vous ne pouvez pas utiliser le Talent utilisé pour lancer le sort (en général Magie des \narcanes, bien qu'il puisse être la Magie du chaos, ou un Talent similaire), pendant 1d10 minutes."],
-        ["96-00","Rétroaction aéthyrique : Tous ceux qui se trouvent à moins d'un mètre de votre Bonus de FM (amis et ennemis) subissent 1d10 blessures, ignorant le Bonus d'Endurance et les Points de Protection, et reçoivent la Condition A Terre. S'il n'y a pas de cibles à portée, la magie n'ayant nulle part où s'échapper, votre tête explose, vous tuant instantanément."]
+      "styles_th": [ "width:55px;", "" ],
+      "lignes": [
+        [ "Score", "Conséquences" ],
+        [ "01-05", "Voix Fantomatiques: Tout le monde dans les Force Mentale Mètres entend un murmure sombre et séduisant de voix émanant du \nRoyaume du Chaos. Toutes les créatures sensibles doivent réussir un Test de Calme Modéré (+20) ou gagner 1 point de Corruption." ],
+        [ "06-10", "Hexeyes: Vos yeux prennent une couleur non naturelle associée à vos Traditions pendant 1d10 heures. Bien que \nvos yeux soient décolorés, vous avez un problème de cécité qui ne peut être résolu par aucun moyen." ],
+        [ "11-15", "Choc Aéthyrique: vous subissez 1d10 blessures, ignorant votre Bonus de D’endurance et vos Points de \nProtection. Réussir un test de résistance moyenne (+20), ou également obtenir une Condition Étourdie." ],
+        [ "16-20", "Marcheur de la mort: Vos pas laissent la mort dans leur sillage. Pour les prochaines 1d10 heures, toute vie \nvégétale près de vous mourront." ],
+        [ "21-25", "Rébellion intestinale: Vos intestins bougent de façon incontrôlable et vous vous salissez. Gagnez une Condition \nFatiguée, qui ne peut pas être enlevée jusqu'à ce que vous puissiez changer vos vêtements et vous nettoyer." ],
+        [ "26-30", "La flamme de l'âme: Obtenez une Condition Enflammée, alors que vous êtes enveloppé de flammes \nimpie avec une couleur associée à vos Traditions." ],
+        [ "31-35", "Parlez en Langues : Vous bavardez inintelligiblement pendant 1d10 rounds. Pendant ce temps, vous ne \npouvez pas communiquer verbalement, ni lancer de sort, bien que vous puissiez agir normalement." ],
+        [ "36-40", "Plein de monde: Vous êtes engagé par un essaim de rats aéthyriques, d'araignées géantes, de serpents, ou \nsimilaires (au choix du MJ). Utilisez les profils standard pour le type de créature concerné, en ajoutant le Trait de \nCréature de l'essaim. Après 1d10 rounds, si elle n'est pas encore détruite, l'essaim bat en retraite." ],
+        [ "41-45", "Poupée de chiffon: Vous êtes projeté à 1d10 mètres dans les airs dans une direction aléatoire, perdant 1d10 blessures à l'atterrissage, ignorer les points de protection, et recevez la Condition A Terre." ],
+        [ "46-50", "Membre congelé: Un membre (déterminé au hasard) est congelé sur place pendant 1d10 heures. Le membre est \ninutile, comme s'il avait été amputé (voir page 180)." ],
+        [ "51-55", "Ombre à paupières : Vous perdez le bénéfice du Talent de la Seconde Vue pendant 1d10 heures. Les tests de \nCanalisation subissent également une pénalité de -20 pour la durée." ],
+        [ "56-60", "Prospective chaotique : Gagnez un bonus de 1d10 points Fortune (cela peut vous amener au-delà de votre limite \nnaturelle). Chaque fois que vous dépensez un de ces points, gagnez 1 point de corruption. Tous les points restants \nà la fin de la session sont perdus." ],
+        [ "61-65", "Lévitation : Vous êtes porté dans les airs sur les vents de la magie, flottant à 1d10 mètres au-dessus du sol pendant \n1d10 Minutes. D'autres personnages peuvent vous déplacer de force, et vous pouvez vous déplacer en utilisant des \nsorts, des ailes ou similaires, mais continueront à revenir à votre position de lévitation si vous ne le faites rien. \nReportez-vous aux règles de chute (voir page 166) pour savoir ce qui se passe lorsque la lévitation prend fin." ],
+        [ "66-70", "Régurgitation : Vous vomissez de façon incontrôlable, vomissant beaucoup plus de vomissures nauséabondes \nque votre corps ne peut en contenir. Obtenez la Condition Étourdie, qui dure 1d10 Rounds." ],
+        [ "71-75", "Tremblement de terre du chaos : Toutes les créatures dans un rayon de 1d100 mètres doivent réussir un Test \nAthlétisme moyen (+20) ou obtenir la Condition A Terre" ],
+        [ "76-80", "Cœur de traître : Les Dieux Noirs vous incitent à commettre d'horribles perfidies. Si vous attaquez ou \ntrahissez un allié dans toute la mesure de vos capacités, regagnez tous vos points de Fortune. Si vous faites \nperdre un Point de Destin à un autre personnage, gagnez +1 Point de Destin." ],
+        [ "81-85", "Mauvaise répression : Gagnez 1 point de Corruption, la Condition A Terre, et une Condition Fatiguée" ],
+        [ "86-90", "Puanteur de l'enfer : Tu sens vraiment mauvais maintenant ! Vous gagnez le Trait de Créature Distrayant (voir \npage 339), et probablement l'inimitié de toute personne ayant un sens de l'odorat. Cela dure 1d10 heures." ],
+        [ "91-95", "Drainage de Puissance : Vous ne pouvez pas utiliser le Talent utilisé pour lancer le sort (en général Magie des \narcanes, bien qu'il puisse être la Magie du chaos, ou un Talent similaire), pendant 1d10 minutes." ],
+        [ "96-00", "Rétroaction aéthyrique : Tous ceux qui se trouvent à moins d'un mètre de votre Bonus de FM (amis et ennemis) subissent 1d10 blessures, ignorant le Bonus d'Endurance et les Points de Protection, et reçoivent la Condition A Terre. S'il n'y a pas de cibles à portée, la magie n'ayant nulle part où s'échapper, votre tête explose, vous tuant instantanément." ]
       ]
     }
   ]
