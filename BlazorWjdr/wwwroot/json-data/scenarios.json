@@ -1,6 +1,11 @@
 ﻿{
   "scenarios": [
   {
+    "nom": "La caverne de cristal","duree": "Moyenne","lieuxtypes": [13,48],"note": 4,"difficulte": "Facile","source":"Casus Belli 58 - Marc Deladerrière",
+    "styles": ["Voyage"],
+    "resume": "Dirigiste. Pris dans une tempête de neige, les aventuriers s'égarent en forêt et sont secourus par des elfes de la maison d'Elrond. Remis sur pieds, il leur est proposé de servir de messagers pour Galadriel (rien que ça...). Lors du passage d'un col, ils découvrent une caverne dans laquelle une elfe barde est prisonnière. Demande un travail d'adaptation pour un autre univers que tolkien."
+  },
+  {
     "nom": "Oiseau de proie, oiseau de haine","duree": "Long","lieux": [117],"source":"Casus Belli 71 - Pierre Lejoyeux & Patrick Leclercq",
     "styles": ["Piraterie"]
   },

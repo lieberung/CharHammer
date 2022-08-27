@@ -46,7 +46,8 @@
     {"id":44,"parentid":1,"libelle":"Hôtel de ville"},
     {"id":45,"parentid":1,"libelle":"Château"},
     {"id":46,"parentid":1,"libelle":"Temple"},
-    {"id":47,"parentid":1,"libelle":"Oratoire"}
+    {"id":47,"parentid":1,"libelle":"Oratoire"},
+    {"id":48,"parentid":27,"libelle":"Col"}
   ],
   "items":[
     {"id":3,"type":2,"parent":1,"nom":"Le Pays-Perdu","description":""},
