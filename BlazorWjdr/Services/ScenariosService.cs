@@ -17,7 +17,7 @@ namespace BlazorWjdr.Services
         {
             filtre = GenericService.NettoyerPourRecherche(filtre);
             return _scenarios.Where(s =>
-                (s.Note is 0 or > 2 || pasDeDaubes == false) && (filtre == "" || GenericService.NettoyerPourRecherche(s.Nom).Contains(filtre)));
+                (s.Note is 0 or > 2 || pasDeDaubes == false) && (filtre == "" || GenericService.NettoyerPourRecherche(s.Nom).Contains(filtre) || GenericService.NettoyerPourRecherche(s.Source).Contains(filtre)));
         }
         public IEnumerable<ScenarioDto> AllScenarios(LieuDto[] lieux, LieuTypeDto[] typesDeLieux)
         {
