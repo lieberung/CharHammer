@@ -42,7 +42,18 @@
                 <LieuItemList Items="@Item.Lieux"/>
             }
         </td>
-        <td>@Item.Source</td>
+        <td>
+            @if (Item.Source != "" && Item.Auteurs.Any()) {
+                @(Item.Source + " ~ " + string.Join(", ", Item.Auteurs))
+            } else {
+                if (Item.Source != "") {
+                    @Item.Source
+                }
+                if (Item.Auteurs.Any()) {
+                    @string.Join(", ", Item.Auteurs)
+                }
+            }            
+        </td>
     }
 </tr>
 @if (AfficherFiche)
@@ -70,8 +81,13 @@
                     }
                     if (Item.Source != "")
                     {
-                        <span class="insister">Durée :&nbsp;</span>@Item.Source
+                        <span class="insister">Source :&nbsp;</span>@Item.Source
                         <br/>
+                    }
+                    if (Item.Auteurs.Any())
+                    {
+                        <span class="insister">Auteurs :&nbsp;</span>@string.Join(", ", Item.Auteurs)
+                        <br />
                     }
                     @if (Item.LieuxTypes.Any())
                     {

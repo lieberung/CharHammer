@@ -88,6 +88,7 @@ namespace BlazorWjdr
                 Note = s.note,
                 Resume = s.resume ?? "",
                 Source = s.source ?? "",
+                Auteurs = s.auteurs ?? Array.Empty<string>(),
                 Styles = s.styles ?? Array.Empty<string>(),
                 DejaJoue = s.deja_joue ?? ""
             }).ToArray();

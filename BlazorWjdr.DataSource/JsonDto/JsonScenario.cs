@@ -11,6 +11,7 @@ namespace BlazorWjdr.DataSource.JsonDto
         public string? duree { get; set; }
         public string? deja_joue { get; set; }
         public string? resume { get; set; }
+        public string[]? auteurs { get; set; }
         public string[]? styles { get; set; }
         public int[]? lieux { get; set; }
         public string? source { get; set; }
