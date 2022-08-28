@@ -1,16 +1,28 @@
 ﻿{
   "scenarios": [
-    {
-      "nom": "Deux bêtes pour le prix d'une","note": 4,"duree": "Long","source":"Casus Bell- Encyclopédie Méd.Fan. vol. 2",
-      "styles": ["Chasse au monstre","Enquête","Magie","Malédiction"]
-    },
+  {
+    "nom":"La caverne de cristal", "duree":"Moyenne", "lieuxtypes":[13,48],"note":4, "difficulte":"Facile", "source":"Casus Belli 58", "auteurs":["Marc Deladerrière"],
+    "styles": ["Voyage"],
+    "resume": "Dirigiste. Pris dans une tempête de neige, les aventuriers s'égarent en forêt et sont secourus par des elfes de la maison d'Elrond. Remis sur pieds, il leur est proposé de servir de messagers pour Galadriel (rien que ça...). Lors du passage d'un col, ils découvrent une caverne dans laquelle une elfe barde est prisonnière. Demande un travail d'adaptation pour un autre univers que tolkien."
+  },
+  {
+    "nom": "Oiseau de proie, oiseau de haine","duree": "Long","lieux": [117],"source":"Casus Belli #71", "auteurs":["Pierre Lejoyeux","Patrick Leclercq"],
+    "styles": ["Piraterie"]
+  },
+  {
+    "nom": "La Morr dans l'âme","duree": "Long","lieux": [21],"source":"Casus Belli #121", "auteurs":["Serge Olivier"]
+  },
+  {
+    "nom": "Deux bêtes pour le prix d'une","note": 4,"duree": "Long","source":"Casus Belli HS 17 - Encyclopédie Méd.Fan. vol. 2", "auteurs":["Tristan Lhomme"],
+    "styles": ["Chasse au monstre","Enquête","Magie","Malédiction"]
+  },
   {
     "nom": "Un, deux, trois, allons au bois","note": 3,"duree": "Court","lieuxtypes": [13],
     "deja_joue": "x",
     "resume": "Ballade en forêt instructive avec des gosses"
   },
   {
-    "nom": "A la recherche du poignard de lune (L'âge de glace 1)","note": 2,"lieux": [98],"source": "Kundïn",
+    "nom": "A la recherche du poignard de lune (L'âge de glace 1)","note": 2,"lieux": [98], "auteurs":["Kundïn"],
     "resume": "« Livre dont vous êtes le héro » like, quelques bonnes idées, se termine sur un changement climatique majeur donc délicat..."
   },
   {
@@ -19,23 +31,23 @@
     "resume": "Bon scénar difficile"
   },
   {
-    "nom": "Anatomie","note": 4,"lieux": [98],"source": "Encyclopedia - Emmanuel Granier",
+    "nom": "Anatomie","note": 4,"lieux": [98],"source": "Encyclopedia", "auteurs":["Emmanuel Granier"],
     "styles": ["Enquête"],
     "resume": "Enquête sur des trafiquants de cadavres commanditée par le temple de Morr et qui mettra à l'épreuve l'alignement des PJ. Il peut-être interressant d'y ajouter le docteur de « Y a-t-il un docteur dans la maison » du « Premier compagnon »"
   },
   {
-    "nom": "Beau voyage, pas cher le billet","note": 4,"lieux": [120],"source": "Backstab - CROC",
+    "nom": "Beau voyage, pas cher le billet","note": 4,"lieux": [120],"source": "Backstab #3", "auteurs":["CROC"],
     "styles": ["Enquête","Action","Evènements fixes"],
     "resume": "Libertée et nombreuses issues"
   },
   {
-    "nom": "Brouillard en mer des griffes","source": "Kundïn"
+    "nom": "Brouillard en mer des griffes","auteurs":["Kundïn"]
   },
   {
-    "nom": "D'or et de Sang","note": 4,"lieux": [139],"source": "Kundïn"
+    "nom": "D'or et de Sang","note": 4,"lieux": [139],"auteurs":["Kundïn"]
   },
   {
-    "nom": "Dans les griffes d'Hashut","note": 4,"duree": "Variable","source": "Kundïn",
+    "nom": "Dans les griffes d'Hashut","note": 4,"duree": "Variable","auteurs":["Kundïn"],
     "styles": ["Mission évasion"],
     "resume": "Très risqué, perte de matos, devenir esclave des nains du Chaos et en réchaper."
   },
@@ -45,11 +57,11 @@
     "resume": "Pas lu mais le synopsis et le style sont excellents"
   },
   {
-    "nom": "Des bébés, en veux-tu en voilà","source": "Casus Belli",
+    "nom": "Des bébés, en veux-tu en voilà","source":"Casus Belli #69","auteurs":["Tristan Lhomme"],
     "deja_joue": "Déjà joué ?"
   },
   {
-    "nom": "Deux rêves pour Manon","source": "Kundïn"
+    "nom": "Deux rêves pour Manon","auteurs":["Kundïn"]
   },
   {
     "nom": "Elfe artiste et pièces factices","note": 3,"duree": "Moyenne","lieux": [121],
@@ -57,12 +69,12 @@
     "resume": "Pas trop dur, l'occasion d'être présenté à un graf"
   },
   {
-    "nom": "En terrain découvert","note": 5,"lieux": [98],"source": "Mario Heimburger",
+    "nom": "En terrain découvert","note": 5,"lieux": [98],"auteurs":["Mario Heimburger"],
     "styles": ["Enquête 75%","Action 25%"],
     "resume": "Introduit le rotzball, idéal pour débutants, très bonne moralité"
   },
   {
-    "nom": "Filouteries en sous-sol","note": 4,"lieux": [99],"source": "Pitche",
+    "nom": "Filouteries en sous-sol","note": 4,"lieux": [99],"auteurs":["Pitche"],
     "styles": ["Enquête","Action"],
     "resume": "Enquête sur des trafiquants de lingots de fer (sous la couverture des métiers d'égoutiers et de passeurs)"
   },
@@ -85,7 +97,7 @@
     "styles": ["Voyage","Ambiance"]
   },
   {
-    "nom": "Kazidon, diplomate","note": 4,"duree": "Long, 3 actes","lieux": [99],"source": "Groule",
+    "nom": "Kazidon, diplomate","note": 4,"duree": "Long, 3 actes","lieux": [99],"auteurs":["Groule"],
     "styles":["Enquête","Action","Diplomatie"],
     "resume": "Beaucoup de possibilités (acquisition d'une auberge, contacts), demande un peu de préparation. Se passe à Altorf, une ville plus petite serait préférable."
   },
@@ -95,9 +107,12 @@
     "resume": "Incomplet ? Basé sur une nouvelle ? On ne comprend pas tout mais de bonnes idées."
   },
   {
-    "nom": "L’écu de Baine","source": "Casus Belli",
+    "nom": "L’écu de Baine","source": "Casus Belli #106","auteurs":["Julien Blondel"],
     "resume": "D&D",
     "deja_joue": "Joué en Simulacres"
+  },
+  {
+    "nom": "Courroux divin","source": "Casus Belli #119","auteurs":["Xavier Langlet"]
   },
   {
     "nom": "L'épée oubliée","note": 3,"duree": "Moyenne",
@@ -110,7 +125,7 @@
     "resume": "Classique, étoffable, pour Klanyss et Grounch"
   },
   {
-    "nom": "La Fleur de Sang","note": 4,"difficulte": "Scénario d'introduction","duree": "Court (4-5h)","lieux":[98],"lieuxtypes": [22],"source": "Pierrick GARRY",
+    "nom": "La Fleur de Sang","note": 4,"difficulte": "Scénario d'introduction","duree": "Court (4-5h)","lieux":[98],"lieuxtypes": [22],"auteurs":["Pierrick GARRY"],
     "deja_joue": "2021-10-30 (4h30) Hélène, Stella, Vincent, Jonathan",
     "lien": "scenarios/la-fleur-de-sang/",
     "styles":["Enquête","Action"],
@@ -122,7 +137,7 @@
     "resume": "Adaptable à la Bretonnie avec des Herimaults"
   },
   {
-    "nom": "La guerre de la bière","note": 3,"duree": "Court","deja_joue": "Oui","source": "Casus Belli - Xavier Langlet",
+    "nom": "La guerre de la bière","note": 3,"duree": "Court","lieuxtypes": [28],"deja_joue": "Oui","source": "Casus Belli #117","auteurs":["Xavier Langlet"],
     "styles":["Enquête facile","Action"],
     "resume": "Les PJ doivent démanteler un trafic de bière avec des orques menés par un gobelin-vampire. Route commerciale entre Altdorf et Middenheim"
   },
@@ -132,7 +147,7 @@
     "resume": "Sympa, peu de moments de répit. Le long du Reik"
   },
   {
-    "nom": "La Reine Louve (JRTM)","note": 4,"duree": "Moyenne","lieux": [5],"source": "Helkus",
+    "nom": "La Reine Louve (JRTM)","note": 4,"duree": "Moyenne","lieux": [5],"auteurs":["Helkus"],
     "styles": ["Voyage","Ambiance","Missions"],
     "resume": "Un peu d'action, un peu de développement possible, bon scénar. Adaptable au Kislev"
   },
@@ -143,7 +158,7 @@
     "lieux": [20]
   },
   {
-    "nom": "Le baiser volé","note": 4,"duree": "Très court","source": "Encyclopaedia - Emmanuel Granier",
+    "nom": "Le baiser volé","note": 4,"duree": "Très court","source": "Encyclopaedia","auteurs":["Emmanuel Granier"],
     "styles":["Furtivité","Action"],
     "resume": "Original, contact éventuel (templier de Solkan), culte de Véréna, licorne"
   },
@@ -154,44 +169,54 @@
     "source": "Roysten Crow"
   },
   {
-    "nom": "Le diable en boîte",
-    "source": "Casus Belli",
+    "nom": "Le diable en boîte", "source": "Casus Belli #100","auteurs":["Benjamin Lupu"],
     "deja_joue": "Joué en Simulacres"
   },
   {
-    "nom": "Le Dieu sans nom","note": 3,"duree": "Moyenne","source": "Casus Belli - Nenad Cetkovik",
+    "nom": "Une bonne recette", "source": "Casus Belli #55","auteurs":["Pierre Lejoyeux"]
+  },
+  {
+    "nom": "La guerre du lance-feu", "source": "Casus Belli #114","auteurs":["Julien Blondel"]
+  },
+  {
+    "nom": "Skavens !", "source": "Casus Belli #82","auteurs":["Cyrille Daujean","Pierre Lejoyeux"]
+  },
+  {
+    "nom": "Le Dieu sans nom","note": 3,"duree": "Moyenne","source": "Casus Belli #47","auteurs":["Nenad Cetkovik"],
     "styles":["Action","Dirigiste"],
     "resume": "Scénario bourrin à l'ancienne, quête divine (Véréna), objets magiques, points de folies. Village à l'orée de la Reikwald (forêt)"
   },
   {
-    "nom": "Le filet du ciel","source": "Casus Belli",
+    "nom": "Le filet du ciel","source": "Casus Belli #52","auteurs":["Pierre Lejoyeux"],
     "deja_joue": "Joué avec Jonathan, Vincent, Nico, Marie, Claire et Alexis (!)"
   },
   {
-    "nom": "Le Fléau des Dieux","note": 4,"source": "Kundïn",
-    "resume": "En Bretonnie (mais le rédacteur connaît mal l’univers)\n\nDe :  Kundin <khroumir@yah00.fr> \nEnvoyé :  lundi 6 février 2006 13:11:26 \nÀ :  laurent bernard <laurentbernard_69@h0tmail.c0m> \nObjet :  RE: Scenar. Wjrf \"Le fléau des dieux\" \n \nSalut Laurent ! Merci beaucoup pour ton commentaire, je suis ravi que ton groupe ait pu passer de bon moments avec mon scenario ! (18 heures ! C'est ce qui s'appelle exploiter au maximum toutes les ressources d'un scenar ! Chapeau ! :)\nTes remarques sont effectivement très intéressantes : j'aime beaucoup la recherche d'ingrédients à cause d'Arthus ! Ca doit rendre les PJ fous de rage lorsqu'ils voient qu'ils ont galéré pour rien du tout ! Une pointe de sadisme de plus pour le MJ est toujours la bienvenue, eh eh eh !\nEn ce qui concerne Sunna, tu as mis le doigt sur une invraisemblance qui m'avait échappé... En effet il n'y a aucune raison qu'elle attende sagement la fin du rituel pour se manifester. D'un autre côté c'est un peu dommage de la faire intervenir (et donc mourir si on veut que les PJ soient guéris, quand même !) avant le rituel car cela prive le scenario de son final dramatique ! Il faudrait que je trouve une astuce pour justifier le retardement de son intervention. Elle pourrait par exemple attendre histoire de vérifier si Citrine est bien capable de guérir la peste de Nurgle, mais c'est un peu faible je te l'accorde... Je vais y réfléchir...\nJe corrigerai et améliorerai sans doute ce scenario en le transposant pour la deuxième édition, mais ce ne sera pas avant un petit moment car auparavant, il faut que je finisse de transposer ma campagne de l'Age de glace... Et je suis à la bourre !!\nEn tout cas merci encore pour tes commentaires ! Si tu joues d'autres de mes scenars et si tu vois des choses a améliorer, je suis preneur également !\nBien à toi,\nKundïn\n\nlaurent bernard <laurentbernard_69@h0tmail.c0m> a écrit :\nAh! ça fait plaisir de tomber sur un scénario d'aussi bonne qualité (Le fléau des dieux) ! 18h de jeu, ils n'ont pas tout résolu dans les règles de l'art (alcool n'aidant pas) mais on a tous aimé et passé d'excellents moments ! J'ai beaucoup joué du répurgateur pour les déloger et les contrarier dans leurs plans, ça rajoutait du piment. En tout cas l'histoire offre de nombreuses possibilités. On pourrait l'agrandir avec une recherche d'ingrédients périlleuse commanditée par Arthus (si son enjeu véritable est dévoilé) pensant avoir trouvé un remède à la peste et qui se solderait naturellement par un échec... histoire qu'ils décrépissent un peu plus jusqu'à être obligés de n'agir plus que dans l'ombre (pour MJ sadiques). Une remarque sur Sunna : il peut paraître étrange qu'elle n'essaie pas d'éliminer Citrine avant l'acommplissement du rituel pour l'empécher de guérrir à nouveau la peste (c'est pas bon la réputation de sa maladie incurrable favorite !).\nExcellent travail en tout cas !\nLaurent",
+    "nom": "L'ombre d'Ecate","source": "Casus Belli #111","auteurs":["Sébastien Boudaud"]
+  },
+  {
+    "nom": "Le Fléau des Dieux","note": 4,"auteurs":["Kundïn"],
+    "resume": "En Bretonnie (mais le rédacteur connaît mal l’univers)\n\nDe :  Kundin <khroumir@yah00.fr> \nEnvoyé :  lundi 6 février 2006 13:11:26 \nÀ :  laurent bernard <laurentbernard_69@h0tmail.c0m> \nObjet :  RE: Scenar. Wjrf \"Le fléau des dieux\" \n \nSalut Laurent ! Merci beaucoup pour ton commentaire, je suis ravi que ton groupe ait pu passer de bon moments avec mon scenario ! (18 heures ! C'est ce qui s'appelle exploiter au maximum toutes les ressources d'un scenar ! Chapeau ! :)\nTes remarques sont effectivement très intéressantes : j'aime beaucoup la recherche d'ingrédients à cause d'Arthus ! Ca doit rendre les PJ fous de rage lorsqu'ils voient qu'ils ont galéré pour rien du tout ! Une pointe de sadisme de plus pour le MJ est toujours la bienvenue, eh eh eh !\nEn ce qui concerne Sunna, tu as mis le doigt sur une invraisemblance qui m'avait échappé... En effet il n'y a aucune raison qu'elle attende sagement la fin du rituel pour se manifester. D'un autre côté c'est un peu dommage de la faire intervenir (et donc mourir si on veut que les PJ soient guéris, quand même !) avant le rituel car cela prive le scenario de son final dramatique ! Il faudrait que je trouve une astuce pour justifier le retardement de son intervention. Elle pourrait par exemple attendre histoire de vérifier si Citrine est bien capable de guérir la peste de Nurgle, mais c'est un peu faible je te l'accorde... Je vais y réfléchir...\nJe corrigerai et améliorerai sans doute ce scenario en le transposant pour la deuxième édition, mais ce ne sera pas avant un petit moment car auparavant, il faut que je finisse de transposer ma campagne de l'Age de glace... Et je suis à la bourre !!\nEn tout cas merci encore pour tes commentaires ! Si tu joues d'autres de mes scenars et si tu vois des choses a améliorer, je suis preneur également !\nBien à toi,\nKundïn\n\nlaurent bernard <laurentbernard_69@h0tmail.c0m> a écrit :\nAh! ça fait plaisir de tomber sur un scénario d'aussi bonne qualité (Le fléau des dieux) ! 18h de jeu, ils n'ont pas tout résolu dans les règles de l'art (alcool n'aidant pas) mais on a tous aimé et passé d'excellents moments ! J'ai beaucoup joué du répurgateur pour les déloger et les contrarier dans leurs plans, ça rajoutait du piment. En tout cas l'histoire offre de nombreuses possibilités. On pourrait l'agrandir avec une recherche d'ingrédients périlleuse commanditée par Arthus (si son enjeu véritable est dévoilé) pensant avoir trouvé un remède à la peste et qui se solderait naturellement par un échec... histoire qu'ils décrépissent un peu plus jusqu'à être obligés de n'agir plus que dans l'ombre (pour MJ sadiques). Une remarque sur Sunna : il peut paraître étrange qu'elle n'essaie pas d'éliminer Citrine avant l'acommplissement du rituel pour l'empécher de guérrir à nouveau la peste (c'est pas bon pour la réputation de sa maladie incurrable favorite !).\nExcellent travail en tout cas !\nLaurent",
     "deja_joue": "Joué avec Georges, Thorg et Klanyss, scénar de putte (peste de nurgle), point de destin à la clef"
   },
   {
-    "nom": "Le gouffre maudit",
-    "source": "Kundïn"
+    "nom": "Le gouffre maudit","auteurs":["Kundïn"]
   },
   {
-    "nom": "Le maître chanteur","source": "Casus Belli",
+    "nom": "Le maître chanteur","source": "Casus Belli #110","auteurs":["Anne Vétillard"],
     "resume": "JRTM",
     "deja_joue": "Joué en Simulacres"
   },
   {
-    "nom": "Le Maître de l'Extase","note": 3,"duree": "Moyenne","lieux": [16,23],"source": "Angegardien",
+    "nom": "Le Maître de l'Extase","note": 3,"duree": "Moyenne","lieux": [16,23],"auteurs":["Angegardien"],
     "styles":["Enquête","Mini missions"],
     "resume": "Sympa sans plus, permet de cotoyer les milieux underground, une famille puissante de Marienburg et un culte puissant de Slaanesh"
   },
   {
-    "nom": "Le mal en héritage","lieux": [8],"source": "Kundïn",
+    "nom": "Le mal en héritage","lieux": [8],"auteurs":["Kundïn"],
     "resume": "L’Anguille, cité portuaire bretonnienne"
   },
   {
-    "nom": "Le prix d'une chimère","lieux": [119],"source": "cmonin@libertysurf.fr"
+    "nom": "Le prix d'une chimère","lieux": [119],"auteurs":["cmonin@libertysurf.fr"]
   },
   {
     "nom": "Le roi du nord","note": 4,"lieux": [41,23],
@@ -202,16 +227,16 @@
     "nom": "Le sablier d'opale","lieux": [119]
   },
   {
-    "nom": "Le schisme de l'Ordre Bleu","source": "Kundïn",
+    "nom": "Le schisme de l'Ordre Bleu","auteurs":["Kundïn"],
     "deja_joue": "Possible"
   },
   {
-    "nom": "Le silence est une vertu","note": 3,"duree": "Moyenne","lieux": [12],"source": "Maxime Fourmont",
+    "nom": "Le silence est une vertu","note": 3,"duree": "Moyenne","lieux": [12],"auteurs":["Maxime Fourmont"],
     "styles": ["Mystère","Magie","Exploration"],
     "resume": "Peu d'action, long passage où les PJ sont sourds et muets, sorcier elfe noir. Bordeleaux, île muette"
   },
   {
-    "nom": "Le trésor de l’aubergiste","source": "Mario Heimburger",
+    "nom": "Le trésor de l’aubergiste","auteurs":["Mario Heimburger"],
     "resume": "Auberge bloquée dans le temps, un peu zarb de mémoire",
     "deja_joue": "Joué avec Nico en MJ"
   },
@@ -221,7 +246,7 @@
     "resume": "Courses entre navires, trahison, île au trésor, baston, ensemble sympa, prévoir deux séances"
   },
   {
-    "nom": "Les entrailles du rat cornu","note": 4,"duree": "Moyenne","lieux": [2],"source": "Backstab - Timbre poste",
+    "nom": "Les entrailles du rat cornu","note": 4,"duree": "Moyenne","lieux": [2],"source": "Backstab #6","auteurs":["Timbre poste"],
     "styles": ["Enquête succinte","Action"],
     "resume": "Pour PJ très haut niveau (après la CI), grand spectacle, final explosif (guerre et démon majeur)"
   },
@@ -231,17 +256,17 @@
     "resume": "Bétail qui disparaît, le sergent de la garde retrouvé mort, les PJ doivent enquêter"
   },
   {
-    "nom": "Marées maudites","note": 4,"lieux": [23],"source": "James Wallis",
+    "nom": "Marées maudites","note": 4,"lieux": [23],"auteurs":["James Wallis"],
     "styles":["Enquête","Action"],
     "resume": "Une histoire de voleur et de crustacé, très bon mais compliqué à faire jouer"
   },
   {
-    "nom": "Marienburg Chronicles","note": 3,"duree": "Moyenne","lieux": [23],"source": "GenCon - Mario Mora & Eric Ruocco",
+    "nom": "Marienburg Chronicles","note": 3,"duree": "Moyenne","lieux": [23],"source": "GenCon","auteurs":["Mario Mora","Eric Ruocco"],
     "styles": ["Enquête","Réflexion","Action"],
     "resume": "Dirigiste, bien mené, bonnes idées. Marienburg, bâteau, île oubliée"
   },
   {
-    "nom": "Ne noyez pas mon cognac","lieux":[23],"source": "Casus Belli",
+    "nom": "Ne noyez pas mon cognac","lieux":[23],"source": "Casus Belli #88","auteurs":["Tristan Lhomme"],
     "deja_joue": "Déjà joué"
   },
   {
@@ -250,7 +275,7 @@
     "resume": "Une diligence impériale incontrôlable se dirige droit sur les PJ. Des gobelins saouls s'en sont rendus maîtres."
   },
   {
-    "nom": "Perfide Albion","source": "Casus Belli",
+    "nom": "Perfide Albion","source": "Casus Belli #109","auteurs":["Alexandre Malagoli"],
     "deja_joue": "Joué dans le hangar chez Jonathan"
   },
   {
@@ -269,7 +294,7 @@
     "resume":"Style et ensemble excellent surtout si beaucoup de roleplay"
   },
   {
-    "nom": "Ratiboises","note": 3,"duree": "Court","lieuxtypes": [29],"source": "Pitche",
+    "nom": "Ratiboises","note": 3,"duree": "Court","lieuxtypes": [29],"auteurs":["Pitche"],
     "styles": ["Action"],
     "resume": "Endiguer une épidémie, ballade dans les égouts"
   },
@@ -279,20 +304,19 @@
     "resume": "Pour PJ expérimentés, plaira à Klanyss et Grounch. Sud de l'Empire"
   },
   {
-    "nom": "Sourire jaune","note": 4,"duree": "Moyenne","source": "Warhammer Team - ZedroS",
+    "nom": "Sourire jaune","note": 4,"duree": "Moyenne","source": "Warhammer Team","auteurs":["ZedroS"],
     "styles":["Dépaysant","Escorte","Humour"],
     "resume": "Une histoire de tournesols..."
   },
   {
-    "nom": "Sous le regard de Solkan",
-    "source": "Casus Belli",
-    "deja_joue": "Joué il y a très longtemps"
+    "nom": "Sous le regard de Solkan","source": "Casus Belli #105","auteurs":["Nicolas Peltier"],
+    "deja_joue": "Joué dans le hangar chez Jonathan"
   },
   {
-    "nom": "Tempêtes sur Brionne","lieux": [4],"source": "Kundïn"
+    "nom": "Tempêtes sur Brionne","lieux": [4],"auteurs":["Kundïn"]
   },
   {
-    "nom": "Un voleur dans la tempête","note": 5,"difficulte": "Assez difficile","source": "Helkus",
+    "nom": "Un voleur dans la tempête","note": 5,"difficulte": "Assez difficile","auteurs":["Helkus"],
     "styles": ["Enquête"]
   },
   {
@@ -301,12 +325,12 @@
     "resume": "Un des Pjs devient un fantôme, et le groupe doit découvrir pourquoi en évitant le groupe d'un chasseur de sorcières. Diesdorf (sur la route entre Altdorf et Nuln)"
   },
   {
-    "nom": "Une histoire de fesses","note": 5,"duree": "Moyenne","source": "Casus Belli",
+    "nom": "Une histoire de fesses","note": 5,"duree": "Moyenne","source": "Casus Belli #65","auteurs":["Pierre Lejoyeux"],
     "styles": ["Enquête","Action"],
     "resume": "Possibilité de contact"
   },
   {
-    "nom": "Vert Crescendo","source": "Casus Belli",
+    "nom": "Vert Crescendo","source": "Casus Belli #96","auteurs":["Fabrice Colin"],
     "deja_joue": "Joué en Simulacres"
   },
   {
@@ -335,8 +359,12 @@
       "source": "Le Premier Compagnon (v1)"
     },
     {
-      "nom": "Les archers","lieux":[23],"source": "Casus Belli",
+      "nom": "Les archers","lieux":[23],"source": "Casus Belli 2#29","auteurs":["Giom","Syn"],
       "resume": "Inspiré d'un album de Thorgal"
+    },
+    {
+      "nom": "Le réveil de la déesse","lieux":[23,170],"source": "Casus Belli 2#34 - Manu & Syn",
+      "resume": "Découverte de l'Ind et grand dessein"
     },
     {
       "nom": "L'escorte","note": 3,"source": "SDEN",
@@ -346,10 +374,10 @@
       "nom": "Témoin gênant","source": "La Gazette de Nuln Tome 2"
     },
     {
-      "nom": "Au secours des corbeaux","lieux":[23],"source": "Casus Belli"
+      "nom": "Au secours des corbeaux","lieux":[23],"source": "Backstab #32","auteurs":["Fabien Cunillera","Gaël Oizel"]
     },
     {
-      "nom": "Dormez tranquilles, la milice veille","lieux":[23],"source": "Casus Belli"
+      "nom": "Dormez tranquilles, la milice veille","lieux":[23],"source": "Backstab #33","auteurs":["Gaël Oizel"]
     },
     {
       "nom": "RsP - Nuit de sang","lieuxtypes":[30],"source": "Repose Sans Paix",
@@ -372,7 +400,7 @@
       "resume": ""
     },
     {
-      "nom": "Quand Annalisa vint à la ville","lieux":[99],"source": "Casus Belli",
+      "nom": "Quand Annalisa vint à la ville","lieux":[99],"source": "Casus Belli #90","auteurs":["Fabrice Colin"],
       "resume": "Pour aventuriers achevant leur deuxième carrière."
     },
     {
@@ -404,7 +432,7 @@
       "resume": ""
     },
     {
-      "nom": "Nastassia's Wedding","lieux":[156],"source":"Graeme Davis",
+      "nom": "Nastassia's Wedding","lieux":[156],"source":"Wjdr v4 - Nuits agitées et dures journées","auteurs":["Graeme Davis"],
       "resume": ""
     },
     {
