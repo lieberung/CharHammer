@@ -36,9 +36,6 @@ tranchantes (coupures, saignements)
 contondantes (étourdissment, fractures, déterioration d'armure)
 perforantes (
 
-Profil initial :
-Alternative à "la miséricorde de Shallya" (voir p.19) : après avoir tiré son profil le joueur pour intervertir deux de ses scores (somme des 2d10 sans compter le bonus accordé par la race).
-
 Amis, Connaissances et contacts :
 Le personnage dispose d'un nombre en fonction de sa Sociabilité
 un joueur chargé du calendrier
@@ -54,8 +51,6 @@ Esprit créatif : +10% aux jets d'Int visant à inventer des stratgèmes, mécan
 
 Cri de guerre : Test contre la Peur des ennemis, si Echec -10 à tous ses jets pendant un Round
 
-Bunit 
-
 #fef4d9 #faf1d0 #f3e3c1
 
 Déviation
@@ -66,3 +61,16 @@ En combat de percussion (escrime, boxe, karaté, etc.) la déviation détourne l
 // reload current page
 @inject NavigationManager _uriHelper;
 _uriHelper.NavigateTo(_uriHelper.Uri, forceLoad: true);
+
+
+jeu avance recule pair impair (nb de cases) sur créneau libre
+réponse (age, nom) sur la plage d'avant
+
+
+Physique/Action/Métabolisme = Force (1-3) + Agilité (1-3) + Endurance (1-3)
+Psychisme = Adaptation (1-3) + Volonté (1-3) + Empathie (1-3)
+Réaction/ = Dexterité (1-3) + Intuition (1-3) + Vivacité (1-3)
+
+Un instrument/ une musique d'ambiance par classe de PNJ lorsque le dialogue est initié.
+Certains PNJ spéciaux ont leur propre musique/instrument.
+
