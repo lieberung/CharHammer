@@ -1,22 +1,21 @@
 ﻿using System.Linq;
 
-namespace BlazorWjdr.Models
+namespace BlazorWjdr.Models;
+
+public class CombattantDto
 {
-    public class CombattantDto
-    {
-        public string Code => $"{Combattant.Id}#{Nom}";
+    public string Code => $"{Combattant.Id}#{Nom}";
 
-        public BestioleDto Combattant { get; init; } = null!;
-        public string Nom { get; init; } = null!;
-        public bool Ennemi { get; init; }
+    public BestioleDto Combattant { get; init; } = null!;
+    public string Nom { get; init; } = null!;
+    public bool Ennemi { get; init; }
 
-        public int JetDInitiative { get; set; }
-        public string DetailDuJet { get; set; } = "";
-        public CombattantDto? EngageContre { get; set; }
+    public int JetDInitiative { get; set; }
+    public string DetailDuJet { get; set; } = "";
+    public CombattantDto? EngageContre { get; set; }
 
-        public AptitudeAcquiseDto[] CompetencesMartiales => Combattant.AptitudesAcquises
-            .Where(aa => aa.Aptitude.Martial && aa.Aptitude.EstUneCompetence).ToArray();
-        public AptitudeAcquiseDto[] AutresTraitsMartiaux => Combattant.AptitudesAcquises
-            .Where(aa => aa.Aptitude.Martial && !aa.Aptitude.EstUneCompetence).ToArray();
-    }
+    public AptitudeAcquiseDto[] CompetencesMartiales => Combattant.AptitudesAcquises
+        .Where(aa => aa.Aptitude.Martial && aa.Aptitude.EstUneCompetence).ToArray();
+    public AptitudeAcquiseDto[] AutresTraitsMartiaux => Combattant.AptitudesAcquises
+        .Where(aa => aa.Aptitude.Martial && !aa.Aptitude.EstUneCompetence).ToArray();
 }

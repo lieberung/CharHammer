@@ -1,19 +1,18 @@
-﻿namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services;
+
+using Models;
+using System.Collections.Generic;
+using System.Linq;
+
+public class ReglesService
 {
-    using Models;
-    using System.Collections.Generic;
-    using System.Linq;
+    private readonly Dictionary<int, RegleDto> _cacheRegle;
 
-    public class ReglesService
+    public ReglesService(Dictionary<int, RegleDto> data)
     {
-        private readonly Dictionary<int, RegleDto> _cacheRegle;
-
-        public ReglesService(Dictionary<int, RegleDto> data)
-        {
-            _cacheRegle = data;
-        }
-
-        public List<RegleDto> AllRegles => _cacheRegle.Values.ToList();
-        public RegleDto GetRegle(int id) => _cacheRegle[id];
+        _cacheRegle = data;
     }
+
+    public List<RegleDto> AllRegles => _cacheRegle.Values.ToList();
+    public RegleDto GetRegle(int id) => _cacheRegle[id];
 }

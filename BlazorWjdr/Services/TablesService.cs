@@ -1,17 +1,16 @@
-﻿namespace BlazorWjdr.Services
+﻿namespace BlazorWjdr.Services;
+
+using Models;
+using System.Collections.Generic;
+
+public class TablesService
 {
-    using Models;
-    using System.Collections.Generic;
+    private readonly Dictionary<int, TableDto> _cacheTable;
 
-    public class TablesService
+    public TablesService(Dictionary<int, TableDto> dataTables)
     {
-        private readonly Dictionary<int, TableDto> _cacheTable;
-
-        public TablesService(Dictionary<int, TableDto> dataTables)
-        {
-            _cacheTable = dataTables;
-        }
-
-        public TableDto GetTable(int id) => _cacheTable[id];
+        _cacheTable = dataTables;
     }
+
+    public TableDto GetTable(int id) => _cacheTable[id];
 }
