@@ -1,10 +1,11 @@
 ﻿@using BlazorWjdr.Models
 @code{
-    [Parameter] public CombattantDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public CombattantDto Item { get; set; } = null!;
     [Parameter] public bool Ennemi { get; set; }
 }
 <BestioleItem Item="@Item.Combattant" Nom="@Item.Nom">
+    <span class="ml-2" />
     <Tooltip Text="@Item.DetailDuJet">
-        <span class="insister ml-2">@Item.JetDInitiative</span>
+        <span class="insister">@Item.JetDInitiative</span>
     </Tooltip>
 </BestioleItem>

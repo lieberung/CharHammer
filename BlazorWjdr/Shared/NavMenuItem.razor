@@ -4,7 +4,7 @@
     </NavLink>
 </li>
 @code {
-    [Parameter] public string Href { get; set; } = null!;
-    [Parameter] public string Icone { get; set; } = null!;
+    [Parameter, EditorRequired] public string Href { get; set; } = null!;
+    [Parameter, EditorRequired] public string Icone { get; set; } = null!;
     [Parameter] public string Title { get; set; } = null!;
 }

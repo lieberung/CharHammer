@@ -2,7 +2,8 @@
 @using BlazorWjdr.Models
 
 <a href="carrieres/@Item.Id.ToString()/" class="btn btn-light btn-item@(Special ? " btn-special" : "")">
-    <ItemIcon Icon="badge" Classes="mr-1"/>
+    <ItemIcon Icon="badge" />
+    <span class="ml-1" />
     @if (!string.IsNullOrWhiteSpace(Tooltip))
     {
         <Tooltip Text="@Tooltip">@Item.Nom</Tooltip>
@@ -13,24 +14,21 @@
     }
     @if (!HideIndicatorBase && Item.EstUneCarriereDeBase)
     {
-        <TooltipIcon Icon="home" Classes="ml-2" Style="color:#a46022;"
+        <span class="ml-2" />
+        <TooltipIcon Icon="home" Style="color:#a46022;"
                      Text="Vous pouvez entreprendre cette carrière à tout moment contre 200 points d'expérience (100 si vous avez complété votre carrière actuelle)."/>
     }
     @if (!HideIndicatorRestriction && !string.IsNullOrWhiteSpace(Item.Restriction))
     {
-        <TooltipIcon Icon="info" Classes="ml-2" Style="color:#aa0101;"
+        <span class="ml-2" />
+        <TooltipIcon Icon="info" Style="color:#aa0101;"
                      Text="@Item.Restriction" />
     }
 </a>
 @code{
-    [Parameter]
-    public CarriereDto Item { get; set; } = null!;
-    [Parameter]
-    public string? Tooltip { get; set; }
-    [Parameter]
-    public bool HideIndicatorBase { get; set; }
-    [Parameter]
-    public bool HideIndicatorRestriction { get; set; }
-    [Parameter]
-    public bool Special { get; set; }
+    [Parameter] public CarriereDto Item { get; set; } = null!;
+    [Parameter] public string? Tooltip { get; set; }
+    [Parameter] public bool HideIndicatorBase { get; set; }
+    [Parameter] public bool HideIndicatorRestriction { get; set; }
+    [Parameter] public bool Special { get; set; }
 }

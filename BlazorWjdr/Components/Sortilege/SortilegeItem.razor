@@ -1,7 +1,8 @@
 ﻿@using BlazorWjdr.Models
 
 <a href="sortileges/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="script" Classes="mr-1"/>
+    <ItemIcon Icon="script" />
+    <span class="mr-1" />
     @if (string.IsNullOrWhiteSpace(_toolTipText)) {
         @_itemName
     } else {

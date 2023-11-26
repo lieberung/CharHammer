@@ -12,3 +12,5 @@ h5.card-title { font-size: large; }
 h6.card-title { font-size: medium; margin-top: .25rem; }
 
 .card-text { text-align: justify; }
+
+.card-body { padding: 1.25rem; } /* disparu en bootstrap 5 */

@@ -1,6 +1,7 @@
 ﻿@using BlazorWjdr.Models
 <a href="references/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="book" Classes="mr-1"/>
+    <ItemIcon Icon="book" />
+    <span class="mr-1" />
     <em>@Item.AnneeDePublication</em>
     @Item.Titre
     @if (!string.IsNullOrWhiteSpace(Page))

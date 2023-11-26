@@ -1,6 +1,6 @@
 ﻿@code {
-    [Parameter] public string Href { get; set; } = null!;
-    [Parameter] public string Title { get; set; } = null!;
+    [Parameter, EditorRequired] public string Href { get; set; } = null!;
+    [Parameter, EditorRequired] public string Title { get; set; } = null!;
     [Parameter] public bool Primary { get; set; }
 }
-<a class="btn-sm btn-@(Primary ? "primary" : "secondary") mb-1" href="@Href">@Title</a>
+<a class="btn btn-sm btn-@(Primary ? "primary" : "secondary") mb-1" href="@Href">@Title</a>

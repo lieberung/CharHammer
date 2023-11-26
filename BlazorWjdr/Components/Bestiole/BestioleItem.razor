@@ -5,21 +5,22 @@
     @if (Item.EstUnPersonnageJoueur)
     {
         <Tooltip Text="@_tooltipNomJoueur">
-            <ItemIcon Icon="person" Classes="mr-1"/>
+            <ItemIcon Icon="person"/>
         </Tooltip>
     }
     else if (Item.EstUnPersonnage && Item.EstUnPersonnageJoueur == false)
     {
         <Tooltip Text="@Item.Description">
-            <ItemIcon Icon="person" Classes="mr-1"/>
+            <ItemIcon Icon="person"/>
         </Tooltip>
     }
     else
     {
         <Tooltip Text="@Item.Description">
-            <ItemIcon Icon="bug" Classes="mr-1"/>
+            <ItemIcon Icon="bug"/>
         </Tooltip>
     }
+    <span class="mr-1" />
     <span>@(Nom ?? Item.Nom)</span>
     @if (MasquerCarriere == false && Item.CheminementPro.Any())
     {
@@ -56,5 +57,4 @@
         
         base.OnParametersSet();
     }
-
 }
