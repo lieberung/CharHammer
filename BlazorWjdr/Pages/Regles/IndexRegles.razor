@@ -7,7 +7,7 @@
 <MainTopRow Title="Règles en vrac"/>
 
 <div class="content px-4">
-    <table class="table">
+    <table class="table table-striped">
         <tbody>
         @foreach (var regle in _reglesService.AllRegles.OrderBy(r => r.Titre))
         {

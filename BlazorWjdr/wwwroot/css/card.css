@@ -1,5 +1,5 @@
 ﻿.card-title {
-    color: #5e1a05;
+    color: var(--theme-color);
     margin-bottom: .35rem;
     margin-top: .50rem;
     font-family: 'calecon-antique', fantasy;

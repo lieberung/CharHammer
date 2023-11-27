@@ -12,7 +12,7 @@
     <div class="row">
         
         <div class="col-6">
-            <table class="table">
+            <table class="table table-striped">
                 <tbody>
                 @foreach (var reference in _lines
                     .Where(r => r.Version == 1)
@@ -25,7 +25,7 @@
         </div>
         
         <div class="col-6">
-            <table class="table">
+            <table class="table table-striped">
                 <tbody>
                 @foreach (var reference in _lines
                     .Where(r => r.Version == 2)
