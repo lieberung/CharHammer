@@ -7,14 +7,16 @@
     --theme-color-pale: #fff7f2;
     /* --bs-override */
     --bs-body-bg: #f3e3c1;
-    --bs-link-color-rgb: #562f08;
-    --bs-link-hover-color-rgb: #562f08;
+    --bs-link-color-rgb: var(--theme-color); /* #562f08; */
+    --bs-link-hover-color-rgb: var(--theme-color-lighter); /* #562f08; */
     /*--bs-btn-color: #dbcfc8;*/
     --bs-card-title-color: #5e1a05;
     /*--bs-light-btn-bg: #ecd1a6;*/
     /* table stripped alternate bg color */
     /*--bs-emphasis-color: #cebfb5;*/
 }
+
+.content { padding: 2rem; } /* marge qui s'applique à toutes les pages */
 
 .fixed-header, .fixed-footer {
     width: 100%;
@@ -79,10 +81,6 @@ tbody.alternate-color-light tr:nth-child(even) { background-color: var(--bs-body
     letter-spacing: -1px;
     margin-bottom: 2px;
     line-height: 1.4;
-}
-
-.content {
-    padding-top: 1.1rem;
 }
 
 .valid.modified:not([type=checkbox]) {

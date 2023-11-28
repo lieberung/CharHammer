@@ -15,14 +15,14 @@
     }
 </MainTopRow>
 
-<div class="content px-4">
-    <div class="_container">
+<div class="content">
+    <div class="container-fluid">
 
         <div class="row">
             <div class="col-6">
                 <div class="card-body pt-0">
                     <img alt="Portrait de @Item!.Nom" style="float:right; max-width:420px; max-height:450px;" src="images/beasts/@(Item.Id).png"/>
-                    <h1 class="card-title" style="font-size: xxx-large;">@Item!.Nom</h1>
+                    <h1 class="card-title" style="font-size: xx-large;">@Item!.Nom</h1>
                     @if (Item.Origines.Any())
                     {
                         <em>Origines :&nbsp;</em>
@@ -33,14 +33,14 @@
                     }
                     @if (Item.Sexe.HasValue)
                     {
-                        <em>Genre :&nbsp;</em><span class="mr-3">@(Item.Sexe == 1 ? "féminin" : "masculin")</span>
+                        <em>Genre :&nbsp;</em><span class="me-3">@(Item.Sexe == 1 ? "féminin" : "masculin")</span>
                     }
                     <em>Age :&nbsp;</em><span>@Item.Age ans</span>
                     @if (Item.EstUnPersonnageJoueur)
                     {
                         <br/>
                         <em>Expérience :&nbsp;</em><span class="insister">@Item.XpTotal xp</span>
-                        <em class="ml-2">(actuelle :&nbsp;</em><span>@Item.XpActuel xp)</span>
+                        <em class="ms-2">(actuelle :&nbsp;</em><span>@Item.XpActuel xp)</span>
                     }
                 </div>
                 <div class="card-body pt-0">
@@ -131,8 +131,7 @@
     </div>
 </div>
 @code{
-    [Parameter]
-    public string CreatureId { get; set; } = null!;
+    [Parameter, EditorRequired] public string CreatureId { get; set; } = null!;
     
     private BestioleDto? Item { get; set; }
 
@@ -141,5 +140,4 @@
         Item = _bestiolesService.GetBestiole(int.Parse(CreatureId));
         base.OnParametersSet();
     }
-
 }

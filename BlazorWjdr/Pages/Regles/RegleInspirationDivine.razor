@@ -11,12 +11,10 @@
 
 <MainTopRow Title="Inspiration et Colère Divine"/>
 
-<div class="content px-4">
+<div class="content">
 
-    <div class="row mb-3">
+    <div class="row">
         <div class="col-4">
-            <!--div class="card-body"-->
-
             <h3 class="card-title">Prières, Bénédictions et Miracles</h3>
 
             <p class="card-text">
@@ -27,21 +25,21 @@
 
             <h5 class="card-title">Apprendre des sorts</h5>
             <p class="card-text">
-                Un personnage qui souhaite lancer des sorts divins doit montrer un intérêt certain pour les préceptes d'un dieu et généralement entamer une carrière d'<CarriereItem Item="@_carrSvc.CarriereInitie"/> ou de <CarriereItem Item="@_carrSvc.CarriereNovice"/>, qui lui permettront d'apprendre les Compétences <AptitudeItem Item="@_cttSvc.CompetencePriere"/> et <AptitudeItem Item="@_cttSvc.GetAptitude(1162)"/>.
+                Un personnage qui souhaite lancer des sorts divins doit montrer un intérêt certain pour les préceptes d'un dieu et généralement entamer une carrière d'<CarriereItem Item=@_carrSvc.CarriereInitie /> ou de <CarriereItem Item=@_carrSvc.CarriereNovice />, qui lui permettront d'apprendre les Compétences <AptitudeItem Item="@_cttSvc.CompetencePriere"/> et <AptitudeItem Item="@_cttSvc.GetAptitude(1162)"/>.
                 <br/>
-                C'est ensuite l'acquisition du talent <AptitudeItem Item="@_cttSvc.TalentBenediction"/> qui lui permettra d'accéder aux six Bénédictions proposées par son Domaine Divin, sans avoir à dépenser d'expérience supplémentaire.
+                C'est ensuite l'acquisition du talent <AptitudeItem Item=@_cttSvc.TalentBenediction /> qui lui permettra d'accéder aux six Bénédictions proposées par son Domaine Divin, sans avoir à dépenser d'expérience supplémentaire.
                 <br/>
-                Enfin, l'acquisition du talent <AptitudeItem Item="@_cttSvc.TalentInspirationDivine"/> lui permettra d'acquérir un premier Miracle parmi ceux disponibles dans son Domaine Divin, puis dépenser des xp pour en acquérir d'autres.
+                Enfin, l'acquisition du talent <AptitudeItem Item=@_cttSvc.TalentInspirationDivine /> lui permettra d'acquérir un premier Miracle parmi ceux disponibles dans son Domaine Divin, puis dépenser des xp pour en acquérir d'autres.
             </p>
             <p class="card-text">
-                Bien qu'il est hérétique de comparer l'inspiration divine à la sorcellerie, les processus d'apprentissage des bénédictions et des miracles ainsi que leurs formules respectives sont consignés en <AptitudeItem Item="@_cttSvc.GetAptitude(1162)"/> : cette Compétence doit donc être acquise avant de pouvoir bénéficier des talents divins.
+                Bien qu'il est hérétique de comparer l'inspiration divine à la sorcellerie, les processus d'apprentissage des bénédictions et des miracles ainsi que leurs formules respectives sont consignés en <AptitudeItem Item=@_cttSvc.GetAptitude(1162) /> : cette Compétence doit donc être acquise avant de pouvoir bénéficier des talents divins.
             </p>
         </div>
 
         <div class="col-4">
             <h3 class="card-title">Lancer un sort</h3>
             <p class="card-text">
-                Pour lancer une Bénédiction ou un Miracle, le personnage doit énoncer une prière. Cela ce traduit par un Test de <AptitudeItem Item="@_cttSvc.CompetencePriere"/>.
+                Pour lancer une Bénédiction ou un Miracle, le personnage doit énoncer une prière. Cela ce traduit par un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere />.
                 <br/>
                 Sur un succès, la Bénédiction ou le Miracle se manifeste conformément à sa description, et un BS élevé pourra même en amplifier les effets.
                 <br/>
@@ -57,14 +55,14 @@
             </p>
             <h5 class="card-title">Bonus de Succès</h5>
             <p class="card-text">
-                Pour chaque tranche de +2 BS que vous obtenez sur un Test de <AptitudeItem Item="@_cttSvc.CompetencePriere"/> pour lancer une <AptitudeItem Item="@_cttSvc.TalentBenediction"/>,
+                Pour chaque tranche de +2 BS que vous obtenez sur un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere /> pour lancer une <AptitudeItem Item=@_cttSvc.TalentBenediction />,
                 vous pouvez choisir l'un des bénéfices suivants (vous pouvez choisir plusieurs fois le même) :
                 <ul>
                     <li>Portée : +6 mètres</li>
                     <li>Cibles : +1</li>
                     <li>Durée : +6 Rounds</li>
                 </ul>
-                Pour chaque tranche de +2 BS que vous obtenez sur un Test de <AptitudeItem Item="@_cttSvc.CompetencePriere"/> pour lancer un <strong>Miracle</strong>,
+                Pour chaque tranche de +2 BS que vous obtenez sur un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere /> pour lancer un <strong>Miracle</strong>,
                 vous pouvez en augmenter la portée, la durée ou le nombre de cible d'un nombre égal à la valeur initiale du Miracle.
                 En revanche, les Miracles dont la portée est 'personnelle' ne pourront jamais affecter une cible supplémentaire.
             </p>
@@ -97,29 +95,28 @@
             <h5 class="card-title">Conséquences</h5>
             <p class="card-text">
                 Faire appel à votre divinité lorsque vous avez agi contrairement à sa volonté est risqué.
-                Chaque fois que vous faites un Test de <AptitudeItem Item="@_cttSvc.CompetencePriere"/>, si le dé des unités du jet est égal ou inférieur à votre Score de Péché actuel, vous subirez la Colère des Dieux, même si le test est réussi.
+                Chaque fois que vous faites un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere />, si le dé des unités du jet est égal ou inférieur à votre Score de Péché actuel, vous subirez la Colère des Dieux, même si le test est réussi.
             </p>
         </div>
     </div>
-</div>
 
-<PageSectionDivider/>
+    <PageSectionDivider Classes="mt-3" />
 
-<div class="row">
-    <div class="col-12">
-        <div class="card-body">
+    <div class="row">
+        <div class="col-12">
             <h3 class="card-title">La Colère Divine</h3>
             <p class="card-text">
-                Un jet sur la Table de la Colère Divine est effectué chaque fois que vous faites un Echec Critique sur un Test de <AptitudeItem Item="@_cttSvc.CompetencePriere"/>,
+                Un jet sur la Table de la Colère Divine est effectué chaque fois que vous faites un Echec Critique sur un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere />,
                 ou lorsque le dé des unités du jet est égal ou inférieur à vos Points de Péché actuels.
                 Le MJ peut aussi y faire un jet ou choisir une conséquence chaque fois qu'un personnage insultez bêtement l'un des dieux.
             </p>
             <p class="card-text">
                 Lorsqu'un personnage fait un jet sur la table, <strong>ajoutez +10</strong> au résultat pour <strong>chacun de ses Points de Péché</strong>.
-                <br/>
+                <br />
                 Après avoir considéré les conséquences, <strong>réduisez ses Points de Péché de 1</strong>, jusqu'à un minimum de 0.
             </p>
-            <TableDetail Item="@_tableSvc.GetTable(666)" MasquerDescription="@true"/>
+            <TableDetail Item=@_tableSvc.GetTable(666) MasquerDescription=@true />
         </div>
     </div>
+
 </div>

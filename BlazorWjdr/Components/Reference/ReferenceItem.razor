@@ -1,16 +1,17 @@
 ﻿@using BlazorWjdr.Models
 <a href="references/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="book" />
-    <span class="mr-1" />
-    <em>@Item.AnneeDePublication</em>
-    @Item.Titre
-    @if (!string.IsNullOrWhiteSpace(Page))
-    {
-        <strong class="ml-2">@Page</strong>
-    }
+    <ItemIcon Icon="book" Classes="me-1" />
+    <span>
+        <em>@Item.AnneeDePublication</em>
+        @Item.Titre
+        @if (!string.IsNullOrWhiteSpace(Page))
+        {
+            <strong class="ms-2">@Page</strong>
+        }
+    </span>
 </a>
 @code
 {
-    [Parameter] public ReferenceDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public ReferenceDto Item { get; set; } = null!;
     [Parameter] public string Page { get; set; } = null!;
 }

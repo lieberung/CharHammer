@@ -8,7 +8,7 @@
 
 <MainTopRow Title="Carrière"/>
 
-<div class="content px-4">
+<div class="content">
     <div class="_container">
 
         <div class="row">
@@ -34,16 +34,12 @@
                         <CarriereNiveau Niveau="@Item.Niveau"/>
                         @if (Item.CompetenceDeMetier != null)
                         {
-                            <span class="ml-3" />
-                            <ItemIcon Icon="infinity" Classes="ml-3 mr-3" />
-                            <span class="ml-3" />
+                            <ItemIcon Icon="infinity" Classes="mx-3" />
                             <AptitudeItem Item="@Item.CompetenceDeMetier" />
                         }
                         @if (Item.Statut != "")
                         {
-                            <span class="ml-3" />
-                            <ItemIcon Icon="infinity"/>
-                            <span class="ml-3" />
+                            <ItemIcon Icon="infinity" Classes="mx-3" />
                             <Tooltip Text="@Item.SalaireHebdo">
                                 <span class="insister">@Item.StatutPretty()</span>
                             </Tooltip>

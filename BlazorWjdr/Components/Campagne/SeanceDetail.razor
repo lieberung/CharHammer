@@ -20,18 +20,18 @@
         </span>
         <ItemIcon Icon="infinity" Classes="mx-3"/>
     }
-    <span class="mr-3">Durée : </span><span class="insister">@(Item.Duree)h</span>
+    <span>Durée : </span><span class="insister">@(Item.Duree)h</span>
     <ItemIcon Icon="infinity" Classes="mx-3"/>
     <span class="insister">@Item.Xp xp</span>
     @if (!string.IsNullOrWhiteSpace(Item.XpComment))
     {
-        <em class="ml-2">@Item.XpComment</em>
+        <em class="ms-2">@Item.XpComment</em>
     }
 </p>
 @if (MasquerAventuriers == false)
 {
     <p class="card-text">
-        <a class="mr-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/">Aventuriers : </a>
+        <a class="me-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/">Aventuriers : </a>
         <BestioleItemList Items="@Item.Pjs"/>
     </p>
 }

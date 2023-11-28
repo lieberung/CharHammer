@@ -20,8 +20,7 @@
             <ItemIcon Icon="bug"/>
         </Tooltip>
     }
-    <span class="mr-1" />
-    <span>@(Nom ?? Item.Nom)</span>
+    <span Classes="ms-1">@(Nom ?? Item.Nom)</span>
     @if (MasquerCarriere == false && Item.CheminementPro.Any())
     {
         <span>, @Item.CarriereActuelle?.Nom</span>
@@ -33,7 +32,7 @@
     @ChildContent
 </a>
 @code{
-    [Parameter] public BestioleDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
     [Parameter] public string? Nom { get; set; }
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
     [Parameter] public bool MasquerCarriere { get; set; }

@@ -1,7 +1,6 @@
 ﻿@using BlazorWjdr.Models
 <span class="btn btn-light btn-item@(_class)" target="_blank">
-    <ItemIcon Icon="shield" />
-    <span class="mr-1" />
+    <ItemIcon Icon="shield" Classes="me-1" />
     @if (string.IsNullOrWhiteSpace(Item.Description)) {
         @_nom
     } else {
@@ -9,10 +8,8 @@
     }
 </span>
 @code{
-    [Parameter]
-    public ArmeAttributDto Item { get; set; } = null!;
-    [Parameter]
-    public int Rating { get; set; }
+    [Parameter, EditorRequired] public ArmeAttributDto Item { get; set; } = null!;
+    [Parameter] public int Rating { get; set; }
 
     private string _nom = "";
     private string _class = "";

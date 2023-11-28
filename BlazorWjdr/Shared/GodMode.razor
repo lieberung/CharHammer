@@ -8,9 +8,9 @@
         _appState.PretendreEtreUnDieu(Convert.ToString(args.Value) ?? string.Empty);
     }
 }
-<span class="ml-4" />
+<span class="ms-4" />
 <OiLock Locked="@(!_appState.JeSuisDieu)"/>
-<span class="mr-1" />
+<span class="me-1" />
 @if (!_appState.JeSuisDieu)
 {
     <input placeholder="Password" @onchange="OnPasswordChange" style="width:5em;"/>

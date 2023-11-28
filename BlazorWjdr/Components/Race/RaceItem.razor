@@ -1,11 +1,8 @@
 ﻿@using BlazorWjdr.Models
+@code { [Parameter, EditorRequired] public RaceDto Item { get; set; } = null!; }
 <a href="races/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="droplet" />
-    <span class="mr-1" />
-    @Item.NomMasculin @(string.IsNullOrWhiteSpace(Item.NomFeminin) ? "" : " / " + Item.NomFeminin)
+    <ItemIcon Icon="droplet" Classes="me-1" />
+    <span>
+        @Item.NomMasculin @(string.IsNullOrWhiteSpace(Item.NomFeminin) ? "" : " / " + Item.NomFeminin)
+    </span>
 </a>
-@code
-{
-    [Parameter]
-    public RaceDto Item { get; set; } = null!;
-}

@@ -1,11 +1,10 @@
 ﻿@using BlazorWjdr.Models
 <span class="btn btn-light btn-item" target="_blank">
-    <ItemIcon Icon="location" />
-    <span class="mr-1" />
+    <ItemIcon Icon="location" Classes="me-1" />
     <Tooltip Text="@_tooltip">@Item.Nom</Tooltip>
 </span>
 @code{
-    [Parameter] public ArmeDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public ArmeDto Item { get; set; } = null!;
 
     private string _tooltip = "";
     

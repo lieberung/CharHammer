@@ -1,8 +1,7 @@
 ﻿@using BlazorWjdr.Models
 
 <a href="@_hrefBase/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="@Item.Icon" />
-    <span class="mr-1" />
+    <ItemIcon Icon="@Item.Icon" Classes="me-1" />
     @if (PasDeTooltip || string.IsNullOrWhiteSpace(_toolTipText)) {
         @Item.Nom
     } else {
@@ -11,7 +10,7 @@
 </a>
 
 @code{
-    [Parameter] public AptitudeDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
     [Parameter] public bool PasDeTooltip { get; set; }
 
     private string _hrefBase = null!;
