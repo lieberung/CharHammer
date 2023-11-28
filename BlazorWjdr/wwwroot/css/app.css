@@ -16,7 +16,9 @@
     /*--bs-emphasis-color: #cebfb5;*/
 }
 
-.content { padding: 2rem; } /* marge qui s'applique à toutes les pages */
+.container-fluid > .row {
+    padding: 2rem;
+}
 
 .fixed-header, .fixed-footer {
     width: 100%;
