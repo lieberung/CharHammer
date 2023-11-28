@@ -1,4 +1,8 @@
 ﻿
+.btn-sm {
+    --bs-btn-padding-y: 0.13rem;
+}
+
 .btn-primary {
     /*--bs-btn-color: #dbcfc8;*/
     --bs-btn-bg: var(--theme-color-lighter);
@@ -9,6 +13,13 @@
     --bs-btn-active-border-color: #0a53be;
     --bs-btn-disabled-bg: #0d6efd;
     --bs-btn-disabled-border-color: #0d6efd;
+}
+
+.btn-secondary {
+    --bs-btn-bg: var(--theme-orange-semi-dark);
+    --bs-btn-border-color: var(--theme-orange-dark);
+    --bs-btn-hover-bg: var(--theme-orange-light);
+    --bs-btn-hover-border-color: var(--theme-orange-semi-dark);
 }
 
 .btn-light {

@@ -1,5 +1,5 @@
 ﻿.top-row {
-    background-color: #cf8d42;
+    background-color: var(--theme-orange);
     border-bottom: 1px solid #dbcfc8;
     justify-content: flex-start;
     height: 3.5rem;

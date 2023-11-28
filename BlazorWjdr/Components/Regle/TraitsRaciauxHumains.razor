@@ -22,88 +22,88 @@
     <div class="col-12 pl-1">
         @if (_empireProvinces.Contains(ProvinceActive))
         {
-            <button type="button" @onclick="@((e) => Selectionner(e, "Averland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Averland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Averland"))" class="me-1 btn btn-sm @(ProvinceActive == "Averland" ? "btn-primary" : "btn-secondary")">
                 Averland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Hochland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Hochland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Hochland"))" class="me-1 btn btn-sm @(ProvinceActive == "Hochland" ? "btn-primary" : "btn-secondary")">
                 Hochland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Middenland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Middenland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Middenland"))" class="me-1 btn btn-sm @(ProvinceActive == "Middenland" ? "btn-primary" : "btn-secondary")">
                 Middenland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Nordland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Nordland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Nordland"))" class="me-1 btn btn-sm @(ProvinceActive == "Nordland" ? "btn-primary" : "btn-secondary")">
                 Nordland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Ostermark"))" class="mr-1 btn btn-sm @(ProvinceActive == "Ostermark" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Ostermark"))" class="me-1 btn btn-sm @(ProvinceActive == "Ostermark" ? "btn-primary" : "btn-secondary")">
                 Ostermark
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Ostland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Ostland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Ostland"))" class="me-1 btn btn-sm @(ProvinceActive == "Ostland" ? "btn-primary" : "btn-secondary")">
                 Ostland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Reikland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Reikland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Reikland"))" class="me-1 btn btn-sm @(ProvinceActive == "Reikland" ? "btn-primary" : "btn-secondary")">
                 Reikland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Stirland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Stirland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Stirland"))" class="me-1 btn btn-sm @(ProvinceActive == "Stirland" ? "btn-primary" : "btn-secondary")">
                 Stirland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Talabecland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Talabecland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Talabecland"))" class="me-1 btn btn-sm @(ProvinceActive == "Talabecland" ? "btn-primary" : "btn-secondary")">
                 Talabecland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Wissenland"))" class="mr-1 btn btn-sm @(ProvinceActive == "Wissenland" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Wissenland"))" class="me-1 btn btn-sm @(ProvinceActive == "Wissenland" ? "btn-primary" : "btn-secondary")">
                 Wissenland
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Sylvanie"))" class="mr-1 ml-4 btn btn-sm @(ProvinceActive == "Sylvanie" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Sylvanie"))" class="me-1 ms-4 btn btn-sm @(ProvinceActive == "Sylvanie" ? "btn-primary" : "btn-secondary")">
                 Sylvanie
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Strigany"))" class="mr-1 ml-4 btn btn-sm @(ProvinceActive == "Strigany" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Strigany"))" class="me-1 ms-4 btn btn-sm @(ProvinceActive == "Strigany" ? "btn-primary" : "btn-secondary")">
                 Strigany
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Mutant"))" class="mr-1 ml-4 btn btn-sm @(ProvinceActive == "Mutant" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Mutant"))" class="me-1 ms-4 btn btn-sm @(ProvinceActive == "Mutant" ? "btn-primary" : "btn-secondary")">
                 Mutant
             </button>
         }
         else if (_bretonnieDuches.Contains(ProvinceActive))
         {
-            <button type="button" @onclick="@((e) => Selectionner(e, "L'Anguille"))" class="mr-1 btn btn-sm @(ProvinceActive == "L'Anguille" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "L'Anguille"))" class="me-1 btn btn-sm @(ProvinceActive == "L'Anguille" ? "btn-primary" : "btn-secondary")">
                 L'Anguille
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Aquitanie"))" class="mr-1 btn btn-sm @(ProvinceActive == "Aquitanie" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Aquitanie"))" class="me-1 btn btn-sm @(ProvinceActive == "Aquitanie" ? "btn-primary" : "btn-secondary")">
                 Aquitanie
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Artenois"))" class="mr-1 btn btn-sm @(ProvinceActive == "Artenois" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Artenois"))" class="me-1 btn btn-sm @(ProvinceActive == "Artenois" ? "btn-primary" : "btn-secondary")">
                 Artenois
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Bastogne"))" class="mr-1 btn btn-sm @(ProvinceActive == "Bastogne" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Bastogne"))" class="me-1 btn btn-sm @(ProvinceActive == "Bastogne" ? "btn-primary" : "btn-secondary")">
                 Bastogne
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Bordeleaux"))" class="mr-1 btn btn-sm @(ProvinceActive == "Bordeleaux" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Bordeleaux"))" class="me-1 btn btn-sm @(ProvinceActive == "Bordeleaux" ? "btn-primary" : "btn-secondary")">
                 Bordeleaux
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Brionne"))" class="mr-1 btn btn-sm @(ProvinceActive == "Brionne" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Brionne"))" class="me-1 btn btn-sm @(ProvinceActive == "Brionne" ? "btn-primary" : "btn-secondary")">
                 Brionne
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Couronne"))" class="mr-1 btn btn-sm @(ProvinceActive == "Couronne" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Couronne"))" class="me-1 btn btn-sm @(ProvinceActive == "Couronne" ? "btn-primary" : "btn-secondary")">
                 Couronne
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Gasconnie"))" class="mr-1 btn btn-sm @(ProvinceActive == "Gasconnie" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Gasconnie"))" class="me-1 btn btn-sm @(ProvinceActive == "Gasconnie" ? "btn-primary" : "btn-secondary")">
                 Gasconnie
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Gisoreux"))" class="mr-1 btn btn-sm @(ProvinceActive == "Gisoreux" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Gisoreux"))" class="me-1 btn btn-sm @(ProvinceActive == "Gisoreux" ? "btn-primary" : "btn-secondary")">
                 Gisoreux
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Lyonesse"))" class="mr-1 btn btn-sm @(ProvinceActive == "Lyonesse" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Lyonesse"))" class="me-1 btn btn-sm @(ProvinceActive == "Lyonesse" ? "btn-primary" : "btn-secondary")">
                 Lyonesse
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Monfort"))" class="mr-1 btn btn-sm @(ProvinceActive == "Monfort" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Monfort"))" class="me-1 btn btn-sm @(ProvinceActive == "Monfort" ? "btn-primary" : "btn-secondary")">
                 Monfort
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Mousillon"))" class="mr-1 btn btn-sm @(ProvinceActive == "Mousillon" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Mousillon"))" class="me-1 btn btn-sm @(ProvinceActive == "Mousillon" ? "btn-primary" : "btn-secondary")">
                 Mousillon
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Parravon"))" class="mr-1 btn btn-sm @(ProvinceActive == "Parravon" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Parravon"))" class="me-1 btn btn-sm @(ProvinceActive == "Parravon" ? "btn-primary" : "btn-secondary")">
                 Parravon
             </button>
-            <button type="button" @onclick="@((e) => Selectionner(e, "Quenelles"))" class="mr-1 btn btn-sm @(ProvinceActive == "Quenelles" ? "btn-primary" : "btn-secondary")">
+            <button type="button" @onclick="@((e) => Selectionner(e, "Quenelles"))" class="me-1 btn btn-sm @(ProvinceActive == "Quenelles" ? "btn-primary" : "btn-secondary")">
                 Quenelles
             </button>
         }

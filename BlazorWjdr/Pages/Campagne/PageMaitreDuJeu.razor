@@ -34,7 +34,7 @@
                     <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
                     @foreach (var rencontre in _seance.Rencontres)
                     {
-                        <button class="btn btn-secondary ml-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe</button>
+                        <button class="btn btn-secondary ms-3" @onclick="() => CalculerInitiativeDeCombat(rencontre)">@rencontre.Groupe</button>
                     }
                 </p>
             </div>
@@ -44,7 +44,7 @@
                 <h5 class="card-title">Localisation</h5>
                 <p class="card-text">
                     <button class="btn btn-secondary" @onclick="JetDeLocalisation">Roll !</button>
-                    <span class="insister ml-2">@_localisationRoll</span>
+                    <span class="insister ms-2">@_localisationRoll</span>
                 </p>
             </div>
         </div>

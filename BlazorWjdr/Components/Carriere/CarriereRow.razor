@@ -6,15 +6,15 @@
 
 <tr>
     <td>
-        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
             <OiIcon Icon="eye"/>
         </span>
-        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFilieresEtDebouches = !AfficherFilieresEtDebouches">
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFilieresEtDebouches = !AfficherFilieresEtDebouches">
             <OiIcon Icon="loop"/>
         </span>
         @if (Item.SousElements.Any())
         {
-            <span class="btn btn-primary btn-item-action table-btn mr-1 ml-3" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+            <span class="btn btn-primary btn-item-action table-btn me-1 ms-3" @onclick="_ => AfficherSousElements = !AfficherSousElements">
                 <OiIcon Icon="layers"/>
             </span>
         }

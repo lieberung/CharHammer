@@ -20,14 +20,14 @@
             <ItemIcon Icon="bug"/>
         </Tooltip>
     }
-    <span Classes="ms-1">@(Nom ?? Item.Nom)</span>
+    <span class="ms-1">@(Nom ?? Item.Nom)</span>
     @if (MasquerCarriere == false && Item.CheminementPro.Any())
     {
         <span>, @Item.CarriereActuelle?.Nom</span>
     }
     @if (!Item.EstUnPersonnageJoueur && Item.Notes != "")
     {
-        <TooltipIcon Icon="info" Classes="ml-2" Style="color:#aa0101;" Text="@Item.Notes" />
+        <TooltipIcon Icon="info" Classes="ms-2" Style="color:#aa0101;" Text="@Item.Notes" />
     }
     @ChildContent
 </a>
