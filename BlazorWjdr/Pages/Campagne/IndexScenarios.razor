@@ -1,41 +1,40 @@
 ﻿@page "/scenarios/"
 
 @using BlazorWjdr.Components.Campagne
-@using BlazorWjdr.Services
 
 @inject ScenariosService _scenariosService
-@code{
+@inject AppState _appState
+@code {
     private string Filtre { get; set; } = "";
     private string Auteur { get; set; } = "";
     private bool PasDeDaubes { get; set; } = true;
+
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Scénarios");
+    }
 }
-<MainTopRow Title="Scénarios"/>
+<div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-4">
+        <input type="text" @bind-value="@Filtre" @bind-value:event="oninput" placeholder="Filtrer" />
+        <label for="cbo-auteur" class="ms-5">Auteur</label>
+        <select id="cbo-auteur" @bind="@Auteur">
+            <option value="" style="color:gray;"></option>
+            @foreach (var a in _scenariosService.AllAuteurs().ToArray())
+            {
+                <option value="@a">@a</option>
+            }
+        </select>
+        <input class="ms-5" type="checkbox" @bind="@PasDeDaubes" /><span>Masquer les daubes</span>
+    </div>
+</div>
 
-<div class="container-fluid">
-    
-    <div class="row">
-        <div class="col-1">
-        </div>
-        <div class="col-4">
-            <input type="text" @bind-value="@Filtre" @bind-value:event="oninput" placeholder="Filtrer"/>
-            <label for="cbo-auteur" class="ms-5">Auteur</label>
-            <select id="cbo-auteur" @bind="@Auteur">
-                <option value="" style="color:gray;"></option>
-                @foreach (var a in _scenariosService.AllAuteurs().ToArray())
-                {
-                    <option value="@a">@a</option>
-                }
-            </select>
-            <input class="ms-5" type="checkbox" @bind="@PasDeDaubes"/><span>Masquer les daubes</span>
+<div class="row">
+    <div class="col-12">
+        <div class="card-body">
+            <ScenarioTable Items="@_scenariosService.AllScenarios(PasDeDaubes, Filtre, Auteur).ToArray()" />
         </div>
     </div>
-    
-    <div class="row">
-        <div class="col-12">
-            <div class="card-body">
-                <ScenarioTable Items="@_scenariosService.AllScenarios(PasDeDaubes, Filtre, Auteur).ToArray()"/>
-            </div>
-        </div>
-    </div>
-
 </div>

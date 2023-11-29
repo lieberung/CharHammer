@@ -1,37 +1,19 @@
 ﻿@page "/campagne/{CampagneId}/seances/"
 
 @using BlazorWjdr.Components.Campagne
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 
 @inject CampagnesService _campagnesService
-
-<MainTopRow Title="Carnets de Campagne"/>
-
-<div class="container-fluid">
-    
-    <div class="row mb-4">
-        @foreach (var campagne in _campagnesService.AllCampagnes())
-        {
-            <div class="col-3">
-                <LinkCampagne Titre="@campagne.Titre" CampagneId="@campagne.Id.ToString()" Actif="@(CampagneId == @campagne.Id.ToString())"/>
-            </div>
-        }
-    </div>
-    
-    <div class="row">
-        <div class="col">
-            <CampagneDetail Campagne="@_campagne"/>
-        </div>
-    </div>
-
-</div>
-
+@inject AppState _appState
 @code {
     [Parameter]
     public string CampagneId { get; set; } = null!;
 
     private CampagneDto _campagne = null!;
+
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Carnets de Campagne");
+    }
 
     protected override void OnParametersSet()
     {
@@ -39,3 +21,18 @@
         base.OnParametersSet();
     }
 }
+
+<div class="row mb-4">
+    @foreach (var campagne in _campagnesService.AllCampagnes())
+    {
+        <div class="col-3">
+            <LinkCampagne Titre="@campagne.Titre" CampagneId="@campagne.Id.ToString()" Actif="@(CampagneId == @campagne.Id.ToString())" />
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col">
+        <CampagneDetail Campagne="@_campagne" />
+    </div>
+</div>

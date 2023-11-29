@@ -1,14 +1,15 @@
-﻿@code {
+﻿@inject AppState _appState
+@code {
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
-    [Parameter] public string Title { get; set; } = "";
 }
+<PageTitle>@_appState.PageHeadTitle</PageTitle>
 <div class="top-row px-4 fixed-header">
     <div class="col-6">
         <HomeIcon />
         <span class="me-3" />
-        @if (Title != "")
+        @if (_appState.MainTopRowTitle != "")
         {
-            <h3 class="card-title" style="display:inline-block;">@Title</h3>
+            <h3 class="card-title" style="display:inline-block;">@_appState.MainTopRowTitle</h3>
         }
         @ChildContent
     </div>

@@ -2,73 +2,21 @@
 
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Race
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 
 @inject RacesService _racesService;
 @inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
+@inject AppState _appState
+@code {
+    [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
 
-<MainTopRow Title="Table des carrières initiales"/>
-
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-6">
-            <div class="card-body">
-                <p class="card-text">
-                    <LinkCarrieresInitiales Actif="@(Race == _racesService.Humains)" Race="@_racesService.Humains"/>
-                    <LinkCarrieresInitiales Actif="@(Race == _racesService.Halflings)" Race="@_racesService.Halflings"/>
-                    <LinkCarrieresInitiales Actif="@(Race == _racesService.Nains)" Race="@_racesService.Nains"/>
-                    <LinkCarrieresInitiales Actif="@(Race == _racesService.ElfesSylvains)" Race="@_racesService.ElfesSylvains"/>
-                    <LinkCarrieresInitiales Actif="@(Race == _racesService.HautsElfes)" Race="@_racesService.HautsElfes"/>
-                    <LinkCarrieresInitiales Actif="@(Race == _racesService.Gnomes)" Race="@_racesService.Gnomes"/>
-                </p>
-            </div>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-4">
-            <div class="mt-3 mb-3 pl-2">
-                <button class="btn btn-primary" type="button" @onclick="TirerUneCarriereInitiale">
-                    <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
-                    Tirer une carrière initiale
-                </button>
-            </div>
-        </div>
-        <div class="col-1"></div>
-    </div>
-
-    <div class="row">
-        <div class="col-7">
-            <div class="card-body">
-                <TableDeDepart RaceId="@Race.Id.ToString()"/>
-            </div>
-        </div>
-
-        @if (_carriereAleatoire != null)
-        {
-            <div class="col-5">
-                <div class="card-body">
-                    <h3 class="card-title">@_carriereAleatoire.Nom</h3>
-                    <CarriereItem Item="_carriereAleatoire"/>
-                    <CarriereDescription Item="_carriereAleatoire"/>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="col-5"></div>
-        }
-    </div>
-
-</div>
-
-@code{
-    [Parameter]
-    public string RaceId { get; set; } = null!;
-    
     private RaceDto Race { get; set; } = null!;
     private CarriereDto? _carriereAleatoire;
-    
+
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Table des carrières initiales");
+    }
+
     protected override void OnParametersSet()
     {
         Race = _racesService.GetRace(int.Parse(RaceId));
@@ -80,3 +28,50 @@
         _carriereAleatoire = _tableDesCarrieresInitialesService.GetRandomStartingCareer(Race.Id);
     }
 }
+<div class="row">
+    <div class="col-6">
+        <div class="card-body">
+            <p class="card-text">
+                <LinkCarrieresInitiales Actif="@(Race == _racesService.Humains)" Race="@_racesService.Humains" />
+                <LinkCarrieresInitiales Actif="@(Race == _racesService.Halflings)" Race="@_racesService.Halflings" />
+                <LinkCarrieresInitiales Actif="@(Race == _racesService.Nains)" Race="@_racesService.Nains" />
+                <LinkCarrieresInitiales Actif="@(Race == _racesService.ElfesSylvains)" Race="@_racesService.ElfesSylvains" />
+                <LinkCarrieresInitiales Actif="@(Race == _racesService.HautsElfes)" Race="@_racesService.HautsElfes" />
+                <LinkCarrieresInitiales Actif="@(Race == _racesService.Gnomes)" Race="@_racesService.Gnomes" />
+            </p>
+        </div>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-4">
+        <div class="mt-3 mb-3 pl-2">
+            <button class="btn btn-primary" type="button" @onclick="TirerUneCarriereInitiale">
+                <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                Tirer une carrière initiale
+            </button>
+        </div>
+    </div>
+    <div class="col-1"></div>
+</div>
+
+<div class="row">
+    <div class="col-7">
+        <div class="card-body">
+            <TableDeDepart RaceId="@Race.Id.ToString()" />
+        </div>
+    </div>
+
+    @if (_carriereAleatoire != null)
+    {
+        <div class="col-5">
+            <div class="card-body">
+                <h3 class="card-title">@_carriereAleatoire.Nom</h3>
+                <CarriereItem Item="_carriereAleatoire" />
+                <CarriereDescription Item="_carriereAleatoire" />
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-5"></div>
+    }
+</div>

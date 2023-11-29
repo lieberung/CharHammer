@@ -1,38 +1,32 @@
 ﻿@page "/chronologie"
 
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 @inject ChronologieService _chronologieService
-
-<MainTopRow Title="Chronologie"/>
-
-<div class="container-fluid">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Période</th>
-                <th>Evènement</th>
-                <th>Titre</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var chrono in _lines)
-            {
-                <tr>
-                    <td>@chrono.Periode</td>
-                    <td>@chrono.Resume</td>
-                    <td>@chrono.Titre</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
+@inject AppState _appState
 @code {
     private ChronologieDto[] _lines = null!;
 
     protected override void OnInitialized()
     {
+        _appState.SetMainTopRowTitle("Chronologie");
         _lines = _chronologieService.AllChronologie();
     }
 }
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Période</th>
+            <th>Evènement</th>
+            <th>Titre</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var chrono in _lines)
+        {
+            <tr>
+                <td>@chrono.Periode</td>
+                <td>@chrono.Resume</td>
+                <td>@chrono.Titre</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,90 +1,92 @@
 ﻿@page "/univers/introduction/"
 
-<MainTopRow Title="Le Monde de Warhammer"/>
+@inject AppState _appState
+@code {
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Le Monde de Warhammer");
+    }
+}
+<div class="row">
+    <div class="col-6">
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-6">
-            
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Introduction</h3>
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Introduction</h3>
 
-                    <a href="http://fr.wikipedia.org/wiki/Warhammer#Le_monde_de_Warhammer">Wikipidia</a>
+                <a href="http://fr.wikipedia.org/wiki/Warhammer#Le_monde_de_Warhammer">Wikipidia</a>
 
-                    <p class="card-text">
-                        Le monde de Warhammer présente de vagues ressemblances avec le nôtre, mais dans ce monde l'humanité ne détient pas la seule suprématie sur le globe. Elle partage les royaumes, empires et principautés du monde avec toute sortes de créatures fantastiques et horribles, depuis les antiques races des elfes et des nains, jusqu'aux vampires, trolls et autres démons.<br/>
-                        Les conflits sont monnaie courante, en commençant par les affrontements de puissances armées jusqu'aux manigances politiciennes de burgomeisters ambitieux. La terre elle même semble engendrer le désaccord et le mécontentement, les intrigues et la corruption.<br/>
-                        La vie y est courte et brutale. Le danger rôde dans l'obscurité des forêts et dans la puanteur des villes. Les orques, les hommes-bêtes et autres créatures impies règnent sur les contrées sauvages et s'attaquent aux faibles et aux imprudents. Sous la surface les détestables hommes-rats rongent et sapent les bases même de la civilisation. De nombreuses victimes succombent tous les jours sous leurs coups, échappant ainsi à un monde où l'humour noir et l'ignorance délibérée sont les maigres réconforts auxquels se raccrochent la plupart des gens.<br/>
-                        Bien entendu, les souffrances des mortels ne restent pas ignorées. Des yeux antédiluviens observent sans relâche le bouillonnant spectacle de la vie et de la mort, de la confiance et de la trahison. Les Sombres Puissances cherchent à étouffer la petite flamme de l'existence mortelle pour revendiquer la terre et y établir leur propre royaume éternel du Chaos.<br/>
-                        Beaucoup se tournent vers ces Dieux Sombres. Des églises hérétiques promettent le pouvoir, la connaissance, le plaisir et les richesses à ceux qui voudront s'abandonner à la vénération de l'interdit. Les Puissances du Chaos accordent à leurs fidèles les bénédictions qu'ils méritent, depuis de miraculeux pouvoirs jusqu'à d'hideuses mutations. Toute âme ainsi corrompue devient un élément de la guerre éternelle engagée par le Chaos contre le monde et ses habitants.<br/>
-                        Voici l'univers dans lequel vous allez vous retrouver, un monde de héros malgré eux, un monde de luttes désespérées et de noire ironie. Le monde de Warhammer.
-                    </p>
-                    <h5 class="card-title">D'un point de vu géographique et politique</h5>
-                    <p class="card-text">
-                        Région correspondant à l'Europe de notre bonne vieille Terre, le Vieux Monde est essentiellement peuplé d'humains rassemblés en une poignée de nations. L'Empire occupe la majeure partie de ce continent, sa culture est de type germanique et correspond à un mélange de Moyen Âge et de Renaissance. La Bretonnie est un royaume féodal évoquant la France médiévale. L'Estalie et la Tilée sont des royaumes méridionaux divisés en cités-états et gouvernées par des princes-marchands. On y retrouve respectivement des éléments de la culture espagnole et italienne. Kislev enfin est un royaume nordique aux forts accents polonais.<br/>
-                        <br/>
-                        Ce continent est en grande partie couvert de forêts peuplées de créatures monstrueuses ou de colonies elfes (la forêt d'Athel Loren surtout, en Bretonnie). Les nombreuses chaînes de montagnes abritent des forteresses naines dans le plus pur style "Tolkien" : en lutte perpétuelle contre les créatures souterraines comme les gobelins ou les skavens (des hommes-rats).<br/>
-                        <br/>
-                        PS : vous jouerez dans l'empire (et serez très probablement des citoyens impériaux)<br/>
-                    </p>
+                <p class="card-text">
+                    Le monde de Warhammer présente de vagues ressemblances avec le nôtre, mais dans ce monde l'humanité ne détient pas la seule suprématie sur le globe. Elle partage les royaumes, empires et principautés du monde avec toute sortes de créatures fantastiques et horribles, depuis les antiques races des elfes et des nains, jusqu'aux vampires, trolls et autres démons.<br />
+                    Les conflits sont monnaie courante, en commençant par les affrontements de puissances armées jusqu'aux manigances politiciennes de burgomeisters ambitieux. La terre elle même semble engendrer le désaccord et le mécontentement, les intrigues et la corruption.<br />
+                    La vie y est courte et brutale. Le danger rôde dans l'obscurité des forêts et dans la puanteur des villes. Les orques, les hommes-bêtes et autres créatures impies règnent sur les contrées sauvages et s'attaquent aux faibles et aux imprudents. Sous la surface les détestables hommes-rats rongent et sapent les bases même de la civilisation. De nombreuses victimes succombent tous les jours sous leurs coups, échappant ainsi à un monde où l'humour noir et l'ignorance délibérée sont les maigres réconforts auxquels se raccrochent la plupart des gens.<br />
+                    Bien entendu, les souffrances des mortels ne restent pas ignorées. Des yeux antédiluviens observent sans relâche le bouillonnant spectacle de la vie et de la mort, de la confiance et de la trahison. Les Sombres Puissances cherchent à étouffer la petite flamme de l'existence mortelle pour revendiquer la terre et y établir leur propre royaume éternel du Chaos.<br />
+                    Beaucoup se tournent vers ces Dieux Sombres. Des églises hérétiques promettent le pouvoir, la connaissance, le plaisir et les richesses à ceux qui voudront s'abandonner à la vénération de l'interdit. Les Puissances du Chaos accordent à leurs fidèles les bénédictions qu'ils méritent, depuis de miraculeux pouvoirs jusqu'à d'hideuses mutations. Toute âme ainsi corrompue devient un élément de la guerre éternelle engagée par le Chaos contre le monde et ses habitants.<br />
+                    Voici l'univers dans lequel vous allez vous retrouver, un monde de héros malgré eux, un monde de luttes désespérées et de noire ironie. Le monde de Warhammer.
+                </p>
+                <h5 class="card-title">D'un point de vu géographique et politique</h5>
+                <p class="card-text">
+                    Région correspondant à l'Europe de notre bonne vieille Terre, le Vieux Monde est essentiellement peuplé d'humains rassemblés en une poignée de nations. L'Empire occupe la majeure partie de ce continent, sa culture est de type germanique et correspond à un mélange de Moyen Âge et de Renaissance. La Bretonnie est un royaume féodal évoquant la France médiévale. L'Estalie et la Tilée sont des royaumes méridionaux divisés en cités-états et gouvernées par des princes-marchands. On y retrouve respectivement des éléments de la culture espagnole et italienne. Kislev enfin est un royaume nordique aux forts accents polonais.<br />
+                    <br />
+                    Ce continent est en grande partie couvert de forêts peuplées de créatures monstrueuses ou de colonies elfes (la forêt d'Athel Loren surtout, en Bretonnie). Les nombreuses chaînes de montagnes abritent des forteresses naines dans le plus pur style "Tolkien" : en lutte perpétuelle contre les créatures souterraines comme les gobelins ou les skavens (des hommes-rats).<br />
+                    <br />
+                    PS : vous jouerez dans l'empire (et serez très probablement des citoyens impériaux)<br />
+                </p>
 
-                </div>
             </div>
-
         </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Les races jouables</h5>
-                    <ul>
-                        <li>les humains (très commun, le plus souvent ignorants, superstitieux, illettrés et bourrés de préjugés, seule race pouvant accéder à la prêtrise)</li>
-                        <li>les halfelings (hobbits ou semi-hommes - relativement commun - agiles et sociables, adorent manger, font de bons "voleurs" et d'excellents cuisiniers, résistance naturelle à la corruption du chaos, très bien intégrés aux royaumes humains).</li>
-                        <li>les elfes (inhabituel - intelligents et agiles, doués pour la magie et pour le combat à distance, pas toujours bien intégrés chez les humains (sans parler des nains), rescpectueux mais "amusés" par la foi des mortels et leur prétendus pouvoirs divins - il y a malheureusement un manque cruel de support de la part des éditeurs ce qui les rend difficile à jouer)</li>
-                        <li>les nains (inhabituel - doués pour le combat au corps à corps, robustes, réfractaires à la magie "classique", accès à la magie des runes, respectueux des croyances humains mais n'y adhèrent pas. les plus grands ingénieurs et érudits sont souvent des nains (les elfes se défendent pas mal non plus)</li>
-                    </ul>
-                    <h5 class="card-title">A propos de la magie "classique" (sorciers) et divine (prêtre)</h5>
-                    <p class="card-text">
-                        Je vous en parle plus haut pour la culture générale, car je vous déconseille (pour le début) d'y toucher ! Son usage est très règlementé et dangereux (car les humains ne la maîtrisent pas). Lancez un sort, aussi inoffensif soit-il, en public et vous finirez très probablement avec les répurgateurs (aussi appelés chasseurs de sorcières) à vos trousses, et donc à périr dans les flammes d'un bûcher pour adoration du Chaos, si toutefois la foule ne vous à pas lyncher à mort avant. La magie divine est vue d'un bien meilleur oeil mais demande (elle aussi) un long et fastidieux apprentissage et quelques concessions.<br/>
-                        <br/>
-                        Quant aux objets "magiques", ils ne courent pas les étalages comme dans de nombreux jdr, ils sont même extrêmement rares et ont tous un nom et une histoire (la plupart du temps séculaire).
-                    </p>
-                    <h5 class="card-title">Le panthéon divin et la religion</h5>
-                    <p class="card-text">
-                        Ajouter un topo sur les dieux les plus courants, les grandes cités de l'empire et leur histoire, sans rentrer trop dans le détail.
-                    </p>
-                    <ul>
-                        <li>l'empire, civilisation humaine dominante, les roturiers, les marchands, les courtisans et les nobles</li>
-                        <li>les mutants, le chaos</li>
-                        <li>Sigmar, les cultes dominants</li>
-                    </ul>
 
-                </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Les races jouables</h5>
+                <ul>
+                    <li>les humains (très commun, le plus souvent ignorants, superstitieux, illettrés et bourrés de préjugés, seule race pouvant accéder à la prêtrise)</li>
+                    <li>les halfelings (hobbits ou semi-hommes - relativement commun - agiles et sociables, adorent manger, font de bons "voleurs" et d'excellents cuisiniers, résistance naturelle à la corruption du chaos, très bien intégrés aux royaumes humains).</li>
+                    <li>les elfes (inhabituel - intelligents et agiles, doués pour la magie et pour le combat à distance, pas toujours bien intégrés chez les humains (sans parler des nains), rescpectueux mais "amusés" par la foi des mortels et leur prétendus pouvoirs divins - il y a malheureusement un manque cruel de support de la part des éditeurs ce qui les rend difficile à jouer)</li>
+                    <li>les nains (inhabituel - doués pour le combat au corps à corps, robustes, réfractaires à la magie "classique", accès à la magie des runes, respectueux des croyances humains mais n'y adhèrent pas. les plus grands ingénieurs et érudits sont souvent des nains (les elfes se défendent pas mal non plus)</li>
+                </ul>
+                <h5 class="card-title">A propos de la magie "classique" (sorciers) et divine (prêtre)</h5>
+                <p class="card-text">
+                    Je vous en parle plus haut pour la culture générale, car je vous déconseille (pour le début) d'y toucher ! Son usage est très règlementé et dangereux (car les humains ne la maîtrisent pas). Lancez un sort, aussi inoffensif soit-il, en public et vous finirez très probablement avec les répurgateurs (aussi appelés chasseurs de sorcières) à vos trousses, et donc à périr dans les flammes d'un bûcher pour adoration du Chaos, si toutefois la foule ne vous à pas lyncher à mort avant. La magie divine est vue d'un bien meilleur oeil mais demande (elle aussi) un long et fastidieux apprentissage et quelques concessions.<br />
+                    <br />
+                    Quant aux objets "magiques", ils ne courent pas les étalages comme dans de nombreux jdr, ils sont même extrêmement rares et ont tous un nom et une histoire (la plupart du temps séculaire).
+                </p>
+                <h5 class="card-title">Le panthéon divin et la religion</h5>
+                <p class="card-text">
+                    Ajouter un topo sur les dieux les plus courants, les grandes cités de l'empire et leur histoire, sans rentrer trop dans le détail.
+                </p>
+                <ul>
+                    <li>l'empire, civilisation humaine dominante, les roturiers, les marchands, les courtisans et les nobles</li>
+                    <li>les mutants, le chaos</li>
+                    <li>Sigmar, les cultes dominants</li>
+                </ul>
+
             </div>
         </div>
     </div>
-    
-    <div class="row mt-4">
-        <div class="col-6">
-            <Card Title="Les Nobles">
-                <p class="card-text">
-                    Nobles are nearly always accompanied by at least one servant, and high-ranking or self-important nobles never travel without a considerable retinue of bodyguards, advisors, lawyers, and other domestic staff, plus at least one baggage-cart behind the noble’s coach. Some younger and lower-ranking nobles, such as Lady Isolde von Strudeldorf (Enemy in Shadows, page 21) will occasionally take public coaches, but only when the family cannot, or will not, provide them with a coach of their own. Forced onto a public coach, nobles are normally quite bitter about it, and seldom hesitate to take out their bad temper on their fellow passengers.
-                </p>
-                <p class="card-text">
-                    A travelling noble always commandeers the best room in any inn, and reserves the adjoining ones for their closer servants and advisors. Where possible, a noble party will try to take over the entire inn, closing it to all other travellers. They take all the best food and drink, complain about everything and everyone, and expect everybody — even fellow guests, whom they refuse to distinguish from the inn’s staff — to be at their beck and call.
-                </p>
-                <p class="card-text">
-                    In addition, many younger nobles, especially groups of young noblemen, seem addicted to drunken vandalism and all kinds of misbehaviour. While this type is encountered more commonly in towns and cities, such a group of privileged rowdies may also be encountered on their way to a wedding, hunting party, or other event.
-                </p>
-                <p class="card-text">
-                    Some travellers pander to the whims of nobility, and endure their orders and complaints in the hope of some monetary largesse. Such hopes almost always end in disappointment as most nobles carry very little cash. Money is vulgar, and nobles insist that any bills are submitted to their family’s home for payment. Depending on the family, payment can take months, even years, always assuming that it ever comes. The rich do not remain rich by throwing their money around, but position and title demands that they live as though they do.
-                </p>
-                <p class="card-text">
-                    Even so, making the acquaintance of a noble can be useful for a group of adventurers. Successful Charm Tests count for a great deal, and depending on their social status, the Characters might be seen as jolly good fellows or colourful acquaintances. Either of these outcomes might earn them an invitation to come along with the nobles to whatever event they are attending. Other, more practical help, will also earn a noble’s self-satisfied gratitude. For all their servants, bodyguards, and prestige, it is not uncommon for a lone nobleman, or a small group, to enrage the locals so thoroughly that they find themselves in a sticky situation. These problem moments range from the outraged, blunderbuss-wielding father of a local beauty, to the surviving staff and fellow guests of an inn who completely fail to see any humour in the way an entire building got itself burnt down, taking everyone’s possessions with it. However, this kind of gratitude is likely to be short-lived, and may turn to distrust and hatred of ‘oiks’ who know too much.
-                </p>
-            </Card>
-        </div>
-        <div class="col-6"></div>
-    </div>
+</div>
 
+<div class="row mt-4">
+    <div class="col-6">
+        <Card Title="Les Nobles">
+            <p class="card-text">
+                Nobles are nearly always accompanied by at least one servant, and high-ranking or self-important nobles never travel without a considerable retinue of bodyguards, advisors, lawyers, and other domestic staff, plus at least one baggage-cart behind the noble’s coach. Some younger and lower-ranking nobles, such as Lady Isolde von Strudeldorf (Enemy in Shadows, page 21) will occasionally take public coaches, but only when the family cannot, or will not, provide them with a coach of their own. Forced onto a public coach, nobles are normally quite bitter about it, and seldom hesitate to take out their bad temper on their fellow passengers.
+            </p>
+            <p class="card-text">
+                A travelling noble always commandeers the best room in any inn, and reserves the adjoining ones for their closer servants and advisors. Where possible, a noble party will try to take over the entire inn, closing it to all other travellers. They take all the best food and drink, complain about everything and everyone, and expect everybody — even fellow guests, whom they refuse to distinguish from the inn’s staff — to be at their beck and call.
+            </p>
+            <p class="card-text">
+                In addition, many younger nobles, especially groups of young noblemen, seem addicted to drunken vandalism and all kinds of misbehaviour. While this type is encountered more commonly in towns and cities, such a group of privileged rowdies may also be encountered on their way to a wedding, hunting party, or other event.
+            </p>
+            <p class="card-text">
+                Some travellers pander to the whims of nobility, and endure their orders and complaints in the hope of some monetary largesse. Such hopes almost always end in disappointment as most nobles carry very little cash. Money is vulgar, and nobles insist that any bills are submitted to their family’s home for payment. Depending on the family, payment can take months, even years, always assuming that it ever comes. The rich do not remain rich by throwing their money around, but position and title demands that they live as though they do.
+            </p>
+            <p class="card-text">
+                Even so, making the acquaintance of a noble can be useful for a group of adventurers. Successful Charm Tests count for a great deal, and depending on their social status, the Characters might be seen as jolly good fellows or colourful acquaintances. Either of these outcomes might earn them an invitation to come along with the nobles to whatever event they are attending. Other, more practical help, will also earn a noble’s self-satisfied gratitude. For all their servants, bodyguards, and prestige, it is not uncommon for a lone nobleman, or a small group, to enrage the locals so thoroughly that they find themselves in a sticky situation. These problem moments range from the outraged, blunderbuss-wielding father of a local beauty, to the surviving staff and fellow guests of an inn who completely fail to see any humour in the way an entire building got itself burnt down, taking everyone’s possessions with it. However, this kind of gratitude is likely to be short-lived, and may turn to distrust and hatred of ‘oiks’ who know too much.
+            </p>
+        </Card>
+    </div>
+    <div class="col-6"></div>
 </div>

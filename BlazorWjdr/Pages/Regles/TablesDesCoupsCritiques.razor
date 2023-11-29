@@ -3,88 +3,21 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
-@using BlazorWjdr.Services
 
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
 @inject AptitudesService _cttService
-
-<MainTopRow Title="Tables des coups critiques"/>
-
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-9">
-            <div class="card-body">
-                <h5 class="card-title">Critiques (11,22,33,...,88,99)</h5>
-                <p class="card-text">
-                    Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Coups Critiques</strong> de la zone appropriée.<br/>
-                    De même, les échecs critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Maladresses Critiques</strong>.<br/>
-                    Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br/>
-                    <br/>
-                    Pour connaître la <strong>gravité</strong>, on calcule <BlessuresEffectives/> + (3 x <BlessuresCritiques/>) + <strong>1d4</strong>.
-                    <br/>
-                    On consulte alors le résultat et la victime <strong>perd le nombre de Blessures indiqué et gagne 1 Point de Folie</strong>.
-                    <br/>
-                    Le talent <AptitudeItem Item="@_cttService.TalentCoupsPrécis"/> augmente ce nombre de Blessures.
-                </p>
-                <RegleDetail Item="_reglesService.GetRegle(214)" MasquerTitre="true" MasquerTables="true"/>
-                <p class="card-text">
-                    <div class="row">
-                        <div class="col"><h5 class="card-title">Tables des coups critiques</h5></div>
-                        <div class="col"><h5 class="card-title">Tables des maladresses critiques</h5></div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <LinkLocalisation Actif="@(Zone == "tete")" Zone="tete" />
-                            <LinkLocalisation Actif="@(Zone == "bras")" Zone="bras" />
-                            <LinkLocalisation Actif="@(Zone == "torse")" Zone="torse" />
-                            <LinkLocalisation Actif="@(Zone == "jambe")" Zone="jambe" />
-                        </div>
-                        <div class="col">
-                            <LinkLocalisation Actif="@(Zone == "fumbles")" Zone="fumbles" />
-                            <LinkLocalisation Actif="@(Zone == "arme-a-distance")" Zone="arme-a-distance" />
-                            <LinkLocalisation Actif="@(Zone == "arme-de-jet")" Zone="arme-de-jet" />
-                            <LinkLocalisation Actif="@(Zone == "arme-de-parade")" Zone="arme-de-parade" />
-                            <LinkLocalisation Actif="@(Zone == "arme-de-poing")" Zone="arme-de-poing" />
-                        </div>
-                    </div>
-                </p>
-                <h5 class="card-title">Conditions</h5>
-                <p class="card-text">
-                    <AptitudeItemList Items="_cttService.Conditions.ToArray()"/>
-                </p>
-            </div>
-        </div>
-        <div class="col-3">
-            <TableDetail Item="_tablesService.GetTable(64)"/>
-            <div>
-                <button class="btn btn-primary" type="button" @onclick="() => FaireUnJetDeLocalisation()">
-                    <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
-                    Faire un jet de localisation
-                </button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-10">
-            <TableDetail Item="_tablesService.GetTable(_tableId)"/>
-        </div>
-        <div class="col-2">
-
-        </div>
-    </div>
-    
-</div>
-
-@code{
-
-    [Parameter]
-    public string Zone { get; set; } = null!;
+@inject AppState _appState
+@code {
+    [Parameter, EditorRequired] public string Zone { get; set; } = null!;
 
     private int _tableId;
-    
+
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Tables des coups critiques");
+    }
+
     protected override void OnParametersSet()
     {
         _tableId = Zone switch
@@ -100,10 +33,70 @@
             "arme-de-poing" => 55,
             _ => _tableId
         };
-        base.OnParametersSet();
     }
 
     private void FaireUnJetDeLocalisation()
     {
     }
 }
+<div class="row">
+    <div class="col-9">
+        <div class="card-body">
+            <h5 class="card-title">Critiques (11,22,33,...,88,99)</h5>
+            <p class="card-text">
+                Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Coups Critiques</strong> de la zone appropriée.<br />
+                De même, les échecs critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Maladresses Critiques</strong>.<br />
+                Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br />
+                <br />
+                Pour connaître la <strong>gravité</strong>, on calcule <BlessuresEffectives /> + (3 x <BlessuresCritiques />) + <strong>1d4</strong>.
+                <br />
+                On consulte alors le résultat et la victime <strong>perd le nombre de Blessures indiqué et gagne 1 Point de Folie</strong>.
+                <br />
+                Le talent <AptitudeItem Item="@_cttService.TalentCoupsPrécis" /> augmente ce nombre de Blessures.
+            </p>
+            <RegleDetail Item="_reglesService.GetRegle(214)" MasquerTitre="true" MasquerTables="true" />
+            <p class="card-text">
+                <div class="row">
+                    <div class="col"><h5 class="card-title">Tables des coups critiques</h5></div>
+                    <div class="col"><h5 class="card-title">Tables des maladresses critiques</h5></div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <LinkLocalisation Actif="@(Zone == "tete")" Zone="tete" />
+                        <LinkLocalisation Actif="@(Zone == "bras")" Zone="bras" />
+                        <LinkLocalisation Actif="@(Zone == "torse")" Zone="torse" />
+                        <LinkLocalisation Actif="@(Zone == "jambe")" Zone="jambe" />
+                    </div>
+                    <div class="col">
+                        <LinkLocalisation Actif="@(Zone == "fumbles")" Zone="fumbles" />
+                        <LinkLocalisation Actif="@(Zone == "arme-a-distance")" Zone="arme-a-distance" />
+                        <LinkLocalisation Actif="@(Zone == "arme-de-jet")" Zone="arme-de-jet" />
+                        <LinkLocalisation Actif="@(Zone == "arme-de-parade")" Zone="arme-de-parade" />
+                        <LinkLocalisation Actif="@(Zone == "arme-de-poing")" Zone="arme-de-poing" />
+                    </div>
+                </div>
+            </p>
+            <h5 class="card-title">Conditions</h5>
+            <p class="card-text">
+                <AptitudeItemList Items="_cttService.Conditions.ToArray()" />
+            </p>
+        </div>
+    </div>
+    <div class="col-3">
+        <TableDetail Item="_tablesService.GetTable(64)" />
+        <div>
+            <button class="btn btn-primary" type="button" @onclick="() => FaireUnJetDeLocalisation()">
+                <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                Faire un jet de localisation
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-10">
+        <TableDetail Item="_tablesService.GetTable(_tableId)" />
+    </div>
+    <div class="col-2">
+    </div>
+</div>

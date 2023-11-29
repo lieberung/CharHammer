@@ -2,16 +2,12 @@
 
 @using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Components.Campagne
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 
 @inject LieuxService _lieuxService
 @inject ScenariosService _scenariosService
 @inject AppState _appState
-
-@code{
-    [Parameter]
-    public string LieuId { get; set; } = null!;
+@code {
+    [Parameter, EditorRequired] public string LieuId { get; set; } = null!;
 
     private LieuDto Item { get; set; } = null!;
     private ScenarioDto[] _scenarios = Array.Empty<ScenarioDto>();
@@ -20,9 +16,12 @@
     protected override void OnParametersSet()
     {
         Item = _lieuxService.GetLieu(int.Parse(LieuId));
+
         _topRowTitle = $"{Item.Nom}, {Item.TypeDeLieu.Nom}";
         if (Item.Parent != null)
             _topRowTitle += $" ({Item.Parent?.Nom})";
+        _appState.SetMainTopRowTitle(_topRowTitle);
+
         if (_appState.JeSuisDieu)
         {
             var lieux = new List<LieuDto> { Item };
@@ -33,57 +32,66 @@
                 .Where(s => s.Note is 0 or > 2)
                 .ToArray();
         }
-        base.OnParametersSet();
+
     }
 }
+<div class="row">
+    <div class="col-6">
+        <div class="card-body">
+            <h3 class="card-title">@Item.Nom</h3>
+            <p class="card-text">
+                <span class="insister">Type : </span><LieuTypeItem Item="@Item.TypeDeLieu" />
+                <br />
+                <span class="insister">Localisation : </span><LieuItem Item="@Item.Parent" />
+                @if (Item.Population != "")
+                {
+                    <br />
 
-<MainTopRow Title="@_topRowTitle"/>
+                    <span class="insister">Population : </span>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-6">
+                    <span>@Item.Population</span>
+                }
+                @if (Item.Industrie != "")
+                {
+                    <br />
+
+                    <span class="insister">Industrie : </span>
+
+                    <span>@Item.Industrie</span>
+                }
+                @if (Item.Allegeance != "")
+                {
+                    <br />
+
+                    <span class="insister">Allégeance : </span>
+
+                    <span>@Item.Allegeance</span>
+                }
+                @if (Item.SousElements.Any())
+                {
+                    <br />
+                    <span class="insister">Regroupe : </span>
+
+                    <LieuItemList Items="@Item.SousElements.ToArray()" />
+                }
+            </p>
+            <CardParagraphes Text="@Item.Description" />
+        </div>
+        @if (_scenarios.Any())
+        {
             <div class="card-body">
-                <h3 class="card-title">@Item.Nom</h3>
-                <p class="card-text">
-                    <span class="insister">Type : </span><LieuTypeItem Item="@Item.TypeDeLieu"/> 
-                    <br/>
-                    <span class="insister">Localisation : </span><LieuItem Item="@Item.Parent"/>
-                    @if (Item.Population != "")
-                    {
-                        <br/><span class="insister">Population : </span><span>@Item.Population</span>
-                    }
-                    @if (Item.Industrie != "")
-                    {
-                        <br/><span class="insister">Industrie : </span><span>@Item.Industrie</span>
-                    }
-                    @if (Item.Allegeance != "")
-                    {
-                        <br/><span class="insister">Allégeance : </span><span>@Item.Allegeance</span>
-                    }
-                    @if (Item.SousElements.Any())
-                    {
-                        <br/>
-                        <span class="insister">Regroupe : </span><LieuItemList Items="@Item.SousElements.ToArray()"/>
-                    }
-                </p>
-                <CardParagraphes Text="@Item.Description"/>
+                <h4 class="card-title">Scénarios</h4>
+                <ScenarioTable Items="@_scenarios" LigneCourte="@true" />
             </div>
-            @if (_scenarios.Any())
-            {
-                <div class="card-body">
-                    <h4 class="card-title">Scénarios</h4>
-                    <ScenarioTable Items="@_scenarios" LigneCourte="@true"/>
-                </div>
-            }
-        </div>
-        <div class="col-6">
-            <img alt="Blason" src="images/lieux/@(Item.Id)-blas.png"/>
-            <img alt="Localisation" src="images/lieux/@(Item.Id)-loc.png"/>
-        </div>
+        }
     </div>
-    <div class="row mt-3">
-        <div class="col-12">
-            <img alt="Plan" src="images/lieux/@(Item.Id)-plan.jpg"/>
-        </div>
+    <div class="col-6">
+        <img alt="Blason" src="images/lieux/@(Item.Id)-blas.png" />
+        <img alt="Localisation" src="images/lieux/@(Item.Id)-loc.png" />
+    </div>
+</div>
+<div class="row mt-3">
+    <div class="col-12">
+        <img alt="Plan" src="images/lieux/@(Item.Id)-plan.jpg" />
     </div>
 </div>

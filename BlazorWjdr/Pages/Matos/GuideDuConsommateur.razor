@@ -3,60 +3,10 @@
 @using BlazorWjdr.Components.Equipement
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 
 @inject ArmesService _armesService
 @inject TablesService _tablesService
-
-<MainTopRow Title="Guide du Consommateur"/>
-
-<div class="container-fluid">
-
-    <div class="ms-3 mb-3 pl-2">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-10">
-                <a style="width:120px;" href="guide-du-consommateur/tout/" class="mr-2 mb-1 btn btn-sm @(Clean(Groupe) == "tout" ? "btn-primary" : "btn-secondary")">
-                    <span style="color:white;" class="oi oi-box item-icon mr-1" aria-hidden="true"></span>
-                    <strong>Tout</strong>
-                </a>
-                @foreach (var grp in _allGroupes)
-                {
-                    <a style="width:120px;" href="guide-du-consommateur/@Clean(grp)/" class="mr-2 mb-1 btn btn-sm @(Clean(Groupe) == Clean(grp) ? "btn-primary" : "btn-secondary")">@grp</a>
-                }
-            </div>
-            <div class="col-1"></div>
-        </div>
-    </div>
-
-    <div class="ms-3 mb-3 pl-2">
-        @foreach (var grp in _showGroupes)
-        {
-            <div class="row">
-                <div class="col-5">
-                    <h3 class="card-title">@grp</h3>
-                    <TableEquipements Items="@GetEquipement(grp)" AfficherContenance="@(grp == "contenants")"/>
-                </div>
-                @if (_showGroupes.Count == 1)
-                {
-                    <div class="col-1"></div>
-                    <div class="col-4">
-                        <div class="card-body">
-                            <TableDetail Item="@_tablesService.GetTable(86)"/>
-                        </div>
-                    </div>
-                }
-            </div>
-        }
-    </div>
-    
-    @if (_showGroupes.Count == 1)
-    {
-        <RowEncombrement/>
-    }
-</div>
-
+@inject AppState _appState
 @code {
     [Parameter] public string Groupe { get; set; } = "";
 
@@ -73,6 +23,11 @@
             .OrderBy(e => e.Nom).ToArray();
     }
 
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Guide du Consommateur");
+    }
+
     protected override void OnParametersSet()
     {
         _allGroupes = _armesService.AllEquipements.SelectMany(e => e.Groupes).Distinct().OrderBy(g => g).ToList();
@@ -80,4 +35,46 @@
 
         base.OnParametersSet();
     }
+}
+<div class="ms-3 mb-3 pl-2">
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <a style="width:120px;" href="guide-du-consommateur/tout/" class="mr-2 mb-1 btn btn-sm @(Clean(Groupe) == "tout" ? "btn-primary" : "btn-secondary")">
+                <span style="color:white;" class="oi oi-box item-icon mr-1" aria-hidden="true"></span>
+                <strong>Tout</strong>
+            </a>
+            @foreach (var grp in _allGroupes)
+            {
+                <a style="width:120px;" href="guide-du-consommateur/@Clean(grp)/" class="mr-2 mb-1 btn btn-sm @(Clean(Groupe) == Clean(grp) ? "btn-primary" : "btn-secondary")">@grp</a>
+            }
+        </div>
+        <div class="col-1"></div>
+    </div>
+</div>
+
+<div class="ms-3 mb-3 pl-2">
+    @foreach (var grp in _showGroupes)
+    {
+        <div class="row">
+            <div class="col-5">
+                <h3 class="card-title">@grp</h3>
+                <TableEquipements Items="@GetEquipement(grp)" AfficherContenance="@(grp == "contenants")" />
+            </div>
+            @if (_showGroupes.Count == 1)
+            {
+                <div class="col-1"></div>
+                <div class="col-4">
+                    <div class="card-body">
+                        <TableDetail Item="@_tablesService.GetTable(86)" />
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@if (_showGroupes.Count == 1)
+{
+    <RowEncombrement />
 }

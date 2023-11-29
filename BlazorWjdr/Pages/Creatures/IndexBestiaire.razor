@@ -6,25 +6,19 @@
 
 @inject BestiolesService _bestiolesService
 @inject AppState _appState
-
-@code{
+@code {
     private IReadOnlyDictionary<string, IEnumerable<BestioleDto>> _groupes = null!;
 
     protected override void OnInitialized()
     {
+        _appState.SetMainTopRowTitle("Bestiaire");
         _groupes = _bestiolesService.BestiolesRegroupees(_appState.JeSuisDieu);
-        base.OnInitialized();
     }
 }
-
-<MainTopRow Title="Bestiaire"/>
-
-<div class="container-fluid">
-    @foreach (var groupe in _groupes.Keys)
-    {
-        <div class="card-body">
-            <h3 class="card-title">@groupe</h3>
-            <BestioleTable Items="@_groupes[groupe].ToArray()"/>
-        </div>
-    }
-</div>
+@foreach (var groupe in _groupes.Keys)
+{
+    <div class="card-body">
+        <h3 class="card-title">@groupe</h3>
+        <BestioleTable Items="@_groupes[groupe].ToArray()"/>
+    </div>
+}

@@ -2,142 +2,132 @@
 
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Lieu
-@using BlazorWjdr.Services
-@using Models
 
 @inject BestiolesService _bestiolesService
 @inject CampagnesService _campagnesService
-
-<MainTopRow>
-    @if (Item!.DateDeCreation != "")
-    {
-        <em>Créé le @Item.DateDeCreation</em> 
-    }
-</MainTopRow>
-
-<div class="container-fluid">
-    <div class="container-fluid">
-
-        <div class="row">
-            <div class="col-6">
-                <div class="card-body pt-0">
-                    <img alt="Portrait de @Item!.Nom" style="float:right; max-width:420px; max-height:450px;" src="images/beasts/@(Item.Id).png"/>
-                    <h1 class="card-title" style="font-size: xx-large;">@Item!.Nom</h1>
-                    @if (Item.Origines.Any())
-                    {
-                        <em>Origines :&nbsp;</em>
-                        @foreach (var lieu in Item.Origines)
-                        {
-                            <LieuComplet Item="@lieu"/>
-                        }
-                    }
-                    @if (Item.Sexe.HasValue)
-                    {
-                        <em>Genre :&nbsp;</em><span class="me-3">@(Item.Sexe == 1 ? "féminin" : "masculin")</span>
-                    }
-                    <em>Age :&nbsp;</em><span>@Item.Age ans</span>
-                    @if (Item.EstUnPersonnageJoueur)
-                    {
-                        <br/>
-                        <em>Expérience :&nbsp;</em><span class="insister">@Item.XpTotal xp</span>
-                        <em class="ms-2">(actuelle :&nbsp;</em><span>@Item.XpActuel xp)</span>
-                    }
-                </div>
-                <div class="card-body pt-0">
-                    <h5 class="card-title">Carrières & Profil</h5>
-                    <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@Item.EstUnPersonnageNonJoueur"/>
-                    <BestioleBlessMouvProt Item="@Item"/>
-                </div>
-                <div class="card-body py-0">
-                    <h5 class="card-title">Aptitudes</h5>
-                    <AptitudesAcquises Item="@Item" MasquerTitres="@true" AfficherBonusDeCompetence="@true"/>
-                </div>
-                <div class="card-body pt-1">
-                    <BestioleFicheMatosSorts Item="@Item"/>
-                </div>
-            </div>
-            
-            <div class="col-5">
-                @if (Item.Description != "")
-                {
-                    <div class="card-body pt-0">
-                        <h3 class="card-title">Description</h3>
-                        <CardParagraphes Text="@Item.Description"/>
-                    </div>
-                }
-                @if (Item.Psychologie != "")
-                {
-                    <div class="card-body pt-0">
-                        <h3 class="card-title">Psychologie</h3>
-                        <CardParagraphes Text="@Item.Psychologie"/>
-                    </div>
-                }
-                @if (Item.Histoire != "")
-                {
-                    <div class="card-body pt-0">
-                        <h3 class="card-title">Histoire</h3>
-                        <CardParagraphes Text="@Item.Histoire"/>
-                    </div>
-                }
-                @if (Item.Ambitions.Any())
-                {
-                    <div class="card-body pt-0">
-                        <h3 class="card-title">Ambitions</h3>
-                        <ul>
-                        @foreach (var ambition in Item.Ambitions)
-                        {
-                            <li>@ambition</li>   
-                        }
-                        </ul>
-                    </div>
-                }
-                @if (Item.Notes != "")
-                {
-                    <div class="card-body pt-0">
-                        <h3 class="card-title">Commentaires</h3>
-                        <CardParagraphes Text="@Item.Notes"/>
-                    </div>
-                }
-                <div class="card-body">
-                    <div style="display:inline-block;">
-                        <h5 class="card-title">Apparence</h5>
-                        <PersoApparence Item="@Item"/>
-                    </div>
-                    <div style="display:inline-block;">
-                        <h5 class="card-title">Famille</h5>
-                        <PersoFamille Item="@Item"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        @if (Item.EstUnPersonnage)
-        {
-            <PageSectionDivider/>
-
-            <div class="row">
-                <div class="col-8">
-                    @foreach (var campagne in _campagnesService.CampagnesAuxquellesAParticipe(Item))
-                    {
-                        <h3 class="card-title">Historique de Campagne - @campagne.Titre</h3>
-                        <div class="card-body">
-                            <HistoriqueDeCampagne Campagne="@campagne" Pj="@Item"/>
-                        </div>
-                    }
-                </div>
-            </div>
-        }
-
-    </div>
-</div>
-@code{
+@inject AppState _appState
+@code {
     [Parameter, EditorRequired] public string CreatureId { get; set; } = null!;
-    
+
     private BestioleDto? Item { get; set; }
 
     protected override void OnParametersSet()
     {
         Item = _bestiolesService.GetBestiole(int.Parse(CreatureId));
-        base.OnParametersSet();
+        _appState.SetMainTopRowTitle("Créé le " + Item.DateDeCreation);
     }
+}
+<div class="row">
+    <div class="col-6">
+        <div class="card-body pt-0">
+            <img alt="Portrait de @Item!.Nom" style="float:right; max-width:420px; max-height:450px;" src="images/beasts/@(Item.Id).png" />
+            <h1 class="card-title" style="font-size: xx-large;">@Item!.Nom</h1>
+            @if (Item.Origines.Any())
+            {
+                <em>Origines :&nbsp;</em>
+                @foreach (var lieu in Item.Origines)
+                {
+                    <LieuComplet Item="@lieu" />
+                }
+            }
+            @if (Item.Sexe.HasValue)
+            {
+                <em>Genre :&nbsp;</em>
+
+                <span class="me-3">@(Item.Sexe == 1 ? "féminin" : "masculin")</span>
+            }
+            <em>Age :&nbsp;</em><span>@Item.Age ans</span>
+            @if (Item.EstUnPersonnageJoueur)
+            {
+                <br />
+                <em>Expérience :&nbsp;</em>
+
+                <span class="insister">@Item.XpTotal xp</span>
+                <em class="ms-2">(actuelle :&nbsp;</em>
+
+                <span>@Item.XpActuel xp)</span>
+            }
+        </div>
+        <div class="card-body pt-0">
+            <h5 class="card-title">Carrières & Profil</h5>
+            <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@Item.EstUnPersonnageNonJoueur" />
+            <BestioleBlessMouvProt Item="@Item" />
+        </div>
+        <div class="card-body py-0">
+            <h5 class="card-title">Aptitudes</h5>
+            <AptitudesAcquises Item="@Item" MasquerTitres="@true" AfficherBonusDeCompetence="@true" />
+        </div>
+        <div class="card-body pt-1">
+            <BestioleFicheMatosSorts Item="@Item" />
+        </div>
+    </div>
+
+    <div class="col-5">
+        @if (Item.Description != "")
+        {
+            <div class="card-body pt-0">
+                <h3 class="card-title">Description</h3>
+                <CardParagraphes Text="@Item.Description" />
+            </div>
+        }
+        @if (Item.Psychologie != "")
+        {
+            <div class="card-body pt-0">
+                <h3 class="card-title">Psychologie</h3>
+                <CardParagraphes Text="@Item.Psychologie" />
+            </div>
+        }
+        @if (Item.Histoire != "")
+        {
+            <div class="card-body pt-0">
+                <h3 class="card-title">Histoire</h3>
+                <CardParagraphes Text="@Item.Histoire" />
+            </div>
+        }
+        @if (Item.Ambitions.Any())
+        {
+            <div class="card-body pt-0">
+                <h3 class="card-title">Ambitions</h3>
+                <ul>
+                    @foreach (var ambition in Item.Ambitions)
+                    {
+                        <li>@ambition</li>
+                    }
+                </ul>
+            </div>
+        }
+        @if (Item.Notes != "")
+        {
+            <div class="card-body pt-0">
+                <h3 class="card-title">Commentaires</h3>
+                <CardParagraphes Text="@Item.Notes" />
+            </div>
+        }
+        <div class="card-body">
+            <div style="display:inline-block;">
+                <h5 class="card-title">Apparence</h5>
+                <PersoApparence Item="@Item" />
+            </div>
+            <div style="display:inline-block;">
+                <h5 class="card-title">Famille</h5>
+                <PersoFamille Item="@Item" />
+            </div>
+        </div>
+    </div>
+</div>
+@if (Item.EstUnPersonnage)
+{
+    <PageSectionDivider />
+
+    <div class="row">
+        <div class="col-8">
+            @foreach (var campagne in _campagnesService.CampagnesAuxquellesAParticipe(Item))
+            {
+                <h3 class="card-title">Historique de Campagne - @campagne.Titre</h3>
+                <div class="card-body">
+                    <HistoriqueDeCampagne Campagne="@campagne" Pj="@Item" />
+                </div>
+            }
+        </div>
+    </div>
 }

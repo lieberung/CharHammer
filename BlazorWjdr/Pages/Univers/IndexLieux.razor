@@ -1,14 +1,18 @@
 ﻿@page "/lieux/{Reference}/"
 
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 @using BlazorWjdr.Components.Lieu
 
 @inject LieuxService _lieuxService
+@inject AppState _appState
 @code {
     [Parameter] public string Reference { get; set; } = "monde";
 
     private List<LieuDto> _lines = null!;
+
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Lieux");
+    }
 
     protected override void OnParametersSet()
     {
@@ -20,23 +24,23 @@
             _lines = _lieuxService.AllLieux.Where(l => l.ParentId == 4).ToList();
         else
             _lines = _lieuxService.AllLieux.Where(l => l.ParentsCount == 1).ToList();
-        
+
         base.OnParametersSet();
     }
 }
 
-<MainTopRow Title="Lieux">
+<div class="row">
+    <!-- ToDo: MainTopRow -->
     <span style="margin-left: 160px;">
         <a style="width:120px; margin-top:-10px;" href="lieux/monde/" class="mr-2 btn btn-sm @(Reference == "monde" ? "btn-primary" : "btn-secondary")">Monde</a>
         <a style="width:120px; margin-top:-10px;" href="lieux/vieux-monde/" class="mr-2 btn btn-sm @(Reference == "vieux-monde" ? "btn-primary" : "btn-secondary")">Le Vieux Monde</a>
         <a style="width:120px; margin-top:-10px;" href="lieux/empire/" class="mr-2 btn btn-sm @(Reference == "empire" ? "btn-primary" : "btn-secondary")">L'Empire</a>
         <a style="width:120px; margin-top:-10px;" href="lieux/bretonnie/" class="mr-2 btn btn-sm @(Reference == "bretonnie" ? "btn-primary" : "btn-secondary")">Bretonnie</a>
     </span>
-</MainTopRow>
+</div>
 
-<div class="container-fluid">
-    <table class="table table-striped">
-        <thead>
+<table class="table table-striped">
+    <thead>
         <tr>
             <th></th>
             <th style="width:400px;">Nom</th>
@@ -45,12 +49,11 @@
             <th>Industrie</th>
             <th>Allégeance</th>
         </tr>
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
         @foreach (var lieu in _lines)
         {
-            <LieuRow Item="@lieu"/>
+            <LieuRow Item="@lieu" />
         }
-        </tbody>
-    </table>
-</div>
+    </tbody>
+</table>

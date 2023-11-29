@@ -1,251 +1,250 @@
 ﻿@page "/regles/base/"
 
-@using BlazorWjdr.Services
-
 @inject CarrieresService _carrSvc
 @inject TablesService _tableSvc
 @inject AptitudesService _aptSvc
+@inject AppState _appState
+@code {
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Les Tests, la base...");
+    }
+}
+<div class="row mb-3">
 
-<MainTopRow Title="Les Tests, la base..."/>
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Tests Etendus</h3>
+            <p class="card-text">
 
-<div class="container-fluid">
-
-    <div class="row mb-3">
-
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Tests Etendus</h3>
-                <p class="card-text">
-
-                </p>
-            </div>
+            </p>
         </div>
+    </div>
 
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Tests Etendus</h3>
-                <p class="card-text">
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Tests Etendus</h3>
+            <p class="card-text">
 
-                </p>
-            </div>
+            </p>
         </div>
+    </div>
 
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Tests Opposés</h3>
-                <p class="card-text">
-                    Sometimes you match your capabilities directly against those of 
-                    an opponent. The rules represent this with a special Dramatic 
-                    Test called an Opposed Test. Opposed Tests are an important 
-                    part of WFRP’s combat rules later in this chapter, but are used in 
-                    many other situations, as well.
-                    An Opposed Test is handled just like any other Dramatic Test, 
-                    but both parties make a Test. The party with the highest SL wins 
-                    the Test. If both participants score the same SL, the party with 
-                    the higher tested Skill or Characteristic wins. In the unlikely
-                    event there is still a tie, then one of two things, as determined by 
-                    the GM, occurs: 1) there is a stalemate, and nothing happens; 2) 
-                    both parties re-roll until there is a clear winner.
-                </p>
-                
-                <p class="card-text">
-                    <em>
-                    Exemple : Having floored an important Reiklander baron 
-                    at a party, Salundra makes to leave the ballroom; however, 
-                    some uneasy guardsmen block her passage, knowing they 
-                    really should detain the noble captain. Salundra scowls as she 
-                    approaches.
-                    <br/>
-                    The GM calls for an Intimidate Test and opposes it with the 
-                    guardsmen’s commanding officer’s Leadership Test. Both the 
-                    player and the GM roll. Salundra’s Intimidate is 47. The officer’s 
-                    Leadership is 46. Salundra rolls a 04, scoring +4 SL (4–0=4), 
-                    while the GM rolls 16, scoring +3 SL (4–1=3). As Salundra’s SL 
-                    is higher (4 to the officer’s 3), she successfully intimidates the 
-                    guards, who let her pass with barely a grumble.
-                    </em>
-                </p>
-                <p class="card-text">
-                    Like any other Tests, some Opposed Tests are easier or harder 
-                    than others, so the GM may decide modifiers are required. In 
-                    most cases, these modifiers are applied equally to both sides, but 
-                    not always. If no Difficulty is marked for an Opposed Test, it is 
-                    assumed to be Challenging (+0).
-                    <br/>
-                    If it is important to know how well the winner of the Opposed 
-                    Test won, use the difference between the two results to determine 
-                    a final SL.
-                </p>
-                <p class="card-text">
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Tests Opposés</h3>
+            <p class="card-text">
+                Sometimes you match your capabilities directly against those of
+                an opponent. The rules represent this with a special Dramatic
+                Test called an Opposed Test. Opposed Tests are an important
+                part of WFRP’s combat rules later in this chapter, but are used in
+                many other situations, as well.
+                An Opposed Test is handled just like any other Dramatic Test,
+                but both parties make a Test. The party with the highest SL wins
+                the Test. If both participants score the same SL, the party with
+                the higher tested Skill or Characteristic wins. In the unlikely
+                event there is still a tie, then one of two things, as determined by
+                the GM, occurs: 1) there is a stalemate, and nothing happens; 2)
+                both parties re-roll until there is a clear winner.
+            </p>
+
+            <p class="card-text">
                 <em>
-                Exemple : It’s Pie Week, an annual week-long festival for 
-                everyone’s favourite baked goods, and Salundra has entered a pie-
-                eating contest. She’s reached the final, and it’s her versus Fat Tom 
-                Brandysnap, the Ubersreik Pie Eating Champion for the last 5 
-                years running, and a Halfling wider than he is tall.
-                <br/>
-                The GM calls for an Opposed Endurance Test. Salundra has 
-                an Endurance of 45 and Fat Tom has 63. Salundra is possibly 
-                in trouble! Dice roll, and Salundra rolls 51, scoring –1 SL. Sali’s 
-                looking a little green! But Fat Tom’s looking worse! He rolls 91 
-                for –3 SL. So, even though she’s failed her Endurance roll, she 
-                still wins the Opposed Test by 2 SL, though she’ll probably be 
-                bringing up most of those pies later!
+                    Exemple : Having floored an important Reiklander baron
+                    at a party, Salundra makes to leave the ballroom; however,
+                    some uneasy guardsmen block her passage, knowing they
+                    really should detain the noble captain. Salundra scowls as she
+                    approaches.
+                    <br />
+                    The GM calls for an Intimidate Test and opposes it with the
+                    guardsmen’s commanding officer’s Leadership Test. Both the
+                    player and the GM roll. Salundra’s Intimidate is 47. The officer’s
+                    Leadership is 46. Salundra rolls a 04, scoring +4 SL (4–0=4),
+                    while the GM rolls 16, scoring +3 SL (4–1=3). As Salundra’s SL
+                    is higher (4 to the officer’s 3), she successfully intimidates the
+                    guards, who let her pass with barely a grumble.
                 </em>
-                </p>
-            </div>
+            </p>
+            <p class="card-text">
+                Like any other Tests, some Opposed Tests are easier or harder
+                than others, so the GM may decide modifiers are required. In
+                most cases, these modifiers are applied equally to both sides, but
+                not always. If no Difficulty is marked for an Opposed Test, it is
+                assumed to be Challenging (+0).
+                <br />
+                If it is important to know how well the winner of the Opposed
+                Test won, use the difference between the two results to determine
+                a final SL.
+            </p>
+            <p class="card-text">
+                <em>
+                    Exemple : It’s Pie Week, an annual week-long festival for
+                    everyone’s favourite baked goods, and Salundra has entered a pie-
+                    eating contest. She’s reached the final, and it’s her versus Fat Tom
+                    Brandysnap, the Ubersreik Pie Eating Champion for the last 5
+                    years running, and a Halfling wider than he is tall.
+                    <br />
+                    The GM calls for an Opposed Endurance Test. Salundra has
+                    an Endurance of 45 and Fat Tom has 63. Salundra is possibly
+                    in trouble! Dice roll, and Salundra rolls 51, scoring –1 SL. Sali’s
+                    looking a little green! But Fat Tom’s looking worse! He rolls 91
+                    for –3 SL. So, even though she’s failed her Endurance roll, she
+                    still wins the Opposed Test by 2 SL, though she’ll probably be
+                    bringing up most of those pies later!
+                </em>
+            </p>
         </div>
-
     </div>
 
-    <PageSectionDivider/>
+</div>
 
-    <div class="row mb-3">
+<PageSectionDivider />
 
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Tests Etendus</h3>
-                <p class="card-text">
-                    Sometimes the adventure will call for a specific number of Success Levels be achieved to fully succeed at a time-consuming
-                    or especially taxing task. Doing this requires a special Dramatic Test called an Extended Test. Extended Tests are handled in the
-                    same fashion as any other Dramatic Test, but the SL scored from multiple rolls are added together to reach a specified target. If the
-                    total SL scored ever falls below 0, you can start again from scratch with the next roll.
-                </p>
-                <p class="card-text">
-                    <em>
-                        Exemple : On the run again, Molli is attempting to pick an
-                        unexpectedly complex lock before she is discovered. The GM states
-                        the lock requires 5 Success Levels with a Challenging (+0) Pick
-                        Lock Test to pry open, and that she only has three Rounds before
-                        the guard arrives. Molli’s Pick Lock skill is 58, so she has a good
-                        chance of managing it, but time isn’t on her side. Unfortunately for
-                        her, her first Test scores 63: –1 SL and a terrible start, she’s made no
-                        progress and will start from scratch next round. Cursing under her
-                        breath as footsteps draw closer, Molli tries again, this time scoring
-                        11, for +4 SL! She feels tension in her picks as the lock almost
-                        springs, but she also hears the approaching guard is even closer.
-                        The GM explains the next Test is the last one before the guard
-                        arrives, so Molli can either abandon her attempt and avoid the
-                        guard or make a desperate effort to secure the last SL she needs
-                        to pick the lock. Knowing she needs to escape, Molli risks the last
-                        Test and rolls, scoring... 42! That’s +1 SL, taking her to a total of
-                        5. The lock opens with a click! Triumphant, Molli slips through
-                        the door and closes it behind her just before the guard arrives.
-                    </em>
-                </p>
-                <h5 class="card-title">Options : Tests Etendus et BS+0</h5>
-                <p class="card-text">
-                    Rolling 0 Sl in an Extended Test does not benefit or hinder
-                    the running sl total, which can feel a little odd given you
-                    either passed or failed the test, and that should perhaps come
-                    with some advantage or penalty. If this is an issue for you, use
-                    the following optional rule. a successful test adds a minimum
-                    of +1 sl to the cumulative total, and a failed test removes a
-                    minimum of –1 sl from the total.
-                </p>
-            </div>
+<div class="row mb-3">
+
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Tests Etendus</h3>
+            <p class="card-text">
+                Sometimes the adventure will call for a specific number of Success Levels be achieved to fully succeed at a time-consuming
+                or especially taxing task. Doing this requires a special Dramatic Test called an Extended Test. Extended Tests are handled in the
+                same fashion as any other Dramatic Test, but the SL scored from multiple rolls are added together to reach a specified target. If the
+                total SL scored ever falls below 0, you can start again from scratch with the next roll.
+            </p>
+            <p class="card-text">
+                <em>
+                    Exemple : On the run again, Molli is attempting to pick an
+                    unexpectedly complex lock before she is discovered. The GM states
+                    the lock requires 5 Success Levels with a Challenging (+0) Pick
+                    Lock Test to pry open, and that she only has three Rounds before
+                    the guard arrives. Molli’s Pick Lock skill is 58, so she has a good
+                    chance of managing it, but time isn’t on her side. Unfortunately for
+                    her, her first Test scores 63: –1 SL and a terrible start, she’s made no
+                    progress and will start from scratch next round. Cursing under her
+                    breath as footsteps draw closer, Molli tries again, this time scoring
+                    11, for +4 SL! She feels tension in her picks as the lock almost
+                    springs, but she also hears the approaching guard is even closer.
+                    The GM explains the next Test is the last one before the guard
+                    arrives, so Molli can either abandon her attempt and avoid the
+                    guard or make a desperate effort to secure the last SL she needs
+                    to pick the lock. Knowing she needs to escape, Molli risks the last
+                    Test and rolls, scoring... 42! That’s +1 SL, taking her to a total of
+                    5. The lock opens with a click! Triumphant, Molli slips through
+                    the door and closes it behind her just before the guard arrives.
+                </em>
+            </p>
+            <h5 class="card-title">Options : Tests Etendus et BS+0</h5>
+            <p class="card-text">
+                Rolling 0 Sl in an Extended Test does not benefit or hinder
+                the running sl total, which can feel a little odd given you
+                either passed or failed the test, and that should perhaps come
+                with some advantage or penalty. If this is an issue for you, use
+                the following optional rule. a successful test adds a minimum
+                of +1 sl to the cumulative total, and a failed test removes a
+                minimum of –1 sl from the total.
+            </p>
         </div>
-
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Assistance</h3>
-                <p class="card-text">
-                    In some situations, multiple Characters working together have a
-                    better chance of completing a task than a Character attempting it
-                    alone. With the GM’s permission, a Character can assist another
-                    Character who is about to take a Test. When doing so, the
-                    Character with the best chance to succeed rolls the dice.
-                    Each Character assisting provides a bonus of +10 to the Test.
-                    Other than that, the Test is rolled as normal.
-                </p>
-
-                <h5 class="card-title">Limits on Assistance</h5>
-                <p class="card-text">
-                    Characters can assist each other in most tasks; however, there are limits.
-                </p>
-                <ul>
-                    <li>To assist you require at least 1 Advance in the Skill being tested.</li>
-                    <li>Assisting Characters must normally be adjacent to the Character taking the Test.</li>
-                    <li>You may not assist on Tests made to resist disease, poison, fear, hazards, or anything else the GM deems inappropriate.</li>
-                    <li>You may not be assisted by more Characters than you have in the appropriate Characteristic Bonus (see page 33).</li>
-                </ul>
-                <p class="card-text">
-                    <em>
-                        Exemple : Adhemar, Perdita, and Valentyn hastily search a room
-                        when its owner, an aging merchant, leaves to find some records.
-                        The GM declares a Difficult (–10) Perception Test is required.
-                        Since Perdita and Valentyn both have the Perception Skill and are
-                        helping, Adhemar (who has the highest Perception Skill, at 59)
-                        gains a bonus of +20 to his Perception Test, for a combined total
-                        of 69 (59–10+20=69). However, he rolls 74, and fails, meaning
-                        all three characters have failed to find anything useful before the
-                        hobbling merchant returns.
-                    </em>
-                </p>
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="card-body">
-
-                <h3 class="card-title">Option : Combiner les Compétences</h3>
-                <p class="card-text">
-                    Sometimes, you may be in a situation where you feel two skills should be tested by the same character for a single task,
-                    so it may be appropriate to combine those skills for a single test. there are generally two reasons to do this: 1) is faster
-                    and limits the number of dice rolls required to press on with the game; 2) having to pass two tests in a row to perform a
-                    single task significantly reduces your chance of passing overall.
-                    The simplest way to do this is to attempt both skills with one test, comparing a single percentile roll to each skill number.
-                    If both pass, you succeed at the test. If only one passes, you partially pass as appropriate. and, obviously, if both fail, you
-                    have failed the test.
-                </p>
-                <p class="card-text">
-                    <em>
-                        Exemple : After a string of unlikely events, Salundra finds herself
-                        on-stage in yellow and red tights, singing and dancing in the vargr Breughel memorial playhouse’s inaugural production
-                        of ‘tell me on a Festag’. the Gm calls for a challenging combined Perform (dance) and entertain (Sing) test, thinking
-                        it unfair salundra should have to enact each test in turn as that would significantly reduce her overall chance of success.
-                        Salundra has perform (dance) at 53 from her time in court, but doesn’t have entertain (sing), so must use her Fellowship
-                        of 43. she then rolls 46, meaning she managed the dance (succeeded with +1 sl), but hit a few off-notes with her singing
-                        (failed at -0 sl) — not perfect, but good enough for the gathered crowds; though Kym neumann, the altdorf spieler’s theatre critic,
-                        may not be writing a favourable review...Other than that, the Test is rolled as normal.
-                    </em>
-                </p>
-
-            </div>
-        </div>
-
     </div>
 
-    <PageSectionDivider/>
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Assistance</h3>
+            <p class="card-text">
+                In some situations, multiple Characters working together have a
+                better chance of completing a task than a Character attempting it
+                alone. With the GM’s permission, a Character can assist another
+                Character who is about to take a Test. When doing so, the
+                Character with the best chance to succeed rolls the dice.
+                Each Character assisting provides a bonus of +10 to the Test.
+                Other than that, the Test is rolled as normal.
+            </p>
 
-    <div class="row mb-3">
-
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Tests Etendus</h3>
-                <p class="card-text">
-
-                </p>
-            </div>
+            <h5 class="card-title">Limits on Assistance</h5>
+            <p class="card-text">
+                Characters can assist each other in most tasks; however, there are limits.
+            </p>
+            <ul>
+                <li>To assist you require at least 1 Advance in the Skill being tested.</li>
+                <li>Assisting Characters must normally be adjacent to the Character taking the Test.</li>
+                <li>You may not assist on Tests made to resist disease, poison, fear, hazards, or anything else the GM deems inappropriate.</li>
+                <li>You may not be assisted by more Characters than you have in the appropriate Characteristic Bonus (see page 33).</li>
+            </ul>
+            <p class="card-text">
+                <em>
+                    Exemple : Adhemar, Perdita, and Valentyn hastily search a room
+                    when its owner, an aging merchant, leaves to find some records.
+                    The GM declares a Difficult (–10) Perception Test is required.
+                    Since Perdita and Valentyn both have the Perception Skill and are
+                    helping, Adhemar (who has the highest Perception Skill, at 59)
+                    gains a bonus of +20 to his Perception Test, for a combined total
+                    of 69 (59–10+20=69). However, he rolls 74, and fails, meaning
+                    all three characters have failed to find anything useful before the
+                    hobbling merchant returns.
+                </em>
+            </p>
         </div>
-
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Tests Etendus</h3>
-                <p class="card-text">
-
-                </p>
-            </div>
-        </div>
-
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Tests Etendus</h3>
-                <p class="card-text">
-
-                </p>
-            </div>
-        </div>
-
     </div>
+
+    <div class="col-4">
+        <div class="card-body">
+
+            <h3 class="card-title">Option : Combiner les Compétences</h3>
+            <p class="card-text">
+                Sometimes, you may be in a situation where you feel two skills should be tested by the same character for a single task,
+                so it may be appropriate to combine those skills for a single test. there are generally two reasons to do this: 1) is faster
+                and limits the number of dice rolls required to press on with the game; 2) having to pass two tests in a row to perform a
+                single task significantly reduces your chance of passing overall.
+                The simplest way to do this is to attempt both skills with one test, comparing a single percentile roll to each skill number.
+                If both pass, you succeed at the test. If only one passes, you partially pass as appropriate. and, obviously, if both fail, you
+                have failed the test.
+            </p>
+            <p class="card-text">
+                <em>
+                    Exemple : After a string of unlikely events, Salundra finds herself
+                    on-stage in yellow and red tights, singing and dancing in the vargr Breughel memorial playhouse’s inaugural production
+                    of ‘tell me on a Festag’. the Gm calls for a challenging combined Perform (dance) and entertain (Sing) test, thinking
+                    it unfair salundra should have to enact each test in turn as that would significantly reduce her overall chance of success.
+                    Salundra has perform (dance) at 53 from her time in court, but doesn’t have entertain (sing), so must use her Fellowship
+                    of 43. she then rolls 46, meaning she managed the dance (succeeded with +1 sl), but hit a few off-notes with her singing
+                    (failed at -0 sl) — not perfect, but good enough for the gathered crowds; though Kym neumann, the altdorf spieler’s theatre critic,
+                    may not be writing a favourable review...Other than that, the Test is rolled as normal.
+                </em>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+
+<PageSectionDivider />
+
+<div class="row mb-3">
+
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Tests Etendus</h3>
+            <p class="card-text">
+
+            </p>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Tests Etendus</h3>
+            <p class="card-text">
+
+            </p>
+        </div>
+    </div>
+
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Tests Etendus</h3>
+            <p class="card-text">
+
+            </p>
+        </div>
+    </div>
+
 </div>

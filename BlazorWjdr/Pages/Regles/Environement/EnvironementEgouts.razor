@@ -3,73 +3,72 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
-@using BlazorWjdr.Services
 
 @inject AptitudesService _aptitudesService
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
-
-<MainTopRow Title="Environement : Les égouts"/>
-
-<div class="container-fluid">
-    
-    <div class="row">
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Aptitudes utiles dans les égouts</h3>
-                <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres"/>
-            </div>
-            <RegleBody Item="@_reglesService.GetRegle(246)"/>
+@inject AppState _appState
+@code {
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Environement : Les égouts");
+    }
+}
+<div class="row">
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Aptitudes utiles dans les égouts</h3>
+            <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres" />
         </div>
-        <div class="col-4">
-            <RegleBody Item="@_reglesService.GetRegle(244)"/>
-            <RegleBody Item="@_reglesService.GetRegle(243)"/>
-        </div>
-        <div class="col-4">
-            <RegleBody Item="@_reglesService.GetRegle(241)"/>
-            <RegleBody Item="@_reglesService.GetRegle(242)"/>
+        <RegleBody Item="@_reglesService.GetRegle(246)" />
+    </div>
+    <div class="col-4">
+        <RegleBody Item="@_reglesService.GetRegle(244)" />
+        <RegleBody Item="@_reglesService.GetRegle(243)" />
+    </div>
+    <div class="col-4">
+        <RegleBody Item="@_reglesService.GetRegle(241)" />
+        <RegleBody Item="@_reglesService.GetRegle(242)" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <RegleBody Item="@_reglesService.GetRegle(245)" />
+    </div>
+    <div class="col-8">
+        <div class="card-body">
+            <img alt="Plans des égouts" src="images/plans/egouts.png" />
         </div>
     </div>
-    <div class="row">
-        <div class="col-4">
-            <RegleBody Item="@_reglesService.GetRegle(245)"/>
+</div>
+
+<PageSectionDivider />
+
+<div class="row">
+    <div class="col-4">
+        <div class="card-body">
+            <h3 class="card-title">Idées de rencontres (1d100)</h3>
+            <TableDetail Item="@_tablesService.GetTable(103)" MasquerTitre=@true />
         </div>
-        <div class="col-8">
-            <div class="card-body">
-                <img alt="Plans des égouts" src="images/plans/egouts.png"/>
-            </div>        
+        <RegleBody Item="@_reglesService.GetRegle(252)" />
+        <RegleBody Item="@_reglesService.GetRegle(256)" />
+        <div class="card-body">
+            <img alt="Ambiance" src="images/ambiance/egouts.png" style="max-width:560px" />
         </div>
     </div>
-
-    <PageSectionDivider/>
-    
-    <div class="row">
-        <div class="col-4">
-            <div class="card-body">
-                <h3 class="card-title">Idées de rencontres (1d100)</h3>
-                <TableDetail Item="@_tablesService.GetTable(103)" MasquerTitre="@true"/>
-            </div>
-            <RegleBody Item="@_reglesService.GetRegle(252)"/>
-            <RegleBody Item="@_reglesService.GetRegle(256)"/>
-            <div class="card-body">
-                <img alt="Ambiance" src="images/ambiance/egouts.png" style="max-width:560px"/>
-            </div>
-        </div>
-        <div class="col-4">
-            <RegleBody Item="@_reglesService.GetRegle(251)"/>
-            <RegleBody Item="@_reglesService.GetRegle(253)"/>
-            <RegleBody Item="@_reglesService.GetRegle(257)"/>
-        </div>
-        <div class="col-4">
-            <RegleBody Item="@_reglesService.GetRegle(255)"/>
-            <RegleBody Item="@_reglesService.GetRegle(259)"/>
-            <RegleBody Item="@_reglesService.GetRegle(258)"/>
-            <RegleBody Item="@_reglesService.GetRegle(254)"/>
-            <div class="card-body">
-                <h3 class="card-title">Carrières familières avec les égouts</h3>
-                <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres"/>
-            </div>
+    <div class="col-4">
+        <RegleBody Item="@_reglesService.GetRegle(251)" />
+        <RegleBody Item="@_reglesService.GetRegle(253)" />
+        <RegleBody Item="@_reglesService.GetRegle(257)" />
+    </div>
+    <div class="col-4">
+        <RegleBody Item="@_reglesService.GetRegle(255)" />
+        <RegleBody Item="@_reglesService.GetRegle(259)" />
+        <RegleBody Item="@_reglesService.GetRegle(258)" />
+        <RegleBody Item="@_reglesService.GetRegle(254)" />
+        <div class="card-body">
+            <h3 class="card-title">Carrières familières avec les égouts</h3>
+            <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres" />
         </div>
     </div>
-
 </div>

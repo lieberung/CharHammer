@@ -1,18 +1,16 @@
 ﻿@page "/regles/maladies/"
 
-@using BlazorWjdr.Services
-
 @inject ReglesService _reglesService
 @inject TablesService _tablesService
 @inject AptitudesService _cttService
-
-<MainTopRow Title="Maladies et Infections"/>
-
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-4">
-        </div>
+@inject AppState _appState
+@code {
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Maladies et Infections");
+    }
+}
+<div class="row">
+    <div class="col-4">
     </div>
-    
 </div>

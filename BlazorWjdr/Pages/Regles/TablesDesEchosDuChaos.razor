@@ -1,25 +1,23 @@
 ﻿@page "/regles/tables-des-echos-du-chaos/"
 
 @using BlazorWjdr.Components.Table
-@using BlazorWjdr.Services
 
 @inject CarrieresService _carrSvc
 @inject TablesService _tableSvc
 @inject AptitudesService _aptSvc
-
-<MainTopRow Title="Sorcellerie"/>
-
-<div class="container-fluid">
-
-    <div class="row mb-3">
-        <div class="col-5">
-            <TableDetail Item="@_tableSvc.GetTable(667)"/>
-        </div>
-        
-        <div class="col-7">
-            <TableDetail Item="@_tableSvc.GetTable(668)"/>
-        </div>
+@inject AppState _appState
+@code {
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Sorcellerie");
+    }
+}
+<div class="row mb-3">
+    <div class="col-5">
+        <TableDetail Item="@_tableSvc.GetTable(667)" />
     </div>
-    
+
+    <div class="col-7">
+        <TableDetail Item="@_tableSvc.GetTable(668)" />
+    </div>
 </div>
-           

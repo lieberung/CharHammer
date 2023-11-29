@@ -2,55 +2,51 @@
 
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 
 @inject AptitudesService _aptitudesService
 @inject CarrieresService _carrieresService
-
-<MainTopRow Title="@Item.CategSpe"/>
-
-<div class="container-fluid">
-
-    <div class="row">
-
-        <ColFrise/>
-        <div class="col-5">
-            <div class="card-body" style="padding-top: 0;">
-                
-                <h1 class="card-title" style="font-size: xxx-large;">@Item.Nom</h1>
-                <h5><em>@Item.CategSpeSexy</em></h5>
-                <AptitudeDescription Item="@Item"/>
-
-            </div>
-        </div>
-
-        <div class="col-5">
-            @if (_carrieres.Any())
-            {
-                <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                    <h5 class="card-title title-primary">Carrières proposant ce trait</h5>
-                    <p class="card-text">
-                        <CarriereItemList Items="@_carrieres"/>
-                    </p>
-                </div>
-            }
-        </div>
-
-    </div>
-
-</div>
+@inject AppState _appState
 @code {
-    [Parameter]
-    public string TraitId { get; set; } = null!;
+    [Parameter, EditorRequired] public string TraitId { get; set; } = null!;
 
     private AptitudeDto Item { get; set; } = null!;
-    
     private CarriereDto[] _carrieres = null!;
+
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Trait");
+    }
 
     protected override void OnParametersSet()
     {
         Item = _aptitudesService.GetAptitude(int.Parse(TraitId));
+        _appState.SetMainTopRowTitle(Item.CategSpe);
         _carrieres = _carrieresService.GetCarrieresProposant(Item);
     }
 }
+<div class="row">
+
+    <ColFrise />
+    <div class="col-5">
+        <div class="card-body" style="padding-top: 0;">
+
+            <h1 class="card-title" style="font-size: xxx-large;">@Item.Nom</h1>
+            <h5><em>@Item.CategSpeSexy</em></h5>
+            <AptitudeDescription Item="@Item" />
+
+        </div>
+    </div>
+
+    <div class="col-5">
+        @if (_carrieres.Any())
+        {
+            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+                <h5 class="card-title title-primary">Carrières proposant ce trait</h5>
+                <p class="card-text">
+                    <CarriereItemList Items="@_carrieres" />
+                </p>
+            </div>
+        }
+    </div>
+
+</div>

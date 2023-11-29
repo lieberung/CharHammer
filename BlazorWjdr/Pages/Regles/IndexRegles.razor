@@ -1,20 +1,20 @@
 ﻿@page "/regles/"
 
-@using BlazorWjdr.Services
-
 @inject ReglesService _reglesService
-
-<MainTopRow Title="Règles en vrac"/>
-
-<div class="container-fluid">
-    <table class="table table-striped">
-        <tbody>
-        @foreach (var regle in _reglesService.AllRegles.OrderBy(r => r.Titre))
-        {
-            <tr>
-                <td><a href="regles/@regle.Id/">@regle.Titre</a></td>
-            </tr>
-        }
-        </tbody>
-    </table>
-</div>
+@inject AppState _appState
+@code {
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Règles en vrac");
+    }
+}
+<table class="table table-striped">
+    <tbody>
+    @foreach (var regle in _reglesService.AllRegles.OrderBy(r => r.Titre))
+    {
+        <tr>
+            <td><a href="regles/@regle.Id/">@regle.Titre</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -5,69 +5,27 @@
 @using BlazorWjdr.Components.Campagne
 @using BlazorWjdr.Components.Campagne.Contact
 @using BlazorWjdr.Components.Sortilege
-@using BlazorWjdr.Services
-@using BlazorWjdr.Models>
 @using System.Linq
 
 @inject CampagnesService _campagnesService
-
-<MainTopRow Title="@_topRowTitle"/>
-
-<div class="container-fluid">
-    
-    <div class="row">
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">@_seancePrecedente.Titre</h3>
-                    <SeanceDetail Item="@_seancePrecedente" CampagneId="@int.Parse(CampagneId)" MasquerAventuriers="@true"/>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                    <h3 class="card-title">Aventuriers</h3>
-                    <BestioleItemList Items="@_seanceActuelle.Pjs"/>
-                    <AptitudeItemListSummary Aptitudes="@_aptitudes" CompetencesAvanceesUniquement="@true" GrosTitres="@true"/>
-                    @if (_seanceActuelle.Pjs.Any(p => p.Sorts.Any()))
-                    {
-                        <h4 class="card-title">Sortilèges</h4>
-                        <SortilegeItemList Items="@_sortileges"/>
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <PageSectionDivider/>
-    
-    <h3 class="card-title">Connaissances, Contacts, Alliés</h3>
-    <CampagneContactRows Items="@_campagne.Contacts"/>
-    
-    <PageSectionDivider/>
-
-    <h3 class="card-title">Aventuriers</h3>
-    <BestioleFicheRows Items="@_seancePrecedente.Pjs"/>
-</div>
-
+@inject AppState _appState
 @code {
-    [Parameter] public string CampagneId { get; set; } = null!;
-    
+    [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
+
     private CampagneDto _campagne = null!;
     private SeanceDto _seancePrecedente = null!;
     private SeanceDto _seanceActuelle = null!;
     private AptitudeDto[] _aptitudes = null!;
     private SortilegeDto[] _sortileges = null!;
-    private string _topRowTitle = "";
-    
+
     protected override void OnParametersSet()
     {
-        _campagne = _campagnesService.AllCampagnes().First(c=> c.Id == int.Parse(CampagneId));
+        _campagne = _campagnesService.AllCampagnes().First(c => c.Id == int.Parse(CampagneId));
         _seancePrecedente = _campagne.SeancePrecedente();
         _seanceActuelle = _campagne.SeanceActuelle();
-        _topRowTitle = _campagne.Titre;
         
+        _appState.SetMainTopRowTitle(_campagne.Titre);
+
         _aptitudes = _seanceActuelle.Pjs
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
             .Distinct()
@@ -77,7 +35,42 @@
             .SelectMany(p => p.Sorts)
             .Distinct()
             .OrderBy(a => a.Nom).ToArray();
-        
+
         base.OnParametersSet();
     }
 }
+<div class="row">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">@_seancePrecedente.Titre</h3>
+                <SeanceDetail Item="@_seancePrecedente" CampagneId="@int.Parse(CampagneId)" MasquerAventuriers="@true" />
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Aventuriers</h3>
+                <BestioleItemList Items="@_seanceActuelle.Pjs" />
+                <AptitudeItemListSummary Aptitudes="@_aptitudes" CompetencesAvanceesUniquement="@true" GrosTitres="@true" />
+                @if (_seanceActuelle.Pjs.Any(p => p.Sorts.Any()))
+                {
+                    <h4 class="card-title">Sortilèges</h4>
+                    <SortilegeItemList Items="@_sortileges" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<PageSectionDivider />
+
+<h3 class="card-title">Connaissances, Contacts, Alliés</h3>
+<CampagneContactRows Items="@_campagne.Contacts" />
+
+<PageSectionDivider />
+
+<h3 class="card-title">Aventuriers</h3>
+<BestioleFicheRows Items="@_seancePrecedente.Pjs" />
+

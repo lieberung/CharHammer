@@ -5,46 +5,41 @@
 @using BlazorWjdr.Components.Reference
 
 @inject ReferencesService _referencesService
-
-<MainTopRow Title="Référénces"/>
-
-<div class="container-fluid">
-    <div class="row">
-        
-        <div class="col-6">
-            <table class="table table-striped">
-                <tbody>
-                @foreach (var reference in _lines
-                    .Where(r => r.Version == 1)
-                    .OrderBy(r => r.AnneeDePublication))
-                {
-                    <ReferenceRow Item="@reference"/>
-                }
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="col-6">
-            <table class="table table-striped">
-                <tbody>
-                @foreach (var reference in _lines
-                    .Where(r => r.Version == 2)
-                    .OrderBy(r => r.AnneeDePublication))
-                {
-                    <ReferenceRow Item="@reference"/>
-                }
-                </tbody>
-            </table>
-        </div>
-        
-    </div>
-</div>
-
+@inject AppState _appState
 @code {
     private List<ReferenceDto> _lines = null!;
 
     protected override void OnInitialized()
     {
+        _appState.SetMainTopRowTitle("Références");
         _lines = _referencesService.AllReferences;
     }
 }
+
+<div class="row">
+    <div class="col-6">
+        <table class="table table-striped">
+            <tbody>
+                @foreach (var reference in _lines
+                    .Where(r => r.Version == 1)
+                    .OrderBy(r => r.AnneeDePublication))
+                {
+                    <ReferenceRow Item="@reference" />
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-6">
+        <table class="table table-striped">
+            <tbody>
+                @foreach (var reference in _lines
+                    .Where(r => r.Version == 2)
+                    .OrderBy(r => r.AnneeDePublication))
+                {
+                    <ReferenceRow Item="@reference" />
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
