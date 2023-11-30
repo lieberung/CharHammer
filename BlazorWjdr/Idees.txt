@@ -1,4 +1,9 @@
-﻿faire les carrières possibles des joueurs actuels
+﻿
+bootstrap Scrollspy pour certains contenus denses (magie ?)
+
+--------------
+
+faire les carrières possibles des joueurs actuels
 calculer xp des joueurs pour compléter leur carrière
 
 page contacts avec lieux de rencontre

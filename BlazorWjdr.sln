@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWjdr", "BlazorWjdr\BlazorWjdr.csproj", "{20EAE38F-9F4F-4A00-B68C-9F1E6573214A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWjdr", "BlazorWjdr\BlazorWjdr.csproj", "{20EAE38F-9F4F-4A00-B68C-9F1E6573214A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWjdr.DataSource", "BlazorWjdr.DataSource\BlazorWjdr.DataSource.csproj", "{D1124A69-D982-46B0-A417-99319C58B8D9}"
 EndProject
