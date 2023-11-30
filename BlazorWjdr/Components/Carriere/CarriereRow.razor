@@ -1,7 +1,6 @@
 ﻿@using BlazorWjdr.Components.Reference
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Profil
-@using BlazorWjdr.Models
 @using BlazorWjdr.Shared.Oi
 
 <tr>
@@ -92,8 +91,7 @@
 }
 @code
 {
-    [Parameter]
-    public CarriereDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
         
     private bool AfficherSousElements { get; set; } = false;
     private bool AfficherPlanDeCarriere { get; set; }

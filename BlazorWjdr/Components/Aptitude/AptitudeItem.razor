@@ -1,6 +1,4 @@
-﻿@using BlazorWjdr.Models
-
-<a href="@_hrefBase/@Item.Id.ToString()/" class="btn btn-light btn-item">
+﻿<a href="@_hrefBase/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <ItemIcon Icon="@Item.Icon" Classes="me-1" />
     @if (PasDeTooltip || string.IsNullOrWhiteSpace(_toolTipText)) {
         @Item.Nom
@@ -8,7 +6,6 @@
         <Tooltip Text="@(_toolTipText)">@Item.Nom</Tooltip>
     }
 </a>
-
 @code{
     [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
     [Parameter] public bool PasDeTooltip { get; set; }
@@ -34,7 +31,5 @@
             _hrefBase = "traits";
             _toolTipText = resumeComplet;
         }
-        
-        base.OnParametersSet();
     }
 }

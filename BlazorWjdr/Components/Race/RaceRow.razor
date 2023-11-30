@@ -1,6 +1,4 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Services
-@using BlazorWjdr.Components.Carriere
+﻿@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Components.Profil
 @using BlazorWjdr.Shared.Oi
@@ -10,7 +8,7 @@
     <td>
         @if (Item.SousElements.Any())
         {
-            <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
                 <OiIcon Icon="layers"/>
             </span>
         }
@@ -41,7 +39,6 @@
 }
 @code
 {
-    [Parameter]
-    public RaceDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public RaceDto Item { get; set; } = null!;
     private bool AfficherSousElements { get; set; } = false;
 }

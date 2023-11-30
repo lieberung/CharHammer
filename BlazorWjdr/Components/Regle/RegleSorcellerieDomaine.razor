@@ -1,6 +1,5 @@
 ﻿@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Models
 
 <div class="card-body">
     <h5 class="card-title">@Nom</h5>
@@ -10,7 +9,7 @@
 </div>
 @code{
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
-    [Parameter] public string Nom { get; set; } = null!;
-    [Parameter] public string Image { get; set; } = null!;
-    [Parameter] public AptitudeDto Aptitude { get; set; } = null!;
+    [Parameter, EditorRequired] public string Nom { get; set; } = null!;
+    [Parameter, EditorRequired] public string Image { get; set; } = null!;
+    [Parameter, EditorRequired] public AptitudeDto Aptitude { get; set; } = null!;
 }

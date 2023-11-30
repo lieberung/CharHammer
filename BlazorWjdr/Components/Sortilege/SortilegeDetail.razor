@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-<h4 class="card-title">@Item.Nom</h4>
+﻿<h4 class="card-title">@Item.Nom</h4>
 <ul>
     @if (AfficherType)
     {
@@ -21,6 +20,6 @@
     @Item.Effet
 </p>
 @code {
-    [Parameter] public SortilegeDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public SortilegeDto Item { get; set; } = null!;
     [Parameter] public bool AfficherType { get; set; }
 }

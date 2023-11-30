@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Components.Aptitude
+﻿@using BlazorWjdr.Components.Aptitude
 
 <div class="card-body">
     <h5 class="card-title">@Culte.Nom</h5>
@@ -24,5 +23,5 @@
 </div>
 
 @code {
-    [Parameter] public CulteDto Culte { get; set; } = null!;
+    [Parameter, EditorRequired] public CulteDto Culte { get; set; } = null!;
 }

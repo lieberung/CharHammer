@@ -1,6 +1,4 @@
 ﻿@using BlazorWjdr.Components.Aptitude
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 
 @inject AptitudesService _cttService
 
@@ -19,10 +17,8 @@
 </table>
 
 @code {
-    [Parameter]
-    public int NbColonnes { get; set; }
-    [Parameter]
-    public AptitudeDto[] Traits { get; set; } = null!;
+    [Parameter] public int NbColonnes { get; set; }
+    [Parameter, EditorRequired] public AptitudeDto[] Traits { get; set; } = null!;
 
     private int _colonneLength;
     private List<AptitudeDto>[] _colonnes = null!;

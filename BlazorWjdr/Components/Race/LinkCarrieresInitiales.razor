@@ -1,9 +1,7 @@
-﻿<a href="table-carrieres-initiales/@Race.Id/" class="mr-2 btn @_btnClass" style="width:110px;">@Race.NomMasculin</a>
+﻿<a href="table-carrieres-initiales/@Race.Id/" class="me-2 btn @_btnClass" style="width:110px;">@Race.NomMasculin</a>
 @code {
-    [Parameter]
-    public Models.RaceDto Race { get; set; } = null!;
-    [Parameter]
-    public bool Actif { get; set; }
+    [Parameter, EditorRequired] public Models.RaceDto Race { get; set; } = null!;
+    [Parameter] public bool Actif { get; set; }
 
     private string _btnClass = "";
 

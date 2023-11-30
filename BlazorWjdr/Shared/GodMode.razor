@@ -1,17 +1,14 @@
-﻿@using BlazorWjdr.Services
-
-@inject AppState _appState
-
+﻿@inject AppState _appState
 @code{
     private void OnPasswordChange(ChangeEventArgs args)
     {
         _appState.PretendreEtreUnDieu(Convert.ToString(args.Value) ?? string.Empty);
     }
 }
-<span class="ms-4" />
-<OiLock Locked="@(!_appState.JeSuisDieu)"/>
-<span class="me-1" />
+<span class="btn-group">
+    <OiLock Locked="@(!_appState.JeSuisDieu)" />
 @if (!_appState.JeSuisDieu)
 {
-    <input placeholder="Password" @onchange="OnPasswordChange" style="width:5em;"/>
+    <input placeholder="Password" @onchange="OnPasswordChange" class="rounded ms-1" />
 }
+</span>

@@ -1,11 +1,8 @@
-﻿@using BlazorWjdr.Models
-
-@if (string.IsNullOrWhiteSpace(@Item.Dotations)) {
+﻿@if (string.IsNullOrWhiteSpace(@Item.Dotations)) {
     <p class="card-text">Aucune</p>
 } else {
     <p class="card-text">@Item.Dotations</p>
 }
 @code{
-    [Parameter]
-    public CarriereDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
 }

@@ -1,4 +1,6 @@
-﻿@using BlazorWjdr.Models
+﻿@code {
+    [Parameter, EditorRequired] public ArmeDto Item { get; set; } = null!;
+}
 <tr>
     <td colspan="8">
         <div class="row px-3">
@@ -6,8 +8,8 @@
                 @if (!string.IsNullOrEmpty(Item.Description))
                 {
                     <div class="bulle">
-                        <AttributDArmeItemList Items="@Item.Groupes.ToArray()"/>
-                        <CardParagraphes Text="@Item.Description"/>
+                        <AttributDArmeItemList Items=@Item.Groupes.ToArray() />
+                        <CardParagraphes Text=@Item.Description />
                     </div>
                 }
             </div>
@@ -17,7 +19,3 @@
         </div>
     </td>
 </tr>
-@code {
-    [Parameter]
-    public ArmeDto Item { get; set; } = null!;
-}

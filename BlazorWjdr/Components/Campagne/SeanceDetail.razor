@@ -1,8 +1,8 @@
 ﻿@using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Lieu
-@using BlazorWjdr.Models
+
 @code {
-    [Parameter] public SeanceDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public SeanceDto Item { get; set; } = null!;
     [Parameter] public int CampagneId { get; set; }
     [Parameter] public bool MasquerAventuriers { get; set; }
 }

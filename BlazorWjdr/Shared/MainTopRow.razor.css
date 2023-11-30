@@ -1,17 +1,5 @@
-﻿.top-row {
+﻿.navbar {
+    --bs-navbar-padding-y: 0.2rem;
     background-color: var(--theme-orange);
     border-bottom: 1px solid #dbcfc8;
-    justify-content: flex-start;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
-}
-
-.top-row ::deep a, .top-row .btn-link {
-    white-space: nowrap;
-}
-
-.top-row a:first-child {
-    overflow: hidden;
-    text-overflow: ellipsis;
 }

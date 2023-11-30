@@ -1,6 +1,5 @@
-﻿@using BlazorWjdr.Models
-@code {
-    [Parameter] public CombattantDto Item { get; set; } = null!;
+﻿@code {
+    [Parameter, EditorRequired] public CombattantDto Item { get; set; } = null!;
     [Parameter] public bool Selected { get; set; }
 }
 @if (Selected) {

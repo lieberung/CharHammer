@@ -1,8 +1,7 @@
-﻿@using BlazorWjdr.Models
-@code{
-    [Parameter] public LieuTypeDto Item { get; set; } = null!;
+﻿@code{
+    [Parameter, EditorRequired] public LieuTypeDto Item { get; set; } = null!;
 }
 <a href="lieux/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="signpost" Classes="mr-1"/>
+    <ItemIcon Icon="signpost" Classes="me-1"/>
     @Item.Nom
 </a>

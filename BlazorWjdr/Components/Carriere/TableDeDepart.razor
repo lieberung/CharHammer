@@ -1,10 +1,8 @@
-﻿@using BlazorWjdr.Services
-@using BlazorWjdr.Models
-@using BlazorWjdr.Components.Reference
+﻿@using BlazorWjdr.Components.Reference
 
 @inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
 
-<table>
+<table class="table table-striped">
     <tbody>
     @for (var i = 0; i < _split; i++)
     {
@@ -52,8 +50,7 @@
     </tbody>
 </table>
 @code {
-    [Parameter]
-    public string RaceId { get; set; } = null!;
+    [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
 
     private int _split;
     private int _nbColonnes = 3; 

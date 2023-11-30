@@ -1,5 +1,4 @@
 ﻿@using BlazorWjdr.Shared.Oi
-@using BlazorWjdr.Models
 
 <a href="@(Item.EstUneCreature ? "creatures" : "personnages")/@Item.Id.ToString()/" class="btn btn-light btn-item">
     @if (Item.EstUnPersonnageJoueur)
@@ -27,7 +26,7 @@
     }
     @if (!Item.EstUnPersonnageJoueur && Item.Notes != "")
     {
-        <TooltipIcon Icon="info" Classes="ms-2" Style="color:#aa0101;" Text="@Item.Notes" />
+        <TooltipIcon Icon="info" Classes="ms-2" Style="color:#aa0101;" Text=@Item.Notes />
     }
     @ChildContent
 </a>

@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-@code{
+﻿@code{
     [Parameter, EditorRequired] public ArmureDto Item { get; set; } = null!;
     
     private string _tooltip = "";
@@ -14,5 +13,5 @@
 }
 <span class="btn btn-light btn-item" target="_blank">
     <ItemIcon Icon="shield" Classes="me-1" />
-    <Tooltip Text="@_tooltip">@Item.Nom</Tooltip>
+    <Tooltip Text=@_tooltip>@Item.Nom</Tooltip>
 </span>

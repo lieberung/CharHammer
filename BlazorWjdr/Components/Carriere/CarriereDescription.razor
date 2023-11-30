@@ -1,8 +1,7 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Components.Reference
+﻿@using BlazorWjdr.Components.Reference
 @using BlazorWjdr.Components.Regle
 @code{
-    [Parameter] public CarriereDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
     [Parameter] public bool AfficherCitations { get; set; }
 }
 <ImageMax Image="@Item.Image" Nom="@Item.Nom" MaxHeight="450px" MaxWidth="450px"/>
@@ -19,7 +18,7 @@
     </p>
 }
 <div class="mb-3" style="min-height:400px;">
-    <CardParagraphes Text="@Item.Description" CardTextClass="pr-3"/>
+    <CardParagraphes Text="@Item.Description" CardTextClass="pe-3"/>
 </div>
 @if (AfficherCitations && Item.Ambiance.Any())
 {

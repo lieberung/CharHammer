@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-<span class="btn btn-light btn-item" target="_blank">
+﻿<span class="btn btn-light btn-item" target="_blank">
     <ItemIcon Icon="location" Classes="me-1" />
     <Tooltip Text="@_tooltip">@Item.Nom</Tooltip>
 </span>
@@ -17,6 +16,5 @@
             _tooltip += $"\nPortée {Item.Portee}";
         if (Item.Attributs.Any())
             _tooltip += $"\nAttributs : {string.Join(", ", Item.Attributs.Select(a => a.Nom).ToArray())}";
-        base.OnParametersSet();
     }
 }

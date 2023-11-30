@@ -1,6 +1,4 @@
-﻿@using BlazorWjdr.Models
-
-<Blessures Item="@Item"/>
+﻿<Blessures Item=@Item />
 @if (Item.Protections.Aucune == false)
 {
     <br/>
@@ -12,6 +10,5 @@
     <strong>Mouvement :&nbsp;</strong><span>&nbsp;@Item.ProfilActuel.M</span>
 }
 @code{
-    [Parameter]
-    public BestioleDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
 }

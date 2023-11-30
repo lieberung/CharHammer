@@ -1,7 +1,6 @@
 ﻿@using BlazorWjdr.Components.Aptitude
-@using BlazorWjdr.Models
 @code{
-    [Parameter] public BestioleDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
     [Parameter] public bool MasquerTitres { get; set; }
     [Parameter] public bool AfficherBonusDeCompetence { get; set; }
 }

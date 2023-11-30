@@ -1,7 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Components
 @using System.Net.Mime
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Carriere
@@ -9,16 +7,15 @@
 
 <div class="btn-group" >
     <div class="text-center">
-        <input class="dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
+        <input class="form-controle dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
                @bind-value="_searchText"
                @bind-value:event="oninput"
-               placeholder="Recherche..."
-               style="width:256px;"/>
+               placeholder="Recherche..." />
         <span class="oi oi-magnifying-glass theme-color" aria-hidden="true" style="font-size:1.3em; top:5px;"></span>
     </div>
     @if (_searchText.Length > 2 && ResultFound)
     {
-        <div class="header-menu-list dropdown-menu show p-2" @onclick="ClearSearch">
+        <div class="dropdown-menu show p-2" @onclick="ClearSearch">
 
             @if (FilteredCarrieres.Any())
             {

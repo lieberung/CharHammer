@@ -1,12 +1,10 @@
-﻿@using BlazorWjdr.Models
-@if (!string.IsNullOrWhiteSpace(Item.Restriction))
+﻿@if (!string.IsNullOrWhiteSpace(Item.Restriction))
 {
     <div class="alert alert-danger" role="alert">
-        <span class="oi oi-warning mr-1" aria-hidden="true"></span>
+        <span class="oi oi-warning me-1" aria-hidden="true"></span>
         @Item.Restriction
     </div>
 }
 @code{
-    [Parameter]
-    public CarriereDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
 }

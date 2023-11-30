@@ -1,6 +1,4 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Services
-@using BlazorWjdr.Components.Carriere
+﻿@using BlazorWjdr.Components.Carriere
 
 @inject CarrieresService _carrieresService
 
@@ -9,7 +7,7 @@
     <td style="width:65px;">
         @if (_carrieresLiees.Any())
         {
-            <span class="btn btn-primary btn-sm table-btn mr-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
+            <span class="btn btn-primary btn-sm table-btn me-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
                 <OiIcon Icon="fork"/>
             </span>
         }
@@ -22,8 +20,7 @@
 }
 @code
 {
-    [Parameter]
-    public ReferenceDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public ReferenceDto Item { get; set; } = null!;
 
     private bool AfficherCarrieres { get; set; }
 

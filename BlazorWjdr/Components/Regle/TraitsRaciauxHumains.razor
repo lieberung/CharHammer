@@ -1,6 +1,4 @@
-﻿@using BlazorWjdr.Services
-
-@inject ReglesService _reglesService
+﻿@inject ReglesService _reglesService
 
 <div class="row px-4 mt-3">
     <div class="col-12">
@@ -19,7 +17,7 @@
     </div>
 </div>
 <div class="row px-4 mt-2">
-    <div class="col-12 pl-1">
+    <div class="col-12 ps-1">
         @if (_empireProvinces.Contains(ProvinceActive))
         {
             <button type="button" @onclick="@((e) => Selectionner(e, "Averland"))" class="me-1 btn btn-sm @(ProvinceActive == "Averland" ? "btn-primary" : "btn-secondary")">

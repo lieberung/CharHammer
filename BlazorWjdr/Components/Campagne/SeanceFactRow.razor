@@ -1,5 +1,5 @@
 ﻿@using BlazorWjdr.Components.Bestiole
-@using BlazorWjdr.Models
+
 <tr style="border-top:1px dotted;">
     <td style="width: 130px;">
         <BestioleItemList Items="@Fact.Pjs" NomCourt="@true"/>
@@ -15,5 +15,5 @@
 </tr>
 
 @code {
-    [Parameter] public FactDto Fact { get; set; } = null!;
+    [Parameter, EditorRequired] public FactDto Fact { get; set; } = null!;
 }

@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Components.Bestiole
+﻿@using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Table
@@ -62,10 +61,7 @@
 }
 
 @code {
-    [Parameter]
-    public RegleDto Item { get; set; } = null!;
-    [Parameter]
-    public bool MasquerTitre { get; set; }
-    [Parameter]
-    public bool MasquerTables { get; set; }
+    [Parameter, EditorRequired] public RegleDto Item { get; set; } = null!;
+    [Parameter] public bool MasquerTitre { get; set; }
+    [Parameter] public bool MasquerTables { get; set; }
 }

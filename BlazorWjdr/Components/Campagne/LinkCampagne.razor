@@ -1,11 +1,8 @@
-﻿<a href="campagne/@CampagneId/seances/" class="mr-1 btn @_btnClass" style="width:280px;">@Titre</a>
+﻿<a href="campagne/@CampagneId/seances/" class="me-1 btn @_btnClass" style="width:280px;">@Titre</a>
 @code {
-    [Parameter]
-    public string CampagneId { get; set; } = null!;
-    [Parameter]
-    public string Titre { get; set; } = null!;
-    [Parameter]
-    public bool Actif { get; set; }
+    [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
+    [Parameter, EditorRequired] public string Titre { get; set; } = null!;
+    [Parameter] public bool Actif { get; set; }
 
     private string _btnClass = "";
 

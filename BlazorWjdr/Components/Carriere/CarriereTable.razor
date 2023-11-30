@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-@code{ [Parameter] public IEnumerable<CarriereDto> Items { get; set; } = null!; }
+﻿@code{ [Parameter] public IEnumerable<CarriereDto> Items { get; set; } = null!; }
 <table class="table table-striped">
     <thead>
         <tr>
@@ -20,7 +19,7 @@
             -->
         </tr>
     </thead>
-    <tbody class="alternate-color-dark">
+    <tbody>
     @foreach (var carriere in Items)
     {
         <CarriereRow Item="carriere"/>

@@ -1,24 +1,20 @@
 ﻿@inject AppState _appState
-@code {
-    [Parameter] public RenderFragment ChildContent { get; set; } = null!;
-}
-<PageTitle>@_appState.PageHeadTitle</PageTitle>
-<div class="top-row px-4 fixed-header">
-    <div class="col-6">
-        <HomeIcon />
-        <span class="me-3" />
-        @if (_appState.MainTopRowTitle != "")
-        {
-            <h3 class="card-title" style="display:inline-block;">@_appState.MainTopRowTitle</h3>
-        }
-        @ChildContent
-    </div>
-    <div class="col-6">
-        <div class="header-menu" style="display: inline-block;">
-            <MainTopRowSearchBar/>
-        </div>
-        <LogoWarhammer/>
-        <GodMode/>
+<PageTitle>
+    @_appState.PageHeadTitle
+</PageTitle>
+
+<div class="navbar fixed-top">
+    <div class="container">
+        <span>
+            <HomeIcon />
+            @if (_appState.MainTopRowTitle != "")
+            {
+                <span class="h2 ms-3">@_appState.MainTopRowTitle</span>
+            }
+        </span>
+        <MainTopRowSearchBar />
+        <LogoWarhammer />
+        <GodMode />
     </div>
 </div>
 <div style="height:56px;"></div>

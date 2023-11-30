@@ -1,9 +1,8 @@
 ﻿@using BlazorWjdr.Components.Lieu
-@using BlazorWjdr.Models
 
 <tr>
     <td>
-        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFiche = !AfficherFiche">
             <OiIcon Icon="eye"/>
         </span>
         @Item.Nom
@@ -35,7 +34,7 @@
     </tr>
 }
 @code {
-    [Parameter] public EquipementDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public EquipementDto Item { get; set; } = null!;
     [Parameter] public bool AfficherContenance { get; set; }
     
     private bool AfficherFiche { get; set; }

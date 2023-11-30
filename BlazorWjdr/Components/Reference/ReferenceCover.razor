@@ -1,6 +1,4 @@
-﻿@using BlazorWjdr.Models
-<img src="Item.Id.jpg" alt="{Titre}" />
-@code {
-    [Parameter]
-    public ReferenceDto Item { get; set; } = null!;
+﻿@code {
+    [Parameter, EditorRequired] public ReferenceDto Item { get; set; } = null!;
 }
+<img src="Item.Id.jpg" alt="{Titre}" />

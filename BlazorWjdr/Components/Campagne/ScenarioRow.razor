@@ -1,15 +1,14 @@
 ﻿@using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Shared.Oi
-@using BlazorWjdr.Models
 @code{
-    [Parameter] public ScenarioDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public ScenarioDto Item { get; set; } = null!;
     [Parameter] public bool LigneCourte { get; set; }
     
     private bool AfficherFiche { get; set; }
 }
 <tr>
     <td>
-        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFiche = !AfficherFiche">
             <OiIcon Icon="eye"/>
         </span>
     </td>

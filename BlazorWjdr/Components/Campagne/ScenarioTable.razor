@@ -1,6 +1,5 @@
-﻿@using BlazorWjdr.Models
-@code{
-    [Parameter] public ScenarioDto[] Items { get; set; } = null!;
+﻿@code{
+    [Parameter, EditorRequired] public ScenarioDto[] Items { get; set; } = null!;
     [Parameter] public bool LigneCourte { get; set; }
 }
 <table class="table table-striped">
@@ -22,7 +21,7 @@
         }
     </tr>
     </thead>
-    <tbody class="alternate-color-dark">
+    <tbody>
     @foreach (var scenar in Items)
     {
         <ScenarioRow Item="@scenar" LigneCourte="@LigneCourte"/>

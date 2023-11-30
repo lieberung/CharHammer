@@ -1,18 +1,16 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Components.Arme
+﻿@using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Sortilege
-@using BlazorWjdr.Services
 @using System.ComponentModel.Design
 
 @inject RacesService _racesService
 @code{
-    [Parameter] public BestioleDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
 }
 @if (Item.Sorts.Any())
 {
     <h5 class="card-title">Sortilèges</h5>
     <p>
-        <SortilegeItemList Items="@Item.Sorts"/>
+        <SortilegeItemList Items=@Item.Sorts />
     </p>
 }
 @if (Item.Armes.Any() || Item.Armures.Any() || Item.EquipementDeCarrieres != "")
@@ -21,11 +19,11 @@
     <p>
         @if (Item.Armes.Any())
         {
-            <ArmeItemList Items="@Item.Armes"/>
+            <ArmeItemList Items=@Item.Armes />
         }
         @if (Item.Armures.Any())
         {
-            <ArmureItemList Items="@Item.Armures"/>
+            <ArmureItemList Items=@Item.Armures />
         }
         @if (Item.EquipementDeCarrieres != "")
         {

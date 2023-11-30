@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-<span class="row-profil">
+﻿<span class="row-profil">
     <ProfilCol IsBonus="true" Value="@Profil.Cc"/>
     <ProfilCol IsBonus="true" Value="@Profil.Ct"/>
     <ProfilCol IsBonus="true" Value="@Profil.F"/>
@@ -12,6 +11,5 @@
     <ProfilCol IsBonus="true" Value="@Profil.Soc"/>
 </span>
 @code{
-    [Parameter]
-    public ProfilDto Profil { get; set; } = null!;
+    [Parameter, EditorRequired] public ProfilDto Profil { get; set; } = null!;
 }

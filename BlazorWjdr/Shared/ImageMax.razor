@@ -1,7 +1,6 @@
-﻿@using BlazorWjdr.Models
-@code{
+﻿@code{
+    [Parameter, EditorRequired] public string Image { get; set; } = null!;
     [Parameter] public string Nom { get; set; } = "";
-    [Parameter] public string Image { get; set; } = null!;
     [Parameter] public string MaxWidth { get; set; } = "300px";
     [Parameter] public string MaxHeight { get; set; } = "450px";
 }

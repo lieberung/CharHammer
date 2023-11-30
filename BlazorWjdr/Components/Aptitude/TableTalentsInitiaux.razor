@@ -1,10 +1,9 @@
-﻿@using BlazorWjdr.Services
-@using BlazorWjdr.Components.Aptitude
+﻿@using BlazorWjdr.Components.Aptitude
 
 @inject AptitudesService _ctService
 
 <table class="table table-striped">
-    <tbody class="alternate-color-dark">
+    <tbody>
 <tr><td><strong>Talent</strong></td><td><strong>Halfling</strong></td><td><strong>Humain</strong></td></tr>
 <tr><td><AptitudeItem Item="@_ctService.TalentAccuiteAuditive"/>              </td><td>01-04</td><td>01-03</td></tr>
 <tr><td><AptitudeItem Item="@_ctService.TalentAccuiteGustativeEtOlfactive"/>  </td><td>05-06</td><td>04-05</td></tr>

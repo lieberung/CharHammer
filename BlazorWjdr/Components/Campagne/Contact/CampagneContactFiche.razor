@@ -1,11 +1,11 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Components.Aptitude
+﻿@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Components.Race
+
 @code {
-    [Parameter] public ContactDeCampagneDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public ContactDeCampagneDto Item { get; set; } = null!;
     [Parameter] public bool AfficherProfil { get; set; }
     [Parameter] public bool AfficherAptitudes { get; set; }
     [Parameter] public bool AfficherMatosEtSorts { get; set; }
@@ -15,32 +15,32 @@
         <img alt="@Item.Pnj.Nom (apparence)" style="float:right; max-width:550px; max-height:550px;" src="images/beasts/@(Item.Pnj.Id).png"/>
         <h4 class="card-title">@Item.Pnj.Nom</h4>
         <p>
-            <CarriereItem Item="@Item.Pnj.CarriereActuelle"/>
+            <CarriereItem Item=@Item.Pnj.CarriereActuelle />
             <span class="ms-1" />
-            <RaceItem Item="@Item.Pnj.Race"/>
+            <RaceItem Item=@Item.Pnj.Race />
             <span class="ms-1" />
-            <LieuItem Item="@Item.LieuDeResidence"/>
+            <LieuItem Item=@Item.LieuDeResidence />
         </p>
         @if (AfficherProfil)
         {
             <p>
-                <BestioleProfil Item="@Item.Pnj" NAfficherQueLeProfilActuel="@true"/>
+                <BestioleProfil Item=@Item.Pnj NAfficherQueLeProfilActuel=true />
             </p>
         }
         @if (AfficherAptitudes)
         {
             <h5 class="card-title">Aptitudes</h5>
-            <AptitudesAcquises Item="@Item.Pnj" MasquerTitres="@true"/>
+            <AptitudesAcquises Item=@Item.Pnj MasquerTitres=true />
         }
         @if (AfficherMatosEtSorts)
         {
-            <BestioleFicheMatosSorts Item="@Item.Pnj"/>
+            <BestioleFicheMatosSorts Item=@Item.Pnj />
         }
         <p class="card-text">
             @Item.Description
         </p>
         <ul>
-            <li>Lieu de rencontre : <LieuItem Item="@Item.LieuDeRencontre"/></li>
+            <li>Lieu de rencontre : <LieuItem Item=@Item.LieuDeRencontre /></li>
             @foreach (var note in Item.Notes)
             {
                 <li>@note</li>

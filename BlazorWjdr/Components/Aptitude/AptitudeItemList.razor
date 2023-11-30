@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-@code{
+﻿@code{
     [Parameter, EditorRequired] public AptitudeDto[] Items { get; set; } = null!;
     [Parameter] public AptitudeDto[][] ItemsChoix { get; set; } = Array.Empty<AptitudeDto[]>();
     [Parameter] public bool PasDeTooltip { get; set; }

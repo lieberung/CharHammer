@@ -1,19 +1,19 @@
 ﻿@using BlazorWjdr.Components.Reference
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Carriere
-@using BlazorWjdr.Models
 @using BlazorWjdr.Shared.Oi
+
 @code{
-    [Parameter] public BestioleDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
     
     private bool AfficherFiche { get; set; }
 }
 <tr>
     <td>
-        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFiche = !AfficherFiche">
             <OiIcon Icon="eye"/>
         </span>
-        <BestioleItem Item="@Item"/>
+        <BestioleItem Item=@Item />
     </td>
 </tr>
 @if (AfficherFiche)
@@ -21,7 +21,7 @@
     <tr>
         <td colspan="2" class="p-3">
             <div class="bulle" style="padding-bottom: 0;">
-                <BestioleFiche Item="@Item"/>
+                <BestioleFiche Item=@Item />
             </div>
         </td>
     </tr>

@@ -1,9 +1,8 @@
-﻿@using BlazorWjdr.Models
-@code{
-    [Parameter] public BestioleDto[] Items { get; set; } = null!;
+﻿@code{
+    [Parameter, EditorRequired] public BestioleDto[] Items { get; set; } = null!;
 } 
 <table class="table table-striped">
-    <tbody class="alternate-color-dark">
+    <tbody>
     @foreach (var bestiole in Items)
     {
         <BestioleRow Item="bestiole"/>

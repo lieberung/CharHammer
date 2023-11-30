@@ -1,29 +1,25 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Services
-
-@inject AppState _appState
-
+﻿@inject AppState _appState
 @code {
-    [Parameter] public CampagneDto Campagne { get; set; } = null!;
+    [Parameter, EditorRequired] public CampagneDto Campagne { get; set; } = null!;
     [Parameter] public int Acte { get; set; }
 }
-<table>
+<table class="table table-striped">
     <thead>
          <tr>
              <th class="tgroupe"></th>
-             <th class="tgroupe pl-2">Date</th>
-             <th class="tgroupe pl-2">Titre</th>
-             <th class="tgroupe pl-2">Scénario</th>
-             <th class="tgroupe pl-2">Durée</th>
-             <th class="tgroupe pl-2" style="text-align:center;">XP</th>
-             <th class="tgroupe pl-2">Lieux</th>
-             <th class="tgroupe pl-2"></th>
+             <th class="tgroupe ps-2">Date</th>
+             <th class="tgroupe ps-2">Titre</th>
+             <th class="tgroupe ps-2">Scénario</th>
+             <th class="tgroupe ps-2">Durée</th>
+             <th class="tgroupe ps-2" style="text-align:center;">XP</th>
+             <th class="tgroupe ps-2">Lieux</th>
+             <th class="tgroupe ps-2"></th>
          </tr>
     </thead>
-    <tbody class="alternate-color-dark">
+    <tbody>
     @foreach (var seance in Campagne.SeancesPourLActe(Acte, _appState.JeSuisDieu).OrderByDescending(s => s.Quand))
     {
-        <SeanceRow Item="@seance" CampagneId="@Campagne.Id"/>
+        <SeanceRow Item=@seance CampagneId=@Campagne.Id />
     }
     </tbody>
 </table>

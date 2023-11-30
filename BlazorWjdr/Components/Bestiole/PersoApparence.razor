@@ -1,7 +1,5 @@
-﻿@using BlazorWjdr.Models
-@code {
-    [Parameter]
-    public BestioleDto Item { get; set; } = null!;
+﻿@code {
+    [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
 }
 <ul>
     <li>Poids : @Item.Poids kg</li>

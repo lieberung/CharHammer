@@ -1,21 +1,18 @@
 ﻿@using BlazorWjdr.Components.Reference
 @using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Components.Campagne
-@using BlazorWjdr.Models
-@using BlazorWjdr.Services
 @using BlazorWjdr.Shared.Oi
 
 @inject AppState _appState
-
 @code{
-    [Parameter] public SeanceDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public SeanceDto Item { get; set; } = null!;
     [Parameter] public int CampagneId { get; set; }
     
     private bool AfficherFiche { get; set; }
 }
 <tr>
     <td>
-        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFiche = !AfficherFiche">
             <OiIcon Icon="eye"/>
         </span>
     </td>
@@ -32,11 +29,11 @@
     <td class="px-2">
         @if (Item.Lieux.Any())
         {
-            <LieuItemList Items="@Item.Lieux"/>
+            <LieuItemList Items=@Item.Lieux />
         }
     </td>
     <td class="px-2">
-        <a class="mr-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/" >Aventuriers</a>
+        <a class="me-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/" >Aventuriers</a>
     </td>
 </tr>
 @if (AfficherFiche)
@@ -44,7 +41,7 @@
     <tr>
         <td colspan="7" class="p-3">
             <div class="bulle" style="padding-bottom: 0;">
-                <SeanceDetail Item="@Item" CampagneId="@CampagneId"/>
+                <SeanceDetail Item=@Item CampagneId=@CampagneId />
             </div>
         </td>
     </tr>

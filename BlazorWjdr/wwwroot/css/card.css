@@ -1,9 +1,6 @@
 ﻿.card-title {
-    color: var(--theme-color);
     margin-bottom: .35rem;
     margin-top: .50rem;
-    font-family: 'calecon-antique', fantasy;
-    font-weight: 600;
 }
 h1.card-title { font-size: xx-large; }
 h3.card-title { font-size: xx-large; }

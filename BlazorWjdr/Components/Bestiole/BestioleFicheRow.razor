@@ -1,19 +1,17 @@
-﻿@using BlazorWjdr.Models
-
-@code {
-    [Parameter] public BestioleDto[] Items { get; set; } = null!;
+﻿@code {
+    [Parameter, EditorRequired] public BestioleDto[] Items { get; set; } = null!;
     [Parameter] public int Index { get; set; }
 }
 @if (Items.Length > Index)
 {
     <div class="row mt-3">
         <div class="col-6">
-            <BestioleFicheCard Bestiole="@Items[Index]"/>
+            <BestioleFicheCard Bestiole=@Items[Index] />
         </div>
         <div class="col-6">
             @if (Items.Length > Index+1)
             {
-                <BestioleFicheCard Bestiole="@Items[Index+1]"/>
+                <BestioleFicheCard Bestiole=@Items[Index+1] />
             }
         </div>
     </div>

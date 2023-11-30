@@ -1,7 +1,9 @@
-﻿@using BlazorWjdr.Models
-
+﻿@code {
+    [Parameter, EditorRequired] public EquipementDto[] Items { get; set; } = null!;
+    [Parameter] public bool AfficherContenance { get; set; }
+}
 <table class="table table-striped">
-    <tbody class="alternate-color-dark">
+    <tbody>
         <tr class="tgroupe">
             <td>Nom</td>
             <td>Enc.</td>
@@ -14,12 +16,7 @@
         </tr>
     @foreach (var item in Items)
     {
-        <EquipementRow Item="@item" AfficherContenance="@AfficherContenance" />
+        <EquipementRow Item=@item AfficherContenance=@AfficherContenance />
     }
     </tbody>
 </table>
-
-@code {
-    [Parameter] public EquipementDto[] Items { get; set; } = null!;
-    [Parameter] public bool AfficherContenance { get; set; }
-}

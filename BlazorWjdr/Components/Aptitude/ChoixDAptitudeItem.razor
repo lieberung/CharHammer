@@ -1,15 +1,13 @@
-﻿@using BlazorWjdr.Models
-
-@for (var i = 0; i < Choix.Length; i++)
+﻿@for (var i = 0; i < Choix.Length; i++)
 {
     @if (i != 0)
     {
         <em class="insister px-1" style="text-decoration: underline;">ou</em>
     }
-    <AptitudeItem Item="@Choix[i]" PasDeTooltip="@PasDeTooltip"/>
+    <AptitudeItem Item=@Choix[i] PasDeTooltip=@PasDeTooltip />
 }
 
 @code{
-    [Parameter] public AptitudeDto[] Choix { get; set; } = null!;
+    [Parameter, EditorRequired] public AptitudeDto[] Choix { get; set; } = null!;
     [Parameter] public bool PasDeTooltip { get; set; }
 }

@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-@code {
+﻿@code {
     /*
      * CC (mélée - ...)
      * BF / BE
@@ -13,13 +12,13 @@
      *
      * + tables coups critiques
      */
-    [Parameter] public CombattantDto[] Combattants { get; set; } = null!;
+    [Parameter, EditorRequired] public CombattantDto[] Combattants { get; set; } = null!;
 }
 <ul>
 @foreach (var combattant in Combattants)
 {
     <li>
-        <CombattantItem Item="@combattant"/>
+        <CombattantItem Item=@combattant />
     </li>
 }
 </ul>

@@ -1,5 +1,4 @@
-﻿@using BlazorWjdr.Models
-@code { [Parameter, EditorRequired] public RaceDto Item { get; set; } = null!; }
+﻿@code { [Parameter, EditorRequired] public RaceDto Item { get; set; } = null!; }
 <a href="races/@Item.Id.ToString()/" class="btn btn-light btn-item">
     <ItemIcon Icon="droplet" Classes="me-1" />
     <span>

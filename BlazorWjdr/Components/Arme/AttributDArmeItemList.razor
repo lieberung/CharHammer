@@ -1,12 +1,11 @@
-﻿@using BlazorWjdr.Models
-<ul class="@(EnColonne ? "" : "list-inline")">
+﻿<ul class="@(EnColonne ? "" : "list-inline")">
     @foreach (var (attribut, rating) in _items)
     {
-        <li class="@(EnColonne ? "" : "list-inline-item")"><AttributDArmeItem Item="@attribut" Rating="@rating"/></li>
+        <li class="@(EnColonne ? "" : "list-inline-item")"><AttributDArmeItem Item=@attribut Rating=@rating /></li>
     }
 </ul>
 @code{
-    [Parameter] public ArmeAttributDto[] Items { get; set; } = null!;
+    [Parameter, EditorRequired] public ArmeAttributDto[] Items { get; set; } = null!;
     [Parameter] public bool EnColonne { get; set; }
 
     private List<Tuple<ArmeAttributDto, int>> _items = null!; 

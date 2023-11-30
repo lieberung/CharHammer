@@ -36,24 +36,24 @@
         base.OnParametersSet();
     }
 }
-<div class="ms-3 mb-3 pl-2">
+<div class="ms-3 mb-3 ps-2">
     <div class="row">
         <div class="col-1"></div>
         <div class="col-10">
-            <a style="width:120px;" href="guide-du-consommateur/tout/" class="mr-2 mb-1 btn btn-sm @(Clean(Groupe) == "tout" ? "btn-primary" : "btn-secondary")">
-                <span style="color:white;" class="oi oi-box item-icon mr-1" aria-hidden="true"></span>
+            <a style="width:120px;" href="guide-du-consommateur/tout/" class="me-2 mb-1 btn btn-sm @(Clean(Groupe) == "tout" ? "btn-primary" : "btn-secondary")">
+                <span style="color:white;" class="oi oi-box item-icon me-1" aria-hidden="true"></span>
                 <strong>Tout</strong>
             </a>
             @foreach (var grp in _allGroupes)
             {
-                <a style="width:120px;" href="guide-du-consommateur/@Clean(grp)/" class="mr-2 mb-1 btn btn-sm @(Clean(Groupe) == Clean(grp) ? "btn-primary" : "btn-secondary")">@grp</a>
+                <a style="width:120px;" href="guide-du-consommateur/@Clean(grp)/" class="me-2 mb-1 btn btn-sm @(Clean(Groupe) == Clean(grp) ? "btn-primary" : "btn-secondary")">@grp</a>
             }
         </div>
         <div class="col-1"></div>
     </div>
 </div>
 
-<div class="ms-3 mb-3 pl-2">
+<div class="ms-3 mb-3 ps-2">
     @foreach (var grp in _showGroupes)
     {
         <div class="row">

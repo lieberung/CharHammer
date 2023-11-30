@@ -1,14 +1,11 @@
-﻿@using BlazorWjdr.Models
-<tr>
+﻿<tr>
     <td style="width:210px; @(BorderTop ? "border-top: 1px black dashed;" : "")">
         <CarriereItem Item="Item.Carriere" HideIndicatorBase="true" HideIndicatorRestriction="false" Tooltip="@_tooltip" />
     </td>
 </tr>
 @code {
-    [Parameter]
-    public LigneDeCarriereInitialeDto Item { get; set; } = null!;
-    [Parameter]
-    public bool BorderTop { get; set; }
+    [Parameter, EditorRequired] public LigneDeCarriereInitialeDto Item { get; set; } = null!;
+    [Parameter] public bool BorderTop { get; set; }
 
     private string _tooltip = "Facteur : ";
 
@@ -22,7 +19,5 @@
         }
         */
         _tooltip += "\n\nPlus le facteur est élevé, plus grandes sont les chances de tirer cette carrière spécifique.";
-        base.OnParametersSet();
     }
-
 }

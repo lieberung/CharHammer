@@ -1,14 +1,9 @@
-@using BlazorWjdr.Services
-
-@implements IDisposable
-
 @inject AppState _appState
-
+@implements IDisposable
 @code {
     protected override void OnInitialized() => _appState.OnChange += StateHasChanged;
     public void Dispose() => _appState.OnChange -= StateHasChanged;
 }
-
 <h4 class="card-title">Campagne</h4>
 <p>
     <IndexLink Href="campagne/13/seances/" Title="Carnets de Route"/>

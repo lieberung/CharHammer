@@ -1,6 +1,4 @@
-﻿@using BlazorWjdr.Models
-
-@if (_competences.Any())
+﻿@if (_competences.Any())
 {
     @if (GrosTitres) {
         <h4 class="card-title">Compétences</h4>
@@ -31,7 +29,7 @@
 }
 
 @code {
-    [Parameter] public AptitudeDto[] Aptitudes { get; set; } = null!;
+    [Parameter, EditorRequired] public AptitudeDto[] Aptitudes { get; set; } = null!;
     [Parameter] public bool CompetencesAvanceesUniquement { get; set; }
     [Parameter] public bool GrosTitres { get; set; }
 
@@ -45,7 +43,6 @@
             .OrderBy(a => a.NomComplet).ToArray();
         _talents = Aptitudes.Where(a => a.Categ == "talent").OrderBy(a => a.NomComplet).ToArray();
         _traits = Aptitudes.Where(a => a.Categ == "trait").OrderBy(a => a.NomComplet).ToArray();
-        base.OnParametersSet();
     }
 
 }

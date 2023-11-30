@@ -5,7 +5,7 @@
 }
 @foreach (var paragraphe in Text.Replace('\r', '\n').Replace("\n\n", "\n").Split('\n'))
 {
-    var spanClass = PasDeMarge ? "" : "pl-3";
+    var spanClass = PasDeMarge ? "" : "ps-3";
     <p class="card-text @CardTextClass">
         <span class="@spanClass">@paragraphe</span>
     </p>

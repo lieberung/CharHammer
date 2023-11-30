@@ -1,6 +1,5 @@
-﻿@using BlazorWjdr.Models
-@code {
-    [Parameter] public RegleDto Item { get; set; } = null!;
+﻿@code {
+    [Parameter, EditorRequired] public RegleDto Item { get; set; } = null!;
 }
 <div class="card-body">
     <h4 class="card-title">@Item.Titre</h4>

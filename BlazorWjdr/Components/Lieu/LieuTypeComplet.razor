@@ -1,5 +1,6 @@
-﻿@using BlazorWjdr.Models
-
+﻿@code {
+    [Parameter, EditorRequired] public LieuTypeDto Item { get; set; } = null!;
+}
 <ul class="list-inline">
     @if (Item.Parent != null)
     {
@@ -17,8 +18,3 @@
         <LieuTypeItem Item="@Item"/>
     </li>
 </ul>
-
-@code {
-    [Parameter]
-    public LieuTypeDto Item { get; set; } = null!;
-}

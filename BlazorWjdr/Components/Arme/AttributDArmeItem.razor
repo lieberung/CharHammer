@@ -1,10 +1,9 @@
-﻿@using BlazorWjdr.Models
-<span class="btn btn-light btn-item@(_class)" target="_blank">
+﻿<span class="btn btn-light btn-item@(_class)" target="_blank">
     <ItemIcon Icon="shield" Classes="me-1" />
     @if (string.IsNullOrWhiteSpace(Item.Description)) {
         @_nom
     } else {
-        <Tooltip Text="@Item.Description">@_nom</Tooltip>
+        <Tooltip Text=@Item.Description>@_nom</Tooltip>
     }
 </span>
 @code{

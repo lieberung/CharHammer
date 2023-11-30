@@ -1,9 +1,7 @@
-﻿<a href="table-coups-critiques/@Zone/" class="mr-2 btn @_btnClass" style="width:90px;">@_zone</a>
+﻿<a href="table-coups-critiques/@Zone/" class="me-2 btn @_btnClass" style="width:90px;">@_zone</a>
 @code {
-    [Parameter]
-    public string Zone { get; set; } = null!;
-    [Parameter]
-    public bool Actif { get; set; }
+    [Parameter, EditorRequired] public string Zone { get; set; } = null!;
+    [Parameter] public bool Actif { get; set; }
 
     private string _zone = "";
     private string _btnClass = "";

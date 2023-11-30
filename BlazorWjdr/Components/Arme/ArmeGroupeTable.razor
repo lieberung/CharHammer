@@ -1,17 +1,14 @@
-﻿@using BlazorWjdr.Models
-
-<table class="table table-striped">
+﻿<table class="table table-striped">
     <ArmeGroupeRow Groupe="@Groupe" ArmeDeTir="@ArmesDeTir"/>
-    <tbody class="alternate-color-dark">
+    <tbody>
     @foreach (var arme in Armes)
     {
         <ArmeRow Item="@arme" ArmeDeTir="@ArmesDeTir"/>
     }
     </tbody>
 </table>
-
 @code {
     [Parameter] public string Groupe { get; set; } = "";
-    [Parameter] public List<ArmeDto> Armes { get; set; } = null!;
+    [Parameter, EditorRequired] public List<ArmeDto> Armes { get; set; } = null!;
     [Parameter] public bool ArmesDeTir { get; set; }
 }

@@ -1,5 +1,9 @@
-﻿@using BlazorWjdr.Models
-
+﻿@code {
+    [Parameter, EditorRequired] public TableDto Item { get; set; } = null!;
+    [Parameter] public bool MasquerTitre { get; set; }
+    [Parameter] public bool MasquerDescription { get; set; }
+    [Parameter] public int FixedColSize { get; set; }
+}
 @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
 {
     <h5 class="card-title">@Item.Titre</h5>
@@ -41,14 +45,3 @@
         </tbody>
     </table>
 </div>
-
-@code {
-    [Parameter]
-    public TableDto Item { get; set; } = null!;
-    [Parameter]
-    public bool MasquerTitre { get; set; }
-    [Parameter]
-    public bool MasquerDescription { get; set; }    
-    [Parameter]
-    public int FixedColSize { get; set; }
-}

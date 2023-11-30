@@ -1,5 +1,4 @@
 ﻿@using BlazorWjdr.Components.Aptitude
-@using BlazorWjdr.Models
 
 <h3 class="card-title">Compétences</h3>
 <AptitudeItemList Items="_competences" ItemsChoix="_competencesChoix" />
@@ -7,8 +6,7 @@
 <AptitudeItemList Items="_talents" ItemsChoix="_talentsChoix" />
 
 @code{
-    [Parameter]
-    public CarriereDto Carriere { get; set; } = null!;
+    [Parameter, EditorRequired] public CarriereDto Carriere { get; set; } = null!;
 
     private AptitudeDto[] _competences = null!;
     private AptitudeDto[] _talents = null!;

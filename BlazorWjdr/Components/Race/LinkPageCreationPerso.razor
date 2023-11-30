@@ -1,9 +1,7 @@
-﻿<a href="regles/creation-de-personnage/@Race.Id/" class="mr-1 btn @_btnClass" style="width:105px;">@Race.NomMasculin</a>
+﻿<a href="regles/creation-de-personnage/@Race.Id/" class="me-1 btn @_btnClass" style="width:105px;">@Race.NomMasculin</a>
 @code {
-    [Parameter]
-    public Models.RaceDto Race { get; set; } = null!;
-    [Parameter]
-    public bool Actif { get; set; }
+    [Parameter, EditorRequired] public Models.RaceDto Race { get; set; } = null!;
+    [Parameter] public bool Actif { get; set; }
 
     private string _btnClass = "";
 

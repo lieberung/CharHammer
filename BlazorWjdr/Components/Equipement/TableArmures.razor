@@ -1,7 +1,8 @@
-﻿@using BlazorWjdr.Models
-
+﻿@code {
+    [Parameter, EditorRequired] public ArmureDto[] Items { get; set; } = null!;
+}
 <table class="table table-striped">
-    <tbody class="alternate-color-dark">
+    <tbody>
     <tr class="tgroupe">
         <td>Nom</td>
         <td>Type</td>
@@ -18,7 +19,3 @@
     }
     </tbody>
 </table>
-
-@code {
-    [Parameter] public ArmureDto[] Items { get; set; } = null!;
-}

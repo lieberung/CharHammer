@@ -1,20 +1,16 @@
 ﻿@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Profil
-@using BlazorWjdr.Models
 
+@code {
+    [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
+    [Parameter] public bool NAfficherQueLeProfilActuel { get; set; }
+}
 @if (NAfficherQueLeProfilActuel == false && Item.CheminementPro.Any())
 {
-    <CarriereItemList Items="@Item.CheminementPro" HideIndicatorBase="true" HideIndicatorRestriction="true"/>
+    <CarriereItemList Items=@Item.CheminementPro HideIndicatorBase=true HideIndicatorRestriction=true />
 }
 @if (NAfficherQueLeProfilActuel) {
-    <Profil ProfilActuel="@Item.ProfilActuel" />
+    <Profil ProfilActuel=@Item.ProfilActuel />
 } else {
-    <Profil ProfilActuel="@Item.ProfilActuel" ProfilInitial="@Item.ProfilInitial" PlanDeCarriere="@Item.CarriereActuelle?.PlanDeCarriere"/>
-}
-
-@code{
-    [Parameter]
-    public BestioleDto Item { get; set; } = null!;
-    [Parameter]
-    public bool NAfficherQueLeProfilActuel { get; set; }
+    <Profil ProfilActuel=@Item.ProfilActuel ProfilInitial=@Item.ProfilInitial PlanDeCarriere=@Item.CarriereActuelle?.PlanDeCarriere />
 }

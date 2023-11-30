@@ -1,9 +1,8 @@
-﻿@using BlazorWjdr.Models
-@using BlazorWjdr.Components.Arme
+﻿@using BlazorWjdr.Components.Arme
 
 <tr>
     <td>
-        <span class="btn btn-primary btn-item-action table-btn mr-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFiche = !AfficherFiche">
             <OiIcon Icon="eye"/>
         </span>
         @Item.Nom
@@ -29,7 +28,7 @@
     </tr>
 }
 @code {
-    [Parameter] public ArmureDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public ArmureDto Item { get; set; } = null!;
     
     private bool AfficherFiche { get; set; }
 }

@@ -1,11 +1,10 @@
-﻿@using BlazorWjdr.Models
+﻿@code {
+    [Parameter, EditorRequired] public LieuTypeDto[] Items { get; set; } = null!;
+    [Parameter] public bool EnColonne { get; set; }
+}
 <ul class="@(EnColonne ? "" : "list-inline")" style="margin-bottom:0;">
     @foreach (var item in Items)
     {
         <li class="@(EnColonne ? "" : "list-inline-item")"><LieuTypeItem Item="@item"/></li>
     }
 </ul>
-@code{
-    [Parameter] public LieuTypeDto[] Items { get; set; } = null!;
-    [Parameter] public bool EnColonne { get; set; }
-}
