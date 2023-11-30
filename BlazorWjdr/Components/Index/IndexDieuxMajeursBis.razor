@@ -1,0 +1,22 @@
+﻿@code{
+    [Parameter] public bool AfficherLiens { get; set; }
+}
+<h5 @onclick="_ => AfficherLiens = !AfficherLiens">
+    <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="ms-2" />
+    Dieux majeurs dans l'Empire
+</h5>
+@if (AfficherLiens)
+{
+    <p class="mb-2">
+        <IndexLink Href="univers/pantheon/manann/" Title="Manann"/>
+        <IndexLink Href="univers/pantheon/morr/" Title="Morr"/>
+        <IndexLink Href="univers/pantheon/myrmidia/" Title="Myrmidia"/>
+        <IndexLink Href="univers/pantheon/ranald/" Title="Ranald"/>
+        <IndexLink Href="univers/pantheon/rhya/" Title="Rhya"/>
+        <IndexLink Href="univers/pantheon/shallya/" Title="Shallya"/>
+        <IndexLink Href="univers/pantheon/sigmar/" Title="Sigmar"/>
+        <IndexLink Href="univers/pantheon/taal/" Title="Taal"/>
+        <IndexLink Href="univers/pantheon/ulric/" Title="Ulric"/>
+        <IndexLink Href="univers/pantheon/verena/" Title="Verena"/>
+    </p>
+}

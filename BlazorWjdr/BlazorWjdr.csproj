@@ -18,4 +18,10 @@
     <ProjectReference Include="..\BlazorWjdr.Models\BlazorWjdr.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="Components\Index\IndexDieuxMajeursBis.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
 </Project>
