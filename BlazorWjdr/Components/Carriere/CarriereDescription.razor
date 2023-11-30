@@ -4,11 +4,11 @@
     [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
     [Parameter] public bool AfficherCitations { get; set; }
 }
-<ImageMax Image="@Item.Image" Nom="@Item.Nom" MaxHeight="450px" MaxWidth="450px"/>
+<ImageMax Image=@Item.Image Nom=@Item.Nom MaxHeight="450px" MaxWidth="450px"/>
 @if (Item.FilieresDAvancement.Any())
 {
     <p class="card-text">
-        <CarriereAvancement Origines="@Item.FilieresDAvancement"/>
+        <CarriereAvancement Origines=@Item.FilieresDAvancement />
     </p>
 }
 @if (Item.Leitmotiv != "")
@@ -18,7 +18,7 @@
     </p>
 }
 <div class="mb-3" style="min-height:400px;">
-    <CardParagraphes Text="@Item.Description" CardTextClass="pe-3"/>
+    <CardParagraphes Text=@Item.Description CardTextClass="pe-3"/>
 </div>
 @if (AfficherCitations && Item.Ambiance.Any())
 {
@@ -33,12 +33,12 @@
 }
 @if (Item.Source?.Book != null || !string.IsNullOrWhiteSpace(Item.Source?.Info))
 {
-    <ReferenceItem Item="@Item.Source?.Book" Page="@Item.Source?.Info"/>
+    <ReferenceItem Item=@Item.Source?.Book Page=@Item.Source?.Info />
 }
 @if (Item.SousElements.Any())
 {
-    <h5 class="card-title mt-4">Variantes</h5>
+    <h5 class="mt-4">Variantes</h5>
     <p class="card-text">
-        <CarriereItemList Items="@Item.SousElements.ToArray()"/>
+        <CarriereItemList Items=@Item.SousElements.ToArray() />
     </p>
 }

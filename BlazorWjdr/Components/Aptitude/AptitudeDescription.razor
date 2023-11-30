@@ -49,21 +49,21 @@
 
 @if (_competencesLiees.Any())
 {
-    <h3 class="card-title">Compétences liées</h3>
+    <h3>Compétences liées</h3>
     <p class="card-text">
         <AptitudeItemList Items="@_competencesLiees.ToArray()"/>
     </p>
 }
 @if (_talentsLies.Any())
 {
-    <h3 class="card-title">Talents liés</h3>
+    <h3>Talents liés</h3>
     <p class="card-text">
         <AptitudeItemList Items="@_talentsLies.ToArray()"/>
     </p>
 }
 @if (_traitsLies.Any())
 {
-    <h3 class="card-title">Traits liés</h3>
+    <h3>Traits liés</h3>
     <p class="card-text">
         <AptitudeItemList Items="@_traitsLies.ToArray()"/>
     </p>
@@ -71,7 +71,7 @@
 
 @if (Item.SousElements.Any())
 {
-    <h3 class="card-title">Spécialisations</h3>
+    <h3>Spécialisations</h3>
     <p class="card-text">
         <AptitudeItemList Items="@Item.SousElements.ToArray()"/>    
     </p>
@@ -79,7 +79,7 @@
 
 @if (_armesLiees.Any())
 {
-    <h3 class="card-title">Armes liées</h3>
+    <h3>Armes liées</h3>
     @foreach (var arme in _armesLiees)
     {
         <p class="card-text">
@@ -92,7 +92,7 @@
     @if (_sortilegesService.AllSortileges.Any(s => s.Aptitudes.Contains(Item)))
     {
         <!--
-        <h3 class="card-title">Sortilèges</h3>
+        <h3>Sortilèges</h3>
         <SortilegeItemList Items="_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray()"/>
         -->
     }

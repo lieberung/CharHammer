@@ -30,9 +30,9 @@
     <div class="col-5">
         <div class="card-body" style="padding-top: 0;">
 
-            <h1 class="card-title" style="font-size: xxx-large;">@Item.Nom</h1>
+            <h1 style="font-size: xxx-large;">@Item.Nom</h1>
             <h5><em>@Item.CategSpeSexy</em></h5>
-            <AptitudeDescription Item="@Item" />
+            <AptitudeDescription Item=@Item />
 
         </div>
     </div>
@@ -41,9 +41,9 @@
         @if (_carrieres.Any())
         {
             <div class="card-body" style="padding-top: 0; padding-right: 0;">
-                <h5 class="card-title title-primary">Carrières proposant ce trait</h5>
+                <h5>Carrières proposant ce trait</h5>
                 <p class="card-text">
-                    <CarriereItemList Items="@_carrieres" />
+                    <CarriereItemList Items=@_carrieres />
                 </p>
             </div>
         }

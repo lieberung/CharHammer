@@ -4,7 +4,7 @@
 @inject CarrieresService _carrSvc
 @inject AptitudesService _ctSvc
 
-<h3 class="card-title">Avancement de carrière</h3>
+<h3>Avancement de carrière</h3>
 <p class="card-text">
     Lorsqu'il est indiqué pour une carrière qu'il s'agit d'un <span class="insister">Avancement</span> d'une autre carrière - dîte <span class="insister">Carrière d'Origine</span>, c'est que techniquement ou philosophiquement il s'agit toujours de la même carrière, mais à un grade ou niveau d'investissement plus poussé.
     <br/>
@@ -66,7 +66,7 @@
     <br/>
     En devenant <CarriereItem Item="@_carrSvc.GetCarriere(197)"/>, vous pourrez acheter <AptitudeItem Item="@_ctSvc.CompetenceEscalade"/> une troisième fois, et les compétences de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/> une seconde fois, et ainsi de suite.
 </p>
-<h5 class="card-title">Theory crafting</h5>
+<h5>Theory crafting</h5>
 <p class="card-text">
     Votre personnage, Georges, dispose d'une Capacité de Combat de 31 et a tiré le carrière initiale de <CarriereItem Item="@_carrSvc.GetCarriere(73)"/>. Il complète soigneusement sa carrière  
 </p>

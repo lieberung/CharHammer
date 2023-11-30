@@ -32,8 +32,6 @@
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
             .Distinct()
             .OrderBy(a => a.NomComplet).ToArray();
-
-        base.OnParametersSet();
     }
 
     private void CalculerInitiativeDeCombatPjsUniquement() => CalculerInitiativeDeCombat(null);
@@ -61,8 +59,8 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Aptitudes du groupe</h3>
-                <AptitudeItemListSummary Aptitudes="@_aptitudes" CompetencesAvanceesUniquement="@true" />
+                <h3>Aptitudes du groupe</h3>
+                <AptitudeItemListSummary Aptitudes=@_aptitudes CompetencesAvanceesUniquement=true />
             </div>
         </div>
     </div>
@@ -73,7 +71,7 @@
     <div class="row">
         <div class="col-8">
             <div class="card-body">
-                <h3 class="card-title">Assistant de combat</h3>
+                <h3>Assistant de combat</h3>
                 <p class="card-text">
                     <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
                     @foreach (var rencontre in _seance.Rencontres)
@@ -85,7 +83,7 @@
         </div>
         <div class="col-4">
             <div class="card-body">
-                <h5 class="card-title">Localisation</h5>
+                <h5>Localisation</h5>
                 <p class="card-text">
                     <button class="btn btn-secondary" @onclick="JetDeLocalisation">Roll !</button>
                     <span class="insister ms-2">@_localisationRoll</span>
@@ -97,7 +95,7 @@
         <div class="col-12">
             @if (_combattants.Any())
             {
-                <AssistantBataille Protagonistes="@_combattants.ToArray()" />
+                <AssistantBataille Protagonistes=@_combattants.ToArray() />
             }
         </div>
     </div>
@@ -105,4 +103,4 @@
 
 <PageSectionDivider />
 
-<BestioleFicheRows Items="@_seance.Pjs" />
+<BestioleFicheRows Items=@_seance.Pjs />

@@ -6,62 +6,60 @@
 @using BlazorWjdr.Components.Lieu
 
 <div class="btn-group" >
-    <div class="text-center">
-        <input class="form-controle dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
-               @bind-value="_searchText"
-               @bind-value:event="oninput"
-               placeholder="Recherche..." />
-        <span class="oi oi-magnifying-glass theme-color" aria-hidden="true" style="font-size:1.3em; top:5px;"></span>
-    </div>
+    <input class="dropdown-toggle border-4 w-2/3 rounded m-6 p-6 h-8"
+            @bind-value="_searchText"
+            @bind-value:event="oninput"
+            placeholder="Recherche..." />
+    <span class="oi oi-magnifying-glass theme-color ms-1" aria-hidden="true" style="font-size: 1.3em; top: 0.5rem;"></span>
     @if (_searchText.Length > 2 && ResultFound)
     {
-        <div class="dropdown-menu show p-2" @onclick="ClearSearch">
+        <div class="dropdown-menu show p-2" style="top: 100%;" @onclick="ClearSearch">
 
             @if (FilteredCarrieres.Any())
             {
                 <div class="mb-3">
-                    <h6 class="card-title">Carrières</h6>
-                    <CarriereItemList Items="@FilteredCarrieres" ItemClass=""/>
+                    <h6>Carrières</h6>
+                    <CarriereItemList Items=@FilteredCarrieres ItemClass="" />
                 </div>
             }
 
             @if (FilteredAptitudes.Any(a => a.EstUneCompetence))
             {
                 <div class="mb-3">
-                    <h6 class="card-title">Compétences</h6>
-                    <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUneCompetence).ToArray()" PasDeTooltip="@true"/>
+                    <h6>Compétences</h6>
+                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUneCompetence).ToArray() PasDeTooltip=true/>
                 </div>
             }
             
             @if (FilteredAptitudes.Any(a => a.EstUnTalent))
             {
                 <div class="mb-3">
-                    <h6 class="card-title">Talents</h6>
-                    <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTalent).ToArray()" PasDeTooltip="@true"/>
+                    <h6>Talents</h6>
+                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUnTalent).ToArray() PasDeTooltip=true/>
                 </div>
             }
             
             @if (FilteredAptitudes.Any(a => a.EstUnTrait))
             {
                 <div class="mb-3">
-                    <h6 class="card-title">Traits</h6>
-                    <AptitudeItemList Items="@FilteredAptitudes.Where(a => a.EstUnTrait).ToArray()" PasDeTooltip="@true"/>
+                    <h6>Traits</h6>
+                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUnTrait).ToArray() PasDeTooltip=true/>
                 </div>
             }
             
             @if (FilteredBestioles.Any())
             {
                 <div class="mb-3">
-                    <h6 class="card-title">Créatures</h6>
-                    <BestioleItemList Items="@FilteredBestioles" ItemClass=""/>
+                    <h6>Créatures</h6>
+                    <BestioleItemList Items=@FilteredBestioles ItemClass=""/>
                 </div>
             }
             
             @if (FilteredLieux.Any())
             {
                 <div class="mb-3">
-                    <h6 class="card-title">Lieux</h6>
-                    <LieuItemList Items="@FilteredLieux"/>
+                    <h6>Lieux</h6>
+                    <LieuItemList Items=@FilteredLieux />
                 </div>
             }
         </div>
@@ -69,14 +67,13 @@
 </div>
 
 @code {
+    [Parameter] public string Text { get; set; } = "";
+        
     private IEnumerable<CarriereDto> AllCarrieres { get; set; } = new List<CarriereDto>();
     private IEnumerable<AptitudeDto> AllAptitudes { get; set; } = new List<AptitudeDto>();
     private IEnumerable<BestioleDto> AllBestioles { get; set; } = new List<BestioleDto>();
     private IEnumerable<LieuDto> AllLieux { get; set; } = new List<LieuDto>();
 
-    [Parameter]
-    public string Text { get; set; } = "";
-        
     private string _searchText = "";
 
     [Inject] private CarrieresService CarrieresService { get; set; } = null!;
@@ -95,7 +92,6 @@
     protected override void OnParametersSet()
     {
         _searchText = Text;
-        base.OnParametersSet();
     }
 
     private bool ResultFound => FilteredCarrieres.Any() || FilteredAptitudes.Any() || FilteredBestioles.Any() || FilteredLieux.Any();
@@ -120,5 +116,4 @@
     {
         _searchText = "";
     }
-
 }

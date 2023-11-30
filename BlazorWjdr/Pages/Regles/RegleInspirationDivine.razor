@@ -17,7 +17,7 @@
 <div class="row">
     <div class="col-4">
         <div class="card-body">
-            <h3 class="card-title">Prières, Bénédictions et Miracles</h3>
+            <h3>Prières, Bénédictions et Miracles</h3>
 
             <p class="card-text">
                 Un petit nombre de fidèles se démarquent de leurs pairs en étant, à priori, capables de faire appel à l'intervention directe de leur divinité sous la forme de miracles. Ceux qui accomplissent de tels exploits sont connus sous bien des noms dans les différentes parties du Vieux Monde - Saints vivants, Serviteurs des dieux, Volontés divines, Elus - mais, dans l'Empire, ils sont le plus communément appelés « Bienheureux », terme souvent utilisé comme un titre.
@@ -25,7 +25,7 @@
                 <em>Donc, si Soeur Anna est bénie par Sigmar - si elle s'est vu accorder la grâce de Sigmar et qu'elle est donc en mesure de recevoir des réponses à ses prières - elle devient la « Bienheureuse Anna », ou dans son intégralité, la « Bienheureuse Anna, Soeur de Sigmar ».</em>
             </p>
 
-            <h5 class="card-title">Apprendre des sorts</h5>
+            <h5>Apprendre des sorts</h5>
             <p class="card-text">
                 Un personnage qui souhaite lancer des sorts divins doit montrer un intérêt certain pour les préceptes d'un dieu et généralement entamer une carrière d'<CarriereItem Item=@_carrSvc.CarriereInitie /> ou de <CarriereItem Item=@_carrSvc.CarriereNovice />, qui lui permettront d'apprendre les Compétences <AptitudeItem Item="@_cttSvc.CompetencePriere" /> et <AptitudeItem Item="@_cttSvc.GetAptitude(1162)" />.
                 <br />
@@ -41,7 +41,7 @@
 
     <div class="col-4">
         <div class="card-body">
-            <h3 class="card-title">Lancer un sort</h3>
+            <h3>Lancer un sort</h3>
             <p class="card-text">
                 Pour lancer une Bénédiction ou un Miracle, le personnage doit énoncer une prière. Cela ce traduit par un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere />.
                 <br />
@@ -57,7 +57,7 @@
                     <li>De plus si deux personnages lance le même sort sur la même cible, leur effet n'est pas cumulatif.</li>
                 </ul>
             </p>
-            <h5 class="card-title">Bonus de Succès</h5>
+            <h5>Bonus de Succès</h5>
             <p class="card-text">
                 Pour chaque tranche de +2 BS que vous obtenez sur un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere /> pour lancer une <AptitudeItem Item=@_cttSvc.TalentBenediction />,
                 vous pouvez choisir l'un des bénéfices suivants (vous pouvez choisir plusieurs fois le même) :
@@ -75,7 +75,7 @@
 
     <div class="col-4">
         <div class="card-body">
-            <h3 class="card-title">Points de Péché</h3>
+            <h3>Points de Péché</h3>
             <p class="card-text">
                 Les bienheureux sont surveillés de près par les dieux et risquent de gagner leur
                 défaveur s'ils devaient agir contrairement à leurs préceptes ou à leur volonté.
@@ -85,7 +85,7 @@
                 Il y a pas de maximum au nombre de points de péché que vous pouvez gagner.
                 PLus vous en avez, plus votre dieu est susceptible d'être contrarié lorsque vous lui faites appel via vos prières.
             </p>
-            <h5 class="card-title">
+            <h5>
                 <em>Tu es dans le péché !</em>
             </h5>
             <p class="card-text">
@@ -98,7 +98,7 @@
                     Torturer ou tuer un prisonnier sans défense est inacceptable à Myrmidia, garantissant 3 points voir plus.
                 </em>
             </p>
-            <h5 class="card-title">Conséquences</h5>
+            <h5>Conséquences</h5>
             <p class="card-text">
                 Faire appel à votre divinité lorsque vous avez agi contrairement à sa volonté est risqué.
                 Chaque fois que vous faites un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere />, si le dé des unités du jet est égal ou inférieur à votre Score de Péché actuel, vous subirez la Colère des Dieux, même si le test est réussi.
@@ -112,7 +112,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card-body">
-            <h3 class="card-title">La Colère Divine</h3>
+            <h3>La Colère Divine</h3>
             <p class="card-text">
                 Un jet sur la Table de la Colère Divine est effectué chaque fois que vous faites un Echec Critique sur un Test de <AptitudeItem Item=@_cttSvc.CompetencePriere />,
                 ou lorsque le dé des unités du jet est égal ou inférieur à vos Points de Péché actuels.

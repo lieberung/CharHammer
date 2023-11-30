@@ -126,7 +126,7 @@
             </ul>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Conditions</h5>
+            <h5>Conditions</h5>
             <p class="card-text">
                 <AptitudeItemList Items="_aptSvc.Conditions.ToArray()" />
             </p>
@@ -134,14 +134,14 @@
     </div>
     <div class="col-4">
         <div class="card-body">
-            <h3 class="card-title">Avantages</h3>
+            <h3>Avantages</h3>
             <p class="card-text">
                 Les Avantages représentent vos moments de gloire en combat, quand vous surpassez vos adversaires. On les mémorise avec des jetons, ou avec un d10. Le maximum pour un personnage est capé sur son Bonus d'Initiative.
             </p>
             <p class="card-text">
                 Chaque Avantage confère un <strong>bonus de +10</strong> aux tests de combat (attaquer, défendre, résister) et de psychologie (peur, terreur) appropriés.
             </p>
-            <h5 class="card-title">Gagner des Avantages</h5>
+            <h5>Gagner des Avantages</h5>
             <ul>
                 <li>attaquer un ennemi <AptitudeItem Item="@_aptSvc.ConditionSurpris" /> confère +1 Avantage</li>
                 <li><strong>charger</strong> un adversaire confère +1 Avantage</li>
@@ -150,7 +150,7 @@
                 <li>certaines <strong>compétences</strong> et certains <strong>talents</strong> vous donnent un avantage tactique</li>
                 <li><strong>vaincre</strong> un chef de groupe confère +1 Avantage, voir +2 s'il est particulièrement puissant</li>
             </ul>
-            <h5 class="card-title">Perdre ou dépenser son Avantage</h5>
+            <h5>Perdre ou dépenser son Avantage</h5>
             <ul>
                 <li>perdre un Test Opposé, subir une <em>Condition</em> ou être blessé vous fait perdre tous vos Avantages</li>
                 <li>si à la fin d'un Round vous n'avez gagné aucun Avantage, ou que vous êtes en infériorité numérique, vous perdez 1 Avantage</li>
@@ -159,12 +159,12 @@
             </ul>
         </div>
         <div class="card-body">
-            <h5 class="card-title">Mouvement et distances</h5>
+            <h5>Mouvement et distances</h5>
             <p class="card-text">
                 Indique combien de mètres vous pouvez parcourir en un seul Tour.
                 Vous pouvez utiliser <AptitudeItem Item="@_aptSvc.CompetenceAthletisme" /> pour augmenter cette distance en sprintant.
             </p>
-            <TableDetail Item="@_tablesService.GetTable(67)" FixedColSize="35" MasquerTitre="@true" MasquerDescription="@true" />
+            <TableDetail Item="@_tablesService.GetTable(67)" FixedColSize="35" MasquerTitre=true MasquerDescription=true />
         </div>
     </div>
 </div>
@@ -173,7 +173,7 @@
 
 <div class="row">
     <div class="col-4">
-        <h3 class="card-title">Attaquer au corps à corps</h3>
+        <h3>Attaquer au corps à corps</h3>
         <p class="card-text">
             L'attaquant fait un <strong>Test Opposé</strong> de <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" /> / <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" /> ou <AptitudeItem Item="@_aptSvc.CompetenceEsquive" /> avec son adversaire.<br />
             Celui qui a le plus gros BS l'emporte et gagne +1 Avantage. Si les BS sont identiques, on ajoute le dé des unités.<br />
@@ -189,7 +189,7 @@
                 Vous emportez donc le Test Opposé, et en tant qu'attaquant vous portez un coup de BF + dégâts de l'arme - 4.
             </em>
         </p>
-        <h5 class="card-title">Charger</h5>
+        <h5>Charger</h5>
         <p class="card-text">
             Si vous n'êtes pas déjà engagé, vous pouvez utiliser votre Déplacement pour <strong>Charger</strong>.
             Votre Action sera un test de <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" /> pour attaquer votre adversaire.
@@ -199,13 +199,13 @@
             <br />
             Un personnage ciblé par une Charge peut se défendre en opposant un jet de <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" />, d'<AptitudeItem Item="@_aptSvc.CompetenceEsquive" /> ou en utilisant le talent <AptitudeItem Item="@_aptSvc.TalentFrappeReactive" />.
         </p>
-        <h5 class="card-title">Combat rapproché</h5>
+        <h5>Combat rapproché</h5>
         <p class="card-text">
             En tant qu’Action, vous pouvez effectuer un Test en Mélée Opposée pour tenter de pénétrer la défense de votre adversaire. Le vainqueur choisit si le combat continue comme d'habitude ou comme 'Combat Rapproché', auquel cas toute arme plus longue que Court est considérée comme une arme improvisée.
         </p>
     </div>
     <div class="col-4">
-        <h3 class="card-title">Se défendre</h3>
+        <h3>Se défendre</h3>
         <p class="card-text">
             Chaque fois que vous êtes attaqué en Mélée, généralement au Tour d'un des adversaires, vous pouvez vous défendre ainsi :
         </p>
@@ -217,7 +217,7 @@
             En remportant le test opposé avec un jet de Mélée en tant que Défenseur, vous n'infligez pas de dégâts - à moins que vous ne disposiez du talent <AptitudeItem Item="@_aptSvc.TalentRiposte" />.
             En revanche, l'attaquant perd ses Avantages et vous en gagnez 1 - ou plus, avec le talent <AptitudeItem Item="@_aptSvc.TalentRetournement" />.
         </p>
-        <h5 class="card-title">Se Désengager ou Fuir</h5>
+        <h5>Se Désengager ou Fuir</h5>
         <p class="card-text">
             Si vous êtes engagé, vous avez ces deux options pour quitter le combat en sécurité :
         </p>
@@ -235,7 +235,7 @@
         </ul>
     </div>
     <div class="col-4">
-        <h5 class="card-title">Critiques (11,22,33,...,88,99)</h5>
+        <h5>Critiques (11,22,33,...,88,99)</h5>
         <p class="card-text">
             Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> (zone appropriée).<br />
             De même, les échecs critiques entraînent un effet supplémentaire sur la <a href="table-coups-critiques/fumbles/">Table des Maladresses Critiques</a>.<br />
@@ -251,11 +251,11 @@
             Le talent <AptitudeItem Item="@_aptSvc.TalentCoupsPrécis" /> augmente cette valeur de 2.<br />
             On consulte alors le résultat dans la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> de la zone appropriée.<br />
         </p>
-        <h5 class="card-title">Localisation des coups/tirs</h5>
+        <h5>Localisation des coups/tirs</h5>
         <p class="card-text">
             Le talent <AptitudeItem Item="@_aptSvc.TalentCoupsPrécis" /> peut modifier la jet.
         </p>
-        <TableDetail Item="@_tablesService.GetTable(64)" MasquerTitre="@true" MasquerDescription="@true" />
+        <TableDetail Item="@_tablesService.GetTable(64)" MasquerTitre=true MasquerDescription=true />
     </div>
 </div>
 
@@ -264,7 +264,7 @@
 <div class="row">
     <div class="col-4">
         <div class="card-body">
-            <h3 class="card-title">Attaquer à distance</h3>
+            <h3>Attaquer à distance</h3>
             <p class="card-text">
                 L'attaquant fait un Test de <AptitudeItem Item="@_aptSvc.CompetenceGroupeTir" />.<br />
                 S'il réussi il gagne +1 Avantage, touche son adversaire et calcule ses dégâts et leur localisation.<br />
@@ -280,13 +280,13 @@
     </div>
     <div class="col-4">
         <div class="card-body">
-            <h5 class="card-title">Shooting into melee</h5>
+            <h5>Shooting into melee</h5>
             <p class="card-text">
                 Ballistic Skill Tests against Engaged opponents are resolved as normal, but suffer a penalty of –20 as you try your best to hit your specified target.
                 If this modifier causes you to fail when the Test would otherwise have succeeded, you instead hit one of the target’s Engaged opponents, as determined randomly by the GM.
                 If you do not care whom you hit, see Shooting into a Group.
             </p>
-            <h5 class="card-title">Shooting into a Group</h5>
+            <h5>Shooting into a Group</h5>
             <p class="card-text">
                 Ranged Tests made to hit a group of targets are Average (+20)
                 if there is 3-6 of them, Easy (+40) if there are 7-12 of them, and
@@ -300,7 +300,7 @@
     </div>
     <div class="col-4">
         <div class="card-body">
-            <h5 class="card-title">Calculating Range Bands</h5>
+            <h5>Calculating Range Bands</h5>
             <ul>
                 <li>Point Blank = Range ÷ 10</li>
                 <li>Short = Range ÷ 2</li>
@@ -310,7 +310,7 @@
         </div>
         <div class="card-body">
             <div class="bulle">
-                <h5 class="card-title">Misfires!</h5>
+                <h5>Misfires!</h5>
                 <p class="card-text">
                     If you are using a Blackpowder, Engineering, or Explosive
                     weapon, and roll a Fumble that is also an even number — 00,
@@ -328,7 +328,7 @@
 
 <div class="row">
     <div class="col-4">
-        <h3 class="card-title">Lancer un sort</h3>
+        <h3>Lancer un sort</h3>
         <p class="card-text">
         </p>
     </div>
@@ -338,7 +338,7 @@
 
 <div class="row">
     <div class="col-5">
-        <h3 class="card-title">Fin du Round</h3>
+        <h3>Fin du Round</h3>
         <ul>
             <li>un combattant qui n'a gagné aucun point d'Avantage durant ce round perd 1 point d'Avantage</li>
             <li>un combatant en infériorité numérique perd 1 point d'Avantage</li>

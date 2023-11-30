@@ -16,12 +16,12 @@
 <div class="row">
     <div class="col-4">
         <div class="card-body">
-            <h3 class="card-title">Blessures</h3>
+            <h3>Blessures</h3>
             <p class="card-text">
                 Le nombre minimum de Blessures est de 0. On peut avoir un nombre négatif de Blessures.
             </p>
 
-            <h5 class="card-title">Blessures Superficielles</h5>
+            <h5>Blessures Superficielles</h5>
             <p class="card-text">
                 Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <AptitudeItem Item="@_cttService.ConditionATerre" />.
                 <br />
@@ -30,7 +30,7 @@
                 Dans les deux cas, vous ne pourrez pas perdre ces Conditions tant que vous n'avez pas récupéré au moins 1 Blessure.
             </p>
 
-            <h5 class="card-title">Blessures Critiques</h5>
+            <h5>Blessures Critiques</h5>
             <p class="card-text">
                 Si vous encaissez un coup qui vous fait perdre d'avantage de Blessures qu'il ne vous ne restait, vous subissez des <BlessuresCritiques />.
                 Ces Blessures comptent triple lorsque vous calculez les conséquences d'un Coup Critique sur la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a>.
@@ -40,7 +40,7 @@
                 2 <BlessuresEffectives /> + (3 x 3 <BlessuresCritiques />) + 1d4, soit un chiffre compris entre 12 et 15.
             </p>
 
-            <h5 class="card-title">Blessures Mortelles</h5>
+            <h5>Blessures Mortelles</h5>
             <p class="card-text">
                 D'une manière générale, on peut considérer qu'un personnage subissant un nombre de <BlessuresCritiques /> supérieur à son <BonusDeCarac Carac="E" /> est tué sur le coup.
             </p>
@@ -49,9 +49,9 @@
         <PageSectionDivider Size="2" />
 
         <div class="card-body">
-            <h3 class="card-title">Soins</h3>
+            <h3>Soins</h3>
 
-            <h5 class="card-title">Blessures Superficielles</h5>
+            <h5>Blessures Superficielles</h5>
             <p class="card-text">
                 Vous êtes <strong>Légèrement Blessé</strong> dès lors que vous avez perdu 1 Blessure.
             </p>
@@ -64,7 +64,7 @@
                 L'utilisation de <AptitudeItem Item="@_cttService.CompetenceSoins" /> peut vous guérir davantage, ou encore l'accès à des bandages et à une trousse de soins.
             </p>
 
-            <h5 class="card-title">Blessures Critiques</h5>
+            <h5>Blessures Critiques</h5>
             <p class="card-text">
                 Vous êtes <strong>Gravement Blessé</strong> dès lors que vous avez reçu des Blessures Critiques.
             </p>
@@ -73,7 +73,7 @@
                 Ces Blessures ne sont considérées comme soignées que lorsque tous les effets négatifs associés ont disparu, à l'exception d'éentuelles séquelles permanentes.
             </p>
 
-            <h5 class="card-title">Soins médicaux et Chirugie</h5>
+            <h5>Soins médicaux et Chirugie</h5>
             <p class="card-text">
                 Pour certaines Blessures, il sera précisé que des Soins médicaux ou de la Chirurgie sont requis, en l'occurence du matériel médical et les compétences <AptitudeItem Item="@_cttService.CompetenceSoins" /> et <AptitudeItem Item="@_cttService.TalentChirurgie" />.
             </p>
@@ -82,17 +82,17 @@
         <PageSectionDivider Size="2" />
 
         <div class="card-body">
-            <h3 class="card-title">Conditions extrêmes</h3>
+            <h3>Conditions extrêmes</h3>
             <p class="card-text">
                 Every 4 hours spent in a difficult environment — such as sub-zero temperatures, a hot desert, or a howling storm — requires you take an Endurance Test. Extreme environments require a Test every 2 hours.
             </p>
 
-            <h5 class="card-title">Froid glacial</h5>
+            <h5>Froid glacial</h5>
             <p class="card-text">
                 Your first failure causes a penalty of –10 Ballistic Skill, Agility and Dexterity. The second failure reduces all other Characteristics by –10. Third and subsequent failures cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost. If you reach zero Wounds, you immediately take an Unconscious condition. Certain Trappings provide bonuses and penalties to these Tests. See pages 302 and 309.
             </p>
 
-            <h5 class="card-title">Chaleur écrasante</h5>
+            <h5>Chaleur écrasante</h5>
             <p class="card-text">
                 Your first failure causes a penalty of –10 to Intelligence and Willpower, and adds a Fatigued Condition. The second failure reduces all other Characteristics by –10%, and adds another Fatigued Condition. Third and subsequent failures cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost. Stripping off heavy Trappings cancels 1 failed test.
             </p>
@@ -102,7 +102,7 @@
         <PageSectionDivider Size="2" />
 
         <div class="card-body">
-            <h3 class="card-title">Noyade et Suffocation</h3>
+            <h3>Noyade et Suffocation</h3>
             <p class="card-text">
                 If prepared, you can hold your breath for Toughness Bonus x 10 seconds without a Test. After that, you may start to suffocate or drown. If you are unprepared and suddenly deprived of air, you will start to suffocate immediately.
             </p>
@@ -116,15 +116,15 @@
     <div class="col-4">
 
         <div class="card-body">
-            <h3 class="card-title">Déchirures musculaires</h3>
+            <h3>Déchirures musculaires</h3>
 
-            <h5 class="card-title">Déchirure Mineure</h5>
+            <h5>Déchirure Mineure</h5>
             <p class="card-text">
                 Une entorse ou un muscle froissé réduit vos capacités en plus d'être très douloureux. Vous subissez un malus de -10 à tous les jets impliquant la zone meurtrie. Si c'est une jambe, divisez également par 2 votre <strong>Mouvement</strong>.
                 <br />
                 <strong>Soins</strong> : une Déchirure Mineure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E" />) jours. Utiliser <AptitudeItem Item="@_cttService.CompetenceSoins" /> réduit cette durée de 1+BS jours (appliquable une seule fois).
             </p>
-            <h5 class="card-title">Déchirure Majeure</h5>
+            <h5>Déchirure Majeure</h5>
             <p class="card-text">
                 Certains de vos muscles et des tendons ont été sévèrement endommagés, résultant en une douleur intense et une perte significative de vos capacités avec le membre concerné.
                 <br />
@@ -139,9 +139,9 @@
         <PageSectionDivider Size="2" />
 
         <div class="card-body">
-            <h3 class="card-title">Fractures</h3>
+            <h3>Fractures</h3>
 
-            <h5 class="card-title">Fracture Mineure</h5>
+            <h5>Fracture Mineure</h5>
             <p class="card-text">
                 Un de vos os est fracturé, mais il est toujours aligné, ce qui signifie qu'il pourra guérir naturellement sans soins médicaux.
                 En revanche la zone touchée est inutilisable jusqu'à ce que l'os se ressoude.
@@ -157,7 +157,7 @@
                 Si le bandage est retiré avant, un nouveau test de <AptitudeItem Item="@_cttService.CompetenceSoins" /> sera nécessaire.
             </p>
 
-            <h5 class="card-title">Fracture Majeure</h5>
+            <h5>Fracture Majeure</h5>
             <p class="card-text">
                 Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <AptitudeItem Item="@_cttService.TalentChirurgie" /> pour être soigné.
                 <br />
@@ -168,7 +168,7 @@
                     <li>les séquelles permanentes sont plus handicapantes (voir tableau)</li>
                 </ul>
             </p>
-            <h5 class="card-title">Séquelles permanentes suite à une fracture mal guérie</h5>
+            <h5>Séquelles permanentes suite à une fracture mal guérie</h5>
             <p class="card-text">
                 <table>
                     <thead>
@@ -186,17 +186,17 @@
         <PageSectionDivider Size="2" />
 
         <div class="card-body">
-            <h3 class="card-title">Privation d'eau et de nourriture</h3>
+            <h3>Privation d'eau et de nourriture</h3>
             <p class="card-text">
                 Running out of provisions can be bad. Running out of water is worse. <AptitudeItem Item="@_cttService.CompetenceResistance" /> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
             </p>
 
-            <h5 class="card-title">Mourrir de soif</h5>
+            <h5>Mourrir de soif</h5>
             <p class="card-text">
                 Every day without water requires you make an <AptitudeItem Item="@_cttService.CompetenceResistance" /> test. The first failed Test causes a penalty of –10 Intelligence, Willpower, and Fellowship. Second and subsequent failures reduce all Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
             </p>
 
-            <h5 class="card-title">Mourrir de faim</h5>
+            <h5>Mourrir de faim</h5>
             <p class="card-text">
                 Every 2 days without food require an <AptitudeItem Item="@_cttService.CompetenceResistance" /> Test. The first failed Tests causes a penalty of –10 Strength and Toughness. Second and subsequent failures reduce all other Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
             </p>
@@ -207,7 +207,7 @@
     <div class="col-4">
 
         <div class="card-body">
-            <h3 class="card-title">Membres amputés</h3>
+            <h3>Membres amputés</h3>
             <p class="card-text">
                 L'amputation d'un membre, qu'elle soit due à un (très) mauvais coup ou une intervention chirurgicale peut-être compensée par une prothèse (voir le Guide du consommateur).
                 <br />
@@ -217,21 +217,21 @@
                 <br />
                 Toute membre amputé requiert de la <AptitudeItem Item="@_cttService.TalentChirurgie" /> pour guérrir correctement, et aucune Blessure ne pourra être récupérée sans cela. Voir Chirurgie p.181.
             </p>
-            <h5 class="card-title">Oreille</h5>
+            <h5>Oreille</h5>
             <p class="card-text">
                 Douloureux mais vous apprendrez rapidement à vivre avec. Si par malheur c'était votre dernière, vous subissez un malus permanent de -20 à tous les tests de <AptitudeItem Item="@_cttService.CompetencePerception" /> liés à l'ouïe.
                 De plus vous subissez un malus de -5 par oreille à tout test de Sociabilité quand leur absence est visible.
             </p>
-            <h5 class="card-title">Oeil</h5>
+            <h5>Oeil</h5>
             <p class="card-text">
                 Perdre un oeil est horrible, mais vous apprendrez vite à compenser. Si vous aviez le malheur de perdre l'autre, vous subiriez un malus de -30 à tous les tests nécessitant d'y voir.
                 De plus vous subissez un malus de -5 par orifice vide à tout test de Sociabilité quand leur absence est visible.
             </p>
-            <h5 class="card-title">Nez</h5>
+            <h5>Nez</h5>
             <p class="card-text">
                 La perte du nez vous donne un air terrifiant. Vous subissez un malus de -20 en Sociabilité tant que vous n'avez pas fixé une prothèse et de -30 à tous les jets impliquant l'odorat.
             </p>
-            <h5 class="card-title">Dents</h5>
+            <h5>Dents</h5>
             <p class="card-text">
                 La perte d'une dent est presque invisible et peut rendre difficile la mastication. Toutes les deux dents perdues, subissez une pénalité de -1 en Sociabilité.
                 <br />
@@ -239,15 +239,15 @@
                 <br />
                 La conséquence est surtout une affaire de roleplaying et de description narrative de vos actions.
             </p>
-            <h5 class="card-title">Langue</h5>
+            <h5>Langue</h5>
             <p class="card-text">
                 La perte de votre langue vous empêche de vous exprimer autrement qu'en grognant et marmonant. Apprendre le langage des signes est votre seule option. Vous ne pouvez plus utiliser <AptitudeItem Item="@_cttService.CompetenceGroupeLangue" />.
             </p>
-            <h5 class="card-title">Doigts</h5>
+            <h5>Doigts</h5>
             <p class="card-text">
                 La perte d'un doigt augmentent vos chances d'Echec Critique quand vous utilisez la main concernée. Pour tout test pertinent, l'obtention d'un 1 sur le dé des unités déclenche un Echec Critique. Pour deux doigts, 1 et 2, et ainsi de suite.
             </p>
-            <h5 class="card-title">Main</h5>
+            <h5>Main</h5>
             <p class="card-text">
                 Vous subissez une pénalité de -20 pour tout test nécessitant deux mains, quand l'action envisagée n'est pas tout simplement impossible. Vous ne pouvez plus utiliser d'armes à deux mains, cependant un bouclier peut toujours être fixé à votre bras amoché.
                 <br />
@@ -255,20 +255,20 @@
                 <br />
                 Si c'était votre dernière main, il est probablement temps de maîtriser le combat au crochet, et, si vous êtes un homme, vous devrez dorénavant faire preuve d'imagination pour la masturbation.
             </p>
-            <h5 class="card-title">Bras</h5>
+            <h5>Bras</h5>
             <p class="card-text">
                 Idem que pour la main, vous ne pourrez plus vous équiper d'un bouclier tant que vous n'aurez pas une prothèse.
             </p>
-            <h5 class="card-title">Orteils</h5>
+            <h5>Orteils</h5>
             <p class="card-text">
                 Cela produit un effet fâcheux sur votre équilibre. Pour chaque orteil perdu, subissez un malus permanent de -1 en Agilité et en Capacité de Combat.
             </p>
-            <h5 class="card-title">Pied</h5>
+            <h5>Pied</h5>
             <p class="card-text">
                 Divisez votre Mouvement par 2 de manière permanente et subissez un malus de -20 à tous les tests basés sur la mobilité, comme <AptitudeItem Item="@_cttService.CompetenceEsquive" />.
                 Perdre le deuxième pied va compliquer les choses. Peut-être pouvez-vous recruter un porteur ?
             </p>
-            <h5 class="card-title">Jambe</h5>
+            <h5>Jambe</h5>
             <p class="card-text">
                 Idem que pour le pied, mais vous ne pouvez plus utiliser <AptitudeItem Item="@_cttService.CompetenceEsquive" />.
             </p>

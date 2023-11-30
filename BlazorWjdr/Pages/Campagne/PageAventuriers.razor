@@ -43,20 +43,20 @@
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">@_seancePrecedente.Titre</h3>
-                <SeanceDetail Item="@_seancePrecedente" CampagneId="@int.Parse(CampagneId)" MasquerAventuriers="@true" />
+                <h3>@_seancePrecedente.Titre</h3>
+                <SeanceDetail Item="@_seancePrecedente" CampagneId="@int.Parse(CampagneId)" MasquerAventuriers=true />
             </div>
         </div>
     </div>
     <div class="col-6">
         <div class="card">
             <div class="card-body">
-                <h3 class="card-title">Aventuriers</h3>
+                <h3>Aventuriers</h3>
                 <BestioleItemList Items="@_seanceActuelle.Pjs" />
-                <AptitudeItemListSummary Aptitudes="@_aptitudes" CompetencesAvanceesUniquement="@true" GrosTitres="@true" />
+                <AptitudeItemListSummary Aptitudes="@_aptitudes" CompetencesAvanceesUniquement=true GrosTitres=true />
                 @if (_seanceActuelle.Pjs.Any(p => p.Sorts.Any()))
                 {
-                    <h4 class="card-title">Sortilèges</h4>
+                    <h4>Sortilèges</h4>
                     <SortilegeItemList Items="@_sortileges" />
                 }
             </div>
@@ -66,11 +66,11 @@
 
 <PageSectionDivider />
 
-<h3 class="card-title">Connaissances, Contacts, Alliés</h3>
+<h3>Connaissances, Contacts, Alliés</h3>
 <CampagneContactRows Items="@_campagne.Contacts" />
 
 <PageSectionDivider />
 
-<h3 class="card-title">Aventuriers</h3>
+<h3>Aventuriers</h3>
 <BestioleFicheRows Items="@_seancePrecedente.Pjs" />
 

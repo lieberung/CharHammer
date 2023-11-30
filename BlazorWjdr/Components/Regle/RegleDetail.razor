@@ -5,7 +5,7 @@
 
 @if (MasquerTitre == false && !string.IsNullOrWhiteSpace(Item.Titre))
 {
-    <h5 class="card-title">@Item.Titre</h5>
+    <h5>@Item.Titre</h5>
 }
 @if (Item.Html) {
     @((MarkupString)Item.Regle)
@@ -39,7 +39,7 @@
 
 @if (Item.Carrieres.Any())
 {
-    <h5 class="card-title">Carrières liées</h5>
+    <h5>Carrières liées</h5>
     <p class="card-text">
         <CarriereItemList Items="@Item.Carrieres"/>
     </p>

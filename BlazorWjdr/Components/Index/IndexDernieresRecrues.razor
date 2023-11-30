@@ -2,7 +2,7 @@
 
 @inject BestiolesService _bestiolesService
 
-<h4 class="card-title">Dernières recrues</h4>
+<h4>Dernières recrues</h4>
 @foreach (var aventurier in _bestiolesService.AllPjs.OrderByDescending(pj => pj.DateDeCreation))
 {
     <div><BestioleItem Item=@aventurier /></div>

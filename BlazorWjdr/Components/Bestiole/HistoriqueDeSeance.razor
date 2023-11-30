@@ -3,7 +3,7 @@
     [Parameter, EditorRequired] public SeanceDto Seance { get; set; } = null!;
     [Parameter, EditorRequired] public BestioleDto Pj { get; set; } = null!;
 }
-<h5 class="card-title">Séance du @Seance.Quand</h5>
+<h5>Séance du @Seance.Quand</h5>
 <table class="table table-striped">
     <tbody>
     @foreach (var fact in Seance.Facts.Where(f => f.Pjs.Contains(Pj)).OrderBy(f => f.Tri))

@@ -2,6 +2,7 @@
 @import url('caslon-antique-regular/font/css/caslon-antique-regular.css');
 
 :root {
+    --theme-font-family: 'calecon-antique', fantasy;
     --theme-color: #5e1a05;
     --theme-color-lighter: #80390f;
     --theme-color-pale: #fff7f2;
@@ -18,24 +19,15 @@
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     --bs-heading-color: var(--theme-color);
-    font-family: 'calecon-antique', fantasy;
+    font-family: var(--theme-font-family);
     font-weight: 600;
 }
 
-.container-fluid {
-    padding: 2rem;
-}
+.card-body { padding: 1.25rem; } /* disparu en bootstrap 5 */
+.card-text { text-align: justify; }
 
 .list-inline {
     margin-bottom: 1rem;
-}
-
-.fixed-header, .fixed-footer {
-    width: 100%;
-    position: fixed;
-    padding: 10px 0;
-    z-index: 666;
-    top: 0;
 }
 
 .theme-color {
@@ -49,11 +41,11 @@
 .tgroupe {
     background-color: var(--theme-color);
     color: white;
-    font-family: 'calecon-antique', fantasy;
+    font-family: var(--theme-font-family);
     font-weight: 500;
     font-size: large;
 }
-.saisie-score { width: 25px; text-align: center; }
+
 .table {
     --bs-table-border-color: transparent;
     --bs-table-bg: #cebfb5;
@@ -65,11 +57,6 @@
 
 .lii { margin-right: 0.3rem; }
 .list-inline-item:not(:last-child) { margin-right: 0.3rem; } /* bootstrap, ajoute display:inline-block; */
-
-.decal-top-1 { z-index: 1; position: relative; top: -5px; }
-.decal-top-2 { z-index: 2; position: relative; top: -5px; }
-.decal-top-3 { z-index: 3; position: relative; top: -5px; }
-.top-row { box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.05),inset 0 -1px 0 rgba(0,0,0,0.15); }
 
 .bulle { padding: 8px; background-color: var(--theme-color-pale); border: 1px dotted var(--theme-color-lighter); border-radius: .75em; }
 .bulle > .table {
@@ -89,18 +76,6 @@
     letter-spacing: -1px;
     margin-bottom: 2px;
     line-height: 1.4;
-}
-
-.valid.modified:not([type=checkbox]) {
-    outline: 1px solid #83761c;
-}
-
-.invalid {
-    outline: 1px solid #9c3c04;
-}
-
-.validation-message {
-    color: #9c3c04;
 }
 
 #blazor-error-ui {

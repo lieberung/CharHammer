@@ -13,7 +13,7 @@
 <div class="card">
     <div class="card-body">
         <img alt="@Item.Pnj.Nom (apparence)" style="float:right; max-width:550px; max-height:550px;" src="images/beasts/@(Item.Pnj.Id).png"/>
-        <h4 class="card-title">@Item.Pnj.Nom</h4>
+        <h4>@Item.Pnj.Nom</h4>
         <p>
             <CarriereItem Item=@Item.Pnj.CarriereActuelle />
             <span class="ms-1" />
@@ -29,7 +29,7 @@
         }
         @if (AfficherAptitudes)
         {
-            <h5 class="card-title">Aptitudes</h5>
+            <h5>Aptitudes</h5>
             <AptitudesAcquises Item=@Item.Pnj MasquerTitres=true />
         }
         @if (AfficherMatosEtSorts)

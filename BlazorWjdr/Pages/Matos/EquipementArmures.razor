@@ -33,7 +33,7 @@
 
 <div class="row">
     <div class="col-4">
-        <h3 class="card-title">Endommager une Armure</h3>
+        <h3>Endommager une Armure</h3>
         <p class="card-text">
             Votre armure peut généralement être endommagée dans les situations suivantes :
         </p>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="col-4">
-        <h5 class="card-title">Déviation Critique</h5>
+        <h5>Déviation Critique</h5>
         <p class="card-text">
             Cela ne se produit que si vous le souhaitez. Si vous subissez une Blessure Critique suite à une attaque infligée sur un emplacement protégé par une armure,
             vous pouvez choisir de laisser votre armure être endommagée de 1AP afin d'ignorer cette Blessure Critique.
@@ -62,7 +62,7 @@
     </div>
 
     <div class="col-4">
-        <h3 class="card-title">Réparer une Armure</h3>
+        <h3>Réparer une Armure</h3>
         <p class="card-text">
             Il coûte 10% du prix de base de l'armure par PA perdu pour le réparer. Donc, si vous aviez un manteau de cotte de mailles à
             manches avec 1PA de dommages sur le corps et 1PA de dommages sur les bras, il vous en coûtera 20% du coût de base
@@ -81,17 +81,17 @@
     <div class="col-8">
         @if (AfficherArmuresLegeres && Armures.Any(a => a.TypeLegere))
         {
-            <h5 class="card-title">Armures Légères</h5>
+            <h5>Armures Légères</h5>
             <TableArmures Items="Armures.Where(a => a.TypeLegere).ToArray()" />
         }
         @if (AfficherArmuresMoyennes && Armures.Any(a => a.TypeMoyenne))
         {
-            <h5 class="card-title">Armures Moyennes</h5>
+            <h5>Armures Moyennes</h5>
             <TableArmures Items="Armures.Where(a => a.TypeMoyenne).ToArray()" />
         }
         @if (AfficherArmuresLourdes && Armures.Any(a => a.TypeLourde))
         {
-            <h5 class="card-title">Armures Lourdes</h5>
+            <h5>Armures Lourdes</h5>
             <TableArmures Items="Armures.Where(a => a.TypeLourde).ToArray()" />
         }
     </div>

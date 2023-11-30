@@ -116,7 +116,7 @@
 
 @if (_armesDeCaC.Any())
 {
-    <!--h5 class="card-title">Armes de contact</h5-->
+    <!--h5>Armes de contact</h5-->
     @foreach (var groupe in _armesService.ArmesDeContactPourTable)
     {
         if (GetArmesByGroupe(groupe.Value, _armesDeCaC, GroupeActuel).Any())
@@ -127,7 +127,7 @@
 }
 @if (_armesDeTir.Any())
 {
-    <!--h5 class="card-title">Armes à distance</h5-->
+    <!--h5>Armes à distance</h5-->
     @foreach (var groupe in _armesService.ArmesADistancePourTable)
     {
         if (GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel).Any())
@@ -138,7 +138,7 @@
 }
 @if (Groupe == "munitions")
 {
-    <!--h5 class="card-title">Munitions</h5-->
+    <!--h5>Munitions</h5-->
     <ArmeGroupeTable Armes="@_armesService.AllArmes.Where(a => a.EstUneMunition).ToList()" Groupe="Munitions" ArmesDeTir=@true />
 }
 @if (GroupeActuel != null)
@@ -146,7 +146,7 @@
     <div class="row">
         <div class="col">
             <div class="bulle">
-                <h6 class="card-title">@GroupeActuel.Nom</h6>
+                <h6>@GroupeActuel.Nom</h6>
                 <CardParagraphes Text="@GroupeActuel.Description" />
             </div>
         </div>

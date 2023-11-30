@@ -84,7 +84,7 @@
             </p>
         </div>
         <div class="card-body">
-            <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre="@true" FixedColSize="60" />
+            <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre=true FixedColSize="60" />
         </div>
     </div>
     <div class="col-2 pt-5">
@@ -116,7 +116,7 @@
     </div>
     <div class="col-8">
         <div class="card-body">
-            <TableDetail Item="@_tablesService.GetTable(11)" MasquerTitre="@true" />
+            <TableDetail Item="@_tablesService.GetTable(11)" MasquerTitre=true />
         </div>
     </div>
 </div>
@@ -207,7 +207,7 @@
     </div>
     <div class="col-6">
         <div class="card-body">
-            <h5 class="card-title">Aptitudes raciales - @_race.Autochtones</h5>
+            <h5>Aptitudes raciales - @_race.Autochtones</h5>
             @if (RaceDesHumainsSelectionnee)
             {
                 <AptitudeItemList Items="@_racesService.HumainsImperiaux.Aptitudes" />
@@ -231,23 +231,23 @@ else
             <div class="card-body bulle px-4">
                 @if (RaceDesGnomesSelectionnee)
                 {
-                    <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre="@false" />
+                    <RegleDetail Item="@_reglesService.GetRegle(22)" MasquerTitre=false />
                 }
                 else if (RaceDesHalflingsSelectionnee)
                 {
-                    <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre="@false" />
+                    <RegleDetail Item="@_reglesService.GetRegle(18)" MasquerTitre=false />
                 }
                 else if (RaceDesNainsSelectionnee)
                 {
-                    <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre="@false" />
+                    <RegleDetail Item="@_reglesService.GetRegle(20)" MasquerTitre=false />
                 }
                 else if (RaceDesElfesSylvainsSelectionnee)
                 {
-                    <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre="@false" />
+                    <RegleDetail Item="@_reglesService.GetRegle(17)" MasquerTitre=false />
                 }
                 else if (RaceDesHautsElfesSelectionnee)
                 {
-                    <RegleDetail Item="@_reglesService.GetRegle(23)" MasquerTitre="@false" />
+                    <RegleDetail Item="@_reglesService.GetRegle(23)" MasquerTitre=false />
                 }
             </div>
         </div>
@@ -259,7 +259,7 @@ else
     <div class="row">
         <div class="col-4">
             <div class="card-body">
-                <h5 class="card-title">4-1. Détermination aléatoire des talents</h5>
+                <h5>4-1. Détermination aléatoire des talents</h5>
                 <div class="card-text">
                     Consultez vos traits raciaux / culturels pour savoir à combien de talents aléatoires vous avez droit (0 à 2).
                 </div>
@@ -296,7 +296,7 @@ else
     </div>
     <div class="col-8">
         <div class="card-body">
-            <h5 class="card-title">5-1. Table des signes distinctifs</h5>
+            <h5>5-1. Table des signes distinctifs</h5>
             <p class="card-text">
                 <TableTraits Traits="_cttService.SignesDistinctifs.ToArray()" NbColonnes="5" />
             </p>
@@ -391,7 +391,7 @@ else
     {
         <div class="col-4">
             <div class="bulle ps-3" style="min-height: 550px">
-                <h5 class="card-title">@co.Nom</h5>
+                <h5>@co.Nom</h5>
                 <CarriereDescription Item="co" />
             </div>
         </div>
@@ -424,7 +424,7 @@ else
 <div class="row">
     <div class="col-6">
         <div class="card-body">
-            <h5 class="card-title">6-2. Etoffer le passé et le caractère du personnage</h5>
+            <h5>6-2. Etoffer le passé et le caractère du personnage</h5>
             <ul>
                 <li>Votre famille, à quoi ressemble-t-elle ?</li>
                 <li>Quelle activité pratiquaient vos parents ?</li>
@@ -441,7 +441,7 @@ else
     </div>
     <div class="col-6">
         <div class="card-body">
-            <h5 class="card-title">6-3. Quelques liens...</h5>
+            <h5>6-3. Quelques liens...</h5>
             <ul>
                 <li>
                     Générateurs de noms :
@@ -493,7 +493,7 @@ else
     </div>
     <div class="col-6">
         <div class="card-body">
-            <h5 class="card-title">7-2. Insufler un souffle à l'équipe</h5>
+            <h5>7-2. Insufler un souffle à l'équipe</h5>
             <p class="card-text">
                 C’est là qu’on essaie de se mettre d’accord avec tout le monde pour savoir si les personnages sont amis, de simples compagnons de voyage, etc.
                 On peut déterminer une Ambition d’équipe !

@@ -108,7 +108,7 @@
 <div class="row">
 
     <div class="col-5">
-        <h3 class="card-title">Le Culte de @_dieu.Nom</h3>
+        <h3>Le Culte de @_dieu.Nom</h3>
         <CardBody Titre="" Image="@("images/dieux/" + _dieu.Id + ".png")">
             <ul>
                 <li><strong>Domaines :</strong> @_dieu.Domaines</li>
@@ -124,10 +124,10 @@
     </div>
 
     <div class="col-7">
-        <h3 class="card-title">Le Dogme</h3>
+        <h3>Le Dogme</h3>
         <CardBody Titre="" Image="">
             <div class="bulle ms-4 px-4 float-end" style="width:500px;">
-                <h5 class="card-title">Commandements</h5>
+                <h5>Commandements</h5>
                 <ul>
                     @foreach (var cmd in _dieu.Commandements)
                     {
@@ -138,7 +138,7 @@
 
             <CardParagraphes Text="@_dieu.Dogme" />
 
-            <h5 class="card-title">Pénitences</h5>
+            <h5>Pénitences</h5>
             <p class="card-text">@_dieu.Penitences</p>
         </CardBody>
     </div>
@@ -150,14 +150,14 @@
 <div class="row">
 
     <div class="col-6">
-        <h3 class="card-title">Le Culte</h3>
+        <h3>Le Culte</h3>
         <CardBody Titre="" Image="">
             <CardParagraphes Text="@_dieu.Culte" />
         </CardBody>
     </div>
 
     <div class="col-6">
-        <h3 class="card-title">Les Cultistes</h3>
+        <h3>Les Cultistes</h3>
         <CardBody Titre="" Image="">
             <CardParagraphes Text="@_dieu.Cultistes" />
         </CardBody>
@@ -170,7 +170,7 @@
 <div class="row">
 
     <div class="col-6">
-        <h3 class="card-title">L'initiation</h3>
+        <h3>L'initiation</h3>
         <CardBody Titre="" Image="">
             @if (_dieu.Aptitudes.Inities.Any())
             {
@@ -181,7 +181,7 @@
     </div>
 
     <div class="col-6">
-        <h3 class="card-title">La prêtrise</h3>
+        <h3>La prêtrise</h3>
         <CardBody Titre="" Image="">
             @if (_dieu.Aptitudes.PretesSansOrdre.Any())
             {
@@ -199,14 +199,14 @@
 <div class="row">
 
     <div class="col-4">
-        <h3 class="card-title">Structure</h3>
+        <h3>Structure</h3>
         <CardBody Titre="" Image="">
             <CardParagraphes Text="@_dieu.Structure" />
         </CardBody>
     </div>
 
     <div class="col-4">
-        <h3 class="card-title">Lieux de Culte</h3>
+        <h3>Lieux de Culte</h3>
         @foreach (var temple in _dieu.Temples)
         {
             <CardBody Titre="@temple.Nom" Image="">
@@ -216,7 +216,7 @@
     </div>
 
     <div class="col-4">
-        <h3 class="card-title">Personnalités</h3>
+        <h3>Personnalités</h3>
         @foreach (var perso in _dieu.Personnalites)
         {
             <CardBody Titre="@perso.Nom" Image="">
@@ -224,7 +224,7 @@
             </CardBody>
         }
         <div class="card-body">
-            <h5 class="card-title">Croyances populaires</h5>
+            <h5>Croyances populaires</h5>
             @foreach (var ambiance in _dieu.Ambiance)
             {
                 <p class="card-text">
@@ -240,7 +240,7 @@
 
 <div class="row">
     <div class="col-6">
-        <h3 class="card-title">Les Ordres</h3>
+        <h3>Les Ordres</h3>
         @foreach (var ordre in _dieu.Ordres)
         {
             <CulteDescription Culte="@ordre" />
@@ -249,13 +249,13 @@
     </div>
 
     <div class="col-6">
-        <h3 class="card-title">Les Sectes</h3>
+        <h3>Les Sectes</h3>
         <CardBody Titre="" Image="">
             @foreach (var secte in _dieu.Sectes)
             {
                 @if (!string.IsNullOrWhiteSpace(secte.Nom))
                 {
-                    <h5 class="card-title">@secte.Nom</h5>
+                    <h5>@secte.Nom</h5>
                 }
                 <CardParagraphes Text="@secte.Description" />
             }
@@ -268,7 +268,7 @@
 
     <div class="row">
         <div class="col-6">
-            <h3 class="card-title">Bénédictions</h3>
+            <h3>Bénédictions</h3>
             @foreach (var benediction in _sortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(_inspirationDivine)))
             {
                 <div class="bulle m-4 sortilege">
@@ -279,7 +279,7 @@
             }
         </div>
         <div class="col-6">
-            <h3 class="card-title">Miracles</h3>
+            <h3>Miracles</h3>
             @foreach (var miracle in _sortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(_inspirationDivine)))
             {
                 <div class="bulle m-4 sortilege">

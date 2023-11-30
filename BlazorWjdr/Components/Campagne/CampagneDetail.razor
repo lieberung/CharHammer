@@ -3,7 +3,7 @@
 }
 <div class="card">
 <div class="card-body">
-    <h3 class="card-title">@Campagne.Titre</h3>
+    <h3>@Campagne.Titre</h3>
     <ul>
         <li>Meneur de jeu : @Campagne.Mj.Pseudo</li>
         <li>Equipe : @Campagne.Team.Nom</li>
@@ -13,7 +13,7 @@
 @foreach (var acte in Campagne.Seances.Select(s => s.Acte).Distinct().OrderByDescending(a => a).ToArray())
 {
     <div class="card-body">
-        <h3 class="card-title">@(acte == 0 ? "Préambule" : $"Acte {acte}")</h3>
+        <h3>@(acte == 0 ? "Préambule" : $"Acte {acte}")</h3>
 
         <CampagneSeancesTable Campagne=@Campagne Acte=@acte />
     </div>

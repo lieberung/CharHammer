@@ -1,34 +1,4 @@
-﻿@if (_competences.Any())
-{
-    @if (GrosTitres) {
-        <h4 class="card-title">Compétences</h4>
-    } else {
-        <h6 class="card-title">Compétences</h6>   
-    }
-    <p><AptitudeItemList Items="@_competences"/></p>
-}
-
-@if (_talents.Any())
-{
-    @if (GrosTitres) {
-        <h4 class="card-title">Talents</h4>
-    } else {
-        <h6 class="card-title">Talents</h6>   
-    }
-    <p><AptitudeItemList Items="@_talents"/></p>
-}
-
-@if (_traits.Any())
-{
-    @if (GrosTitres) {
-        <h4 class="card-title">Traits</h4>
-    } else {
-        <h6 class="card-title">Traits</h6>   
-    }
-    <p><AptitudeItemList Items="@_traits" /></p>
-}
-
-@code {
+﻿@code {
     [Parameter, EditorRequired] public AptitudeDto[] Aptitudes { get; set; } = null!;
     [Parameter] public bool CompetencesAvanceesUniquement { get; set; }
     [Parameter] public bool GrosTitres { get; set; }
@@ -36,13 +6,29 @@
     private AptitudeDto[] _competences = null!;
     private AptitudeDto[] _talents = null!;
     private AptitudeDto[] _traits = null!;
-    
+    private string HeaderClass = "h5";
+
     protected override void OnParametersSet()
     {
         _competences = Aptitudes.Where(a => a.Categ == "skill" && (!CompetencesAvanceesUniquement || !a.EstUneCompetenceDeBase))
             .OrderBy(a => a.NomComplet).ToArray();
         _talents = Aptitudes.Where(a => a.Categ == "talent").OrderBy(a => a.NomComplet).ToArray();
         _traits = Aptitudes.Where(a => a.Categ == "trait").OrderBy(a => a.NomComplet).ToArray();
+        HeaderClass = GrosTitres ? "h5" : "h4";
     }
-
+}
+@if (_competences.Any())
+{
+    <span class="@HeaderClass">Compétences</span>
+    <p><AptitudeItemList Items=@_competences /></p>
+}
+@if (_talents.Any())
+{
+    <span class="@HeaderClass">Talents</span>
+    <p><AptitudeItemList Items=@_talents /></p>
+}
+@if (_traits.Any())
+{
+    <span class="@HeaderClass">Traits</span>
+    <p><AptitudeItemList Items=@_traits /></p>
 }

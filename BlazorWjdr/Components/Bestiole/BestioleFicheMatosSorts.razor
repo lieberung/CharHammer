@@ -8,14 +8,14 @@
 }
 @if (Item.Sorts.Any())
 {
-    <h5 class="card-title">Sortilèges</h5>
+    <h5>Sortilèges</h5>
     <p>
         <SortilegeItemList Items=@Item.Sorts />
     </p>
 }
 @if (Item.Armes.Any() || Item.Armures.Any() || Item.EquipementDeCarrieres != "")
 {
-    <h5 class="card-title">Equipement</h5>
+    <h5>Equipement</h5>
     <p>
         @if (Item.Armes.Any())
         {
