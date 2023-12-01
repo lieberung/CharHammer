@@ -16,21 +16,21 @@
 }
 
 .btn-secondary {
-    --bs-btn-bg: var(--theme-orange-semi-dark);
-    --bs-btn-border-color: var(--theme-orange);
+    --bs-btn-bg: var(--theme-orange);
+    --bs-btn-border-color: var(--theme-orange-dark);
     --bs-btn-hover-bg: var(--theme-orange-light);
-    --bs-btn-hover-border-color: var(--theme-orange-semi-dark);
-    --bs-btn-active-bg: var(--theme-orange-semi-dark);
-    --bs-btn-active-border-color: var(--theme-orange-dark);
+    --bs-btn-hover-border-color: var(--theme-orange);
+    --bs-btn-active-bg: var(--theme-orange);
+    --bs-btn-active-border-color: var(--theme-orange-darker);
 }
 
 .btn-light {
     --bs-btn-bg: #ecd1a6;
     --bs-btn-border-color: #bf8978;
     --bs-btn-hover-bg: var(--theme-orange-light);
-    --bs-btn-hover-border-color: var(--theme-orange-semi-dark);
-    --bs-btn-active-bg: var(--theme-orange-semi-dark);
-    --bs-btn-active-border-color: var(--theme-orange-dark);
+    --bs-btn-hover-border-color: var(--theme-orange);
+    --bs-btn-active-bg: var(--theme-orange);
+    --bs-btn-active-border-color: var(--theme-orange-darker);
 }
 
 .btn.btn-item-action {

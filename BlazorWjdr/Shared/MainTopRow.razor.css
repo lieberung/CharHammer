@@ -1,5 +1,5 @@
 ﻿.navbar {
     --bs-navbar-padding-y: 0.2rem;
-    background-color: var(--theme-orange);
+    background-color: var(--theme-orange-dark);
     border-bottom: 1px solid #dbcfc8;
 }

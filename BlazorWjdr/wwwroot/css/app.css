@@ -6,15 +6,16 @@
     --theme-color: #5e1a05;
     --theme-color-lighter: #80390f;
     --theme-color-pale: #fff7f2;
-    --theme-orange: #cf8d42;
+    --theme-orange-dark: #cf8d42;
     --theme-orange-light: #ffba6a;
-    --theme-orange-semi-dark: #e79f4c;
-    --theme-orange-dark: #95632b;
+    --theme-orange: #e79f4c;
+    --theme-orange-darker: #95632b;
     /* --bs-override */
     --bs-body-bg: #f3e3c1;
     --bs-link-color-rgb: var(--theme-color); /* #562f08; */
     --bs-link-hover-color-rgb: var(--theme-color-lighter); /* #562f08; */
     --bs-card-title-color: var(--theme-color);
+    --bs-warning-bg-subtle: var(--theme-orange);
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -23,7 +24,7 @@
     font-weight: 600;
 }
 
-.card-body { padding: 1.25rem; } /* disparu en bootstrap 5 */
+/*.card-body { padding: 1.25rem; } */ /* disparu en bootstrap 5 */
 .card-text { text-align: justify; }
 
 .list-inline {

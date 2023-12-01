@@ -25,7 +25,7 @@
 
     <div class="col-6" style="padding-right: 0;">
         <div class="card-body" style="padding-top: 0; padding-right: 0;">
-            <h1 style="font-size: xxx-large;">@Item.Nom</h1>
+            <h1>@Item.Nom</h1>
             <CarriereDescription Item="@Item" AfficherCitations=true />
         </div>
     </div>
@@ -34,20 +34,20 @@
         <div class="card-body">
             <h4>Plan de carrière</h4>
             <p class="card-text">
-                <Profil PlanDeCarriere="@Item.PlanDeCarriere" />
+                <Profil PlanDeCarriere=@Item.PlanDeCarriere />
             </p>
 
             <p class="card-text">
-                <CarriereNiveau Niveau="@Item.Niveau" />
+                <CarriereNiveau Niveau=@Item.Niveau />
                 @if (Item.CompetenceDeMetier != null)
                 {
                     <ItemIcon Icon="infinity" Classes="mx-3" />
-                    <AptitudeItem Item="@Item.CompetenceDeMetier" />
+                    <AptitudeItem Item=@Item.CompetenceDeMetier />
                 }
                 @if (Item.Statut != "")
                 {
                     <ItemIcon Icon="infinity" Classes="mx-3" />
-                    <Tooltip Text="@Item.SalaireHebdo">
+                    <Tooltip Text=@Item.SalaireHebdo>
                         <span class="insister">@Item.StatutPretty()</span>
                     </Tooltip>
                 }
@@ -55,47 +55,48 @@
 
             <h4>Compétences</h4>
             <p class="card-text">
-                <AptitudeItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()" />
+                <AptitudeItemList Items=@Item.Competences.ToArray() ItemsChoix=@Item.ChoixCompetences.ToArray() />
             </p>
 
             <h4>Talents</h4>
             <p class="card-text">
-                <AptitudeItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()" />
+                <AptitudeItemList Items=@Item.Talents.ToArray() ItemsChoix=@Item.ChoixTalents.ToArray() />
             </p>
 
             @if (Item.ProposeAuMoinsUnTrait)
             {
                 <h4>Traits</h4>
                 <p class="card-text">
-                    <AptitudeItemList Items="@Item.Traits.ToArray()" ItemsChoix="@Item.ChoixTraits.ToArray()" />
+                    <AptitudeItemList Items=@Item.Traits.ToArray() ItemsChoix=@Item.ChoixTraits.ToArray() />
                 </p>
             }
 
             <h4>Dotations</h4>
             <p class="card-text">
-                <CarriereDotations Item="@Item" />
+                <CarriereDotations Item=@Item />
             </p>
         </div>
 
         <div class="card-body mt-2">
             <h4>Débouchés</h4>
             <p class="card-text">
-                <CarriereItemList Items="@Item.Debouches.ToArray()"
-                                  SpecialCarriereId="@Item.DebouchesDAvancements.Select(a => a.Id).ToArray()" />
+                <CarriereItemList Items=@Item.Debouches.ToArray()
+                                  SpecialCarriereId=@Item.DebouchesDAvancements.Select(a => a.Id).ToArray() />
             </p>
 
             <h4>Filières</h4>
             <p class="card-text">
                 @if (Item.Filieres.Any())
                 {
-                    <CarriereItemList Items="@Item.Filieres.ToArray()" HideIndicatorRestriction="true"
-                                      SpecialCarriereId="@Item.FilieresDAvancement.Select(a => a.Id).ToArray()" />
+                    <CarriereItemList Items=@Item.Filieres.ToArray() HideIndicatorRestriction=true
+                                      SpecialCarriereId=@Item.FilieresDAvancement.Select(a => a.Id).ToArray() />
                 }
                 @if (Item.EstUneCarriereDeBase)
                 {
                     <CarriereDeBase />
                 }
             </p>
+            <CarriereRestriction Item=@Item />
         </div>
     </div>
 </div>
