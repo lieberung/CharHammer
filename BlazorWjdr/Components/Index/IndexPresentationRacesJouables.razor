@@ -1,14 +1,8 @@
 ﻿@code{
     [Parameter] public bool AfficherLiens { get; set; }
-    private string _icon = null!;
-
-    protected override void OnParametersSet()
-    {
-        _icon = AfficherLiens ? "chevron-top" : "chevron-bottom";
-    }
 }
 <h5 @onclick="_ => AfficherLiens = !AfficherLiens">
-    <ItemIcon Icon=@_icon Classes="ms-2"/>
+    <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="ms-2"/>
     Présentation des Races Jouables
 </h5>
 @if (AfficherLiens)

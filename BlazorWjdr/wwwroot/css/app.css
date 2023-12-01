@@ -7,8 +7,8 @@
     --theme-color-lighter: #80390f;
     --theme-color-pale: #fff7f2;
     --theme-orange: #cf8d42;
-    --theme-orange-light: #bba386;
-    --theme-orange-semi-dark: #c37d2c;
+    --theme-orange-light: #ffba6a;
+    --theme-orange-semi-dark: #e79f4c;
     --theme-orange-dark: #95632b;
     /* --bs-override */
     --bs-body-bg: #f3e3c1;
@@ -55,7 +55,6 @@
 .table td, .table th { padding: .10rem; border-top: none; }
 .table td ul { margin-bottom: 0; }
 
-.lii { margin-right: 0.3rem; }
 .list-inline-item:not(:last-child) { margin-right: 0.3rem; } /* bootstrap, ajoute display:inline-block; */
 
 .bulle { padding: 8px; background-color: var(--theme-color-pale); border: 1px dotted var(--theme-color-lighter); border-radius: .75em; }
@@ -69,13 +68,6 @@
 .item-icon {
     font-size: .800rem;
     color: var(--theme-color-lighter);
-}
-
-.alert-danger{
-    padding: .12rem .60rem;
-    letter-spacing: -1px;
-    margin-bottom: 2px;
-    line-height: 1.4;
 }
 
 #blazor-error-ui {

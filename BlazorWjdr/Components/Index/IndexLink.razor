@@ -3,4 +3,4 @@
     [Parameter, EditorRequired] public string Title { get; set; } = null!;
     [Parameter] public bool Primary { get; set; }
 }
-<a class="btn btn-sm btn-@(Primary ? "primary" : "secondary") lii mb-1" href="@Href">@Title</a>
+<a class="btn btn-sm btn-@(Primary ? "primary" : "secondary") mb-1" href="@Href">@Title</a>

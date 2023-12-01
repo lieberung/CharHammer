@@ -1,17 +1,9 @@
 ﻿@code{
     [Parameter] public bool AfficherLiens { get; set; }
-    private string _icon = null!;
-
-    protected override void OnParametersSet()
-    {
-        _icon = AfficherLiens ? "chevron-top" : "chevron-bottom";
-        InvokeAsync(StateHasChanged);
-        base.OnParametersSet();
-    }
 }
 <h4 @onclick="_ => AfficherLiens = !AfficherLiens">
     Equipement
-    <ItemIcon Icon="@_icon" Classes="ms-2"/>
+    <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="ms-2" />
 </h4>
 @if (AfficherLiens)
 {
