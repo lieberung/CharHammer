@@ -74,15 +74,17 @@
             <p class="card-text">
                 Si le résultat n'est pas celui attendu, on peut choisir une race en dépensant le coût indiqué en points d'expérience.
             </p>
-            <p class="card-text">
-                <LinkPageCreationPerso Actif="@RaceDesHumainsSelectionnee" Race="@_racesService.Humains" />
-                <LinkPageCreationPerso Actif="@RaceDesHalflingsSelectionnee" Race="@_racesService.Halflings" />
-                <LinkPageCreationPerso Actif="@RaceDesNainsSelectionnee" Race="@_racesService.Nains" />
-                <LinkPageCreationPerso Actif="@RaceDesElfesSylvainsSelectionnee" Race="@_racesService.ElfesSylvains" />
-                <LinkPageCreationPerso Actif="@RaceDesHautsElfesSelectionnee" Race="@_racesService.HautsElfes" />
-                <LinkPageCreationPerso Actif="@RaceDesGnomesSelectionnee" Race="@_racesService.Gnomes" />
+            <p>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <CheckBoxPageCreationPerso Actif=@RaceDesHumainsSelectionnee Race=@_racesService.Humains />
+                    <CheckBoxPageCreationPerso Actif=@RaceDesHalflingsSelectionnee Race=@_racesService.Halflings />
+                    <CheckBoxPageCreationPerso Actif=@RaceDesNainsSelectionnee Race=@_racesService.Nains />
+                    <CheckBoxPageCreationPerso Actif=@RaceDesElfesSylvainsSelectionnee Race=@_racesService.ElfesSylvains />
+                    <CheckBoxPageCreationPerso Actif=@RaceDesHautsElfesSelectionnee Race=@_racesService.HautsElfes />
+                    <CheckBoxPageCreationPerso Actif=@RaceDesGnomesSelectionnee Race=@_racesService.Gnomes />
+                </div>
             </p>
-            <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre=true FixedColSize="60" />
+            <TableDetail Item=@_tablesService.GetTable(10) MasquerTitre=true FixedColSize=60 />
         </div>
     </div>
     <div class="col">

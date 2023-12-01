@@ -1,0 +1,22 @@
+﻿@inject NavigationManager NavigationManager
+@code {
+    [Parameter, EditorRequired] public RaceDto Race { get; set; } = null!;
+    [Parameter, EditorRequired] public bool Actif { get; set; }
+
+    private string _radioId = "";
+    private string _url = "";
+
+    protected override void OnParametersSet()
+    {
+        _radioId = $"radio-race-{Race.Id}";
+        _url = $"regles/creation-de-personnage/{Race.Id}/";
+    }
+}
+@if (Actif) {
+    <input type="radio" class="btn-check" name="radio-race" id="@_radioId" autocomplete="off" checked>
+} else {
+    <input type="radio" class="btn-check" name="radio-race" id="@_radioId" autocomplete="off">
+}
+<label class="btn btn-outline-primary" for="@_radioId" @onclick="_ => NavigationManager.NavigateTo(_url)">
+    @Race.NomMasculin
+</label>
