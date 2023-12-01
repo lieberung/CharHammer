@@ -82,20 +82,23 @@
                 <LinkPageCreationPerso Actif="@RaceDesHautsElfesSelectionnee" Race="@_racesService.HautsElfes" />
                 <LinkPageCreationPerso Actif="@RaceDesGnomesSelectionnee" Race="@_racesService.Gnomes" />
             </p>
-        </div>
-        <div class="card-body">
             <TableDetail Item="@_tablesService.GetTable(10)" MasquerTitre=true FixedColSize="60" />
         </div>
     </div>
-    <div class="col-2 pt-5">
-        <img src="./images/races/@(RaceId)f.png" alt="@_race.NomFeminin">
+    <div class="col">
+        <div class="row pt-5">
+            <div class="col" style="max-width:33%">
+                <img src="./images/races/@(RaceId)f.png" alt="@_race.NomFeminin">
+            </div>
+            <div class="col" style="max-width:33%">
+                <img src="./images/races/@(RaceId)m.png" alt="@_race.NomMasculin">
+            </div>
+            <div class="col" style="max-width:33%">
+                <img src="./images/races/@(RaceId)s.png" alt="@_race.NomMasculin">
+            </div>
+        </div>
     </div>
-    <div class="col-2 pt-5">
-        <img src="./images/races/@(RaceId)m.png" alt="@_race.NomMasculin">
-    </div>
-    <div class="col-2 pt-5">
-        <img src="./images/races/@(RaceId)s.png" alt="@_race.NomMasculin">
-    </div>
+
 </div>
 
 <PageSectionDivider />

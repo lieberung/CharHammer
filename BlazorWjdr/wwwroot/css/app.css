@@ -11,6 +11,8 @@
     --theme-orange: #e79f4c;
     --theme-orange-darker: #95632b;
     /* --bs-override */
+    --bs-primary: var(--theme-color);
+    --bs-secondary: var(--theme-orange);
     --bs-body-bg: #f3e3c1;
     --bs-link-color-rgb: var(--theme-color); /* #562f08; */
     --bs-link-hover-color-rgb: var(--theme-color-lighter); /* #562f08; */
@@ -22,6 +24,10 @@
     --bs-heading-color: var(--theme-color);
     font-family: var(--theme-font-family);
     font-weight: 600;
+}
+
+.hover-pointer:hover {
+    cursor: pointer;
 }
 
 /*.card-body { padding: 1.25rem; } */ /* disparu en bootstrap 5 */
@@ -58,7 +64,7 @@
 
 .list-inline-item:not(:last-child) { margin-right: 0.3rem; } /* bootstrap, ajoute display:inline-block; */
 
-.bulle { padding: 8px; background-color: var(--theme-color-pale); border: 1px dotted var(--theme-color-lighter); border-radius: .75em; }
+.bulle { padding: .5rem; background-color: var(--theme-color-pale); border: 1px dotted var(--theme-color-lighter); border-radius: .75em; }
 .bulle > .table {
     margin-bottom: 0;
     --bs-table-bg: var(--bs-body-bg);

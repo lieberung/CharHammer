@@ -1,5 +1,6 @@
 ﻿
 bootstrap Scrollspy pour certains contenus denses (magie ?)
+bootstrap icon link pour listes de liens (lieux, etc...)
 
 --------------
 

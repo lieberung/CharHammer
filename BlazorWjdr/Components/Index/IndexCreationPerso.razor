@@ -1,10 +1,109 @@
-﻿<div class="btn-group" role="group" aria-label="Création de personnage">
-    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/1/">Humain</a>
-    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/26/">Halfling</a>
-    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/27/">Nain</a>
+﻿@code {
+    bool AfficherLiensHumains;
+    bool AfficherLiensElfes = true;
+}
+<div class="hstack gap-3">
+    <span class="me-auto hover-pointer" @onclick="_ => AfficherLiensHumains = !AfficherLiensHumains">
+        <ItemIcon Classes="pl-1 pe-2 pb-2" Icon=@(AfficherLiensHumains ? "chevron-top" : "chevron-bottom") />
+        <span class="h5">Humains</span>
+    </span>
+    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/1/"><OiIcon Icon="person" /></a>
+    <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/1/"><OiIcon Icon="list" /></a>
+    <a class="btn btn-sm btn-outline-primary" href="univers/races/humains/"><OiIcon Icon="info" /></a>
 </div>
-<div class="btn-group" role="group" aria-label="Création de personnage">
-    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/63/">Gnôme</a>
-    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/65/">Elfe sylvain</a>
-    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/66/">Haut elfe</a>
+@if (AfficherLiensHumains)
+{
+    <div class="hstack gap-3">
+        <span class="me-auto">
+            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <span class="h5">Impériaux</span>
+        </span>
+        <a class="btn btn-sm invisible" href=""><OiIcon Icon="person" /></a>
+        <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/1/"><OiIcon Icon="list" /></a>
+        <a class="btn btn-sm invisible" href=""><OiIcon Icon="info" /></a>
+    </div>
+    <div class="hstack gap-3">
+        <span class="me-auto">
+            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <span class="h5">Bretonniens</span>
+        </span>
+        <a class="btn btn-sm invisible" href=""><OiIcon Icon="person" /></a>
+        <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/4/"><OiIcon Icon="list" /></a>
+        <a class="btn btn-sm invisible" href=""><OiIcon Icon="info" /></a>
+    </div>
+    <div class="hstack gap-3">
+        <span class="me-auto">
+            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <span class="h5">Gospodars</span>
+        </span>
+        <a class="btn btn-sm invisible" href=""><OiIcon Icon="person" /></a>
+        <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/22/"><OiIcon Icon="list" /></a>
+        <a class="btn btn-sm invisible" href=""><OiIcon Icon="info" /></a>
+    </div>
+    <div class="hstack gap-3">
+        <span class="me-auto">
+            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <span class="h5">Ungols</span>
+        </span>
+        <a class="btn btn-sm invisible" href=""><OiIcon Icon="person" /></a>
+        <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/23/"><OiIcon Icon="list" /></a>
+        <a class="btn btn-sm invisible" href=""><OiIcon Icon="info" /></a>
+    </div>
+}
+<div class="hstack gap-3">
+    <span class="me-auto">
+        <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+        <span class="h5">Halfelings</span>
+    </span>
+    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/26/"><OiIcon Icon="person" /></a>
+    <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/26/"><OiIcon Icon="list" /></a>
+    <a class="btn btn-sm btn-outline-primary" href="univers/races/halfelings/"><OiIcon Icon="info" /></a>
 </div>
+<div class="hstack gap-3">
+    <span class="me-auto">
+        <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+        <span class="h5">Nains</span>
+    </span>
+    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/27/"><OiIcon Icon="person" /></a>
+    <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/27/"><OiIcon Icon="list" /></a>
+    <a class="btn btn-sm btn-outline-primary" href="univers/races/nains/"><OiIcon Icon="info" /></a>
+</div>
+<div class="hstack gap-3">
+    <span class="me-auto">
+        <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+        <span class="h5">Gnômes</span>
+    </span>
+    <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/63/"><OiIcon Icon="person" /></a>
+    <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/63/"><OiIcon Icon="list" /></a>
+    <a class="btn btn-sm btn-outline-primary" href="univers/races/gnomes/"><OiIcon Icon="info" /></a>
+</div>
+<div class="hstack gap-3">
+    <span class="me-auto hover-pointer" @onclick="_ => AfficherLiensElfes = !AfficherLiensElfes">
+        <ItemIcon Classes="pl-1 pe-2 pb-2" Icon=@(AfficherLiensElfes ? "chevron-top" : "chevron-bottom") />
+        <span class="h5">Elfes</span>
+    </span>
+    <a class="btn btn-sm invisible" href=""><OiIcon Icon="person" /></a>
+    <a class="btn btn-sm invisible" href=""><OiIcon Icon="list" /></a>
+    <a class="btn btn-sm invisible" href=""><OiIcon Icon="info" /></a>
+</div>
+@if (AfficherLiensElfes)
+{
+    <div class="hstack gap-3">
+        <span class="me-auto">
+            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <span class="h5">Elfes sylvains</span>
+        </span>
+        <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/65/"><OiIcon Icon="person" /></a>
+        <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/65/"><OiIcon Icon="list" /></a>
+        <a class="btn btn-sm btn-outline-primary" href="univers/races/elfes-sylvains/"><OiIcon Icon="info" /></a>
+    </div>
+    <div class="hstack gap-3">
+        <span class="me-auto">
+            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <span class="h5">Hauts-elfes</span>
+        </span>
+        <a class="btn btn-sm btn-outline-primary" href="regles/creation-de-personnage/66/"><OiIcon Icon="person" /></a>
+        <a class="btn btn-sm btn-outline-primary" href="table-carrieres-initiales/66/"><OiIcon Icon="list" /></a>
+        <a class="btn btn-sm btn-outline-primary" href="univers/races/hauts-elfes/"><OiIcon Icon="info" /></a>
+    </div>
+}

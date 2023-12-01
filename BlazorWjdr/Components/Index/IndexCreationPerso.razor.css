@@ -1,1 +1,6 @@
-﻿.btn { width: 32px; }
+﻿.hstack:not(:last-child) {
+    margin-bottom: 0.25rem
+}
+.btn {
+    width: 2rem;
+}

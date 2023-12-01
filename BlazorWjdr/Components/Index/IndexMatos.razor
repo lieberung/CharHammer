@@ -1,7 +1,7 @@
 ﻿@code{
     [Parameter] public bool AfficherLiens { get; set; }
 }
-<h4 @onclick="_ => AfficherLiens = !AfficherLiens">
+<h4 class="hover-pointer" @onclick="_ => AfficherLiens = !AfficherLiens">
     Equipement
     <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="ms-2" />
 </h4>
