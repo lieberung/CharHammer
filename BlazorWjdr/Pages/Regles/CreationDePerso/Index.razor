@@ -1,0 +1,37 @@
+﻿@page "/regles/creation-de-personnage/{RaceId}/"
+
+@inject RacesService _racesService
+@inject AppState _appState
+@code {
+    [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
+
+    private RaceSelectionnee Selection = null!;
+
+    protected override void OnInitialized()
+    {
+        _appState.SetMainTopRowTitle("Création de personnage");
+    }
+
+    protected override void OnParametersSet()
+    {
+        var race = _racesService.GetRace(int.Parse(RaceId));
+        Selection = new(race);
+    }
+}
+<S1_DeterminerLaRace Selection=@Selection />
+<PageSectionDivider />
+<S2_DeterminerSesCarac />
+<PageSectionDivider />
+<S3_DeterminerSesOrigines Selection=@Selection />
+<PageSectionDivider />
+<S4_DeterminerSesTraits Selection=@Selection />
+<PageSectionDivider />
+<S5_DeterminerSesSignesDist Selection=@Selection />
+<PageSectionDivider />
+<S6_DeterminerSaCarriere Selection=@Selection />
+<PageSectionDivider />
+<S7_DonnerVieAuPerso Selection=@Selection />
+<PageSectionDivider />
+<S8_DeterminerSesAmbitions />
+<PageSectionDivider />
+<S9_DepenserSesXp />

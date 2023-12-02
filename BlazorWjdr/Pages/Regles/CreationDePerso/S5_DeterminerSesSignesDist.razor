@@ -1,0 +1,89 @@
+﻿@using BlazorWjdr.Components.Aptitude
+@using BlazorWjdr.Components.Table
+
+@inject AptitudesService _cttService
+@inject RacesService _racesService
+@inject TablesService _tablesService
+@code {
+    [Parameter, EditorRequired] public RaceSelectionnee Selection { get; set; } = null!;
+
+    private List<AptitudeDto> _traitsObtenus = new();
+
+    private void TirerUnSigneAleatoire()
+    {
+        if (_traitsObtenus.Count == 4)
+        {
+            _traitsObtenus = new();
+            return;
+        }
+
+        var a = _cttService.TirerUnSigneAleatoire(_traitsObtenus);
+        _traitsObtenus.Add(a);
+    }
+}
+
+<div class="row">
+    <div class="col-4">
+        <PageSectionRowTitle Title="5. Déterminer vos signes distinctifs" />
+        <div class="card-body">
+            <p class="card-text">
+                Déterminez aléatoirement (1d3) ou choisissez le nombre de signes distinctifs dont vous serez affublé (1 minimum, 3 maximum).<br />
+                Tirez successivement chaque signe sur la table ci-contre : si un signe est incompatible avec l'un des précédents, ignorer le dernier venu et refaite un tirage.<br />
+                Vous pouvez dépenser <strong>100 xp</strong> (une seule fois) pour en tirer un supplémentaire et en écarter un parmi l'ensemble.
+            </p>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <div class="mt-3 mb-3 ps-2">
+                    <button class="btn btn-primary" type="button" @onclick="TirerUnSigneAleatoire">
+                        <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                        Tirer un signe aléatoire
+                    </button>
+                </div>
+                <AptitudeItemList Items=@_traitsObtenus.ToArray() />
+            </p>
+        </div>
+
+    </div>
+    <div class="col-8">
+        <div class="card-body">
+            <h5>5-1. Table des signes distinctifs</h5>
+            <p class="card-text">
+                <TableTraits Traits=@_cttService.SignesDistinctifs.ToArray() NbColonnes=5 />
+            </p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <!-- Table pour la couleur des cheveux et des yeux -->
+        <div class="card-body">
+            @if (Selection.RaceDesElfesSylvainsSelectionnee || Selection.RaceDesHautsElfesSelectionnee)
+            {
+                <TableDetail Item=@_tablesService.GetTable(15) FixedColSize=45 />
+            }
+            @if (Selection.RaceDesGnomesSelectionnee)
+            {
+                <TableDetail Item=@_tablesService.GetTable(16) FixedColSize=45 />
+            }
+            @if (Selection.RaceDesHalflingsSelectionnee)
+            {
+                <TableDetail Item=@_tablesService.GetTable(17) FixedColSize=45 />
+            }
+            @if (Selection.RaceDesHumainsSelectionnee)
+            {
+                <TableDetail Item=@_tablesService.GetTable(18) FixedColSize=45 />
+            }
+            @if (Selection.RaceDesNainsSelectionnee)
+            {
+                <TableDetail Item=@_tablesService.GetTable(19) FixedColSize=45 />
+            }
+        </div>
+    </div>
+    <div class="col-9">
+        <!-- Table pour le calcul de l'âge du poids et de la taille -->
+        <div class="card-body">
+            <TableDetail Item=@_tablesService.GetTable(14) FixedColSize=75 />
+        </div>
+    </div>
+</div>

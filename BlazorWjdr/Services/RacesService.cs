@@ -16,13 +16,23 @@ public class RacesService
     public List<RaceDto> AllRaces => _cacheRace.Values.ToList();
     public RaceDto GetRace(int id) => _cacheRace[id];
 
-    public RaceDto Elfes => GetRace(25);
-    public RaceDto ElfesSylvains => GetRace(65);
-    public RaceDto HautsElfes => GetRace(66);
-    public RaceDto Humains => GetRace(1);
-    public RaceDto HumainsImperiaux => GetRace(2);
-    public RaceDto HumainsMutants => GetRace(64);
-    public RaceDto Halflings => GetRace(26);
-    public RaceDto Nains => GetRace(27);
-    public RaceDto Gnomes => GetRace(63);
+    public RaceDto Elfes => GetRace(IdElfes);
+    public RaceDto ElfesSylvains => GetRace(IdElfesSylvains);
+    public RaceDto HautsElfes => GetRace(IdHautsElfes);
+    public RaceDto Humains => GetRace(IdHumains);
+    public RaceDto HumainsImperiaux => GetRace(IdHumainsImperiaux);
+    public RaceDto HumainsMutants => GetRace(IdHumainsMutants);
+    public RaceDto Halflings => GetRace(IdHalflings);
+    public RaceDto Nains => GetRace(IdNains);
+    public RaceDto Gnomes => GetRace(IdGnomes);
+
+    public static int IdElfes => 25;
+    public static int IdElfesSylvains => 65;
+    public static int IdHautsElfes => 66;
+    public static int IdHumains => 1;
+    public static int IdHumainsImperiaux => 2;
+    public static int IdHumainsMutants => 64;
+    public static int IdHalflings => 26;
+    public static int IdNains => 27;
+    public static int IdGnomes => 63;
 }

@@ -4,7 +4,7 @@
     [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
     [Parameter] public bool AfficherCitations { get; set; }
 }
-<ImageMax Image=@Item.Image Nom=@Item.Nom MaxHeight="450px" MaxWidth="450px"/>
+<ImageMax Image=@Item.Image Nom=@Item.Nom MaxHeight="450px" MaxWidth="55%"/>
 @if (Item.FilieresDAvancement.Any())
 {
     <p class="card-text">
@@ -18,7 +18,7 @@
     </p>
 }
 <div class="mb-3" style="min-height:400px;">
-    <CardParagraphes Text=@Item.Description CardTextClass="pe-3"/>
+    <CardParagraphes Text=@Item.Description CardTextClass="pe-3" />
 </div>
 @if (AfficherCitations && Item.Ambiance.Any())
 {
@@ -31,7 +31,7 @@
     }
     </div>
 }
-@if (Item.Source?.Book != null || !string.IsNullOrWhiteSpace(Item.Source?.Info))
+@if (Item.Source?.Book is not null || !string.IsNullOrWhiteSpace(Item.Source?.Info))
 {
     <ReferenceItem Item=@Item.Source?.Book Page=@Item.Source?.Info />
 }
