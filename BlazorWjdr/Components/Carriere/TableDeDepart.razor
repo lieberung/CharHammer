@@ -2,32 +2,32 @@
 
 @inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
 
-<table class="table table-striped">
+<table>
     <tbody>
     @for (var i = 0; i < _split; i++)
     {
         <tr>
             @if (i == 0 || _col1Lines[i - 1].Carriere.Groupe != _col1Lines[i].Carriere.Groupe)
             {
-                <CarriereInitialeGroupeCol Groupe="@_col1Lines[i].Carriere.Groupe"/>
-                <CarriereInitialeRow Item="@_col1Lines[i]" BorderTop=true/>
+                <CarriereInitialeGroupeCol Groupe=@_col1Lines[i].Carriere.Groupe />
+                <CarriereInitialeRow Item=@_col1Lines[i] BorderTop=true />
             }
             else
             {
-                <td style="width:100px;"></td>
-                <CarriereInitialeRow Item="@_col1Lines[i]"/>
+                <td class="vocation"></td>
+                <CarriereInitialeRow Item=@_col1Lines[i] />
             }
             @if (i < _col2Lines.Count)
             {
                 if (i == 0 || _col2Lines[i - 1].Carriere.Groupe != _col2Lines[i].Carriere.Groupe)
                 {
-                    <CarriereInitialeGroupeCol Groupe="@_col2Lines[i].Carriere.Groupe"/>
-                    <CarriereInitialeRow Item="@_col2Lines[i]" BorderTop=true/>
+                    <CarriereInitialeGroupeCol Groupe=@_col2Lines[i].Carriere.Groupe />
+                    <CarriereInitialeRow Item=@_col2Lines[i] BorderTop=true />
                 }
                 else
                 {
-                    <td style="width:100px;"></td>
-                    <CarriereInitialeRow Item="@_col2Lines[i]"/>
+                    <td class="vocation"></td>
+                    <CarriereInitialeRow Item=@_col2Lines[i] />
                 }
                 
             }
@@ -35,16 +35,28 @@
             {
                 if (i == 0 || _col3Lines[i - 1].Carriere.Groupe != _col3Lines[i].Carriere.Groupe)
                 {
-                    <CarriereInitialeGroupeCol Groupe="@_col3Lines[i].Carriere.Groupe"/>
-                    <CarriereInitialeRow Item="@_col3Lines[i]" BorderTop=true/>
+                    <CarriereInitialeGroupeCol Groupe=@_col3Lines[i].Carriere.Groupe />
+                    <CarriereInitialeRow Item=@_col3Lines[i] BorderTop=true />
                 }
                 else
                 {
-                    <td style="width:100px;"></td>
-                    <CarriereInitialeRow Item="@_col3Lines[i]"/>
+                    <td class="vocation"></td>
+                    <CarriereInitialeRow Item=@_col3Lines[i] />
                 }
             }
-
+            @if (i < _col4Lines.Count)
+            {
+                if (i == 0 || _col4Lines[i - 1].Carriere.Groupe != _col4Lines[i].Carriere.Groupe)
+                {
+                    <CarriereInitialeGroupeCol Groupe=@_col4Lines[i].Carriere.Groupe />
+                    <CarriereInitialeRow Item=@_col4Lines[i] BorderTop=true />
+                }
+                else
+                {
+                    <td class="vocation"></td>
+                    <CarriereInitialeRow Item=@_col4Lines[i] />
+                }
+            }
         </tr>
     }
     </tbody>
@@ -53,13 +65,13 @@
     [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
 
     private int _split;
-    private int _nbColonnes = 3; 
+    private int _nbColonnes = 4; 
     
     private List<LigneDeCarriereInitialeDto> _allLines = null!;
     private List<LigneDeCarriereInitialeDto> _col1Lines = new ();
     private List<LigneDeCarriereInitialeDto> _col2Lines = new ();
     private List<LigneDeCarriereInitialeDto> _col3Lines = new ();
-    //private List<LigneDeCarriereInitialeDto> _col4Lines = new ();
+    private List<LigneDeCarriereInitialeDto> _col4Lines = new ();
 
     protected override void OnParametersSet()
     {
@@ -73,7 +85,7 @@
         _col1Lines = new ();
         _col2Lines = new ();
         _col3Lines = new ();
-        //_col4Lines = new ();
+        _col4Lines = new ();
         
         for (var i = 0; i < _allLines.Count; i++)
         {
@@ -81,13 +93,11 @@
                 _col1Lines.Add(_allLines[i]);
             else if (i < (_split * 2))
                 _col2Lines.Add(_allLines[i]);
-            else //if (i < (_split * 3))
+            else if (i < (_split * 3))
                 _col3Lines.Add(_allLines[i]);
-            //else
-            //    _col4Lines.Add(_allLines[i]);
+            else
+                _col4Lines.Add(_allLines[i]);
         }
-
-        base.OnParametersSet();
     }
     /*
     @if (i < _col4Lines.Count)
@@ -99,7 +109,7 @@
         }
         else
         {
-            <td style="width:100px;"></td>
+            <td class="vocation"></td>
             <CarriereInitialeRow Item="@_col4Lines[i]"/>
         }
     }

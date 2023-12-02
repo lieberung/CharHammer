@@ -48,7 +48,6 @@
                 _typeDeTrait = "maladie";
                 break;
         }
-
         StateHasChanged();
     }
 
@@ -62,10 +61,10 @@
     <div class="col-8">
         <div class="card-body">
             <p class="card-text">
-                <LinkGroupeDeTraits Groupe="traits" Text="Signes distinctifs" Actif="@(GroupeActif == "traits")" />
-                <LinkGroupeDeTraits Groupe="troubles-mineurs" Text="Troubles mineurs" Actif="@(GroupeActif == "troubles-mineurs")" />
-                <LinkGroupeDeTraits Groupe="folies" Text="Folies" Actif="@(GroupeActif == "folies")" />
-                <LinkGroupeDeTraits Groupe="maladies" Text="Maladies" Actif="@(GroupeActif == "maladies")" />
+                <LinkGroupeDeTraits Groupe="traits" Text="Signes distinctifs" Actif=@(GroupeActif == "traits") />
+                <LinkGroupeDeTraits Groupe="troubles-mineurs" Text="Troubles mineurs" Actif=@(GroupeActif == "troubles-mineurs") />
+                <LinkGroupeDeTraits Groupe="folies" Text="Folies" Actif=@(GroupeActif == "folies") />
+                <LinkGroupeDeTraits Groupe="maladies" Text="Maladies" Actif=@(GroupeActif == "maladies") />
             </p>
         </div>
     </div>
@@ -83,7 +82,7 @@
 <div class="row">
     <div class="col-8">
         <div class="card-body">
-            <TableTraits Traits="@Traits.ToArray()" NbColonnes="_nbColonnes" />
+            <TableTraits Traits=@Traits.ToArray() NbColonnes=_nbColonnes />
         </div>
     </div>
 
@@ -92,7 +91,7 @@
         {
             <div class="card-body">
                 <h3>@_traitAleatoire.NomComplet <em>(@_traitAleatoire.CategSpeSexy)</em></h3>
-                <AptitudeDescription Item="_traitAleatoire" />
+                <AptitudeDescription Item=_traitAleatoire />
             </div>
         }
     </div>

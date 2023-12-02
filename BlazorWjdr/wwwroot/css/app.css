@@ -30,6 +30,10 @@
     cursor: pointer;
 }
 
+.oi.oi-icon {
+    min-width: .7rem;
+}
+
 /*.card-body { padding: 1.25rem; } */ /* disparu en bootstrap 5 */
 .card-text { text-align: justify; }
 

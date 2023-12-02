@@ -72,11 +72,9 @@
 </div>
 @if (!_carrieresObtenues.Any())
 {
-    <Card>
-        <div class="row">
-            <TableDeDepart RaceId=@Selection.Race.Id.ToString() />
-        </div>
-    </Card>
+    <div class="row">
+        <TableDeDepart RaceId=@Selection.Race.Id.ToString() />
+    </div>
 }
 <div class="row">
     @foreach (var co in _carrieresObtenues)

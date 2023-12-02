@@ -1,5 +1,4 @@
-﻿<td style="width:100px; border-top: 1px black dashed;"><strong>@Groupe</strong></td>
+﻿<td style="width:80px; border-top: 1px black dashed; font-size:small;"><strong>@Groupe</strong></td>
 @code {
-    [Parameter]
-    public string Groupe { get; set; } = null!;
+    [Parameter, EditorRequired] public string Groupe { get; set; } = null!;
 }

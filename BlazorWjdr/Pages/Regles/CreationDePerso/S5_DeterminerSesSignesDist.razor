@@ -49,13 +49,13 @@
         <div class="card-body">
             <h5>5-1. Table des signes distinctifs</h5>
             <p class="card-text">
-                <TableTraits Traits=@_cttService.SignesDistinctifs.ToArray() NbColonnes=5 />
+                <TableTraits Traits=@_cttService.SignesDistinctifs.ToArray() NbColonnes=4 />
             </p>
         </div>
     </div>
 </div>
 <div class="row">
-    <div class="col-3">
+    <div class="col-4">
         <!-- Table pour la couleur des cheveux et des yeux -->
         <div class="card-body">
             @if (Selection.RaceDesElfesSylvainsSelectionnee || Selection.RaceDesHautsElfesSelectionnee)
@@ -80,7 +80,7 @@
             }
         </div>
     </div>
-    <div class="col-9">
+    <div class="col-8">
         <!-- Table pour le calcul de l'âge du poids et de la taille -->
         <div class="card-body">
             <TableDetail Item=@_tablesService.GetTable(14) FixedColSize=75 />

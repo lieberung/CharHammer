@@ -1,5 +1,5 @@
 ﻿<a href="@_hrefBase/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="@Item.Icon" Classes="me-1" />
+    <ItemIcon Icon=@Item.Icon Classes="me-1" />
     @if (PasDeTooltip || string.IsNullOrWhiteSpace(_toolTipText)) {
         @Item.Nom
     } else {
