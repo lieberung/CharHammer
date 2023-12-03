@@ -14,21 +14,21 @@
     <div class="col-6">
         <div class="card-body">
             <h3>Archétypes de PNJs</h3>
-            <BestioleTable Items="@_bestiolesService.AllArchetypes.ToArray()"/>
+            <BestioleTable Items=@_bestiolesService.AllArchetypes.ToArray() />
         </div>
         <div class="card-body">
             <h3>Personnages incarnés par le meneur de jeu</h3>
-            <BestioleTable Items="@_bestiolesService.AllPnjs(_appState.JeSuisDieu).ToArray()"/>
+            <BestioleTable Items=@_bestiolesService.AllPnjs(_appState.JeSuisDieu).ToArray() />
         </div>
     </div>
     <div class="col-6">
         <div class="card-body">
             <h3>Personnages incarnés par des joueurs</h3>
-            <BestioleTable Items="@_bestiolesService.AllPjs.ToArray()"/>
+            <BestioleTable Items=@_bestiolesService.AllPjs.ToArray() />
         </div>
         <div class="card-body">
             <h3>Personnages prétirés</h3>
-            <BestioleTable Items="@_bestiolesService.AllPretires.ToArray()"/>
+            <BestioleTable Items=@_bestiolesService.AllPretires.ToArray() />
         </div>
     </div>
 </div>

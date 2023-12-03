@@ -5,8 +5,7 @@
 @inject CampagnesService _campagnesService
 @inject AppState _appState
 @code {
-    [Parameter]
-    public string CampagneId { get; set; } = null!;
+    [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
 
     private CampagneDto _campagne = null!;
 
@@ -18,21 +17,16 @@
     protected override void OnParametersSet()
     {
         _campagne = _campagnesService.AllCampagnes().First(c => c.Id.ToString() == CampagneId);
-        base.OnParametersSet();
     }
 }
-
-<div class="row mb-4">
+<div class="row section">
     @foreach (var campagne in _campagnesService.AllCampagnes())
     {
         <div class="col-3">
-            <LinkCampagne Titre="@campagne.Titre" CampagneId="@campagne.Id.ToString()" Actif="@(CampagneId == @campagne.Id.ToString())" />
+            <LinkCampagne Titre=@campagne.Titre CampagneId=@campagne.Id.ToString() Actif=@(CampagneId == @campagne.Id.ToString()) />
         </div>
     }
 </div>
-
-<div class="row">
-    <div class="col">
-        <CampagneDetail Campagne="@_campagne" />
-    </div>
+<div class="section">
+    <CampagneDetail Campagne=@_campagne />
 </div>

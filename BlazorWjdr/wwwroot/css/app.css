@@ -34,6 +34,10 @@
     min-width: .7rem;
 }
 
+.section {
+    padding: 1.25rem;
+}
+.card { background-color: #fff; }
 /*.card-body { padding: 1.25rem; } */ /* disparu en bootstrap 5 */
 .card-text { text-align: justify; }
 
@@ -50,11 +54,11 @@
 }
 
 .tgroupe {
-    background-color: var(--theme-color);
-    color: white;
-    font-family: var(--theme-font-family);
-    font-weight: 500;
-    font-size: large;
+    background-color: var(--theme-color) !important;
+    color: white !important;
+    font-family: var(--theme-font-family) !important;
+    font-weight: 500 !important;
+    font-size: large !important;
 }
 
 .table {
@@ -68,13 +72,21 @@
 
 .list-inline-item:not(:last-child) { margin-right: 0.3rem; } /* bootstrap, ajoute display:inline-block; */
 
-.bulle { padding: .5rem; background-color: var(--theme-color-pale); border: 1px dotted var(--theme-color-lighter); border-radius: .75em; }
+.bulle {
+    padding: .5rem;
+    background-color: var(--theme-color-pale);
+    /*border: 1px dotted var(--theme-color-lighter);*/
+    border-radius: .75em;
+}
 .bulle > .table {
     margin-bottom: 0;
     --bs-table-bg: var(--bs-body-bg);
     --bs-table-striped-bg: var(--theme-color-pale);
 }
 .bulle.sortilege { width:500px; }
+.bulle > ul:last-child, .bulle > p:last-child {
+    margin-bottom: 0;
+}
 
 .item-icon {
     font-size: .800rem;

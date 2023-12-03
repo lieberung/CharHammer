@@ -126,7 +126,7 @@
     <div class="col-7">
         <h3>Le Dogme</h3>
         <CardBody Titre="" Image="">
-            <div class="bulle ms-4 px-4 float-end" style="width:500px;">
+            <div class="bulle shadow-sm ms-4 px-4 float-end" style="width:500px;">
                 <h5>Commandements</h5>
                 <ul>
                     @foreach (var cmd in _dieu.Commandements)
@@ -271,7 +271,7 @@
             <h3>Bénédictions</h3>
             @foreach (var benediction in _sortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(_inspirationDivine)))
             {
-                <div class="bulle m-4 sortilege">
+                <div class="bulle shadow-sm m-4 sortilege">
                     <div class="card-body">
                         <SortilegeDetail Item="@benediction" />
                     </div>
@@ -282,7 +282,7 @@
             <h3>Miracles</h3>
             @foreach (var miracle in _sortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(_inspirationDivine)))
             {
-                <div class="bulle m-4 sortilege">
+                <div class="bulle shadow-sm m-4 sortilege">
                     <div class="card-body">
                         <SortilegeDetail Item="@miracle" />
                     </div>

@@ -11,7 +11,7 @@
     {
         <h5>Compétences</h5>
     }
-    <p><AptitudeAcquiseItemList Items="@Item.Competences" AfficherBonusDeCompetence="@AfficherBonusDeCompetence"/></p>
+    <p><AptitudeAcquiseItemList Items=@Item.Competences AfficherBonusDeCompetence=@AfficherBonusDeCompetence /></p>
 }
 
 @if (Item.Talents.Any())
@@ -20,7 +20,7 @@
     {
         <h5>Talents</h5>
     }
-    <p><AptitudeAcquiseItemList Items="@Item.Talents"/></p>
+    <p><AptitudeAcquiseItemList Items=@Item.Talents /></p>
 }
 
 @if (Item.Traits.Any())
@@ -29,7 +29,7 @@
     {
         <h5>Traits</h5>
     }
-    <p><AptitudeAcquiseItemList Items="@Item.Traits" /></p>
+    <p><AptitudeAcquiseItemList Items=@Item.Traits /></p>
 }
 
 @if (Item.AptitudesOptionnels.Any())
@@ -38,5 +38,5 @@
     {
         <h5>Traits optionnels</h5>
     }
-    <p><AptitudeAcquiseItemList Items="@Item.AptitudesOptionnels" /></p>
+    <p><AptitudeAcquiseItemList Items=@Item.AptitudesOptionnels /></p>
 }

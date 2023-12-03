@@ -18,16 +18,16 @@
     }
 }
 <div class="row">
-    <div class="col-6">
+    <div class="col-7">
         <div class="card-body pt-0">
-            <img alt="Portrait de @Item!.Nom" style="float:right; max-width:420px; max-height:450px;" src="images/beasts/@(Item.Id).png" />
+            <img alt="Portrait de @Item!.Nom" class="float-end" style="max-width:420px; max-height:450px;" src="images/beasts/@(Item.Id).png" />
             <h1 style="font-size: xx-large;">@Item!.Nom</h1>
             @if (Item.Origines.Any())
             {
                 <em>Origines :&nbsp;</em>
                 @foreach (var lieu in Item.Origines)
                 {
-                    <LieuComplet Item="@lieu" />
+                    <LieuComplet Item=@lieu />
                 }
             }
             @if (Item.Sexe.HasValue)
@@ -50,15 +50,15 @@
         </div>
         <div class="card-body pt-0">
             <h5>Carrières & Profil</h5>
-            <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel="@Item.EstUnPersonnageNonJoueur" />
-            <BestioleBlessMouvProt Item="@Item" />
+            <BestioleProfil Item=@Item NAfficherQueLeProfilActuel=@Item.EstUnPersonnageNonJoueur />
+            <BestioleBlessMouvProt Item=@Item />
         </div>
         <div class="card-body py-0">
             <h5>Aptitudes</h5>
-            <AptitudesAcquises Item="@Item" MasquerTitres=true AfficherBonusDeCompetence=true />
+            <AptitudesAcquises Item=@Item MasquerTitres=true AfficherBonusDeCompetence=true />
         </div>
         <div class="card-body pt-1">
-            <BestioleFicheMatosSorts Item="@Item" />
+            <BestioleFicheMatosSorts Item=@Item />
         </div>
     </div>
 
@@ -67,21 +67,21 @@
         {
             <div class="card-body pt-0">
                 <h3>Description</h3>
-                <CardParagraphes Text="@Item.Description" />
+                <CardParagraphes Text=@Item.Description />
             </div>
         }
         @if (Item.Psychologie != "")
         {
             <div class="card-body pt-0">
                 <h3>Psychologie</h3>
-                <CardParagraphes Text="@Item.Psychologie" />
+                <CardParagraphes Text=@Item.Psychologie />
             </div>
         }
         @if (Item.Histoire != "")
         {
             <div class="card-body pt-0">
                 <h3>Histoire</h3>
-                <CardParagraphes Text="@Item.Histoire" />
+                <CardParagraphes Text=@Item.Histoire />
             </div>
         }
         @if (Item.Ambitions.Any())
@@ -100,17 +100,17 @@
         {
             <div class="card-body pt-0">
                 <h3>Commentaires</h3>
-                <CardParagraphes Text="@Item.Notes" />
+                <CardParagraphes Text=@Item.Notes />
             </div>
         }
         <div class="card-body">
-            <div style="display:inline-block;">
+            <div class="d-inline-block">
                 <h5>Apparence</h5>
-                <PersoApparence Item="@Item" />
+                <PersoApparence Item=@Item />
             </div>
-            <div style="display:inline-block;">
+            <div class="d-inline-block">
                 <h5>Famille</h5>
-                <PersoFamille Item="@Item" />
+                <PersoFamille Item=@Item />
             </div>
         </div>
     </div>
@@ -125,7 +125,7 @@
             {
                 <h3>Historique de Campagne - @campagne.Titre</h3>
                 <div class="card-body">
-                    <HistoriqueDeCampagne Campagne="@campagne" Pj="@Item" />
+                    <HistoriqueDeCampagne Campagne=@campagne Pj=@Item />
                 </div>
             }
         </div>
