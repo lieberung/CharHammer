@@ -223,7 +223,7 @@
                 <CardParagraphes Text="@perso.Description" />
             </CardBody>
         }
-        <div class="card-body">
+        <div class="section">
             <h5>Croyances populaires</h5>
             @foreach (var ambiance in _dieu.Ambiance)
             {
@@ -272,7 +272,7 @@
             @foreach (var benediction in _sortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(_inspirationDivine)))
             {
                 <div class="bulle shadow-sm m-4 sortilege">
-                    <div class="card-body">
+                    <div class="section">
                         <SortilegeDetail Item="@benediction" />
                     </div>
                 </div>
@@ -283,7 +283,7 @@
             @foreach (var miracle in _sortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(_inspirationDivine)))
             {
                 <div class="bulle shadow-sm m-4 sortilege">
-                    <div class="card-body">
+                    <div class="section">
                         <SortilegeDetail Item="@miracle" />
                     </div>
                 </div>

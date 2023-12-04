@@ -13,7 +13,7 @@
 </div>
 <div class="row">
     <div class="col-6">
-        <div class="card-body">
+        <div class="section">
             <p class="card-text">
                 Vous disposez <strong>automatiquement des Aptitudes dites Innées ou Raciales</strong>. Elles vous sont toutes octroyées au niveau 1, et sont listées à droite.
             </p>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="col-6">
-        <div class="card-body">
+        <div class="section">
             <h5>Aptitudes raciales - @Selection.Race.Autochtones</h5>
             @if (Selection.RaceDesHumainsSelectionnee)
             {
@@ -52,7 +52,7 @@ else
 {
     <div class="row">
         <div class="col-12">
-            <div class="card-body bulle px-4">
+            <div class="section bulle px-4">
                 @if (Selection.RaceDesGnomesSelectionnee)
                 {
                     <RegleDetail Item=@_reglesService.GetRegle(22) MasquerTitre=false />
@@ -81,7 +81,7 @@ else
 {
     <div class="row">
         <div class="col-4">
-            <div class="card-body">
+            <div class="section">
                 <h5>4-1. Détermination aléatoire des talents</h5>
                 <div class="card-text">
                     Consultez vos traits raciaux / culturels pour savoir à combien de talents aléatoires vous avez droit (0 à 2).

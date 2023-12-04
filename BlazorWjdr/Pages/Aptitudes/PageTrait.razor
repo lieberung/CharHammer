@@ -28,7 +28,7 @@
 
     <ColFrise />
     <div class="col-5">
-        <div class="card-body" style="padding-top: 0;">
+        <div class="section" style="padding-top: 0;">
 
             <h1 style="font-size: xxx-large;">@Item.Nom</h1>
             <h5><em>@Item.CategSpeSexy</em></h5>
@@ -40,7 +40,7 @@
     <div class="col-5">
         @if (_carrieres.Any())
         {
-            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+            <div class="section" style="padding-top: 0; padding-right: 0;">
                 <h5>Carrières proposant ce trait</h5>
                 <p class="card-text">
                     <CarriereItemList Items=@_carrieres />

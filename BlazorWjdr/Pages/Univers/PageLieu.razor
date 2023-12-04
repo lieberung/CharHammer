@@ -37,7 +37,7 @@
 }
 <div class="row">
     <div class="col-6">
-        <div class="card-body">
+        <div class="section">
             <h3>@Item.Nom</h3>
             <p class="card-text">
                 <span class="insister">Type : </span><LieuTypeItem Item="@Item.TypeDeLieu" />
@@ -79,7 +79,7 @@
         </div>
         @if (_scenarios.Any())
         {
-            <div class="card-body">
+            <div class="section">
                 <h4>Scénarios</h4>
                 <ScenarioTable Items="@_scenarios" LigneCourte=true />
             </div>

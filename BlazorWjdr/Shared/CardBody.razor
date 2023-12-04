@@ -8,11 +8,11 @@
     }
     @if (Aptitude != null)
     {
-        <AptitudeItem Item="@Aptitude"/>
+        <AptitudeItem Item=@Aptitude />
     }
     @if (!string.IsNullOrWhiteSpace(Image))
     {
-        <ImageMax Image="@Image" Nom="@Titre" MaxHeight="@ImageMaxHeight" MaxWidth="@ImageMaxWidth"/>
+        <ImageMax Image=@Image Nom=@Titre MaxHeight=@ImageMaxHeight MaxWidth=@ImageMaxWidth />
     }
     @ChildContent
 </div>

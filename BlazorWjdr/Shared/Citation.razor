@@ -1,0 +1,17 @@
+﻿@code {
+    [Parameter] public RenderFragment ChildContent { get; set; } = null!;
+    [Parameter] public string Author { get; set; } = "";
+    [Parameter] public string Source { get; set; } = "";
+}
+<figure>
+    <blockquote class="blockquote">
+        @ChildContent
+    </blockquote>
+    <figcaption class="blockquote-footer">
+        <span>@Author</span>
+        @if (Source != "")
+        {
+            <cite title="Source">@Source</cite>
+        }
+    </figcaption>
+</figure>

@@ -16,7 +16,7 @@
 }
 <div class="row">
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h3>Aptitudes utiles dans les égouts</h3>
             <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres" />
         </div>
@@ -36,7 +36,7 @@
         <RegleBody Item="@_reglesService.GetRegle(245)" />
     </div>
     <div class="col-8">
-        <div class="card-body">
+        <div class="section">
             <img alt="Plans des égouts" src="images/plans/egouts.png" />
         </div>
     </div>
@@ -46,13 +46,13 @@
 
 <div class="row">
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h3>Idées de rencontres (1d100)</h3>
             <TableDetail Item="@_tablesService.GetTable(103)" MasquerTitre=@true />
         </div>
         <RegleBody Item="@_reglesService.GetRegle(252)" />
         <RegleBody Item="@_reglesService.GetRegle(256)" />
-        <div class="card-body">
+        <div class="section">
             <img alt="Ambiance" src="images/ambiance/egouts.png" style="max-width:560px" />
         </div>
     </div>
@@ -66,7 +66,7 @@
         <RegleBody Item="@_reglesService.GetRegle(259)" />
         <RegleBody Item="@_reglesService.GetRegle(258)" />
         <RegleBody Item="@_reglesService.GetRegle(254)" />
-        <div class="card-body">
+        <div class="section">
             <h3>Carrières familières avec les égouts</h3>
             <CarriereItemList Items="@_reglesService.GetRegle(240).Carrieres" />
         </div>

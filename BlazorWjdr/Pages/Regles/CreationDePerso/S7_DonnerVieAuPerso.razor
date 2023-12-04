@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-6">
         <PageSectionRowTitle Title="7. Donner de la vie à son personnage" />
-        <div class="card-body">
+        <div class="section">
             <ul>
                 <li>Choisir votre nom et votre sexe</li>
                 <li>Déterminer votre âge</li>
@@ -20,14 +20,14 @@
         </div>
     </div>
     <div class="col-6">
-        <div class="card-body">
+        <div class="section">
             <TableDetail Item=TablesSvc.GetTable(22) FixedColSize=35 />
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-6">
-        <div class="card-body">
+        <div class="section">
             <h4>Etoffer le passé et le caractère du personnage</h4>
             <ul>
                 <li>Votre famille, à quoi ressemble-t-elle ?</li>
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="col-6">
-        <div class="card-body">
+        <div class="section">
             <h4>Quelques liens...</h4>
             <ul>
                 <li>
@@ -71,7 +71,7 @@
         </div>
         @if (Selection.RaceDesHalflingsSelectionnee)
         {
-            <div class="card-body">
+            <div class="section">
                 <TableDetail Item=@TablesSvc.GetTable(91) FixedColSize=100 />
             </div>
         }

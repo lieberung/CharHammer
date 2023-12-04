@@ -26,7 +26,7 @@
     <ColFrise />
     <div class="col-8">
 
-        <div class="card-body pt-0">
+        <div class="section pt-0">
             <img alt="@Item!.Nom (apparence)" style="float:right; max-width:550px; max-height:550px;" src="images/beasts/@(Item.Id).png" />
             <h1 style="font-size: xxx-large;">@Item!.Nom</h1>
             @if (Item.Origines.Any())
@@ -39,14 +39,14 @@
             }
         </div>
 
-        <div class="card-body pt-0">
+        <div class="section pt-0">
             <p>
                 <BestioleProfil Item="@Item" NAfficherQueLeProfilActuel=true />
             </p>
             <BestioleBlessMouvProt Item="@Item" />
         </div>
 
-        <div class="card-body pt-0">
+        <div class="section pt-0">
             <AptitudesAcquises Item="@Item" />
             @if (Item.EquipementDeCarrieres != "")
             {
@@ -63,7 +63,7 @@
     <div class="col-6">
         @if (Item.Description != "")
         {
-            <div class="card-body pt-0">
+            <div class="section pt-0">
                 <h3>Description</h3>
                 <CardParagraphes Text="@Item.Description" />
             </div>
@@ -72,14 +72,14 @@
     <div class="col-4">
         @if (Item.Psychologie != "")
         {
-            <div class="card-body pt-0">
+            <div class="section pt-0">
                 <h3>Psychologie</h3>
                 <CardParagraphes Text="@Item.Psychologie" />
             </div>
         }
         @if (Item.Notes != "")
         {
-            <div class="card-body pt-0">
+            <div class="section pt-0">
                 <h3>Notes</h3>
                 <CardParagraphes Text="@Item.Notes" />
             </div>

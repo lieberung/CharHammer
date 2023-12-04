@@ -17,7 +17,7 @@
 
 <div class="row">
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h3>Blessures</h3>
             <p class="card-text">
                 Le nombre minimum de Blessures est de 0. On peut avoir un nombre négatif de Blessures.
@@ -50,7 +50,7 @@
 
         <PageSectionDivider Size="2" />
 
-        <div class="card-body">
+        <div class="section">
             <h3>Soins</h3>
 
             <h5>Blessures Superficielles</h5>
@@ -83,7 +83,7 @@
 
         <PageSectionDivider Size="2" />
 
-        <div class="card-body">
+        <div class="section">
             <h3>Conditions extrêmes</h3>
             <p class="card-text">
                 Every 4 hours spent in a difficult environment — such as sub-zero temperatures, a hot desert, or a howling storm — requires you take an Endurance Test. Extreme environments require a Test every 2 hours.
@@ -103,7 +103,7 @@
 
         <PageSectionDivider Size="2" />
 
-        <div class="card-body">
+        <div class="section">
             <h3>Noyade et Suffocation</h3>
             <p class="card-text">
                 If prepared, you can hold your breath for Toughness Bonus x 10 seconds without a Test. After that, you may start to suffocate or drown. If you are unprepared and suddenly deprived of air, you will start to suffocate immediately.
@@ -117,7 +117,7 @@
 
     <div class="col-4">
 
-        <div class="card-body">
+        <div class="section">
             <h3>Déchirures musculaires</h3>
 
             <h5>Déchirure Mineure</h5>
@@ -140,7 +140,7 @@
 
         <PageSectionDivider Size="2" />
 
-        <div class="card-body">
+        <div class="section">
             <h3>Fractures</h3>
 
             <h5>Fracture Mineure</h5>
@@ -203,7 +203,7 @@
 
         <PageSectionDivider Size="2" />
 
-        <div class="card-body">
+        <div class="section">
             <h3>Privation d'eau et de nourriture</h3>
             <p class="card-text">
                 Running out of provisions can be bad. Running out of water is worse. <AptitudeItem Item="@_aptSvc.CompetenceResistance" /> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
@@ -224,7 +224,7 @@
 
     <div class="col-4">
 
-        <div class="card-body">
+        <div class="section">
             <h3>Membres amputés</h3>
             <p class="card-text">
                 L'amputation d'un membre, qu'elle soit due à un (très) mauvais coup ou une intervention chirurgicale peut-être compensée par une prothèse (voir le Guide du consommateur).
@@ -300,7 +300,7 @@
     <div class="row">
 
         <div class="col-4">
-            <div class="card-body">
+            <div class="section">
                 <h3>Une Consultation</h3>
                 <p class="card-text">
                     En règle générale, la plupart des médecins étant d’une disponibilité Courante, il suffit de réussir un test de Commérage Assez facile
@@ -323,7 +323,7 @@
                 </p>
             </div>
             <TableDetail Item="@_tablesService.GetTable(80)" />
-            <div class="card-body">
+            <div class="section">
                 <h5>Disponibilité</h5>
                 <p class="card-text">
                     Les degrés de disponibilité sont indiqués pour une ville de moins de 1000 habitants, à ajuster dans le cas d’une population plus ou moins importante.
@@ -338,7 +338,7 @@
         </div>
 
         <div class="col-4">
-            <div class="card-body">
+            <div class="section">
                 <h5>Les différents Degrés de Qualité</h5>
                 <p class="card-text">
                     <strong>De qualité médiocre : </strong>
@@ -381,7 +381,7 @@
         </div>
 
         <div class="col-4">
-            <div class="card-body">
+            <div class="section">
                 <h5>Charlatanisme</h5>
                 <p class="card-text">
                     Après être parvenu à localiser un médecin grâce à la réussite d’un test de Commérage, le MJ devra lancer 1d100 en secret et comparer le résultat au score relatif à la qualité du médecin trouvé.
@@ -398,7 +398,7 @@
                     (-20%) permet à un PJ qui l’observe au travail et analyse ses procédures opératoires de déceler qu’il s’agit d’un faux médecin ou que les méthodes qu’il emploie sont totalement farfelues.
                 </p>
             </div>
-            <div class="card-body">
+            <div class="section">
                 <TableDetail Item="@_tablesService.GetTable(83)" />
             </div>
         </div>
@@ -407,17 +407,17 @@
 
     <div class="row">
         <div class="col-8">
-            <div class="card-body">
+            <div class="section">
                 <h5>Infection</h5>
                 <p class="card-text">
                     Une plaie peut toujours s’infecter, même si elle a été nettoyée après une intervention chirurgicale. Vous devez donc effectuer un jet de dés contre l’infection
                     après toute opération par un charlatan, même si la table d’opération a été décrassée convenablement (cf. le paragraphe Chirurgie ci-après).
                 </p>
             </div>
-            <div class="card-body">
+            <div class="section">
                 <TableDetail Item="@_tablesService.GetTable(81)" />
             </div>
-            <div class="card-body">
+            <div class="section">
                 <TableDetail Item="@_tablesService.GetTable(82)" />
             </div>
         </div>
@@ -427,7 +427,7 @@
 
     <div class="row">
         <div class="col-4">
-            <div class="card-body">
+            <div class="section">
                 <h3>Traitements médicaux : les blessures</h3>
                 <p class="card-text">
                     Qu’un PJ soit Légèrement ou Gravement blessé, le meilleur remède reste une bonne potion de soins ou un cataplasme médicinal, accompagné de quelques jours de repos. La plupart des médecins proposent des remèdes « spéciaux » de leur composition, mais on trouve des potions ou des cataplasmes tout aussi bons chez les apothicaires, les herboristes et même auprès des ménagères les plus compréhensives. Dans ces conditions, il est probable que la plupart des PJ ne se mettront en quête d’un médecin qu’en cas de blessure consécutive à un coup critique: un bras ou une jambe estropié ou une blessure à la colonne vertébrale. Les blessures de ce genre nécessitent généralement une opération, effectuée par un chirurgien barbier ou par un médecin, bien que certains médecins considèrent la chirurgie comme étant au-dessous de leur dignité. La chirurgie est moins complexe que la médecine et s’appuie sur des méthodes éprouvées qui échouent rarement. Cela ne signifie pas pour autant qu’elles soient agréables ni que la réussite soit garantie.
@@ -436,7 +436,7 @@
                     Dans le Vieux Monde, les connaissances en matière de chirurgie sont limitées : on sait réduire une fracture (si la cassure est bien nette), stopper une hémorragie et empêcher une infection de s’installer (si l’intervention est réalisée assez rapidement) et recoudre une plaie afin de maintenir la cohésion des tissus (pourvu que la blessure ne soit pas trop béante). Dès que les choses deviennent plus compliquées, on résout le problème en supprimant la partie endommagée à l’aide d’un hachoir bien aiguisé ou d’une scie à os, plus lente mais qui permet d’obtenir un résultat beaucoup plus propre. Un bon chirurgien est celui qui sait pratiquer l’ablation de la partie blessée sans réduire en charpie l’appendice tout entier. Un excellent chirurgien est celui qui est capable de le faire rapidement, du fait que les techniques d’anesthésie relèvent du mystère et que plus la plaie reste exposée à l’air libre longtemps, plus elle risque de s’infecter.
                 </p>
             </div>
-            <div class="card-body">
+            <div class="section">
                 <h5>Nettoyer une plaie</h5>
                 <p class="card-text">
                     Lorsqu’un PJ perd des points de Blessures, si personne ne possède la compétence Soins nécessaire pour le traiter, ou en cas d’échec
@@ -458,7 +458,7 @@
             </div>
         </div>
         <div class="col-4">
-            <div class="card-body">
+            <div class="section">
                 <h3>Primo-infection</h3>
                 <p class="card-text">
                     Afin de déterminer les chances de rétablissement d’un PJ blessé, la première étape intervient bien avant la consultation chez le chirurgien.
@@ -484,7 +484,7 @@
             </div>
         </div>
         <div class="col-4">
-            <div class="card-body">
+            <div class="section">
                 <h3>Chirurgie</h3>
                 <p class="card-text">
                     Lorsque la gangrène s’installe ou qu’une blessure découle d’un coup critique ayant exigé un test d’Endurance afin d’éviter la perte d’une fonction, il faut recourir à la chirurgie. Normalement, une opération chirurgicale est automatiquement réussie et permet simplement au patient de bénéficier d’un bonus de +20% au test d’Endurance qui lui permet d’éviter de perdre la fonction de la partie du corps concerné. Toutefois, pour les MJ qui préfèrent donner une atmosphère un peu plus macabre à leur campagne ou pour ceux qui désirent utiliser les règles optionnelles relatives à l’infection décrites plus haut, une opération chirurgicale peut devenir une épreuve nettement plus pénible.
@@ -507,7 +507,7 @@
                     Un autre rôle important d’un chirurgien est de fabriquer et d’adapter des prothèses de toutes sortes: jambes de bois, mains de vétéran, yeux de verre, plaques crâniennes et dentiers en bois. Si une prothèse ou un appendice quelconque est fixé au cours d’une opération qui provoque une infection ou adapté à une partie du corps frappée de gangrène, l’objet doit être détruit et un nouvel appareillage devra être fourni au patient.
                 </p>
             </div>
-            <div class="card-body">
+            <div class="section">
                 <h3>Prothèses</h3>
             </div>
         </div>

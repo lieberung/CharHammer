@@ -1,5 +1,5 @@
 ﻿@code{
-    [Parameter] public string Text { get; set; } = null!;
+    [Parameter, EditorRequired] public string Text { get; set; } = null!;
     [Parameter] public string CardTextClass { get; set; } = "";
     [Parameter] public bool PasDeMarge { get; set; }
 }

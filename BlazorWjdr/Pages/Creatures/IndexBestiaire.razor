@@ -15,7 +15,7 @@
 }
 @foreach (var groupe in _groupes.Keys)
 {
-    <div class="card-body">
+    <div class="section">
         <h3>@groupe</h3>
         <BestioleTable Items="@_groupes[groupe].ToArray()"/>
     </div>

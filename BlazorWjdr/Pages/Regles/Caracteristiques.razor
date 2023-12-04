@@ -19,27 +19,27 @@
 }
 <div class="row">
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h5>CC - Capacité de combat</h5>
             <p class="card-text">Your skill at fighting hand-to-hand, your ability to land a measured blow, and effectiveness in the free-for-all of a massed melee. It is also used for unarmed combat, where your body is the weapon!</p>
             <AptitudeItemList Items="@GetByCarac("CC")" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>CT - Capacité de tir</h5>
             <p class="card-text">Your effectiveness at hitting with ranged weapons like bows and throwing knives, and for throwing things generally. It is also used as the basis for other ranged attacks like Trolls vomiting.</p>
             <AptitudeItemList Items="@GetByCarac("CT")" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>F - Force</h5>
             <p class="card-text">How much damage you do in melee, how much you can lift, and how good you are at things like swimming and climbing.</p>
             <AptitudeItemList Items="@GetByCarac("F")" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>E - Endurance</h5>
             <p class="card-text">Your physical hardiness. It helps you survive damage in combat but will also help with things like surviving harsh conditions and standing up to poison.</p>
             <AptitudeItemList Items="@GetByCarac("E")" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>B - Blessures</h5>
             <p class="card-text">Vos points de vie, le nombre de blessures que vous pouvez subir avant de prendre des <a href="regles/blessures/">Coups Critiques</a>.</p>
             <TableDetail Item="@_tableService.GetTable(66)" />
@@ -47,17 +47,17 @@
     </div>
 
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h5>I - Initiative</h5>
             <p class="card-text">Vitesse de pensée, réactivité, surtout dans le feu de l'action et sous pression. Il détermine l'ordre de combat et vous aide à être le premier à réagir au danger. Il détermine également vos pouvoirs d'intuition et de perception.</p>
             <AptitudeItemList Items="@GetByCarac("I")" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>Ag - Agilité</h5>
             <p class="card-text">La coordination physique et l'athlétisme naturel, et pour des activités comme la course, l'équitation et la dissimulation. L'agilité est aussi utilisée pour esquiver les coups au combat.</p>
             <AptitudeItemList Items="@GetByCarac("Ag")" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>Dex - Dextérité</h5>
             <p class="card-text">Votre affinité pour l'exécution de tâches manuelles fines et délicates comme jouer d'un instrument de musique ou fabriquer un instrument de musique. Il vous aidera aussi avec des choses comme les Tours de Passe-passe et le Pickpocket.</p>
             <AptitudeItemList Items="@GetByCarac("Dex")" />
@@ -65,17 +65,17 @@
     </div>
 
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h5>Int - Intelligence</h5>
             <p class="card-text">Votre capacité à vous adapter, à réfléchir, analyser et comprendre. Useful for healing, evaluating, and general knowledge, and vital for the understanding and casting of magical spells.</p>
             <AptitudeItemList Items="@GetByCarac("Int")" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>FM - Force mentale</h5>
             <p class="card-text">General strength of mind, and your ability to shrug off difficulty and plough on with the job in hand. It helps with resisting all sorts of influence and coercion, and guards against fear and terror.</p>
             <AptitudeItemList Items="@GetByCarac("FM")" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>Soc - Sociabilité</h5>
             <p class="card-text">Your ability to get on with people and come across as generally pleasant and acceptable. It will help you when chatting to locals or commanding people in battle, charming the guards or attempting to bribe them, and, for pious characters, communicating with your deity.</p>
             <AptitudeItemList Items="@GetByCarac("Soc")" />

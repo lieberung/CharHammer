@@ -29,7 +29,7 @@
 
     <ColFrise />
     <div class="col-5">
-        <div class="card-body" style="padding-top: 0;">
+        <div class="section" style="padding-top: 0;">
             <h1 style="font-size: xxx-large;">@Item.Nom</h1>
             <AptitudeDescription Item=@Item />
         </div>
@@ -38,7 +38,7 @@
     <div class="col-5">
         @if (_carrieres.Any())
         {
-            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+            <div class="section" style="padding-top: 0; padding-right: 0;">
 
                 <h4>Carrières proposant cette compétence</h4>
                 <p class="card-text">
@@ -48,7 +48,7 @@
         }
         @if (_aptitudesService.DonneAccesADesArmes(Item))
         {
-            <div class="card-body" style="padding-top: 0; padding-right: 0;">
+            <div class="section" style="padding-top: 0; padding-right: 0;">
                 <h4>Armes accessibles via ce talent</h4>
                 <p class="card-text">
                     <ArmeItemList Items=@_armesService.GetArmesDeMaitrise(Item).ToArray() />

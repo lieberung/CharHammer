@@ -1,7 +1,7 @@
 ﻿@code {
     [Parameter, EditorRequired] public BestioleDto Bestiole { get; set; } = null!;
 }
-<div class="card-body">
+<div class="section">
     <div class="bulle shadow-sm px-3">
         <h3>@Bestiole.Nom</h3>
         <BestioleFiche Item=@Bestiole NAfficherQueLeProfilActuel=true />

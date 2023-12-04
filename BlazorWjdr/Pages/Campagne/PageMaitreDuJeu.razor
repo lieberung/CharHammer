@@ -58,7 +58,7 @@
 <div class="row">
     <div class="col-6">
         <div class="card">
-            <div class="card-body">
+            <div class="section">
                 <h3>Aptitudes du groupe</h3>
                 <AptitudeItemListSummary Aptitudes=@_aptitudes CompetencesAvanceesUniquement=true />
             </div>
@@ -66,11 +66,11 @@
     </div>
 </div>
 
-    @if (_appState.JeSuisDieu)
+@if (_appState.JeSuisDieu)
 {
     <div class="row">
         <div class="col-8">
-            <div class="card-body">
+            <div class="section">
                 <h3>Assistant de combat</h3>
                 <p class="card-text">
                     <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
@@ -82,7 +82,7 @@
             </div>
         </div>
         <div class="col-4">
-            <div class="card-body">
+            <div class="section">
                 <h5>Localisation</h5>
                 <p class="card-text">
                     <button class="btn btn-secondary" @onclick="JetDeLocalisation">Roll !</button>

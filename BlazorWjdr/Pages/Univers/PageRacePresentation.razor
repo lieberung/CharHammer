@@ -39,11 +39,11 @@
 <div class="row">
 
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h3>Les @_autochtones</h3>
             <CardParagraphes Text="@_race!.Description" />
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>Aptitudes innées</h5>
             <p class="card-text">
                 Les personnages @_autochtones disposent tous des aptitudes suivantes :
@@ -53,7 +53,7 @@
     </div>
 
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h3 class="mb-3">Ce qu'ils pensent des autres...</h3>
             @foreach (var opinion in _race.Opinions)
             {
@@ -66,7 +66,7 @@
         </div>
     </div>
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h3 class="mb-3">Ce que les autres pensent d'eux...</h3>
             @foreach (var race in _racesService.AllRaces.Where(r => r.Opinions.Any(o => o.Race == _race)))
             {

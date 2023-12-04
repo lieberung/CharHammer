@@ -1,7 +1,7 @@
 ﻿@code {
     [Parameter, EditorRequired] public RegleDto Item { get; set; } = null!;
 }
-<div class="card-body">
+<div class="section">
     <h4>@Item.Titre</h4>
     <CardParagraphes Text="@Item.Regle"/>
 </div>

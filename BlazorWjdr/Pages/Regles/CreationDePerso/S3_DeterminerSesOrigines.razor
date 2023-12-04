@@ -8,7 +8,7 @@
     <div class="col">
         <PageSectionRowTitle Title="3. Déterminer ses origines" />
         <!-- Lieu de naissance -->
-        <div class="card-body">
+        <div class="section">
             @if (Selection.RaceDesElfesSylvainsSelectionnee)
             {
                 <TableDetail Item=@_tablesService.GetTable(25) />
@@ -38,7 +38,7 @@
     <div class="col">
         @if (Selection.RaceDesGnomesSelectionnee || Selection.RaceDesHalflingsSelectionnee || Selection.RaceDesNainsSelectionnee)
         {
-            <div class="card-body">
+            <div class="section">
                 <TableDetail Item=@_tablesService.GetTable(28) />
             </div>
         }

@@ -30,7 +30,7 @@
 }
 <div class="row">
     <div class="col-6">
-        <div class="card-body">
+        <div class="section">
             <p class="card-text">
                 <LinkCarrieresInitiales Actif="@(Race == _racesService.Humains)" Race="@_racesService.Humains" />
                 <LinkCarrieresInitiales Actif="@(Race == _racesService.Halflings)" Race="@_racesService.Halflings" />
@@ -55,7 +55,7 @@
 
 <div class="row">
     <div class="col-7">
-        <div class="card-body">
+        <div class="section">
             <TableDeDepart RaceId="@Race.Id.ToString()" />
         </div>
     </div>
@@ -63,7 +63,7 @@
     @if (_carriereAleatoire != null)
     {
         <div class="col-5">
-            <div class="card-body">
+            <div class="section">
                 <h3>@_carriereAleatoire.Nom</h3>
                 <CarriereItem Item="_carriereAleatoire" />
                 <CarriereDescription Item="_carriereAleatoire" />

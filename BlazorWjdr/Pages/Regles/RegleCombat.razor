@@ -20,7 +20,7 @@
 <div class="row">
     <div class="col-6">
         <PageSectionRowTitle Title="1. Effet de surprise" />
-        <div class="card-body">
+        <div class="section">
 
             <p class="card-text">
                 Le MJ détermine si certains combattants sont <em>Supris</em>. Cela ne peut normalement arriver qu'au premier Round.<br />
@@ -48,7 +48,7 @@
     </div>
     <div class="col-6">
         <PageSectionRowTitle Title="2. Initiative de combat" />
-        <div class="card-body">
+        <div class="section">
             <p class="card-text">
                 Chaque combattant lance 1d10 et y ajoute son bonus d'Initiative et son bonus d'Agilité.<br />
             </p>
@@ -62,7 +62,7 @@
         </div>
 
         <PageSectionRowTitle Title="3. Début du Round" />
-        <div class="card-body">
+        <div class="section">
             <p class="card-text">
                 Si des règles s'appliquent au début du Round, elles s'appliquent maintenant.
             </p>
@@ -80,7 +80,7 @@
 <div class="row">
     <div class="col-4">
         <PageSectionRowTitle Title="4. Chaque combattant joue son Tour" />
-        <div class="card-body">
+        <div class="section">
             <p class="card-text">
                 Cela dans l'ordre défini par l'Initiative de combat.
                 <br />
@@ -103,7 +103,7 @@
     </div>
     <div class="col-4">
         <TableDetail Item="@_tablesService.GetTable(66)" />
-        <div class="card-body">
+        <div class="section">
             <p class="card-text">
                 Si un combattant est <strong>plus petit</strong> que son adversaire :
             </p>
@@ -125,7 +125,7 @@
                 <li>il ignore la nécessité de se Désengager pour quitter le combat ; il se contente de se déplacer où il veut en balayant devant lui.</li>
             </ul>
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>Conditions</h5>
             <p class="card-text">
                 <AptitudeItemList Items="_aptSvc.Conditions.ToArray()" />
@@ -133,7 +133,7 @@
         </div>
     </div>
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h3>Avantages</h3>
             <p class="card-text">
                 Les Avantages représentent vos moments de gloire en combat, quand vous surpassez vos adversaires. On les mémorise avec des jetons, ou avec un d10. Le maximum pour un personnage est capé sur son Bonus d'Initiative.
@@ -158,7 +158,7 @@
                 <li>des compétences, talents et attributs d'armes permettent de dépenser des Avantages en échange d'une capacité</li>
             </ul>
         </div>
-        <div class="card-body">
+        <div class="section">
             <h5>Mouvement et distances</h5>
             <p class="card-text">
                 Indique combien de mètres vous pouvez parcourir en un seul Tour.
@@ -263,7 +263,7 @@
 
 <div class="row">
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h3>Attaquer à distance</h3>
             <p class="card-text">
                 L'attaquant fait un Test de <AptitudeItem Item="@_aptSvc.CompetenceGroupeTir" />.<br />
@@ -279,7 +279,7 @@
         </div>
     </div>
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h5>Shooting into melee</h5>
             <p class="card-text">
                 Ballistic Skill Tests against Engaged opponents are resolved as normal, but suffer a penalty of –20 as you try your best to hit your specified target.
@@ -299,7 +299,7 @@
 
     </div>
     <div class="col-4">
-        <div class="card-body">
+        <div class="section">
             <h5>Calculating Range Bands</h5>
             <ul>
                 <li>Point Blank = Range ÷ 10</li>
@@ -308,7 +308,7 @@
                 <li>Extreme = Range x 3</li>
             </ul>
         </div>
-        <div class="card-body">
+        <div class="section">
             <div class="bulle shadow-sm">
                 <h5>Misfires!</h5>
                 <p class="card-text">
