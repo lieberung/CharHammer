@@ -25,8 +25,11 @@
     <div class="mb-2">
     @foreach (var citation in Item.Ambiance)
     {
-        <p class="card-text bulle py-2 px-3" style="clear:both;">
-            <CarriereCitations Citation="@citation"/>
+        <p class="bulle py-2 px-3" style="clear:both;">
+            <!--
+            <CarriereCitations Citation=@citation />
+            -->
+            <Citation Author=@citation.Author Source=@citation.Source>@citation.Citation</Citation>
         </p>
     }
     </div>

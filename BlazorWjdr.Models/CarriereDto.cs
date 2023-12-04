@@ -57,7 +57,7 @@ public class CarriereDto
     public string NomAnglais { get; init; } = null!;
     public List<string> MotsClefDeRecherche { get; init; } = null!;
     public string Description { get; set; } = null!;
-    public string[] Ambiance { get; set; } = null!;
+    public CitationDto[] Ambiance { get; set; } = Array.Empty<CitationDto>();
     public string Image { get; init; } = null!;
     public bool EstUneCarriereDeBase => TirageInitial.Any() ||  Parent is { EstUneCarriereDeBase: true };
     public bool EstUneCarriereAvancee => !EstUneCarriereDeBase;

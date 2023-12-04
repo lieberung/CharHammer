@@ -26,7 +26,7 @@ public class JsonCarriere
     public int[][]? aptitudes_choix { get; set; }
     public string? leitmotiv { get; set; }
     public string description { get; set; } = null!;
-    public string[]? ambiance { get; set; }
+    public JsonCitation[]? ambiance { get; set; }
     public string dotations { get; set; } = null!;
 }
 
@@ -41,6 +41,9 @@ public class JsonSource
     public int? id { get; set; }
     public string? info { get; set; }
 }
+
+//public record JsonCitation(string c, string? a, string? s);
+public class JsonCitation { public string? c { get; set; } public string? a { get; set; } public string? s { get; set; } }
 
 public class RootCarriere
 {

@@ -777,7 +777,7 @@ public class Program
                 NiveauSpecifie = c.niveau,
                 MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.NettoyerPourRecherche(c.nom)),
                 Description = c.description,
-                Ambiance = c.ambiance ?? Array.Empty<string>(),
+                Ambiance = (c.ambiance ?? Array.Empty<JsonCitation>()).Select(c => new CitationDto { Citation = c.c, Author = c.a ?? "", Source = c.s ?? "" }).ToArray(),
                 CarriereMereId = c.parent,
                 DebouchesIds = c.debouch ?? Array.Empty<int>(),
                 AvancementsIds = c.avancements ?? Array.Empty<int>(),
