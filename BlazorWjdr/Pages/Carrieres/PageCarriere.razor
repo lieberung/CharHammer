@@ -33,11 +33,11 @@
     <div class="col-5">
         <div class="section">
             <h4>Plan de carrière</h4>
-            <p class="card-text">
+            <p class="text-justify">
                 <Profil PlanDeCarriere=@Item.PlanDeCarriere />
             </p>
 
-            <p class="card-text">
+            <p class="text-justify">
                 <CarriereNiveau Niveau=@Item.Niveau />
                 @if (Item.CompetenceDeMetier != null)
                 {
@@ -54,38 +54,38 @@
             </p>
 
             <h4>Compétences</h4>
-            <p class="card-text">
+            <p class="text-justify">
                 <AptitudeItemList Items=@Item.Competences.ToArray() ItemsChoix=@Item.ChoixCompetences.ToArray() />
             </p>
 
             <h4>Talents</h4>
-            <p class="card-text">
+            <p class="text-justify">
                 <AptitudeItemList Items=@Item.Talents.ToArray() ItemsChoix=@Item.ChoixTalents.ToArray() />
             </p>
 
             @if (Item.ProposeAuMoinsUnTrait)
             {
                 <h4>Traits</h4>
-                <p class="card-text">
+                <p class="text-justify">
                     <AptitudeItemList Items=@Item.Traits.ToArray() ItemsChoix=@Item.ChoixTraits.ToArray() />
                 </p>
             }
 
             <h4>Dotations</h4>
-            <p class="card-text">
+            <p class="text-justify">
                 <CarriereDotations Item=@Item />
             </p>
         </div>
 
         <div class="section mt-2">
             <h4>Débouchés</h4>
-            <p class="card-text">
+            <p class="text-justify">
                 <CarriereItemList Items=@Item.Debouches.ToArray()
                                   SpecialCarriereId=@Item.DebouchesDAvancements.Select(a => a.Id).ToArray() />
             </p>
 
             <h4>Filières</h4>
-            <p class="card-text">
+            <p class="text-justify">
                 @if (Item.Filieres.Any())
                 {
                     <CarriereItemList Items=@Item.Filieres.ToArray() HideIndicatorRestriction=true

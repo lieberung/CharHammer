@@ -1,8 +1,4 @@
-﻿// ReSharper disable InconsistentNaming
-// ReSharper disable ClassNeverInstantiated.Global
-// ReSharper disable UnusedAutoPropertyAccessor.Global
-
-namespace BlazorWjdr.DataSource.JsonDto;
+﻿namespace BlazorWjdr.DataSource.JsonDto;
 
 using System.Collections.Generic;
 
@@ -30,22 +26,8 @@ public class JsonCarriere
     public string dotations { get; set; } = null!;
 }
 
-public class JsonCarriereInitiale
-{
-    public int r { get; set; }
-    public int f { get; set; }
-}
+public record JsonCarriereInitiale(int r, int f);
+public record JsonSource(int? id, string? info);
+public record JsonCitation(string c, string? a, string? s);
 
-public class JsonSource
-{
-    public int? id { get; set; }
-    public string? info { get; set; }
-}
-
-//public record JsonCitation(string c, string? a, string? s);
-public class JsonCitation { public string? c { get; set; } public string? a { get; set; } public string? s { get; set; } }
-
-public class RootCarriere
-{
-    public List<JsonCarriere> items { get; set; } = null!;
-}
+public record RootCarriere(List<JsonCarriere> items);

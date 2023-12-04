@@ -39,7 +39,7 @@
 }
 .card { background-color: #fff; }
 /*.card-body { padding: 1.25rem; } */ /* disparu en bootstrap 5 */
-.card-text { text-align: justify; }
+.text-justify { text-align: justify; }
 
 .list-inline {
     margin-bottom: 1rem;

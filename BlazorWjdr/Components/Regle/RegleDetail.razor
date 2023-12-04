@@ -40,7 +40,7 @@
 @if (Item.Carrieres.Any())
 {
     <h5>Carrières liées</h5>
-    <p class="card-text">
+    <p class="text-justify">
         <CarriereItemList Items="@Item.Carrieres"/>
     </p>
 }
@@ -49,7 +49,7 @@
 {
     @foreach (var table in Item.Tables)
     {
-        <p class="card-text">
+        <p class="text-justify">
             <TableDetail Item="@table"/>
         </p>
     }

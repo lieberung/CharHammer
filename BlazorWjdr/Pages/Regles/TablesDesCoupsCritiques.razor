@@ -43,7 +43,7 @@
     <div class="col-9">
         <div class="section">
             <h5>Critiques (11,22,33,...,88,99)</h5>
-            <p class="card-text">
+            <p class="text-justify">
                 Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Coups Critiques</strong> de la zone appropriée.<br />
                 De même, les échecs critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Maladresses Critiques</strong>.<br />
                 Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br />
@@ -55,7 +55,7 @@
                 Le talent <AptitudeItem Item="@_cttService.TalentCoupsPrécis" /> augmente ce nombre de Blessures.
             </p>
             <RegleDetail Item="_reglesService.GetRegle(214)" MasquerTitre="true" MasquerTables="true" />
-            <p class="card-text">
+            <p class="text-justify">
                 <div class="row">
                     <div class="col"><h5>Tables des coups critiques</h5></div>
                     <div class="col"><h5>Tables des maladresses critiques</h5></div>
@@ -77,7 +77,7 @@
                 </div>
             </p>
             <h5>Conditions</h5>
-            <p class="card-text">
+            <p class="text-justify">
                 <AptitudeItemList Items="_cttService.Conditions.ToArray()" />
             </p>
         </div>

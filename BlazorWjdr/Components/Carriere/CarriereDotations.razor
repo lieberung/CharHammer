@@ -1,7 +1,7 @@
 ﻿@if (string.IsNullOrWhiteSpace(@Item.Dotations)) {
-    <p class="card-text">Aucune</p>
+    <p class="text-justify">Aucune</p>
 } else {
-    <p class="card-text">@Item.Dotations</p>
+    <p class="text-justify">@Item.Dotations</p>
 }
 @code{
     [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;

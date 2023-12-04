@@ -5,14 +5,14 @@
 @inject AptitudesService _ctSvc
 
 <h3>Avancement de carrière</h3>
-<p class="card-text">
+<p class="text-justify">
     Lorsqu'il est indiqué pour une carrière qu'il s'agit d'un <span class="insister">Avancement</span> d'une autre carrière - dîte <span class="insister">Carrière d'Origine</span>, c'est que techniquement ou philosophiquement il s'agit toujours de la même carrière, mais à un grade ou niveau d'investissement plus poussé.
     <br/>
     En conséquence, les compétences et les talents de la Carrière d'Origine sont accessibles depuis cette carrière, et peuvent donc être acheté une nouvelle fois.
     Il n'est cependant pas nécessaire de les acheter pour que votre carrière actuelle soit considérée comme complétée.
     Les débouchés de (ou des) carrière(s) d'Origines restent également disponibles, en addition à vos nouveaux débouchés.
 </p>
-<p class="card-text">
+<p class="text-justify">
     Dans la liste qui suit, chaque carrière est un Avancement de la précédente, et par conséquent l'Origine de la suivante.
 </p>
 <table>
@@ -61,12 +61,12 @@
         </tr>
     </tbody>
 </table>
-<p class="card-text">
+<p class="text-justify">
     Par exemple, si vous étiez <CarriereItem Item="@_carrSvc.GetCarriere(73)"/> et que vous devenez <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>, vous pouvez acheter une seconde fois la compétence <AptitudeItem Item="@_ctSvc.CompetenceEscalade"/>, même si elle ne figure plus dans la carrière de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>.
     <br/>
     En devenant <CarriereItem Item="@_carrSvc.GetCarriere(197)"/>, vous pourrez acheter <AptitudeItem Item="@_ctSvc.CompetenceEscalade"/> une troisième fois, et les compétences de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/> une seconde fois, et ainsi de suite.
 </p>
 <h5>Theory crafting</h5>
-<p class="card-text">
+<p class="text-justify">
     Votre personnage, Georges, dispose d'une Capacité de Combat de 31 et a tiré le carrière initiale de <CarriereItem Item="@_carrSvc.GetCarriere(73)"/>. Il complète soigneusement sa carrière  
 </p>

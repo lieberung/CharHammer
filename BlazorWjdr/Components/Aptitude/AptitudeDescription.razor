@@ -6,7 +6,7 @@
 
 @if (!string.IsNullOrWhiteSpace(Item.NomEn))
 {
-    <p class="card-text">
+    <p class="text-justify">
         <em>@Item.NomEn</em>
     </p>
 }
@@ -16,19 +16,19 @@
 }
 @if (!string.IsNullOrWhiteSpace(Item.CaracteristiqueAssociee))
 {
-    <p class="card-text">
+    <p class="text-justify">
         <strong>Caractéristique associée</strong> : @Item.CaracteristiqueAssociee
     </p>
 } 
 @if (!string.IsNullOrWhiteSpace(Item.Max))
 {
-    <p class="card-text">
+    <p class="text-justify">
         <strong>Maximum</strong> : @Item.Max
     </p>
 }
 @if (!string.IsNullOrWhiteSpace(Item.Tests))
 {
-    <p class="card-text">
+    <p class="text-justify">
         <strong>Tests</strong> : @Item.Tests
     </p>
 }
@@ -36,13 +36,13 @@
 
 @if (Item.Contagieux != null)
 {
-    <p class="card-text">
+    <p class="text-justify">
         <strong>Contagieux : </strong>@(Item.Contagieux ?? false ? "oui" : "non")
     </p>
 }
 @if (!string.IsNullOrWhiteSpace(Item.Guerison))
 {
-    <p class="card-text">
+    <p class="text-justify">
         <strong>Guérison : </strong>@Item.Guerison
     </p>
 }
@@ -50,21 +50,21 @@
 @if (_competencesLiees.Any())
 {
     <h3>Compétences liées</h3>
-    <p class="card-text">
+    <p class="text-justify">
         <AptitudeItemList Items="@_competencesLiees.ToArray()"/>
     </p>
 }
 @if (_talentsLies.Any())
 {
     <h3>Talents liés</h3>
-    <p class="card-text">
+    <p class="text-justify">
         <AptitudeItemList Items="@_talentsLies.ToArray()"/>
     </p>
 }
 @if (_traitsLies.Any())
 {
     <h3>Traits liés</h3>
-    <p class="card-text">
+    <p class="text-justify">
         <AptitudeItemList Items="@_traitsLies.ToArray()"/>
     </p>
 }
@@ -72,7 +72,7 @@
 @if (Item.SousElements.Any())
 {
     <h3>Spécialisations</h3>
-    <p class="card-text">
+    <p class="text-justify">
         <AptitudeItemList Items="@Item.SousElements.ToArray()"/>    
     </p>
 }
@@ -82,7 +82,7 @@
     <h3>Armes liées</h3>
     @foreach (var arme in _armesLiees)
     {
-        <p class="card-text">
+        <p class="text-justify">
             <strong>• @arme.Nom : </strong><span>@arme.Description</span>
         </p>
     }

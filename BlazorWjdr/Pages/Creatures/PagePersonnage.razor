@@ -17,11 +17,11 @@
         _appState.SetMainTopRowTitle("Créé le " + Item.DateDeCreation);
     }
 }
-<div class="row">
-    <div class="col-7">
-        <div class="section pt-0">
-            <img alt="Portrait de @Item!.Nom" class="float-end" style="max-width:420px; max-height:450px;" src="images/beasts/@(Item.Id).png" />
-            <h1 style="font-size: xx-large;">@Item!.Nom</h1>
+<div class="row pt-2">
+    <div class="col-8">
+        <div class="py-2">
+            <img alt="Portrait de @Item!.Nom" class="float-end" style="max-width:45%; max-height:450px;" src="images/beasts/@(Item.Id).png" />
+            <h1>@Item!.Nom</h1>
             @if (Item.Origines.Any())
             {
                 <em>Origines :&nbsp;</em>
@@ -48,45 +48,45 @@
                 <span>@Item.XpActuel xp)</span>
             }
         </div>
-        <div class="section pt-0">
+        <div class="py-2">
             <h5>Carrières & Profil</h5>
             <BestioleProfil Item=@Item NAfficherQueLeProfilActuel=@Item.EstUnPersonnageNonJoueur />
             <BestioleBlessMouvProt Item=@Item />
         </div>
-        <div class="section py-0">
+        <div class="py-2">
             <h5>Aptitudes</h5>
             <AptitudesAcquises Item=@Item MasquerTitres=true AfficherBonusDeCompetence=true />
         </div>
-        <div class="section pt-1">
+        <div class="pt-3">
             <BestioleFicheMatosSorts Item=@Item />
         </div>
     </div>
 
-    <div class="col-5">
+    <div class="col-4">
         @if (Item.Description != "")
         {
-            <div class="section pt-0">
+            <div class="py-2">
                 <h3>Description</h3>
                 <CardParagraphes Text=@Item.Description />
             </div>
         }
         @if (Item.Psychologie != "")
         {
-            <div class="section pt-0">
+            <div class="py-2">
                 <h3>Psychologie</h3>
                 <CardParagraphes Text=@Item.Psychologie />
             </div>
         }
         @if (Item.Histoire != "")
         {
-            <div class="section pt-0">
+            <div class="py-2">
                 <h3>Histoire</h3>
                 <CardParagraphes Text=@Item.Histoire />
             </div>
         }
         @if (Item.Ambitions.Any())
         {
-            <div class="section pt-0">
+            <div class="py-2">
                 <h3>Ambitions</h3>
                 <ul>
                     @foreach (var ambition in Item.Ambitions)
@@ -98,7 +98,7 @@
         }
         @if (Item.Notes != "")
         {
-            <div class="section pt-0">
+            <div class="py-2">
                 <h3>Commentaires</h3>
                 <CardParagraphes Text=@Item.Notes />
             </div>

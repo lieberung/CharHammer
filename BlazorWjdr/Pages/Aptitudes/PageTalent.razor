@@ -32,28 +32,28 @@
 
     <ColFrise />
     <div class="col-5">
-        <div class="section" style="padding-top: 0;">
-            <h1 style="font-size: xxx-large;">@Item.Nom</h1>
-            <AptitudeDescription Item="@Item" />
+        <div class="section pt-0">
+            <h1>@Item.Nom</h1>
+            <AptitudeDescription Item=@Item />
         </div>
     </div>
 
     <div class="col-5">
         @if (_carrieres.Any())
         {
-            <div class="section" style="padding-top: 0; padding-right: 0;">
+            <div class="section pt-0 pr-0">
                 <h4>Carrières proposant ce talent</h4>
-                <p class="card-text">
-                    <CarriereItemList Items="@_carrieres" />
+                <p class="text-justify">
+                    <CarriereItemList Items=@_carrieres />
                 </p>
             </div>
         }
         @if (AptitudesService.DonneAccesADesSortileges(Item))
         {
-            <div class="section" style="padding-top: 0; padding-right: 0;">
+            <div class="section pt-0 pr-0">
                 <h4>Sortilèges accessibles via ce talent</h4>
-                <p class="card-text">
-                    <SortilegeItemList Items="@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray()" />
+                <p class="text-justify">
+                    <SortilegeItemList Items=@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray() />
                 </p>
             </div>
         }

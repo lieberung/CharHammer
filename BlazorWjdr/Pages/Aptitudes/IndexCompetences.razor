@@ -15,24 +15,24 @@
 }
 <div class="row">
     <div class="col">
-        <p class="card-text">
+        <p class="text-justify">
             Basic Skills represent innate or common abilities that you might practice in day-to-day life. Basic Skills can be Tested even if you have taken no Advances in them. To do this, simply attempt a Test using the Characteristic associated with the Skill.
         </p>
     </div>
     <div class="col">
-        <p class="card-text">
+        <p class="text-justify">
             Advanced Skills require specialist knowledge, training, or first-hand experience to even attempt to use. You may only Test an Advanced Skill if you have taken at least one Advance in it. If you have not, you cannot attempt to Test the Skill. So, no matter how intelligent you are, you will not understand the finer points of law without the Lore (Law) Skill.
         </p>
     </div>
 </div>
 <div class="row">
     <div class="col">
-        <p class="card-text">
+        <p class="text-justify">
             <AptitudeItemList Items="@_competencesLines.Where(c => c.EstUneCompetenceDeBase && c.Parent == null).ToArray()" />
         </p>
     </div>
     <div class="col">
-        <p class="card-text">
+        <p class="text-justify">
             <AptitudeItemList Items="@_competencesLines.Where(c => !c.EstUneCompetenceDeBase && c.Parent == null).ToArray()" />
         </p>
     </div>

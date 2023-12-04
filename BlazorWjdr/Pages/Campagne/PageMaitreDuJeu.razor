@@ -72,7 +72,7 @@
         <div class="col-8">
             <div class="section">
                 <h3>Assistant de combat</h3>
-                <p class="card-text">
+                <p class="text-justify">
                     <button class="btn btn-primary" @onclick="CalculerInitiativeDeCombatPjsUniquement">Initiative de combat</button>
                     @foreach (var rencontre in _seance.Rencontres)
                     {
@@ -84,7 +84,7 @@
         <div class="col-4">
             <div class="section">
                 <h5>Localisation</h5>
-                <p class="card-text">
+                <p class="text-justify">
                     <button class="btn btn-secondary" @onclick="JetDeLocalisation">Roll !</button>
                     <span class="insister ms-2">@_localisationRoll</span>
                 </p>

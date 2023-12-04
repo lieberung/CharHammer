@@ -8,11 +8,11 @@
 }
 @if (Item.Debut != "")
 {
-<p class="card-text">
+<p class="text-justify">
     <em class="insister">@Item.Debut</em>
 </p>
 }
-<p class="card-text">
+<p class="text-justify">
     @if (Item.Lieux.Any())
     {
         <span style="display:inline-block;">
@@ -30,7 +30,7 @@
 </p>
 @if (MasquerAventuriers == false)
 {
-    <p class="card-text">
+    <p class="text-justify">
         <a class="me-3" href="maitre-du-jeu/@CampagneId/@Item.Quand/">Aventuriers : </a>
         <BestioleItemList Items="@Item.Pjs"/>
     </p>

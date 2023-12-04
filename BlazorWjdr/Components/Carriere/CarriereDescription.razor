@@ -1,19 +1,19 @@
 ﻿@using BlazorWjdr.Components.Reference
 @using BlazorWjdr.Components.Regle
-@code{
+@code {
     [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
     [Parameter] public bool AfficherCitations { get; set; }
 }
-<ImageMax Image=@Item.Image Nom=@Item.Nom MaxHeight="450px" MaxWidth="55%"/>
+<ImageMax Image=@Item.Image Nom=@Item.Nom MaxHeight="450px" MaxWidth="55%" />
 @if (Item.FilieresDAvancement.Any())
 {
-    <p class="card-text">
+    <p class="text-justify">
         <CarriereAvancement Origines=@Item.FilieresDAvancement />
     </p>
 }
 @if (Item.Leitmotiv != "")
 {
-    <p class="card-text">
+    <p class="text-justify">
         <em class="insister">@Item.Leitmotiv</em>
     </p>
 }
@@ -23,15 +23,14 @@
 @if (AfficherCitations && Item.Ambiance.Any())
 {
     <div class="mb-2">
-    @foreach (var citation in Item.Ambiance)
-    {
-        <p class="bulle py-2 px-3" style="clear:both;">
-            <!--
-            <CarriereCitations Citation=@citation />
-            -->
-            <Citation Author=@citation.Author Source=@citation.Source>@citation.Citation</Citation>
-        </p>
-    }
+        @foreach (var citation in Item.Ambiance)
+        {
+            <p class="bulle px-3" style="clear:both;">
+                <Citation Author=@citation.Author Source=@citation.Source>
+                    <em class="text-justify">@citation.Citation</em>
+                </Citation>
+            </p>
+        }
     </div>
 }
 @if (Item.Source?.Book is not null || !string.IsNullOrWhiteSpace(Item.Source?.Info))
@@ -41,7 +40,7 @@
 @if (Item.SousElements.Any())
 {
     <h5 class="mt-4">Variantes</h5>
-    <p class="card-text">
+    <p class="text-justify">
         <CarriereItemList Items=@Item.SousElements.ToArray() />
     </p>
 }

@@ -22,12 +22,12 @@
         <PageSectionRowTitle Title="1. Effet de surprise" />
         <div class="section">
 
-            <p class="card-text">
+            <p class="text-justify">
                 Le MJ détermine si certains combattants sont <em>Supris</em>. Cela ne peut normalement arriver qu'au premier Round.<br />
                 Les combattants qui possèdent le talent <AptitudeItem Item="@_aptSvc.TalentSurSesGardes" /> ont une chance d'éviter d'être <AptitudeItem Item="@_aptSvc.ConditionSurpris" />.
             </p>
 
-            <p class="card-text">
+            <p class="text-justify">
                 Prendre l'ennemi par surprise confère un énorme avantage. Si l'un des camps prépare une attaque, il peut tenter de profiter de l'effet de suprise en :
             </p>
             <ul>
@@ -37,7 +37,7 @@
                 <li><strong>Pris au dépourvu : </strong>s'il l'ennemi n'est particulièrement pas préparé à une attaque, l'effet de surprise est automatique.</li>
                 <li><strong>Autre chose : </strong>tout autre plan sournois ou ingénieux concoté par des joueurs méticuleux.</li>
             </ul>
-            <p class="card-text">
+            <p class="text-justify">
                 S'il y a une chance pour que les embusqués soient repérés, le MJ appèlera un test opposé <AptitudeItem Item="@_aptSvc.CompetenceDissimulation" /> <strong>vs</strong> <AptitudeItem Item="@_aptSvc.CompetencePerception" />, généralement avec le personnage qui a la plus faible valeur en Dissimultion opposé à toutes les sentinelles potentielles.
                 Ceux qui échouent sont <AptitudeItem Item="@_aptSvc.ConditionSurpris" />.
                 <br />
@@ -49,21 +49,21 @@
     <div class="col-6">
         <PageSectionRowTitle Title="2. Initiative de combat" />
         <div class="section">
-            <p class="card-text">
+            <p class="text-justify">
                 Chaque combattant lance 1d10 et y ajoute son bonus d'Initiative et son bonus d'Agilité.<br />
             </p>
             <ul>
                 <li>Les combattants disposant de <AptitudeItem Item="@_aptSvc.TalentReflexesDeCombat" /> ont un bonus supplémentaire.</li>
                 <li>Les combattant utilisant une arme dotée de l'attribut <AttributDArmeItem Item="@_armesService.AttributLent" /> Lente jouent en dernier.</li>
             </ul>
-            <p class="card-text">
+            <p class="text-justify">
                 Durant chaque Round, les combatants joueront leur Tour dans l'ordre du score le plus fort au plus faible.
             </p>
         </div>
 
         <PageSectionRowTitle Title="3. Début du Round" />
         <div class="section">
-            <p class="card-text">
+            <p class="text-justify">
                 Si des règles s'appliquent au début du Round, elles s'appliquent maintenant.
             </p>
             <ul>
@@ -81,12 +81,12 @@
     <div class="col-4">
         <PageSectionRowTitle Title="4. Chaque combattant joue son Tour" />
         <div class="section">
-            <p class="card-text">
+            <p class="text-justify">
                 Cela dans l'ordre défini par l'Initiative de combat.
                 <br />
                 Chaque combattant peut normalement effectuer un Déplacement et une Action pendant son Tour.
             </p>
-            <p class="card-text">
+            <p class="text-justify">
                 Le MJ décrit votre situation - ou se trouve chaque combattant et ce qui vous entoure - et vous pouvez poser des questions supplémentaires pour planifier votre Tour.
                 <br />
                 On détermine si le personnage actif est en supériorité numérique, en prenant en compte l'évetuelle <AptitudeItem Item="_aptSvc.TalentPresenceImposante" /> de ses adversaires :
@@ -95,7 +95,7 @@
                 <li>à raison de 2 contre 1, l'attaquant gagne un bonus de +20 en CC.</li>
                 <li>à raison de 3 contre 1, l'attaquant gagne un bonus de +40 en CC.</li>
             </ul>
-            <p class="card-text">
+            <p class="text-justify">
                 Vous pouvez effectuer votre Déplacement et votre Action dans l'ordre souhaité, ou en même temps en décrivant comment vous combinez les deux.
             </p>
         </div>
@@ -104,7 +104,7 @@
     <div class="col-4">
         <TableDetail Item="@_tablesService.GetTable(66)" />
         <div class="section">
-            <p class="card-text">
+            <p class="text-justify">
                 Si un combattant est <strong>plus petit</strong> que son adversaire :
             </p>
             <ul>
@@ -112,7 +112,7 @@
                 <li>en défense, il subit un malus de -2 BS pour chaque écart de taille quand il utilise sa CC pour un Test Opposé.</li>
                 <li>pour remporter un Test Opposé de Force, il doit faire une Réussite Critique s'il n'a qu'une taille de moins ; au delà l'échec est automatique.</li>
             </ul>
-            <p class="card-text">
+            <p class="text-justify">
                 Si un combattant est <strong>plus grand</strong> que son adversaire :
             </p>
             <ul>
@@ -127,7 +127,7 @@
         </div>
         <div class="section">
             <h5>Conditions</h5>
-            <p class="card-text">
+            <p class="text-justify">
                 <AptitudeItemList Items="_aptSvc.Conditions.ToArray()" />
             </p>
         </div>
@@ -135,10 +135,10 @@
     <div class="col-4">
         <div class="section">
             <h3>Avantages</h3>
-            <p class="card-text">
+            <p class="text-justify">
                 Les Avantages représentent vos moments de gloire en combat, quand vous surpassez vos adversaires. On les mémorise avec des jetons, ou avec un d10. Le maximum pour un personnage est capé sur son Bonus d'Initiative.
             </p>
-            <p class="card-text">
+            <p class="text-justify">
                 Chaque Avantage confère un <strong>bonus de +10</strong> aux tests de combat (attaquer, défendre, résister) et de psychologie (peur, terreur) appropriés.
             </p>
             <h5>Gagner des Avantages</h5>
@@ -160,7 +160,7 @@
         </div>
         <div class="section">
             <h5>Mouvement et distances</h5>
-            <p class="card-text">
+            <p class="text-justify">
                 Indique combien de mètres vous pouvez parcourir en un seul Tour.
                 Vous pouvez utiliser <AptitudeItem Item="@_aptSvc.CompetenceAthletisme" /> pour augmenter cette distance en sprintant.
             </p>
@@ -174,7 +174,7 @@
 <div class="row">
     <div class="col-4">
         <h3>Attaquer au corps à corps</h3>
-        <p class="card-text">
+        <p class="text-justify">
             L'attaquant fait un <strong>Test Opposé</strong> de <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" /> / <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" /> ou <AptitudeItem Item="@_aptSvc.CompetenceEsquive" /> avec son adversaire.<br />
             Celui qui a le plus gros BS l'emporte et gagne +1 Avantage. Si les BS sont identiques, on ajoute le dé des unités.<br />
             Si c'est l'attaquant il frappe son adversaire et calcule ses dégâts et leur localisation. Il peut ensuite utiliser les talents <AptitudeItem Item="@_aptSvc.TalentAssautBrutal" /> ou <AptitudeItem Item="@_aptSvc.TalentDechainement" />.<br />
@@ -190,7 +190,7 @@
             </em>
         </p>
         <h5>Charger</h5>
-        <p class="card-text">
+        <p class="text-justify">
             Si vous n'êtes pas déjà engagé, vous pouvez utiliser votre Déplacement pour <strong>Charger</strong>.
             Votre Action sera un test de <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" /> pour attaquer votre adversaire.
             Si votre adversaire est à une distance comprise entre votre valeur de Mouvement et votre valeur de Course, vous gagnez un Avantage avant de frapper.
@@ -200,25 +200,25 @@
             Un personnage ciblé par une Charge peut se défendre en opposant un jet de <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" />, d'<AptitudeItem Item="@_aptSvc.CompetenceEsquive" /> ou en utilisant le talent <AptitudeItem Item="@_aptSvc.TalentFrappeReactive" />.
         </p>
         <h5>Combat rapproché</h5>
-        <p class="card-text">
+        <p class="text-justify">
             En tant qu’Action, vous pouvez effectuer un Test en Mélée Opposée pour tenter de pénétrer la défense de votre adversaire. Le vainqueur choisit si le combat continue comme d'habitude ou comme 'Combat Rapproché', auquel cas toute arme plus longue que Court est considérée comme une arme improvisée.
         </p>
     </div>
     <div class="col-4">
         <h3>Se défendre</h3>
-        <p class="card-text">
+        <p class="text-justify">
             Chaque fois que vous êtes attaqué en Mélée, généralement au Tour d'un des adversaires, vous pouvez vous défendre ainsi :
         </p>
         <ul>
             <li>en opposant un jet de <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" /> (approrié à l'arme avec laquelle vous vous défendez)</li>
             <li>en opposant un jet d'<AptitudeItem Item="@_aptSvc.CompetenceEsquive" /></li>
         </ul>
-        <p class="card-text">
+        <p class="text-justify">
             En remportant le test opposé avec un jet de Mélée en tant que Défenseur, vous n'infligez pas de dégâts - à moins que vous ne disposiez du talent <AptitudeItem Item="@_aptSvc.TalentRiposte" />.
             En revanche, l'attaquant perd ses Avantages et vous en gagnez 1 - ou plus, avec le talent <AptitudeItem Item="@_aptSvc.TalentRetournement" />.
         </p>
         <h5>Se Désengager ou Fuir</h5>
-        <p class="card-text">
+        <p class="text-justify">
             Si vous êtes engagé, vous avez ces deux options pour quitter le combat en sécurité :
         </p>
         <ul>
@@ -236,7 +236,7 @@
     </div>
     <div class="col-4">
         <h5>Critiques (11,22,33,...,88,99)</h5>
-        <p class="card-text">
+        <p class="text-justify">
             Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> (zone appropriée).<br />
             De même, les échecs critiques entraînent un effet supplémentaire sur la <a href="table-coups-critiques/fumbles/">Table des Maladresses Critiques</a>.<br />
             Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br />
@@ -252,7 +252,7 @@
             On consulte alors le résultat dans la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> de la zone appropriée.<br />
         </p>
         <h5>Localisation des coups/tirs</h5>
-        <p class="card-text">
+        <p class="text-justify">
             Le talent <AptitudeItem Item="@_aptSvc.TalentCoupsPrécis" /> peut modifier la jet.
         </p>
         <TableDetail Item="@_tablesService.GetTable(64)" MasquerTitre=true MasquerDescription=true />
@@ -265,7 +265,7 @@
     <div class="col-4">
         <div class="section">
             <h3>Attaquer à distance</h3>
-            <p class="card-text">
+            <p class="text-justify">
                 L'attaquant fait un Test de <AptitudeItem Item="@_aptSvc.CompetenceGroupeTir" />.<br />
                 S'il réussi il gagne +1 Avantage, touche son adversaire et calcule ses dégâts et leur localisation.<br />
                 L'Action de l'attaquant est ensuite terminée.<br />
@@ -281,13 +281,13 @@
     <div class="col-4">
         <div class="section">
             <h5>Shooting into melee</h5>
-            <p class="card-text">
+            <p class="text-justify">
                 Ballistic Skill Tests against Engaged opponents are resolved as normal, but suffer a penalty of –20 as you try your best to hit your specified target.
                 If this modifier causes you to fail when the Test would otherwise have succeeded, you instead hit one of the target’s Engaged opponents, as determined randomly by the GM.
                 If you do not care whom you hit, see Shooting into a Group.
             </p>
             <h5>Shooting into a Group</h5>
-            <p class="card-text">
+            <p class="text-justify">
                 Ranged Tests made to hit a group of targets are Average (+20)
                 if there is 3-6 of them, Easy (+40) if there are 7-12 of them, and
                 Very Easy (+60) if there is 13 or more of them. Any successful
@@ -311,7 +311,7 @@
         <div class="section">
             <div class="bulle shadow-sm">
                 <h5>Misfires!</h5>
-                <p class="card-text">
+                <p class="text-justify">
                     If you are using a Blackpowder, Engineering, or Explosive
                     weapon, and roll a Fumble that is also an even number — 00,
                     88, and so on — your weapon Misfires, exploding in your
@@ -329,7 +329,7 @@
 <div class="row">
     <div class="col-4">
         <h3>Lancer un sort</h3>
-        <p class="card-text">
+        <p class="text-justify">
         </p>
     </div>
 </div>
