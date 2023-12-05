@@ -21,29 +21,27 @@
 
     protected override void OnParametersSet()
     {
+        _nbColonnes = 3;
         switch (GroupeActif)
         {
             case "traits":
                 Traits = _cttService.SignesDistinctifs;
-                _nbColonnes = 5;
+                _nbColonnes = 4;
                 _determinant = "un";
                 _typeDeTrait = "signe distinctif";
                 break;
             case "troubles-mineurs":
                 Traits = _cttService.TroublesMineurs();
-                _nbColonnes = 3;
                 _determinant = "un";
                 _typeDeTrait = "trouble mineur";
                 break;
             case "folies":
                 Traits = _cttService.Folies;
-                _nbColonnes = 3;
                 _determinant = "une";
                 _typeDeTrait = "folie";
                 break;
             case "maladies":
                 Traits = _cttService.Maladies;
-                _nbColonnes = 3;
                 _determinant = "une";
                 _typeDeTrait = "maladie";
                 break;
@@ -58,42 +56,38 @@
     }
 }
 <div class="row">
-    <div class="col-8">
+    <div class="col-9">
         <div class="section">
-            <p class="text-justify">
-                <LinkGroupeDeTraits Groupe="traits" Text="Signes distinctifs" Actif=@(GroupeActif == "traits") />
-                <LinkGroupeDeTraits Groupe="troubles-mineurs" Text="Troubles mineurs" Actif=@(GroupeActif == "troubles-mineurs") />
-                <LinkGroupeDeTraits Groupe="folies" Text="Folies" Actif=@(GroupeActif == "folies") />
-                <LinkGroupeDeTraits Groupe="maladies" Text="Maladies" Actif=@(GroupeActif == "maladies") />
-            </p>
+            <LinkGroupeDeTraits Groupe="traits" Text="Signes distinctifs" Actif=@(GroupeActif == "traits") />
+            <LinkGroupeDeTraits Groupe="troubles-mineurs" Text="Troubles mineurs" Actif=@(GroupeActif == "troubles-mineurs") />
+            <LinkGroupeDeTraits Groupe="folies" Text="Folies" Actif=@(GroupeActif == "folies") />
+            <LinkGroupeDeTraits Groupe="maladies" Text="Maladies" Actif=@(GroupeActif == "maladies") />
         </div>
     </div>
     <div class="col-3">
-        <div class="mt-3 mb-3 ps-2">
+        <div class="section">
             <button class="btn btn-primary" type="button" @onclick="() => TirerUnTraitAleatoire()">
                 <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
                 Tirer @_determinant @_typeDeTrait aléatoire
             </button>
         </div>
     </div>
-    <div class="col-1"></div>
 </div>
-
 <div class="row">
-    <div class="col-8">
+    <div class="col-9">
         <div class="section">
             <TableTraits Traits=@Traits.ToArray() NbColonnes=_nbColonnes />
         </div>
     </div>
-
     <div class="col-3">
         @if (_traitAleatoire != null)
         {
-            <div class="section">
-                <h3>@_traitAleatoire.NomComplet <em>(@_traitAleatoire.CategSpeSexy)</em></h3>
-                <AptitudeDescription Item=_traitAleatoire />
+            <div class="bulle mt-4">
+                <div class="section">
+                    <h3>@_traitAleatoire.NomComplet <em>@_traitAleatoire.CategSpeSexy</em></h3>
+                    <AptitudeDescription Item=_traitAleatoire />
+                </div>
             </div>
         }
     </div>
-    <div class="col-1"></div>
 </div>

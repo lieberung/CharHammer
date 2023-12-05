@@ -19,7 +19,7 @@
     </p>
 </div>
 
-<table class="table table-striped">
+<table>
     <thead>
         <tr>
             <th></th>
@@ -29,9 +29,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var talent in _talentsLines.Where(t => t.Ignore == false && t.Parent == null))
+        @foreach (var talent in _talentsLines.Where(t => t.Ignore == false && t.Parent is null))
         {
-            <TalentRow Item="talent" />
+            <TalentRow Item=@talent />
         }
     </tbody>
 </table>

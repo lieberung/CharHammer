@@ -2,9 +2,9 @@
     [Parameter, EditorRequired] public LieuTypeDto[] Items { get; set; } = null!;
     [Parameter] public bool EnColonne { get; set; }
 }
-<ul class="@(EnColonne ? "" : "list-inline")" style="margin-bottom:0;">
+<ul class="mb-0 @(EnColonne ? "" : "list-inline")">
     @foreach (var item in Items)
     {
-        <li class="@(EnColonne ? "" : "list-inline-item")"><LieuTypeItem Item="@item"/></li>
+        <li class="@(EnColonne ? "" : "list-inline-item")"><LieuTypeItem Item=@item /></li>
     }
 </ul>

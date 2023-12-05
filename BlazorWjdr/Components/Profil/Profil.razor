@@ -3,30 +3,30 @@
     [Parameter] public ProfilDto? PlanDeCarriere { get; set; }
     [Parameter] public ProfilDto? ProfilActuel { get; set; }
 }
-<div style="z-index: 0;">
+<div class="z-0">
     <div class="d-inline-block">
         <ProfilHeaderRow/>
     </div>
 </div>
-@if (ProfilInitial != null)
+@if (ProfilInitial is not null)
 {
-    <div class="decal-top zi1">
+    <div class="decal-top z-1">
         <div class="d-inline-block">
             <ProfilValueRow Profil="ProfilInitial"/>
         </div>
     </div>
 }
-@if (PlanDeCarriere != null)
+@if (PlanDeCarriere is not null)
 {
-    <div class="decal-top zi2">
+    <div class="decal-top z-2">
         <div class="d-inline-block">
             <ProfilBonusRow Profil="PlanDeCarriere"/>
         </div>
     </div>
 }
-@if (ProfilActuel != null)
+@if (ProfilActuel is not null)
 {
-    <div class="decal-top zi3">
+    <div class="decal-top z-3">
         <div class="d-inline-block">
             <ProfilValueRow Profil="ProfilActuel"/>
         </div>

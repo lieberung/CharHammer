@@ -37,6 +37,7 @@
 .section {
     padding: 1.25rem;
 }
+
 .card { background-color: #fff; }
 /*.card-body { padding: 1.25rem; } */ /* disparu en bootstrap 5 */
 .text-justify { text-align: justify; }

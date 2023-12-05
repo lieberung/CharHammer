@@ -1,0 +1,7 @@
+﻿.navbar a {
+    width: 8rem;
+    margin-bottom: .5rem;
+}
+.navbar a:not(:last-child) {
+    margin-right: .5rem;
+}

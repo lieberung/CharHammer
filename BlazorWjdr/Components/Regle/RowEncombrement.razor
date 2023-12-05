@@ -2,8 +2,8 @@
 
 @inject AptitudesService _aptitudesService
 
-<div class="row mb-3">
-    <div class="col-7">
+<div class="row">
+    <div class="col">
         <h3>Encombrement</h3>
         <ul>
             <li>Pour un personnage, l'encombrement <strong>maximum</strong> est égal à <strong>BF + BE</strong>.</li>
@@ -23,7 +23,7 @@
             Les articles portés, comme les armures, les vêtements et les bijoux, ont tous leur charge diminuée de 1, ce qui signifie souvent qu'ils comptent pour une charge de 0 quand ils sont portés.
         </p>
     </div>
-    <div class="col-5">
+    <div class="col">
         <h5>Surchargé</h5>
         <p class="text-justify">
             Les personnages qui dépassent leur capacité d'encombrement peuvent être ralentis et devenir fatigués par les voyages. Réduction des mouvements et de la fatigue de déplacement occasionnés par les empilements de charges avec toutes les pénalités d'armures. De plus, chaque fois que vous devez prendre une Condition <AptitudeItem Item="@_aptitudesService.ConditionExtenue"/> lorsque vous êtes surchargé pour une raison autre que le fait d'être surchargé, gagnez un +1 supplémentaire.

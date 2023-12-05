@@ -1,9 +1,8 @@
-﻿<div class="tooltip-wrapper">
-    @ChildContent
-    <span style="font-size:18px;"><CardParagraphes Text="@Text" PasDeMarge=true/></span>
-</div>
-
-@code {
+﻿@code {
     [Parameter] public RenderFragment ChildContent { get; set; } = null!;
-    [Parameter] public string Text { get; set; } = null!;
+    [Parameter, EditorRequired] public string Text { get; set; } = null!;
 }
+<div class="tooltip-wrapper">
+    @ChildContent
+    <span style="font-size:18px;"><CardParagraphes Text=@Text PasDeMarge=true /></span>
+</div>

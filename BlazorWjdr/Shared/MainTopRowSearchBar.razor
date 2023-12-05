@@ -6,7 +6,7 @@
 @using BlazorWjdr.Components.Lieu
 
 <div class="btn-group" >
-    <input class="dropdown-toggle rounded-4 p-1" @bind-value="_searchText" @bind-value:event="oninput" placeholder="Recherche..." />
+    <input class="dropdown-toggle rounded-4 py-1 px-3" @bind-value="_searchText" @bind-value:event="oninput" placeholder="Recherche..." />
     <span class="oi oi-magnifying-glass theme-color ms-1" aria-hidden="true" style="font-size: 1.3em; top: 0.5rem;"></span>
     @if (_searchText.Length > 2 && ResultFound)
     {

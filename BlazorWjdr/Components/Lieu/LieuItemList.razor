@@ -1,7 +1,7 @@
-﻿<ul class="@(EnColonne ? "" : "list-inline")" style="margin-bottom:0;">
+﻿<ul class="mb-0 @(EnColonne ? "" : "list-inline")">
     @foreach (var item in Items)
     {
-        <li class="@(EnColonne ? "" : "list-inline-item")"><LieuItem Item="@item"/></li>
+        <li class="@(EnColonne ? "" : "list-inline-item")"><LieuItem Item=@item /></li>
     }
 </ul>
 @code{
