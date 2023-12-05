@@ -3,4 +3,4 @@
     [Parameter, EditorRequired] public string Text { get; set; } = null!;
     [Parameter] public bool Actif { get; set; }
 }
-<a href="tables-traits-et-troubles/@Groupe/" class="@("mr-2 btn "+ (Actif ? "btn-primary" : "btn-secondary"))" style="width:10rem;">@Text</a>
+<a href="tables-traits-et-troubles/@Groupe/" class="mr-2 btn @(Actif ? "btn-primary" : "btn-secondary")" style="width:10rem;">@Text</a>
