@@ -1,0 +1,12 @@
+﻿.hstack:not(:last-child) {
+    margin-bottom: 0.25rem;
+}
+::deep .btn {
+    width: 2rem;
+}
+::deep .btn-race {
+    width: 7rem;
+}
+::deep .btn-race.disabled {
+    opacity: unset;
+}

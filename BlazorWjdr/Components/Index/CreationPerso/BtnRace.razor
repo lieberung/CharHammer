@@ -1,0 +1,12 @@
+﻿@code {
+    [Parameter, EditorRequired] public string Race { get; set; } = null!;
+    [Parameter] public string Href { get; set; } = "";
+}
+@if (Href == "")
+{
+    <span class="btn btn-sm btn-outline-primary btn-race rounded-5 disabled">@Race</span>
+}
+else
+{
+    <a class="btn btn-sm btn-primary btn-race rounded-5" href="@Href">@Race</a>
+}
