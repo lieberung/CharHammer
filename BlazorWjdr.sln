@@ -9,14 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWjdr.DataSource", "Bl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWjdr.Models", "BlazorWjdr.Models\BlazorWjdr.Models.csproj", "{B4E2BCA8-9C2D-42CF-8DC6-5C3CF971D70C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Idees", "Idees", "{E3780112-9681-4FE8-87C2-FB694223A64F}"
-	ProjectSection(SolutionItems) = preProject
-		bootstrap-javascript.txt = bootstrap-javascript.txt
-		BlazorWjdr\idees-a-trier.txt = BlazorWjdr\idees-a-trier.txt
-		BlazorWjdr\Idees.txt = BlazorWjdr\Idees.txt
-		BlazorWjdr\Rome.txt = BlazorWjdr\Rome.txt
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{AB7B0BD3-BE33-42EC-B504-22CF0E226FCA}"
 	ProjectSection(SolutionItems) = preProject
 		Documents\bootstrap-javascript.txt = Documents\bootstrap-javascript.txt
