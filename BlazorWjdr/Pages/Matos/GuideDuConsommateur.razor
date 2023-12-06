@@ -23,6 +23,11 @@
             .OrderBy(e => e.Nom).ToArray();
     }
 
+    private string GetGroupeLabel(string groupe)
+    {
+        return _allGroupes.First(g => Clean(g) == Clean(groupe));
+    }
+
     protected override void OnInitialized()
     {
         _appState.SetMainTopRowTitle("Guide du Consommateur");
@@ -31,7 +36,7 @@
     protected override void OnParametersSet()
     {
         _allGroupes = _armesService.AllEquipements.SelectMany(e => e.Groupes).Distinct().OrderBy(g => g).ToList();
-        _showGroupes = Groupe == "tout" ? _allGroupes : new List<string> { Groupe };
+        _showGroupes = Groupe == "tout" ? _allGroupes : new() { Groupe };
     }
 }
 <div class="navbar">
@@ -50,7 +55,7 @@
     {
         <div class="row">
             <div class="col">
-                <h3>@grp</h3>
+                <h3>@GetGroupeLabel(grp)</h3>
                 <TableEquipements Items=@GetEquipement(grp) AfficherContenance=@(grp == "contenants") />
             </div>
             @if (_showGroupes.Count == 1)
