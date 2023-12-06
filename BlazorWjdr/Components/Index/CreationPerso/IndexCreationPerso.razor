@@ -4,6 +4,7 @@
 }
 <div class="hstack gap-3">
     <span class="me-auto hover-pointer" @onclick="_ => AfficherLiensHumains = !AfficherLiensHumains">
+        <BtnChevron Icon=@(AfficherLiensHumains ? "chevron-top" : "chevron-bottom") />
         <ItemIcon Classes="pl-1 pe-2 pb-2" Icon=@(AfficherLiensHumains ? "chevron-top" : "chevron-bottom") />
     </span>
     <BtnRace Race="Humains" Href="regles/creation-de-personnage/1/" />
@@ -14,7 +15,7 @@
 {
     <div class="hstack gap-3">
         <span class="me-auto">
-            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <BtnChevron Icon="chevron-top" Invisible=@true />
         </span>
         <BtnRace Race="Impériaux" />
         <BtnList Href="table-carrieres-initiales/1/" />
@@ -22,7 +23,7 @@
     </div>
     <div class="hstack gap-3">
         <span class="me-auto">
-            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <BtnChevron Icon="chevron-top" Invisible=@true />
         </span>
         <BtnRace Race="Bretonniens" />
         <BtnList Href="table-carrieres-initiales/4/" />
@@ -30,7 +31,7 @@
     </div>
     <div class="hstack gap-3">
         <span class="me-auto">
-            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <BtnChevron Icon="chevron-top" Invisible=@true />
         </span>
         <BtnRace Race="Gospodars" />
         <BtnList Href="table-carrieres-initiales/22/" />
@@ -38,7 +39,7 @@
     </div>
     <div class="hstack gap-3">
         <span class="me-auto">
-            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <BtnChevron Icon="chevron-top" Invisible=@true />
         </span>
         <BtnRace Race="Ungols" />
         <BtnList Href="table-carrieres-initiales/23/" />
@@ -47,7 +48,7 @@
 }
 <div class="hstack gap-3">
     <span class="me-auto">
-        <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+        <BtnChevron Icon="chevron-top" Invisible=@true />
     </span>
     <BtnRace Race="Halflings" Href="regles/creation-de-personnage/26/" />
     <BtnList Href="table-carrieres-initiales/26/" />
@@ -55,7 +56,7 @@
 </div>
 <div class="hstack gap-3">
     <span class="me-auto">
-        <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+        <BtnChevron Icon="chevron-top" Invisible=@true />
     </span>
     <BtnRace Race="Nains" Href="regles/creation-de-personnage/27/" />
     <BtnList Href="table-carrieres-initiales/27/" />
@@ -63,7 +64,7 @@
 </div>
 <div class="hstack gap-3">
     <span class="me-auto">
-        <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+        <BtnChevron Icon="chevron-top" Invisible=@true />
     </span>
     <BtnRace Race="Gnômes" Href="regles/creation-de-personnage/63/" />
     <BtnList Href="table-carrieres-initiales/63/" />
@@ -71,7 +72,7 @@
 </div>
 <div class="hstack gap-3">
     <span class="me-auto hover-pointer" @onclick="_ => AfficherLiensElfes = !AfficherLiensElfes">
-        <ItemIcon Classes="pl-1 pe-2 pb-2" Icon=@(AfficherLiensElfes ? "chevron-top" : "chevron-bottom") />
+        <BtnChevron Icon=@(AfficherLiensElfes ? "chevron-top" : "chevron-bottom") />
     </span>
     <BtnRace Race="Elfes"/>
     <BtnList/>
@@ -81,7 +82,7 @@
 {
     <div class="hstack gap-3">
         <span class="me-auto">
-            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <BtnChevron Icon="chevron-top" Invisible=@true />
         </span>
         <BtnRace Race="Elfes sylvains" Href="regles/creation-de-personnage/65/" />
         <BtnList Href="table-carrieres-initiales/65/" />
@@ -89,7 +90,7 @@
     </div>
     <div class="hstack gap-3">
         <span class="me-auto">
-            <ItemIcon Classes="pl-1 pe-2 pb-2 invisible" Icon="chevron-top" />
+            <BtnChevron Icon="chevron-top" Invisible=@true />
         </span>
         <BtnRace Race="Hauts-elfes" Href="regles/creation-de-personnage/66/" />
         <BtnList Href="table-carrieres-initiales/66/" />

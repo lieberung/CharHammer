@@ -1,0 +1,5 @@
+﻿@code {
+    [Parameter, EditorRequired] public string Icon { get; set; } = null!;
+    [Parameter] public bool Invisible { get; set; }
+}
+<ItemIcon Classes="@("pl-1 pe-2 pb-2" + (Invisible ? " invisible" : ""))" Icon=@Icon />
