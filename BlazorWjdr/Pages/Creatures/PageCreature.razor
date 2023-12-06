@@ -7,8 +7,7 @@
 @inject CampagnesService _campagnesService
 @inject AppState _appState
 @code {
-    [Parameter]
-    public string CreatureId { get; set; } = null!;
+    [Parameter, EditorRequired] public string CreatureId { get; set; } = null!;
 
     private BestioleDto? Item { get; set; }
 

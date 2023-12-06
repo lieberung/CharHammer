@@ -49,6 +49,9 @@
 .theme-color {
     color: var(--theme-color);
 }
+.theme-orange-color {
+    color: var(--theme-orange) !important;
+}
 .insister {
     color: var(--theme-color);
     font-weight: bold;

@@ -2,7 +2,7 @@
     [Parameter] public bool AfficherLiens { get; set; }
 }
 <h5 class="hover-pointer" @onclick="_ => AfficherLiens = !AfficherLiens">
-    <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="ms-2" />
+    <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="ms-2 theme-orange-color" />
     Dieux majeurs dans l'Empire
 </h5>
 @if (AfficherLiens)
