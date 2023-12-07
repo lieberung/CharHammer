@@ -27,20 +27,18 @@
 <div class="row">
     <ColFrise />
     <div class="col-5">
-        <div class="section pt-0">
-
+        <div class="section">
             <h1>@Item.Nom</h1>
             <h5><em>@Item.CategSpeSexy</em></h5>
             <AptitudeDescription Item=@Item />
-
         </div>
     </div>
     <div class="col-5">
         @if (_carrieres.Any())
         {
-            <div class="section pt-0 pr-0">
+            <div class="section pe-0">
                 <h5>Carrières proposant ce trait</h5>
-                <p class="text-justify">
+                <p>
                     <CarriereItemList Items=@_carrieres />
                 </p>
             </div>

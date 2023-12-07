@@ -5,7 +5,7 @@
     [Parameter] public bool Italic { get; set; }
     [Parameter] public string Icon { get; set; } = "";
 }
-<a class="btn btn-sm btn-@(Primary ? "primary" : "secondary") mb-1@(Italic ? " fst-italic" : "" )" href="@Href">
+<a class="btn btn-sm btn-@(Primary ? "primary" : "secondary") mb-1@(Italic ? " fst-italic" : "")" href="@Href">
     @if (Icon != "")
     {
         <OiIcon Icon=@Icon />

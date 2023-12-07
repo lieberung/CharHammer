@@ -3,16 +3,42 @@
 @inject AptitudesService _aptitudesService
 @inject ArmesService _armesService
 @inject SortilegesService _sortilegesService
+@code {
+    [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
 
+    private List<AptitudeDto> _competencesLiees = new();
+    private List<AptitudeDto> _talentsLies = new();
+    private List<AptitudeDto> _traitsLies = new();
+
+    private List<ArmeDto> _armesLiees = new();
+
+    private string _description = null!;
+
+    protected override void OnParametersSet()
+    {
+        _description = string.IsNullOrWhiteSpace(Item.Description) ? Item.Resume : Item.Description;
+
+        _competencesLiees = Item.CompetencesLiees;
+        _talentsLies = Item.TalentsLies;
+        _traitsLies = Item.TraitsLies;
+
+        if (Item.Parent == _aptitudesService.CompetenceGroupeMelee ||
+            Item.Parent == _aptitudesService.CompetenceGroupeTir ||
+            Item == _aptitudesService.CompetenceGroupeExplosifs)
+        {
+            _armesLiees = _armesService.GetArmesDeMaitrise(Item);
+        }
+    }
+}
 @if (!string.IsNullOrWhiteSpace(Item.NomEn))
 {
     <p class="text-justify">
         <em>@Item.NomEn</em>
     </p>
 }
-@if (Item.Parent != null)
+@if (Item.Parent is not null)
 {
-    <AptitudeItem Item="@Item.Parent"/>
+    <AptitudeItem Item=@Item.Parent />
 }
 @if (!string.IsNullOrWhiteSpace(Item.CaracteristiqueAssociee))
 {
@@ -32,9 +58,9 @@
         <strong>Tests</strong> : @Item.Tests
     </p>
 }
-<CardParagraphes Text="@_description"/>
+<CardParagraphes Text=@_description />
 
-@if (Item.Contagieux != null)
+@if (Item.Contagieux is not null)
 {
     <p class="text-justify">
         <strong>Contagieux : </strong>@(Item.Contagieux ?? false ? "oui" : "non")
@@ -46,37 +72,34 @@
         <strong>Guérison : </strong>@Item.Guerison
     </p>
 }
-
 @if (_competencesLiees.Any())
 {
     <h3>Compétences liées</h3>
-    <p class="text-justify">
+    <p>
         <AptitudeItemList Items=@_competencesLiees />
     </p>
 }
 @if (_talentsLies.Any())
 {
     <h3>Talents liés</h3>
-    <p class="text-justify">
+    <p>
         <AptitudeItemList Items=@_talentsLies />
     </p>
 }
 @if (_traitsLies.Any())
 {
     <h3>Traits liés</h3>
-    <p class="text-justify">
+    <p>
         <AptitudeItemList Items=@_traitsLies />
     </p>
 }
-
 @if (Item.SousElements.Any())
 {
     <h3>Spécialisations</h3>
-    <p class="text-justify">
+    <p>
         <AptitudeItemList Items=@Item.SousElements />    
     </p>
 }
-
 @if (_armesLiees.Any())
 {
     <h3>Armes liées</h3>
@@ -93,35 +116,7 @@
     {
         <!--
         <h3>Sortilèges</h3>
-        <SortilegeItemList Items="_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray()"/>
+        <SortilegeItemList Items=@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)) />
         -->
-    }
-}
-
-@code{
-    [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
-
-    private List<AptitudeDto> _competencesLiees = new();
-    private List<AptitudeDto> _talentsLies = new();
-    private List<AptitudeDto> _traitsLies = new();
-
-    private List<ArmeDto> _armesLiees = new();
-
-    private string _description = null!;
-    
-    protected override void OnParametersSet()
-    {
-        _description = string.IsNullOrWhiteSpace(Item.Description) ? Item.Resume : Item.Description;
-
-        _competencesLiees = Item.CompetencesLiees;
-        _talentsLies = Item.TalentsLies;
-        _traitsLies = Item.TraitsLies;
-
-        if (Item.Parent == _aptitudesService.CompetenceGroupeMelee ||
-            Item.Parent == _aptitudesService.CompetenceGroupeTir ||
-            Item == _aptitudesService.CompetenceGroupeExplosifs)
-        {
-            _armesLiees = _armesService.GetArmesDeMaitrise(Item);
-        }
     }
 }
