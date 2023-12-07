@@ -1,4 +1,4 @@
-﻿@page "/environement/egouts/"
+﻿@page "/environnement/egouts/"
 
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Carriere
@@ -12,7 +12,7 @@
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Environement : Les égouts");
+        _appState.SetMainTopRowTitle("Environnement : Les égouts");
     }
 }
 <div class="row">
@@ -41,7 +41,7 @@
     <div class="col px-0">
         <div class="section">
             <h3>Idées de rencontres (1d100)</h3>
-            <TableDetail Item=@_tablesService.GetTable(103) MasquerTitre=@true />
+            <TableDetail Item=@_tablesService.GetTable(103) MasquerTitre=true />
         </div>
         <RegleBody Item=@_reglesService.GetRegle(252) />
         <RegleBody Item=@_reglesService.GetRegle(256) />

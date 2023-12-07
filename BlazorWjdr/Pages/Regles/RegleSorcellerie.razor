@@ -136,14 +136,14 @@
                 mémorisé, un lanceur de sorts le connaît en permanence, sauf circonstances particulières.
             </p>
             <p class="text-justify">
-                Acquérir les compétences <AptitudeItem Item="@_aptSvc.CompetenceLangageMystiqueMagick" /> et <AptitudeItem Item="@_aptSvc.CompetenceFocalisation" /> permet de lancer tous les sorts de Magie Mineure.
+                Acquérir les compétences <AptitudeItem Item=@_aptSvc.CompetenceLangageMystiqueMagick /> et <AptitudeItem Item=@_aptSvc.CompetenceFocalisation /> permet de lancer tous les sorts de Magie Mineure.
                 <br />
-                Acquérir une compétence <AptitudeItem Item="@_aptSvc.CompetenceScienceDeLaMagie" /> vous permet d'apprendre tout sort de Magie Commune autorisés par le Domaine choisi ainsi que les sorts spécialisés dudit Domaine.
+                Acquérir une compétence <AptitudeItem Item=@_aptSvc.CompetenceScienceDeLaMagie /> vous permet d'apprendre tout sort de Magie Commune autorisés par le Domaine choisi ainsi que les sorts spécialisés dudit Domaine.
             </p>
 
             <h5>Lancer des sorts</h5>
             <p class="text-justify">
-                Pour lancer un sort, faites un Test de <AptitudeItem Item="@_aptSvc.CompetenceLangageMystiqueMagick" /> (ou de la langue mystique appropriée à votre Domaine).
+                Pour lancer un sort, faites un Test de <AptitudeItem Item=@_aptSvc.CompetenceLangageMystiqueMagick /> (ou de la langue mystique appropriée à votre Domaine).
                 Sur un succès, comparez votre BS au Niveau de Sort (NS, précisé dans la description du sort). Si votre BS est égal ou supérieur au NS, le sort se lance conformément à sa description.
                 Si vous échouez ou que votre BS est insuffisant, le sort échoue, et rien d'autre ne se produit.
             </p>
@@ -156,7 +156,7 @@
                 Si le jet est critique, les vents de la magie se sont
                 déchaînés dangereusement, vous donnant plus de puissance,
                 mais à un prix élevé. A moins que vous n'ayez le Talent de
-                <AptitudeItem Item="@_aptSvc.TalentDictionInstinctive" />, vous lancez le dé sur la Table des Erreurs
+                <AptitudeItem Item=@_aptSvc.TalentDictionInstinctive />, vous lancez le dé sur la Table des Erreurs
                 d'Incantation Mineur lorsque la puissance dépasse votre contrôle, mais vous pouvez également choisir l'un des effets
                 suivants :
             </p>
@@ -190,7 +190,7 @@
             <div class="bulle shadow-sm">
                 <h5>Avantages en combat</h5>
                 <p class="text-justify">
-                    L'avantage au combat s'applique aux tests d'Incantation et non aux tests de <AptitudeItem Item="@_aptSvc.CompetenceFocalisation" />.
+                    L'avantage au combat s'applique aux tests d'Incantation et non aux tests de <AptitudeItem Item=@_aptSvc.CompetenceFocalisation />.
                     Lorsque vous lancez de la magie, vous pouvez également bénéficier d'Avantage de la manière suivante : Si la cible a déjà reçu un sort
                     de la même Tradition jeté sur elle au cours de ce Round, gagnez +1 Avantage au fur et à mesure que vous lancez, comme la
                     montée en puissance de vos Vent canalisant la magie.
@@ -208,7 +208,7 @@
                 chaotiques, et lorsque Morrslieb est à son maximum. Si vous avez le talent de la seconde vue, un test de perception
                 facile (+40) détectera de telles perturbations.
             </p>
-            <TableDetail Item="@_tableSvc.GetTable(73)" MasquerTitre=true />
+            <TableDetail Item=@_tableSvc.GetTable(73) MasquerTitre=true />
         </div>
     </div>
 </div>
@@ -221,7 +221,7 @@
                 Si un sort est jeté avec succès, il reste en vigueur pour sa durée à moins qu'il ne soit dissipé. Vous ne pouvez pas simplement
                 mettre fin à vos sorts déjà en jeu, mais vous pouvez tenter de les Dissiper.
                 <br />
-                <strong>Note :</strong> Les sorts dont la durée est annotée d'un ‘+’ peuvent être prolongés d'un Round lorsqu'ils auraient du prendre fin au prix d'un jet de <AptitudeItem Item="@_aptSvc.CompetenceFocalisation" /> réussi.
+                <strong>Note :</strong> Les sorts dont la durée est annotée d'un ‘+’ peuvent être prolongés d'un Round lorsqu'ils auraient du prendre fin au prix d'un jet de <AptitudeItem Item=@_aptSvc.CompetenceFocalisation /> réussi.
             </p>
 
             <h5>Grimoires</h5>
@@ -253,7 +253,7 @@
             <p class="text-justify">
                 Certains sorts exigent que vous touchiez la cible. Si vous êtes en combat, ou si la cible ne veut pas être touchée, vous devez faire
                 un test de mêlée opposée (combat en mêlée ou en esquive) après avoir complété le test de lancer. Si vous faites cela et que votre
-                sort était un missile magique, le test de <AptitudeItem Item="@_aptSvc.CompetenceMeleeBagarre" /> est utilisé pour déterminer l'endroit
+                sort était un missile magique, le test de <AptitudeItem Item=@_aptSvc.CompetenceMeleeBagarre /> est utilisé pour déterminer l'endroit
                 où le coup a été frappé, pas le test de langue (magick).
             </p>
         </div>
@@ -308,7 +308,7 @@
                 Certains sorts magiques exigent beaucoup plus de magie que ce que l'on peut normalement trouver dans le monde.
                 Pour alimenter de tels sorts, il est possible d'attirer les Vents de la Magie et de les concentrer sous une forme plus
                 puissante en utilisant la compétence Canalisation. Canaliser les vents de la magie peut être une procédure dangereuse,
-                mais c'est le seul moyen sûr de lancer des sorts puissants. Pour canaliser la magie d'un sort, fait un <strong>Test Étendu</strong> de <AptitudeItem Item="@_aptSvc.CompetenceFocalisation" />.
+                mais c'est le seul moyen sûr de lancer des sorts puissants. Pour canaliser la magie d'un sort, fait un <strong>Test Étendu</strong> de <AptitudeItem Item=@_aptSvc.CompetenceFocalisation />.
             </p>
             <p class="text-justify">
                 Lorsque votre BS atteint le NS de votre sort sélectionné, vous avez canalisé suffisamment de magie pour le lancer. Lors du
@@ -319,24 +319,24 @@
 
             <h5>Réussite Critique</h5>
             <p class="text-justify">
-                Si vous faites une Réussite Critique lors d'un test de <AptitudeItem Item="@_aptSvc.CompetenceFocalisation" />, vous avez
+                Si vous faites une Réussite Critique lors d'un test de <AptitudeItem Item=@_aptSvc.CompetenceFocalisation />, vous avez
                 canalisé un puissant flux de magie et vous pouvez lancer votre sort au tour suivant quelle que soit le BS que vous avez obtenu
                 au Test Étendu jusqu'à présent ; cependant, tant de magie concentrée si rapidement en un seul endroit entraîne un
-                contrecoup magique : faites un jet sur la <a href="regles/tables-des-echos-du-chaos/">Table des Echos Mineurs du Chaos</a> à moins que vous n'ayez le talent <AptitudeItem Item="@_aptSvc.TalentHarmonieAethyrique" />.
+                contrecoup magique : faites un jet sur la <a href="regles/tables-des-echos-du-chaos/">Table des Echos Mineurs du Chaos</a> à moins que vous n'ayez le talent <AptitudeItem Item=@_aptSvc.TalentHarmonieAethyrique />.
             </p>
 
             <h5>Maladresse Critique</h5>
             <p class="text-justify">
                 Canaliser les vents de la magie dans un grand flux est dangereux. Vous comptez n'importe quel double ou n'importe quel jet se
                 terminant par un 0 au-dessus de votre compétence comme un échec, donc, 00, 99, 90, 88, et ainsi de suite. Si vous ratez un test
-                de <AptitudeItem Item="@_aptSvc.CompetenceFocalisation" />, vous souffrez d'une erreur de jugement. Lancez 1d100 et consultez
+                de <AptitudeItem Item=@_aptSvc.CompetenceFocalisation />, vous souffrez d'une erreur de jugement. Lancez 1d100 et consultez
                 la <a href="regles/tables-des-echos-du-chaos/">Table des Echos Majeurs du Chaos</a>.
             </p>
 
             <h5>Interruptions</h5>
             <p class="text-justify">
                 La concentration est vitale lors de la canalisation. Si vous êtes distrait par quelque chose (des bruits forts, des dommages, des
-                lumières clignotantes, etc.) vous devez réussir un Test de <AptitudeItem Item="@_aptSvc.CompetenceSangFroid" />
+                lumières clignotantes, etc.) vous devez réussir un Test de <AptitudeItem Item=@_aptSvc.CompetenceSangFroid />
                 Difficile (-20), ou subir un Echo Mineur du Chaos et perdre tous le BS que vous aviez accumulé via votre Test Étendu jusque là.
             </p>
         </div>
@@ -353,15 +353,15 @@
                 de magie que vous essayez d'attirer, comme déterminé par le MJ. En particulier, les armures de métal et de cuir repoussent la
                 plupart des vents : le métal est chargé du vent doré Chamon, tandis que le cuir conserve des traces de l'ambre Ghur. Ainsi, les
                 lanceurs de sorts portant une armure subissent une pénalité de -1 SL à tous les Tests de Lancer et de Canalisation pour chaque
-                Point d'Armure sur l'emplacement ayant le plus d'armure. Les lanceurs avec le Talent <AptitudeItem Item="@_aptSvc.TalentMagieArcaniqueMetal" /> peuvent
-                porter une armure métallique sans pénalité ; ceux avec le Talent <AptitudeItem Item="@_aptSvc.TalentMagieArcaniqueBete" /> peuvent ignorer les pénalités des
+                Point d'Armure sur l'emplacement ayant le plus d'armure. Les lanceurs avec le Talent <AptitudeItem Item=@_aptSvc.TalentMagieArcaniqueMetal /> peuvent
+                porter une armure métallique sans pénalité ; ceux avec le Talent <AptitudeItem Item=@_aptSvc.TalentMagieArcaniqueBete /> peuvent ignorer les pénalités des
                 armures en cuir.
             </p>
 
             <h3>Dissipation de la magie</h3>
             <p class="text-justify">
                 Si un sort est lancé contre vous, ou sur une cible suffisamment proche (votre Bonus de Force Mentale en mètres), vous pouvez
-                tenter de le contrecarrer en effectuant un <strong>Test Opposé</strong> de <AptitudeItem Item="@_aptSvc.CompetenceLangageMystiqueMagick" />.
+                tenter de le contrecarrer en effectuant un <strong>Test Opposé</strong> de <AptitudeItem Item=@_aptSvc.CompetenceLangageMystiqueMagick />.
                 Si vous l'emportez, vous dissipez le sort reçu ; si vous échouez, le sort utilise le BS du test d'opposition pour
                 déterminer si le lancer a réussi comme d'habitude. Vous ne pouvez tenter de dissiper qu'un seul sort à chaque Round.
             </p>
@@ -401,7 +401,7 @@
             <h5>Influences malignes</h5>
             <p class="text-justify">
                 Incanter près des sources de la corruption rend le contrôle des vents de la magie beaucoup plus difficile. Lorsque vous
-                tentez un Test de <AptitudeItem Item="@_aptSvc.CompetenceLangageMystiqueMagick" /> ou un Test de <AptitudeItem Item="@_aptSvc.CompetenceFocalisation" />
+                tentez un Test de <AptitudeItem Item=@_aptSvc.CompetenceLangageMystiqueMagick /> ou un Test de <AptitudeItem Item=@_aptSvc.CompetenceFocalisation />
                 à proximité d'une Influence Corrompue et que vous obtenez un 8 sur le dé des unités (représentant le symbole du Chaos
                 à huit pointes), faites un jet sur la <a href="regles/tables-des-echos-du-chaos/">Table des Echos Mineurs du Chaos</a> car la magie devient sauvage. Si
                 vous deviez déjà y faire un jet pour une autre raison, faites un jet sur la <a href="regles/tables-des-echos-du-chaos/">Table des Echos Majeurs du Chaos</a>.
@@ -421,7 +421,7 @@
                 <p class="text-justify">
                     Si vous êtes un elfe, vous pouvez apprendre un nombre de Domaines Arcaniques égal à votre Bonus de Force Mentale.
                     Cependant, cela demande du temps et des efforts. Vous ne pouvez pas acheter un nouveau Talent Magique des Arcanes
-                    tant que vous n'avez pas maîtrisé le précédent en achetant au moins 4 fois la Compétence de <AptitudeItem Item="@_aptSvc.CompetenceFocalisation" /> associée,
+                    tant que vous n'avez pas maîtrisé le précédent en achetant au moins 4 fois la Compétence de <AptitudeItem Item=@_aptSvc.CompetenceFocalisation /> associée,
                     et en apprenant au moins 8 sorts de votre Domaine actuel.
                     Alternativement, n'importe quel sorcier peut apprendre une seul Sombre Savoir en plus d'un autre Domaine, en
                     supposant qu'il soit assez fou et qu'il puisse trouver un professeur ou un grimoire interdit pour l'étudier.
@@ -431,12 +431,12 @@
 
         <div class="section">
             <h3>Magie Mineure</h3>
-            <AptitudeItem Item="@_aptSvc.TalentMagieMineureVulgaire" />
-            <CardParagraphes Text="@_aptSvc.TalentMagieMineureVulgaire.Description" PasDeMarge=true />
+            <AptitudeItem Item=@_aptSvc.TalentMagieMineureVulgaire />
+            <CardParagraphes Text=@_aptSvc.TalentMagieMineureVulgaire.Description PasDeMarge=true />
         </div>
         <div class="section">
             <h3>Magie Arcanique</h3>
-            <CardParagraphes Text="@_aptSvc.TalentMagieArcaniqueCommune.Description" PasDeMarge=true />
+            <CardParagraphes Text=@_aptSvc.TalentMagieArcaniqueCommune.Description PasDeMarge=true />
         </div>
     </div>
     <div class="col-4">
@@ -447,9 +447,9 @@
                 et sont très souvent traqués par les répurgateurs et les Sigmarites.
             </p>
             <h5>Tradition - Magie Naturelle</h5>
-            <CardParagraphes Text="@_aptSvc.TalentTraditionMagieNaturelle.Description" PasDeMarge=true />
+            <CardParagraphes Text=@_aptSvc.TalentTraditionMagieNaturelle.Description PasDeMarge=true />
             <h5>Tradition - Sorcellerie</h5>
-            <CardParagraphes Text="@_aptSvc.TalentTraditionSorcellerie.Description" PasDeMarge=true />
+            <CardParagraphes Text=@_aptSvc.TalentTraditionSorcellerie.Description PasDeMarge=true />
         </div>
     </div>
     <div class="col-4">
@@ -457,12 +457,12 @@
             <h3>Magie Noire</h3>
 
             <h5>Magie Démonique</h5>
-            <AptitudeItem Item="@_aptSvc.TalentMagieNoireDemonologie" />
-            <CardParagraphes Text="@_aptSvc.TalentMagieNoireDemonologie.Description" PasDeMarge=true />
+            <AptitudeItem Item=@_aptSvc.TalentMagieNoireDemonologie />
+            <CardParagraphes Text=@_aptSvc.TalentMagieNoireDemonologie.Description PasDeMarge=true />
 
             <h5>Nécromancie</h5>
-            <AptitudeItem Item="@_aptSvc.TalentMagieNoireNecromancie" />
-            <CardParagraphes Text="@_aptSvc.TalentMagieNoireNecromancie.Description" PasDeMarge=true />
+            <AptitudeItem Item=@_aptSvc.TalentMagieNoireNecromancie />
+            <CardParagraphes Text=@_aptSvc.TalentMagieNoireNecromancie.Description PasDeMarge=true />
         </div>
         <div class="section">
             <h3>Magie Chaötique</h3>
@@ -473,14 +473,14 @@
                 plus des sorts des Arcanes et des Connaissances de Démonologie.
             </p>
             <h5>Domaine de Nurgle</h5>
-            <AptitudeItem Item="@_aptSvc.TalentSombreSavoirNurgle" />
-            <CardParagraphes Text="@_aptSvc.TalentSombreSavoirNurgle.Description" PasDeMarge=true />
+            <AptitudeItem Item=@_aptSvc.TalentSombreSavoirNurgle />
+            <CardParagraphes Text=@_aptSvc.TalentSombreSavoirNurgle.Description PasDeMarge=true />
             <h5>Domaine de Slaanesh</h5>
-            <AptitudeItem Item="@_aptSvc.TalentSombreSavoirSlaanesh" />
-            <CardParagraphes Text="@_aptSvc.TalentSombreSavoirSlaanesh.Description" PasDeMarge=true />
+            <AptitudeItem Item=@_aptSvc.TalentSombreSavoirSlaanesh />
+            <CardParagraphes Text=@_aptSvc.TalentSombreSavoirSlaanesh.Description PasDeMarge=true />
             <h5>Domaine de Tzeentch</h5>
-            <AptitudeItem Item="@_aptSvc.TalentSombreSavoirTzeench" />
-            <CardParagraphes Text="@_aptSvc.TalentSombreSavoirTzeench.Description" PasDeMarge=true />
+            <AptitudeItem Item=@_aptSvc.TalentSombreSavoirTzeench />
+            <CardParagraphes Text=@_aptSvc.TalentSombreSavoirTzeench.Description PasDeMarge=true />
         </div>
     </div>
 </div>
