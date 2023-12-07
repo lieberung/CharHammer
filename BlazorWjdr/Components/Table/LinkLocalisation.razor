@@ -1,10 +1,9 @@
-﻿<a href="table-coups-critiques/@Zone/" class="me-2 btn @_btnClass" style="width:90px;">@_zone</a>
-@code {
+﻿@code {
     [Parameter, EditorRequired] public string Zone { get; set; } = null!;
+    [Parameter] public string Width { get; set; } = "8rem";
     [Parameter] public bool Actif { get; set; }
 
     private string _zone = "";
-    private string _btnClass = "";
 
     protected override void OnParametersSet()
     {
@@ -21,8 +20,6 @@
             "arme-de-poing" => "Arme de poing",
             _ => _zone
         };
-
-        _btnClass = Actif ? "btn-primary" : "btn-secondary";
-        base.OnParametersSet();
     }
 }
+<a href="table-coups-critiques/@Zone/" class="me-2 mb-1 btn btn-sm @(Actif ? "btn-primary" : "btn-secondary")" style="width:@(Width);">@_zone</a>
