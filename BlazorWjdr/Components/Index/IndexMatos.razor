@@ -3,33 +3,33 @@
 }
 <h4 class="hover-pointer" @onclick="_ => AfficherLiens = !AfficherLiens">
     Equipement
-    <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="ms-2" />
+    <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="theme-orange-color ms-2" />
 </h4>
 @if (AfficherLiens)
 {
     <p>
-        <a href="equipement/armes-liste/toutes/toutes/" class="mb-1 btn btn-sm btn-primary">Armes</a>
-        <a href="equipement/armes-liste/melee/toutes/" class="mb-1 btn btn-sm btn-secondary"><em>Mélée</em></a>
-        <a href="equipement/armes-liste/armes-de-parade/toutes/" class="mb-1 btn btn-sm btn-secondary"><em>Boucliers</em></a>
-        <a href="equipement/armes-liste/tir/toutes/" class="mb-1 btn btn-sm btn-secondary"><em>Tir</em></a>
-        <a href="equipement/armes-liste/toutes/munitions/" class="mb-1 btn btn-sm btn-secondary"><em>Munitions</em></a>
+        <IndexLink Href="equipement/armes-liste/toutes/toutes/" Title="Armes" Icon="location" Primary=true />
+        <IndexLink Href="equipement/armes-liste/melee/toutes/" Title="Mélée" />
+        <IndexLink Href="equipement/armes-liste/armes-de-parade/toutes/" Title="Boucliers" Italic=true />
+        <IndexLink Href="equipement/armes-liste/tir/toutes/" Title="Tir" Italic=true />
+        <IndexLink Href="equipement/armes-liste/toutes/munitions/" Title="Munitions" Italic=true />
     </p>
     <p>
-        <a href="equipement/armures/toutes/" class="mb-1 btn btn-sm btn-primary">Armures</a>
-        <a href="equipement/armures/legeres/" class="mb-1 btn btn-sm btn-secondary"><em>Légères</em></a>
-        <a href="equipement/armures/moyennes/" class="mb-1 btn btn-sm btn-secondary"><em>Moyennes</em></a>
-        <a href="equipement/armures/lourdes/" class="mb-1 btn btn-sm btn-secondary"><em>Lourde</em></a>
+        <IndexLink Href="equipement/armures/toutes/" Title="Armures" Icon="shield" Primary=true />
+        <IndexLink Href="equipement/armures/legeres/" Title="Légères" Italic=true />
+        <IndexLink Href="equipement/armures/moyennes" Title="Moyennes" Italic=true />
+        <IndexLink Href="equipement/armures/lourdes/" Title="Lourde" Italic=true />
     </p>
     <p>
-        <a href="guide-du-consommateur/tout/" class="mb-1 btn btn-sm btn-primary">Guide du Consommateur</a>
-        <a href="equipement-de-depart/" class="mb-1 btn btn-sm btn-secondary">Equipement de Départ</a>
+        <IndexLink Href="guide-du-consommateur/tout/" Title="Guide du Consommateur" Icon="box" Primary=true />
+        <IndexLink Href="equipement-de-depart/" Title="Equipement de Départ" />
     </p>
 }
 else
 {
     <p>
-        <a href="equipement/armes-liste/toutes/toutes/" class="mb-1 btn btn-sm btn-primary">Armes</a>
-        <a href="equipement/armures/toutes/" class="mb-1 btn btn-sm btn-primary">Armures</a>
-        <a href="guide-du-consommateur/tout/" class="mb-1 btn btn-sm btn-primary">Guide du Consommateur</a>
+        <IndexLink Href="equipement/armes-liste/toutes/toutes/" Title="Armes" Icon="location" Primary=true />
+        <IndexLink Href="equipement/armures/toutes/" Title="Armures" Icon="shield" Primary=true />
+        <IndexLink Href="guide-du-consommateur/tout/" Title="Guide du Consommateur" Icon="box" Primary=true />
     </p>
 }

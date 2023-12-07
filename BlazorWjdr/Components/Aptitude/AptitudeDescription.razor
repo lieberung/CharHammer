@@ -51,21 +51,21 @@
 {
     <h3>Compétences liées</h3>
     <p class="text-justify">
-        <AptitudeItemList Items="@_competencesLiees.ToArray()"/>
+        <AptitudeItemList Items=@_competencesLiees />
     </p>
 }
 @if (_talentsLies.Any())
 {
     <h3>Talents liés</h3>
     <p class="text-justify">
-        <AptitudeItemList Items="@_talentsLies.ToArray()"/>
+        <AptitudeItemList Items=@_talentsLies />
     </p>
 }
 @if (_traitsLies.Any())
 {
     <h3>Traits liés</h3>
     <p class="text-justify">
-        <AptitudeItemList Items="@_traitsLies.ToArray()"/>
+        <AptitudeItemList Items=@_traitsLies />
     </p>
 }
 
@@ -73,7 +73,7 @@
 {
     <h3>Spécialisations</h3>
     <p class="text-justify">
-        <AptitudeItemList Items="@Item.SousElements.ToArray()"/>    
+        <AptitudeItemList Items=@Item.SousElements />    
     </p>
 }
 
@@ -99,8 +99,7 @@
 }
 
 @code{
-    [Parameter]
-    public AptitudeDto Item { get; set; } = null!;
+    [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
 
     private List<AptitudeDto> _competencesLiees = new();
     private List<AptitudeDto> _talentsLies = new();
@@ -124,7 +123,5 @@
         {
             _armesLiees = _armesService.GetArmesDeMaitrise(Item);
         }
-
-        base.OnParametersSet();
     }
 }

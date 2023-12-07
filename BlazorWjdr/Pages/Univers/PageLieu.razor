@@ -40,31 +40,25 @@
         <div class="section">
             <h3>@Item.Nom</h3>
             <p class="text-justify">
-                <span class="insister">Type : </span><LieuTypeItem Item="@Item.TypeDeLieu" />
+                <span class="insister">Type : </span><LieuTypeItem Item=@Item.TypeDeLieu />
                 <br />
-                <span class="insister">Localisation : </span><LieuItem Item="@Item.Parent" />
+                <span class="insister">Localisation : </span><LieuItem Item=@Item.Parent />
                 @if (Item.Population != "")
                 {
                     <br />
-
                     <span class="insister">Population : </span>
-
                     <span>@Item.Population</span>
                 }
                 @if (Item.Industrie != "")
                 {
                     <br />
-
                     <span class="insister">Industrie : </span>
-
                     <span>@Item.Industrie</span>
                 }
                 @if (Item.Allegeance != "")
                 {
                     <br />
-
                     <span class="insister">Allégeance : </span>
-
                     <span>@Item.Allegeance</span>
                 }
                 @if (Item.SousElements.Any())
@@ -72,16 +66,16 @@
                     <br />
                     <span class="insister">Regroupe : </span>
 
-                    <LieuItemList Items="@Item.SousElements.ToArray()" />
+                    <LieuItemList Items=@Item.SousElements />
                 }
             </p>
-            <CardParagraphes Text="@Item.Description" />
+            <CardParagraphes Text=@Item.Description />
         </div>
         @if (_scenarios.Any())
         {
             <div class="section">
                 <h4>Scénarios</h4>
-                <ScenarioTable Items="@_scenarios" LigneCourte=true />
+                <ScenarioTable Items=@_scenarios LigneCourte=true />
             </div>
         }
     </div>

@@ -1,14 +1,25 @@
 ﻿@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Shared.Oi
 
-@inject CarrieresService _carrieresService
+@inject CarrieresService Service
+@code {
+    [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
+    private bool AfficherSousElements { get; set; }
+    private bool AfficherCarrieres { get; set; }
 
+    private CarriereDto[] _carrieresLiees = null!;
+
+    protected override void OnInitialized()
+    {
+        _carrieresLiees = Service.GetCarrieresProposant(Item);
+    }
+}
 <tr>
     <td>
         @if (_carrieresLiees.Any())
         {
             <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
-                <OiIcon Icon="badge"/>
+                <OiIcon Icon="badge" />
             </span>
         }
     </td>
@@ -16,24 +27,24 @@
         @if (Item.SousElements.Any())
         {
             <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
-                <OiIcon Icon="layers"/>
+                <OiIcon Icon="layers" />
             </span>
         }
     </td>
     <td>
-        @if (Item.Parent != null)
+        @if (Item.Parent is not null)
         {
             <SousElement/>
         }
-        <AptitudeItem Item="@Item"/>
+        <AptitudeItem Item=@Item />
     </td>
-    <td><AptitudeItemList Items="@Item.AptitudesLiees.ToArray()"/></td>
+    <td><AptitudeItemList Items=@Item.AptitudesLiees /></td>
 </tr>
 @if (AfficherCarrieres)
 {
     <tr class="zone-detail">
         <td colspan="5" class="p-3">
-            <CarriereItemList Items="@_carrieresLiees"/>
+            <CarriereItemList Items=@_carrieresLiees />
         </td>
     </tr>
 }
@@ -41,18 +52,6 @@
 {
     @foreach (var sousElement in Item.SousElements.Where(t => t.Ignore == false))
     {
-        <TalentRow Item="@sousElement" />
-    }
-}
-@code {
-    [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
-    private bool AfficherSousElements { get; set; } = false;
-    private bool AfficherCarrieres { get; set; } = false;
-
-    private CarriereDto[] _carrieresLiees = null!;
-
-    protected override void OnInitialized()
-    {
-        _carrieresLiees = _carrieresService.GetCarrieresProposant(Item);
+        <TalentRow Item=@sousElement />
     }
 }

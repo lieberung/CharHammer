@@ -1,49 +1,6 @@
 ﻿@using BlazorWjdr.Components.Carriere
 
 @inject CarrieresService _carrieresService
-
-<tr>
-    <td>
-        @if (_carrieresLiees.Any())
-        {
-            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
-                <OiIcon Icon="badge"/>
-            </span>
-        }
-    </td>
-    <td>
-        @if (Item.SousElements.Any())
-        {
-            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
-                <OiIcon Icon="layers"/>
-            </span>
-        }
-    </td>
-    <td>
-        @if (Item.Parent != null)
-        {
-            <SousElement/>
-        }
-        <AptitudeItem Item="@Item"/>
-    </td>
-    <td>@Item.Categ</td>
-    <td><AptitudeItemList Items="@Item.AptitudesLiees.ToArray()"/></td>
-</tr>
-@if (AfficherCarrieres)
-{
-    <tr class="zone-detail">
-        <td colspan="5" class="p-3">
-            <CarriereItemList Items="@_carrieresLiees"/>
-        </td>
-    </tr>
-}
-@if (AfficherSousElements && Item.SousElements.Any())
-{
-    @foreach (var sousElement in Item.SousElements.Where(t => t.Ignore == false))
-    {
-        <TalentRow Item="@sousElement" />
-    }
-}
 @code {
     [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
     private bool AfficherSousElements { get; set; }
@@ -54,5 +11,47 @@
     protected override void OnInitialized()
     {
         _carrieresLiees = _carrieresService.GetCarrieresProposant(Item);
+    }
+}
+<tr>
+    <td>
+        @if (_carrieresLiees.Any())
+        {
+            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
+                <OiIcon Icon="badge" />
+            </span>
+        }
+    </td>
+    <td>
+        @if (Item.SousElements.Any())
+        {
+            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+                <OiIcon Icon="layers" />
+            </span>
+        }
+    </td>
+    <td>
+        @if (Item.Parent is not null)
+        {
+            <SousElement/>
+        }
+        <AptitudeItem Item=@Item />
+    </td>
+    <td>@Item.Categ</td>
+    <td><AptitudeItemList Items=@Item.AptitudesLiees /></td>
+</tr>
+@if (AfficherCarrieres)
+{
+    <tr class="zone-detail">
+        <td colspan="5" class="p-3">
+            <CarriereItemList Items=@_carrieresLiees />
+        </td>
+    </tr>
+}
+@if (AfficherSousElements && Item.SousElements.Any())
+{
+    @foreach (var sousElement in Item.SousElements.Where(t => t.Ignore == false))
+    {
+        <TalentRow Item=@sousElement />
     }
 }

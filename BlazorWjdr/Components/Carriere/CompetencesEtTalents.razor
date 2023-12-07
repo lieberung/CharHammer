@@ -1,16 +1,10 @@
 ﻿@using BlazorWjdr.Components.Aptitude
-
-<h3>Compétences</h3>
-<AptitudeItemList Items="_competences" ItemsChoix="_competencesChoix" />
-<h3>Talents</h3>
-<AptitudeItemList Items="_talents" ItemsChoix="_talentsChoix" />
-
-@code{
+@code {
     [Parameter, EditorRequired] public CarriereDto Carriere { get; set; } = null!;
 
     private AptitudeDto[] _competences = null!;
     private AptitudeDto[] _talents = null!;
-        
+
     private AptitudeDto[][] _competencesChoix = null!;
     private AptitudeDto[][] _talentsChoix = null!;
 
@@ -22,3 +16,7 @@
         _talentsChoix = Carriere.ChoixTalents.ToArray();
     }
 }
+<h3>Compétences</h3>
+<AptitudeItemList Items=@_competences ItemsChoix=@_competencesChoix />
+<h3>Talents</h3>
+<AptitudeItemList Items=@_talents ItemsChoix=@_talentsChoix />

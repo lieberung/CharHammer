@@ -1,14 +1,14 @@
-﻿<table class="table table-striped">
-    <ArmeGroupeRow Groupe="@Groupe" ArmeDeTir="@ArmesDeTir"/>
+﻿@code {
+    [Parameter] public string Groupe { get; set; } = "";
+    [Parameter, EditorRequired] public IEnumerable<ArmeDto> Armes { get; set; } = null!;
+    [Parameter] public bool ArmesDeTir { get; set; }
+}
+<table class="table table-striped">
+    <ArmeGroupeRow Groupe=@Groupe ArmeDeTir=@ArmesDeTir />
     <tbody>
     @foreach (var arme in Armes)
     {
-        <ArmeRow Item="@arme" ArmeDeTir="@ArmesDeTir"/>
+        <ArmeRow Item=@arme ArmeDeTir=@ArmesDeTir />
     }
     </tbody>
 </table>
-@code {
-    [Parameter] public string Groupe { get; set; } = "";
-    [Parameter, EditorRequired] public List<ArmeDto> Armes { get; set; } = null!;
-    [Parameter] public bool ArmesDeTir { get; set; }
-}

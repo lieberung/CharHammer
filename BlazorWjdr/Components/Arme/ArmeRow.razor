@@ -3,7 +3,12 @@
 
 @inject CarrieresService _carrieresService
 @inject ArmesService _armesService
+@code {
+    [Parameter, EditorRequired] public ArmeDto Item { get; set; } = null!;
+    [Parameter] public bool ArmeDeTir { get; set; }
 
+    private bool AfficherFiche { get; set; }
+}
 <tr>
     <td>
         <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFiche = !AfficherFiche">
@@ -14,7 +19,7 @@
     <td>
         @if (Item.CompetencesDeMaitrise.Any())
         {
-            <AptitudeItem Item="@Item.CompetencesDeMaitrise.First()"/>
+            <AptitudeItem Item=@Item.CompetencesDeMaitrise.First() />
         }
     </td>
     <td>@Item.Degats</td>
@@ -27,7 +32,7 @@
         <td>@Item.Allonge</td>
     }
     <td>
-        <AttributDArmeItemList Items="@Item.Attributs.ToArray()"/>
+        <AttributDArmeItemList Items=@Item.Attributs />
     </td>
     <td>@Item.Encombrement</td>
     <td>@Item.Prix</td>
@@ -35,13 +40,5 @@
 </tr>
 @if (AfficherFiche)
 {
-    <ArmeRowDetail Item="@Item"/>
-}
-@code {
-    [Parameter]
-    public ArmeDto Item { get; set; } = null!;
-    [Parameter]
-    public bool ArmeDeTir { get; set; }
-    
-    private bool AfficherFiche { get; set; }
+    <ArmeRowDetail Item=@Item />
 }

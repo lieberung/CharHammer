@@ -8,7 +8,7 @@
                 @if (!string.IsNullOrEmpty(Item.Description))
                 {
                     <div class="bulle shadow-sm">
-                        <AttributDArmeItemList Items=@Item.Groupes.ToArray() />
+                        <AttributDArmeItemList Items=@Item.Groupes />
                         <CardParagraphes Text=@Item.Description />
                     </div>
                 }

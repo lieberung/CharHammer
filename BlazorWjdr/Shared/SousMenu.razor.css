@@ -1,0 +1,6 @@
+﻿::deep a {
+    width: 8rem;
+}
+::deep a:not(:last-child) {
+    margin-right: 2rem;
+}

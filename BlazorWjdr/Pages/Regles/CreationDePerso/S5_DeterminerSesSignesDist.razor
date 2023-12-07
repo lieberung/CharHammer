@@ -40,7 +40,7 @@
                         Tirer un signe aléatoire
                     </button>
                 </div>
-                <AptitudeItemList Items=@_traitsObtenus.ToArray() />
+                <AptitudeItemList Items=@_traitsObtenus />
             </p>
         </div>
 
@@ -49,7 +49,7 @@
         <div class="section">
             <h5>5-1. Table des signes distinctifs</h5>
             <p class="text-justify">
-                <TableTraits Traits=@_cttService.SignesDistinctifs.ToArray() NbColonnes=4 />
+                <TableTraits Traits=@_cttService.SignesDistinctifs NbColonnes=4 />
             </p>
         </div>
     </div>

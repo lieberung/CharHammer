@@ -1,5 +1,5 @@
 ﻿@code {
-    [Parameter, EditorRequired] public ArmureDto[] Items { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<ArmureDto> Items { get; set; } = null!;
 }
 <table class="table table-striped">
     <tbody>
@@ -15,7 +15,7 @@
     </tr>
     @foreach (var item in Items)
     {
-        <ArmureRow Item="@item"/>
+        <ArmureRow Item=@item />
     }
     </tbody>
 </table>

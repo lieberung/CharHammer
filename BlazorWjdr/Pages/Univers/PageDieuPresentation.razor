@@ -136,7 +136,7 @@
                 </ul>
             </div>
 
-            <CardParagraphes Text="@_dieu.Dogme" />
+            <CardParagraphes Text=@_dieu.Dogme />
 
             <h5>Pénitences</h5>
             <p class="text-justify">@_dieu.Penitences</p>
@@ -152,14 +152,14 @@
     <div class="col-6">
         <h3>Le Culte</h3>
         <CardBody Titre="" Image="">
-            <CardParagraphes Text="@_dieu.Culte" />
+            <CardParagraphes Text=@_dieu.Culte />
         </CardBody>
     </div>
 
     <div class="col-6">
         <h3>Les Cultistes</h3>
         <CardBody Titre="" Image="">
-            <CardParagraphes Text="@_dieu.Cultistes" />
+            <CardParagraphes Text=@_dieu.Cultistes />
         </CardBody>
     </div>
 
@@ -174,9 +174,9 @@
         <CardBody Titre="" Image="">
             @if (_dieu.Aptitudes.Inities.Any())
             {
-                <AptitudeItemList Items="@_dieu.Aptitudes.Inities.ToArray()" />
+                <AptitudeItemList Items=@_dieu.Aptitudes.Inities />
             }
-            <CardParagraphes Text="@_dieu.Initiation" />
+            <CardParagraphes Text=@_dieu.Initiation />
         </CardBody>
     </div>
 
@@ -185,9 +185,9 @@
         <CardBody Titre="" Image="">
             @if (_dieu.Aptitudes.PretesSansOrdre.Any())
             {
-                <AptitudeItemList Items="@_dieu.Aptitudes.PretesSansOrdre.ToArray()" />
+                <AptitudeItemList Items=@_dieu.Aptitudes.PretesSansOrdre />
             }
-            <CardParagraphes Text="@_dieu.Pretrise" />
+            <CardParagraphes Text=@_dieu.Pretrise />
         </CardBody>
     </div>
 
@@ -201,7 +201,7 @@
     <div class="col-4">
         <h3>Structure</h3>
         <CardBody Titre="" Image="">
-            <CardParagraphes Text="@_dieu.Structure" />
+            <CardParagraphes Text=@_dieu.Structure />
         </CardBody>
     </div>
 
@@ -209,8 +209,8 @@
         <h3>Lieux de Culte</h3>
         @foreach (var temple in _dieu.Temples)
         {
-            <CardBody Titre="@temple.Nom" Image="">
-                <CardParagraphes Text="@temple.Description" />
+            <CardBody Titre=@temple.Nom Image="">
+                <CardParagraphes Text=@temple.Description />
             </CardBody>
         }
     </div>
@@ -219,8 +219,8 @@
         <h3>Personnalités</h3>
         @foreach (var perso in _dieu.Personnalites)
         {
-            <CardBody Titre="@perso.Nom" Image="">
-                <CardParagraphes Text="@perso.Description" />
+            <CardBody Titre=@perso.Nom Image="">
+                <CardParagraphes Text=@perso.Description />
             </CardBody>
         }
         <div class="section">
@@ -243,7 +243,7 @@
         <h3>Les Ordres</h3>
         @foreach (var ordre in _dieu.Ordres)
         {
-            <CulteDescription Culte="@ordre" />
+            <CulteDescription Culte=@ordre />
         }
 
     </div>
@@ -257,12 +257,12 @@
                 {
                     <h5>@secte.Nom</h5>
                 }
-                <CardParagraphes Text="@secte.Description" />
+                <CardParagraphes Text=@secte.Description />
             }
         </CardBody>
     </div>
 </div>
-@if (_inspirationDivine != null)
+@if (_inspirationDivine is not null)
 {
     <PageSectionDivider />
 
@@ -273,7 +273,7 @@
             {
                 <div class="bulle shadow-sm m-4 sortilege">
                     <div class="section">
-                        <SortilegeDetail Item="@benediction" />
+                        <SortilegeDetail Item=@benediction />
                     </div>
                 </div>
             }
@@ -284,7 +284,7 @@
             {
                 <div class="bulle shadow-sm m-4 sortilege">
                     <div class="section">
-                        <SortilegeDetail Item="@miracle" />
+                        <SortilegeDetail Item=@miracle />
                     </div>
                 </div>
             }

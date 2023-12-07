@@ -21,24 +21,21 @@
     }
 }
 
-<div class="row">
-    <!-- ToDo:MainTopRow -->
-    <span style="margin-left: 160px;">
-        <a style="width:120px; margin-top:-10px;" href="equipement/armures/toutes/" class="me-2 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
-        <a style="width:120px; margin-top:-10px;" href="equipement/armures/legeres/" class="me-2 btn btn-sm @(Groupe == "legeres" ? "btn-primary" : "btn-secondary")">Légères</a>
-        <a style="width:120px; margin-top:-10px;" href="equipement/armures/moyennes/" class="me-2 btn btn-sm @(Groupe == "moyennes" ? "btn-primary" : "btn-secondary")">Moyennes</a>
-        <a style="width:120px; margin-top:-10px;" href="equipement/armures/lourdes/" class="me-2 btn btn-sm @(Groupe == "lourdes" ? "btn-primary" : "btn-secondary")">Lourdes</a>
-    </span>
-</div>
+<SousMenu>
+    <a href="equipement/armures/toutes/" class="btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+    <a href="equipement/armures/legeres/" class="btn btn-sm @(Groupe == "legeres" ? "btn-primary" : "btn-secondary")">Légères</a>
+    <a href="equipement/armures/moyennes/" class="btn btn-sm @(Groupe == "moyennes" ? "btn-primary" : "btn-secondary")">Moyennes</a>
+    <a href="equipement/armures/lourdes/" class="btn btn-sm @(Groupe == "lourdes" ? "btn-primary" : "btn-secondary")">Lourdes</a>
+</SousMenu>
 
 <div class="row">
-    <div class="col-4">
+    <div class="col">
         <h3>Endommager une Armure</h3>
         <p class="text-justify">
             Votre armure peut généralement être endommagée dans les situations suivantes :
         </p>
         <ul>
-            <li>Vous êtes blessé par un arme disposant de l'attribut <AttributDArmeItem Item="@_armesService.AttributFracassant" />.</li>
+            <li>Vous êtes blessé par un arme disposant de l'attribut <AttributDArmeItem Item=@_armesService.AttributFracassant />.</li>
             <li>Une aptitude spéciale déclenche, comme un sort ou un talent, qui endommage une pièce d'armure.</li>
             <li>Une Blessure Critique est déviée par votre armure.</li>
         </ul>
@@ -49,7 +46,7 @@
         </p>
     </div>
 
-    <div class="col-4">
+    <div class="col">
         <h5>Déviation Critique</h5>
         <p class="text-justify">
             Cela ne se produit que si vous le souhaitez. Si vous subissez une Blessure Critique suite à une attaque infligée sur un emplacement protégé par une armure,
@@ -61,7 +58,7 @@
         </p>
     </div>
 
-    <div class="col-4">
+    <div class="col">
         <h3>Réparer une Armure</h3>
         <p class="text-justify">
             Il coûte 10% du prix de base de l'armure par PA perdu pour le réparer. Donc, si vous aviez un manteau de cotte de mailles à
@@ -77,22 +74,20 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-8">
-        @if (AfficherArmuresLegeres && Armures.Any(a => a.TypeLegere))
-        {
-            <h5>Armures Légères</h5>
-            <TableArmures Items="Armures.Where(a => a.TypeLegere).ToArray()" />
-        }
-        @if (AfficherArmuresMoyennes && Armures.Any(a => a.TypeMoyenne))
-        {
-            <h5>Armures Moyennes</h5>
-            <TableArmures Items="Armures.Where(a => a.TypeMoyenne).ToArray()" />
-        }
-        @if (AfficherArmuresLourdes && Armures.Any(a => a.TypeLourde))
-        {
-            <h5>Armures Lourdes</h5>
-            <TableArmures Items="Armures.Where(a => a.TypeLourde).ToArray()" />
-        }
-    </div>
+<div class="section">
+    @if (AfficherArmuresLegeres && Armures.Any(a => a.TypeLegere))
+    {
+        <h5>Armures Légères</h5>
+        <TableArmures Items=@Armures.Where(a => a.TypeLegere) />
+    }
+    @if (AfficherArmuresMoyennes && Armures.Any(a => a.TypeMoyenne))
+    {
+        <h5>Armures Moyennes</h5>
+        <TableArmures Items=@Armures.Where(a => a.TypeMoyenne) />
+    }
+    @if (AfficherArmuresLourdes && Armures.Any(a => a.TypeLourde))
+    {
+        <h5>Armures Lourdes</h5>
+        <TableArmures Items=@Armures.Where(a => a.TypeLourde) />
+    }
 </div>

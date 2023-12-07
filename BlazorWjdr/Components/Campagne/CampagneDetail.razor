@@ -10,7 +10,7 @@
         </ul>
     </div>
 </div>
-@foreach (var acte in Campagne.Seances.Select(s => s.Acte).Distinct().OrderByDescending(a => a).ToArray())
+@foreach (var acte in Campagne.Seances.Select(s => s.Acte).Distinct().OrderByDescending(a => a))
 {
     <div class="section">
         <h3>@(acte == 0 ? "Préambule" : $"Acte {acte}")</h3>

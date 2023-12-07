@@ -53,7 +53,7 @@
             <div class="section pt-0 pr-0">
                 <h4>Sortilèges accessibles via ce talent</h4>
                 <p class="text-justify">
-                    <SortilegeItemList Items=@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)).ToArray() />
+                    <SortilegeItemList Items=@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)) />
                 </p>
             </div>
         }

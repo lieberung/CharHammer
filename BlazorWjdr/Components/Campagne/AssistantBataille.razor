@@ -3,7 +3,7 @@
 @inject AppState _appState
 @implements IDisposable
 @code{
-    [Parameter, EditorRequired] public CombattantDto[] Protagonistes { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<CombattantDto> Protagonistes { get; set; } = null!;
 
     protected override void OnInitialized() => _appState.OnChange += StateHasChanged;
     public void Dispose() => _appState.OnChange -= StateHasChanged;
@@ -27,7 +27,7 @@
     <tbody>
     @foreach (var combattant in Protagonistes)
     {
-        <CombattantRow Item=@combattant Adversaires=@Protagonistes.Where(p => p.Ennemi != combattant.Ennemi).ToArray() />
+        <CombattantRow Item=@combattant Adversaires=@Protagonistes.Where(p => p.Ennemi != combattant.Ennemi) />
     }
     </tbody>
 </table>

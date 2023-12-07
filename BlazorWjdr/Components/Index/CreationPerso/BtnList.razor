@@ -1,4 +1,4 @@
 ﻿@code {
     [Parameter] public string Href { get; set; } = "";
 }
-<a class="btn btn-sm @(Href == "" ? "invisible" : "btn-outline-primary")" href=""><OiIcon Icon="list" /></a>
+<a class="btn btn-sm @(Href == "" ? "invisible" : "btn-outline-primary")" href="@Href"><OiIcon Icon="list" /></a>

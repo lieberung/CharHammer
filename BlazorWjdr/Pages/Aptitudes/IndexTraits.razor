@@ -18,18 +18,12 @@
 
 <table class="table table-striped">
     <thead>
-        <tr>
-            <th></th>
-            <th></th>
-            <th style="width:275px">Trait</th>
-            <th>Catégorie</th>
-            <th>Aptitudes liées</th>
-        </tr>
+        <tr><th></th><th></th><th style="width:275px">Trait</th><th>Catégorie</th><th>Aptitudes liées</th></tr>
     </thead>
     <tbody>
-        @foreach (var talent in _cttService.AllTraits.Where(t => t.Ignore == false && t.Parent == null))
+        @foreach (var talent in _cttService.AllTraits.Where(t => t.Ignore == false && t.Parent is null))
         {
-            <TalentRow Item="talent" />
+            <TalentRow Item=@talent />
         }
     </tbody>
 </table>

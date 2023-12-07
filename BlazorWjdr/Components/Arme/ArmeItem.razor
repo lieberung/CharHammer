@@ -1,6 +1,6 @@
 ﻿<span class="btn btn-light btn-item" target="_blank">
     <ItemIcon Icon="location" Classes="me-1" />
-    <Tooltip Text="@_tooltip">@Item.Nom</Tooltip>
+    <Tooltip Text=@_tooltip>@Item.Nom</Tooltip>
 </span>
 @code{
     [Parameter, EditorRequired] public ArmeDto Item { get; set; } = null!;

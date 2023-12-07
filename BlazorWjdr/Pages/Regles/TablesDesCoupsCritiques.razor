@@ -78,14 +78,14 @@
             </p>
             <h5>Conditions</h5>
             <p class="text-justify">
-                <AptitudeItemList Items="_cttService.Conditions.ToArray()" />
+                <AptitudeItemList Items=_cttService.Conditions />
             </p>
         </div>
     </div>
     <div class="col-3">
         <TableDetail Item="_tablesService.GetTable(64)" />
         <div>
-            <button class="btn btn-primary" type="button" @onclick="() => FaireUnJetDeLocalisation()">
+            <button class="btn btn-primary" type="button" @onclick="FaireUnJetDeLocalisation">
                 <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
                 Faire un jet de localisation
             </button>

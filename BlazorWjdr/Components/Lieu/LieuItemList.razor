@@ -1,10 +1,10 @@
-﻿<ul class="mb-0 @(EnColonne ? "" : "list-inline")">
+﻿@code {
+    [Parameter, EditorRequired] public IEnumerable<LieuDto> Items { get; set; } = null!;
+    [Parameter] public bool EnColonne { get; set; }
+}
+<ul class="mb-0 @(EnColonne ? "" : "list-inline")">
     @foreach (var item in Items)
     {
         <li class="@(EnColonne ? "" : "list-inline-item")"><LieuItem Item=@item /></li>
     }
 </ul>
-@code{
-    [Parameter, EditorRequired] public LieuDto[] Items { get; set; } = null!;
-    [Parameter] public bool EnColonne { get; set; }
-}

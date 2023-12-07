@@ -5,7 +5,7 @@
 @inject AppState _appState
 @code {
     [Parameter, EditorRequired] public CombattantDto Item { get; set; } = null!;
-    [Parameter, EditorRequired] public CombattantDto[] Adversaires { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<CombattantDto> Adversaires { get; set; } = null!;
 
     private string AdversaireActuel { get; set; } = "";
     private bool AfficherFiche { get; set; }

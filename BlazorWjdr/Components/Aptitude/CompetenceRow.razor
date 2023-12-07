@@ -2,12 +2,25 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Shared.Oi
 
+@inject CarrieresService Service
+@code {
+    [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
+    private bool AfficherSousElements { get; set; }
+    private bool AfficherCarrieres { get; set; }
+
+    private CarriereDto[] _carrieresLiees = null!;
+
+    protected override void OnParametersSet()
+    {
+        _carrieresLiees = Service.GetCarrieresProposant(Item);
+    }
+}
 <tr>
     <td>
         @if (_carrieresLiees.Any())
         {
             <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
-                <OiIcon Icon="badge"/>
+                <OiIcon Icon="badge" />
             </span>
         }
     </td>
@@ -15,7 +28,7 @@
         @if (Item.SousElements.Any())
         {
             <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
-                <OiIcon Icon="layers"/>
+                <OiIcon Icon="layers" />
             </span>
         }
     </td>
@@ -24,17 +37,17 @@
         {
             <SousElement/>
         }
-        <AptitudeItem Item="Item"/>
+        <AptitudeItem Item=@Item />
     </td>
     <td>@Item.CaracteristiqueAssociee</td>
-    <td><CheckedIfTrue Condition="@Item.EstUneCompetenceDeBase"/> </td>
-    <td><AptitudeItemList Items="@Item.TalentsLies.ToArray()"/></td>
+    <td><CheckedIfTrue Condition=@Item.EstUneCompetenceDeBase /> </td>
+    <td><AptitudeItemList Items=@Item.TalentsLies /></td>
 </tr>
 @if (AfficherCarrieres && _carrieresLiees.Any())
 {
     <tr class="zone-detail">
         <td colspan="6" class="p-3">
-            <CarriereItemList Items="_carrieresLiees"/>
+            <CarriereItemList Items=@_carrieresLiees />
         </td>
     </tr>
 }
@@ -42,22 +55,6 @@
 {
     @foreach (var sousElement in Item.SousElements)
     {
-        <CompetenceRow Item="@sousElement" />
-    }
-}
-
-@code{
-    [Inject] private CarrieresService CarrieresService { get; set; } = null!;
-
-    [Parameter] public AptitudeDto Item { get; set; } = null!;
-    private bool AfficherSousElements { get; set; } = false;
-    private bool AfficherCarrieres { get; set; } = false;
-    
-    private CarriereDto[] _carrieresLiees = null!;
-
-    protected override void OnParametersSet()
-    {
-        _carrieresLiees = CarrieresService.GetCarrieresProposant(Item);
-        base.OnParametersSet();
+        <CompetenceRow Item=@sousElement />
     }
 }

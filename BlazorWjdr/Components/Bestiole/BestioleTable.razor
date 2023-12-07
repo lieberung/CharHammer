@@ -1,11 +1,11 @@
 ﻿@code{
-    [Parameter, EditorRequired] public BestioleDto[] Items { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<BestioleDto> Items { get; set; } = null!;
 } 
 <table class="table table-striped">
     <tbody>
     @foreach (var bestiole in Items)
     {
-        <BestioleRow Item="bestiole"/>
+        <BestioleRow Item=@bestiole />
     }
     </tbody>
 </table>

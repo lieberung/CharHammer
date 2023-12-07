@@ -60,13 +60,11 @@
     }
 }
 
-<div class="navbar">
-    <div class="section">
-        <a href="carrieres-liste/@Theme/toutes/" class="btn @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
-        <a href="carrieres-liste/@Theme/de-base/" class="btn @(Filtre == "de-base" ? "btn-primary" : "btn-secondary")">Base</a>
-        <a href="carrieres-liste/@Theme/avancees/" class="btn @(Filtre == "avancees" ? "btn-primary" : "btn-secondary")">Avancées</a>
-    </div>
-</div>
+<SousMenu>
+    <a href="carrieres-liste/@Theme/toutes/" class="btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+    <a href="carrieres-liste/@Theme/de-base/" class="btn btn-sm @(Filtre == "de-base" ? "btn-primary" : "btn-secondary")">Base</a>
+    <a href="carrieres-liste/@Theme/avancees/" class="btn btn-sm @(Filtre == "avancees" ? "btn-primary" : "btn-secondary")">Avancées</a>
+</SousMenu>
 
 <!--div class="row">
     <div class="col-1">

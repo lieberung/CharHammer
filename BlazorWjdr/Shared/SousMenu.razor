@@ -1,0 +1,8 @@
+﻿@code {
+    [Parameter] public RenderFragment ChildContent { get; set; } = null!;
+}
+<div class="navbar">
+    <div class="section mx-auto">
+        @ChildContent
+    </div>
+</div>

@@ -1,5 +1,5 @@
 ﻿@code{
-    [Parameter, EditorRequired] public ArmeDto[] Items { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<ArmeDto> Items { get; set; } = null!;
     [Parameter] public bool EnColonne { get; set; }
 }
 <ul class="@(EnColonne ? "" : "list-inline mb-1")">

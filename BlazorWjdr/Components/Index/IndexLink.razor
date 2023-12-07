@@ -2,9 +2,10 @@
     [Parameter, EditorRequired] public string Href { get; set; } = null!;
     [Parameter] public string Title { get; set; } = "";
     [Parameter] public bool Primary { get; set; }
+    [Parameter] public bool Italic { get; set; }
     [Parameter] public string Icon { get; set; } = "";
 }
-<a class="btn btn-sm btn-@(Primary ? "primary" : "secondary") mb-1" href="@Href">
+<a class="btn btn-sm btn-@(Primary ? "primary" : "secondary") mb-1@(Italic ? " fst-italic" : "" )" href="@Href">
     @if (Icon != "")
     {
         <OiIcon Icon=@Icon />

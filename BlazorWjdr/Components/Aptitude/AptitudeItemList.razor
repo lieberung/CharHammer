@@ -1,6 +1,6 @@
 ﻿@code{
-    [Parameter, EditorRequired] public ICollection<AptitudeDto> Items { get; set; } = null!;
-    [Parameter] public AptitudeDto[][] ItemsChoix { get; set; } = Array.Empty<AptitudeDto[]>();
+    [Parameter, EditorRequired] public IEnumerable<AptitudeDto> Items { get; set; } = null!;
+    [Parameter] public IEnumerable<IEnumerable<AptitudeDto>> ItemsChoix { get; set; } = Array.Empty<AptitudeDto[]>();
     [Parameter] public bool PasDeTooltip { get; set; }
 }
 <ul class="list-inline">

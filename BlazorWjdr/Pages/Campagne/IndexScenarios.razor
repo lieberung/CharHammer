@@ -22,7 +22,7 @@
         <label for="cbo-auteur" class="ms-5">Auteur</label>
         <select id="cbo-auteur" @bind="@Auteur">
             <option value="" style="color:gray;"></option>
-            @foreach (var a in _scenariosService.AllAuteurs().ToArray())
+            @foreach (var a in _scenariosService.AllAuteurs())
             {
                 <option value="@a">@a</option>
             }
@@ -34,7 +34,7 @@
 <div class="row">
     <div class="col-12">
         <div class="section">
-            <ScenarioTable Items="@_scenariosService.AllScenarios(PasDeDaubes, Filtre, Auteur).ToArray()" />
+            <ScenarioTable Items=@_scenariosService.AllScenarios(PasDeDaubes, Filtre, Auteur) />
         </div>
     </div>
 </div>

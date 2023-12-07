@@ -1,5 +1,5 @@
 ﻿@code{
-    [Parameter, EditorRequired] public ScenarioDto[] Items { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<ScenarioDto> Items { get; set; } = null!;
     [Parameter] public bool LigneCourte { get; set; }
 }
 <table class="table table-striped">
@@ -24,7 +24,7 @@
     <tbody>
     @foreach (var scenar in Items)
     {
-        <ScenarioRow Item="@scenar" LigneCourte="@LigneCourte"/>
+        <ScenarioRow Item=@scenar LigneCourte=@LigneCourte />
     }
     </tbody>
 </table>

@@ -1,7 +1,27 @@
 ﻿@using BlazorWjdr.Components.Aptitude
 
 @inject AptitudesService _cttService
+@code {
+    [Parameter] public int NbColonnes { get; set; }
+    [Parameter, EditorRequired] public IEnumerable<AptitudeDto> Traits { get; set; } = null!;
 
+    private int _colonneLength;
+    private List<AptitudeDto>[] _colonnes = null!;
+
+    protected override void OnParametersSet()
+    {
+        _colonneLength = Traits.Count() / NbColonnes;
+        if (Traits.Count() % NbColonnes != 0)
+            _colonneLength++;
+
+        _colonnes = new List<AptitudeDto>[NbColonnes];
+        for (var i = 0; i < NbColonnes; i++)
+            _colonnes[i] = new List<AptitudeDto>();
+
+        for (var i = 0; i < Traits.Count(); i++)
+            _colonnes[i / _colonneLength].Add(Traits.ElementAt(i));
+    }
+}
 <table>
     <tbody>
         @for (var y = 0; y < _colonneLength; y++)
@@ -9,33 +29,9 @@
             <tr>
             @for (var x = 0; x < NbColonnes; x++)
             {
-                <td>@if (y < _colonnes[x].Count) { <AptitudeItem Item="@_colonnes[x][y]"/> }</td>
+                <td>@if (y < _colonnes[x].Count) { <AptitudeItem Item=@_colonnes[x][y] /> }</td>
             }
             </tr>
         }
     </tbody>
 </table>
-
-@code {
-    [Parameter] public int NbColonnes { get; set; }
-    [Parameter, EditorRequired] public AptitudeDto[] Traits { get; set; } = null!;
-
-    private int _colonneLength;
-    private List<AptitudeDto>[] _colonnes = null!;
-
-    protected override void OnParametersSet()
-    {
-        _colonneLength = Traits.Length / NbColonnes;
-        if (Traits.Length % NbColonnes != 0)
-            _colonneLength++;
-        
-        _colonnes = new List<AptitudeDto>[NbColonnes];
-        for (var i = 0; i < NbColonnes; i++)
-            _colonnes[i] = new List<AptitudeDto>();
-       
-        for (var i = 0; i < Traits.Length; i++)
-            _colonnes[i / _colonneLength].Add(Traits[i]);
-        
-        base.OnInitialized();
-    }
-}

@@ -1,5 +1,7 @@
 ﻿@using BlazorWjdr.Components.Aptitude
-
+@code {
+    [Parameter, EditorRequired] public CulteDto Culte { get; set; } = null!;
+}
 <div class="section">
     <h5>@Culte.Nom</h5>
     @if (Culte.Mineur)
@@ -9,7 +11,7 @@
     
     @if (Culte.Aptitudes.Any())
     {
-        <AptitudeItemList Items="@Culte.Aptitudes.ToArray()"/>
+        <AptitudeItemList Items=@Culte.Aptitudes />
     }
     
     <CardParagraphes Text="@Culte.Description"/>
@@ -21,7 +23,3 @@
         </p>
     }
 </div>
-
-@code {
-    [Parameter, EditorRequired] public CulteDto Culte { get; set; } = null!;
-}

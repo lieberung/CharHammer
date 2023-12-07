@@ -1,4 +1,5 @@
 ﻿@page "/equipement/armes-liste/{Filtre}/{Groupe}/"
+@layout FluidLayout
 
 @using BlazorWjdr.Components.Arme
 @using System.Diagnostics
@@ -74,43 +75,37 @@
     }
 }
 
-<div class="row">
-    <!-- ToDo: MainTopRow -->
-    <span style="margin-left: 160px;">
-        <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/toutes/@Groupe/" class="me-2 btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
-        <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/melee/@Groupe/" class="me-2 btn btn-sm @(Filtre == "melee" ? "btn-primary" : "btn-secondary")">Mélee</a>
-        <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/tir/@Groupe/" class="me-2 btn btn-sm @(Filtre == "tir" ? "btn-primary" : "btn-secondary")">Tir</a>
-        <a style="width:120px; margin-top:-10px;" href="equipement/armes-liste/toutes/munitions/" class="me-2 btn btn-sm @(Filtre == "munitions" ? "btn-primary" : "btn-secondary")">Munitions</a>
-    </span>
-</div>
+<SousMenu>
+    <a href="equipement/armes-liste/toutes/@Groupe/" class="btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+    <a href="equipement/armes-liste/melee/@Groupe/" class="btn btn-sm @(Filtre == "melee" ? "btn-primary" : "btn-secondary")">Mélee</a>
+    <a href="equipement/armes-liste/tir/@Groupe/" class="btn btn-sm @(Filtre == "tir" ? "btn-primary" : "btn-secondary")">Tir</a>
+    <a href="equipement/armes-liste/toutes/munitions/" class="btn btn-sm @(Filtre == "munitions" ? "btn-primary" : "btn-secondary")">Munitions</a>
+</SousMenu>
 
-<div class="row">
-    <div class="col-12">
-        <div>
-            <a href="equipement/armes-liste/toutes/@Groupe/" class="mb-1 me-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+<div>
+    <div>
+        <a href="equipement/armes-liste/toutes/@Groupe/" class="mb-1 me-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
 
-            <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
+        <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
 
-            @foreach (var skillMelee in _aptitudesService.AllMeleeSpecialisations)
-            {
-                <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string")/toutes/" class="mb-1 me-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@CleanMeleeSpeName(skillMelee.Spe!)</a>
-            }
+        @foreach (var skillMelee in _aptitudesService.AllMeleeSpecialisations)
+        {
+            <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string")/toutes/" class="mb-1 me-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@CleanMeleeSpeName(skillMelee.Spe!)</a>
+        }
 
-            <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
+        <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
 
-            @foreach (var skillTir in _aptitudesService.AllTirSpecialisations)
-            {
-                <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillTir.Spe ?? "null-string")/toutes/" class="mb-1 me-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillTir.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@skillTir.Spe</a>
-            }
-        </div>
-        <div>
-            @foreach (var groupeDArmes in _armesService.AllGroupesDArmes)
-            {
-                var groupeDArme = GenericService.GetUrlChunck(groupeDArmes.Nom);
-                <a href="equipement/armes-liste/toutes/@groupeDArme/" class="mb-1 me-1 btn btn-sm @(Groupe == groupeDArme ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
-            }
-        </div>
-
+        @foreach (var skillTir in _aptitudesService.AllTirSpecialisations)
+        {
+            <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillTir.Spe ?? "null-string")/toutes/" class="mb-1 me-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillTir.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@skillTir.Spe</a>
+        }
+    </div>
+    <div>
+        @foreach (var groupeDArmes in _armesService.AllGroupesDArmes)
+        {
+            var groupeDArme = GenericService.GetUrlChunck(groupeDArmes.Nom);
+            <a href="equipement/armes-liste/toutes/@groupeDArme/" class="mb-1 me-1 btn btn-sm @(Groupe == groupeDArme ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
+        }
     </div>
 </div>
 
@@ -121,7 +116,7 @@
     {
         if (GetArmesByGroupe(groupe.Value, _armesDeCaC, GroupeActuel).Any())
         {
-            <ArmeGroupeTable Armes="@GetArmesByGroupe(groupe.Value, _armesDeCaC, GroupeActuel).ToList()" Groupe=@groupe.Key ArmesDeTir=@false />
+            <ArmeGroupeTable Armes=@GetArmesByGroupe(groupe.Value, _armesDeCaC, GroupeActuel) Groupe=@groupe.Key ArmesDeTir=false />
         }
     }
 }
@@ -132,14 +127,14 @@
     {
         if (GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel).Any())
         {
-            <ArmeGroupeTable Armes="@GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel).ToList()" Groupe=@groupe.Key ArmesDeTir=@true />
+            <ArmeGroupeTable Armes="@GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel).ToList()" Groupe=@groupe.Key ArmesDeTir=true />
         }
     }
 }
 @if (Groupe == "munitions")
 {
     <!--h5>Munitions</h5-->
-    <ArmeGroupeTable Armes="@_armesService.AllArmes.Where(a => a.EstUneMunition).ToList()" Groupe="Munitions" ArmesDeTir=@true />
+    <ArmeGroupeTable Armes="@_armesService.AllArmes.Where(a => a.EstUneMunition).ToList()" Groupe="Munitions" ArmesDeTir=true />
 }
 @if (GroupeActuel != null)
 {
@@ -147,7 +142,7 @@
         <div class="col">
             <div class="bulle shadow-sm">
                 <h6>@GroupeActuel.Nom</h6>
-                <CardParagraphes Text="@GroupeActuel.Description" />
+                <CardParagraphes Text=@GroupeActuel.Description />
             </div>
         </div>
     </div>

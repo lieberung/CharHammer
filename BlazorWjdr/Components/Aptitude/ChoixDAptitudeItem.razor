@@ -1,12 +1,12 @@
 ﻿@code {
-    [Parameter, EditorRequired] public AptitudeDto[] Choix { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<AptitudeDto> Choix { get; set; } = null!;
     [Parameter] public bool PasDeTooltip { get; set; }
 }
-@for (var i = 0; i < Choix.Length; i++)
+@for (var i = 0; i < Choix.Count(); i++)
 {
     @if (i != 0)
     {
         <em class="insister text-decoration-underline px-1">ou</em>
     }
-    <AptitudeItem Item=@Choix[i] PasDeTooltip=@PasDeTooltip />
+    <AptitudeItem Item=@Choix.ElementAt(i) PasDeTooltip=@PasDeTooltip />
 }

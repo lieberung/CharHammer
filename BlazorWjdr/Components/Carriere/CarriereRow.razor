@@ -2,7 +2,14 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Profil
 @using BlazorWjdr.Shared.Oi
+@code
+{
+    [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
 
+    private bool AfficherSousElements { get; set; }
+    private bool AfficherPlanDeCarriere { get; set; }
+    private bool AfficherFilieresEtDebouches { get; set; }
+}
 <tr>
     <td>
         <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
@@ -19,17 +26,17 @@
         }
     </td>
     <td>
-        @if (Item.Parent != null)
+        @if (Item.Parent is not null)
         {
             <SousElement/>
         }
-        <CarriereItem Item="@Item"/>
+        <CarriereItem Item=@Item />
     </td>
     <!--
     <td>
-        @if (Item.Source?.Book != null)
+        @if (Item.Source?.Book is not null)
         {
-            <ReferenceItem Item="@Item.Source?.Book" Page="@Item.Source"/>
+            <ReferenceItem Item=@Item.Source?.Book Page=@Item.Source />
         }
     </td>
     <td>@Item.ScoreAcademique</td>
@@ -51,15 +58,15 @@
             <div class="bulle shadow-sm">
                 <h6>Plan de carrière</h6>
                 <p>
-                    <Profil PlanDeCarriere="@Item.PlanDeCarriere"/>
+                    <Profil PlanDeCarriere=@Item.PlanDeCarriere />
                 </p>
                 <h6>Compétences</h6>
                 <p>
-                    <AptitudeItemList Items="@Item.Competences.ToArray()" ItemsChoix="@Item.ChoixCompetences.ToArray()" />
+                    <AptitudeItemList Items=@Item.Competences ItemsChoix=@Item.ChoixCompetences />
                 </p>
                 <h6>Talents</h6>
                 <p>
-                    <AptitudeItemList Items="@Item.Talents.ToArray()" ItemsChoix="@Item.ChoixTalents.ToArray()" />
+                    <AptitudeItemList Items=@Item.Talents ItemsChoix=@Item.ChoixTalents />
                 </p>
             </div>
         </td>
@@ -72,11 +79,11 @@
             <div class="bulle shadow-sm">
                 <h6>Filières</h6>
                 <p>
-                    <CarriereItemList Items="@Item.Filieres.ToArray()" HideIndicatorBase="false" HideIndicatorRestriction="true"/>
+                    <CarriereItemList Items=@Item.Filieres HideIndicatorBase=false HideIndicatorRestriction=true />
                 </p>
                 <h6>Débouchés</h6>
                 <p>
-                    <CarriereItemList Items="@Item.Debouches.ToArray()" HideIndicatorBase="true" HideIndicatorRestriction="false"/>
+                    <CarriereItemList Items=@Item.Debouches HideIndicatorBase=true HideIndicatorRestriction=false />
                 </p>
             </div>
         </td>
@@ -86,14 +93,6 @@
 {
     @foreach (var sousElement in Item.SousElements)
     {
-        <CarriereRow Item="@sousElement" />
+        <CarriereRow Item=@sousElement />
     }
-}
-@code
-{
-    [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
-        
-    private bool AfficherSousElements { get; set; } = false;
-    private bool AfficherPlanDeCarriere { get; set; }
-    private bool AfficherFilieresEtDebouches { get; set; }
 }

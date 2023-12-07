@@ -25,14 +25,14 @@
         <AptitudeItem Item="Item"/>
     </td>
     <td>@Item.CaracteristiqueAssociee</td>
-    <td><CheckedIfTrue Condition="@Item.EstUneCompetenceDeBase"/> </td>
-    <td><AptitudeItemList Items="@Item.TalentsLies.ToArray()"/></td>
+    <td><CheckedIfTrue Condition=@Item.EstUneCompetenceDeBase /> </td>
+    <td><AptitudeItemList Items=@Item.TalentsLies /></td>
 </tr>
 @if (AfficherCarrieres && _carrieresLiees.Any())
 {
     <tr class="zone-detail">
         <td colspan="6" class="p-3">
-            <CarriereItemList Items="_carrieresLiees"/>
+            <CarriereItemList Items=@_carrieresLiees />
         </td>
     </tr>
 }
@@ -40,6 +40,6 @@
 {
     @foreach (var sousElement in Item.SousElements)
     {
-        <CompetenceRow Item="@sousElement" />
+        <CompetenceRow Item=@sousElement />
     }
 }

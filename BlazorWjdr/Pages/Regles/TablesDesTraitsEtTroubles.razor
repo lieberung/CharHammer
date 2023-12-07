@@ -66,7 +66,7 @@
     </div>
     <div class="col-3">
         <div class="section">
-            <button class="btn btn-primary" type="button" @onclick="() => TirerUnTraitAleatoire()">
+            <button class="btn btn-primary" type="button" @onclick="TirerUnTraitAleatoire">
                 <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
                 Tirer @_determinant @_typeDeTrait aléatoire
             </button>
@@ -76,7 +76,7 @@
 <div class="row">
     <div class="col-9">
         <div class="section">
-            <TableTraits Traits=@Traits.ToArray() NbColonnes=_nbColonnes />
+            <TableTraits Traits=@Traits NbColonnes=_nbColonnes />
         </div>
     </div>
     <div class="col-3">

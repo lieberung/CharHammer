@@ -22,21 +22,21 @@
             {
                 <div class="mb-3">
                     <h6>Compétences</h6>
-                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUneCompetence).ToArray() PasDeTooltip=true />
+                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUneCompetence) PasDeTooltip=true />
                 </div>
             }
             @if (FilteredAptitudes.Any(a => a.EstUnTalent))
             {
                 <div class="mb-3">
                     <h6>Talents</h6>
-                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUnTalent).ToArray() PasDeTooltip=true />
+                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUnTalent) PasDeTooltip=true />
                 </div>
             }
             @if (FilteredAptitudes.Any(a => a.EstUnTrait))
             {
                 <div class="mb-3">
                     <h6>Traits</h6>
-                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUnTrait).ToArray() PasDeTooltip=true />
+                    <AptitudeItemList Items=@FilteredAptitudes.Where(a => a.EstUnTrait) PasDeTooltip=true />
                 </div>
             }
             @if (FilteredBestioles.Any())
