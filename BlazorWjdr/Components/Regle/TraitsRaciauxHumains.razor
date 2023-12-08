@@ -1,4 +1,4 @@
-﻿@inject ReglesService _reglesService
+﻿@inject ReglesService ReglesSvc
 
 <div class="row px-4 mt-3">
     <div class="col-12">
@@ -117,21 +117,20 @@
     <div class="col-12">
         <div class="section">
             <div class="bulle shadow-sm px-4">
-                <RegleDetail Item="@_reglesService.GetRegle(_regleId)"/>
+                <RegleDetail Item=@ReglesSvc.GetRegle(_regleId) />
             </div>
         </div>
     </div>
 </div>
 
 @code {
-
-    [Parameter]
-    public string ProvinceActive { get; set; } = "Empire";
+    [Parameter] public string ProvinceActive { get; set; } = "Empire";
 
     private int _regleId;
 
-    private List<string> _empireProvinces = new List<string> {"Empire","Averland","Hochland","Middenland","Nordland","Ostermark","Ostland","Reikland","Stirland","Talabecland","Wissenland","Sylvanie","Strigany","Mutant"};
-    private List<string> _bretonnieDuches = new List<string> {"Bretonnie","L'Anguille","Aquitanie","Artenois","Bastogne","Bordeleaux","Brionne","Couronne","Gasconnie","Gisoreux","Lyonesse","Monfort","Mousillon","Parravon","Quenelles"};
+    private List<string> _empireProvinces = new() {"Empire","Averland","Hochland","Middenland","Nordland","Ostermark","Ostland","Reikland","Stirland","Talabecland","Wissenland","Sylvanie","Strigany","Mutant"};
+    private List<string> _bretonnieDuches = new() {"Bretonnie","L'Anguille","Aquitanie","Artenois","Bastogne","Bordeleaux","Brionne","Couronne","Gasconnie","Gisoreux","Lyonesse","Monfort","Mousillon","Parravon","Quenelles"};
+
     protected override void OnParametersSet()
     {
         _regleId = ProvinceActive switch
@@ -168,8 +167,7 @@
             "Parravon" => 83,
             "Quenelles" => 84,
             _ => _regleId
-            };
-        base.OnParametersSet();
+        };
     }
 
     private void Selectionner(MouseEventArgs mouseEventArgs, string province)
@@ -177,5 +175,4 @@
         ProvinceActive = province;
         OnParametersSet();
     }
-
 }

@@ -17,15 +17,15 @@ public class RegleDto
     public string Regle { get; init; } = null!;
     
     public List<AptitudeDto> Aptitudes { get; init; } = null!;
-    public List<AptitudeDto[]> AptitudesChoix { get; set; } = null!;
+    public List<AptitudeDto[]> AptitudesChoix { get; init; } = null!;
     
-    public List<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).ToList();
-    public List<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).ToList();
-    public List<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).ToList();
+    public IEnumerable<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).ToList();
+    public IEnumerable<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).ToList();
+    public IEnumerable<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).ToList();
 
-    public List<AptitudeDto[]> ChoixCompetences => AptitudesChoix.Where(choix => choix.First().EstUneCompetence).ToList();
-    public List<AptitudeDto[]> ChoixTalents => AptitudesChoix.Where(choix => choix.First().EstUnTalent).ToList();
-    public List<AptitudeDto[]> ChoixTraits => AptitudesChoix.Where(choix => choix.First().EstUnTrait).ToList();
+    public IEnumerable<AptitudeDto[]> ChoixCompetences => AptitudesChoix.Where(choix => choix.First().EstUneCompetence).ToList();
+    public IEnumerable<AptitudeDto[]> ChoixTalents => AptitudesChoix.Where(choix => choix.First().EstUnTalent).ToList();
+    public IEnumerable<AptitudeDto[]> ChoixTraits => AptitudesChoix.Where(choix => choix.First().EstUnTrait).ToList();
 
     public bool ProposeAuMoinsUnTalent => Talents.Any() || ChoixTalents.Any();
     public bool ProposeAuMoinsUnTrait => Traits.Any() || ChoixTraits.Any();

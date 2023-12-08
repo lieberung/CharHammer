@@ -2,7 +2,7 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Sortilege
 
-@inject AppState _appState
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public CombattantDto Item { get; set; } = null!;
     [Parameter, EditorRequired] public IEnumerable<CombattantDto> Adversaires { get; set; } = null!;
@@ -22,7 +22,7 @@
         Item.EngageContre = adversaire;
         adversaire.EngageContre ??= Item;
         
-        _appState.UnCombattantEnEngageUnAutre();
+        AppState.UnCombattantEnEngageUnAutre();
     }
 }
 <tr class="@(Item.Ennemi ? "row-ennemi" : "")">

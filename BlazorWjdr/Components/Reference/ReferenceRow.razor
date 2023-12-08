@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Components.Carriere
 
-@inject CarrieresService _carrieresService
+@inject CarrieresService CarrSvc
 
 <tr>
     <td><img style="width:192px;" src="@Item.Image" alt="@Item.Titre"/></td>
@@ -28,6 +28,6 @@
 
     protected override void OnInitialized()
     {
-        _carrieresLiees = _carrieresService.GetCarrieresParuesDans(Item);
+        _carrieresLiees = CarrSvc.GetCarrieresParuesDans(Item);
     }
 }

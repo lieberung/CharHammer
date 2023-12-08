@@ -1,24 +1,15 @@
-﻿// ReSharper disable InconsistentNaming
-// ReSharper disable UnusedAutoPropertyAccessor.Global
-// ReSharper disable ClassNeverInstantiated.Global
-namespace BlazorWjdr.DataSource.JsonDto;
+﻿namespace BlazorWjdr.DataSource.JsonDto;
 
-// Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
-public class JsonSortilege
-{
-    public int id { get; set; }
-    public int[]? aptitudes { get; set; }
-    public string nom { get; set; } = null!;
-    public string type { get; set; } = null!;
-    public string distance { get; set; } = null!;
-    public string cible { get; set; } = null!;
-    public string duree { get; set; } = null!;
-    public string? ingredient { get; set; }
-    public string effet { get; set; } = null!;
-    public int? ns { get; set; }
-}
+public record JsonSortilege(
+    int id,
+    int[]? aptitudes,
+    string nom,
+    string type,
+    string distance,
+    string cible,
+    string duree,
+    string? ingredient,
+    string effet,
+    int? ns);
 
-public class RootSortilege
-{
-    public JsonSortilege[] sortileges { get; set; } = null!;
-}
+public record RootSortilege(JsonSortilege[] sortileges);

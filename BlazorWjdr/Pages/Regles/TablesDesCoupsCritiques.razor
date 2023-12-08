@@ -4,10 +4,10 @@
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
 
-@inject ReglesService _reglesService
-@inject TablesService _tablesService
-@inject AptitudesService _cttService
-@inject AppState _appState
+@inject ReglesService ReglesService
+@inject TablesService TablesService
+@inject AptitudesService AptitudesService
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string Zone { get; set; } = null!;
 
@@ -15,7 +15,7 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Tables des coups critiques");
+        AppState.SetMainTopRowTitle("Tables des coups critiques");
     }
 
     protected override void OnParametersSet()
@@ -52,13 +52,13 @@
                 <br />
                 On consulte alors le résultat et la victime <strong>perd le nombre de Blessures indiqué et gagne 1 Point de Folie</strong>.
                 <br />
-                Le talent <AptitudeItem Item=@_cttService.TalentCoupsPrécis /> augmente ce nombre de Blessures.
+                Le talent <AptitudeItem Item=@AptitudesService.TalentCoupsPrécis /> augmente ce nombre de Blessures.
             </p>
-            <RegleDetail Item=@_reglesService.GetRegle(214) MasquerTitre=true MasquerTables=true />
+            <RegleDetail Item=@ReglesService.GetRegle(214) MasquerTitre=true MasquerTables=true />
         </div>
     </div>
     <div class="col-3">
-        <TableDetail Item=@_tablesService.GetTable(64) />
+        <TableDetail Item=@TablesService.GetTable(64) />
         <div>
             <button class="btn btn-primary" type="button" @onclick="FaireUnJetDeLocalisation">
                 <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
@@ -92,7 +92,7 @@
 
 <h5>Conditions</h5>
 <p>
-    <AptitudeItemList Items=@_cttService.Conditions />
+    <AptitudeItemList Items=@AptitudesService.Conditions />
 </p>
 
-<TableDetail Item=@_tablesService.GetTable(_tableId) />
+<TableDetail Item=@TablesService.GetTable(_tableId) />

@@ -1,19 +1,19 @@
-@inject AppState _appState
+@inject AppState AppState
 @implements IDisposable
 @code {
-    protected override void OnInitialized() => _appState.OnChange += StateHasChanged;
-    public void Dispose() => _appState.OnChange -= StateHasChanged;
+    protected override void OnInitialized() => AppState.OnChange += StateHasChanged;
+    public void Dispose() => AppState.OnChange -= StateHasChanged;
 }
 <h4>Campagne</h4>
 <p>
     <IndexLink Href="campagne/13/seances/" Title="Carnets de Route"/>
     <IndexLink Href="aventuriers/13/" Title="Dernière séance"/>
-    @if (_appState.JeSuisDieu)
+    @if (AppState.JeSuisDieu)
     {
         <IndexLink Href="maitre-du-jeu/13/seance-actuelle/" Title="Prochaine séance"/>
     }
 </p>
-@if (_appState.JeSuisDieu)
+@if (AppState.JeSuisDieu)
 {
     <p>
         <IndexLink Href="personnages/" Title="Personnages"/>

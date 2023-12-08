@@ -4,15 +4,14 @@
 @using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Table
 
-@inject ReglesService _reglesService
-@inject TablesService _tablesService
-@inject AptitudesService _aptSvc
-@inject ArmesService _armesService
-@inject AppState _appState
+@inject TablesService TablesService
+@inject AptitudesService AptSvc
+@inject ArmesService ArmesService
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Déroulement d'une bataille");
+        AppState.SetMainTopRowTitle("Déroulement d'une bataille");
     }
 }
 <img class="shadow p-1 mb-5 bg-white rounded w-100" src="images/ambiance/bataille.jpg" alt="Baston !!!" />
@@ -24,24 +23,24 @@
 
             <p class="text-justify">
                 Le MJ détermine si certains combattants sont <em>Supris</em>. Cela ne peut normalement arriver qu'au premier Round.<br />
-                Les combattants qui possèdent le talent <AptitudeItem Item=@_aptSvc.TalentSurSesGardes /> ont une chance d'éviter d'être <AptitudeItem Item=@_aptSvc.ConditionSurpris />.
+                Les combattants qui possèdent le talent <AptitudeItem Item=@AptSvc.TalentSurSesGardes /> ont une chance d'éviter d'être <AptitudeItem Item=@AptSvc.ConditionSurpris />.
             </p>
 
             <p class="text-justify">
                 Prendre l'ennemi par surprise confère un énorme avantage. Si l'un des camps prépare une attaque, il peut tenter de profiter de l'effet de suprise en :
             </p>
             <ul>
-                <li><strong>Dissimulation : </strong>réussir un test de <AptitudeItem Item=@_aptSvc.CompetenceDissimulation /> approprié. Les victimes peuvent y opposer un test de <AptitudeItem Item=@_aptSvc.CompetencePerception /> s'il sont sur leurs gardes ou selon l'humeur du MJ.</li>
-                <li><strong>Attaque sournoise : </strong>attaque dans le dos, dans l'ombre, à travers un épais brouillard ou depuis le ciel ! Selon les conditions et l'humeur du MJ, les victimes peuvent y opposer un test de <AptitudeItem Item=@_aptSvc.CompetencePerception /> s'il sont sur leurs gardes.</li>
+                <li><strong>Dissimulation : </strong>réussir un test de <AptitudeItem Item=@AptSvc.CompetenceDissimulation /> approprié. Les victimes peuvent y opposer un test de <AptitudeItem Item=@AptSvc.CompetencePerception /> s'il sont sur leurs gardes ou selon l'humeur du MJ.</li>
+                <li><strong>Attaque sournoise : </strong>attaque dans le dos, dans l'ombre, à travers un épais brouillard ou depuis le ciel ! Selon les conditions et l'humeur du MJ, les victimes peuvent y opposer un test de <AptitudeItem Item=@AptSvc.CompetencePerception /> s'il sont sur leurs gardes.</li>
                 <li><strong>Diversion : </strong>forte détonation, foule de pénitents menée par un sermon particulièrement engageant sont des exemples qui peuvent couvrir une attaque surprise.</li>
                 <li><strong>Pris au dépourvu : </strong>s'il l'ennemi n'est particulièrement pas préparé à une attaque, l'effet de surprise est automatique.</li>
                 <li><strong>Autre chose : </strong>tout autre plan sournois ou ingénieux concoté par des joueurs méticuleux.</li>
             </ul>
             <p class="text-justify">
-                S'il y a une chance pour que les embusqués soient repérés, le MJ appèlera un test opposé <AptitudeItem Item=@_aptSvc.CompetenceDissimulation /> <strong>vs</strong> <AptitudeItem Item=@_aptSvc.CompetencePerception />, généralement avec le personnage qui a la plus faible valeur en Dissimultion opposé à toutes les sentinelles potentielles.
-                Ceux qui échouent sont <AptitudeItem Item=@_aptSvc.ConditionSurpris />.
+                S'il y a une chance pour que les embusqués soient repérés, le MJ appèlera un test opposé <AptitudeItem Item=@AptSvc.CompetenceDissimulation /> <strong>vs</strong> <AptitudeItem Item=@AptSvc.CompetencePerception />, généralement avec le personnage qui a la plus faible valeur en Dissimultion opposé à toutes les sentinelles potentielles.
+                Ceux qui échouent sont <AptitudeItem Item=@AptSvc.ConditionSurpris />.
                 <br />
-                Le MJ peut également effectuer un test d'<AptitudeItem Item=@_aptSvc.CompetenceIntuition /> pour les personnages possédant un <AptitudeItem Item=@_aptSvc.TalentSixiemeSens /> qui éviteront de justesse d'être Surpris, sans pour autant avoir le temps de prévenir les autres.
+                Le MJ peut également effectuer un test d'<AptitudeItem Item=@AptSvc.CompetenceIntuition /> pour les personnages possédant un <AptitudeItem Item=@AptSvc.TalentSixiemeSens /> qui éviteront de justesse d'être Surpris, sans pour autant avoir le temps de prévenir les autres.
             </p>
 
         </div>
@@ -53,8 +52,8 @@
                 Chaque combattant lance 1d10 et y ajoute son bonus d'Initiative et son bonus d'Agilité.<br />
             </p>
             <ul>
-                <li>Les combattants disposant de <AptitudeItem Item=@_aptSvc.TalentReflexesDeCombat /> ont un bonus supplémentaire.</li>
-                <li>Les combattant utilisant une arme dotée de l'attribut <AttributDArmeItem Item=@_armesService.AttributLent /> Lente jouent en dernier.</li>
+                <li>Les combattants disposant de <AptitudeItem Item=@AptSvc.TalentReflexesDeCombat /> ont un bonus supplémentaire.</li>
+                <li>Les combattant utilisant une arme dotée de l'attribut <AttributDArmeItem Item=@ArmesService.AttributLent /> Lente jouent en dernier.</li>
             </ul>
             <p class="text-justify">
                 Durant chaque Round, les combatants joueront leur Tour dans l'ordre du score le plus fort au plus faible.
@@ -68,7 +67,7 @@
             </p>
             <ul>
                 <li>
-                    <AptitudeItem Item=@_aptSvc.TalentTirEclair />
+                    <AptitudeItem Item=@AptSvc.TalentTirEclair />
                 </li>
             </ul>
         </div>
@@ -89,7 +88,7 @@
             <p class="text-justify">
                 Le MJ décrit votre situation - ou se trouve chaque combattant et ce qui vous entoure - et vous pouvez poser des questions supplémentaires pour planifier votre Tour.
                 <br />
-                On détermine si le personnage actif est en supériorité numérique, en prenant en compte l'évetuelle <AptitudeItem Item=@_aptSvc.TalentPresenceImposante /> de ses adversaires :
+                On détermine si le personnage actif est en supériorité numérique, en prenant en compte l'évetuelle <AptitudeItem Item=@AptSvc.TalentPresenceImposante /> de ses adversaires :
             </p>
             <ul>
                 <li>à raison de 2 contre 1, l'attaquant gagne un bonus de +20 en CC.</li>
@@ -99,10 +98,10 @@
                 Vous pouvez effectuer votre Déplacement et votre Action dans l'ordre souhaité, ou en même temps en décrivant comment vous combinez les deux.
             </p>
         </div>
-        <TableDetail Item=@_tablesService.GetTable(65) />
+        <TableDetail Item=@TablesService.GetTable(65) />
     </div>
     <div class="col-4">
-        <TableDetail Item=@_tablesService.GetTable(66) />
+        <TableDetail Item=@TablesService.GetTable(66) />
         <div class="section">
             <p class="text-justify">
                 Si un combattant est <strong>plus petit</strong> que son adversaire :
@@ -116,8 +115,8 @@
                 Si un combattant est <strong>plus grand</strong> que son adversaire :
             </p>
             <ul>
-                <li>son arme devient <AttributDArmeItem Item=@_armesService.AttributDamaging /> s'il est <strong>plus grand d'une taille</strong>.</li>
-                <li>son arme devient <AttributDArmeItem Item=@_armesService.AttributPercutant /> s'il est <strong>plus grand de deux tailles</strong> ou plus.</li>
+                <li>son arme devient <AttributDArmeItem Item=@ArmesService.AttributDamaging /> s'il est <strong>plus grand d'une taille</strong>.</li>
+                <li>son arme devient <AttributDArmeItem Item=@ArmesService.AttributPercutant /> s'il est <strong>plus grand de deux tailles</strong> ou plus.</li>
                 <li>ses dégâts sont multipliés par l'écart de taille - Large vs Moyen = normaux ; Enorme vs Moyen = x2 ; Monstrueux vs Moyen = x3.</li>
                 <li>tous ses coups qui touchent une cible plus petite déclenchent la règle du <em>Coup Fatal</em>, même si la cible survit.</li>
                 <li>il cause la <em>Peur</em> à ses adversaires <strong>plus petits d'une taille</strong>, et au delà la <em>Terreur</em> avec un Taux égal à l'écart de taille.</li>
@@ -128,7 +127,7 @@
         <div class="section">
             <h5>Conditions</h5>
             <p class="text-justify">
-                <AptitudeItemList Items=@_aptSvc.Conditions />
+                <AptitudeItemList Items=@AptSvc.Conditions />
             </p>
         </div>
     </div>
@@ -143,7 +142,7 @@
             </p>
             <h5>Gagner des Avantages</h5>
             <ul>
-                <li>attaquer un ennemi <AptitudeItem Item=@_aptSvc.ConditionSurpris /> confère +1 Avantage</li>
+                <li>attaquer un ennemi <AptitudeItem Item=@AptSvc.ConditionSurpris /> confère +1 Avantage</li>
                 <li><strong>charger</strong> un adversaire confère +1 Avantage</li>
                 <li>remporter un <strong>Test Opposé</strong> confère +1 Avantage</li>
                 <li>blesser un adversaire sans recourir à un Test Opposé confère +1 Avantage</li>
@@ -162,9 +161,9 @@
             <h5>Mouvement et distances</h5>
             <p class="text-justify">
                 Indique combien de mètres vous pouvez parcourir en un seul Tour.
-                Vous pouvez utiliser <AptitudeItem Item="@_aptSvc.CompetenceAthletisme" /> pour augmenter cette distance en sprintant.
+                Vous pouvez utiliser <AptitudeItem Item="@AptSvc.CompetenceAthletisme" /> pour augmenter cette distance en sprintant.
             </p>
-            <TableDetail Item=@_tablesService.GetTable(67) FixedColSize=35 MasquerTitre=true MasquerDescription=true />
+            <TableDetail Item=@TablesService.GetTable(67) FixedColSize=35 MasquerTitre=true MasquerDescription=true />
         </div>
     </div>
 </div>
@@ -175,9 +174,9 @@
     <div class="col ps-0 pe-4">
         <h3>Attaquer au corps à corps</h3>
         <p class="text-justify">
-            L'attaquant fait un <strong>Test Opposé</strong> de <AptitudeItem Item=@_aptSvc.CompetenceGroupeMelee /> / <AptitudeItem Item=@_aptSvc.CompetenceGroupeMelee /> ou <AptitudeItem Item=@_aptSvc.CompetenceEsquive /> avec son adversaire.<br />
+            L'attaquant fait un <strong>Test Opposé</strong> de <AptitudeItem Item=@AptSvc.CompetenceGroupeMelee /> / <AptitudeItem Item=@AptSvc.CompetenceGroupeMelee /> ou <AptitudeItem Item=@AptSvc.CompetenceEsquive /> avec son adversaire.<br />
             Celui qui a le plus gros BS l'emporte et gagne +1 Avantage. Si les BS sont identiques, on ajoute le dé des unités.<br />
-            Si c'est l'attaquant il frappe son adversaire et calcule ses dégâts et leur localisation. Il peut ensuite utiliser les talents <AptitudeItem Item=@_aptSvc.TalentAssautBrutal /> ou <AptitudeItem Item=@_aptSvc.TalentDechainement />.<br />
+            Si c'est l'attaquant il frappe son adversaire et calcule ses dégâts et leur localisation. Il peut ensuite utiliser les talents <AptitudeItem Item=@AptSvc.TalentAssautBrutal /> ou <AptitudeItem Item=@AptSvc.TalentDechainement />.<br />
             L'Action de l'attaquant est ensuite terminée.<br />
             Notez qu'en tant attaquant, vous pouvez ainsi toucher même en ratant votre jet. Cependant, votre BS sera alors négatif (BS -10) et viendra réduire vos dégâts.<br />
             La seule exception est un <strong>Echec Critique</strong>, auquel cas le Test Opposé est considéré comme échoué : vous perdez donc tout vos Avantages et faites un jet sur la <a href="table-coups-critiques/fumbles/">Table des Maladresses</a>.
@@ -192,12 +191,12 @@
         <h5>Charger</h5>
         <p class="text-justify">
             Si vous n'êtes pas déjà engagé, vous pouvez utiliser votre Déplacement pour <strong>Charger</strong>.
-            Votre Action sera un test de <AptitudeItem Item="@_aptSvc.CompetenceGroupeMelee" /> pour attaquer votre adversaire.
+            Votre Action sera un test de <AptitudeItem Item="@AptSvc.CompetenceGroupeMelee" /> pour attaquer votre adversaire.
             Si votre adversaire est à une distance comprise entre votre valeur de Mouvement et votre valeur de Course, vous gagnez un Avantage avant de frapper.
             <br />
-            La Compétence <AptitudeItem Item="@_aptSvc.TalentChargeBerserk" /> vient augmenter vos dégâts.
+            La Compétence <AptitudeItem Item="@AptSvc.TalentChargeBerserk" /> vient augmenter vos dégâts.
             <br />
-            Un personnage ciblé par une Charge peut se défendre en opposant un jet de <AptitudeItem Item=@_aptSvc.CompetenceGroupeMelee />, d'<AptitudeItem Item=@_aptSvc.CompetenceEsquive /> ou en utilisant le talent <AptitudeItem Item=@_aptSvc.TalentFrappeReactive />.
+            Un personnage ciblé par une Charge peut se défendre en opposant un jet de <AptitudeItem Item=@AptSvc.CompetenceGroupeMelee />, d'<AptitudeItem Item=@AptSvc.CompetenceEsquive /> ou en utilisant le talent <AptitudeItem Item=@AptSvc.TalentFrappeReactive />.
         </p>
         <h5>Combat rapproché</h5>
         <p class="text-justify">
@@ -210,12 +209,12 @@
             Chaque fois que vous êtes attaqué en Mélée, généralement au Tour d'un des adversaires, vous pouvez vous défendre ainsi :
         </p>
         <ul>
-            <li>en opposant un jet de <AptitudeItem Item=@_aptSvc.CompetenceGroupeMelee /> (approrié à l'arme avec laquelle vous vous défendez)</li>
-            <li>en opposant un jet d'<AptitudeItem Item=@_aptSvc.CompetenceEsquive /></li>
+            <li>en opposant un jet de <AptitudeItem Item=@AptSvc.CompetenceGroupeMelee /> (approrié à l'arme avec laquelle vous vous défendez)</li>
+            <li>en opposant un jet d'<AptitudeItem Item=@AptSvc.CompetenceEsquive /></li>
         </ul>
         <p class="text-justify">
-            En remportant le test opposé avec un jet de Mélée en tant que Défenseur, vous n'infligez pas de dégâts - à moins que vous ne disposiez du talent <AptitudeItem Item=@_aptSvc.TalentRiposte />.
-            En revanche, l'attaquant perd ses Avantages et vous en gagnez 1 - ou plus, avec le talent <AptitudeItem Item=@_aptSvc.TalentRetournement />.
+            En remportant le test opposé avec un jet de Mélée en tant que Défenseur, vous n'infligez pas de dégâts - à moins que vous ne disposiez du talent <AptitudeItem Item=@AptSvc.TalentRiposte />.
+            En revanche, l'attaquant perd ses Avantages et vous en gagnez 1 - ou plus, avec le talent <AptitudeItem Item=@AptSvc.TalentRetournement />.
         </p>
         <h5>Se Désengager ou Fuir</h5>
         <p class="text-justify">
@@ -224,12 +223,12 @@
         <ul>
             <li>Utiliser votre <strong>Avantage</strong> : si vous avez plus d'Avantage que vos adversaire (cumulés), vous êtes en position supérieur et pouvez facilement vous mettre hors de portée. Votre Avantage retombe à 0 mais vous pourrez vous éloigner, puis charger à nouveau, fuir, ou prendre un peu de recul pour tirer sur un adversaire.</li>
             <li>
-                Utiliser l'<AptitudeItem Item=@_aptSvc.CompetenceEsquive /> : si vous n'avez pas l'Avantage ou souhaitez le conserver, vous êtes contraint d'utiliser votre Action pour un <strong>Test Opposé d'Esquive / Mélée</strong>.
+                Utiliser l'<AptitudeItem Item=@AptSvc.CompetenceEsquive /> : si vous n'avez pas l'Avantage ou souhaitez le conserver, vous êtes contraint d'utiliser votre Action pour un <strong>Test Opposé d'Esquive / Mélée</strong>.
                 Sur une réussite vous gagnez 1 Avantage et pouvez utiliser votre Deplacement pour vous éloigner. Sinon, chaque adversaire qui l'emporte gagne 1 Avantage et à droit à une attaque d'opportunité.
             </li>
             <li>
                 Vous pouvez délibéremment ou non <strong>Fuir</strong> auquel cas tous vos adversaires gagnent immédiatement 1 Avantage et ont droit à une attaque d'opportunité (test non opposé de Mélée) avec un bonus de +20.
-                Si vous êtes touché, chaque adversaire gagne 1 Avantage et vous devez réussir un test de <AptitudeItem Item=@_aptSvc.CompetenceSangFroid /> ou gagner une Condition <AptitudeItem Item=@_aptSvc.ConditionDemoralise />, plus une supplémentaire par BS en dessous de 0.
+                Si vous êtes touché, chaque adversaire gagne 1 Avantage et vous devez réussir un test de <AptitudeItem Item=@AptSvc.CompetenceSangFroid /> ou gagner une Condition <AptitudeItem Item=@AptSvc.ConditionDemoralise />, plus une supplémentaire par BS en dessous de 0.
                 Cela résolu, vous pouvez vous éloigner de votre Mouvement de Course si vous en êtes encore capable.
             </li>
         </ul>
@@ -248,14 +247,14 @@
             <Tooltip Text="Si les Blessures effectives vous amènent à 0, toutes les Blessures supplémentaires sont des Blessures Critiques">
                 <strong>Blessures Critiques</strong>
             </Tooltip> + <strong>1d4</strong>.<br />
-            Le talent <AptitudeItem Item=@_aptSvc.TalentCoupsPrécis /> augmente cette valeur de 2.<br />
+            Le talent <AptitudeItem Item=@AptSvc.TalentCoupsPrécis /> augmente cette valeur de 2.<br />
             On consulte alors le résultat dans la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a> de la zone appropriée.<br />
         </p>
         <h5>Localisation des coups/tirs</h5>
         <p class="text-justify">
-            Le talent <AptitudeItem Item=@_aptSvc.TalentCoupsPrécis /> peut modifier la jet.
+            Le talent <AptitudeItem Item=@AptSvc.TalentCoupsPrécis /> peut modifier la jet.
         </p>
-        <TableDetail Item=@_tablesService.GetTable(64) MasquerTitre=true MasquerDescription=true />
+        <TableDetail Item=@TablesService.GetTable(64) MasquerTitre=true MasquerDescription=true />
     </div>
 </div>
 
@@ -265,16 +264,16 @@
     <div class="col">
         <h3>Attaquer à distance</h3>
         <p class="text-justify">
-            L'attaquant fait un Test de <AptitudeItem Item=@_aptSvc.CompetenceGroupeTir />.<br />
+            L'attaquant fait un Test de <AptitudeItem Item=@AptSvc.CompetenceGroupeTir />.<br />
             S'il réussi il gagne +1 Avantage, touche son adversaire et calcule ses dégâts et leur localisation.<br />
             L'Action de l'attaquant est ensuite terminée.<br />
         </p>
         <ul>
-            <li>Vous ne pouvez effectuer d'attaque à distance en étant <strong>Engagé</strong> que si votre arme à l'attribut <AttributDArmeItem Item=@_armesService.AttributProtection />.</li>
-            <li>Si vous utilisez <AptitudeItem Item=@_aptSvc.CompetenceGroupeTir /> en étant <strong>Engagé</strong> avec votre cible, la cible peut Opposer votre Tir avec une compétence <AptitudeItem Item=@_aptSvc.CompetenceGroupeMelee />.</li>
-            <li>Les Tirs ne peuvent être Opposées avec une compétence Mélée à moins que la cible n'utilise un bouclier suffisamment large avec l'attribut <AttributDArmeItem Item=@_armesService.AttributProtection />, ou si le Tir est à bout portant, auquel cas il est aussi possible d'utiliser l'<AptitudeItem Item=@_aptSvc.CompetenceEsquive />.</li>
+            <li>Vous ne pouvez effectuer d'attaque à distance en étant <strong>Engagé</strong> que si votre arme à l'attribut <AttributDArmeItem Item=@ArmesService.AttributProtection />.</li>
+            <li>Si vous utilisez <AptitudeItem Item=@AptSvc.CompetenceGroupeTir /> en étant <strong>Engagé</strong> avec votre cible, la cible peut Opposer votre Tir avec une compétence <AptitudeItem Item=@AptSvc.CompetenceGroupeMelee />.</li>
+            <li>Les Tirs ne peuvent être Opposées avec une compétence Mélée à moins que la cible n'utilise un bouclier suffisamment large avec l'attribut <AttributDArmeItem Item=@ArmesService.AttributProtection />, ou si le Tir est à bout portant, auquel cas il est aussi possible d'utiliser l'<AptitudeItem Item=@AptSvc.CompetenceEsquive />.</li>
         </ul>
-        <AptitudeItemList Items=@(new[] { _aptSvc.TalentAdresseAuTir, _aptSvc.TalentTirEclair, _aptSvc.TalentTirDePrecision, _aptSvc.TalentTirEnPuissance, _aptSvc.TalentTirParfaits, _aptSvc.TalentRechergementRapide }) />
+        <AptitudeItemList Items=@(new[] { AptSvc.TalentAdresseAuTir, AptSvc.TalentTirEclair, AptSvc.TalentTirDePrecision, AptSvc.TalentTirEnPuissance, AptSvc.TalentTirParfaits, AptSvc.TalentRechergementRapide }) />
     </div>
     <div class="col">
         <h5>Shooting into melee</h5>

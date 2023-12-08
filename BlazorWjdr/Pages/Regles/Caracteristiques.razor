@@ -3,19 +3,19 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Table
 
-@inject AptitudesService _service
-@inject TablesService _tableService
-@inject AppState _appState
+@inject AptitudesService Service
+@inject TablesService TablesService
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Caractéristiques");
+        AppState.SetMainTopRowTitle("Caractéristiques");
     }
 
-    private AptitudeDto[] GetByCarac(string carac) =>
-        _service.AllCompetences.Where(c =>
+    private IEnumerable<AptitudeDto> GetByCarac(string carac) =>
+        Service.AllCompetences.Where(c =>
             (c.CaracteristiqueAssociee == carac || c.CaracteristiqueAssociee.StartsWith($"{carac}/") || c.CaracteristiqueAssociee.EndsWith($"/{carac}"))
-            && c.Parent is null).ToArray();
+            && c.Parent is null);
 }
 <div class="row">
     <div class="col-4">
@@ -42,7 +42,7 @@
         <div class="section">
             <h5>B - Blessures</h5>
             <p class="text-justify">Vos points de vie, le nombre de blessures que vous pouvez subir avant de prendre des <a href="regles/blessures/">Coups Critiques</a>.</p>
-            <TableDetail Item=@_tableService.GetTable(66) />
+            <TableDetail Item=@TablesService.GetTable(66) />
         </div>
     </div>
 

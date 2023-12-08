@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Components.Carriere
 
-@inject CarrieresService _carrieresService
+@inject CarrieresService CarrSvc
 @code {
     [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
     private bool AfficherSousElements { get; set; }
@@ -10,7 +10,7 @@
 
     protected override void OnInitialized()
     {
-        _carrieresLiees = _carrieresService.GetCarrieresProposant(Item);
+        _carrieresLiees = CarrSvc.GetCarrieresProposant(Item);
     }
 }
 <tr>

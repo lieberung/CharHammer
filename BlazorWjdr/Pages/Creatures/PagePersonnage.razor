@@ -3,9 +3,9 @@
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Lieu
 
-@inject BestiolesService _bestiolesService
-@inject CampagnesService _campagnesService
-@inject AppState _appState
+@inject BestiolesService Service
+@inject CampagnesService CampagnesService
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CreatureId { get; set; } = null!;
 
@@ -13,8 +13,8 @@
 
     protected override void OnParametersSet()
     {
-        Item = _bestiolesService.GetBestiole(int.Parse(CreatureId));
-        _appState.SetMainTopRowTitle("Créé le " + Item.DateDeCreation);
+        Item = Service.GetBestiole(int.Parse(CreatureId));
+        AppState.SetMainTopRowTitle("Créé le " + Item.DateDeCreation);
     }
 }
 <div class="row pt-2">
@@ -121,7 +121,7 @@
 
     <div class="row">
         <div class="col-8">
-            @foreach (var campagne in _campagnesService.CampagnesAuxquellesAParticipe(Item))
+            @foreach (var campagne in CampagnesService.CampagnesAuxquellesAParticipe(Item))
             {
                 <h3>Historique de Campagne - @campagne.Titre</h3>
                 <div class="section">

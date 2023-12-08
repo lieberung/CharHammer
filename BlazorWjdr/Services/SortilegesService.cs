@@ -2,7 +2,6 @@
 
 using Models;
 using System.Collections.Generic;
-using System.Linq;
 
 public class SortilegesService
 {
@@ -13,6 +12,6 @@ public class SortilegesService
         _cacheSortileges = sortileges;
     }
 
-    public List<SortilegeDto> AllSortileges => _cacheSortileges.Values.ToList();
-    public SortilegeDto GetRace(int id) => _cacheSortileges[id];
+    public IEnumerable<SortilegeDto> AllSortileges => _cacheSortileges.Values;
+    //public SortilegeDto GetSortilege(int id) => _cacheSortileges[id];
 }

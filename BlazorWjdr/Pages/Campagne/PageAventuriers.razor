@@ -7,8 +7,8 @@
 @using BlazorWjdr.Components.Sortilege
 @using System.Linq
 
-@inject CampagnesService _campagnesService
-@inject AppState _appState
+@inject CampagnesService Service
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
 
@@ -20,11 +20,11 @@
 
     protected override void OnParametersSet()
     {
-        _campagne = _campagnesService.AllCampagnes().First(c => c.Id == int.Parse(CampagneId));
+        _campagne = Service.AllCampagnes().First(c => c.Id == int.Parse(CampagneId));
         _seancePrecedente = _campagne.SeancePrecedente();
         _seanceActuelle = _campagne.SeanceActuelle();
 
-        _appState.SetMainTopRowTitle(_campagne.Titre);
+        AppState.SetMainTopRowTitle(_campagne.Titre);
 
         _aptitudes = _seanceActuelle.Pjs
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))

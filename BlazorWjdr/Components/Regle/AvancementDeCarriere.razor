@@ -1,8 +1,8 @@
 ﻿@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
 
-@inject CarrieresService _carrSvc
-@inject AptitudesService _ctSvc
+@inject CarrieresService CarrSvc
+@inject AptitudesService CtSvc
 
 <h3>Avancement de carrière</h3>
 <p class="text-justify">
@@ -20,53 +20,53 @@
         <tr>
             <td>
                 <ul>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(73)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(333)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(197)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(154)"/></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(73) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(333) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(197) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(154) /></li>
                 </ul>
             </td>
             <td>
                 <ul>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(77)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(199)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(667)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(198)"/></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(77) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(199) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(667) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(198) /></li>
                 </ul>
             </td>
             <td>
                 <ul>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(80)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(183)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(191)"/></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(80) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(183) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(191) /></li>
                 </ul>
             </td>
             <td>
                 <ul>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(52)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(189)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(190)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(172)"/></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(52) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(189) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(190) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(172) /></li>
                 </ul>
             </td>
             <td>
                 <ul>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(41)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(110)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(254)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(252)"/></li>
-                    <li><CarriereItem Item="@_carrSvc.GetCarriere(253)"/></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(41) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(110) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(254) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(252) /></li>
+                    <li><CarriereItem Item=@CarrSvc.GetCarriere(253) /></li>
                 </ul>
             </td>            
         </tr>
     </tbody>
 </table>
 <p class="text-justify">
-    Par exemple, si vous étiez <CarriereItem Item="@_carrSvc.GetCarriere(73)"/> et que vous devenez <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>, vous pouvez acheter une seconde fois la compétence <AptitudeItem Item="@_ctSvc.CompetenceEscalade"/>, même si elle ne figure plus dans la carrière de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/>.
+    Par exemple, si vous étiez <CarriereItem Item=@CarrSvc.GetCarriere(73) /> et que vous devenez <CarriereItem Item=@CarrSvc.GetCarriere(333) />, vous pouvez acheter une seconde fois la compétence <AptitudeItem Item=@CtSvc.CompetenceEscalade />, même si elle ne figure plus dans la carrière de <CarriereItem Item=@CarrSvc.GetCarriere(333) />.
     <br/>
-    En devenant <CarriereItem Item="@_carrSvc.GetCarriere(197)"/>, vous pourrez acheter <AptitudeItem Item="@_ctSvc.CompetenceEscalade"/> une troisième fois, et les compétences de <CarriereItem Item="@_carrSvc.GetCarriere(333)"/> une seconde fois, et ainsi de suite.
+    En devenant <CarriereItem Item=@CarrSvc.GetCarriere(197) />, vous pourrez acheter <AptitudeItem Item=@CtSvc.CompetenceEscalade /> une troisième fois, et les compétences de <CarriereItem Item=@CarrSvc.GetCarriere(333) /> une seconde fois, et ainsi de suite.
 </p>
 <h5>Theory crafting</h5>
 <p class="text-justify">
-    Votre personnage, Georges, dispose d'une Capacité de Combat de 31 et a tiré le carrière initiale de <CarriereItem Item="@_carrSvc.GetCarriere(73)"/>. Il complète soigneusement sa carrière  
+    Votre personnage, Georges, dispose d'une Capacité de Combat de 31 et a tiré le carrière initiale de <CarriereItem Item=@CarrSvc.GetCarriere(73) />. Il complète soigneusement sa carrière  
 </p>

@@ -2,8 +2,8 @@
 
 @using BlazorWjdr.Components.Aptitude
 
-@inject RacesService _racesService
-@inject AppState _appState
+@inject RacesService Service
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string Race { get; set; } = null!;
 
@@ -15,16 +15,16 @@
     {
         _race = Race switch
         {
-            "humains" => _racesService.Humains,
-            "halflings" => _racesService.Halflings,
-            "nains" => _racesService.Nains,
-            "gnomes" => _racesService.Gnomes,
-            "elfes-sylvains" => _racesService.ElfesSylvains,
-            "hauts-elfes" => _racesService.HautsElfes,
+            "humains" => Service.Humains,
+            "halflings" => Service.Halflings,
+            "nains" => Service.Nains,
+            "gnomes" => Service.Gnomes,
+            "elfes-sylvains" => Service.ElfesSylvains,
+            "hauts-elfes" => Service.HautsElfes,
             _ => _race
         };
 
-        _aptitudesInnees = _race == _racesService.Humains ? _racesService.HumainsImperiaux.Aptitudes : _race!.Aptitudes;
+        _aptitudesInnees = _race == Service.Humains ? Service.HumainsImperiaux.Aptitudes : _race!.Aptitudes;
 
         @for (var i = 0; i < _race!.Autochtones.Length; i++)
         {
@@ -33,7 +33,7 @@
                 _autochtones = _autochtones.ToUpper();
         }
 
-        _appState.SetMainTopRowTitle("Les " + _autochtones);
+        AppState.SetMainTopRowTitle("Les " + _autochtones);
     }
 }
 <div class="row">
@@ -68,7 +68,7 @@
     <div class="col-4">
         <div class="section">
             <h3 class="mb-3">Ce que les autres pensent d'eux...</h3>
-            @foreach (var race in _racesService.AllRaces.Where(r => r.Opinions.Any(o => o.Race == _race)))
+            @foreach (var race in Service.AllRaces.Where(r => r.Opinions.Any(o => o.Race == _race)))
             {
                 @foreach (var opinion in race.Opinions.Where(o => o.Race == _race))
                 {

@@ -3,7 +3,7 @@
 @using BlazorWjdr.Components.Campagne
 @using BlazorWjdr.Shared.Oi
 
-@inject AppState _appState
+@inject AppState AppState
 @code{
     [Parameter, EditorRequired] public SeanceDto Item { get; set; } = null!;
     [Parameter] public int CampagneId { get; set; }
@@ -19,7 +19,7 @@
     <td class="px-2">@Item.Quand</td>
     <td class="px-2"><span class="insister">@Item.Titre</span></td>
     <td class="px-2">
-        @if (Item.Scenario != null && _appState.JeSuisDieu)
+        @if (Item.Scenario != null && AppState.JeSuisDieu)
         {
             <a href="@Item.Scenario.Lien">@Item.Scenario.Nom</a>
         }

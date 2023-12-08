@@ -1,35 +1,4 @@
 ﻿@using BlazorWjdr.Shared.Oi
-
-<a href="@(Item.EstUneCreature ? "creatures" : "personnages")/@Item.Id.ToString()/" class="btn btn-light btn-item">
-    @if (Item.EstUnPersonnageJoueur)
-    {
-        <Tooltip Text="@_tooltipNomJoueur">
-            <ItemIcon Icon="person"/>
-        </Tooltip>
-    }
-    else if (Item.EstUnPersonnage && Item.EstUnPersonnageJoueur == false)
-    {
-        <Tooltip Text="@Item.Description">
-            <ItemIcon Icon="person"/>
-        </Tooltip>
-    }
-    else
-    {
-        <Tooltip Text="@Item.Description">
-            <ItemIcon Icon="bug"/>
-        </Tooltip>
-    }
-    <span class="ms-1">@(Nom ?? Item.Nom)</span>
-    @if (MasquerCarriere == false && Item.CheminementPro.Any())
-    {
-        <span>, @Item.CarriereActuelle?.Nom</span>
-    }
-    @if (!Item.EstUnPersonnageJoueur && Item.Notes != "")
-    {
-        <TooltipIcon Icon="info" Classes="ms-2" Style="color:#aa0101;" Text=@Item.Notes />
-    }
-    @ChildContent
-</a>
 @code{
     [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
     [Parameter] public string? Nom { get; set; }
@@ -46,13 +15,41 @@
         if (Item.Origines.Any())
         {
             _origines = Item.Origines.First().Nom;
-            if (Item.Origines.First().Parent != null)
+            if (Item.Origines.First().Parent is not null)
                 _origines += $", {Item.Origines.First().Parent!.Nom}";
         }
 
         if (Item.EstUnPersonnageJoueur)
             _tooltipNomJoueur = $"Créé le {Item.DateDeCreation} par {Item.Joueur}\nRace : {_nomRace}\nOrigines : {_origines}\n{Item.Notes}";
-        
-        base.OnParametersSet();
     }
 }
+<a href="@(Item.EstUneCreature ? "creatures" : "personnages")/@Item.Id.ToString()/" class="btn btn-light btn-item">
+    @if (Item.EstUnPersonnageJoueur)
+    {
+        <Tooltip Text=@_tooltipNomJoueur>
+            <ItemIcon Icon="person"/>
+        </Tooltip>
+    }
+    else if (Item is { EstUnPersonnage: true, EstUnPersonnageJoueur: false })
+    {
+        <Tooltip Text=@Item.Description>
+            <ItemIcon Icon="person"/>
+        </Tooltip>
+    }
+    else
+    {
+        <Tooltip Text=@Item.Description>
+            <ItemIcon Icon="bug"/>
+        </Tooltip>
+    }
+    <span class="ms-1">@(Nom ?? Item.Nom)</span>
+    @if (MasquerCarriere == false && Item.CheminementPro.Any())
+    {
+        <span>, @Item.CarriereActuelle?.Nom</span>
+    }
+    @if (!Item.EstUnPersonnageJoueur && Item.Notes != "")
+    {
+        <TooltipIcon Icon="info" Classes="ms-2" Style="color:#aa0101;" Text=@Item.Notes />
+    }
+    @ChildContent
+</a>

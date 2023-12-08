@@ -20,7 +20,7 @@
         }
         else
         {
-            <Notation Note="@Item.Note"/>
+            <Notation Note=@Item.Note />
         }
     </td>
     @if (LigneCourte == false)
@@ -34,11 +34,11 @@
         <td>
             @if (Item.LieuxTypes.Any())
             {
-                <LieuTypeItemList Items="@Item.LieuxTypes"/>
+                <LieuTypeItemList Items=@Item.LieuxTypes />
             }
             @if (Item.Lieux.Any())
             {
-                <LieuItemList Items="@Item.Lieux"/>
+                <LieuItemList Items=@Item.Lieux />
             }
         </td>
         <td>
@@ -90,14 +90,14 @@
                     }
                     @if (Item.LieuxTypes.Any())
                     {
-                        <LieuTypeItemList Items="@Item.LieuxTypes"/>
+                        <LieuTypeItemList Items=@Item.LieuxTypes />
                     }
                     @if (Item.Lieux.Any())
                     {
-                        <LieuItemList Items="@Item.Lieux"/>
+                        <LieuItemList Items=@Item.Lieux />
                     }
                 }
-                <CardParagraphes Text="@Item.Resume"/>
+                <CardParagraphes Text=@Item.Resume />
             </div>
         </td>
     </tr>

@@ -1,40 +1,40 @@
 ﻿@page "/scenarios/"
+@layout FluidLayout
 
 @using BlazorWjdr.Components.Campagne
 
-@inject ScenariosService _scenariosService
-@inject AppState _appState
+@inject ScenariosService Service
+@inject AppState AppState
 @code {
-    private string Filtre { get; set; } = "";
-    private string Auteur { get; set; } = "";
-    private bool PasDeDaubes { get; set; } = true;
+    string Filtre { get; set; } = "";
+    string Auteur { get; set; } = "";
+    bool PasDeDaubes { get; set; } = true;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Scénarios");
+        AppState.SetMainTopRowTitle("Scénarios");
     }
 }
-<div class="row">
-    <div class="col-1">
-    </div>
-    <div class="col-4">
-        <input type="text" @bind-value="@Filtre" @bind-value:event="oninput" placeholder="Filtrer" />
-        <label for="cbo-auteur" class="ms-5">Auteur</label>
-        <select id="cbo-auteur" @bind="@Auteur">
-            <option value="" style="color:gray;"></option>
-            @foreach (var a in _scenariosService.AllAuteurs())
-            {
-                <option value="@a">@a</option>
-            }
-        </select>
-        <input class="ms-5" type="checkbox" @bind="@PasDeDaubes" /><span>Masquer les daubes</span>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-12">
-        <div class="section">
-            <ScenarioTable Items=@_scenariosService.AllScenarios(PasDeDaubes, Filtre, Auteur) />
+<div class="px-5 py-2">
+    <div class="navbar">
+        <span>
+            <input class="form-control" type="text" @bind-value="@Filtre" @bind-value:event="oninput" placeholder="Filtrer"/>
+        </span>
+        <span>
+            <select class="form-select d-inline-block" @bind="@Auteur">
+                <option value="" style="color:gray;"></option>
+                @foreach (var a in Service.AllAuteurs())
+                {
+                    <option value="@a">@a</option>
+                }
+            </select>
+        </span>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" @bind="@PasDeDaubes" id="chkDaubes">
+            <label class="form-check-label" for="chkDaubes">
+                Masquer les daubes
+            </label>
         </div>
     </div>
 </div>
+<ScenarioTable Items=@Service.AllScenarios(PasDeDaubes, Filtre, Auteur)/>

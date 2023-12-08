@@ -4,10 +4,10 @@
 @using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Aptitude
 
-@inject AptitudesService _aptitudesService
-@inject ArmesService _armesService
-@inject CarrieresService _carrieresService
-@inject AppState _appState
+@inject AptitudesService Service
+@inject ArmesService ArmesService
+@inject CarrieresService CarrieresService
+@inject AppState AppState
 @code {
     [Parameter] public string CompetenceId { get; set; } = null!;
 
@@ -16,13 +16,13 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Compétence");
+        AppState.SetMainTopRowTitle("Compétence");
     }
 
     protected override void OnParametersSet()
     {
-        Item = _aptitudesService.GetAptitude(int.Parse(CompetenceId));
-        _carrieres = _carrieresService.GetCarrieresProposant(Item);
+        Item = Service.GetAptitude(int.Parse(CompetenceId));
+        _carrieres = CarrieresService.GetCarrieresProposant(Item);
     }
 }
 <div class="row">
@@ -43,12 +43,12 @@
                 </p>
             </div>
         }
-        @if (_aptitudesService.DonneAccesADesArmes(Item))
+        @if (Service.DonneAccesADesArmes(Item))
         {
             <div class="section pe-0">
                 <h3>Armes accessibles via ce talent</h3>
                 <p>
-                    <ArmeItemList Items=@_armesService.GetArmesDeMaitrise(Item) />
+                    <ArmeItemList Items=@ArmesService.GetArmesDeMaitrise(Item) />
                 </p>
             </div>
         }

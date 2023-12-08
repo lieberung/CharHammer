@@ -1,4 +1,4 @@
-﻿<Tooltip Text="@_help">
+﻿<Tooltip Text=@_help>
     <strong style="cursor:help;">Niveau @Niveau</strong>
 </Tooltip>
 @code {
@@ -14,7 +14,5 @@
             _help += "Vous ne pouvez acheter qu'une seule fois chaque Compétence proposée par cette carrière.";
         else
             _help += "Vous pouvez acheter jusqu'à "+Niveau+" fois chaque Compétence proposée par cette carrière.";
-        base.OnParametersSet();
     }
-
 }

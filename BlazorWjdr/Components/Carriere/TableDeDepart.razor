@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Components.Reference
 
-@inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
+@inject TableDesCarrieresInitialesService Service
 
 <table>
     <tbody>
@@ -75,7 +75,7 @@
 
     protected override void OnParametersSet()
     {
-        _allLines = _tableDesCarrieresInitialesService.AllLignes[int.Parse(RaceId)];
+        _allLines = Service.AllLignes[int.Parse(RaceId)];
 
         var nb = _allLines.Count / _nbColonnes;
         if (_allLines.Count % _nbColonnes != 0)

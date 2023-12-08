@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BlazorWjdr.Models;
 
@@ -28,16 +29,15 @@ public class CampagneDto
     public SeanceDto SeancePrecedente() => Seances.Where(s => s.Secret == false).OrderByDescending(s => s.Quand).First();
     public SeanceDto SeanceActuelle() => Seances.Where(s => s.Secret).OrderBy(s => s.Quand).First();
     
-    public SeanceDto[] SeancesPourLActe(int acte, bool godMode) => Seances
+    public IEnumerable<SeanceDto> SeancesPourLActe(int acte, bool godMode) => Seances
             .Where(s => s.Acte == acte && (godMode || s.Secret == false))
-            .OrderBy(s => s.Quand)
-            .ToArray();
+            .OrderBy(s => s.Quand);
 }
 
 public class SeanceDto
 {
     public string Quand { get; init; } = null!;
-    public bool Secret { get; set; }
+    public bool Secret { get; init; }
     public int Acte { get; init; }
     public string Debut { get; init; } = null!;
     public int Duree { get; init; }
@@ -54,12 +54,12 @@ public class SeanceDto
 
 public class ContactDeCampagneDto
 {
-    public BestioleDto Pnj { get; set; } = null!;
-    public LieuDto LieuDeRencontre { get; set; } = null!;
-    public LieuDto? LieuDeResidence { get; set; }
+    public BestioleDto Pnj { get; init; } = null!;
+    public LieuDto LieuDeRencontre { get; init; } = null!;
+    public LieuDto? LieuDeResidence { get; init; }
     public CarriereDto[] ProposeLesCarrieres { get; set; } = null!;
-    public string[] Notes { get; set; } = null!;
-    public string Description { get; set; } = null!;
+    public string[] Notes { get; init; } = null!;
+    public string Description { get; init; } = null!;
 }
 
 public class FactDto

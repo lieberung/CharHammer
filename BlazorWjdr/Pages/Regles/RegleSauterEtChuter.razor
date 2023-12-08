@@ -3,14 +3,13 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Table
 
-@inject ReglesService _reglesService
-@inject TablesService _tablesService
-@inject AptitudesService _aptSvc
-@inject AppState _appState
+@inject TablesService TablesSvc
+@inject AptitudesService AptSvc
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("");
+        AppState.SetMainTopRowTitle("");
     }
 }
 <div class="row">
@@ -21,7 +20,7 @@
                 Sauter pour atteindre des rebords élevés, sauter d'un toit à l'autre, ou échouer les deux et dégringoler vers votre mort sont tous des éléments essentiels de l'expérience WFRP.
             </p>
             <p class="text-justify">
-                De simples tests d'<AptitudeItem Item=@_aptSvc.CompetenceAthletisme />, ou peut-être un test de <AptitudeItem Item=@_aptSvc.GetAptitude(1116) />, seront suffisants pour déterminer le résultat dans la plupart des cas, mais il est parfois utile de savoir exactement à quelle hauteur vous sautez, à quelle distance vous sautez ou les conséquences d'une chute.
+                De simples tests d'<AptitudeItem Item=@AptSvc.CompetenceAthletisme />, ou peut-être un test de <AptitudeItem Item=@AptSvc.GetAptitude(1116) />, seront suffisants pour déterminer le résultat dans la plupart des cas, mais il est parfois utile de savoir exactement à quelle hauteur vous sautez, à quelle distance vous sautez ou les conséquences d'une chute.
             </p>
 
             <h5>Sauter</h5>
@@ -56,7 +55,7 @@
 
     <div class="col-4">
         <div class="section">
-            <TableDetail Item=@_tablesService.GetTable(67) />
+            <TableDetail Item=@TablesSvc.GetTable(67) />
         </div>
     </div>
 

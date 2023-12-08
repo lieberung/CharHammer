@@ -38,7 +38,7 @@ public class ArmesService
     public List<ArmeDto> GetArmesDeMaitrise(AptitudeDto maitrise) =>
         AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == maitrise.Id)).OrderBy(a => a.Nom).ToList();
 
-    public IEnumerable<ArmeDto> GetArmes(IEnumerable<int> ids) => ids.Select(GetArme).ToArray();
+    public IEnumerable<ArmeDto> GetArmes(IEnumerable<int> ids) => ids.Select(GetArme);
 
     private ArmeDto GetArme(int id) => _cacheArme[id];
 
@@ -89,7 +89,7 @@ public class ArmesService
         get
         {
             if (_armesADistancePourTable == null)
-                _armesADistancePourTable = new Dictionary<string, List<ArmeDto>>
+                _armesADistancePourTable = new()
                 {
                     { "Arbalètes", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirArbaletes)).ToList() },
                     { "Arcs", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirArcs)).ToList() },

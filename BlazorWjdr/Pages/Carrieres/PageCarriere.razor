@@ -4,8 +4,8 @@
 @using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Profil
 
-@inject CarrieresService CarrieresService
-@inject AppState _appState
+@inject CarrieresService Service
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CarriereId { get; set; } = null!;
 
@@ -13,31 +13,31 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Carrière");
+        AppState.SetMainTopRowTitle("Carrière");
     }
 
     protected override void OnParametersSet()
     {
-        Item = CarrieresService.GetCarriere(int.Parse(CarriereId));
+        Item = Service.GetCarriere(int.Parse(CarriereId));
     }
 }
 <div class="row">
 
-    <div class="col-6 pe-0">
+    <div class="col pe-0">
         <div class="section pt-0 pe-0">
             <h1>@Item.Nom</h1>
             <CarriereDescription Item=@Item AfficherCitations=true />
         </div>
     </div>
 
-    <div class="col-5">
+    <div class="col">
         <div class="section">
             <h4>Plan de carrière</h4>
-            <p class="text-justify">
+            <p>
                 <Profil PlanDeCarriere=@Item.PlanDeCarriere />
             </p>
 
-            <p class="text-justify">
+            <p>
                 <CarriereNiveau Niveau=@Item.Niveau />
                 @if (Item.CompetenceDeMetier != null)
                 {
@@ -54,37 +54,37 @@
             </p>
 
             <h4>Compétences</h4>
-            <p class="text-justify">
+            <p>
                 <AptitudeItemList Items=@Item.Competences ItemsChoix=@Item.ChoixCompetences />
             </p>
 
             <h4>Talents</h4>
-            <p class="text-justify">
+            <p>
                 <AptitudeItemList Items=@Item.Talents ItemsChoix=@Item.ChoixTalents />
             </p>
 
             @if (Item.ProposeAuMoinsUnTrait)
             {
                 <h4>Traits</h4>
-                <p class="text-justify">
+                <p>
                     <AptitudeItemList Items=@Item.Traits ItemsChoix=@Item.ChoixTraits />
                 </p>
             }
 
             <h4>Dotations</h4>
-            <p class="text-justify">
+            <p>
                 <CarriereDotations Item=@Item />
             </p>
         </div>
 
         <div class="section mt-2">
             <h4>Débouchés</h4>
-            <p class="text-justify">
+            <p>
                 <CarriereItemList Items=@Item.Debouches SpecialCarriereId=@Item.DebouchesDAvancements.Select(a => a.Id) />
             </p>
 
             <h4>Filières</h4>
-            <p class="text-justify">
+            <p>
                 @if (Item.Filieres.Any())
                 {
                     <CarriereItemList Items=@Item.Filieres SpecialCarriereId=@Item.FilieresDAvancement.Select(a => a.Id) HideIndicatorRestriction=true />

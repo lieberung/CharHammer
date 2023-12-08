@@ -1,16 +1,16 @@
 ﻿@using BlazorWjdr.Components.Sortilege
 
-@inject AptitudesService _aptitudesService
-@inject ArmesService _armesService
-@inject SortilegesService _sortilegesService
+@inject AptitudesService AptSvc
+@inject ArmesService ArmesService
+@inject SortilegesService SortilegesSvc
 @code {
     [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
 
-    private List<AptitudeDto> _competencesLiees = new();
-    private List<AptitudeDto> _talentsLies = new();
-    private List<AptitudeDto> _traitsLies = new();
+    private IEnumerable<AptitudeDto> _competencesLiees = ArraySegment<AptitudeDto>.Empty;
+    private IEnumerable<AptitudeDto> _talentsLies = ArraySegment<AptitudeDto>.Empty;
+    private IEnumerable<AptitudeDto> _traitsLies = ArraySegment<AptitudeDto>.Empty;
 
-    private List<ArmeDto> _armesLiees = new();
+    private IEnumerable<ArmeDto> _armesLiees = ArraySegment<ArmeDto>.Empty;
 
     private string _description = null!;
 
@@ -22,11 +22,11 @@
         _talentsLies = Item.TalentsLies;
         _traitsLies = Item.TraitsLies;
 
-        if (Item.Parent == _aptitudesService.CompetenceGroupeMelee ||
-            Item.Parent == _aptitudesService.CompetenceGroupeTir ||
-            Item == _aptitudesService.CompetenceGroupeExplosifs)
+        if (Item.Parent == AptSvc.CompetenceGroupeMelee ||
+            Item.Parent == AptSvc.CompetenceGroupeTir ||
+            Item == AptSvc.CompetenceGroupeExplosifs)
         {
-            _armesLiees = _armesService.GetArmesDeMaitrise(Item);
+            _armesLiees = ArmesService.GetArmesDeMaitrise(Item);
         }
     }
 }
@@ -110,13 +110,13 @@
         </p>
     }
 }
-@if (Item.Parent == _aptitudesService.CompetenceScienceDeLaMagie)
+@if (Item.Parent == AptSvc.CompetenceScienceDeLaMagie)
 {
-    @if (_sortilegesService.AllSortileges.Any(s => s.Aptitudes.Contains(Item)))
+    @if (SortilegesSvc.AllSortileges.Any(s => s.Aptitudes.Contains(Item)))
     {
         <!--
         <h3>Sortilèges</h3>
-        <SortilegeItemList Items=@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)) />
+        <SortilegeItemList Items=@SortilegesSvc.AllSortileges.Where(s => s.Aptitudes.Contains(Item)) />
         -->
     }
 }

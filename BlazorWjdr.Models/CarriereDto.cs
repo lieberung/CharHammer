@@ -26,13 +26,13 @@ public class CarriereDto
 
     public string StatutPretty()
     {
-        return Statut[..1] switch
+        return string.Concat(Statut[..1] switch
         {
             "B" => "Bronze",
             "A" => "Argent",
             "O" => "Or",
             _ => "inconnu"
-        } + " " + Statut.Substring(1,1);
+        }, " ", Statut.AsSpan(1,1));
     }
 
     public string SalaireHebdo
@@ -68,21 +68,21 @@ public class CarriereDto
     public string Dotations { get; init; } = null!;
     public int? CarriereMereId { get; init; }
 
-    public string[] Images { get; set; } = Array.Empty<string>();
+    public IEnumerable<string> Images { get; } = Array.Empty<string>();
 
     public ProfilDto PlanDeCarriere { get; init; } = null!;
 
     public AptitudeDto? CompetenceDeMetier { get; set; }
-    public List<AptitudeDto> Aptitudes { get; set; } = new();
-    public List<AptitudeDto[]> AptitudesChoix { get; set; } = new();
+    public List<AptitudeDto> Aptitudes { get; init; } = new();
+    public List<AptitudeDto[]> AptitudesChoix { get; init; } = new();
 
-    public List<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).OrderBy(a => a.NomComplet).ToList();
-    public List<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).OrderBy(a => a.NomComplet).ToList();
-    public List<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).OrderBy(a => a.NomComplet).ToList();
+    public IEnumerable<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).OrderBy(a => a.NomComplet).ToList();
+    public IEnumerable<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).OrderBy(a => a.NomComplet).ToList();
+    public IEnumerable<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).OrderBy(a => a.NomComplet).ToList();
 
     public List<AptitudeDto[]> ChoixCompetences => AptitudesChoix.Where(choix => choix.First().EstUneCompetence).ToList();
     public List<AptitudeDto[]> ChoixTalents => AptitudesChoix.Where(choix => choix.First().EstUnTalent).ToList();
-    public List<AptitudeDto[]> ChoixTraits => AptitudesChoix.Where(choix => choix.First().EstUnTrait).ToList();
+    public IEnumerable<AptitudeDto[]> ChoixTraits => AptitudesChoix.Where(choix => choix.First().EstUnTrait);
     
     public bool ProposeAuMoinsUnTrait => Traits.Any() || ChoixTraits.Any();
     
@@ -110,21 +110,21 @@ public class CarriereDto
         }
     }
 
-    public int ScoreAcademique { get; set; }
-    public int ScoreMartialAuContact { get; set; }
-    public int ScoreMartialADistance { get; set; }
-    public int ScoreCavalerie { get; set; }
-    public int ScoreDeLOmbre { get; set; }
-    public int ScoreSocial { get; set; }
-    public int ScoreCommerce { get; set; }
-    public int ScoreArcanique { get; set; }
-    public int ScoreArtisanat { get; set; }
-    public int ScoreRodeur { get; set; }
-    public int ScoreMaritime { get; set; }
-    public int ScorePoudreNoire { get; set; }
-    public int ScoreAmiDesBetes { get; set; }
+    // public int ScoreAcademique { get; }
+    // public int ScoreMartialAuContact { get; }
+    // public int ScoreMartialADistance { get; set; }
+    // public int ScoreCavalerie { get; set; }
+    // public int ScoreDeLOmbre { get; set; }
+    // public int ScoreSocial { get; set; }
+    // public int ScoreCommerce { get; set; }
+    // public int ScoreArcanique { get; set; }
+    // public int ScoreArtisanat { get; set; }
+    // public int ScoreRodeur { get; set; }
+    // public int ScoreMaritime { get; set; }
+    // public int ScorePoudreNoire { get; set; }
+    // public int ScoreAmiDesBetes { get; set; }
 
-    public List<AptitudeDto> AptitudesPourScore {
+    public IEnumerable<AptitudeDto> AptitudesPourScore {
         get
         {
             var list = new List<AptitudeDto>();

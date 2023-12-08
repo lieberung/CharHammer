@@ -4,11 +4,10 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Sortilege
 
-@inject AptitudesService _cttService
-@inject CarrieresService _carrieresService
-@inject ArmesService _armesService
-@inject SortilegesService _sortilegesService
-@inject AppState _appState
+@inject AptitudesService Service
+@inject CarrieresService CarrieresService
+@inject SortilegesService SortilegesService
+@inject AppState AppState
 
 @code {
     [Parameter, EditorRequired] public string TalentId { get; set; } = null!;
@@ -19,13 +18,13 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Talent");
+        AppState.SetMainTopRowTitle("Talent");
     }
 
     protected override void OnParametersSet()
     {
-        Item = _cttService.GetTalent(int.Parse(TalentId));
-        _carrieres = _carrieresService.GetCarrieresProposant(Item);
+        Item = Service.GetTalent(int.Parse(TalentId));
+        _carrieres = CarrieresService.GetCarrieresProposant(Item);
     }
 }
 <div class="row">
@@ -53,7 +52,7 @@
             <div class="section pe-0">
                 <h3>Sortilèges accessibles via ce talent</h3>
                 <p>
-                    <SortilegeItemList Items=@_sortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)) />
+                    <SortilegeItemList Items=@SortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)) />
                 </p>
             </div>
         }

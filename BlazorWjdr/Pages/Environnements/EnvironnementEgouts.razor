@@ -5,33 +5,32 @@
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
 
-@inject AptitudesService _aptitudesService
-@inject ReglesService _reglesService
-@inject TablesService _tablesService
-@inject AppState _appState
+@inject ReglesService ReglesService
+@inject TablesService TablesService
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Environnement : Les égouts");
+        AppState.SetMainTopRowTitle("Environnement : Les égouts");
     }
 }
 <div class="row">
     <div class="col px-0">
         <div class="section">
             <h3>Aptitudes utiles dans les égouts</h3>
-            <AptitudeItemList Items=@_reglesService.GetRegle(240).Aptitudes />
+            <AptitudeItemList Items=@ReglesService.GetRegle(240).Aptitudes />
         </div>
-        <RegleBody Item=@_reglesService.GetRegle(246) />
-        <RegleBody Item=@_reglesService.GetRegle(245) />
+        <RegleBody Item=@ReglesService.GetRegle(246) />
+        <RegleBody Item=@ReglesService.GetRegle(245) />
     </div>
     <div class="col px-0">
-        <RegleBody Item=@_reglesService.GetRegle(244) />
-        <RegleBody Item=@_reglesService.GetRegle(243) />
+        <RegleBody Item=@ReglesService.GetRegle(244) />
+        <RegleBody Item=@ReglesService.GetRegle(243) />
         <img class="section position-absolute" alt="Plans des égouts" src="images/plans/egouts.png" />
     </div>
     <div class="col px-0">
-        <RegleBody Item=@_reglesService.GetRegle(241) />
-        <RegleBody Item=@_reglesService.GetRegle(242) />
+        <RegleBody Item=@ReglesService.GetRegle(241) />
+        <RegleBody Item=@ReglesService.GetRegle(242) />
     </div>
 </div>
 
@@ -41,27 +40,27 @@
     <div class="col px-0">
         <div class="section">
             <h3>Idées de rencontres (1d100)</h3>
-            <TableDetail Item=@_tablesService.GetTable(103) MasquerTitre=true />
+            <TableDetail Item=@TablesService.GetTable(103) MasquerTitre=true />
         </div>
-        <RegleBody Item=@_reglesService.GetRegle(252) />
-        <RegleBody Item=@_reglesService.GetRegle(256) />
+        <RegleBody Item=@ReglesService.GetRegle(252) />
+        <RegleBody Item=@ReglesService.GetRegle(256) />
         <div class="section">
             <img class="mw-100" alt="Ambiance" src="images/ambiance/egouts.png" />
         </div>
     </div>
     <div class="col px-0">
-        <RegleBody Item=@_reglesService.GetRegle(251) />
-        <RegleBody Item=@_reglesService.GetRegle(253) />
-        <RegleBody Item=@_reglesService.GetRegle(257) />
+        <RegleBody Item=@ReglesService.GetRegle(251) />
+        <RegleBody Item=@ReglesService.GetRegle(253) />
+        <RegleBody Item=@ReglesService.GetRegle(257) />
     </div>
     <div class="col px-0">
-        <RegleBody Item=@_reglesService.GetRegle(255) />
-        <RegleBody Item=@_reglesService.GetRegle(259) />
-        <RegleBody Item=@_reglesService.GetRegle(258) />
-        <RegleBody Item=@_reglesService.GetRegle(254) />
+        <RegleBody Item=@ReglesService.GetRegle(255) />
+        <RegleBody Item=@ReglesService.GetRegle(259) />
+        <RegleBody Item=@ReglesService.GetRegle(258) />
+        <RegleBody Item=@ReglesService.GetRegle(254) />
         <div class="section">
             <h3>Carrières familières avec les égouts</h3>
-            <CarriereItemList Items=@_reglesService.GetRegle(240).Carrieres />
+            <CarriereItemList Items=@ReglesService.GetRegle(240).Carrieres />
         </div>
     </div>
 </div>

@@ -1,11 +1,10 @@
 ﻿@page "/regles/destin-resilience/"
 
-@inject AptitudesService _service
-@inject AppState _appState
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Destin & Fortune, Résilience & Résolution");
+        AppState.SetMainTopRowTitle("Destin & Fortune, Résilience & Résolution");
     }
 }
 <div class="row">

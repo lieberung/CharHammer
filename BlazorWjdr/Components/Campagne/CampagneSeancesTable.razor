@@ -1,4 +1,4 @@
-﻿@inject AppState _appState
+﻿@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public CampagneDto Campagne { get; set; } = null!;
     [Parameter] public int Acte { get; set; }
@@ -17,7 +17,7 @@
          </tr>
     </thead>
     <tbody>
-    @foreach (var seance in Campagne.SeancesPourLActe(Acte, _appState.JeSuisDieu).OrderByDescending(s => s.Quand))
+    @foreach (var seance in Campagne.SeancesPourLActe(Acte, AppState.JeSuisDieu).OrderByDescending(s => s.Quand))
     {
         <SeanceRow Item=@seance CampagneId=@Campagne.Id />
     }

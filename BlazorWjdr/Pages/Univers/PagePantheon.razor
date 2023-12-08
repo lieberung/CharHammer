@@ -1,11 +1,10 @@
 ﻿@page "/univers/pantheon/"
 
-@inject DieuxService _dieuxSvc
-@inject AppState _appState
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Le Panthéon Divin");
+        AppState.SetMainTopRowTitle("Le Panthéon Divin");
     }
 }
 <h2>Dieux de l'Empire</h2>

@@ -1,10 +1,10 @@
 ﻿@page "/equipement-de-depart/"
 
-@inject AppState _appState
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Equipement de Départ par Vocation");
+        AppState.SetMainTopRowTitle("Equipement de Départ par Vocation");
     }
 }
 <div class="row py-3">

@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Components.Table
 
-@inject TablesService _tablesService
+@inject TablesService TablesService
 <div class="row">
     <div class="col-4">
         <PageSectionRowTitle Title="2. Déterminer ses caractéristiques" />
@@ -17,7 +17,7 @@
     </div>
     <div class="col-8">
         <div class="section">
-            <TableDetail Item=@_tablesService.GetTable(11) MasquerTitre=true />
+            <TableDetail Item=@TablesService.GetTable(11) MasquerTitre=true />
         </div>
     </div>
 </div>
@@ -25,14 +25,14 @@
 <div class="row">
     <div class="col-5">
         <div class="section">
-            <TableDetail Item=@_tablesService.GetTable(12) FixedColSize="35"/>
+            <TableDetail Item=@TablesService.GetTable(12) FixedColSize="35"/>
         </div>
     </div>
     <div class="col-1">
     </div>
     <div class="col-5">
         <div class="section">
-            <TableDetail Item=@_tablesService.GetTable(13) FixedColSize="50"/>
+            <TableDetail Item=@TablesService.GetTable(13) FixedColSize="50"/>
         </div>
     </div>
 </div>

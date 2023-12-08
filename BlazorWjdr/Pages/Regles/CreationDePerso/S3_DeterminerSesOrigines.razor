@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Components.Table
 
-@inject TablesService _tablesService
+@inject TablesService Service
 @code {
     [Parameter, EditorRequired] public RaceSelectionnee Selection { get; set; } = null!;
 }
@@ -11,27 +11,27 @@
         <div class="section">
             @if (Selection.RaceDesElfesSylvainsSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(25) />
+                <TableDetail Item=@Service.GetTable(25) />
             }
             @if (Selection.RaceDesHautsElfesSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(30) />
+                <TableDetail Item=@Service.GetTable(30) />
             }
             @if (Selection.RaceDesGnomesSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(26) />
+                <TableDetail Item=@Service.GetTable(26) />
             }
             @if (Selection.RaceDesHalflingsSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(27) />
+                <TableDetail Item=@Service.GetTable(27) />
             }
             @if (Selection.RaceDesHumainsSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(28) />
+                <TableDetail Item=@Service.GetTable(28) />
             }
             @if (Selection.RaceDesNainsSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(29) />
+                <TableDetail Item=@Service.GetTable(29) />
             }
         </div>
     </div>
@@ -39,7 +39,7 @@
         @if (Selection.RaceDesGnomesSelectionnee || Selection.RaceDesHalflingsSelectionnee || Selection.RaceDesNainsSelectionnee)
         {
             <div class="section">
-                <TableDetail Item=@_tablesService.GetTable(28) />
+                <TableDetail Item=@Service.GetTable(28) />
             </div>
         }
     </div>

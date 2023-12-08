@@ -3,9 +3,8 @@
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Lieu
 
-@inject BestiolesService _bestiolesService
-@inject CampagnesService _campagnesService
-@inject AppState _appState
+@inject BestiolesService BestiolesService
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CreatureId { get; set; } = null!;
 
@@ -13,12 +12,12 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Bestiaire");
+        AppState.SetMainTopRowTitle("Bestiaire");
     }
 
     protected override void OnParametersSet()
     {
-        Item = _bestiolesService.GetBestiole(int.Parse(CreatureId));
+        Item = BestiolesService.GetBestiole(int.Parse(CreatureId));
     }
 }
 <div class="row">

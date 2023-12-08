@@ -3,9 +3,9 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
 
-@inject AptitudesService _aptitudesService
-@inject CarrieresService _carrieresService
-@inject AppState _appState
+@inject AptitudesService Service
+@inject CarrieresService CarrieresService
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string TraitId { get; set; } = null!;
 
@@ -14,14 +14,14 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Trait");
+        AppState.SetMainTopRowTitle("Trait");
     }
 
     protected override void OnParametersSet()
     {
-        Item = _aptitudesService.GetAptitude(int.Parse(TraitId));
-        _appState.SetMainTopRowTitle(Item.CategSpe);
-        _carrieres = _carrieresService.GetCarrieresProposant(Item);
+        Item = Service.GetAptitude(int.Parse(TraitId));
+        AppState.SetMainTopRowTitle(Item.CategSpe);
+        _carrieres = CarrieresService.GetCarrieresProposant(Item);
     }
 }
 <div class="row">

@@ -1,9 +1,9 @@
 ﻿@using BlazorWjdr.Components.Bestiole
 
-@inject BestiolesService _bestiolesService
+@inject BestiolesService Service
 
 <h4>Dernières recrues</h4>
-@foreach (var aventurier in _bestiolesService.AllPjs.OrderByDescending(pj => pj.DateDeCreation))
+@foreach (var aventurier in Service.AllPjs.OrderByDescending(pj => pj.DateDeCreation))
 {
     <div><BestioleItem Item=@aventurier /></div>
 }

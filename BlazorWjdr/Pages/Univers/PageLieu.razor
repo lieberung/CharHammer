@@ -3,34 +3,33 @@
 @using BlazorWjdr.Components.Lieu
 @using BlazorWjdr.Components.Campagne
 
-@inject LieuxService _lieuxService
-@inject ScenariosService _scenariosService
-@inject AppState _appState
+@inject LieuxService Service
+@inject ScenariosService ScenariosService
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string LieuId { get; set; } = null!;
 
     private LieuDto Item { get; set; } = null!;
-    private ScenarioDto[] _scenarios = Array.Empty<ScenarioDto>();
+    private IEnumerable<ScenarioDto> _scenarios = Array.Empty<ScenarioDto>();
     private string _topRowTitle = "";
 
     protected override void OnParametersSet()
     {
-        Item = _lieuxService.GetLieu(int.Parse(LieuId));
+        Item = Service.GetLieu(int.Parse(LieuId));
 
         _topRowTitle = $"{Item.Nom}, {Item.TypeDeLieu.Nom}";
         if (Item.Parent != null)
             _topRowTitle += $" ({Item.Parent?.Nom})";
-        _appState.SetMainTopRowTitle(_topRowTitle);
+        AppState.SetMainTopRowTitle(_topRowTitle);
 
-        if (_appState.JeSuisDieu)
+        if (AppState.JeSuisDieu)
         {
             var lieux = new List<LieuDto> { Item };
             if (Item.SousElements.Any())
                 lieux.AddRange(Item.SousElements);
-            _scenarios = _scenariosService
+            _scenarios = ScenariosService
                 .AllScenarios(lieux.ToArray(), Array.Empty<LieuTypeDto>())
-                .Where(s => s.Note is 0 or > 2)
-                .ToArray();
+                .Where(s => s.Note is 0 or > 2);
         }
 
     }

@@ -1,15 +1,15 @@
-﻿@inject AppState _appState
+﻿@inject AppState AppState
 <PageTitle>
-    @_appState.PageHeadTitle
+    @AppState.PageHeadTitle
 </PageTitle>
 
 <div class="navbar fixed-top">
     <div class="container">
         <span>
             <HomeIcon />
-            @if (_appState.MainTopRowTitle != "")
+            @if (AppState.MainTopRowTitle != "")
             {
-                <span class="h2 ms-3">@_appState.MainTopRowTitle</span>
+                <span class="h2 ms-3">@AppState.MainTopRowTitle</span>
             }
         </span>
         <MainTopRowSearchBar />

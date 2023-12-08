@@ -1,10 +1,10 @@
 ﻿@page "/univers/introduction/"
 
-@inject AppState _appState
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Le Monde de Warhammer");
+        AppState.SetMainTopRowTitle("Le Monde de Warhammer");
     }
 }
 <div class="row">

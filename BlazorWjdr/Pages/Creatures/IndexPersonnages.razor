@@ -2,33 +2,33 @@
 
 @using BlazorWjdr.Components.Bestiole
 
-@inject BestiolesService _bestiolesService
-@inject AppState _appState
+@inject BestiolesService Service
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Personnages");
+        AppState.SetMainTopRowTitle("Personnages");
     }
 }
 <div class="row">
     <div class="col-6">
         <div class="section">
             <h3>Archétypes de PNJs</h3>
-            <BestioleTable Items=@_bestiolesService.AllArchetypes />
+            <BestioleTable Items=@Service.AllArchetypes />
         </div>
         <div class="section">
             <h3>Personnages incarnés par le meneur de jeu</h3>
-            <BestioleTable Items=@_bestiolesService.AllPnjs(_appState.JeSuisDieu) />
+            <BestioleTable Items=@Service.AllPnjs(AppState.JeSuisDieu) />
         </div>
     </div>
     <div class="col-6">
         <div class="section">
             <h3>Personnages incarnés par des joueurs</h3>
-            <BestioleTable Items=@_bestiolesService.AllPjs />
+            <BestioleTable Items=@Service.AllPjs />
         </div>
         <div class="section">
             <h3>Personnages prétirés</h3>
-            <BestioleTable Items=@_bestiolesService.AllPretires />
+            <BestioleTable Items=@Service.AllPretires />
         </div>
     </div>
 </div>

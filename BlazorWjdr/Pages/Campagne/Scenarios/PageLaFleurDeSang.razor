@@ -1,11 +1,10 @@
 ﻿@page "/scenarios/la-fleur-de-sang/"
 
-@inject ScenariosService _scenariosService
-@inject AppState _appState
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("La Fleur de Sang");
+        AppState.SetMainTopRowTitle("La Fleur de Sang");
     }
 }
 <h3>Introduction</h3>

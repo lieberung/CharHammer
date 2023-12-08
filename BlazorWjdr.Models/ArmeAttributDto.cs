@@ -2,8 +2,8 @@
 
 public class ArmeAttributDto
 {
-    public int Id { get; set; }
-    public string Type { get; set; } = null!;
-    public string Nom { get; set; } = null!;
-    public string Description { get; set; } = null!;
+    public int Id { get; init; }
+    public string Type { get; init; } = null!;
+    public string Nom { get; init; } = null!;
+    public string Description { get; init; } = null!;
 }

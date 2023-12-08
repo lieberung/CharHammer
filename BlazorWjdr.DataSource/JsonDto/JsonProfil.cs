@@ -1,27 +1,4 @@
-﻿// ReSharper disable InconsistentNaming
-// ReSharper disable ClassNeverInstantiated.Global
-// ReSharper disable UnusedAutoPropertyAccessor.Global
-namespace BlazorWjdr.DataSource.JsonDto;
+﻿namespace BlazorWjdr.DataSource.JsonDto;
 
-using System.Collections.Generic;
+public record JsonProfil(int cc, int ct, int f, int e, int i, int ag, int dex, int intel, int fm, int soc, int m, int b);
 
-public class JsonProfil
-{
-    public int cc { get; set; }
-    public int ct { get; set; }
-    public int f { get; set; }
-    public int e { get; set; }
-    public int i { get; set; }
-    public int ag { get; set; }
-    public int dex { get; set; }
-    public int intel { get; set; }
-    public int fm { get; set; }
-    public int soc { get; set; }
-    public int m { get; set; }
-    public int b { get; set; }
-}
-
-public class RootProfil
-{
-    public List<JsonProfil> items { get; set; } = null!;
-}

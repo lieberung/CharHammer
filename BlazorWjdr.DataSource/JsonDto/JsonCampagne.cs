@@ -1,82 +1,45 @@
-﻿// ReSharper disable InconsistentNaming
-// ReSharper disable ClassNeverInstantiated.Global
-// ReSharper disable UnusedAutoPropertyAccessor.Global
-namespace BlazorWjdr.DataSource.JsonDto;
+﻿namespace BlazorWjdr.DataSource.JsonDto;
 
-public class JsonUser
-{
-    public int id { get; set; }
-    public string email { get; set; } = null!;
-    public string pseudo { get; set; } = null!;
-}
+public record JsonUser(int id, string email, string pseudo);
 
-public class JsonContactDeCampagne
-{
-    public int pnj { get; set; }
-    public int lieu_de_rencontre { get; set; }
-    public int lieu_de_residence { get; set; }
-    public int[]? employeur { get; set; }
-    public string[]? notes { get; set; }
-    public string? description { get; set; }
-}
+public record JsonContactDeCampagne(
+    int pnj,
+    int lieu_de_rencontre,
+    int lieu_de_residence,
+    int[]? employeur,
+    string[]? notes,
+    string? description);
 
-public class JsonCampagne
-{
-    public int id { get; set; }
-    public string titre { get; set; } = null!;
-    public int mj { get; set; }
-    public int team { get; set; }
-    public JsonSeance[]? seances { get; set; }
-    public JsonContactDeCampagne[]? contacts { get; set; }
-}
+public record JsonCampagne(
+    int id,
+    string titre,
+    int mj,
+    int team,
+    JsonSeance[]? seances,
+    JsonContactDeCampagne[]? contacts);
 
-public class JsonTeam
-{
-    public int id { get; set; }
-    public string nom { get; set; } = null!;
-}
+public record JsonTeam(int id, string nom);
 
-public class JsonFact
-{
-    public int tri { get; set; }
-    public int[]? pjs { get; set; }
-    public string fact { get; set; } = null!;
-}
+public record JsonFact(int tri, int[]? pjs, string fact);
 
-public class JsonRencontre
-{
-    public string groupe { get; init; } = null!;
-    public JsonCombattant[]? ennemis { get; set; }
-    public JsonCombattant[]? allies { get; set; }
-}
+public record JsonRencontre(string groupe, JsonCombattant[]? ennemis, JsonCombattant[]? allies);
 
-public class JsonCombattant
-{
-    public int id { get; set; }
-    public string? nom { get; set; }
-}
+public record JsonCombattant(int id, string? nom);
 
-public class JsonSeance
-{
-    public string quand { get; set; } = null!;
-    public bool secret { get; set; }
-    public int acte { get; set; }
-    public string? debut { get; set; }
-    public int duree { get; set; }
-    public string titre { get; set; } = null!;
-    public string? scenario { get; set; } = null!;
-    public int xp { get; set; }
-    public string? xp_comment { get; set; }
-    public string? resume { get; set; }
-    public int[]? lieux { get; set; }
-    public int[]? pjs { get; set; }
-    public JsonFact[]? facts { get; set; }
-    public JsonRencontre[]? rencontres { get; set; }
-}
+public record JsonSeance(
+    string quand,
+    bool secret,
+    int acte,
+    string? debut,
+    int duree,
+    string titre,
+    string? scenario,
+    int xp,
+    string? xp_comment,
+    string? resume,
+    int[]? lieux,
+    int[]? pjs,
+    JsonFact[]? facts,
+    JsonRencontre[]? rencontres);
 
-public class RootCampagne
-{
-    public JsonUser[] users { get; set; } = null!;
-    public JsonCampagne[] campagnes { get; set; } = null!;
-    public JsonTeam[] teams { get; set; } = null!;
-}
+public record RootCampagne(JsonUser[] users, JsonCampagne[] campagnes, JsonTeam[] teams);

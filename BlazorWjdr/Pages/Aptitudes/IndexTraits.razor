@@ -2,12 +2,12 @@
 
 @using BlazorWjdr.Components.Aptitude
 
-@inject AptitudesService _cttService
-@inject AppState _appState
+@inject AptitudesService Service
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Traits");
+        AppState.SetMainTopRowTitle("Traits");
     }
 }
 <div class="section">
@@ -21,7 +21,7 @@
         <tr><th></th><th></th><th style="width:275px">Trait</th><th>Catégorie</th><th>Aptitudes liées</th></tr>
     </thead>
     <tbody>
-        @foreach (var talent in _cttService.AllTraits.Where(t => t.Ignore == false && t.Parent is null))
+        @foreach (var talent in Service.AllTraits.Where(t => t is { Ignore: false, Parent: null }))
         {
             <TalentRow Item=@talent />
         }

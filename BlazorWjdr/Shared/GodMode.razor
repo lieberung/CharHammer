@@ -1,14 +1,11 @@
-﻿@inject AppState _appState
+﻿@inject AppState AppState
 @code{
     private void OnPasswordChange(ChangeEventArgs args)
     {
-        _appState.PretendreEtreUnDieu(Convert.ToString(args.Value) ?? string.Empty);
+        AppState.PretendreEtreUnDieu(Convert.ToString(args.Value) ?? string.Empty);
     }
 }
 <span class="btn-group">
-    <OiLock Locked="@(!_appState.JeSuisDieu)" />
-@if (!_appState.JeSuisDieu)
-{
-    <input placeholder="Password" @onchange="OnPasswordChange" class="rounded ms-1" />
-}
+    <OiLock Locked=@(!AppState.JeSuisDieu) />
+    <input placeholder="Password" @onchange="OnPasswordChange" class="ms-2 rounded@(AppState.JeSuisDieu ? " invisible" : "")" />
 </span>

@@ -1,12 +1,12 @@
 ﻿@using BlazorWjdr.Components.Bestiole
 
-@inject AppState _appState
+@inject AppState AppState
 @implements IDisposable
 @code{
     [Parameter, EditorRequired] public IEnumerable<CombattantDto> Protagonistes { get; set; } = null!;
 
-    protected override void OnInitialized() => _appState.OnChange += StateHasChanged;
-    public void Dispose() => _appState.OnChange -= StateHasChanged;
+    protected override void OnInitialized() => AppState.OnChange += StateHasChanged;
+    public void Dispose() => AppState.OnChange -= StateHasChanged;
 }
 <table class="table table-striped">
     <thead>

@@ -407,15 +407,15 @@ public class AptitudesService
 
     #region Traits
 
-    public List<AptitudeDto> SignesDistinctifs => AllTraits.Where(t => t.CategSpe == "trait").OrderBy(t => t.NomComplet).ToList();
-    public List<AptitudeDto> Folies => AllTraits.Where(t => t.CategSpe == "folie").ToList();
-    public List<AptitudeDto> Maladies => AllTraits.Where(t => t.CategSpe == "maladie").ToList();
-    public List<AptitudeDto> Mutations => AllTraits.Where(t => t.CategSpe == "mutation").ToList();
-    public List<AptitudeDto> Nevroses => AllTraits.Where(t => t.CategSpe == "nevrose").ToList();
-    public List<AptitudeDto> Addictions => AllTraits.Where(t => t.CategSpe == "addiction").ToList();
-    public List<AptitudeDto> Alergies => AllTraits.Where(t => t.CategSpe == "allergie").ToList();
-    public List<AptitudeDto> Phobies => AllTraits.Where(t => t.CategSpe == "phobie").ToList();
-    public List<AptitudeDto> Conditions => AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.NomComplet).ToList();
+    public IEnumerable<AptitudeDto> SignesDistinctifs => AllTraits.Where(t => t.CategSpe == "trait").OrderBy(t => t.NomComplet);
+    public IEnumerable<AptitudeDto> Folies => AllTraits.Where(t => t.CategSpe == "folie");
+    public IEnumerable<AptitudeDto> Maladies => AllTraits.Where(t => t.CategSpe == "maladie");
+    public IEnumerable<AptitudeDto> Mutations => AllTraits.Where(t => t.CategSpe == "mutation");
+    public IEnumerable<AptitudeDto> Nevroses => AllTraits.Where(t => t.CategSpe == "nevrose");
+    public IEnumerable<AptitudeDto> Addictions => AllTraits.Where(t => t.CategSpe == "addiction");
+    public IEnumerable<AptitudeDto> Alergies => AllTraits.Where(t => t.CategSpe == "allergie");
+    public IEnumerable<AptitudeDto> Phobies => AllTraits.Where(t => t.CategSpe == "phobie");
+    public IEnumerable<AptitudeDto> Conditions => AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.NomComplet);
 
     public AptitudeDto ConditionSurpris => GetTrait(3460);
     public AptitudeDto ConditionDemoralise => GetTrait(3453);
@@ -428,27 +428,28 @@ public class AptitudesService
     public AptitudeDto TraitPsychoAnimosite => GetTrait(3215);
     public AptitudeDto TraitEffrayant => GetTrait(3199);
 
-    public List<AptitudeDto> TroublesMineurs()
+    public IEnumerable<AptitudeDto> TroublesMineurs()
     {
         var list = new List<AptitudeDto>();
         list.AddRange(Alergies.Where(t => t.Severite == 1));
         list.AddRange(Nevroses.Where(t => t.Severite == 1));
         list.AddRange(Phobies.Where(t => t.Severite == 1));
-        return list.OrderBy(t => t.CategSpe).ThenBy(t => t.Nom).ToList();
+        return list.OrderBy(t => t.CategSpe).ThenBy(t => t.Nom);
     }
 
     public AptitudeDto TirerUnSigneAleatoire(List<AptitudeDto> traitsDejaObtenus)
     {
         AptitudeDto? ta = null;
-        while (ta == null
+        while (ta is null
                || traitsDejaObtenus.Contains(ta)
                || ta.Incompatibles.Intersect(traitsDejaObtenus).Any()
                || traitsDejaObtenus.Any(to => to.Incompatibles.Contains(ta))
         )
         {
             var sd = SignesDistinctifs;
-            var i = GenericService.RollIndex(sd.Count);
-            ta = sd[i];
+            var aptitudeDtos = sd as AptitudeDto[] ?? sd.ToArray();
+            var i = GenericService.RollIndex(aptitudeDtos.Length);
+            ta = aptitudeDtos.ElementAt(i);
         }
         return ta;
     }

@@ -4,29 +4,29 @@
 @using BlazorWjdr.Components.Bestiole
 @using BlazorWjdr.Components.Campagne
 
-@inject CampagnesService _campagnesService
-@inject AppState _appState
+@inject CampagnesService Service
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
     [Parameter, EditorRequired] public string DateSeance { get; set; } = null!;
 
     private RencontreDto? Rencontre { get; set; }
     private SeanceDto _seance = null!;
-    private AptitudeDto[] _aptitudes = null!;
+    private IEnumerable<AptitudeDto> _aptitudes = null!;
     private List<CombattantDto> _combattants = new();
     private string _localisationRoll = "...";
 
     protected override void OnParametersSet()
     {
-        var campagne = _campagnesService.AllCampagnes().First(c => c.Id == int.Parse(CampagneId));
+        var campagne = Service.AllCampagnes().First(c => c.Id == int.Parse(CampagneId));
         if (DateSeance == "seance-actuelle")
             _seance = campagne.SeanceActuelle();
         else if (DateSeance == "seance-precedente")
             _seance = campagne.SeancePrecedente();
         else
-            _seance = _campagnesService.GetSeance(int.Parse(CampagneId), DateSeance);
+            _seance = Service.GetSeance(int.Parse(CampagneId), DateSeance);
 
-        _appState.SetMainTopRowTitle(_seance.Quand + " - " + _seance.Titre);
+        AppState.SetMainTopRowTitle(_seance.Quand + " - " + _seance.Titre);
 
         _aptitudes = _seance.Pjs
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
@@ -66,7 +66,7 @@
     </div>
 </div>
 
-@if (_appState.JeSuisDieu)
+@if (AppState.JeSuisDieu)
 {
     <div class="row">
         <div class="col-8">

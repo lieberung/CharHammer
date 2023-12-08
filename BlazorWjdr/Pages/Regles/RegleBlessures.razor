@@ -4,17 +4,15 @@
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
 
-@inject ReglesService _reglesService
-@inject TablesService _tablesService
-@inject AptitudesService _aptSvc
-@inject AppState _appState
+@inject TablesService TablesService
+@inject AptitudesService AptSvc
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Les aléas de la vie d'aventurier");
+        AppState.SetMainTopRowTitle("Les aléas de la vie d'aventurier");
     }
 }
-
 <div class="row">
     <div class="col-4">
         <div class="section">
@@ -25,9 +23,9 @@
 
             <h5>Blessures Superficielles</h5>
             <p class="text-justify">
-                Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <AptitudeItem Item=@_aptSvc.ConditionATerre />.
+                Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <AptitudeItem Item=@AptSvc.ConditionATerre />.
                 <br />
-                Pire, si vous n'êtes pas soigné avant un nombre de Round égale à votre <BonusDeCarac Carac="E" />, vous perdez connaissance, gagnant ainsi une Condition <AptitudeItem Item=@_aptSvc.ConditionInconscient />.
+                Pire, si vous n'êtes pas soigné avant un nombre de Round égale à votre <BonusDeCarac Carac="E" />, vous perdez connaissance, gagnant ainsi une Condition <AptitudeItem Item=@AptSvc.ConditionInconscient />.
                 <br />
                 Dans les deux cas, vous ne pourrez pas perdre ces Conditions tant que vous n'avez pas récupéré au moins 1 Blessure.
             </p>
@@ -58,12 +56,12 @@
                 Vous êtes <strong>Légèrement Blessé</strong> dès lors que vous avez perdu 1 Blessure.
             </p>
             <p class="text-justify">
-                Sans soins médicaux, vous pouvez tenter un test de <AptitudeItem Item="@_aptSvc.CompetenceResistance" /> Moyen (+20) après une bonne nuit de sommeil une fois par jour.
+                Sans soins médicaux, vous pouvez tenter un test de <AptitudeItem Item="@AptSvc.CompetenceResistance" /> Moyen (+20) après une bonne nuit de sommeil une fois par jour.
                 Echec ou réussite, vous récupérez un nombre de Blessures égal à votre BS + votre <BonusDeCarac Carac="E" />.
                 Si ensuite vous passez une journée calme et reposante, vous récupérez un nombre de Blessures supplémentaire égal à votre <BonusDeCarac Carac="E" />.
             </p>
             <p class="text-justify">
-                L'utilisation de <AptitudeItem Item="@_aptSvc.CompetenceSoins" /> peut vous guérir davantage, ou encore l'accès à des bandages et à une trousse de soins.
+                L'utilisation de <AptitudeItem Item="@AptSvc.CompetenceSoins" /> peut vous guérir davantage, ou encore l'accès à des bandages et à une trousse de soins.
             </p>
 
             <h5>Blessures Critiques</h5>
@@ -71,13 +69,13 @@
                 Vous êtes <strong>Gravement Blessé</strong> dès lors que vous avez reçu des Blessures Critiques.
             </p>
             <p class="text-justify">
-                L'utilisation de <AptitudeItem Item=@_aptSvc.CompetenceSoins /> est généralement toujours possible, mais cela dépend des conséquences du Coup Critique.
+                L'utilisation de <AptitudeItem Item=@AptSvc.CompetenceSoins /> est généralement toujours possible, mais cela dépend des conséquences du Coup Critique.
                 Ces Blessures ne sont considérées comme soignées que lorsque tous les effets négatifs associés ont disparu, à l'exception d'éentuelles séquelles permanentes.
             </p>
 
             <h5>Soins médicaux et Chirugie</h5>
             <p class="text-justify">
-                Pour certaines Blessures, il sera précisé que des Soins médicaux ou de la Chirurgie sont requis, en l'occurence du matériel médical et les compétences <AptitudeItem Item=@_aptSvc.CompetenceSoins /> et <AptitudeItem Item=@_aptSvc.TalentChirurgie />.
+                Pour certaines Blessures, il sera précisé que des Soins médicaux ou de la Chirurgie sont requis, en l'occurence du matériel médical et les compétences <AptitudeItem Item=@AptSvc.CompetenceSoins /> et <AptitudeItem Item=@AptSvc.TalentChirurgie />.
             </p>
         </div>
 
@@ -109,7 +107,7 @@
                 If prepared, you can hold your breath for Toughness Bonus x 10 seconds without a Test. After that, you may start to suffocate or drown. If you are unprepared and suddenly deprived of air, you will start to suffocate immediately.
             </p>
             <p class="text-justify">
-                Each Round you are being suffocated you lose 1 Wound. Should you reach 0 Wounds, you immediately receive the <AptitudeItem Item=@_aptSvc.ConditionInconscient /> Condition. After that, you will die of suffocation or drowning in Toughness Bonus Rounds.
+                Each Round you are being suffocated you lose 1 Wound. Should you reach 0 Wounds, you immediately receive the <AptitudeItem Item=@AptSvc.ConditionInconscient /> Condition. After that, you will die of suffocation or drowning in Toughness Bonus Rounds.
             </p>
         </div>
 
@@ -124,7 +122,7 @@
             <p class="text-justify">
                 Une entorse ou un muscle froissé réduit vos capacités en plus d'être très douloureux. Vous subissez un malus de -10 à tous les jets impliquant la zone meurtrie. Si c'est une jambe, divisez également par 2 votre <strong>Mouvement</strong>.
                 <br />
-                <strong>Soins</strong> : une Déchirure Mineure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E" />) jours. Utiliser <AptitudeItem Item=@_aptSvc.CompetenceSoins /> réduit cette durée de 1+BS jours (appliquable une seule fois).
+                <strong>Soins</strong> : une Déchirure Mineure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E" />) jours. Utiliser <AptitudeItem Item=@AptSvc.CompetenceSoins /> réduit cette durée de 1+BS jours (appliquable une seule fois).
             </p>
             <h5>Déchirure Majeure</h5>
             <p class="text-justify">
@@ -134,7 +132,7 @@
                 <br />
                 <strong>Soins</strong> : une Déchirure Majeure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E" />) jours, suite à quoi les malus passeront à -10.
                 Il faudra à nouveau patienter ce même délai pour un rétablissement complet.
-                La Compétence <AptitudeItem Item="@_aptSvc.CompetenceSoins" /> n'y peut pas grand chose mais vous conseille de ne pas utiliser le membre impliqué !
+                La Compétence <AptitudeItem Item="@AptSvc.CompetenceSoins" /> n'y peut pas grand chose mais vous conseille de ne pas utiliser le membre impliqué !
             </p>
         </div>
 
@@ -149,24 +147,24 @@
                 En revanche la zone touchée est inutilisable jusqu'à ce que l'os se ressoude.
                 <ul>
                     <li><strong>bras ou jambe</strong> : vous avez probablement besoin d'une attèle ; consultez la partie Amputations pour connaître les conséquences.</li>
-                    <li><strong>tête</strong> : vous êtes condamné à un régime liquide et subissez un malus de -30 pour tous les tests relatifs au <AptitudeItem Item=@_aptSvc.CompetenceGroupeLangue />.</li>
+                    <li><strong>tête</strong> : vous êtes condamné à un régime liquide et subissez un malus de -30 pour tous les tests relatifs au <AptitudeItem Item=@AptSvc.CompetenceGroupeLangue />.</li>
                     <li><strong>torse</strong> : votre Force et votre Agilité sont sévèrement compromises, vous subissez un malus de -30 dans ces caractéristiques, et divisez par 2 votre Mouvement.</li>
                 </ul>
-                <strong>Soins</strong> : un os fracturé se réparera au bout de 30+1d10 jours. Suite à cela, un test réussi de <AptitudeItem Item=@_aptSvc.CompetenceResistance /> Moyen (+20) signifie que l'os s'est bien remis et ne laissera aucune séquelle.
+                <strong>Soins</strong> : un os fracturé se réparera au bout de 30+1d10 jours. Suite à cela, un test réussi de <AptitudeItem Item=@AptSvc.CompetenceResistance /> Moyen (+20) signifie que l'os s'est bien remis et ne laissera aucune séquelle.
                 Sur un échec, vous subirez des séquelles permanentes (voir tableau).
                 <br />
-                Un test de <AptitudeItem Item=@_aptSvc.CompetenceSoins /> Moyen (+20) réussi dans la semaine qui suit l'obtention de la fracture annule le besoin de faire le test de <AptitudeItem Item=@_aptSvc.CompetenceResistance /> mais la zone devra rester bandée et maintenue en place jusqu'à guérison.
-                Si le bandage est retiré avant, un nouveau test de <AptitudeItem Item=@_aptSvc.CompetenceSoins /> sera nécessaire.
+                Un test de <AptitudeItem Item=@AptSvc.CompetenceSoins /> Moyen (+20) réussi dans la semaine qui suit l'obtention de la fracture annule le besoin de faire le test de <AptitudeItem Item=@AptSvc.CompetenceResistance /> mais la zone devra rester bandée et maintenue en place jusqu'à guérison.
+                Si le bandage est retiré avant, un nouveau test de <AptitudeItem Item=@AptSvc.CompetenceSoins /> sera nécessaire.
             </p>
 
             <h5>Fracture Majeure</h5>
             <p class="text-justify">
-                Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <AptitudeItem Item=@_aptSvc.TalentChirurgie /> pour être soigné.
+                Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <AptitudeItem Item=@AptSvc.TalentChirurgie /> pour être soigné.
                 <br />
                 La zone touchée est inutilisable jusqu'à guérison. Utilisez les mêmes règles que pour une Fracture Mineure avec ces ajustements :
                 <ul>
                     <li>le temps de guérison prendra 10 jours de plus</li>
-                    <li>les tests associés de <AptitudeItem Item=@_aptSvc.CompetenceResistance /> et <AptitudeItem Item=@_aptSvc.CompetenceSoins /> sont effectués à +0</li>
+                    <li>les tests associés de <AptitudeItem Item=@AptSvc.CompetenceResistance /> et <AptitudeItem Item=@AptSvc.CompetenceSoins /> sont effectués à +0</li>
                     <li>les séquelles permanentes sont plus handicapantes (voir tableau)</li>
                 </ul>
             </p>
@@ -193,8 +191,8 @@
                         </tr>
                         <tr>
                             <td>Tête</td>
-                            <td>-5 en <AptitudeItem Item=@_aptSvc.CompetenceGroupeLangue /></td>
-                            <td>-15 en <AptitudeItem Item=@_aptSvc.CompetenceGroupeLangue /></td>
+                            <td>-5 en <AptitudeItem Item=@AptSvc.CompetenceGroupeLangue /></td>
+                            <td>-15 en <AptitudeItem Item=@AptSvc.CompetenceGroupeLangue /></td>
                         </tr>
                     </tbody>
                 </table>
@@ -206,17 +204,17 @@
         <div class="section">
             <h3>Privation d'eau et de nourriture</h3>
             <p class="text-justify">
-                Running out of provisions can be bad. Running out of water is worse. <AptitudeItem Item=@_aptSvc.CompetenceResistance /> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
+                Running out of provisions can be bad. Running out of water is worse. <AptitudeItem Item=@AptSvc.CompetenceResistance /> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
             </p>
 
             <h5>Mourrir de soif</h5>
             <p class="text-justify">
-                Every day without water requires you make an <AptitudeItem Item=@_aptSvc.CompetenceResistance /> test. The first failed Test causes a penalty of –10 Intelligence, Willpower, and Fellowship. Second and subsequent failures reduce all Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
+                Every day without water requires you make an <AptitudeItem Item=@AptSvc.CompetenceResistance /> test. The first failed Test causes a penalty of –10 Intelligence, Willpower, and Fellowship. Second and subsequent failures reduce all Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
             </p>
 
             <h5>Mourrir de faim</h5>
             <p class="text-justify">
-                Every 2 days without food require an <AptitudeItem Item=@_aptSvc.CompetenceResistance /> Test. The first failed Tests causes a penalty of –10 Strength and Toughness. Second and subsequent failures reduce all other Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
+                Every 2 days without food require an <AptitudeItem Item=@AptSvc.CompetenceResistance /> Test. The first failed Tests causes a penalty of –10 Strength and Toughness. Second and subsequent failures reduce all other Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
             </p>
         </div>
 
@@ -229,15 +227,15 @@
             <p class="text-justify">
                 L'amputation d'un membre, qu'elle soit due à un (très) mauvais coup ou une intervention chirurgicale peut-être compensée par une prothèse (voir le Guide du consommateur).
                 <br />
-                Quand vous subissez un Coup Critique dont l'effet est <strong>Amputation (difficulté)</strong>, vous devez réussir un test de <AptitudeItem Item=@_aptSvc.CompetenceResistance /> avec la difficulté spécifiée ou immédiatetement subir la Condition <AptitudeItem Item="@_aptSvc.ConditionATerre" />.
+                Quand vous subissez un Coup Critique dont l'effet est <strong>Amputation (difficulté)</strong>, vous devez réussir un test de <AptitudeItem Item=@AptSvc.CompetenceResistance /> avec la difficulté spécifiée ou immédiatetement subir la Condition <AptitudeItem Item="@AptSvc.ConditionATerre" />.
                 <br />
-                Sur un BS de -2 ou -3, vous subissez également la Condition <AptitudeItem Item=@_aptSvc.ConditionEtourdi />, et au delà la Condition <AptitudeItem Item=@_aptSvc.ConditionInconscient />.
+                Sur un BS de -2 ou -3, vous subissez également la Condition <AptitudeItem Item=@AptSvc.ConditionEtourdi />, et au delà la Condition <AptitudeItem Item=@AptSvc.ConditionInconscient />.
                 <br />
-                Toute membre amputé requiert de la <AptitudeItem Item=@_aptSvc.TalentChirurgie /> pour guérrir correctement, et aucune Blessure ne pourra être récupérée sans cela. Voir Chirurgie p.181.
+                Toute membre amputé requiert de la <AptitudeItem Item=@AptSvc.TalentChirurgie /> pour guérrir correctement, et aucune Blessure ne pourra être récupérée sans cela. Voir Chirurgie p.181.
             </p>
             <h5>Oreille</h5>
             <p class="text-justify">
-                Douloureux mais vous apprendrez rapidement à vivre avec. Si par malheur c'était votre dernière, vous subissez un malus permanent de -20 à tous les tests de <AptitudeItem Item=@_aptSvc.CompetencePerception /> liés à l'ouïe.
+                Douloureux mais vous apprendrez rapidement à vivre avec. Si par malheur c'était votre dernière, vous subissez un malus permanent de -20 à tous les tests de <AptitudeItem Item=@AptSvc.CompetencePerception /> liés à l'ouïe.
                 De plus vous subissez un malus de -5 par oreille à tout test de Sociabilité quand leur absence est visible.
             </p>
             <h5>Oeil</h5>
@@ -259,7 +257,7 @@
             </p>
             <h5>Langue</h5>
             <p class="text-justify">
-                La perte de votre langue vous empêche de vous exprimer autrement qu'en grognant et marmonant. Apprendre le langage des signes est votre seule option. Vous ne pouvez plus utiliser <AptitudeItem Item=@_aptSvc.CompetenceGroupeLangue />.
+                La perte de votre langue vous empêche de vous exprimer autrement qu'en grognant et marmonant. Apprendre le langage des signes est votre seule option. Vous ne pouvez plus utiliser <AptitudeItem Item=@AptSvc.CompetenceGroupeLangue />.
             </p>
             <h5>Doigts</h5>
             <p class="text-justify">
@@ -283,12 +281,12 @@
             </p>
             <h5>Pied</h5>
             <p class="text-justify">
-                Divisez votre Mouvement par 2 de manière permanente et subissez un malus de -20 à tous les tests basés sur la mobilité, comme <AptitudeItem Item=@_aptSvc.CompetenceEsquive />.
+                Divisez votre Mouvement par 2 de manière permanente et subissez un malus de -20 à tous les tests basés sur la mobilité, comme <AptitudeItem Item=@AptSvc.CompetenceEsquive />.
                 Perdre le deuxième pied va compliquer les choses. Peut-être pouvez-vous recruter un porteur ?
             </p>
             <h5>Jambe</h5>
             <p class="text-justify">
-                Idem que pour le pied, mais vous ne pouvez plus utiliser <AptitudeItem Item=@_aptSvc.CompetenceEsquive />.
+                Idem que pour le pied, mais vous ne pouvez plus utiliser <AptitudeItem Item=@AptSvc.CompetenceEsquive />.
             </p>
 
         </div>
@@ -322,7 +320,7 @@
                     Dans l’Empire, la qualité du service médical se décline suivant les quatre catégories habituelles. Les tarifs de base et les disponibilités sont conformes aux critères décrits dans le livre de base de WJDR (cf. page 104).
                 </p>
             </div>
-            <TableDetail Item=@_tablesService.GetTable(80) />
+            <TableDetail Item=@TablesService.GetTable(80) />
             <div class="section">
                 <h5>Disponibilité</h5>
                 <p class="text-justify">
@@ -399,7 +397,7 @@
                 </p>
             </div>
             <div class="section">
-                <TableDetail Item=@_tablesService.GetTable(83) />
+                <TableDetail Item=@TablesService.GetTable(83) />
             </div>
         </div>
 
@@ -415,10 +413,10 @@
                 </p>
             </div>
             <div class="section">
-                <TableDetail Item=@_tablesService.GetTable(81) />
+                <TableDetail Item=@TablesService.GetTable(81) />
             </div>
             <div class="section">
-                <TableDetail Item=@_tablesService.GetTable(82) />
+                <TableDetail Item=@TablesService.GetTable(82) />
             </div>
         </div>
         <div class="col-4">
@@ -446,7 +444,7 @@
                 <p class="text-justify">
                     La meilleure manière de procéder est de laver soigneusement la plaie à l’aide d’une solution alcoolisée, en réussissant un test de <strong>Dextérité</strong> Facile (+20%).
                     La blessure doit ensuite être nettoyée de la même manière et pansée de frais tous les jours, pendant trois jours, en renouvelant le test à chaque tentative.
-                    Si, au cours de ces trois jours, la ou les blessures ne sont pas nettoyées, ou mal nettoyées, le blessé devra effectuer un test de <AptitudeItem Item=@_aptSvc.CompetenceResistance /> pour résister
+                    Si, au cours de ces trois jours, la ou les blessures ne sont pas nettoyées, ou mal nettoyées, le blessé devra effectuer un test de <AptitudeItem Item=@AptSvc.CompetenceResistance /> pour résister
                     à l’infection, suivant la procédure normale.
                 </p>
                 <p class="text-justify">

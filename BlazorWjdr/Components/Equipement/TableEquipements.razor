@@ -1,5 +1,5 @@
 ﻿@code {
-    [Parameter, EditorRequired] public EquipementDto[] Items { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<EquipementDto> Items { get; set; } = null!;
     [Parameter] public bool AfficherContenance { get; set; }
 }
 <table class="table table-striped">

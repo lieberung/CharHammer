@@ -15,15 +15,11 @@
     
     protected override void OnParametersSet()
     {
-        if (Rating > 1)
-            _nom = Item.Nom.Replace("(x)", $"({Rating})");
-        else
-            _nom = Item.Nom.Replace(" (x)","");
+        _nom = Rating > 1
+            ? Item.Nom.Replace("(x)", $"({Rating})")
+            : Item.Nom.Replace(" (x)","");
 
         if (_nom.EndsWith("*"))
             _class = " btn-special";
-        
-        base.OnParametersSet();
     }
-
 }

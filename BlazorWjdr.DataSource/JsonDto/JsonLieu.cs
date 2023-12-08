@@ -1,32 +1,9 @@
-﻿// ReSharper disable InconsistentNaming
-// ReSharper disable ClassNeverInstantiated.Global
-// ReSharper disable UnusedAutoPropertyAccessor.Global
-namespace BlazorWjdr.DataSource.JsonDto;
+﻿namespace BlazorWjdr.DataSource.JsonDto;
 
 using System.Collections.Generic;
 
-public class JsonLieuType
-{
-    public int id { get; set; }
-    public int? parentid { get; set; }
-    public string libelle { get; set; } = null!;
-}
+public record JsonLieuType(int id, int? parentid, string libelle);
 
-public class JsonLieu
-{
-    public int id { get; set; }
-    public int type { get; set; }
-    public int? parent { get; set; }
-    public string nom { get; set; } = null!;
-    public string? population { get; set; }
-    public string? allegeance { get; set; }
-    public string? industrie { get; set; }
-    public string? description { get; set; }
-    public bool ignorer { get; set; }
-}
+public record JsonLieu(int id, int type, int? parent, string nom, string? population, string? allegeance, string? industrie, string? description, bool ignorer);
 
-public class RootLieu
-{
-    public List<JsonLieuType> types { get; set; } = null!;
-    public List<JsonLieu> items { get; set; } = null!;
-}
+public record RootLieu(List<JsonLieuType> types, List<JsonLieu> items);

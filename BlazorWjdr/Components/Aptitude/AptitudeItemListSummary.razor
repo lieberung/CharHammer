@@ -1,5 +1,5 @@
 ﻿@code {
-    [Parameter, EditorRequired] public AptitudeDto[] Aptitudes { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<AptitudeDto> Aptitudes { get; set; } = null!;
     [Parameter] public bool CompetencesAvanceesUniquement { get; set; }
     [Parameter] public bool GrosTitres { get; set; }
 

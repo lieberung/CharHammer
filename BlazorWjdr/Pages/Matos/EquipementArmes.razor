@@ -2,66 +2,60 @@
 @layout FluidLayout
 
 @using BlazorWjdr.Components.Arme
-@using System.Diagnostics
 
-@inject ArmesService _armesService
-@inject AptitudesService _aptitudesService
-@inject AppState _appState
+@inject ArmesService Service
+@inject AptitudesService AptitudesService
+@inject AppState AppState
 @code {
     [Parameter] public string Filtre { get; set; } = "";
     [Parameter] public string Groupe { get; set; } = "";
 
-    private AptitudeDto? CompetenceActuelle { get; set; }
-    private ArmeAttributDto? GroupeActuel { get; set; }
+    AptitudeDto? CompetenceActuelle { get; set; }
+    ArmeAttributDto? GroupeActuel { get; set; }
 
-    private List<ArmeDto> _armesDeCaC = null!;
-    private List<ArmeDto> _armesDeTir = null!;
+    IEnumerable<ArmeDto> _armesDeCaC = ArraySegment<ArmeDto>.Empty;
+    IEnumerable<ArmeDto> _armesDeTir = ArraySegment<ArmeDto>.Empty;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Armes");
+        AppState.SetMainTopRowTitle("Armes");
     }
 
     protected override void OnParametersSet()
     {
-        var armes = _armesService.AllArmes;
-        _armesDeCaC = new();
-        _armesDeTir = new();
+        var armes = Service.AllArmes;
 
         //var filtresNonSpe = new List<string>{"toutes","melee","tir","boucliers","munitions"};
 
         if (Filtre is not ("toutes" or "melee" or "tir"))
         {
-            Debug.WriteLine("Filtre = " + Filtre);
-            Console.WriteLine("Filtre = " + Filtre);
-
-            CompetenceActuelle = _aptitudesService.AllArmesSpecialisations.Single(a => GenericService.GetUrlChunck(a.Spe ?? "") == Filtre);
-            if (CompetenceActuelle.Parent == _aptitudesService.CompetenceGroupeMelee)
+            CompetenceActuelle = AptitudesService.AllArmesSpecialisations.Single(a => GenericService.GetUrlChunck(a.Spe ?? "") == Filtre);
+            if (CompetenceActuelle.Parent == AptitudesService.CompetenceGroupeMelee)
             {
-                _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC && a.CompetencesDeMaitrise.Contains(CompetenceActuelle)).ToList();
+                _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC && a.CompetencesDeMaitrise.Contains(CompetenceActuelle));
             }
-            else if (CompetenceActuelle.Parent == _aptitudesService.CompetenceGroupeTir)
+            else if (CompetenceActuelle.Parent == AptitudesService.CompetenceGroupeTir)
             {
-                _armesDeTir = armes.Where(a => a.EstUneArmeDeTir && a.CompetencesDeMaitrise.Contains(CompetenceActuelle)).ToList();
+                _armesDeTir = armes.Where(a => a.EstUneArmeDeTir && a.CompetencesDeMaitrise.Contains(CompetenceActuelle));
             }
         }
         else
         {
             CompetenceActuelle = null;
             if (Filtre is "toutes" or "melee")
-                _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC).ToList();
+                _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC);
             if (Filtre is "toutes" or "tir")
-                _armesDeTir = armes.Where(a => a.EstUneArmeDeTir).ToList();
+                _armesDeTir = armes.Where(a => a.EstUneArmeDeTir);
         }
 
-        GroupeActuel = Groupe != "toutes" ? _armesService.AllGroupesDArmes.Single(g => GenericService.GetUrlChunck(g.Nom) == Groupe) : null;
+        GroupeActuel = Groupe != "toutes" ? Service.AllGroupesDArmes.Single(g => GenericService.GetUrlChunck(g.Nom) == Groupe) : null;
     }
 
     private static IEnumerable<ArmeDto> GetArmesByGroupe(IEnumerable<ArmeDto> armes, IEnumerable<ArmeDto> intersect, ArmeAttributDto? groupe)
     {
         var result = armes.Intersect(intersect);
-        if (groupe != null)
-            result = result.Where(a => a.Groupes.Contains(groupe)).ToList();
+        if (groupe is not null)
+            result = result.Where(a => a.Groupes.Contains(groupe));
         return result;
     }
 
@@ -88,20 +82,20 @@
 
         <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
 
-        @foreach (var skillMelee in _aptitudesService.AllMeleeSpecialisations)
+        @foreach (var skillMelee in AptitudesService.AllMeleeSpecialisations)
         {
             <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string")/toutes/" class="mb-1 me-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@CleanMeleeSpeName(skillMelee.Spe!)</a>
         }
 
         <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
 
-        @foreach (var skillTir in _aptitudesService.AllTirSpecialisations)
+        @foreach (var skillTir in AptitudesService.AllTirSpecialisations)
         {
             <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillTir.Spe ?? "null-string")/toutes/" class="mb-1 me-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillTir.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@skillTir.Spe</a>
         }
     </div>
     <div>
-        @foreach (var groupeDArmes in _armesService.AllGroupesDArmes)
+        @foreach (var groupeDArmes in Service.AllGroupesDArmes)
         {
             var groupeDArme = GenericService.GetUrlChunck(groupeDArmes.Nom);
             <a href="equipement/armes-liste/toutes/@groupeDArme/" class="mb-1 me-1 btn btn-sm @(Groupe == groupeDArme ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
@@ -111,8 +105,7 @@
 
 @if (_armesDeCaC.Any())
 {
-    <!--h5>Armes de contact</h5-->
-    @foreach (var groupe in _armesService.ArmesDeContactPourTable)
+    @foreach (var groupe in Service.ArmesDeContactPourTable)
     {
         if (GetArmesByGroupe(groupe.Value, _armesDeCaC, GroupeActuel).Any())
         {
@@ -122,21 +115,19 @@
 }
 @if (_armesDeTir.Any())
 {
-    <!--h5>Armes à distance</h5-->
-    @foreach (var groupe in _armesService.ArmesADistancePourTable)
+    @foreach (var groupe in Service.ArmesADistancePourTable)
     {
         if (GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel).Any())
         {
-            <ArmeGroupeTable Armes="@GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel).ToList()" Groupe=@groupe.Key ArmesDeTir=true />
+            <ArmeGroupeTable Armes=@GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel) Groupe=@groupe.Key ArmesDeTir=true />
         }
     }
 }
 @if (Groupe == "munitions")
 {
-    <!--h5>Munitions</h5-->
-    <ArmeGroupeTable Armes="@_armesService.AllArmes.Where(a => a.EstUneMunition).ToList()" Groupe="Munitions" ArmesDeTir=true />
+    <ArmeGroupeTable Armes=@Service.AllArmes.Where(a => a.EstUneMunition) Groupe="Munitions" ArmesDeTir=true />
 }
-@if (GroupeActuel != null)
+@if (GroupeActuel is not null)
 {
     <div class="row">
         <div class="col">

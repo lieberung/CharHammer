@@ -2,15 +2,15 @@
 
 @using BlazorWjdr.Components.Race
 
-@inject RacesService _racesService
-@inject AppState _appState
+@inject RacesService Service
+@inject AppState AppState
 @code {
     private List<RaceDto> _lines = null!;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Races");
-        _lines = _racesService.AllRaces;
+        AppState.SetMainTopRowTitle("Races");
+        _lines = Service.AllRaces;
     }
 }
 <table class="table table-striped">

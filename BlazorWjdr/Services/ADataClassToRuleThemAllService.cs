@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using BlazorWjdr.DataSource.JsonDto;
 using System.Net.Http;
 using System.Net.Http.Json;
@@ -9,7 +8,7 @@ namespace BlazorWjdr.Services;
 
 public class ADataClassToRuleThemAllService
 {
-    private readonly HttpClient _httpClient;
+    private readonly HttpClient _httpClient; //ToDo: HttpClientFactory
 
     public ADataClassToRuleThemAllService(HttpClient httpClient)
     {
@@ -58,45 +57,45 @@ public class ADataClassToRuleThemAllService
     private async Task<T> LoadRootFromJson<T>(string path)
     {
         var data = await _httpClient.GetFromJsonAsync<T>(path);
-        return data ?? throw new NoNullAllowedException(nameof(data));
+        return data ?? throw new ArgumentNullException(nameof(data));
     }
 
-    private async Task<RootAptitude> GetRootAptitude() => await LoadRootFromJson<RootAptitude>($"{JsonDataPath}/aptitude.json");
-    private async Task<RootEquipement> GetRootEquipement() => await LoadRootFromJson<RootEquipement>($"{JsonDataPath}/equipement.json");
-    private async Task<RootCampagne> GetRootCampagne() => await LoadRootFromJson<RootCampagne>($"{JsonDataPath}/campagne.json");
-    private async Task<RootCreature> GetRootCreature() => await LoadRootFromJson<RootCreature>($"{JsonDataPath}/creature.json");
-    private async Task<RootCarriere> GetRootCarriere() => await LoadRootFromJson<RootCarriere>($"{JsonDataPath}/carriere.json");
-    private async Task<RootChrono> GetRootChrono() => await LoadRootFromJson<RootChrono>($"{JsonDataPath}/chrono.json");
-    private async Task<RootDieu> GetRootDieu() => await LoadRootFromJson<RootDieu>($"{JsonDataPath}/dieu.json");
-    private async Task<RootLieu> GetRootLieu() => await LoadRootFromJson<RootLieu>($"{JsonDataPath}/lieu.json");
-    private async Task<RootArme> GetRootArme() => await LoadRootFromJson<RootArme>($"{JsonDataPath}/arme.json");
-    private async Task<RootRace> GetRootRace() => await LoadRootFromJson<RootRace>($"{JsonDataPath}/race.json");
-    private async Task<RootSortilege> GetRootSortilege() => await LoadRootFromJson<RootSortilege>($"{JsonDataPath}/sortilege.json");
-    private async Task<RootReference> GetRootReference() => await LoadRootFromJson<RootReference>($"{JsonDataPath}/reference.json");
-    private async Task<RootTable> GetRootTable() => await LoadRootFromJson<RootTable>($"{JsonDataPath}/table.json");
-    private async Task<RootRegle> GetRootRegle() => await LoadRootFromJson<RootRegle>($"{JsonDataPath}/regle.json");
-    private async Task<RootScenario> GetRootScenarios() => await LoadRootFromJson<RootScenario>($"{JsonDataPath}/scenarios.json");
+    private Task<RootAptitude> GetRootAptitude() => LoadRootFromJson<RootAptitude>($"{JsonDataPath}/aptitude.json");
+    private Task<RootEquipement> GetRootEquipement() => LoadRootFromJson<RootEquipement>($"{JsonDataPath}/equipement.json");
+    private Task<RootCampagne> GetRootCampagne() => LoadRootFromJson<RootCampagne>($"{JsonDataPath}/campagne.json");
+    private Task<RootCreature> GetRootCreature() => LoadRootFromJson<RootCreature>($"{JsonDataPath}/creature.json");
+    private Task<RootCarriere> GetRootCarriere() => LoadRootFromJson<RootCarriere>($"{JsonDataPath}/carriere.json");
+    private Task<RootChrono> GetRootChrono() => LoadRootFromJson<RootChrono>($"{JsonDataPath}/chrono.json");
+    private Task<RootDieu> GetRootDieu() => LoadRootFromJson<RootDieu>($"{JsonDataPath}/dieu.json");
+    private Task<RootLieu> GetRootLieu() => LoadRootFromJson<RootLieu>($"{JsonDataPath}/lieu.json");
+    private Task<RootArme> GetRootArme() => LoadRootFromJson<RootArme>($"{JsonDataPath}/arme.json");
+    private Task<RootRace> GetRootRace() => LoadRootFromJson<RootRace>($"{JsonDataPath}/race.json");
+    private Task<RootSortilege> GetRootSortilege() => LoadRootFromJson<RootSortilege>($"{JsonDataPath}/sortilege.json");
+    private Task<RootReference> GetRootReference() => LoadRootFromJson<RootReference>($"{JsonDataPath}/reference.json");
+    private Task<RootTable> GetRootTable() => LoadRootFromJson<RootTable>($"{JsonDataPath}/table.json");
+    private Task<RootRegle> GetRootRegle() => LoadRootFromJson<RootRegle>($"{JsonDataPath}/regle.json");
+    private Task<RootScenario> GetRootScenarios() => LoadRootFromJson<RootScenario>($"{JsonDataPath}/scenarios.json");
 
     public void Dispose()
     {
         Aptitudes!.items.Clear();
-        Armes!.armes.Clear();
-        Armes.armures.Clear();
-        Campagne!.campagnes = Array.Empty<JsonCampagne>();
-        Campagne.teams = Array.Empty<JsonTeam>();
-        Campagne.users = Array.Empty<JsonUser>();
+        //Armes!.armes.Clear();
+        //Armes.armures.Clear();
+        // Campagne!.campagnes = Array.Empty<JsonCampagne>();
+        // Campagne.teams = Array.Empty<JsonTeam>();
+        // Campagne.users = Array.Empty<JsonUser>();
         Creatures!.items.Clear();
         Carrieres!.items.Clear();
         Chrono!.items.Clear();
-        Dieux!.items.Clear();
+        //Dieux!.items.Clear();
         Equipements!.items.Clear();
         Lieux!.items.Clear();
         Races!.items.Clear();
         References!.items.Clear();
         Regles!.items.Clear();
-        Sortileges!.sortileges = Array.Empty<JsonSortilege>();
+        //Sortileges!.sortileges = Array.Empty<JsonSortilege>();
         Tables!.items.Clear();
-        Scenarios!.scenarios = Array.Empty<JsonScenario>();
+        //Scenarios!.scenarios = Array.Empty<JsonScenario>();
         _httpClient.Dispose();
     }
 }

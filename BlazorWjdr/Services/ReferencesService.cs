@@ -6,22 +6,16 @@ using System.Linq;
 
 public class ReferencesService
 {
-    private Dictionary<int, ReferenceDto> _cacheReference;
+    private readonly Dictionary<int, ReferenceDto> _cacheReference;
 
     public ReferencesService(Dictionary<int, ReferenceDto> dataReferences)
     {
         _cacheReference = dataReferences;
     }
 
-    public List<ReferenceDto> AllReferences
-    {
-        get
-        {
-            return _cacheReference.Values.ToList();
-        }
-    }
+    public List<ReferenceDto> AllReferences => _cacheReference.Values.ToList();
 
-    public ReferenceDto GetReference(int id)
+    private ReferenceDto GetReference(int id)
     {
         return _cacheReference[id];
     }

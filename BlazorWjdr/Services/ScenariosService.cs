@@ -27,7 +27,7 @@ public class ScenariosService
             (auteur == "" || s.Auteurs.Contains(auteur))
         );
     }
-    public IEnumerable<ScenarioDto> AllScenarios(LieuDto[] lieux, LieuTypeDto[] typesDeLieux)
+    public IEnumerable<ScenarioDto> AllScenarios(LieuDto[] lieux, IEnumerable<LieuTypeDto> typesDeLieux)
     {
         var tousLesTypes = new List<LieuTypeDto>(typesDeLieux);
         tousLesTypes.AddRange(lieux.Select(l => l.TypeDeLieu).Distinct());

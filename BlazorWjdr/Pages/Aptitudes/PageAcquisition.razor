@@ -2,13 +2,12 @@
 
 @using BlazorWjdr.Components.Table
 
-@inject AptitudesService _aptitudesService
-@inject TablesService _tablesService
-@inject AppState _appState
+@inject TablesService Service
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("");
+        AppState.SetMainTopRowTitle("");
     }
 }
 <div class="row">
@@ -31,7 +30,7 @@
         </CardBody>
 
         <div class="section">
-            <TableDetail Item=@_tablesService.GetTable(87) />
+            <TableDetail Item=@Service.GetTable(87) />
         </div>
     </div>
     <div class="col-4 pr-0">
@@ -46,7 +45,7 @@
     </div>
     <div class="col-4 pr-0">
         <div class="section">
-            <TableDetail Item=@_tablesService.GetTable(21) />
+            <TableDetail Item=@Service.GetTable(21) />
         </div>
     </div>
 </div>

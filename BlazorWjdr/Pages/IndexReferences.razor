@@ -2,15 +2,15 @@
 
 @using BlazorWjdr.Components.Reference
 
-@inject ReferencesService _referencesService
-@inject AppState _appState
+@inject ReferencesService Service
+@inject AppState AppState
 @code {
     private List<ReferenceDto> _lines = null!;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Références");
-        _lines = _referencesService.AllReferences;
+        AppState.SetMainTopRowTitle("Références");
+        _lines = Service.AllReferences;
     }
 }
 
@@ -22,7 +22,7 @@
                     .Where(r => r.Version == 1)
                     .OrderBy(r => r.AnneeDePublication))
                 {
-                    <ReferenceRow Item="@reference" />
+                    <ReferenceRow Item=@reference />
                 }
             </tbody>
         </table>
@@ -35,7 +35,7 @@
                     .Where(r => r.Version == 2)
                     .OrderBy(r => r.AnneeDePublication))
                 {
-                    <ReferenceRow Item="@reference" />
+                    <ReferenceRow Item=@reference />
                 }
             </tbody>
         </table>

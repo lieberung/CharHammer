@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Components.Aptitude
 
-@inject AptitudesService _cttService
+@inject AptitudesService CttService
 @code {
     [Parameter] public int NbColonnes { get; set; }
     [Parameter, EditorRequired] public IEnumerable<AptitudeDto> Traits { get; set; } = null!;

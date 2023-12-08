@@ -2,22 +2,20 @@
 
 @using BlazorWjdr.Components.Table
 
-@inject CarrieresService _carrSvc
-@inject TablesService _tableSvc
-@inject AptitudesService _aptSvc
-@inject AppState _appState
+@inject TablesService Service
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Sorcellerie");
+        AppState.SetMainTopRowTitle("Sorcellerie");
     }
 }
 <div class="row mb-3">
     <div class="col-5">
-        <TableDetail Item="@_tableSvc.GetTable(667)" />
+        <TableDetail Item=@Service.GetTable(667) />
     </div>
 
     <div class="col-7">
-        <TableDetail Item="@_tableSvc.GetTable(668)" />
+        <TableDetail Item=@Service.GetTable(668) />
     </div>
 </div>

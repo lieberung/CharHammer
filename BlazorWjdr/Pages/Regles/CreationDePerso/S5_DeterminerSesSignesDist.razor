@@ -1,9 +1,9 @@
 ﻿@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Table
 
-@inject AptitudesService _cttService
-@inject RacesService _racesService
-@inject TablesService _tablesService
+@inject AptitudesService CttService
+@inject RacesService RacesService
+@inject TablesService TablesService
 @code {
     [Parameter, EditorRequired] public RaceSelectionnee Selection { get; set; } = null!;
 
@@ -17,7 +17,7 @@
             return;
         }
 
-        var a = _cttService.TirerUnSigneAleatoire(_traitsObtenus);
+        var a = CttService.TirerUnSigneAleatoire(_traitsObtenus);
         _traitsObtenus.Add(a);
     }
 }
@@ -49,7 +49,7 @@
         <div class="section">
             <h5>5-1. Table des signes distinctifs</h5>
             <p class="text-justify">
-                <TableTraits Traits=@_cttService.SignesDistinctifs NbColonnes=4 />
+                <TableTraits Traits=@CttService.SignesDistinctifs NbColonnes=4 />
             </p>
         </div>
     </div>
@@ -60,30 +60,30 @@
         <div class="section">
             @if (Selection.RaceDesElfesSylvainsSelectionnee || Selection.RaceDesHautsElfesSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(15) FixedColSize=45 />
+                <TableDetail Item=@TablesService.GetTable(15) FixedColSize=45 />
             }
             @if (Selection.RaceDesGnomesSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(16) FixedColSize=45 />
+                <TableDetail Item=@TablesService.GetTable(16) FixedColSize=45 />
             }
             @if (Selection.RaceDesHalflingsSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(17) FixedColSize=45 />
+                <TableDetail Item=@TablesService.GetTable(17) FixedColSize=45 />
             }
             @if (Selection.RaceDesHumainsSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(18) FixedColSize=45 />
+                <TableDetail Item=@TablesService.GetTable(18) FixedColSize=45 />
             }
             @if (Selection.RaceDesNainsSelectionnee)
             {
-                <TableDetail Item=@_tablesService.GetTable(19) FixedColSize=45 />
+                <TableDetail Item=@TablesService.GetTable(19) FixedColSize=45 />
             }
         </div>
     </div>
     <div class="col-8">
         <!-- Table pour le calcul de l'âge du poids et de la taille -->
         <div class="section">
-            <TableDetail Item=@_tablesService.GetTable(14) FixedColSize=75 />
+            <TableDetail Item=@TablesService.GetTable(14) FixedColSize=75 />
         </div>
     </div>
 </div>

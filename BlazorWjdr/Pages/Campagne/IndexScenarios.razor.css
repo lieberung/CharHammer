@@ -1,0 +1,7 @@
+﻿.form-control, .form-select, .form-check-input {
+    --bs-body-bg: #fff;
+}
+.form-check-input:checked {
+    background-color: var(--theme-orange);
+    border-color: var(--theme-orange);
+}

@@ -2,8 +2,8 @@
 
 @using BlazorWjdr.Components.Campagne
 
-@inject CampagnesService _campagnesService
-@inject AppState _appState
+@inject CampagnesService Service
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
 
@@ -11,19 +11,19 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Carnets de Campagne");
+        AppState.SetMainTopRowTitle("Carnets de Campagne");
     }
 
     protected override void OnParametersSet()
     {
-        _campagne = _campagnesService.AllCampagnes().First(c => c.Id.ToString() == CampagneId);
+        _campagne = Service.AllCampagnes().First(c => c.Id.ToString() == CampagneId);
     }
 }
 <div class="row section">
-    @foreach (var campagne in _campagnesService.AllCampagnes())
+    @foreach (var campagne in Service.AllCampagnes())
     {
         <div class="col-3">
-            <LinkCampagne Titre=@campagne.Titre CampagneId=@campagne.Id.ToString() Actif=@(CampagneId == @campagne.Id.ToString()) />
+            <LinkCampagne Titre=@campagne.Titre CampagneId=@campagne.Id.ToString() Actif=@(CampagneId == campagne.Id.ToString()) />
         </div>
     }
 </div>

@@ -7,7 +7,7 @@ using System.Linq;
 
 public class CarrieresService
 {
-    private Dictionary<int, CarriereDto> _cacheCarrieres;
+    private readonly Dictionary<int, CarriereDto> _cacheCarrieres;
 
     public CarrieresService(Dictionary<int, CarriereDto> dataCarrieres)
     {
@@ -15,9 +15,9 @@ public class CarrieresService
         //Initialize();
     }
 
-    public List<CarriereDto> AllCarrieres => _cacheCarrieres.Values.OrderBy(t => t.Nom).ToList();
+    public IEnumerable<CarriereDto> AllCarrieres => _cacheCarrieres.Values.OrderBy(t => t.Nom);
 
-    public IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int> ids) => ids.Select(GetCarriere).ToArray();
+    private IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int> ids) => ids.Select(GetCarriere);
 
     public CarriereDto GetCarriere(int id) => _cacheCarrieres[id];
 
@@ -644,7 +644,7 @@ public class CarrieresService
     // Tueur de morts, Fouet de dieu, Flagellant, Fanatique, Pénitent, Prêcheur de rue, Tueur de démons/géants/trolls, Exécuteur, Mystique, Cénobite
     public IEnumerable<CarriereDto> CarrieresFanatiques => GetCarrieres(new[] {209, 213, 170, 45, 212, 88, 198, 199, 77, 87, 268, 267, 194, 1, 314 });
     public IEnumerable<CarriereDto> CarrieresDeNorsca => GetCarrieres(new [] { 26, 89, 302, 303, 90, 91, 92, 93, 94, 95, 304 });
-    public List<int> CarrieresChaos => new() { 305, 307, 309, 311, 306, 308, 310, 312, 293, 294 };
+    public static List<int> CarrieresChaos => new() { 305, 307, 309, 311, 306, 308, 310, 312, 293, 294 };
     public IEnumerable<CarriereDto> CarrieresCriminelles => GetCarrieres(new [] { 21, 141, 149, 151, 152, 158, 37, 38, 165, 43, 168, 280, 111, 51, 265, 183, 127, 145, 295, 66, 188, 191, 192, 193, 258, 76, 80 });
     public IEnumerable<CarriereDto> CarrieresBureaucratie => GetCarrieres(new [] { 315, 251, 35, 86, 87, 97, 125, 46, 129, 49, 175, 281, 177, 58, 59, 63, 128, 146, 147, 69, 70 });
     public IEnumerable<CarriereDto> CarrieresMilitaires => GetCarrieres(new [] { 296, 316, 297, 154, 155, 319, 156, 161, 252, 162, 253, 254, 286, 36, 274, 40, 41, 301, 171, 46, 129, 48, 203, 112, 256, 53, 54, 185, 187, 197, 73, 259 });

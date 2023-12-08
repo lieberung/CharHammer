@@ -1,13 +1,13 @@
 ﻿@page "/regles/maladies/"
 
-@inject ReglesService _reglesService
-@inject TablesService _tablesService
-@inject AptitudesService _cttService
-@inject AppState _appState
+@* @inject ReglesService ReglesSvc *@
+@* @inject TablesService TablesService *@
+@* @inject AptitudesService CttService *@
+@inject AppState AppState
 @code {
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Maladies et Infections");
+        AppState.SetMainTopRowTitle("Maladies et Infections");
     }
 }
 <div class="row">

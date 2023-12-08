@@ -1,58 +1,44 @@
-﻿// ReSharper disable InconsistentNaming
-// ReSharper disable ClassNeverInstantiated.Global
-
-// ReSharper disable UnusedAutoPropertyAccessor.Global
-namespace BlazorWjdr.DataSource.JsonDto;
+﻿namespace BlazorWjdr.DataSource.JsonDto;
 
 using System.Collections.Generic;
 
-public class JsonCreature
-{
-    public int id { get; set; }
-    public JsonProfil profil_actuel { get; set; } = null!;
-    public int? user { get; set; }
-    public int race { get; set; }
-    public string nom { get; set; } = null!;
-    public string? nom_court { get; set; }
-    public int? sexe { get; set; }
-    public int[]? origines { get; set; }
-    public string[]? membrede { get; set; } = null!;
-    public int? poids { get; set; }
-    public int? taille { get; set; }
-    public int? age { get; set; }
-    
-    public int[]? aptitudes { get; set; }
-    public int[]? aptitudes_facultatives { get; set; }
-    
-    public string? description { get; set; }
-    public string? psycho { get; set; }
-    public string? histoire { get; set; }
-    public string[]? ambitions { get; set; }
-    public string? notes { get; set; }
+public record JsonCreature(
+    int id,
+    JsonProfil profil_actuel,
+    int? user,
+    int race,
+    string nom,
+    string? nom_court,
+    int? sexe,
+    int[]? origines,
+    string[]? membrede,
+    int? poids,
+    int? taille,
+    int? age,
+    int[]? aptitudes,
+    int[]? aptitudes_facultatives,
+    string? description,
+    string? psycho,
+    string? histoire,
+    string[]? ambitions,
+    string? notes,
+    string? date_creation,
+    int? xp_actuel,
+    int? xp_total,
+    JsonProfil? profil_initial,
+    int[]? cheminement,
+    int? carriere_du_pere,
+    int? carriere_de_la_mere,
+    int? fk_signeastralid,
+    string? freres_et_soeurs,
+    int? main_directrice,
+    bool masquer,
+    bool mort,
+    string? cheveux,
+    string? yeux,
+    int[]? armes,
+    int[]? armures,
+    int[]? equipement,
+    int[]? sorts);
 
-    public string? date_creation { get; set; }
-    public int? xp_actuel { get; set; }
-    public int? xp_total { get; set; }
-    public JsonProfil? profil_initial { get; set; }
-    
-    public int[]? cheminement { get; set; }
-    public int? carriere_du_pere { get; set; }
-    public int? carriere_de_la_mere { get; set; }
-    public int? fk_signeastralid { get; set; }
-    public string? freres_et_soeurs { get; set; }
-    public int? main_directrice { get; set; }
-    public bool masquer { get; set; }
-    public bool mort { get; set; }
-    public string? cheveux { get; set; }
-    public string? yeux { get; set; }
-
-    public int[]? armes { get; set; }
-    public int[]? armures { get; set; }
-    public int[]? equipement { get; set; }
-    public int[]? sorts { get; set; }
-}
-
-public class RootCreature
-{
-    public List<JsonCreature> items { get; set; } = null!;
-}
+public record RootCreature(List<JsonCreature> items);

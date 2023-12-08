@@ -3,21 +3,20 @@
 @using BlazorWjdr.Components.Arme
 @using BlazorWjdr.Components.Equipement
 
-@inject ArmesService _armesService
-@inject AptitudesService _aptitudesService
-@inject AppState _appState
+@inject ArmesService Service
+@inject AppState AppState
 @code {
     [Parameter] public string Groupe { get; set; } = "";
 
-    private IEnumerable<ArmureDto> Armures => _armesService.AllArmures;
+    IEnumerable<ArmureDto> _armures => Service.AllArmures;
 
-    private bool AfficherArmuresLegeres => Groupe == "toutes" || Groupe == "legeres";
-    private bool AfficherArmuresMoyennes => Groupe == "toutes" || Groupe == "moyennes";
-    private bool AfficherArmuresLourdes => Groupe == "toutes" || Groupe == "lourdes";
+    private bool AfficherArmuresLegeres => Groupe is "toutes" or "legeres";
+    private bool AfficherArmuresMoyennes => Groupe is "toutes" or "moyennes";
+    private bool AfficherArmuresLourdes => Groupe is "toutes" or "lourdes";
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Armures et Vêtements");
+        AppState.SetMainTopRowTitle("Armures et Vêtements");
     }
 }
 
@@ -35,7 +34,7 @@
             Votre armure peut généralement être endommagée dans les situations suivantes :
         </p>
         <ul>
-            <li>Vous êtes blessé par un arme disposant de l'attribut <AttributDArmeItem Item=@_armesService.AttributFracassant />.</li>
+            <li>Vous êtes blessé par un arme disposant de l'attribut <AttributDArmeItem Item=@Service.AttributFracassant />.</li>
             <li>Une aptitude spéciale déclenche, comme un sort ou un talent, qui endommage une pièce d'armure.</li>
             <li>Une Blessure Critique est déviée par votre armure.</li>
         </ul>
@@ -75,19 +74,19 @@
 </div>
 
 <div class="section">
-    @if (AfficherArmuresLegeres && Armures.Any(a => a.TypeLegere))
+    @if (AfficherArmuresLegeres && _armures.Any(a => a.TypeLegere))
     {
         <h5>Armures Légères</h5>
-        <TableArmures Items=@Armures.Where(a => a.TypeLegere) />
+        <TableArmures Items=@_armures.Where(a => a.TypeLegere) />
     }
-    @if (AfficherArmuresMoyennes && Armures.Any(a => a.TypeMoyenne))
+    @if (AfficherArmuresMoyennes && _armures.Any(a => a.TypeMoyenne))
     {
         <h5>Armures Moyennes</h5>
-        <TableArmures Items=@Armures.Where(a => a.TypeMoyenne) />
+        <TableArmures Items=@_armures.Where(a => a.TypeMoyenne) />
     }
-    @if (AfficherArmuresLourdes && Armures.Any(a => a.TypeLourde))
+    @if (AfficherArmuresLourdes && _armures.Any(a => a.TypeLourde))
     {
         <h5>Armures Lourdes</h5>
-        <TableArmures Items=@Armures.Where(a => a.TypeLourde) />
+        <TableArmures Items=@_armures.Where(a => a.TypeLourde) />
     }
 </div>

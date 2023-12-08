@@ -1,5 +1,18 @@
 ﻿@using BlazorWjdr.Components.Carriere
 
+@inject CarrieresService CarrieresService
+@code {
+    [Parameter] public AptitudeDto Item { get; set; } = null!;
+    
+    bool AfficherSousElements { get; set; }
+    bool AfficherCarrieres { get; set; }
+    CarriereDto[] _carrieresLiees = null!;
+
+    protected override void OnInitialized()
+    {
+        _carrieresLiees = CarrieresService.GetCarrieresProposant(Item);
+    }
+}
 <tr>
     <td>
         @if (_carrieresLiees.Any())
@@ -22,7 +35,7 @@
         {
             <SousElement/>
         }
-        <AptitudeItem Item="Item"/>
+        <AptitudeItem Item=@Item />
     </td>
     <td>@Item.CaracteristiqueAssociee</td>
     <td><CheckedIfTrue Condition=@Item.EstUneCompetenceDeBase /> </td>

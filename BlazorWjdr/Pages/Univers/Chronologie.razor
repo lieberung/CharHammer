@@ -1,14 +1,14 @@
 ﻿@page "/chronologie"
 
-@inject ChronologieService _chronologieService
-@inject AppState _appState
+@inject ChronologieService Service
+@inject AppState AppState
 @code {
     private ChronologieDto[] _lines = null!;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Chronologie");
-        _lines = _chronologieService.AllChronologie();
+        AppState.SetMainTopRowTitle("Chronologie");
+        _lines = Service.AllChronologie();
     }
 }
 <table class="table table-striped">

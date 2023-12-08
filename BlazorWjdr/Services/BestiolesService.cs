@@ -21,7 +21,7 @@ public class BestiolesService
         .OrderBy(b => b.Nom)
         .ToArray();
     public IEnumerable<BestioleDto> AllPnjs(bool godMode) => _cacheBestiole.Values
-        .Where(b => b.EstUnPersonnageNonJoueur && !b.EstUnArchetype && (godMode || b.Masquer == false))
+        .Where(b => b is { EstUnPersonnageNonJoueur: true, EstUnArchetype: false } && (godMode || b.Masquer == false))
         .OrderBy(b => b.Nom)
         .ToArray();
     public IEnumerable<BestioleDto> AllPjs => _cacheBestiole.Values
@@ -104,7 +104,7 @@ public class BestiolesService
             _ => throw new Exception("Gabarit invalide pour formule de calcul des Blessures")
         };
         if (durACuir)
-            blessures += $" + BE (dur à cuir)";
+            blessures += " + BE (dur à cuir)";
         return blessures;
     }
 

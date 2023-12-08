@@ -15,11 +15,11 @@ public class LieuxService
         _cacheLieuType = dataLieuxTypes;
     }
     
-    protected Dictionary<int, LieuTypeDto> AllTypesDeLieu => _cacheLieuType;
-    public List<LieuDto> AllLieux => _cacheLieu.Values.OrderBy(l => l.Nom).ToList();
+    //protected Dictionary<int, LieuTypeDto> AllTypesDeLieu => _cacheLieuType;
+    public IEnumerable<LieuDto> AllLieux => _cacheLieu.Values.OrderBy(l => l.Nom);
     public LieuTypeDto GetTypeDeLieu(int id) => _cacheLieuType[id];
 
-    public IEnumerable<LieuDto> GetLieux(IEnumerable<int> ids) => ids.Select(GetLieu).ToArray();
+    public IEnumerable<LieuDto> GetLieux(IEnumerable<int> ids) => ids.Select(GetLieu);
     public LieuDto GetLieu(int id) => _cacheLieu[id];
     
     public LieuDto[] Recherche(string searchText)

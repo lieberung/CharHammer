@@ -2,15 +2,15 @@
 
 @using BlazorWjdr.Components.Aptitude
 
-@inject AptitudesService _cttService
-@inject AppState _appState
+@inject AptitudesService Service
+@inject AppState AppState
 @code {
-    private IEnumerable<AptitudeDto> _competencesLines = null!;
+    private IEnumerable<AptitudeDto> _items = null!;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Compétences");
-        _competencesLines = _cttService.AllCompetences;
+        AppState.SetMainTopRowTitle("Compétences");
+        _items = Service.AllCompetences;
     }
 }
 <div class="row">
@@ -28,12 +28,12 @@
 <div class="row">
     <div class="col">
         <p class="text-justify">
-            <AptitudeItemList Items=@_competencesLines.Where(c => c.EstUneCompetenceDeBase && c.Parent is null) />
+            <AptitudeItemList Items=@_items.Where(c => c is { EstUneCompetenceDeBase: true, Parent: null }) />
         </p>
     </div>
     <div class="col">
         <p class="text-justify">
-            <AptitudeItemList Items=@_competencesLines.Where(c => !c.EstUneCompetenceDeBase && c.Parent is null) />
+            <AptitudeItemList Items=@_items.Where(c => c is { EstUneCompetenceDeBase: false, Parent: null }) />
         </p>
     </div>
 </div>
@@ -45,7 +45,7 @@
         <tr><th></th><th></th><th style="width:350px;">Compétence</th><th>Carac.</th><th>Base</th><th>Talents liés</th></tr>
     </thead>
     <tbody>
-        @foreach (var competence in _competencesLines.Where(c => c.Ignore == false && c.Parent is null))
+        @foreach (var competence in _items.Where(c => c is { Ignore: false, Parent: null }))
         {
             <CompetenceRow Item=@competence />
         }

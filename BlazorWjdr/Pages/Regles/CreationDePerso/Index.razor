@@ -1,37 +1,36 @@
 ﻿@page "/regles/creation-de-personnage/{RaceId}/"
 
-@inject RacesService _racesService
-@inject AppState _appState
+@inject RacesService Service
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
 
-    private RaceSelectionnee Selection = null!;
+    private RaceSelectionnee _selection = null!;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Création de personnage");
-        base.OnInitialized();
+        AppState.SetMainTopRowTitle("Création de personnage");
     }
 
     protected override void OnParametersSet()
     {
-        var race = _racesService.GetRace(int.Parse(RaceId));
-        Selection = new(race);
+        var race = Service.GetRace(int.Parse(RaceId));
+        _selection = new(race);
     }
 }
-<S1_DeterminerLaRace Selection=@Selection />
+<S1_DeterminerLaRace Selection=@_selection />
 <PageSectionDivider />
 <S2_DeterminerSesCarac />
 <PageSectionDivider />
-<S3_DeterminerSesOrigines Selection=@Selection />
+<S3_DeterminerSesOrigines Selection=@_selection />
 <PageSectionDivider />
-<S4_DeterminerSesTraits Selection=@Selection />
+<S4_DeterminerSesTraits Selection=@_selection />
 <PageSectionDivider />
-<S5_DeterminerSesSignesDist Selection=@Selection />
+<S5_DeterminerSesSignesDist Selection=@_selection />
 <PageSectionDivider />
-<S6_DeterminerSaCarriere Selection=@Selection />
+<S6_DeterminerSaCarriere Selection=@_selection />
 <PageSectionDivider />
-<S7_DonnerVieAuPerso Selection=@Selection />
+<S7_DonnerVieAuPerso Selection=@_selection />
 <PageSectionDivider />
 <S8_DeterminerSesAmbitions />
 <PageSectionDivider />

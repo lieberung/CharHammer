@@ -24,7 +24,7 @@ public class RaceDto
     public int ParentsCount {
         get
         {
-            if (Parent == null)
+            if (Parent is null)
                 return 0;
             return Parent.ParentsCount + 1;
         }

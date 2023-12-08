@@ -2,15 +2,15 @@
 
 @using BlazorWjdr.Components.Aptitude
 
-@inject AptitudesService _cttService
-@inject AppState _appState
+@inject AptitudesService Service
+@inject AppState AppState
 @code {
     private IEnumerable<AptitudeDto> _talentsLines = null!;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Talents");
-        _talentsLines = _cttService.AllTalents.ToList();
+        AppState.SetMainTopRowTitle("Talents");
+        _talentsLines = Service.AllTalents.ToList();
     }
 }
 <div class="section">
@@ -24,7 +24,7 @@
         <tr><th></th><th></th><th style="width:275px">Talent</th><th>Aptitudes liées</th></tr>
     </thead>
     <tbody>
-        @foreach (var talent in _talentsLines.Where(t => t.Ignore == false && t.Parent is null))
+        @foreach (var talent in _talentsLines.Where(t => t is { Ignore: false, Parent: null }))
         {
             <TalentRow Item=@talent />
         }

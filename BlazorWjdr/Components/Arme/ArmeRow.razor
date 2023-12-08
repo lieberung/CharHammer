@@ -1,8 +1,8 @@
 ﻿@using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Aptitude
 
-@inject CarrieresService _carrieresService
-@inject ArmesService _armesService
+@inject CarrieresService CarrSvc
+@inject ArmesService ArmesService
 @code {
     [Parameter, EditorRequired] public ArmeDto Item { get; set; } = null!;
     [Parameter] public bool ArmeDeTir { get; set; }

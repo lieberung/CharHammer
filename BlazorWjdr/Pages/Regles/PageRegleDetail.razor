@@ -2,8 +2,8 @@
 
 @using BlazorWjdr.Components.Regle
 
-@inject ReglesService _reglesService
-@inject AppState _appState
+@inject ReglesService Service
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string RegleId { get; set; } = null!;
 
@@ -11,8 +11,8 @@
 
     protected override void OnParametersSet()
     {
-        _regle = _reglesService.GetRegle(int.Parse(RegleId));
-        _appState.SetMainTopRowTitle(_regle.Titre);
+        _regle = Service.GetRegle(int.Parse(RegleId));
+        AppState.SetMainTopRowTitle(_regle.Titre);
     }
 }
 <RegleDetail Item=@_regle />

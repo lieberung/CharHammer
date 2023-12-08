@@ -2,15 +2,15 @@
 
 @using BlazorWjdr.Components.Bestiole
 
-@inject BestiolesService _bestiolesService
-@inject AppState _appState
+@inject BestiolesService Service
+@inject AppState AppState
 @code {
     private IReadOnlyDictionary<string, IEnumerable<BestioleDto>> _groupes = null!;
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Bestiaire");
-        _groupes = _bestiolesService.BestiolesRegroupees(_appState.JeSuisDieu);
+        AppState.SetMainTopRowTitle("Bestiaire");
+        _groupes = Service.BestiolesRegroupees(AppState.JeSuisDieu);
     }
 }
 @foreach (var groupe in _groupes.Keys)

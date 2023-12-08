@@ -4,23 +4,23 @@
 @using BlazorWjdr.Components.Regle
 @using BlazorWjdr.Components.Table
 
-@inject ArmesService _armesService
-@inject TablesService _tablesService
-@inject AppState _appState
+@inject ArmesService ArmesService
+@inject TablesService TablesService
+@inject AppState AppState
 @code {
     [Parameter] public string Groupe { get; set; } = "";
 
-    private List<string> _allGroupes = null!;
-    private List<string> _showGroupes = null!;
+    private IEnumerable<string> _allGroupes = null!;
+    private IEnumerable<string> _showGroupes = null!;
 
     private static string Clean(string s) => GenericService.GetUrlChunck(s);
 
-    private EquipementDto[] GetEquipement(string groupe)
+    private IEnumerable<EquipementDto> GetEquipement(string groupe)
     {
         var cleanGroupe = Clean(groupe);
-        return _armesService.AllEquipements
+        return ArmesService.AllEquipements
             .Where(e => e.Groupes.Any(g => Clean(g) == cleanGroupe))
-            .OrderBy(e => e.Nom).ToArray();
+            .OrderBy(e => e.Nom);
     }
 
     private string GetGroupeLabel(string groupe)
@@ -30,13 +30,13 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Guide du Consommateur");
+        AppState.SetMainTopRowTitle("Guide du Consommateur");
     }
 
     protected override void OnParametersSet()
     {
-        _allGroupes = _armesService.AllEquipements.SelectMany(e => e.Groupes).Distinct().OrderBy(g => g).ToList();
-        _showGroupes = Groupe == "tout" ? _allGroupes : new() { Groupe };
+        _allGroupes = ArmesService.AllEquipements.SelectMany(e => e.Groupes).Distinct().OrderBy(g => g);
+        _showGroupes = Groupe == "tout" ? _allGroupes : new List<string> { Groupe };
     }
 }
 <div class="navbar">
@@ -58,19 +58,19 @@
                 <h3>@GetGroupeLabel(grp)</h3>
                 <TableEquipements Items=@GetEquipement(grp) AfficherContenance=@(grp == "contenants") />
             </div>
-            @if (_showGroupes.Count == 1)
+            @if (_showGroupes.Count() == 1)
             {
                 <div class="col-1"></div>
                 <div class="col">
                     <div class="section">
-                        <TableDetail Item=@_tablesService.GetTable(86) />
+                        <TableDetail Item=@TablesService.GetTable(86) />
                     </div>
                 </div>
             }
         </div>
     }
 </div>
-@if (_showGroupes.Count == 1)
+@if (_showGroupes.Count() == 1)
 {
     <RowEncombrement />
 }

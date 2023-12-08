@@ -1,8 +1,8 @@
 ﻿@using BlazorWjdr.Components.Aptitude
 @using BlazorWjdr.Components.Regle
 
-@inject RacesService _racesService
-@inject ReglesService _reglesService
+@inject RacesService RacesSvc
+@inject ReglesService ReglesSvc
 @code {
     [Parameter, EditorRequired] public RaceSelectionnee Selection { get; set; } = null!;
 }
@@ -34,7 +34,7 @@
             <h5>Aptitudes raciales - @Selection.Race.Autochtones</h5>
             @if (Selection.RaceDesHumainsSelectionnee)
             {
-                <AptitudeItemList Items=@_racesService.HumainsImperiaux.Aptitudes />
+                <AptitudeItemList Items=@RacesSvc.HumainsImperiaux.Aptitudes />
             }
             else
             {
@@ -55,23 +55,23 @@ else
             <div class="section bulle px-4">
                 @if (Selection.RaceDesGnomesSelectionnee)
                 {
-                    <RegleDetail Item=@_reglesService.GetRegle(22) MasquerTitre=false />
+                    <RegleDetail Item=@ReglesSvc.GetRegle(22) MasquerTitre=false />
                 }
                 else if (Selection.RaceDesHalflingsSelectionnee)
                 {
-                    <RegleDetail Item=@_reglesService.GetRegle(18) MasquerTitre=false />
+                    <RegleDetail Item=@ReglesSvc.GetRegle(18) MasquerTitre=false />
                 }
                 else if (Selection.RaceDesNainsSelectionnee)
                 {
-                    <RegleDetail Item=@_reglesService.GetRegle(20) MasquerTitre=false />
+                    <RegleDetail Item=@ReglesSvc.GetRegle(20) MasquerTitre=false />
                 }
                 else if (Selection.RaceDesElfesSylvainsSelectionnee)
                 {
-                    <RegleDetail Item=@_reglesService.GetRegle(17) MasquerTitre=false />
+                    <RegleDetail Item=@ReglesSvc.GetRegle(17) MasquerTitre=false />
                 }
                 else if (Selection.RaceDesHautsElfesSelectionnee)
                 {
-                    <RegleDetail Item=@_reglesService.GetRegle(23) MasquerTitre=false />
+                    <RegleDetail Item=@ReglesSvc.GetRegle(23) MasquerTitre=false />
                 }
             </div>
         </div>

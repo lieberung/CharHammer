@@ -4,10 +4,10 @@
 @using BlazorWjdr.Components.Dieu
 @using BlazorWjdr.Components.Sortilege
 
-@inject DieuxService _dieuxSvc
-@inject AptitudesService _aptitudesService
-@inject SortilegesService _sortilegesService
-@inject AppState _appState
+@inject DieuxService Service
+@inject AptitudesService AptitudesService
+@inject SortilegesService SortilegesService
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string Dieu { get; set; } = null!;
 
@@ -20,89 +20,89 @@
         switch (Dieu)
         {
             case "manann":
-                _dieu = _dieuxSvc.GetDieu(11);
-                _inspirationDivine = _aptitudesService.InspirationDivineManann;
+                _dieu = Service.GetDieu(11);
+                _inspirationDivine = AptitudesService.InspirationDivineManann;
                 break;
             case "morr":
-                _dieu = _dieuxSvc.GetDieu(12);
-                _inspirationDivine = _aptitudesService.InspirationDivineMorr;
+                _dieu = Service.GetDieu(12);
+                _inspirationDivine = AptitudesService.InspirationDivineMorr;
                 break;
             case "myrmidia":
-                _dieu = _dieuxSvc.GetDieu(13);
-                _inspirationDivine = _aptitudesService.InspirationDivineMyrmidia;
+                _dieu = Service.GetDieu(13);
+                _inspirationDivine = AptitudesService.InspirationDivineMyrmidia;
                 break;
             case "ranald":
-                _dieu = _dieuxSvc.GetDieu(14);
-                _inspirationDivine = _aptitudesService.InspirationDivineRanald;
+                _dieu = Service.GetDieu(14);
+                _inspirationDivine = AptitudesService.InspirationDivineRanald;
                 break;
             case "rhya":
-                _dieu = _dieuxSvc.GetDieu(15);
-                _inspirationDivine = _aptitudesService.InspirationDivineRhya;
+                _dieu = Service.GetDieu(15);
+                _inspirationDivine = AptitudesService.InspirationDivineRhya;
                 break;
             case "shallya":
-                _dieu = _dieuxSvc.GetDieu(16);
-                _inspirationDivine = _aptitudesService.InspirationDivineShallya;
+                _dieu = Service.GetDieu(16);
+                _inspirationDivine = AptitudesService.InspirationDivineShallya;
                 break;
             case "sigmar":
-                _dieu = _dieuxSvc.GetDieu(10);
-                _inspirationDivine = _aptitudesService.InspirationDivineSigmar;
+                _dieu = Service.GetDieu(10);
+                _inspirationDivine = AptitudesService.InspirationDivineSigmar;
                 break;
             case "taal":
-                _dieu = _dieuxSvc.GetDieu(17);
-                _inspirationDivine = _aptitudesService.InspirationDivineTaal;
+                _dieu = Service.GetDieu(17);
+                _inspirationDivine = AptitudesService.InspirationDivineTaal;
                 break;
             case "ulric":
-                _dieu = _dieuxSvc.GetDieu(18);
-                _inspirationDivine = _aptitudesService.InspirationDivineUlric;
+                _dieu = Service.GetDieu(18);
+                _inspirationDivine = AptitudesService.InspirationDivineUlric;
                 break;
             case "verena":
-                _dieu = _dieuxSvc.GetDieu(19);
-                _inspirationDivine = _aptitudesService.InspirationDivineVerena;
+                _dieu = Service.GetDieu(19);
+                _inspirationDivine = AptitudesService.InspirationDivineVerena;
                 break;
             case "khorne":
-                _dieu = _dieuxSvc.GetDieu(20);
+                _dieu = Service.GetDieu(20);
                 _inspirationDivine = null;
                 break;
             case "nurgle":
-                _dieu = _dieuxSvc.GetDieu(21);
-                _inspirationDivine = _aptitudesService.TalentSombreSavoirNurgle;
+                _dieu = Service.GetDieu(21);
+                _inspirationDivine = AptitudesService.TalentSombreSavoirNurgle;
                 break;
             case "slaanesh":
-                _dieu = _dieuxSvc.GetDieu(22);
-                _inspirationDivine = _aptitudesService.TalentSombreSavoirSlaanesh;
+                _dieu = Service.GetDieu(22);
+                _inspirationDivine = AptitudesService.TalentSombreSavoirSlaanesh;
                 break;
             case "tzeench":
-                _dieu = _dieuxSvc.GetDieu(23);
-                _inspirationDivine = _aptitudesService.TalentSombreSavoirTzeench;
+                _dieu = Service.GetDieu(23);
+                _inspirationDivine = AptitudesService.TalentSombreSavoirTzeench;
                 break;
             case "arianka":
-                _dieu = _dieuxSvc.GetDieu(31);
+                _dieu = Service.GetDieu(31);
                 _inspirationDivine = null;
                 break;
             case "khaine":
-                _dieu = _dieuxSvc.GetDieu(24);
+                _dieu = Service.GetDieu(24);
                 _inspirationDivine = null;
                 break;
             case "stromfels":
-                _dieu = _dieuxSvc.GetDieu(25);
+                _dieu = Service.GetDieu(25);
                 _inspirationDivine = null;
                 break;
             case "haendrik":
-                _dieu = _dieuxSvc.GetDieu(26);
+                _dieu = Service.GetDieu(26);
                 _inspirationDivine = null;
                 break;
             case "solkan":
-                _dieu = _dieuxSvc.GetDieu(30);
+                _dieu = Service.GetDieu(30);
                 _inspirationDivine = null;
                 break;
             case "illuminas":
-                _dieu = _dieuxSvc.GetDieu(32);
+                _dieu = Service.GetDieu(32);
                 _inspirationDivine = null;
                 break;
         }
         _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
 
-        _appState.SetMainTopRowTitle(_dieu.Nom);
+        AppState.SetMainTopRowTitle(_dieu.Nom);
     }
 }
 <div class="row">
@@ -269,7 +269,7 @@
     <div class="row">
         <div class="col-6">
             <h3>Bénédictions</h3>
-            @foreach (var benediction in _sortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(_inspirationDivine)))
+            @foreach (var benediction in SortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(_inspirationDivine)))
             {
                 <div class="bulle shadow-sm m-4 sortilege">
                     <div class="section">
@@ -280,7 +280,7 @@
         </div>
         <div class="col-6">
             <h3>Miracles</h3>
-            @foreach (var miracle in _sortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(_inspirationDivine)))
+            @foreach (var miracle in SortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(_inspirationDivine)))
             {
                 <div class="bulle shadow-sm m-4 sortilege">
                     <div class="section">

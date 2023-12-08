@@ -2,7 +2,6 @@
 
 using Models;
 using System.Collections.Generic;
-using System.Linq;
 
 public class ReglesService
 {
@@ -13,6 +12,6 @@ public class ReglesService
         _cacheRegle = data;
     }
 
-    public List<RegleDto> AllRegles => _cacheRegle.Values.ToList();
+    public IEnumerable<RegleDto> AllRegles => _cacheRegle.Values;
     public RegleDto GetRegle(int id) => _cacheRegle[id];
 }

@@ -35,8 +35,7 @@
 
 @code
 {
-    [Parameter]
-    public string SearchWord { get; set; } = "";
+    [Parameter] public string SearchWord { get; set; } = "";
 
     class Word
     {
@@ -46,7 +45,7 @@
             SearchFor = searchFor;
         }
 
-        public string TheWord { get; init; }
+        public string TheWord { get; }
         public bool SearchFor { get; set; }
         public bool Highlighted { get; set; }
     }
@@ -60,7 +59,7 @@
     private string _search = "";
     public string Search
     {
-        get { return _search; }
+        get => _search;
         set
         {
             _words.ForEach(s => s.SearchFor = false);
@@ -73,7 +72,7 @@
     private int _number;
     public int Number
     {
-        get { return _number; }
+        get => _number;
         set
         {
             _words.ForEach(w => w.Highlighted = false);
@@ -82,5 +81,5 @@
         }
     }
 
-    public int FoundWordCount => _words.Where(w => w.SearchFor).Count();
+    public int FoundWordCount => _words.Count(w => w.SearchFor);
 }

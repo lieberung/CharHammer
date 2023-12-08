@@ -68,7 +68,7 @@ public class BestioleDto
                     synthese.Jambes += pa;
             }
             var armureNaturelle = AptitudesAcquises.SingleOrDefault(aa => aa.Aptitude.Id == 4001);
-            if (armureNaturelle != null)
+            if (armureNaturelle is not null)
             {
                 synthese.Tete += armureNaturelle.Niveau;
                 synthese.Bras += armureNaturelle.Niveau;

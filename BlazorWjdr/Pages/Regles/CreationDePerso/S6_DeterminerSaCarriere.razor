@@ -1,6 +1,6 @@
 ﻿@using BlazorWjdr.Components.Carriere
 
-@inject TableDesCarrieresInitialesService _tablesCarrInitService
+@inject TableDesCarrieresInitialesService Service
 @code {
     [Parameter, EditorRequired] public RaceSelectionnee Selection { get; set; } = null!;
 
@@ -16,7 +16,7 @@
 
         CarriereDto? ca = null;
         while (ca == null || _carrieresObtenues.Contains(ca))
-            ca = _tablesCarrInitService.GetRandomStartingCareer(Selection.Race.Id);
+            ca = Service.GetRandomStartingCareer(Selection.Race.Id);
         _carrieresObtenues.Add(ca);
     }
 }

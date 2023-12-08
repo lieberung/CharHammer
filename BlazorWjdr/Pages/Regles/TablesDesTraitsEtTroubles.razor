@@ -2,13 +2,12 @@
 
 @using BlazorWjdr.Components.Aptitude
 
-@inject AptitudesService _cttService;
-@inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
-@inject AppState _appState
+@inject AptitudesService Service
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string GroupeActif { get; set; } = null!;
 
-    private List<AptitudeDto> Traits { get; set; } = null!;
+    private IEnumerable<AptitudeDto> Traits { get; set; } = null!;
     private AptitudeDto? _traitAleatoire;
     private int _nbColonnes;
     private string _determinant = "";
@@ -16,7 +15,7 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Tables des traits et troubles");
+        AppState.SetMainTopRowTitle("Tables des traits et troubles");
     }
 
     protected override void OnParametersSet()
@@ -25,23 +24,23 @@
         switch (GroupeActif)
         {
             case "traits":
-                Traits = _cttService.SignesDistinctifs;
+                Traits = Service.SignesDistinctifs;
                 _nbColonnes = 4;
                 _determinant = "un";
                 _typeDeTrait = "signe distinctif";
                 break;
             case "troubles-mineurs":
-                Traits = _cttService.TroublesMineurs();
+                Traits = Service.TroublesMineurs();
                 _determinant = "un";
                 _typeDeTrait = "trouble mineur";
                 break;
             case "folies":
-                Traits = _cttService.Folies;
+                Traits = Service.Folies;
                 _determinant = "une";
                 _typeDeTrait = "folie";
                 break;
             case "maladies":
-                Traits = _cttService.Maladies;
+                Traits = Service.Maladies;
                 _determinant = "une";
                 _typeDeTrait = "maladie";
                 break;
@@ -51,8 +50,8 @@
 
     private void TirerUnTraitAleatoire()
     {
-        var i = GenericService.RollIndex(Traits.Count);
-        _traitAleatoire = Traits[i];
+        var i = GenericService.RollIndex(Traits.Count());
+        _traitAleatoire = Traits.ElementAt(i);
     }
 }
 <div class="row">

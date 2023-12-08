@@ -3,9 +3,9 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Race
 
-@inject RacesService _racesService;
-@inject TableDesCarrieresInitialesService _tableDesCarrieresInitialesService
-@inject AppState _appState
+@inject RacesService RacesService;
+@inject TableDesCarrieresInitialesService TableDesCarrInitService
+@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
 
@@ -14,30 +14,30 @@
 
     protected override void OnInitialized()
     {
-        _appState.SetMainTopRowTitle("Table des carrières initiales");
+        AppState.SetMainTopRowTitle("Table des carrières initiales");
     }
 
     protected override void OnParametersSet()
     {
-        Race = _racesService.GetRace(int.Parse(RaceId));
+        Race = RacesService.GetRace(int.Parse(RaceId));
         base.OnParametersSet();
     }
 
     private void TirerUneCarriereInitiale()
     {
-        _carriereAleatoire = _tableDesCarrieresInitialesService.GetRandomStartingCareer(Race.Id);
+        _carriereAleatoire = TableDesCarrInitService.GetRandomStartingCareer(Race.Id);
     }
 }
 <div class="row">
     <div class="col-6">
         <div class="section">
             <p class="text-justify">
-                <LinkCarrieresInitiales Actif="@(Race == _racesService.Humains)" Race="@_racesService.Humains" />
-                <LinkCarrieresInitiales Actif="@(Race == _racesService.Halflings)" Race="@_racesService.Halflings" />
-                <LinkCarrieresInitiales Actif="@(Race == _racesService.Nains)" Race="@_racesService.Nains" />
-                <LinkCarrieresInitiales Actif="@(Race == _racesService.ElfesSylvains)" Race="@_racesService.ElfesSylvains" />
-                <LinkCarrieresInitiales Actif="@(Race == _racesService.HautsElfes)" Race="@_racesService.HautsElfes" />
-                <LinkCarrieresInitiales Actif="@(Race == _racesService.Gnomes)" Race="@_racesService.Gnomes" />
+                <LinkCarrieresInitiales Actif="@(Race == RacesService.Humains)" Race="@RacesService.Humains" />
+                <LinkCarrieresInitiales Actif="@(Race == RacesService.Halflings)" Race="@RacesService.Halflings" />
+                <LinkCarrieresInitiales Actif="@(Race == RacesService.Nains)" Race="@RacesService.Nains" />
+                <LinkCarrieresInitiales Actif="@(Race == RacesService.ElfesSylvains)" Race="@RacesService.ElfesSylvains" />
+                <LinkCarrieresInitiales Actif="@(Race == RacesService.HautsElfes)" Race="@RacesService.HautsElfes" />
+                <LinkCarrieresInitiales Actif="@(Race == RacesService.Gnomes)" Race="@RacesService.Gnomes" />
             </p>
         </div>
     </div>

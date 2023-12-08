@@ -42,13 +42,13 @@ public class AptitudeDto
     public AptitudeDto? Parent { get; set; }
     public readonly List<AptitudeDto> SousElements = new();
     public List<int> AptitudesLieesIds { get; init; } = null!;
-    public List<AptitudeDto> AptitudesLiees { get; set; } = new ();
+    public List<AptitudeDto> AptitudesLiees { get; set; } = new();
 
     public List<int> IncompatiblesIds { get; init; } = null!;
     public List<AptitudeDto> Incompatibles { get; set; } = null!;
-    public List<AptitudeDto> CompetencesLiees => AptitudesLiees.Where(a => a.EstUneCompetence).ToList();
-    public List<AptitudeDto> TalentsLies => AptitudesLiees.Where(a => a.EstUnTalent).ToList();
-    public List<AptitudeDto> TraitsLies => AptitudesLiees.Where(a => a.EstUnTrait).ToList();
+    public IEnumerable<AptitudeDto> CompetencesLiees => AptitudesLiees.Where(a => a.EstUneCompetence);
+    public IEnumerable<AptitudeDto> TalentsLies => AptitudesLiees.Where(a => a.EstUnTalent);
+    public IEnumerable<AptitudeDto> TraitsLies => AptitudesLiees.Where(a => a.EstUnTrait);
 
     public string Icon => EstUneCompetence ? "target" : EstUnTalent ? "brush" : EstUnTrait ? "droplet" : "error";
     public string NomComplet => Nom + (string.IsNullOrWhiteSpace(Spe) ? "" : $" : {Spe}");

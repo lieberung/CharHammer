@@ -103,7 +103,7 @@ public class Program
         IReadOnlyDictionary<int, CarriereDto> carrieres,
         IReadOnlyDictionary<int, LieuDto> lieux)
     {
-        return campagnes.Select(c => new CampagneDto()
+        return campagnes.Select(c => new CampagneDto
         {
             Id = c.id,
             Mj = users[c.mj],
@@ -135,7 +135,7 @@ public class Program
             Resume = s.resume ?? "",
             Secret = s.secret,
             Titre = s.titre,
-            Scenario = s.scenario == null ? null : scenarios.SingleOrDefault(sc => sc.Nom.ToLower() == s.scenario.ToLower()),
+            Scenario = s.scenario == null ? null : scenarios.SingleOrDefault(sc => string.Equals(sc.Nom, s.scenario, StringComparison.CurrentCultureIgnoreCase)),
             Xp = s.xp,
             XpComment = s.xp_comment,
             Rencontres = (s.rencontres ?? Array.Empty<JsonRencontre>())
@@ -393,10 +393,9 @@ public class Program
             race.SousElements.AddRange(cache.Values
                 .Where(c => c.Parent == race)
                 .OrderBy(c => c.NomMasculin));
-            foreach (var opinion in race.Opinions)
+            foreach (var opinion in race.Opinions.Where(opinion => opinion.RaceId != 0))
             {
-                if (opinion.RaceId != 0)
-                    opinion.Race = cache[opinion.RaceId];
+                opinion.Race = cache[opinion.RaceId];
             }
         }
 
@@ -645,7 +644,7 @@ public class Program
             lieu.Parent.SousElements.Add(lieu);
         }
         
-        foreach (var lieuId in (parents))
+        foreach (var lieuId in parents)
         {
             result[lieuId].SousElements = result[lieuId].SousElements.OrderBy(c => c.Nom).ToList();
         }
@@ -777,7 +776,7 @@ public class Program
                 NiveauSpecifie = c.niveau,
                 MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(GenericService.NettoyerPourRecherche(c.nom)),
                 Description = c.description,
-                Ambiance = (c.ambiance ?? Array.Empty<JsonCitation>()).Select(c => new CitationDto { Citation = c.c, Author = c.a ?? "", Source = c.s ?? "" }).ToArray(),
+                Ambiance = (c.ambiance ?? Array.Empty<JsonCitation>()).Select(ca => new CitationDto(ca.c, ca.a ?? "", ca.s ?? "")).ToArray(),
                 CarriereMereId = c.parent,
                 DebouchesIds = c.debouch ?? Array.Empty<int>(),
                 AvancementsIds = c.avancements ?? Array.Empty<int>(),

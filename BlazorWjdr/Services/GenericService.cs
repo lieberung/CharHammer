@@ -6,13 +6,13 @@ namespace BlazorWjdr.Services;
 
 public static class GenericService
 {
-    public static IEnumerable<IEnumerable<T>> Split<T>(this T[] array, int size)
-    {
-        for (var i = 0; i < (float)array.Length / size; i++)
-        {
-            yield return array.Skip(i * size).Take(size);
-        }
-    }
+    // public static IEnumerable<IEnumerable<T>> Split<T>(this T[] array, int size)
+    // {
+    //     for (var i = 0; i < (float)array.Length / size; i++)
+    //     {
+    //         yield return array.Skip(i * size).Take(size);
+    //     }
+    // }
 
     public static int RollIndex(int max) =>  new Random().Next(0, max);
     public static int RollDice(int nombreDeFaces, int nombreDeDes = 1)
@@ -54,8 +54,8 @@ public static class GenericService
     {
         chaine = chaine.ToLower();
         
-        char[] tableauFind = CaracteresDeRemplacement.ToCharArray();
-        char[] tableauReplace = CaracteresARemplacer.ToCharArray();
+        var tableauFind = CaracteresDeRemplacement.ToCharArray();
+        var tableauReplace = CaracteresARemplacer.ToCharArray();
 
         for (var i = 0; i < tableauReplace.Length; i++)
             chaine = chaine.Replace(tableauReplace[i], tableauFind[i]);

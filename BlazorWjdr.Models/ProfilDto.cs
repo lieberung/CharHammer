@@ -25,19 +25,19 @@ public class ProfilDto
     public int GetStat(string caracteristique)
     {
         caracteristique = caracteristique.Replace(" ", "").Split("/").First();
-        switch (caracteristique)
+        return caracteristique switch
         {
-            case "CC": return Cc;
-            case "CT": return Ct;
-            case "F": return F;
-            case "E": return E;
-            case "I": return I;
-            case "Ag": return Ag;
-            case "Dex": return Dex;
-            case "Int": return Int;
-            case "FM": return Fm;
-            case "Soc": return Soc;
-            default: return 0;
-        }
+            "CC" => Cc,
+            "CT" => Ct,
+            "F" => F,
+            "E" => E,
+            "I" => I,
+            "Ag" => Ag,
+            "Dex" => Dex,
+            "Int" => Int,
+            "FM" => Fm,
+            "Soc" => Soc,
+            _ => 0
+        };
     }
 }
