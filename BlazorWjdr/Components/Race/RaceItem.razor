@@ -1,5 +1,5 @@
 ﻿@code { [Parameter, EditorRequired] public RaceDto Item { get; set; } = null!; }
-<a href="races/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="races/@Item.Id/" class="btn btn-light btn-item">
     <ItemIcon Icon="droplet" Classes="me-1" />
     <span>
         @Item.NomMasculin @(string.IsNullOrWhiteSpace(Item.NomFeminin) ? "" : " / " + Item.NomFeminin)

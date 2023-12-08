@@ -23,7 +23,7 @@
             _tooltipNomJoueur = $"Créé le {Item.DateDeCreation} par {Item.Joueur}\nRace : {_nomRace}\nOrigines : {_origines}\n{Item.Notes}";
     }
 }
-<a href="@(Item.EstUneCreature ? "creatures" : "personnages")/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="@(Item.EstUneCreature ? "creatures" : "personnages")/@Item.Id/" class="btn btn-light btn-item">
     @if (Item.EstUnPersonnageJoueur)
     {
         <Tooltip Text=@_tooltipNomJoueur>

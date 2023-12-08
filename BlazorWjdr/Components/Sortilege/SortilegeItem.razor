@@ -1,9 +1,9 @@
-﻿<a href="sortileges/@Item.Id.ToString()/" class="btn btn-light btn-item">
+﻿<a href="sortileges/@Item.Id/" class="btn btn-light btn-item">
     <ItemIcon Icon="script" Classes="me-1" />
     @if (string.IsNullOrWhiteSpace(_toolTipText)) {
         @_itemName
     } else {
-        <Tooltip Text="@(_toolTipText)">@_itemName</Tooltip>
+        <Tooltip Text=@_toolTipText>@_itemName</Tooltip>
     }
 </a>
 @code{

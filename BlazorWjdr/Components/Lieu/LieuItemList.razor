@@ -1,10 +1,9 @@
 ﻿@code {
     [Parameter, EditorRequired] public IEnumerable<LieuDto> Items { get; set; } = null!;
-    [Parameter] public bool EnColonne { get; set; }
 }
-<ul class="mb-0 @(EnColonne ? "" : "list-inline")">
+<div class="list-btn-item">
     @foreach (var item in Items)
     {
-        <li class="@(EnColonne ? "" : "list-inline-item")"><LieuItem Item=@item /></li>
+        <LieuItem Item=@item />
     }
-</ul>
+</div>

@@ -74,7 +74,12 @@
 .table td, .table th { padding: .10rem; border-top: none; }
 .table td ul { margin-bottom: 0; }
 
-.list-inline-item:not(:last-child) { margin-right: 0.3rem; } /* bootstrap, ajoute display:inline-block; */
+.list-btn-item > .btn-item:not(:last-child) {
+    margin-right: 0.3rem;
+}
+.list-inline-item:not(:last-child) {
+    margin-right: 0.3rem;
+} /* bootstrap, ajoute display:inline-block; */
 
 .bulle {
     padding: .5rem;

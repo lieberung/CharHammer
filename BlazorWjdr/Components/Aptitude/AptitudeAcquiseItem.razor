@@ -26,16 +26,14 @@
             _titre = Item.Detail(false);
             _toolTipText = string.IsNullOrWhiteSpace(Item.Aptitude.Resume) ? Item.Aptitude.Description : Item.Aptitude.Resume;
         }
-        
-        base.OnParametersSet();
     }
 }
 
-<a href="@_hrefBase/@Item.Aptitude.Id.ToString()/" class="btn btn-light btn-item">
-    <ItemIcon Icon="@Item.Aptitude.Icon" Classes="me-1" />
+<a href="@_hrefBase/@Item.Aptitude.Id/" class="btn btn-light btn-item">
+    <ItemIcon Icon=@Item.Aptitude.Icon Classes="me-1" />
     @if (_toolTipText == "") {
         @_titre
     } else {
-        <Tooltip Text="@_toolTipText">@_titre</Tooltip>
+        <Tooltip Text=@_toolTipText>@_titre</Tooltip>
     }
 </a>

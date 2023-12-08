@@ -2,9 +2,9 @@
     [Parameter, EditorRequired] public AptitudeAcquiseDto[] Items { get; set; } = null!;
     [Parameter] public bool AfficherBonusDeCompetence { get; set; }
 }
-<ul class="list-inline">
+<div class="list-btn-item">
     @foreach (var item in Items)
     {
-        <li class="list-inline-item"><AptitudeAcquiseItem Item=@item AfficherBonusDeCompetence=@AfficherBonusDeCompetence /></li>
+        <AptitudeAcquiseItem Item=@item AfficherBonusDeCompetence=@AfficherBonusDeCompetence />
     }
-</ul>
+</div>

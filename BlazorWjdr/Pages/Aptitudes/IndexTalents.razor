@@ -21,7 +21,12 @@
 
 <table>
     <thead>
-        <tr><th></th><th></th><th style="width:275px">Talent</th><th>Aptitudes liées</th></tr>
+        <tr>
+            <th style="width:2rem;"></th>
+            <th style="width:2rem;"></th>
+            <th style="width:22rem">Trait</th>
+            <th>Aptitudes liées</th>
+        </tr>
     </thead>
     <tbody>
         @foreach (var talent in _talentsLines.Where(t => t is { Ignore: false, Parent: null }))

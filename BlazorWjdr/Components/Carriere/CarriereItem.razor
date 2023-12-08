@@ -6,7 +6,7 @@
     [Parameter] public bool HideIndicatorRestriction { get; set; }
     [Parameter] public bool Special { get; set; }
 }
-<a href="carrieres/@Item.Id.ToString()/" class="btn btn-light btn-item@(Special ? " btn-special" : "")">
+<a href="carrieres/@Item.Id/" class="btn btn-light btn-item@(Special ? " btn-special" : "")">
     <ItemIcon Icon="badge" />
     <span class="ms-1"></span>
     @if (!string.IsNullOrWhiteSpace(Tooltip))

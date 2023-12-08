@@ -1,6 +1,5 @@
 ﻿@code
 {
-    [Parameter] public string ItemClass { get; set; } = "list-inline-item";
     [Parameter, EditorRequired] public IEnumerable<CarriereDto> Items { get; set; } = null!;
 
     [Parameter] public bool HideIndicatorBase { get; set; }
@@ -8,13 +7,13 @@
 
     [Parameter] public IEnumerable<int> SpecialCarriereId { get; set; } = Array.Empty<int>();
 }
-<ul class="list-inline mb-0">
+<div class="list-btn-item">
     @foreach (var carriere in Items.Where(c => SpecialCarriereId.Contains(c.Id)).OrderBy(c=>c.Nom))
     {
-        <li class="@ItemClass"><CarriereItem Item=@carriere HideIndicatorBase=@HideIndicatorBase HideIndicatorRestriction=@HideIndicatorRestriction Special=true /></li>
+        <CarriereItem Item=@carriere HideIndicatorBase=@HideIndicatorBase HideIndicatorRestriction=@HideIndicatorRestriction Special=true />
     }
     @foreach (var carriere in Items.Where(c => !SpecialCarriereId.Contains(c.Id)).OrderBy(c=>c.Nom))
     {
-        <li class="@ItemClass"><CarriereItem Item=@carriere HideIndicatorBase=@HideIndicatorBase HideIndicatorRestriction=@HideIndicatorRestriction /></li>
+        <CarriereItem Item=@carriere HideIndicatorBase=@HideIndicatorBase HideIndicatorRestriction=@HideIndicatorRestriction />
     }
-</ul>
+</div>

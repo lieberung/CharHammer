@@ -1,9 +1,9 @@
 ﻿@code {
     [Parameter, EditorRequired] public IEnumerable<SortilegeDto> Items { get; set; } = null!;
 }
-<ul class="list-inline">
+<div class="list-btn-item">
     @foreach (var item in Items)
     {
-        <li class="list-inline-item"><SortilegeItem Item=@item /></li>
+        <SortilegeItem Item=@item />
     }
-</ul>
+</div>

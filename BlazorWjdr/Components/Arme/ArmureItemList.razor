@@ -1,12 +1,9 @@
 ﻿@code{
     [Parameter, EditorRequired] public ArmureDto[] Items { get; set; } = null!;
-    [Parameter] public bool EnColonne { get; set; }
 }
-<ul class="@(EnColonne ? "" : "list-inline mb-1")">
+<div class="list-btn-item">
     @foreach (var armure in Items)
     {
-        <li class="@(EnColonne ? "" : "list-inline-item")">
-            <ArmureItem Item=@armure />
-        </li>
+        <ArmureItem Item=@armure />
     }
-</ul>
+</div>

@@ -28,7 +28,7 @@
     <tbody>
         @foreach (var talent in Service.AllTraits.Where(t => t is { Ignore: false, Parent: null }))
         {
-            <TalentRow Item=@talent />
+            <TraitRow Item=@talent />
         }
     </tbody>
 </table>

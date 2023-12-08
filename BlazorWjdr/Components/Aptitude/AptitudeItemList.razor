@@ -3,13 +3,13 @@
     [Parameter] public IEnumerable<IEnumerable<AptitudeDto>> ItemsChoix { get; set; } = Array.Empty<AptitudeDto[]>();
     [Parameter] public bool PasDeTooltip { get; set; }
 }
-<ul class="list-inline">
+<div class="list-btn-item">
     @foreach (var item in Items)
     {
-        <li class="list-inline-item"><AptitudeItem Item=@item PasDeTooltip=@PasDeTooltip /></li>
+        <AptitudeItem Item=@item PasDeTooltip=@PasDeTooltip />
     }
     @foreach (var choix in ItemsChoix)
     {
-        <li class="list-inline-item"><ChoixDAptitudeItem Choix=@choix PasDeTooltip=@PasDeTooltip /></li>
+        <ChoixDAptitudeItem Choix=@choix PasDeTooltip=@PasDeTooltip />
     }
-</ul>
+</div>

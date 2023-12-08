@@ -1,7 +1,7 @@
 ﻿@code {
     [Parameter, EditorRequired] public LieuDto Item { get; set; } = null!;
 }
-<a href="lieu/@Item.Id.ToString()/" class="btn btn-light btn-item">
+<a href="lieu/@Item.Id/" class="btn btn-light btn-item">
     <ItemIcon Icon="compass" Classes="me-1"/>
     @Item.Nom
 </a>
