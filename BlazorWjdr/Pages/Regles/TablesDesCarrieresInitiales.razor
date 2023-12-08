@@ -3,14 +3,16 @@
 @using BlazorWjdr.Components.Carriere
 @using BlazorWjdr.Components.Race
 
-@inject RacesService RacesService;
+@inject RacesService RacesSvc
 @inject TableDesCarrieresInitialesService TableDesCarrInitService
 @inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
 
-    private RaceDto Race { get; set; } = null!;
-    private CarriereDto? _carriereAleatoire;
+    RaceDto Race = null!;
+    RaceDto Culture = null!;
+    IEnumerable<RaceDto> Cultures = ArraySegment<RaceDto>.Empty;
+    CarriereDto? _carriereAleatoire;
 
     protected override void OnInitialized()
     {
@@ -19,8 +21,26 @@
 
     protected override void OnParametersSet()
     {
-        Race = RacesService.GetRace(int.Parse(RaceId));
-        base.OnParametersSet();
+        var idRaceSelectionnee = int.Parse(RaceId);
+        
+        // ToDo: déterminer si race ou culture en fonction du cacheCultures du service
+        Race = RacesSvc.GetRace(idRaceSelectionnee);
+
+        switch (idRaceSelectionnee)
+        {
+            case RacesService.IdHumains:
+                Race = RacesSvc.Humains;
+                Culture = RacesSvc.HumainsImperiaux;
+                Cultures = new RaceDto[] { RacesSvc.HumainsImperiaux, RacesSvc.HumainsBretonniens, RacesSvc.HumainsGospodars, RacesSvc.HumainsUngols };
+                break;
+            case RacesService.IdElfes:
+                Culture = RacesSvc.ElfesSylvains;
+                Cultures = new RaceDto[] { RacesSvc.ElfesSylvains, RacesSvc.HautsElfes };
+                break;
+            default:
+                Culture = Race;
+                break;
+        }
     }
 
     private void TirerUneCarriereInitiale()
@@ -29,49 +49,46 @@
     }
 }
 <div class="row">
-    <div class="col-6">
-        <div class="section">
-            <p class="text-justify">
-                <LinkCarrieresInitiales Actif="@(Race == RacesService.Humains)" Race="@RacesService.Humains" />
-                <LinkCarrieresInitiales Actif="@(Race == RacesService.Halflings)" Race="@RacesService.Halflings" />
-                <LinkCarrieresInitiales Actif="@(Race == RacesService.Nains)" Race="@RacesService.Nains" />
-                <LinkCarrieresInitiales Actif="@(Race == RacesService.ElfesSylvains)" Race="@RacesService.ElfesSylvains" />
-                <LinkCarrieresInitiales Actif="@(Race == RacesService.HautsElfes)" Race="@RacesService.HautsElfes" />
-                <LinkCarrieresInitiales Actif="@(Race == RacesService.Gnomes)" Race="@RacesService.Gnomes" />
-            </p>
-        </div>
+    <div class="col-9">
+        <SousMenu>
+            @foreach (var race in new RaceDto[] { RacesSvc.Humains, RacesSvc.Halflings, RacesSvc.Nains, RacesSvc.Elfes, RacesSvc.Gnomes })
+            {
+                <a href="table-carrieres-initiales/@race.Id/" class="btn btn-sm @(Race.Id == race.Id ? "btn-primary" : "btn-secondary")">@race.NomMasculin</a>
+            }            
+        </SousMenu>
+        @if (Cultures.Any())
+        {
+            <SousMenu>
+                @foreach (var race in Cultures)
+                {
+                    <a href="table-carrieres-initiales/@race.Id/" class="btn btn-sm @(Culture.Id == race.Id ? "btn-primary" : "btn-secondary")">@race.NomMasculin</a>
+                }
+            </SousMenu>
+        }
     </div>
-    <div class="col-1"></div>
-    <div class="col-4">
-        <div class="mt-3 mb-3 ps-2">
-            <button class="btn btn-primary" type="button" @onclick="TirerUneCarriereInitiale">
+    <div class="col-3">
+        <div class="d-flex">
+            <button class="btn btn-sm btn-primary mx-auto" type="button" @onclick="TirerUneCarriereInitiale">
                 <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
                 Tirer une carrière initiale
             </button>
         </div>
     </div>
-    <div class="col-1"></div>
 </div>
-
 <div class="row">
     <div class="col-7">
         <div class="section">
-            <TableDeDepart RaceId="@Race.Id.ToString()" />
+            <TableDeDepart RaceId=@Race.Id />
         </div>
     </div>
-
-    @if (_carriereAleatoire != null)
-    {
-        <div class="col-5">
+    <div class="col-5">
+        @if (_carriereAleatoire is not null)
+        {
             <div class="section">
                 <h3>@_carriereAleatoire.Nom</h3>
-                <CarriereItem Item="_carriereAleatoire" />
-                <CarriereDescription Item="_carriereAleatoire" />
+                <CarriereItem Item=@_carriereAleatoire />
+                <CarriereDescription Item=@_carriereAleatoire />
             </div>
-        </div>
-    }
-    else
-    {
-        <div class="col-5"></div>
-    }
+        }
+    </div>
 </div>

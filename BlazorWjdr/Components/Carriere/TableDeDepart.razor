@@ -1,7 +1,60 @@
 ﻿@using BlazorWjdr.Components.Reference
 
 @inject TableDesCarrieresInitialesService Service
+@code {
+    [Parameter, EditorRequired] public int RaceId { get; set; }
 
+    private int _split;
+    private int _nbColonnes = 4;
+
+    private List<LigneDeCarriereInitialeDto> _allLines = null!;
+    private List<LigneDeCarriereInitialeDto> _col1Lines = new();
+    private List<LigneDeCarriereInitialeDto> _col2Lines = new();
+    private List<LigneDeCarriereInitialeDto> _col3Lines = new();
+    private List<LigneDeCarriereInitialeDto> _col4Lines = new();
+
+    protected override void OnParametersSet()
+    {
+        _allLines = Service.AllLignes[RaceId];
+
+        var nb = _allLines.Count / _nbColonnes;
+        if (_allLines.Count % _nbColonnes != 0)
+            nb++;
+        _split = nb;
+
+        _col1Lines = new();
+        _col2Lines = new();
+        _col3Lines = new();
+        _col4Lines = new();
+
+        for (var i = 0; i < _allLines.Count; i++)
+        {
+            if (i < _split)
+                _col1Lines.Add(_allLines[i]);
+            else if (i < (_split * 2))
+                _col2Lines.Add(_allLines[i]);
+            else if (i < (_split * 3))
+                _col3Lines.Add(_allLines[i]);
+            else
+                _col4Lines.Add(_allLines[i]);
+        }
+    }
+    /*
+    @if (i < _col4Lines.Count)
+        {
+        if (i == 0 || _col4Lines[i - 1].Carriere.Groupe != _col4Lines[i].Carriere.Groupe)
+            {
+            <CarriereInitialeGroupeCol Groupe="@_col4Lines[i].Carriere.Groupe"/>
+            <CarriereInitialeRow Item="@_col4Lines[i]" BorderTop=true/>
+        }
+        else
+            {
+            <td class="vocation"></td>
+            <CarriereInitialeRow Item="@_col4Lines[i]"/>
+    }
+    }
+    */
+}
 <table>
     <tbody>
     @for (var i = 0; i < _split; i++)
@@ -61,57 +114,3 @@
     }
     </tbody>
 </table>
-@code {
-    [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
-
-    private int _split;
-    private int _nbColonnes = 4; 
-    
-    private List<LigneDeCarriereInitialeDto> _allLines = null!;
-    private List<LigneDeCarriereInitialeDto> _col1Lines = new ();
-    private List<LigneDeCarriereInitialeDto> _col2Lines = new ();
-    private List<LigneDeCarriereInitialeDto> _col3Lines = new ();
-    private List<LigneDeCarriereInitialeDto> _col4Lines = new ();
-
-    protected override void OnParametersSet()
-    {
-        _allLines = Service.AllLignes[int.Parse(RaceId)];
-
-        var nb = _allLines.Count / _nbColonnes;
-        if (_allLines.Count % _nbColonnes != 0)
-            nb++;
-        _split = nb;
-
-        _col1Lines = new ();
-        _col2Lines = new ();
-        _col3Lines = new ();
-        _col4Lines = new ();
-        
-        for (var i = 0; i < _allLines.Count; i++)
-        {
-            if (i < _split)
-                _col1Lines.Add(_allLines[i]);
-            else if (i < (_split * 2))
-                _col2Lines.Add(_allLines[i]);
-            else if (i < (_split * 3))
-                _col3Lines.Add(_allLines[i]);
-            else
-                _col4Lines.Add(_allLines[i]);
-        }
-    }
-    /*
-    @if (i < _col4Lines.Count)
-    {
-        if (i == 0 || _col4Lines[i - 1].Carriere.Groupe != _col4Lines[i].Carriere.Groupe)
-        {
-            <CarriereInitialeGroupeCol Groupe="@_col4Lines[i].Carriere.Groupe"/>
-            <CarriereInitialeRow Item="@_col4Lines[i]" BorderTop=true/>
-        }
-        else
-        {
-            <td class="vocation"></td>
-            <CarriereInitialeRow Item="@_col4Lines[i]"/>
-        }
-    }
-    */
-}

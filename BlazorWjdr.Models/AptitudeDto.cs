@@ -62,6 +62,7 @@ public class AptitudeDto
                 "trait" => "signe distinctif",
                 "nevrose" => "névrose",
                 "capacite" => "capacité",
+                "creature" => "créature",
                 "nature_avantageuse" => "prédisposition",
                 "resistance" => "résistance",
                 "animosite" => "animosité",

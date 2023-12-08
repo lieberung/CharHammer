@@ -1,4 +1,5 @@
-﻿@code {
+﻿@using BlazorWjdr.Services
+@code {
     bool AfficherLiensHumains;
     bool AfficherLiensElfes = true;
 }
@@ -17,7 +18,7 @@
             <BtnChevron Icon="chevron-top" Invisible=true />
         </span>
         <BtnRace Race="Impériaux" />
-        <BtnList Href="table-carrieres-initiales/1/" />
+        <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHumainsImperiaux}/") />
         <BtnInfo />
     </div>
     <div class="hstack gap-2">
@@ -25,7 +26,7 @@
             <BtnChevron Icon="chevron-top" Invisible=true />
         </span>
         <BtnRace Race="Bretonniens" />
-        <BtnList Href="table-carrieres-initiales/4/" />
+        <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHumainsBretonniens}/") />
         <BtnInfo />
     </div>
     <div class="hstack gap-2">
@@ -33,7 +34,7 @@
             <BtnChevron Icon="chevron-top" Invisible=true />
         </span>
         <BtnRace Race="Gospodars" />
-        <BtnList Href="table-carrieres-initiales/22/" />
+        <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHumainsGospodars}/") />
         <BtnInfo />
     </div>
     <div class="hstack gap-2">
@@ -41,7 +42,7 @@
             <BtnChevron Icon="chevron-top" Invisible=true />
         </span>
         <BtnRace Race="Ungols" />
-        <BtnList Href="table-carrieres-initiales/23/" />
+        <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHumainsUngols}/") />
         <BtnInfo />
     </div>
 }
@@ -50,7 +51,7 @@
         <BtnChevron Icon="chevron-top" Invisible=true />
     </span>
     <BtnRace Race="Halflings" Href="regles/creation-de-personnage/26/" />
-    <BtnList Href="table-carrieres-initiales/26/" />
+    <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHalflings}/") />
     <BtnInfo Href="univers/races/halflings/" />
 </div>
 <div class="hstack gap-2">
@@ -58,7 +59,7 @@
         <BtnChevron Icon="chevron-top" Invisible=true />
     </span>
     <BtnRace Race="Nains" Href="regles/creation-de-personnage/27/" />
-    <BtnList Href="table-carrieres-initiales/27/" />
+    <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdNains}/") />
     <BtnInfo Href="univers/races/nains/" />
 </div>
 <div class="hstack gap-2">
@@ -66,7 +67,7 @@
         <BtnChevron Icon="chevron-top" Invisible=true />
     </span>
     <BtnRace Race="Gnômes" Href="regles/creation-de-personnage/63/" />
-    <BtnList Href="table-carrieres-initiales/63/" />
+    <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdGnomes}/") />
     <BtnInfo Href="univers/races/gnomes/" />
 </div>
 <div class="hstack gap-2">
@@ -84,7 +85,7 @@
             <BtnChevron Icon="chevron-top" Invisible=true />
         </span>
         <BtnRace Race="Elfes sylvains" Href="regles/creation-de-personnage/65/" />
-        <BtnList Href="table-carrieres-initiales/65/" />
+        <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdElfesSylvains}/") />
         <BtnInfo Href="univers/races/elfes-sylvains/" />
     </div>
     <div class="hstack gap-2">
@@ -92,7 +93,7 @@
             <BtnChevron Icon="chevron-top" Invisible=true />
         </span>
         <BtnRace Race="Hauts-elfes" Href="regles/creation-de-personnage/66/" />
-        <BtnList Href="table-carrieres-initiales/66/" />
+        <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHautsElfes}/") />
         <BtnInfo Href="univers/races/hauts-elfes/" />
     </div>
 }

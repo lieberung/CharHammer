@@ -1,5 +1,0 @@
-﻿@code {
-    [Parameter, EditorRequired] public RaceDto Race { get; set; } = null!;
-    [Parameter] public bool Actif { get; set; }
-}
-<a href="table-carrieres-initiales/@Race.Id/" class="me-2 btn @(Actif ? "btn-primary" : "btn-secondary")" style="width:110px;">@Race.NomMasculin</a>
