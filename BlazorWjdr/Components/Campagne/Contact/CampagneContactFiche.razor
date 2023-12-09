@@ -10,41 +10,39 @@
     [Parameter] public bool AfficherAptitudes { get; set; }
     [Parameter] public bool AfficherMatosEtSorts { get; set; }
 }
-<div class="card">
-    <div class="card-body">
-        <img class="float-end" alt="@Item.Pnj.Nom (apparence)" style="max-width:550px; max-height:550px;" src="images/beasts/@(Item.Pnj.Id).png"/>
-        <h4>@Item.Pnj.Nom</h4>
+<div class="section rounded-2 bg-white">
+    <img class="float-end" alt="@Item.Pnj.Nom (apparence)" style="max-width:550px; max-height:550px;" src="images/beasts/@(Item.Pnj.Id).png"/>
+    <h4>@Item.Pnj.Nom</h4>
+    <p>
+        <CarriereItem Item=@Item.Pnj.CarriereActuelle />
+        <span class="ms-1"></span>
+        <RaceItem Item=@Item.Pnj.Race />
+        <span class="ms-1"></span>
+        <LieuItem Item=@Item.LieuDeResidence />
+    </p>
+    @if (AfficherProfil)
+    {
         <p>
-            <CarriereItem Item=@Item.Pnj.CarriereActuelle />
-            <span class="ms-1"></span>
-            <RaceItem Item=@Item.Pnj.Race />
-            <span class="ms-1"></span>
-            <LieuItem Item=@Item.LieuDeResidence />
+            <BestioleProfil Item=@Item.Pnj NAfficherQueLeProfilActuel=true />
         </p>
-        @if (AfficherProfil)
+    }
+    @if (AfficherAptitudes)
+    {
+        <h5>Aptitudes</h5>
+        <AptitudesAcquises Item=@Item.Pnj MasquerTitres=true />
+    }
+    @if (AfficherMatosEtSorts)
+    {
+        <BestioleFicheMatosSorts Item=@Item.Pnj />
+    }
+    <p class="text-justify">
+        @Item.Description
+    </p>
+    <ul>
+        <li>Lieu de rencontre : <LieuItem Item=@Item.LieuDeRencontre /></li>
+        @foreach (var note in Item.Notes)
         {
-            <p>
-                <BestioleProfil Item=@Item.Pnj NAfficherQueLeProfilActuel=true />
-            </p>
+            <li>@note</li>
         }
-        @if (AfficherAptitudes)
-        {
-            <h5>Aptitudes</h5>
-            <AptitudesAcquises Item=@Item.Pnj MasquerTitres=true />
-        }
-        @if (AfficherMatosEtSorts)
-        {
-            <BestioleFicheMatosSorts Item=@Item.Pnj />
-        }
-        <p class="text-justify">
-            @Item.Description
-        </p>
-        <ul>
-            <li>Lieu de rencontre : <LieuItem Item=@Item.LieuDeRencontre /></li>
-            @foreach (var note in Item.Notes)
-            {
-                <li>@note</li>
-            }
-        </ul>
-    </div>
+    </ul>
 </div>

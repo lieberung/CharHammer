@@ -8,7 +8,7 @@
 
 <h5 class="hover-pointer" data-bs-toggle="collapse" data-bs-target="#dieux-majeurs"
    role="button" aria-expanded="false" aria-controls="dieux-majeurs">
-    <ItemIcon Icon="chevron-bottom" Classes="ms-2 theme-orange-color" />
+    <ItemIcon Icon="chevron-bottom" Classes="ms-2 text-orange" />
     Dieux majeurs dans l'Empire
 </h5>
 <p class="collapse mb-2" id="dieux-majeurs">

@@ -4,7 +4,9 @@
 :root {
     --theme-font-family: 'calecon-antique', fantasy;
     --theme-color: #5e1a05;
-    /*--theme-brown-light: #a46022;*/
+    --theme-brown: #a46022;
+    --theme-brown-light: #d1b07a;
+    --theme-brown-lighter: #ecd1a6;
     --theme-color-lighter: #80390f;
     --theme-color-pale: #fff7f2;
     --theme-orange-darker: #95632b;
@@ -16,8 +18,8 @@
     --bs-secondary: var(--theme-orange);
     --bs-danger: #aa0101;
     --bs-body-bg: #f3e3c1;
-    --bs-link-color-rgb: var(--theme-color); /* #562f08; */
-    --bs-link-hover-color-rgb: var(--theme-color-lighter); /* #562f08; */
+    --bs-link-color-rgb: var(--theme-color);
+    --bs-link-hover-color-rgb: var(--theme-color-lighter);
     --bs-card-title-color: var(--theme-color);
     --bs-warning-bg-subtle: var(--theme-orange);
 }
@@ -28,37 +30,45 @@
     font-weight: 600;
 }
 
-.hover-help:hover {
-    cursor: help;
-}
-.hover-pointer:hover {
-    cursor: pointer;
-}
-
-.oi.oi-icon {
-    min-width: .7rem;
-}
+.h-12rem { height: 12rem; }
+.w-2rem { width: 2rem; }
+.w-4rem { width: 4rem; }
+.w-5rem { width: 5rem; }
+.w-8rem { width: 8rem; }
+.w-9rem { width: 9rem; }
+.w-10rem { width: 10rem; }
+.w-12rem { width: 12rem; }
+.w-13rem { width: 13rem; }
+.w-15rem { width: 15rem; }
+.w-18rem { width: 18rem; }
+.w-22rem { width: 22rem; }
+.w-25rem { width: 25rem; }
+.w-31rem { width: 31rem; }
 
 .section {
     padding: 1.25rem;
 }
 
-.card { background-color: #fff; }
-/*.card-body { padding: 1.25rem; } */ /* disparu en bootstrap 5 */
 .text-justify { text-align: justify; }
-.text-orange-dark {
-    color: #a46022;
-}
 
+.text-brown {
+    color: var(--theme-brown) !important;
+}
 .theme-color {
     color: var(--theme-color);
 }
-.theme-orange-color {
+.text-orange {
     color: var(--theme-orange) !important;
 }
 .insister {
     color: var(--theme-color);
     font-weight: bold;
+}
+.bg-brown {
+    background-color: var(--theme-brown) !important;
+}
+.bg-brown-lighter {
+    background-color: var(--theme-brown-lighter) !important;
 }
 
 .tgroupe {
@@ -85,7 +95,6 @@
 .bulle {
     padding: .5rem;
     background-color: var(--theme-color-pale);
-    /*border: 1px dotted var(--theme-color-lighter);*/
     border-radius: .75em;
 }
 .bulle > .table {
@@ -93,7 +102,6 @@
     --bs-table-bg: var(--bs-body-bg);
     --bs-table-striped-bg: var(--theme-color-pale);
 }
-.bulle.sortilege { width:500px; }
 .bulle > ul:last-child, .bulle > p:last-child {
     margin-bottom: 0;
 }
@@ -106,6 +114,9 @@
 .bt-black-dashed {
     border-top: 1px black dashed;
 }
+
+.hover-help:hover { cursor: help; }
+.hover-pointer:hover { cursor: pointer; }
 
 #blazor-error-ui {
     background: lightyellow;

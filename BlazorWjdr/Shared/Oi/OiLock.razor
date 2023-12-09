@@ -1,2 +1,4 @@
-﻿@code { [Parameter] public bool Locked { get; set; } }
+﻿@code {
+    [Parameter] public bool Locked { get; set; }
+}
 <span class="oi oi-lock-@(Locked ? "locked" : "unlocked") theme-color" style="font-size: 1.7rem; top: -0.1rem;" aria-hidden="true"></span>

@@ -1,8 +1,8 @@
-﻿<Tooltip Text=@Text>
-    <ItemIcon Icon=@Icon Classes=@Classes />
-</Tooltip>
-@code {
+﻿@code {
     [Parameter, EditorRequired] public string Icon { get; set; } = null!;
     [Parameter] public string Classes { get; set; } = "";
     [Parameter] public string Text { get; set; } = null!;
 }
+<Tooltip Text=@Text>
+    <ItemIcon Icon=@Icon Classes=@Classes />
+</Tooltip>

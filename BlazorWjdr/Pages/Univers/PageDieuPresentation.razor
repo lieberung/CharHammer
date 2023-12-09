@@ -271,7 +271,7 @@
             <h3>Bénédictions</h3>
             @foreach (var benediction in SortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(_inspirationDivine)))
             {
-                <div class="bulle shadow-sm m-4 sortilege">
+                <div class="bulle shadow-sm m-4 w-31rem">
                     <div class="section">
                         <SortilegeDetail Item=@benediction />
                     </div>
@@ -282,7 +282,7 @@
             <h3>Miracles</h3>
             @foreach (var miracle in SortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(_inspirationDivine)))
             {
-                <div class="bulle shadow-sm m-4 sortilege">
+                <div class="bulle shadow-sm m-4 w-31rem">
                     <div class="section">
                         <SortilegeDetail Item=@miracle />
                     </div>

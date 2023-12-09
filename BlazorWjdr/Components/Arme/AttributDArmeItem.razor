@@ -1,4 +1,21 @@
-﻿<span class="btn btn-light btn-item@(_class)" target="_blank">
+﻿@code {
+    [Parameter, EditorRequired] public ArmeAttributDto Item { get; set; } = null!;
+    [Parameter] public int Rating { get; set; }
+
+    string _nom = "";
+    string _class = "";
+
+    protected override void OnParametersSet()
+    {
+        _nom = Rating > 1
+            ? Item.Nom.Replace("(x)", $"({Rating})")
+            : Item.Nom.Replace(" (x)", "");
+
+        if (_nom.EndsWith("*"))
+            _class = " btn-special";
+    }
+}
+<span class="btn btn-light btn-item@(_class)" target="_blank">
     <ItemIcon Icon="shield" Classes="me-1" />
     @if (string.IsNullOrWhiteSpace(Item.Description)) {
         @_nom
@@ -6,20 +23,3 @@
         <Tooltip Text=@Item.Description>@_nom</Tooltip>
     }
 </span>
-@code{
-    [Parameter, EditorRequired] public ArmeAttributDto Item { get; set; } = null!;
-    [Parameter] public int Rating { get; set; }
-
-    private string _nom = "";
-    private string _class = "";
-    
-    protected override void OnParametersSet()
-    {
-        _nom = Rating > 1
-            ? Item.Nom.Replace("(x)", $"({Rating})")
-            : Item.Nom.Replace(" (x)","");
-
-        if (_nom.EndsWith("*"))
-            _class = " btn-special";
-    }
-}
