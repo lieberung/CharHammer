@@ -66,7 +66,7 @@
       "description": "Choisissez ou déterminez aléatoirement en utilisant la table.",
       "lignes": [
         [ "", "Elfe", "Gnôme", "Halfling", "Humain", "Nain" ],
-        [ "Espérance de vie", "~ 1000 ans", "~ 300 ans", "~ 120 ans", "~ 60 ans", "~ 200 ans" ],
+        [ "Espér. de vie", "~ 1000 ans", "~ 300 ans", "~ 120 ans", "~ 60 ans", "~ 200 ans" ],
         [ "Age", "30+10d10", "30+5d10", "25+7d6", "13+3d10", "35+5d10" ],
         [ "Poids", "30+5d10", "30+5d10", "25+7d6", "40+6d10", "35+5d10" ],
         [ "Taille (femme)", "1m50+3d10cm", "1m10+3d10cm", "0m91+3d10cm", "1m50+3d10cm", "1m21+3d10cm" ],

@@ -13,17 +13,17 @@
 }
 .col-profil-header {
     border: none;
-    background-color: #5e1a05;
+    background-color: var(--theme-color);
     height: 26px;
     color: White;
     line-height: 1.3;
 }
 .col-profil-bonus {
-    border: 2px solid #5e1a05;
+    border: 2px solid var(--theme-color);
     border-radius: .45rem;
     letter-spacing: -1px;
 }
 .col-profil-value {
-    border: 2px solid #5e1a05;
+    border: 2px solid var(--theme-color);
     border-radius: .45rem;
 }
