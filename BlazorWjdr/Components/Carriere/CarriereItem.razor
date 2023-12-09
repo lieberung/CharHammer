@@ -11,7 +11,7 @@
     <span class="ms-1"></span>
     @if (!string.IsNullOrWhiteSpace(Tooltip))
     {
-        <Tooltip Text="@Tooltip">@Item.Nom</Tooltip>
+        <Tooltip Text=@Tooltip>@Item.Nom</Tooltip>
     }
     else
     {
@@ -20,12 +20,12 @@
     @if (!HideIndicatorBase && Item.EstUneCarriereDeBase)
     {
         <span class="ms-2"></span>
-        <TooltipIcon Icon="home" Style="color:#a46022;"
+        <TooltipIcon Icon="home" Classes="text-orange-dark"
                      Text="Vous pouvez entreprendre cette carrière à tout moment contre 200 points d'expérience (100 si vous avez complété votre carrière actuelle)."/>
     }
     @if (!HideIndicatorRestriction && !string.IsNullOrWhiteSpace(Item.Restriction))
     {
         <span class="ms-2"></span>
-        <TooltipIcon Icon="info" Style="color:#aa0101;" Text=@Item.Restriction />
+        <TooltipIcon Icon="info" Classes="text-danger" Text=@Item.Restriction />
     }
 </a>

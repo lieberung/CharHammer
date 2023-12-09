@@ -25,7 +25,7 @@
     <div class="mb-2">
         @foreach (var citation in Item.Ambiance)
         {
-            <p class="bulle px-3" style="clear:both;">
+            <p class="bulle px-3 clearfix">
                 <Citation Author=@citation.Author Source=@citation.Source>
                     <em class="text-justify">@citation.Citation</em>
                 </Citation>

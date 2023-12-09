@@ -4,15 +4,17 @@
 :root {
     --theme-font-family: 'calecon-antique', fantasy;
     --theme-color: #5e1a05;
+    /*--theme-brown-light: #a46022;*/
     --theme-color-lighter: #80390f;
     --theme-color-pale: #fff7f2;
-    --theme-orange-dark: #cf8d42;
-    --theme-orange-light: #ffba6a;
-    --theme-orange: #e79f4c;
     --theme-orange-darker: #95632b;
+    --theme-orange-dark: #cf8d42;
+    --theme-orange: #e79f4c;
+    --theme-orange-light: #ffba6a;
     /* --bs-override */
     --bs-primary: var(--theme-color);
     --bs-secondary: var(--theme-orange);
+    --bs-danger: #aa0101;
     --bs-body-bg: #f3e3c1;
     --bs-link-color-rgb: var(--theme-color); /* #562f08; */
     --bs-link-hover-color-rgb: var(--theme-color-lighter); /* #562f08; */
@@ -41,9 +43,8 @@
 .card { background-color: #fff; }
 /*.card-body { padding: 1.25rem; } */ /* disparu en bootstrap 5 */
 .text-justify { text-align: justify; }
-
-.list-inline {
-    margin-bottom: 1rem;
+.text-orange-dark {
+    color: #a46022;
 }
 
 .theme-color {
@@ -77,9 +78,6 @@
 .list-btn-item > .btn-item:not(:last-child) {
     margin-right: 0.3rem;
 }
-.list-inline-item:not(:last-child) {
-    margin-right: 0.3rem;
-} /* bootstrap, ajoute display:inline-block; */
 
 .bulle {
     padding: .5rem;
@@ -100,6 +98,10 @@
 .item-icon {
     font-size: .800rem;
     color: var(--theme-color-lighter);
+}
+
+.bt-black-dashed {
+    border-top: 1px black dashed;
 }
 
 #blazor-error-ui {

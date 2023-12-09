@@ -1,5 +1,7 @@
-﻿@code { [Parameter] public int Note { get; set; } }
+﻿@code {
+    [Parameter] public int Note { get; set; }
+}
 @for (var i = 0; i < Note; i++)
 {
-   <ItemIcon Icon="star" Style="text-align:right;"/>
+   <ItemIcon Icon="star text-end" />
 }

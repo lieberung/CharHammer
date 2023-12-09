@@ -3,8 +3,8 @@
 @inject CarrieresService CarrSvc
 
 <tr>
-    <td><img style="width:192px;" src="@Item.Image" alt="@Item.Titre"/></td>
-    <td style="width:65px;">
+    <td><img class="w-12rem" src="@Item.Image" alt="@Item.Titre" /></td>
+    <td class="w-4rem">
         @if (_carrieresLiees.Any())
         {
             <span class="btn btn-primary btn-sm table-btn me-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">

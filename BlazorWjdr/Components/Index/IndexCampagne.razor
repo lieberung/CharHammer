@@ -6,17 +6,18 @@
 }
 <h4>Campagne</h4>
 <p>
-    <IndexLink Href="campagne/13/seances/" Title="Carnets de Route"/>
-    <IndexLink Href="aventuriers/13/" Title="Dernière séance"/>
+    <IndexLink Href="campagne/13/seances/" Title="Carnets de Route" />
+    <IndexLink Href="aventuriers/13/" Title="Dernière séance" />
     @if (AppState.JeSuisDieu)
     {
-        <IndexLink Href="maitre-du-jeu/13/seance-actuelle/" Title="Prochaine séance"/>
+        <span class="ms-1"><!--Bug Blazor--></span>
+        <IndexLink Href="maitre-du-jeu/13/seance-actuelle/" Title="Prochaine séance" />
     }
 </p>
 @if (AppState.JeSuisDieu)
 {
     <p>
-        <IndexLink Href="personnages/" Title="Personnages"/>
+        <IndexLink Href="personnages/" Title="Personnages" Icon="person"/>
         <IndexLink Href="scenarios/" Title="Scénarios"/>
         <IndexLink Href="regles/" Title="Règles"/>
     </p>

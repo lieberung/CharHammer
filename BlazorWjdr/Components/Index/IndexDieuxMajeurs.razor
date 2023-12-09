@@ -1,5 +1,5 @@
 ﻿@code{
-    [Parameter] public bool AfficherLiens { get; set; }
+    bool AfficherLiens { get; set; }
 }
 <h5 class="hover-pointer" @onclick="_ => AfficherLiens = !AfficherLiens">
     <ItemIcon Icon=@(AfficherLiens ? "chevron-top" : "chevron-bottom") Classes="ms-2 theme-orange-color" />
@@ -7,7 +7,7 @@
 </h5>
 @if (AfficherLiens)
 {
-    <p class="mb-2">
+    <p>
         <IndexLink Href="univers/pantheon/manann/" Title="Manann"/>
         <IndexLink Href="univers/pantheon/morr/" Title="Morr"/>
         <IndexLink Href="univers/pantheon/myrmidia/" Title="Myrmidia"/>

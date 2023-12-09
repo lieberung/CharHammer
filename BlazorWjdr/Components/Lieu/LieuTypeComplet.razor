@@ -1,20 +1,14 @@
 ﻿@code {
     [Parameter, EditorRequired] public LieuTypeDto Item { get; set; } = null!;
 }
-<ul class="list-inline">
-    @if (Item.Parent != null)
+<div class="list-btn-item">
+    @if (Item.Parent is not null)
     {
-        @if (Item.Parent.Parent != null)
+        @if (Item.Parent.Parent is not null)
         {
-            <li class="list-inline-item">
-                <LieuTypeItem Item="@Item.Parent.Parent"/>
-            </li>
+            <LieuTypeItem Item=@Item.Parent.Parent />
         }
-        <li class="list-inline-item">
-            <LieuTypeItem Item="@Item.Parent"/>
-        </li>
+        <LieuTypeItem Item=@Item.Parent />
     }
-    <li class="list-inline-item">
-        <LieuTypeItem Item="@Item"/>
-    </li>
-</ul>
+    <LieuTypeItem Item=@Item />
+</div>

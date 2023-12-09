@@ -8,7 +8,7 @@
     [Parameter, EditorRequired] public SeanceDto Item { get; set; } = null!;
     [Parameter] public int CampagneId { get; set; }
     
-    private bool AfficherFiche { get; set; }
+    bool AfficherFiche { get; set; }
 }
 <tr>
     <td>
@@ -24,8 +24,8 @@
             <a href="@Item.Scenario.Lien">@Item.Scenario.Nom</a>
         }
     </td>
-    <td class="px-2" style="text-align:center;">@(Item.Duree)h</td>
-    <td class="px-2" style="text-align:center;">@(Item.Xp) xp</td>
+    <td class="px-2 text-center">@(Item.Duree)h</td>
+    <td class="px-2 text-center">@(Item.Xp) xp</td>
     <td class="px-2">
         @if (Item.Lieux.Any())
         {

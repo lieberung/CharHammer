@@ -1,5 +1,5 @@
 ﻿@code{
-    [Parameter] public bool AfficherLiens { get; set; }
+    bool AfficherLiens { get; set; }
 }
 <h5 class="hover-pointer" @onclick="_ => AfficherLiens = !AfficherLiens">
     <ItemIcon Icon="@(AfficherLiens ? "chevron-top" : "chevron-bottom")" Classes="ms-2 theme-orange-color" />
@@ -8,11 +8,11 @@
 @if (AfficherLiens)
 {
     <p>
-        <a href="univers/pantheon/arianka/" class="mb-1 btn btn-sm btn-secondary">Arianka</a>
-        <a href="univers/pantheon/haendrik/" class="mb-1 btn btn-sm btn-secondary">Haendrik</a>
-        <a href="univers/pantheon/illuminas/" class="mb-1 btn btn-sm btn-secondary">Illuminas</a>
-        <a href="univers/pantheon/khaine/" class="mb-1 btn btn-sm btn-secondary">Khaine</a>
-        <a href="univers/pantheon/solkan/" class="mb-1 btn btn-sm btn-secondary">Solkan</a>
-        <a href="univers/pantheon/stromfels/" class="mb-1 btn btn-sm btn-secondary">Stromfels</a>
+        <IndexLink Href="univers/pantheon/arianka/" Title="Arianka" />
+        <IndexLink Href="univers/pantheon/haendrik/" Title="Haendrik" />
+        <IndexLink Href="univers/pantheon/illuminas/" Title="Illuminas" />
+        <IndexLink Href="univers/pantheon/khaine/" Title="Khaine" />
+        <IndexLink Href="univers/pantheon/solkan/" Title="Solkan" />
+        <IndexLink Href="univers/pantheon/stromfels/" Title="Stromfels" />
     </p>
 }

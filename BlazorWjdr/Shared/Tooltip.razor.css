@@ -16,7 +16,7 @@ span {
     letter-spacing: -1px;
     line-height: 1.1em;
     background-color: #363636;
-    color: #fff;
+    color: var(--bs-white);
     text-align: justify;
     padding: 5px 7px;
     border-radius: 6px;

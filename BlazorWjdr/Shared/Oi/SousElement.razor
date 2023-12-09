@@ -1,16 +1,5 @@
 ﻿@code {
     [Parameter] public bool Hidden { get; set; }
-
-    private string _style = "";
-    
-    protected override void OnParametersSet()
-    {
-        _style = "color:#dca878;";
-        if (Hidden)
-            _style += " visibility:hidden;";
-        base.OnParametersSet();
-    }
-
 }
-<ItemIcon Icon="chevron-right" Classes="ms-3 me-2" Style="@_style"/>
+<ItemIcon Icon="chevron-right" Classes=@($"ms-3 me-2 theme-orange-color{(Hidden ? " invisible" : "")}") />
 

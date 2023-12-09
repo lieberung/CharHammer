@@ -22,7 +22,7 @@
         </span>
         <span>
             <select class="form-select d-inline-block" @bind="@Auteur">
-                <option value="" style="color:gray;"></option>
+                <option value="" class="text-gray"></option>
                 @foreach (var a in Service.AllAuteurs())
                 {
                     <option value="@a">@a</option>

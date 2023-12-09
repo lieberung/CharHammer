@@ -12,6 +12,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{AB7B0BD3-BE33-42EC-B504-22CF0E226FCA}"
 	ProjectSection(SolutionItems) = preProject
 		Documents\bootstrap-javascript.txt = Documents\bootstrap-javascript.txt
+		Documents\chartre-codage.txt = Documents\chartre-codage.txt
 		Documents\idees-a-trier.txt = Documents\idees-a-trier.txt
 		Documents\Idees.txt = Documents\Idees.txt
 		Documents\Rome.txt = Documents\Rome.txt

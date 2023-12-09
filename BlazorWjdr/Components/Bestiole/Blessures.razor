@@ -1,4 +1,4 @@
-﻿<strong>Blessures :</strong> @Item.Blessures <Tooltip Text="@Item.BlessuresFormuleDeCalcul"><em class="ms-3" style="color:#495057;">@Item.BlessuresDetailDuCalcul</em></Tooltip>
-@code{
+﻿@code {
     [Parameter, EditorRequired] public BestioleDto Item { get; set; } = null!;
 }
+<strong>Blessures :</strong> @Item.Blessures <Tooltip Text=@Item.BlessuresFormuleDeCalcul><em class="ms-3 fw-light">@Item.BlessuresDetailDuCalcul</em></Tooltip>

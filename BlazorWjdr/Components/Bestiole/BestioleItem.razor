@@ -49,7 +49,7 @@
     }
     @if (!Item.EstUnPersonnageJoueur && Item.Notes != "")
     {
-        <TooltipIcon Icon="info" Classes="ms-2" Style="color:#aa0101;" Text=@Item.Notes />
+        <TooltipIcon Icon="info" Classes="text-danger ms-2" Text=@Item.Notes />
     }
     @ChildContent
 </a>

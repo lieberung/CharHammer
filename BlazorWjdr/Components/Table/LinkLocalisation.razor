@@ -1,12 +1,14 @@
 ﻿@code {
     [Parameter, EditorRequired] public string Zone { get; set; } = null!;
-    [Parameter] public string Width { get; set; } = "8rem";
+    [Parameter] public string Width { get; set; } = "w-8rem";
     [Parameter] public bool Actif { get; set; }
 
-    private string _zone = "";
+    string _zone = "";
+    string _classes = "";
 
     protected override void OnParametersSet()
     {
+        _classes = $"btn btn-sm {(Actif ? "btn-primary" : "btn-secondary")} me-2 mb-1 {Width}";
         _zone = Zone switch
         {
             "tete" => "Tête",
@@ -22,4 +24,4 @@
         };
     }
 }
-<a href="table-coups-critiques/@Zone/" class="me-2 mb-1 btn btn-sm @(Actif ? "btn-primary" : "btn-secondary")" style="width:@(Width);">@_zone</a>
+<a href="table-coups-critiques/@Zone/" class="@(_classes)">@_zone</a>

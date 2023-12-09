@@ -1,14 +1,6 @@
-﻿<a href="campagne/@CampagneId/seances/" class="me-1 btn @_btnClass" style="width:280px;">@Titre</a>
-@code {
+﻿@code {
     [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
     [Parameter, EditorRequired] public string Titre { get; set; } = null!;
     [Parameter] public bool Actif { get; set; }
-
-    private string _btnClass = "";
-
-    protected override void OnParametersSet()
-    {
-        _btnClass = Actif ? "btn-primary" : "btn-secondary";
-        base.OnParametersSet();
-    }
 }
+<a href="campagne/@CampagneId/seances/" class="btn @(Actif ? "btn-primary" : "btn-secondary") me-1 w-18rem">@Titre</a>
