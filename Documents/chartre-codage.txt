@@ -2,7 +2,7 @@
 ce vers quoi j'essaie de tendre
 
 css :
- - éviter les style=""
+ - éviter les style =""
  - ne pas dénaturer les class bootstrap (positionnement, taille, marges), créer une autre class si besoin (parce que ça devient vite ingérable sinon)
  - override variables bootstrap quand c'est pertinent
 

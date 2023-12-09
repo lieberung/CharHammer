@@ -28,6 +28,9 @@
     font-weight: 600;
 }
 
+.hover-help:hover {
+    cursor: help;
+}
 .hover-pointer:hover {
     cursor: pointer;
 }

@@ -42,7 +42,7 @@
 
 <table>
     <thead>
-        <tr><th></th><th></th><th style="width:350px;">Compétence</th><th>Carac.</th><th>Base</th><th>Talents liés</th></tr>
+        <tr><th></th><th></th><th class="w-22rem">Compétence</th><th>Carac.</th><th>Base</th><th>Talents liés</th></tr>
     </thead>
     <tbody>
         @foreach (var competence in _items.Where(c => c is { Ignore: false, Parent: null }))
