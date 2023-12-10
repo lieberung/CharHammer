@@ -1,0 +1,37 @@
+﻿@using CharHammer.Components.Table
+
+@inject TablesService TablesService
+<div class="row">
+    <div class="col-4">
+        <PageSectionRowTitle Title="2. Déterminer ses caractéristiques" />
+        <div class="section ps-0">
+            <p class="text-justify">
+                <span>On effectue un tirage de 1d100 pour chacune des <a href="regles/caracteristiques/">caractéristiques</a>, puis choisissez l'une des options suivantes :</span>
+            </p>
+            <ul>
+                <li>Conserver ces jets dans l'ordre obtenu</li>
+                <li>Dépenser <strong>100 xp</strong> pour ordonner librement ces jets</li>
+                <li>Dépenser <strong>150 xp</strong> pour ignorer ces jets et répartir <strong>100 points</strong> dans chacune des 10 caractéristiques, avec un <strong>minimum de 4</strong> et un <strong>maximum de 18</strong> à chaque fois.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="section px-0">
+            <TableDetail Item=@TablesService.GetTable(11) MasquerTitre=true />
+        </div>
+    </div>
+</div>
+<!--
+<div class="row">
+    <div class="col">
+        <div class="section">
+            <TableDetail Item=@TablesService.GetTable(12) FixedColSize=35/>
+        </div>
+    </div>
+    <div class="col">
+        <div class="section">
+            <TableDetail Item=@TablesService.GetTable(13) FixedColSize=50/>
+        </div>
+    </div>
+</div>
+-->

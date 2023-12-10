@@ -1,0 +1,53 @@
+﻿@page "/competences"
+
+@using CharHammer.Components.Aptitude
+
+@inject AptitudesService Service
+@inject AppState AppState
+@code {
+    private IEnumerable<AptitudeDto> _items = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Compétences");
+        _items = Service.AllCompetences;
+    }
+}
+<div class="row">
+    <div class="col">
+        <p class="text-justify">
+            Basic Skills represent innate or common abilities that you might practice in day-to-day life. Basic Skills can be Tested even if you have taken no Advances in them. To do this, simply attempt a Test using the Characteristic associated with the Skill.
+        </p>
+    </div>
+    <div class="col">
+        <p class="text-justify">
+            Advanced Skills require specialist knowledge, training, or first-hand experience to even attempt to use. You may only Test an Advanced Skill if you have taken at least one Advance in it. If you have not, you cannot attempt to Test the Skill. So, no matter how intelligent you are, you will not understand the finer points of law without the Lore (Law) Skill.
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <p class="text-justify">
+            <AptitudeItemList Items=@_items.Where(c => c is { EstUneCompetenceDeBase: true, Parent: null }) />
+        </p>
+    </div>
+    <div class="col">
+        <p class="text-justify">
+            <AptitudeItemList Items=@_items.Where(c => c is { EstUneCompetenceDeBase: false, Parent: null }) />
+        </p>
+    </div>
+</div>
+
+<PageSectionDivider />
+
+<table>
+    <thead>
+        <tr><th></th><th></th><th class="w-22rem">Compétence</th><th>Carac.</th><th>Base</th><th>Talents liés</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var competence in _items.Where(c => c is { Ignore: false, Parent: null }))
+        {
+            <CompetenceRow Item=@competence />
+        }
+    </tbody>
+</table>

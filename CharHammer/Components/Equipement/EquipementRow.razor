@@ -1,0 +1,41 @@
+﻿@using CharHammer.Components.Lieu
+
+<tr>
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+            <OiIcon Icon="eye"/>
+        </span>
+        @Item.Nom
+    </td>
+    <td>@Item.Enc</td>
+    @if (AfficherContenance)
+    {
+        <td>@Item.Contenance</td>
+    }
+    <td>@Item.Prix</td>
+    <td>@Item.Dispo</td>
+</tr>
+@if (AfficherFiche)
+{
+    <tr>
+        <td colspan="4">
+            <div class="bulle shadow-sm p-3 mb-2">
+                @if (Item.Lieux.Any())
+                {
+                    <LieuItemList Items="@Item.Lieux"/>
+                }
+                @if (Item.LieuxTypes.Any())
+                {
+                    <LieuTypeItemList Items="@Item.LieuxTypes"/>
+                }
+                @Item.Description
+            </div>
+        </td>
+    </tr>
+}
+@code {
+    [Parameter, EditorRequired] public EquipementDto Item { get; set; } = null!;
+    [Parameter] public bool AfficherContenance { get; set; }
+    
+    private bool AfficherFiche { get; set; }
+}

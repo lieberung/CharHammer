@@ -1,0 +1,104 @@
+﻿@using CharHammer.Components.Lieu
+@using CharHammer.Shared.Oi
+@code{
+    [Parameter, EditorRequired] public ScenarioDto Item { get; set; } = null!;
+    [Parameter] public bool LigneCourte { get; set; }
+    
+    private bool AfficherFiche { get; set; }
+}
+<tr>
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFiche = !AfficherFiche">
+            <OiIcon Icon="eye"/>
+        </span>
+    </td>
+    <td>@Item.Nom</td>
+    <td>
+        @if (LigneCourte)
+        {
+            <span class="insister">@(Item.Note == 0 ? "-" : Item.Note)</span>
+        }
+        else
+        {
+            <Notation Note=@Item.Note />
+        }
+    </td>
+    @if (LigneCourte == false)
+    {
+        <td>@Item.Duree</td>
+    }
+    <td>@Item.Difficulte</td>
+    <td>@string.Join(", ", Item.Styles)</td>
+    @if (LigneCourte == false)
+    {
+        <td>
+            @if (Item.LieuxTypes.Any())
+            {
+                <LieuTypeItemList Items=@Item.LieuxTypes />
+            }
+            @if (Item.Lieux.Any())
+            {
+                <LieuItemList Items=@Item.Lieux />
+            }
+        </td>
+        <td>
+            @if (Item.Source != "" && Item.Auteurs.Any()) {
+                @(Item.Source + " ~ " + string.Join(", ", Item.Auteurs))
+            } else {
+                if (Item.Source != "") {
+                    @Item.Source
+                }
+                if (Item.Auteurs.Any()) {
+                    @string.Join(", ", Item.Auteurs)
+                }
+            }            
+        </td>
+    }
+</tr>
+@if (AfficherFiche)
+{
+    <tr>
+        <td colspan="8" class="p-3">
+            <div class="bulle shadow-sm px-2">
+                @if (Item.Lien != "")
+                {
+                    <p class="text-justify">
+                        <a href="@Item.Lien">Télécharger</a>
+                    </p>
+                }
+                @if (Item.DejaJoue != "")
+                {
+                    <span class="insister">Déjà joué :&nbsp;</span>@Item.DejaJoue
+                    <br/>                                  
+                }
+                @if (LigneCourte)
+                {
+                    if (Item.Duree != "")
+                    {
+                        <span class="insister">Durée :&nbsp;</span>@Item.Duree
+                        <br/>
+                    }
+                    if (Item.Source != "")
+                    {
+                        <span class="insister">Source :&nbsp;</span>@Item.Source
+                        <br/>
+                    }
+                    if (Item.Auteurs.Any())
+                    {
+                        <span class="insister">Auteurs :&nbsp;</span>@string.Join(", ", Item.Auteurs)
+                        <br />
+                    }
+                    @if (Item.LieuxTypes.Any())
+                    {
+                        <LieuTypeItemList Items=@Item.LieuxTypes />
+                    }
+                    @if (Item.Lieux.Any())
+                    {
+                        <LieuItemList Items=@Item.Lieux />
+                    }
+                }
+                <CardParagraphes Text=@Item.Resume />
+            </div>
+        </td>
+    </tr>
+}

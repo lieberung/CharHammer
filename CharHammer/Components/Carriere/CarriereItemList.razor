@@ -1,0 +1,19 @@
+﻿@code
+{
+    [Parameter, EditorRequired] public IEnumerable<CarriereDto> Items { get; set; } = null!;
+
+    [Parameter] public bool HideIndicatorBase { get; set; }
+    [Parameter] public bool HideIndicatorRestriction { get; set; }
+
+    [Parameter] public IEnumerable<int> SpecialCarriereId { get; set; } = [];
+}
+<div class="list-btn-item">
+    @foreach (var carriere in Items.Where(c => SpecialCarriereId.Contains(c.Id)).OrderBy(c=>c.Nom))
+    {
+        <CarriereItem Item=@carriere HideIndicatorBase=@HideIndicatorBase HideIndicatorRestriction=@HideIndicatorRestriction Special=true />
+    }
+    @foreach (var carriere in Items.Where(c => !SpecialCarriereId.Contains(c.Id)).OrderBy(c=>c.Nom))
+    {
+        <CarriereItem Item=@carriere HideIndicatorBase=@HideIndicatorBase HideIndicatorRestriction=@HideIndicatorRestriction />
+    }
+</div>

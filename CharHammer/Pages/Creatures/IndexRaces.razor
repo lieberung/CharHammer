@@ -1,0 +1,23 @@
+﻿@page "/races"
+
+@using CharHammer.Components.Race
+
+@inject RacesService Service
+@inject AppState AppState
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Races");
+    }
+}
+<table class="table table-striped">
+    <thead>
+        <tr><th></th><th>Nom</th><th>PJ</th><th></th><th>Lieux</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var race in Service.AllRaces.Where(l => l.ParentsCount == 0).OrderBy(r => r.NomMasculin))
+        {
+            <RaceRow Item=@race />
+        }
+    </tbody>
+</table>

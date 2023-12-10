@@ -1,9 +1,0 @@
-﻿@code{
-    [Parameter, EditorRequired] public ArmureDto[] Items { get; set; } = null!;
-}
-<div class="list-btn-item">
-    @foreach (var armure in Items)
-    {
-        <ArmureItem Item=@armure />
-    }
-</div>

@@ -1,0 +1,15 @@
+﻿@code{
+    [Parameter, EditorRequired] public ArmureDto Item { get; set; } = null!;
+    
+    string _tooltip = "";
+
+    protected override void OnParametersSet()
+    {
+        _tooltip = $"Protection {Item.Pa} ({Item.Zones})";
+        _tooltip += Item.Attributs.Any() ? $"\nAttributs : {string.Join(", ", Item.Attributs.Select(a => a.Nom))}" : "";
+    }
+}
+<span class="btn btn-light btn-item" target="_blank">
+    <ItemIcon Icon="shield" Classes="me-1" />
+    <Tooltip Text=@_tooltip>@Item.Nom</Tooltip>
+</span>

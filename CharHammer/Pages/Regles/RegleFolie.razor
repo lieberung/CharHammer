@@ -1,0 +1,98 @@
+﻿@page "/regles/folie/"
+
+@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Table
+
+@inject TablesService TablesService
+@inject AptitudesService CttService
+@inject AppState AppState
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Psychologie et Folies");
+    }
+}
+<div class="row">
+    <div class="col-5">
+        <div class="section">
+            <h3>Points de Folie</h3>
+            <p class="text-justify">
+                Les Points de Folie représentent votre santé mentale. Plus vous en avez, plus vous vous rapprochez de l'instabilité mentale.
+                Voici les différentes manières d'en gagner :
+                <ul>
+                    <li><strong>Coups Critiques</strong> : un personnage gagne 1 point de folie à chaque fois qu'il reçoit un coup critique. Il ne disparait pas quand les Blessures sont soignées.</li>
+                    <li><strong>Terreur</strong> : un personnage gagne 1 point de folie à chaque fois qu'il rate un Test de Terreur.</li>
+                    <li><strong>Evènements traumatisants</strong> : d'une manière générale le MJ peut distribuer des points de folie aux personnages confrontés à des évènements ou des situations particulièrement horribless. Exemples : être torturé, assister impuissant à la mort d'un être aimé, fleurter avec le chaos, rencontrer un démon, etc.</li>
+                </ul>
+                Dans le dernier cas, le personnage aura souvent droit à un jet de Force Mentale pour ne pas gagner de points de folie.
+                <br />
+                Le nombre de points peut varier selon les situations, et dépassera rarement 6 en dehors des situations exceptionnelles comme être confronté à un prince démon.
+                1 à 3 points de folie sont déjà des nombres importants, 1d10 / 2 maximum devrait convenir à la plupart des situations.
+            </p>
+
+            <h5>Dérapage et conséquences</h5>
+            <p>
+                Dès qu'un personnage atteint le seuil des <strong>6 Points de Folie</strong>, il tester son <AptitudeItem Item="@CttService.CompetenceSangFroid" />.
+                S'il réussit rien ne se passe mais il devra refaire un test à chaque nouveau point obtenu.
+                S'il échoue, le personnage souffre d'un <strong>Trouble Psychologique</strong>, et retombe à Points de Folie.
+                <br />
+                Le seuil des 6 points peut varier si le personnage possède le Talent <AptitudeItem Item="@CttService.TalentSainDEsprit" />
+            </p>
+            <p>
+                Le mJ devra alors déterminer avec soin le trouble développé par le personnage.
+                Certaines folies compromettrons très sérieusement l'avenir du personnage.
+                <ul>
+                    <li>
+                        <a href="tables-traits-et-troubles/troubles-mineurs/">Table des Névroses</a>
+                    </li>
+                    <li>
+                        <a href="tables-traits-et-troubles/folies/">Table des Folies</a>
+                    </li>
+                </ul>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="col-7">
+
+        <div class="section">
+            <h3>Soigner la folie</h3>
+
+            <p class="text-justify">
+                On ne traite généralement pas la folie dans le Vieux Monde. On se contente simplement d'enfermer les malades dans un asile, ce qui les condamne à une existence misérable faite de privation et de brutalité. Il existe quelques techniques qui peuvent soulager les aliénés, bien qu'aucune ne soit facilement accessible. Seule la magie petit guérir d'une folie du type possession démoniaque.
+            </p>
+            <h5>Chirurgie</h5>
+            <p class="text-justify">
+                La première technique reste la chirurgie. Il s'agit de méthodes expérimentales rudimentaires, très dangereuses pour le patient.
+                Pour simplement s'y essayer, le médecin doit disposer à la fois de la compétence <AptitudeItem Item="@CttService.CompetenceSoins" /> et du talent <AptitudeItem Item="@CttService.TalentChirurgie" />.
+                L'opération demande 1d10 heures et donne lieu à un test de <AptitudeItem Item="@CttService.CompetenceSoins" />, la difficulté variant selon ce que le chirurgien tente de réaliser : guérir réellement une forme de folie est Très difficile.
+                Toute chirurgie de ce type réduit les points de Blessures du patient à 0 (c'est le cerveau qui est opéré !). La guérison normale peut commencer une fois la chirurgie terminée.
+                La <strong>table Chirurgie psychiatrique</strong> résume ce qu'il est permis de faire. Si le test échoue, on se réfère à la <strong>Table Complications chirurgicales</strong>.
+            </p>
+            <h5>Remèdes</h5>
+            <p class="text-justify">
+                Les préparations chimiques ou à base d'herbes ne peuvent réellement soigner la folie. Au mieux peuvent-elles en diminuer les effets pendant quelque temps.
+                Celles qui affectent l'esprit n'ont qu'une chance limitée de fonctionner. Chaque décoction doit être préparée spécialement pour son bénéficiaire, si elle veut avoir une chance de contrer la démence. Un tel remède demande des outils d'apothicaire, 10 + 3d10 pistoles d'ingrédients et 1d10 heures. Si un test de <AptitudeItem Item="@CttService.CompetenceMetierApothicaire" /> à -30% est réussi, le remède est efficace et peut suspendre la folie du personnage pendant une semaine. En cas d'échec, la mixture n'est pas adaptée et s'avère même potentiellement dangereuse. On détermine alors selon la <strong>Table Remèdes de charlatan</strong> quels sont les effets réels sur le buveur. Le préparateur du remède est toujours persuadé de son succès, à moins que la table ne dise le contraire.
+            </p>
+            <h5>Soins magiques</h5>
+            <p class="text-justify">
+                Il existe plusieurs sorts capables d'aider les aliénés, en particulier le sort de Shallya guérison de la folie (p.165). Transmutation de la folie (p.157) peut lui aussi s'avérer efficace (ou non !). La difficulté principale avec la guérison magique ne réside pas dans les effets secondaires, mais dans les possibilités de trouver quelqu'un d'assez puissant pour lancer les sorts. Seule une poignée de prêtres et de sorciers de l'Empire maîtrisent suffisamment leur art pour recourir à une telle magie. Les trouver et obtenir leur aide peut suffire à constituer un sujet d'aventure.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-2">
+        <TableDetail Item="@TablesService.GetTable(70)" />
+    </div>
+    <div class="col-5">
+        <TableDetail Item="@TablesService.GetTable(71)" />
+    </div>
+    <div class="col-5">
+        <TableDetail Item="@TablesService.GetTable(72)" />
+    </div>
+</div>

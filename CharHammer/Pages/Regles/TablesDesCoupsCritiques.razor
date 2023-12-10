@@ -1,0 +1,98 @@
+﻿@page "/table-coups-critiques/{Zone}/"
+
+@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Regle
+@using CharHammer.Components.Table
+
+@inject ReglesService ReglesService
+@inject TablesService TablesService
+@inject AptitudesService AptitudesService
+@inject AppState AppState
+@code {
+    [Parameter, EditorRequired] public string Zone { get; set; } = null!;
+
+    int _tableId;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Tables des coups critiques");
+    }
+
+    protected override void OnParametersSet()
+    {
+        _tableId = Zone switch
+        {
+            "tete" => 60,
+            "bras" => 61,
+            "torse" => 62,
+            "jambe" => 63,
+            "fumbles" => 53,
+            "arme-a-distance" => 54,
+            "arme-de-jet" => 56,
+            "arme-de-parade" => 57,
+            "arme-de-poing" => 55,
+            _ => _tableId
+        };
+    }
+
+    static void FaireUnJetDeLocalisation()
+    {
+    }
+}
+<div class="row">
+    <div class="col-9">
+        <div class="section">
+            <h5>Critiques (11,22,33,...,88,99)</h5>
+            <p class="text-justify">
+                Pour tous les tests effectués dans le cadre d'une attaque (Melee ou Tir), les réussites critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Coups Critiques</strong> de la zone appropriée.<br />
+                De même, les échecs critiques entraînent un effet supplémentaire déterminé par la <strong>Table des Maladresses Critiques</strong>.<br />
+                Cela est valable pour l'attaquant comme pour le défenseur (en mélée).<br />
+                <br />
+                Pour connaître la <strong>gravité</strong>, on calcule <BlessuresEffectives /> + (3 x <BlessuresCritiques />) + <strong>1d4</strong>.
+                <br />
+                On consulte alors le résultat et la victime <strong>perd le nombre de Blessures indiqué et gagne 1 Point de Folie</strong>.
+                <br />
+                Le talent <AptitudeItem Item=@AptitudesService.TalentCoupsPrécis /> augmente ce nombre de Blessures.
+            </p>
+            <RegleDetail Item=@ReglesService.GetRegle(214) MasquerTitre=true MasquerTables=true />
+        </div>
+    </div>
+    <div class="col-3">
+        <TableDetail Item=@TablesService.GetTable(64) />
+        <div>
+            <button class="btn btn-primary" type="button" @onclick="FaireUnJetDeLocalisation">
+                <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                Faire un jet de localisation
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-5">
+        <h5>Tables des coups critiques</h5>
+        <div>
+            <LinkLocalisation Width="w-6rem" Actif=@(Zone == "tete") Zone="tete" />
+            <LinkLocalisation Width="w-6rem" Actif=@(Zone == "bras") Zone="bras" />
+            <LinkLocalisation Width="w-6rem" Actif=@(Zone == "torse") Zone="torse" />
+            <LinkLocalisation Width="w-6rem" Actif=@(Zone == "jambe") Zone="jambe" />
+        </div>
+    </div>
+    <div class="col-7">
+        <h5>Tables des maladresses critiques</h5>
+        <div>
+            <LinkLocalisation Actif=@(Zone == "fumbles") Zone="fumbles" />
+            <LinkLocalisation Actif=@(Zone == "arme-a-distance") Zone="arme-a-distance" />
+            <LinkLocalisation Actif=@(Zone == "arme-de-jet") Zone="arme-de-jet" />
+            <LinkLocalisation Actif=@(Zone == "arme-de-parade") Zone="arme-de-parade" />
+            <LinkLocalisation Actif=@(Zone == "arme-de-poing") Zone="arme-de-poing" />
+        </div>
+    </div>
+</div>
+
+<h5>Conditions</h5>
+<p>
+    <AptitudeItemList Items=@AptitudesService.Conditions />
+</p>
+
+<TableDetail Item=@TablesService.GetTable(_tableId) />

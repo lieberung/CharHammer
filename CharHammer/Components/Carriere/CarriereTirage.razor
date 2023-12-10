@@ -1,0 +1,8 @@
+﻿@code {
+    [Parameter] public CarriereDto Item { get; set; } = null!;
+}
+<div class="bulle p-3">
+    <h3>@Item.Nom</h3>
+    <CarriereItem Item=@Item />
+    <CarriereDescription Item=@Item />
+</div>

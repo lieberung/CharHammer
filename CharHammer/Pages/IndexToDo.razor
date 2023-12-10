@@ -1,0 +1,33 @@
+﻿@page "/todo"
+
+@using CharHammer.Components.Carriere
+@using CharHammer.Components.Aptitude
+
+@inject CarrieresService CarrSvc
+@inject AptitudesService AptSvc
+@inject AppState AppState
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Au travail !");
+    }
+}
+<div class="section">
+    <h4>Carrières sans Description</h4>
+    <CarriereItemList Items=@CarrSvc.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Description)) />
+    <h4>Carrières de base sans Vocation/Groupe</h4>
+    <CarriereItemList Items=@CarrSvc.AllCarrieres.Where(c => c.EstUneCarriereDeBase && string.IsNullOrWhiteSpace(c.Groupe)) />
+    <h4>Carrières sans Statut</h4>
+    <CarriereItemList Items=@CarrSvc.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Statut)) />
+    <h4>Carrières de base sans Métier</h4>
+    <CarriereItemList Items=@CarrSvc.AllCarrieres.Where(c => c is { EstUneCarriereDeBase: true, CompetenceDeMetier: null }) />
+    <h4>Carrières de base sans Ambiance</h4>
+    <CarriereItemList Items=@CarrSvc.AllCarrieres.Where(c => c.EstUneCarriereDeBase && !c.Ambiance.Any()) />
+
+    <h4>Aptitudes sans description</h4>
+    <AptitudeItemList Items=@AptSvc.AllAptitudes.Where(a => string.IsNullOrWhiteSpace(a.Description)) />
+    <h4>Compétences et Talents sans carrières</h4>
+    <AptitudeItemList Items=@AptSvc.AllAptitudes.Where(a => (a.EstUneCompetence || a.EstUnTalent) && !CarrSvc.AllCarrieres.Any(c => c.Aptitudes.Contains(a))) />
+    <h4>Aptitudes ou resume = description</h4>
+    <AptitudeItemList Items=@AptSvc.AllAptitudes.Where(a => a.Resume != "" && a.Resume == a.Description) />
+</div>

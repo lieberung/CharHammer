@@ -1,0 +1,34 @@
+﻿@page "/personnages"
+
+@using CharHammer.Components.Bestiole
+
+@inject BestiolesService Service
+@inject AppState AppState
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Personnages");
+    }
+}
+<div class="row">
+    <div class="col-6">
+        <div class="section">
+            <h3>Archétypes de PNJs</h3>
+            <BestioleTable Items=@Service.AllArchetypes />
+        </div>
+        <div class="section">
+            <h3>Personnages incarnés par le meneur de jeu</h3>
+            <BestioleTable Items=@Service.AllPnjs(AppState.JeSuisDieu) />
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="section">
+            <h3>Personnages incarnés par des joueurs</h3>
+            <BestioleTable Items=@Service.AllPjs />
+        </div>
+        <div class="section">
+            <h3>Personnages prétirés</h3>
+            <BestioleTable Items=@Service.AllPretires />
+        </div>
+    </div>
+</div>

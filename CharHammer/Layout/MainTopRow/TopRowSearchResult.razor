@@ -1,0 +1,46 @@
+﻿@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Bestiole
+@using CharHammer.Components.Carriere
+@using CharHammer.Components.Lieu
+@code {
+    [Parameter, EditorRequired] public IEnumerable<ISearchable> Items { get; set; } = null!;
+    ISearchable? item;
+    protected override void OnParametersSet()
+    {
+        item = Items.FirstOrDefault();
+    }
+}
+@if (!Items.Any()) return;
+<div class="mb-3">
+    @if (item is CarriereDto)
+    {
+        <h5>Carrières</h5>
+        <CarriereItemList Items=@(Items as IEnumerable<CarriereDto>) />
+    }
+    else if (item is AptitudeDto)
+    {
+        if ((item as AptitudeDto)!.EstUneCompetence)
+        {
+            <h5>Compétences</h5>
+        }
+        else if ((item as AptitudeDto)!.EstUnTalent)
+        {
+            <h5>Talents</h5>
+        }
+        else if ((item as AptitudeDto)!.EstUnTrait)
+        {
+            <h5>Traits</h5>
+        }
+        <AptitudeItemList Items=@(Items as IEnumerable<AptitudeDto>) PasDeTooltip=true />
+    }
+    else if (item is BestioleDto)
+    {
+        <h5>Créatures</h5>
+        <BestioleItemList Items=@(Items as IEnumerable<BestioleDto>) />
+    }
+    else if (item is LieuDto)
+    {
+        <h5>Lieux</h5>
+        <LieuItemList Items=@(Items as IEnumerable<LieuDto>) />
+    }
+</div>

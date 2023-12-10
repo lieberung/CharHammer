@@ -1,0 +1,37 @@
+﻿@using CharHammer.Components.Carriere
+@using CharHammer.Shared.Oi
+
+@inject CarrieresService CarrSvc
+@code
+{
+    [Parameter, EditorRequired] public LieuDto Item { get; set; } = null!;
+    private bool AfficherSousElements { get; set; } = false;
+}
+<tr>
+    <td>
+        @if (Item.SousElements.Any())
+        {
+            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+                <OiIcon Icon="layers"/>
+            </span>
+        }
+    </td>
+    <td>
+        @for (var i = 0; i < Item.ParentsCount -1; i++)
+        {
+            var hidden = i < Item.ParentsCount - 2;
+            <SousElement Hidden=@hidden />
+        }
+        <LieuItem Item=@Item /></td>
+    <td><LieuTypeItem Item=@Item.TypeDeLieu /></td>
+    <td>@Item.Population</td>
+    <td>@Item.Industrie</td>
+    <td>@Item.Allegeance</td>
+</tr>
+@if (AfficherSousElements && Item.SousElements.Any())
+{
+    @foreach (var sousElement in Item.SousElements)
+    {
+        <LieuRow Item=@sousElement />
+    }
+}

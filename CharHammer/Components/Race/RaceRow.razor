@@ -1,0 +1,44 @@
+﻿@using CharHammer.Components.Carriere
+@using CharHammer.Components.Lieu
+@using CharHammer.Components.Profil
+@using CharHammer.Shared.Oi
+
+@inject CarrieresService CarrSvc
+<tr>
+    <td>
+        @if (Item.SousElements.Any())
+        {
+            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+                <OiIcon Icon="layers"/>
+            </span>
+        }
+    </td>
+    <td>
+        @for (var i = 0; i < Item.ParentsCount; i++)
+        {
+            var hidden = i < Item.ParentsCount - 1;
+            <SousElement Hidden="@hidden"/>
+        }
+        <RaceItem Item="@Item" />
+    </td>
+    <td><CheckedIfTrue Condition="@Item.PourPj"/></td>
+    <td></td>
+    <td>
+        @foreach (var lieu in Item.Lieux)
+        {
+            <LieuItem Item="lieu"/>
+        }
+    </td>
+</tr>
+@if (AfficherSousElements && Item.SousElements.Any())
+{
+    @foreach (var sousElement in Item.SousElements)
+    {
+        <RaceRow Item="@sousElement" />
+    }
+}
+@code
+{
+    [Parameter, EditorRequired] public RaceDto Item { get; set; } = null!;
+    private bool AfficherSousElements { get; set; } = false;
+}

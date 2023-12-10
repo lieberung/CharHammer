@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Components
+@using System.Net.Mime
+@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Bestiole
+@using CharHammer.Components.Carriere
+@using CharHammer.Components.Lieu
+
+@inject CarrieresService CarrieresSvc
+@inject AptitudesService AptitudesSvc
+@inject BestiolesService BestiolesSvc
+@inject LieuxService LieuxService
+@code {
+    string _search { get; set; } = "";
+
+    bool ResultFound => FoundCarrieres.Any() || FoundAptitudes.Any() || FoundBestioles.Any() || FoundLieux.Any();
+
+    IEnumerable<CarriereDto> FoundCarrieres => _search.Length < 3 ? [] : CarrieresSvc.Recherche(_search);
+    IEnumerable<AptitudeDto> FoundAptitudes => _search.Length < 3 ? [] : AptitudesSvc.RechercheAptitudes(_search);
+    IEnumerable<BestioleDto> FoundBestioles => _search.Length < 3 ? [] : BestiolesSvc.Recherche(_search);
+    IEnumerable<LieuDto> FoundLieux => _search.Length < 3 ? [] : LieuxService.Recherche(_search);
+
+    private void ClearSearch() { _search = ""; }
+}
+<div class="btn-group" >
+    <input class="dropdown-toggle rounded-4 py-1 px-3" @bind-value="_search" @bind-value:event="oninput" placeholder="Recherche..." />
+    <span class="oi oi-magnifying-glass theme-color ms-2" aria-hidden="true"></span>
+    @if (_search.Length > 2 && ResultFound)
+    {
+        <div class="dropdown-menu show p-2" @onclick="ClearSearch">
+            <TopRowSearchResult Items=@FoundCarrieres />
+            <TopRowSearchResult Items=@FoundAptitudes.Where(a => a.EstUneCompetence) />
+            <TopRowSearchResult Items=@FoundAptitudes.Where(a => a.EstUnTalent) />
+            <TopRowSearchResult Items=@FoundAptitudes.Where(a => a.EstUnTrait) />
+            <TopRowSearchResult Items=@FoundBestioles />
+            <TopRowSearchResult Items=@FoundLieux />
+        </div>
+    }
+</div>

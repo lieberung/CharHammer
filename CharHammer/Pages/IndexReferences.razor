@@ -1,0 +1,39 @@
+﻿@page "/references"
+
+@using CharHammer.Components.Reference
+
+@inject ReferencesService Service
+@inject AppState AppState
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Références");
+    }
+}
+<div class="row">
+    <div class="col-6">
+        <table class="table table-striped">
+            <tbody>
+                @foreach (var reference in Service.AllReferences
+                    .Where(r => r.Version == 1)
+                    .OrderBy(r => r.AnneeDePublication))
+                {
+                    <ReferenceRow Item=@reference />
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-6">
+        <table class="table table-striped">
+            <tbody>
+                @foreach (var reference in Service.AllReferences
+                    .Where(r => r.Version == 2)
+                    .OrderBy(r => r.AnneeDePublication))
+                {
+                    <ReferenceRow Item=@reference />
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

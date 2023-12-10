@@ -1,0 +1,4 @@
+﻿@code {
+    [Parameter] public bool Unlocked { get; set; }
+}
+<span class="oi oi-lock-@(Unlocked ? "unlocked" : "locked") top-row-icon" aria-hidden="true" style="top: -0.1rem;"></span>

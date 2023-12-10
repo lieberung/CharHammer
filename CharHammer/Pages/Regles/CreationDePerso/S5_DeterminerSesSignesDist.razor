@@ -1,0 +1,81 @@
+﻿@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Table
+@using CharHammer.Helpers
+
+@inject AptitudesService CttService
+@inject RacesService RacesService
+@inject TablesService TablesService
+@code {
+    [Parameter, EditorRequired] public RaceSelectionnee Selection { get; set; } = null!;
+
+    List<AptitudeDto> _traitsObtenus = [];
+
+    void TirerUnSigneAleatoire()
+    {
+        if (_traitsObtenus.Count == 4)
+        {
+            _traitsObtenus = [];
+            return;
+        }
+
+        var a = AptitudeHelper.TirerUneAptitudeAleatoire(CttService.SignesDistinctifs, _traitsObtenus);
+        _traitsObtenus.Add(a);
+    }
+}
+
+<div class="row">
+    <div class="col-4">
+        <PageSectionRowTitle Title="5. Déterminer vos signes distinctifs" />
+        <div class="section ps-0">
+            <p class="text-justify">
+                Déterminez aléatoirement (1d3) ou choisissez le nombre de signes distinctifs dont vous serez affublé (1 minimum, 3 maximum).<br />
+                Tirez successivement chaque signe sur la table ci-contre : si un signe est incompatible avec l'un des précédents, ignorer le dernier venu et refaite un tirage.<br />
+                Vous pouvez dépenser <strong>100 xp</strong> (une seule fois) pour en tirer un supplémentaire et en écarter un parmi l'ensemble.
+            </p>
+            <button class="btn btn-primary m-3" type="button" @onclick="TirerUnSigneAleatoire">
+                <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                Tirer un signe aléatoire
+            </button>
+            <AptitudeItemList Items=@_traitsObtenus />
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="py-2">
+            <h5>5-1. Table des signes distinctifs</h5>
+            <TableTraits Traits=@CttService.SignesDistinctifs.ToArray() NbColonnes=4 />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <!-- Table pour la couleur des cheveux et des yeux -->
+        <div class="section">
+            @if (Selection.RaceDesElfesSylvainsSelectionnee || Selection.RaceDesHautsElfesSelectionnee)
+            {
+                <TableDetail Item=@TablesService.GetTable(15) FixedColSize=45 />
+            }
+            @if (Selection.RaceDesGnomesSelectionnee)
+            {
+                <TableDetail Item=@TablesService.GetTable(16) FixedColSize=45 />
+            }
+            @if (Selection.RaceDesHalflingsSelectionnee)
+            {
+                <TableDetail Item=@TablesService.GetTable(17) FixedColSize=45 />
+            }
+            @if (Selection.RaceDesHumainsSelectionnee)
+            {
+                <TableDetail Item=@TablesService.GetTable(18) FixedColSize=45 />
+            }
+            @if (Selection.RaceDesNainsSelectionnee)
+            {
+                <TableDetail Item=@TablesService.GetTable(19) FixedColSize=45 />
+            }
+        </div>
+    </div>
+    <div class="col-8">
+        <!-- Table pour le calcul de l'âge du poids et de la taille -->
+        <div class="section">
+            <TableDetail Item=@TablesService.GetTable(14) FixedColSize=75 />
+        </div>
+    </div>
+</div>

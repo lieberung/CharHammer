@@ -1,0 +1,9 @@
+﻿@code {
+    [Parameter, EditorRequired] public IEnumerable<ContactDeCampagneDto> Items { get; set; } = null!;
+}
+<CampagneContactRow Items=@Items Index=0 />
+<CampagneContactRow Items=@Items Index=2 />
+<CampagneContactRow Items=@Items Index=4 />
+<CampagneContactRow Items=@Items Index=6 />
+<CampagneContactRow Items=@Items Index=8 />
+<CampagneContactRow Items=@Items Index=10 />

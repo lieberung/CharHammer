@@ -1,0 +1,51 @@
+﻿@page "/lieux/{Reference}/"
+
+@using CharHammer.Components.Lieu
+
+@inject LieuxService Service
+@inject AppState AppState
+@code {
+    [Parameter] public string Reference { get; set; } = "monde";
+
+    IEnumerable<LieuDto> _items = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Lieux");
+    }
+
+    protected override void OnParametersSet()
+    {
+        _items = Reference switch
+        {
+            "vieux-monde" => Service.AllLieux.Where(l => l.ParentId == 1),
+                 "empire" => Service.AllLieux.Where(l => l.ParentId == 2),
+              "bretonnie" => Service.AllLieux.Where(l => l.ParentId == 4),
+                        _ => Service.AllLieux.Where(l => l.ParentsCount == 1)
+        };
+    }
+}
+<SousMenu>
+    <a href="lieux/monde/" class="btn btn-sm @(Reference == "monde" ? "btn-primary" : "btn-secondary")">Monde</a>
+    <a href="lieux/vieux-monde/" class="btn btn-sm @(Reference == "vieux-monde" ? "btn-primary" : "btn-secondary")">Le Vieux Monde</a>
+    <a href="lieux/empire/" class="btn btn-sm @(Reference == "empire" ? "btn-primary" : "btn-secondary")">L'Empire</a>
+    <a href="lieux/bretonnie/" class="btn btn-sm @(Reference == "bretonnie" ? "btn-primary" : "btn-secondary")">Bretonnie</a>
+</SousMenu>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th></th>
+            <th class="w-25rem">Nom</th>
+            <th>Types</th>
+            <th>Population</th>
+            <th>Industrie</th>
+            <th>Allégeance</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var lieu in _items)
+        {
+            <LieuRow Item=@lieu />
+        }
+    </tbody>
+</table>

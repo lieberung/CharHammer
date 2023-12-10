@@ -1,0 +1,119 @@
+﻿@page "/carrieres-liste/{Theme}/{Filtre}/"
+
+@using CharHammer.Components.Carriere
+
+@inject CarrieresService Service
+@inject AppState AppState
+@code {
+    [Parameter] public string Theme { get; set; } = "";
+    [Parameter] public string Filtre { get; set; } = "";
+
+    private List<CarriereDto> _carrieresLines = null!;
+    private IEnumerable<CarriereDto> _carrieresDeBase = null!;
+    private IEnumerable<CarriereDto> _carrieresAvancees = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Carrières");
+    }
+
+    protected override void OnParametersSet()
+    {
+        var carrieres = Service.AllCarrieres;
+
+        _carrieresLines = Theme switch
+        {
+            "toutes" => carrieres
+                .Where(c => !CarrieresService.CarrieresChaos.Contains(c.Id))
+                .Where(c => !Service.CarrieresSkaven.Contains(c.Id))
+                .ToList(),
+        //     "academiques" => carrieres.Where(c => c.ScoreAcademique > 5).OrderByDescending(c => c.ScoreAcademique),
+        //     "arcaniques" => carrieres.Where(c => c.ScoreArcanique > 9).OrderByDescending(c => c.ScoreArcanique),
+        //     "artisanat" => carrieres.Where(c => c.ScoreArtisanat > 6).OrderByDescending(c => c.ScoreArtisanat),
+        //     "bureaucratie" => CarrSvc.CarrieresBureaucratie.OrderBy(c => c.Nom),
+        //     "spirituelles" => CarrSvc.CarrieresDevotes.OrderBy(c => c.Nom),
+        //     "militaires" => CarrSvc.CarrieresMilitaires.OrderBy(c => c.Nom),
+        //     "martiales-au-contact" => carrieres.Where(c => c.ScoreMartialAuContact > 11).OrderByDescending(c => c.ScoreMartialAuContact),
+        //     "martiales-a-distance" => carrieres.Where(c => c.ScoreMartialADistance > 11).OrderByDescending(c => c.ScoreMartialADistance),
+        //     "poudre-noire" => carrieres.Where(c => c.ScorePoudreNoire > 0).OrderByDescending(c => c.ScorePoudreNoire),
+        //     "cavalerie" => carrieres.Where(c => c.ScoreCavalerie > 0).OrderByDescending(c => c.ScoreCavalerie),
+        //     "rodeurs" => carrieres.Where(c => c.ScoreRodeur > 19).OrderByDescending(c => c.ScoreRodeur),
+        //     "de-l-ombre" => carrieres.Where(c => c.ScoreDeLOmbre > 0).OrderByDescending(c => c.ScoreDeLOmbre),
+        //     "criminelles" => CarrSvc.CarrieresCriminelles.OrderBy(c => c.Nom),
+        //     "sociales" => carrieres.Where(c => c.ScoreSocial > 10).OrderByDescending(c => c.ScoreSocial),
+        //     "commerce" => carrieres.Where(c => c.ScoreCommerce > 4).OrderByDescending(c => c.ScoreCommerce),
+        //     "maritimes" => carrieres.Where(c => c.ScoreMaritime > 0).OrderByDescending(c => c.ScoreMaritime),
+        //     "ami-des-betes" => carrieres.Where(c => c.ScoreAmiDesBetes > 3).OrderByDescending(c => c.ScoreAmiDesBetes),
+        //     "fanatiques" => CarrSvc.CarrieresFanatiques.OrderBy(c => c.Nom),
+        //     "bretonnie" => CarrSvc.CarrieresDeBretonnie.OrderBy(c => c.Nom),
+        //     "kislev" => CarrSvc.CarrieresDuKislev.OrderBy(c => c.Nom),
+        //     "norsca" => CarrSvc.CarrieresDeNorsca.OrderBy(c => c.Nom),
+        //     "skavens" => carrieres.Where(c => CarrSvc.CarrieresSkaven.Contains(c.Id)).OrderBy(c => c.Nom),
+        //     "chaos" => carrieres.Where(c => CarrSvc.CarrieresChaos.Contains(c.Id)).OrderBy(c => c.Nom),
+            _ => _carrieresLines
+        };
+        if (Filtre != "toutes")
+            _carrieresLines.RemoveAll(c => c.EstUneCarriereAvancee == (Filtre == "de-base"));
+
+        _carrieresDeBase = _carrieresLines.Where(c => c.Parent is null && c.EstUneCarriereDeBase);
+        _carrieresAvancees = _carrieresLines.Where(c => c.Parent is null && c.EstUneCarriereAvancee);
+    }
+}
+
+<SousMenu>
+    <a href="carrieres-liste/@Theme/toutes/" class="btn btn-sm @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+    <a href="carrieres-liste/@Theme/de-base/" class="btn btn-sm @(Filtre == "de-base" ? "btn-primary" : "btn-secondary")">Base</a>
+    <a href="carrieres-liste/@Theme/avancees/" class="btn btn-sm @(Filtre == "avancees" ? "btn-primary" : "btn-secondary")">Avancées</a>
+</SousMenu>
+
+<!--div class="row">
+    <div class="col-1">
+        <a href="carrieres-liste/toutes/@Filtre/" class="mb-1 btn btn-sm @(Theme == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+    </div>
+    <div class="col-5">
+        <a href="carrieres-liste/academiques/@Filtre/" class="mb-1 btn btn-sm @(Theme == "academiques" ? "btn-primary" : "btn-secondary")">Académiques</a>
+        <a href="carrieres-liste/ami-des-betes/@Filtre/" class="mb-1 btn btn-sm @(Theme == "ami-des-betes" ? "btn-primary" : "btn-secondary")">Ami des bêtes</a>
+        <a href="carrieres-liste/arcaniques/@Filtre/" class="mb-1 btn btn-sm @(Theme == "arcaniques" ? "btn-primary" : "btn-secondary")">Arcaniques</a>
+        <a href="carrieres-liste/artisanat/@Filtre/" class="mb-1 btn btn-sm @(Theme == "artisanat" ? "btn-primary" : "btn-secondary")">Artisanat</a>
+        <a href="carrieres-liste/bureaucratie/@Filtre/" class="mb-1 btn btn-sm @(Theme == "bureaucratie" ? "btn-primary" : "btn-secondary")">Bureaucratie</a>
+        <a href="carrieres-liste/commerce/@Filtre/" class="mb-1 btn btn-sm @(Theme == "commerce" ? "btn-primary" : "btn-secondary")">Commerce</a>
+        <a href="carrieres-liste/maritimes/@Filtre/" class="mb-1 btn btn-sm @(Theme == "maritimes" ? "btn-primary" : "btn-secondary")">Maritimes</a>
+        <a href="carrieres-liste/militaires/@Filtre/" class="mb-1 btn btn-sm @(Theme == "militaires" ? "btn-primary" : "btn-secondary")">Militaires</a>
+        <a href="carrieres-liste/sociales/@Filtre/" class="mb-1 btn btn-sm @(Theme == "sociales" ? "btn-primary" : "btn-secondary")">Sociales</a>
+        <a href="carrieres-liste/spirituelles/@Filtre/" class="mb-1 btn btn-sm @(Theme == "spirituelles" ? "btn-primary" : "btn-secondary")">Spirituelles</a>
+    </div>
+    <div class="col-2">
+        <a href="carrieres-liste/martiales-au-contact/@Filtre/" class="mb-1 btn btn-sm @(Theme == "martiales-au-contact" ? "btn-primary" : "btn-secondary")">Au contact</a>
+        <a href="carrieres-liste/martiales-a-distance/@Filtre/" class="mb-1 btn btn-sm @(Theme == "martiales-a-distance" ? "btn-primary" : "btn-secondary")">A distance</a>
+        <a href="carrieres-liste/poudre-noire/@Filtre/" class="mb-1 btn btn-sm @(Theme == "poudre-noire" ? "btn-primary" : "btn-secondary")">Poudre noire</a>
+        <a href="carrieres-liste/cavalerie/@Filtre/" class="mb-1 btn btn-sm @(Theme == "cavalerie" ? "btn-primary" : "btn-secondary")">Cavalerie</a>
+    </div>
+    <div class="col-2">
+        <a href="carrieres-liste/rodeurs/@Filtre/" class="mb-1 btn btn-sm @(Theme == "rodeurs" ? "btn-primary" : "btn-secondary")">Rôdeurs</a>
+        <a href="carrieres-liste/de-l-ombre/@Filtre/" class="mb-1 btn btn-sm @(Theme == "de-l-ombre" ? "btn-primary" : "btn-secondary")">De l'ombre</a>
+        <a href="carrieres-liste/criminelles/@Filtre/" class="mb-1 btn btn-sm @(Theme == "criminelles" ? "btn-primary" : "btn-secondary")">Criminelles</a>
+        <a href="carrieres-liste/fanatiques/@Filtre/" class="mb-1 btn btn-sm @(Theme == "fanatiques" ? "btn-primary" : "btn-secondary")">Fanatiques</a>
+    </div>
+    <div class="col-2">
+        <a href="carrieres-liste/bretonnie/@Filtre/" class="mb-1 btn btn-sm @(Theme == "bretonnie" ? "btn-primary" : "btn-secondary")">Bretonnie</a>
+        <a href="carrieres-liste/kislev/@Filtre/" class="mb-1 btn btn-sm @(Theme == "kislev" ? "btn-primary" : "btn-secondary")">Kislev</a>
+        <a href="carrieres-liste/norsca/@Filtre/" class="mb-1 btn btn-sm @(Theme == "norsca" ? "btn-primary" : "btn-secondary")">Norsca</a>
+        <a href="carrieres-liste/chaos/@Filtre/" class="mb-1 btn btn-sm @(Theme == "chaos" ? "btn-primary" : "btn-secondary")">Chaos</a>
+        <a href="carrieres-liste/skavens/@Filtre/" class="mb-1 btn btn-sm @(Theme == "skavens" ? "btn-primary" : "btn-secondary")">Skavens</a>
+    </div>
+</div-->
+
+<div class="row">
+    <div class="col">
+        @if (_carrieresDeBase.Any())
+        {
+            <CarriereTable Items=@_carrieresDeBase />
+        }
+    </div>
+    <div class="col">
+        @if (_carrieresAvancees.Any())
+        {
+            <CarriereTable Items=@_carrieresAvancees />
+        }
+    </div>
+</div>

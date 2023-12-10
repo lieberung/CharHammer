@@ -1,0 +1,46 @@
+﻿@using CharHammer.Components.Reference
+@using CharHammer.Components.Regle
+@code {
+    [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
+    [Parameter] public bool AfficherCitations { get; set; }
+}
+@if (Item.FilieresDAvancement.Any())
+{
+    <p>
+        <CarriereAvancement Origines=@Item.FilieresDAvancement />
+    </p>
+}
+<ImageMax Image=@Item.Image Nom=@Item.Nom MaxHeight="450px" MaxWidth="55%" />
+@if (Item.Leitmotiv != "")
+{
+    <p class="text-justify">
+        <em class="insister">@Item.Leitmotiv</em>
+    </p>
+}
+<div class="mb-3" style="min-height:400px;">
+    <CardParagraphes Text=@Item.Description CardTextClass="pe-3" />
+</div>
+@if (AfficherCitations && Item.Ambiance.Any())
+{
+    <div class="mb-2">
+        @foreach (var citation in Item.Ambiance)
+        {
+            <p class="bulle px-3 clearfix">
+                <Citation Author=@citation.Author Source=@citation.Source>
+                    <em class="text-justify">@citation.Citation</em>
+                </Citation>
+            </p>
+        }
+    </div>
+}
+@if (Item.Source?.Book is not null || !string.IsNullOrWhiteSpace(Item.Source?.Info))
+{
+    <ReferenceItem Item=@Item.Source?.Book Page=@Item.Source?.Info />
+}
+@if (Item.SousElements.Any())
+{
+    <h5 class="mt-4">Variantes</h5>
+    <p class="text-justify">
+        <CarriereItemList Items=@Item.SousElements />
+    </p>
+}

@@ -1,0 +1,12 @@
+﻿h6 { font-size: medium; margin-top: .25rem; }
+input {
+    background-color: var(--bs-body-bg);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+}
+.oi-magnifying-glass {
+    font-size: 1.3em;
+    top: 0.5rem;
+}
+.dropdown-menu {
+    top: 100%;
+}

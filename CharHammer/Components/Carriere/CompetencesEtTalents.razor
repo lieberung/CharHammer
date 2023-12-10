@@ -1,0 +1,8 @@
+﻿@using CharHammer.Components.Aptitude
+@code {
+    [Parameter, EditorRequired] public CarriereDto Carriere { get; set; } = null!;
+}
+<h3>Compétences</h3>
+<AptitudeItemList Items=@Carriere.Competences ItemsChoix=@Carriere.ChoixCompetences />
+<h3>Talents</h3>
+<AptitudeItemList Items=@Carriere.Talents ItemsChoix=@Carriere.ChoixTalents />

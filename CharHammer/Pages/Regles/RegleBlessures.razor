@@ -1,0 +1,513 @@
+﻿@page "/regles/blessures/"
+
+@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Regle
+@using CharHammer.Components.Table
+
+@inject TablesService TablesService
+@inject AptitudesService AptSvc
+@inject AppState AppState
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Les aléas de la vie d'aventurier");
+    }
+}
+<div class="row">
+    <div class="col-4">
+        <div class="section">
+            <h3>Blessures</h3>
+            <p class="text-justify">
+                Le nombre minimum de Blessures est de 0. On peut avoir un nombre négatif de Blessures.
+            </p>
+
+            <h5>Blessures Superficielles</h5>
+            <p class="text-justify">
+                Si vous perdez toutes vos Blessures (vous tombez à 0), la souffrance devient insuportable et vous gagnez la Condition <AptitudeItem Item=@AptSvc.ConditionATerre />.
+                <br />
+                Pire, si vous n'êtes pas soigné avant un nombre de Round égale à votre <BonusDeCarac Carac="E" />, vous perdez connaissance, gagnant ainsi une Condition <AptitudeItem Item=@AptSvc.ConditionInconscient />.
+                <br />
+                Dans les deux cas, vous ne pourrez pas perdre ces Conditions tant que vous n'avez pas récupéré au moins 1 Blessure.
+            </p>
+
+            <h5>Blessures Critiques</h5>
+            <p class="text-justify">
+                Si vous encaissez un coup qui vous fait perdre d'avantage de Blessures qu'il ne vous ne restait, vous subissez des <BlessuresCritiques />.
+                Ces Blessures comptent triple lorsque vous calculez les conséquences d'un Coup Critique sur la <a href="table-coups-critiques/torse/">Table des Coups Critiques</a>.
+                <br />
+                Exemple : suite à un coup vous perdez 5 Blessures alors qu'il ne vous en restait que 2, vous subissez 3 (5 - 2) <BlessuresCritiques />, et obtiendrez l'effet sur la table correspondant à la valeur :
+                <br />>
+                2 <BlessuresEffectives /> + (3 x 3 <BlessuresCritiques />) + 1d4, soit un chiffre compris entre 12 et 15.
+            </p>
+
+            <h5>Blessures Mortelles</h5>
+            <p class="text-justify">
+                D'une manière générale, on peut considérer qu'un personnage subissant un nombre de <BlessuresCritiques /> supérieur à son <BonusDeCarac Carac="E" /> est tué sur le coup.
+            </p>
+        </div>
+
+        <PageSectionDivider Size="2" />
+
+        <div class="section">
+            <h3>Soins</h3>
+
+            <h5>Blessures Superficielles</h5>
+            <p class="text-justify">
+                Vous êtes <strong>Légèrement Blessé</strong> dès lors que vous avez perdu 1 Blessure.
+            </p>
+            <p class="text-justify">
+                Sans soins médicaux, vous pouvez tenter un test de <AptitudeItem Item="@AptSvc.CompetenceResistance" /> Moyen (+20) après une bonne nuit de sommeil une fois par jour.
+                Echec ou réussite, vous récupérez un nombre de Blessures égal à votre BS + votre <BonusDeCarac Carac="E" />.
+                Si ensuite vous passez une journée calme et reposante, vous récupérez un nombre de Blessures supplémentaire égal à votre <BonusDeCarac Carac="E" />.
+            </p>
+            <p class="text-justify">
+                L'utilisation de <AptitudeItem Item="@AptSvc.CompetenceSoins" /> peut vous guérir davantage, ou encore l'accès à des bandages et à une trousse de soins.
+            </p>
+
+            <h5>Blessures Critiques</h5>
+            <p class="text-justify">
+                Vous êtes <strong>Gravement Blessé</strong> dès lors que vous avez reçu des Blessures Critiques.
+            </p>
+            <p class="text-justify">
+                L'utilisation de <AptitudeItem Item=@AptSvc.CompetenceSoins /> est généralement toujours possible, mais cela dépend des conséquences du Coup Critique.
+                Ces Blessures ne sont considérées comme soignées que lorsque tous les effets négatifs associés ont disparu, à l'exception d'éentuelles séquelles permanentes.
+            </p>
+
+            <h5>Soins médicaux et Chirugie</h5>
+            <p class="text-justify">
+                Pour certaines Blessures, il sera précisé que des Soins médicaux ou de la Chirurgie sont requis, en l'occurence du matériel médical et les compétences <AptitudeItem Item=@AptSvc.CompetenceSoins /> et <AptitudeItem Item=@AptSvc.TalentChirurgie />.
+            </p>
+        </div>
+
+        <PageSectionDivider Size="2" />
+
+        <div class="section">
+            <h3>Conditions extrêmes</h3>
+            <p class="text-justify">
+                Every 4 hours spent in a difficult environment — such as sub-zero temperatures, a hot desert, or a howling storm — requires you take an Endurance Test. Extreme environments require a Test every 2 hours.
+            </p>
+
+            <h5>Froid glacial</h5>
+            <p class="text-justify">
+                Your first failure causes a penalty of –10 Ballistic Skill, Agility and Dexterity. The second failure reduces all other Characteristics by –10. Third and subsequent failures cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost. If you reach zero Wounds, you immediately take an Unconscious condition. Certain Trappings provide bonuses and penalties to these Tests. See pages 302 and 309.
+            </p>
+
+            <h5>Chaleur écrasante</h5>
+            <p class="text-justify">
+                Your first failure causes a penalty of –10 to Intelligence and Willpower, and adds a Fatigued Condition. The second failure reduces all other Characteristics by –10%, and adds another Fatigued Condition. Third and subsequent failures cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost. Stripping off heavy Trappings cancels 1 failed test.
+            </p>
+
+        </div>
+
+        <PageSectionDivider Size="2" />
+
+        <div class="section">
+            <h3>Noyade et Suffocation</h3>
+            <p class="text-justify">
+                If prepared, you can hold your breath for Toughness Bonus x 10 seconds without a Test. After that, you may start to suffocate or drown. If you are unprepared and suddenly deprived of air, you will start to suffocate immediately.
+            </p>
+            <p class="text-justify">
+                Each Round you are being suffocated you lose 1 Wound. Should you reach 0 Wounds, you immediately receive the <AptitudeItem Item=@AptSvc.ConditionInconscient /> Condition. After that, you will die of suffocation or drowning in Toughness Bonus Rounds.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="col-4">
+
+        <div class="section">
+            <h3>Déchirures musculaires</h3>
+
+            <h5>Déchirure Mineure</h5>
+            <p class="text-justify">
+                Une entorse ou un muscle froissé réduit vos capacités en plus d'être très douloureux. Vous subissez un malus de -10 à tous les jets impliquant la zone meurtrie. Si c'est une jambe, divisez également par 2 votre <strong>Mouvement</strong>.
+                <br />
+                <strong>Soins</strong> : une Déchirure Mineure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E" />) jours. Utiliser <AptitudeItem Item=@AptSvc.CompetenceSoins /> réduit cette durée de 1+BS jours (appliquable une seule fois).
+            </p>
+            <h5>Déchirure Majeure</h5>
+            <p class="text-justify">
+                Certains de vos muscles et des tendons ont été sévèrement endommagés, résultant en une douleur intense et une perte significative de vos capacités avec le membre concerné.
+                <br />
+                Subissez les mêmes conséquences que pour une Déchirure Mineure mais les malus passent à -20.
+                <br />
+                <strong>Soins</strong> : une Déchirure Majeure sera partiellement rétablie en (30 - votre <BonusDeCarac Carac="E" />) jours, suite à quoi les malus passeront à -10.
+                Il faudra à nouveau patienter ce même délai pour un rétablissement complet.
+                La Compétence <AptitudeItem Item="@AptSvc.CompetenceSoins" /> n'y peut pas grand chose mais vous conseille de ne pas utiliser le membre impliqué !
+            </p>
+        </div>
+
+        <PageSectionDivider Size="2" />
+
+        <div class="section">
+            <h3>Fractures</h3>
+
+            <h5>Fracture Mineure</h5>
+            <p class="text-justify">
+                Un de vos os est fracturé, mais il est toujours aligné, ce qui signifie qu'il pourra guérir naturellement sans soins médicaux.
+                En revanche la zone touchée est inutilisable jusqu'à ce que l'os se ressoude.
+                <ul>
+                    <li><strong>bras ou jambe</strong> : vous avez probablement besoin d'une attèle ; consultez la partie Amputations pour connaître les conséquences.</li>
+                    <li><strong>tête</strong> : vous êtes condamné à un régime liquide et subissez un malus de -30 pour tous les tests relatifs au <AptitudeItem Item=@AptSvc.CompetenceGroupeLangue />.</li>
+                    <li><strong>torse</strong> : votre Force et votre Agilité sont sévèrement compromises, vous subissez un malus de -30 dans ces caractéristiques, et divisez par 2 votre Mouvement.</li>
+                </ul>
+                <strong>Soins</strong> : un os fracturé se réparera au bout de 30+1d10 jours. Suite à cela, un test réussi de <AptitudeItem Item=@AptSvc.CompetenceResistance /> Moyen (+20) signifie que l'os s'est bien remis et ne laissera aucune séquelle.
+                Sur un échec, vous subirez des séquelles permanentes (voir tableau).
+                <br />
+                Un test de <AptitudeItem Item=@AptSvc.CompetenceSoins /> Moyen (+20) réussi dans la semaine qui suit l'obtention de la fracture annule le besoin de faire le test de <AptitudeItem Item=@AptSvc.CompetenceResistance /> mais la zone devra rester bandée et maintenue en place jusqu'à guérison.
+                Si le bandage est retiré avant, un nouveau test de <AptitudeItem Item=@AptSvc.CompetenceSoins /> sera nécessaire.
+            </p>
+
+            <h5>Fracture Majeure</h5>
+            <p class="text-justify">
+                Un de vos os s'est fracturé, il a conservé un mauvais angle et a peut-être volé en éclats. Vous avez besoin de <AptitudeItem Item=@AptSvc.TalentChirurgie /> pour être soigné.
+                <br />
+                La zone touchée est inutilisable jusqu'à guérison. Utilisez les mêmes règles que pour une Fracture Mineure avec ces ajustements :
+                <ul>
+                    <li>le temps de guérison prendra 10 jours de plus</li>
+                    <li>les tests associés de <AptitudeItem Item=@AptSvc.CompetenceResistance /> et <AptitudeItem Item=@AptSvc.CompetenceSoins /> sont effectués à +0</li>
+                    <li>les séquelles permanentes sont plus handicapantes (voir tableau)</li>
+                </ul>
+            </p>
+            <h5>Séquelles permanentes suite à une fracture mal guérie</h5>
+            <p class="text-justify">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Zone</th>
+                            <th>Fracture Mineure</th>
+                            <th>Fracture Majeure</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Bras</td>
+                            <td>-5 en Agilité avec ce membre</td>
+                            <td>-15 en Agilité avec ce membre</td>
+                        </tr>
+                        <tr>
+                            <td>Jambe et Torse</td>
+                            <td>-5 en Agilité</td>
+                            <td>-15 en Agilité</td>
+                        </tr>
+                        <tr>
+                            <td>Tête</td>
+                            <td>-5 en <AptitudeItem Item=@AptSvc.CompetenceGroupeLangue /></td>
+                            <td>-15 en <AptitudeItem Item=@AptSvc.CompetenceGroupeLangue /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </div>
+
+        <PageSectionDivider Size="2" />
+
+        <div class="section">
+            <h3>Privation d'eau et de nourriture</h3>
+            <p class="text-justify">
+                Running out of provisions can be bad. Running out of water is worse. <AptitudeItem Item=@AptSvc.CompetenceResistance /> Tests to withstand thirst and hunger become increasingly difficult (cumulative –10 for every test). Characters without food and water cannot heal Wounds or recover Fatigue naturally.
+            </p>
+
+            <h5>Mourrir de soif</h5>
+            <p class="text-justify">
+                Every day without water requires you make an <AptitudeItem Item=@AptSvc.CompetenceResistance /> test. The first failed Test causes a penalty of –10 Intelligence, Willpower, and Fellowship. Second and subsequent failures reduce all Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
+            </p>
+
+            <h5>Mourrir de faim</h5>
+            <p class="text-justify">
+                Every 2 days without food require an <AptitudeItem Item=@AptSvc.CompetenceResistance /> Test. The first failed Tests causes a penalty of –10 Strength and Toughness. Second and subsequent failures reduce all other Characteristics by –10 and cause 1d10 Damage not modified by Armour Points, with a minimum of 1 Wound lost.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="col-4">
+
+        <div class="section">
+            <h3>Membres amputés</h3>
+            <p class="text-justify">
+                L'amputation d'un membre, qu'elle soit due à un (très) mauvais coup ou une intervention chirurgicale peut-être compensée par une prothèse (voir le Guide du consommateur).
+                <br />
+                Quand vous subissez un Coup Critique dont l'effet est <strong>Amputation (difficulté)</strong>, vous devez réussir un test de <AptitudeItem Item=@AptSvc.CompetenceResistance /> avec la difficulté spécifiée ou immédiatetement subir la Condition <AptitudeItem Item="@AptSvc.ConditionATerre" />.
+                <br />
+                Sur un BS de -2 ou -3, vous subissez également la Condition <AptitudeItem Item=@AptSvc.ConditionEtourdi />, et au delà la Condition <AptitudeItem Item=@AptSvc.ConditionInconscient />.
+                <br />
+                Toute membre amputé requiert de la <AptitudeItem Item=@AptSvc.TalentChirurgie /> pour guérrir correctement, et aucune Blessure ne pourra être récupérée sans cela. Voir Chirurgie p.181.
+            </p>
+            <h5>Oreille</h5>
+            <p class="text-justify">
+                Douloureux mais vous apprendrez rapidement à vivre avec. Si par malheur c'était votre dernière, vous subissez un malus permanent de -20 à tous les tests de <AptitudeItem Item=@AptSvc.CompetencePerception /> liés à l'ouïe.
+                De plus vous subissez un malus de -5 par oreille à tout test de Sociabilité quand leur absence est visible.
+            </p>
+            <h5>Oeil</h5>
+            <p class="text-justify">
+                Perdre un oeil est horrible, mais vous apprendrez vite à compenser. Si vous aviez le malheur de perdre l'autre, vous subiriez un malus de -30 à tous les tests nécessitant d'y voir.
+                De plus vous subissez un malus de -5 par orifice vide à tout test de Sociabilité quand leur absence est visible.
+            </p>
+            <h5>Nez</h5>
+            <p class="text-justify">
+                La perte du nez vous donne un air terrifiant. Vous subissez un malus de -20 en Sociabilité tant que vous n'avez pas fixé une prothèse et de -30 à tous les jets impliquant l'odorat.
+            </p>
+            <h5>Dents</h5>
+            <p class="text-justify">
+                La perte d'une dent est presque invisible et peut rendre difficile la mastication. Toutes les deux dents perdues, subissez une pénalité de -1 en Sociabilité.
+                <br />
+                Si vous avez perdu plus de la moitié de vos dents (humains 16, elfes 18, halflings et nains 20), la diversification alimentaire devient très compliquée pour vous, doublant vos temps de repas et rendant certains aliments impossibles à manger.
+                <br />
+                La conséquence est surtout une affaire de roleplaying et de description narrative de vos actions.
+            </p>
+            <h5>Langue</h5>
+            <p class="text-justify">
+                La perte de votre langue vous empêche de vous exprimer autrement qu'en grognant et marmonant. Apprendre le langage des signes est votre seule option. Vous ne pouvez plus utiliser <AptitudeItem Item=@AptSvc.CompetenceGroupeLangue />.
+            </p>
+            <h5>Doigts</h5>
+            <p class="text-justify">
+                La perte d'un doigt augmentent vos chances d'Echec Critique quand vous utilisez la main concernée. Pour tout test pertinent, l'obtention d'un 1 sur le dé des unités déclenche un Echec Critique. Pour deux doigts, 1 et 2, et ainsi de suite.
+            </p>
+            <h5>Main</h5>
+            <p class="text-justify">
+                Vous subissez une pénalité de -20 pour tout test nécessitant deux mains, quand l'action envisagée n'est pas tout simplement impossible. Vous ne pouvez plus utiliser d'armes à deux mains, cependant un bouclier peut toujours être fixé à votre bras amoché.
+                <br />
+                S'il s'agissait de votre main directrice, vous subissez naturellement la pénalité de -20 en Mélée, et vous pouvez réduire ce malus par tranche de 5 points en dépenser 100xp par tranche, le temps de tout réapprendre avec votre main restante.
+                <br />
+                Si c'était votre dernière main, il est probablement temps de maîtriser le combat au crochet, et, si vous êtes un homme, vous devrez dorénavant faire preuve d'imagination pour la masturbation.
+            </p>
+            <h5>Bras</h5>
+            <p class="text-justify">
+                Idem que pour la main, vous ne pourrez plus vous équiper d'un bouclier tant que vous n'aurez pas une prothèse.
+            </p>
+            <h5>Orteils</h5>
+            <p class="text-justify">
+                Cela produit un effet fâcheux sur votre équilibre. Pour chaque orteil perdu, subissez un malus permanent de -1 en Agilité et en Capacité de Combat.
+            </p>
+            <h5>Pied</h5>
+            <p class="text-justify">
+                Divisez votre Mouvement par 2 de manière permanente et subissez un malus de -20 à tous les tests basés sur la mobilité, comme <AptitudeItem Item=@AptSvc.CompetenceEsquive />.
+                Perdre le deuxième pied va compliquer les choses. Peut-être pouvez-vous recruter un porteur ?
+            </p>
+            <h5>Jambe</h5>
+            <p class="text-justify">
+                Idem que pour le pied, mais vous ne pouvez plus utiliser <AptitudeItem Item=@AptSvc.CompetenceEsquive />.
+            </p>
+
+        </div>
+
+    </div>
+
+    <PageSectionDivider />
+
+    <div class="row">
+
+        <div class="col-4">
+            <div class="section">
+                <h3>Une Consultation</h3>
+                <p class="text-justify">
+                    En règle générale, la plupart des médecins étant d’une disponibilité Courante, il suffit de réussir un test de Commérage Assez facile
+                    (+10%) dans une ville de 1000 habitants ou moins pour en trouver un. Habituellement, l’échoppe d’un médecin affilié à une guilde est
+                    signalée par une enseigne portant deux lancettes croisées ou un pilon et un mortier ou, occasionnellement, une fleur en bouton
+                    (symbole d’Isha, déesse elfe de la guérison et de la fertilité). Les chirurgiens, eux, utilisent souvent les symboles des couteaux et de
+                    la scie, mais ils font généralement moins de publicité. Ils n’en ont pas tellement besoin : tout le monde sait où habite le chirurgien,
+                    car tout le monde connaît au moins une personne qui a eu besoin de recourir à ses services.
+                </p>
+                <p class="text-justify">
+                    En dehors de leurs officines et des maisons de leurs guildes, on trouve également des médecins dans la plupart des palais et dans
+                    les baraquements des armées, dès que celles-ci deviennent suffisamment importantes. Les médecins militaires sont rarement des
+                    praticiens prestigieux et ils ne sont certainement pas riches, mais grâce à leurs années d’expérience, ils se montrent généralement
+                    plus compétents que les autres quand il s’agit d’appliquer des traitements rapides, efficaces et pragmatiques. Évidemment, ces médecins
+                    ne soignent que les soldats de l’unité à laquelle ils appartiennent, mais les civils qui désirent être traités suivant les méthodes éprouvées
+                    de l’un de ces praticiens peuvent tenter de trouver un médecin militaire à la retraite.
+                </p>
+                <p class="text-justify">
+                    Dans l’Empire, la qualité du service médical se décline suivant les quatre catégories habituelles. Les tarifs de base et les disponibilités sont conformes aux critères décrits dans le livre de base de WJDR (cf. page 104).
+                </p>
+            </div>
+            <TableDetail Item=@TablesService.GetTable(80) />
+            <div class="section">
+                <h5>Disponibilité</h5>
+                <p class="text-justify">
+                    Les degrés de disponibilité sont indiqués pour une ville de moins de 1000 habitants, à ajuster dans le cas d’une population plus ou moins importante.
+                </p>
+                <h5>Prix</h5>
+                <p class="text-justify">
+                    l s’agit du prix à payer pour une consultation simple; le praticien peut demander des suppléments (et il ne s’en prive pas) dans le cas
+                    d’examens approfondis ou pour les remèdes qu’il propose. S’il ne vend pas ses propres remèdes, il aura sans doute avec un apothicaire un arrangement
+                    très lucratif pour les deux partenaires.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="section">
+                <h5>Les différents Degrés de Qualité</h5>
+                <p class="text-justify">
+                    <strong>De qualité médiocre : </strong>
+                    un praticien médiocre n’est jamais rien de plus qu’un chirurgien barbier (ou parfois un étudiant atteint de la folie des grandeurs); qui plus est,
+                    ce sont généralement des individus assez brouillons, voire carrément malpropres. On les rencontre rarement dans les villages car les paysans
+                    ne sont pas longs à comprendre qu’ils ont plutôt intérêt à consulter la guérisseuse ou l’herboriste local. En revanche, ils prospèrent dans les
+                    grandes villes où les gens sont moins enclins à faire confiance à la médecine traditionnelle. Cependant, même là, seuls les indigents et les plus
+                    désespérés osent recourir à ces bouchers aux instruments rouillés et ils le font en sachant bien que le remède risque de s’avérer pire que le mal. En
+                    dehors de ses tarifs modérés, le seul avantage de ce genre de médecin est qu’il ne pose aucune question sur l’origine des blessures par balle ou
+                    par arme blanche dont peuvent souffrir ses patients.
+                </p>
+                <p class="text-justify">
+                    <strong>De qualité moyenne : </strong>
+                    le praticien moyen est le plus souvent un jeune médecin ou un chirurgien barbier ayant reçu une bonne formation. Il connaît l’herboristerie élémentaire
+                    et les principes de base de la chirurgie, il travaille dans des conditions d’hygiène acceptables, sur une table d’opération propre, et il ampute rarement
+                    sans raison valable. La population le considère avec un respect mêlé d’une certaine suspicion et il gagne modestement sa vie. S’il est médecin, il possède
+                    une assez considérable collection de poudres et de teintures de plantes et quelques grimoires médicaux ; s’il est chirurgien barbier il est probablement
+                    bien connu pour la rapidité et l’habileté avec laquelle il pratique ses amputations.
+                </p>
+                <p class="text-justify">
+                    <strong>De bonne qualité : </strong>
+                    à ce niveau de qualité, on trouve aussi bien des médecins à la panse rebondie, bien établis dans la société, que
+                    des chirurgiens de très grande réputation. Ces praticiens soignent les citadins les plus fortunés qui sont seuls à pouvoir se permettre
+                    leurs tarifs. Ils ont étudié dans les meilleures écoles et occupent un rang élevé, à la fois dans leur guilde et dans la société. Le succès de
+                    leur pratique leur vient tout autant de la nature de leur clientèle que de l’efficacité de leurs soins. Dans l’ensemble, ils font preuve de
+                    capacités exemplaires et ne manquent pas de dévouement. Ceux qui en ont les moyens peuvent être sûrs de bénéficier des remèdes
+                    les plus récents, des scies les plus acérées et d’avoir une bande du meilleur cuir à mordre durant l’opération.
+                </p>
+                <p class="text-justify">
+                    <strong>De qualité exceptionnelle : </strong>
+                    ce sont des praticiens dont la renommée est connue de tous dans l’une des plus grandes cités de l’Empire au moins et parfois au-delà.
+                    Certains sont tellement illustres qu’on les connaît jusque dans les pays étrangers où ils sont parfois invités à venir exprimer leur opinion.
+                    Dans leur cité d’origine, ce sont presque toujours les médecins attitrés de la maison royale ou de la famille régnante. Ils sont souvent
+                    à la tête de leur guilde et, s’ils ne résident pas dans les palais de la noblesse, ils ont généralement été si bien rétribués par leurs patients
+                    reconnaissants qu’ils ont les moyens de s’offrir un superbe manoir et ont leurs entrées dans la haute société. Rares sont ceux qui peuvent
+                    espérer accéder à un rang aussi élevé sans être dotés d’extraordinaires talents médicaux ou d’une exceptionnelle habileté pour l’intrigue.
+                    Ils sont prodigieusement doués, que ce soit pour la médecine ou le charlatanisme.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="section">
+                <h5>Charlatanisme</h5>
+                <p class="text-justify">
+                    Après être parvenu à localiser un médecin grâce à la réussite d’un test de Commérage, le MJ devra lancer 1d100 en secret et comparer le résultat au score relatif à la qualité du médecin trouvé.
+                    Si le jet est inférieur au pourcentage de charlatanisme, alors le praticien en question est soit un charlatan, soit fou à lier. Il utilise la compétence Soins mentionnée dans le tableau,
+                    mais les remèdes qu’il propose, quels qu’ils soient, ont de grandes chances de n’être efficaces qu’en apparence. Dans l’heureuse éventualité où le test de Soins du charlatan serait inférieur ou égal
+                    à la moitié de son pourcentage en Soins, il a trouvé une méthode valable, par le plus grand des hasards; son traitement est efficace ou son opération chirurgicale est réussie. S’il réussit son
+                    test de Soins en obtenant un résultat supérieur à la moitié de sa compétence Soins, son traitement semble efficace pendant 12+1d10 heures (pour les affections de courte durée ou les blessures)
+                    ou pendant 1d10 jours (pour les maladies de longue durée) ; au bout de cette période les symptômes réapparaissent tels qu’avant le traitement. Lors de ce répit temporaire, le temps durant lequel
+                    le patient semble avoir été guéri par le traitement du charlatan n’est pas décompté de la durée durant laquelle il doit être affecté par sa blessure ou sa maladie; on considère que le traitement ou
+                    l’opération chirurgicale a échoué. Pour déterminer le degré d’échec, considérez que le charlatan possède la moitié de sa compétence Soins.
+                </p>
+                <p class="text-justify">
+                    Si le charlatan manque totalement son test de Soins, tout le monde peut voir que ses faux remèdes ne servent à rien. Quel que soit le résultat de ses efforts, la réussite d’un test de Soins Difficile
+                    (-20%) permet à un PJ qui l’observe au travail et analyse ses procédures opératoires de déceler qu’il s’agit d’un faux médecin ou que les méthodes qu’il emploie sont totalement farfelues.
+                </p>
+            </div>
+            <div class="section">
+                <TableDetail Item=@TablesService.GetTable(83) />
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="section">
+                <h5>Infection</h5>
+                <p class="text-justify">
+                    Une plaie peut toujours s’infecter, même si elle a été nettoyée après une intervention chirurgicale. Vous devez donc effectuer un jet de dés contre l’infection
+                    après toute opération par un charlatan, même si la table d’opération a été décrassée convenablement (cf. le paragraphe Chirurgie ci-après).
+                </p>
+            </div>
+            <div class="section">
+                <TableDetail Item=@TablesService.GetTable(81) />
+            </div>
+            <div class="section">
+                <TableDetail Item=@TablesService.GetTable(82) />
+            </div>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <div class="section">
+                <h3>Traitements médicaux : les blessures</h3>
+                <p class="text-justify">
+                    Qu’un PJ soit Légèrement ou Gravement blessé, le meilleur remède reste une bonne potion de soins ou un cataplasme médicinal, accompagné de quelques jours de repos. La plupart des médecins proposent des remèdes « spéciaux » de leur composition, mais on trouve des potions ou des cataplasmes tout aussi bons chez les apothicaires, les herboristes et même auprès des ménagères les plus compréhensives. Dans ces conditions, il est probable que la plupart des PJ ne se mettront en quête d’un médecin qu’en cas de blessure consécutive à un coup critique: un bras ou une jambe estropié ou une blessure à la colonne vertébrale. Les blessures de ce genre nécessitent généralement une opération, effectuée par un chirurgien barbier ou par un médecin, bien que certains médecins considèrent la chirurgie comme étant au-dessous de leur dignité. La chirurgie est moins complexe que la médecine et s’appuie sur des méthodes éprouvées qui échouent rarement. Cela ne signifie pas pour autant qu’elles soient agréables ni que la réussite soit garantie.
+                </p>
+                <p class="text-justify">
+                    Dans le Vieux Monde, les connaissances en matière de chirurgie sont limitées : on sait réduire une fracture (si la cassure est bien nette), stopper une hémorragie et empêcher une infection de s’installer (si l’intervention est réalisée assez rapidement) et recoudre une plaie afin de maintenir la cohésion des tissus (pourvu que la blessure ne soit pas trop béante). Dès que les choses deviennent plus compliquées, on résout le problème en supprimant la partie endommagée à l’aide d’un hachoir bien aiguisé ou d’une scie à os, plus lente mais qui permet d’obtenir un résultat beaucoup plus propre. Un bon chirurgien est celui qui sait pratiquer l’ablation de la partie blessée sans réduire en charpie l’appendice tout entier. Un excellent chirurgien est celui qui est capable de le faire rapidement, du fait que les techniques d’anesthésie relèvent du mystère et que plus la plaie reste exposée à l’air libre longtemps, plus elle risque de s’infecter.
+                </p>
+            </div>
+            <div class="section">
+                <h5>Nettoyer une plaie</h5>
+                <p class="text-justify">
+                    Lorsqu’un PJ perd des points de Blessures, si personne ne possède la compétence Soins nécessaire pour le traiter, ou en cas d’échec
+                    d’un test de Soins, tout n’est pas perdu. N’importe laquelle des personnes présentes peut tenter de nettoyer la blessure; à défaut de la
+                    guérir, ceci permet au moins d’empêcher l’infection de s’installer.
+                </p>
+                <p class="text-justify">
+                    La meilleure manière de procéder est de laver soigneusement la plaie à l’aide d’une solution alcoolisée, en réussissant un test de <strong>Dextérité</strong> Facile (+20%).
+                    La blessure doit ensuite être nettoyée de la même manière et pansée de frais tous les jours, pendant trois jours, en renouvelant le test à chaque tentative.
+                    Si, au cours de ces trois jours, la ou les blessures ne sont pas nettoyées, ou mal nettoyées, le blessé devra effectuer un test de <AptitudeItem Item=@AptSvc.CompetenceResistance /> pour résister
+                    à l’infection, suivant la procédure normale.
+                </p>
+                <p class="text-justify">
+                    Certains médecins militaires préfèrent la cautérisation et emplissent souvent la blessure de poudre noire afin d’être sûrs que la chaleur de la flamme
+                    sera suffisante. Avec ou sans poudre, cette douloureuse méthode inflige un coup d’une valeur de dégâts de 3 (feu) et s’accompagne d’un test de <strong>Dextérité</strong>
+                    Assez facile (+10%). L’avantage de ce traitement, c’est que les résultats sont plus durables: un PJ dont les blessures ont été cautérisées avec succès n’a
+                    plus besoin de nettoyer ses blessures durant les jours suivants.
+                </p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="section">
+                <h3>Primo-infection</h3>
+                <p class="text-justify">
+                    Afin de déterminer les chances de rétablissement d’un PJ blessé, la première étape intervient bien avant la consultation chez le chirurgien.
+                    Vous pouvez utiliser une règle optionnelle : si un PJ ne bénéficie pas d’un test de Soins réussi à la suite d’une rencontre durant laquelle
+                    il a perdu des points de Blessures, il doit effectuer un test de Résistance le matin suivant afin de déterminer si sa plaie s’est infectée.
+                    La difficulté de base de ce test est Très facile (+30%), ajustée suivant les modificateurs de la table ci-dessous. Le PJ doit effectuer
+                    ce test tous les matins, jusqu’à la réussite d’un test de Soins effectué dans le dessein de soigner cette blessure (ce test compte en tant
+                    que seul test de Soins dont pourra bénéficier le PJ dans la journée) ou jusqu’à ce qu’il ait récupéré tous ses points de Blessures.
+                </p>
+                <p class="text-justify">
+                    Si la blessure du PJ s’infecte, notez la marge d’échec au test de Résistance, qui devient alors le niveau de difficulté de l’infection. Un
+                    PJ souffrant d’une blessure infectée présente les mêmes symptômes qu’un malade de la variole verte à l’exception des troubles de la vision
+                    et du malus qu’elle impose habituellement aux tests de Sociabilité. Cet état persiste durant 14 jours ou jusqu’à ce que le blessé meure,
+                    suivant l’événement qui intervient en premier. La réussite d’un test de Soins (d’une difficulté égale à la difficulté de l’infection)
+                    fait disparaître l’infection. Une fois celle-ci disparue, les caractéristiques du profil principal du PJ reviennent à la normale au rythme
+                    de +5% par jour.
+                </p>
+                <p class="text-justify">
+                    Si l’infection réduit l’Endurance d’un PJ à moins de la moitié de sa valeur initiale, elle dégénère en gangrène. Contrairement aux infections ordinaires,
+                    la gangrène n’a pas de durée maximale et les malus qu’elle impose aux caractéristiques sont permanents. On ne peut soigner une gangrène que par l’ablation chirurgicale des tissus
+                    lésés ou, pour ceux qui veulent être sûrs du résultat, par l’amputation du membre touché.
+                </p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="section">
+                <h3>Chirurgie</h3>
+                <p class="text-justify">
+                    Lorsque la gangrène s’installe ou qu’une blessure découle d’un coup critique ayant exigé un test d’Endurance afin d’éviter la perte d’une fonction, il faut recourir à la chirurgie. Normalement, une opération chirurgicale est automatiquement réussie et permet simplement au patient de bénéficier d’un bonus de +20% au test d’Endurance qui lui permet d’éviter de perdre la fonction de la partie du corps concerné. Toutefois, pour les MJ qui préfèrent donner une atmosphère un peu plus macabre à leur campagne ou pour ceux qui désirent utiliser les règles optionnelles relatives à l’infection décrites plus haut, une opération chirurgicale peut devenir une épreuve nettement plus pénible.
+                </p>
+                <p class="text-justify">
+                    Selon ces règles optionnelles, le succès d’une opération chirurgicale exige un test de Soins Assez difficile (-10%), ainsi que le nettoyage de la plaie et la réparation des tissus et des os endommagés. Une opération destinée à éliminer un foyer de gangrène exige un test de Soins d’une difficulté équivalente à la difficulté de l’infection, ainsi que l’ablation totale des tissus infectés du corps du patient. Dans tous les cas, le processus est évidemment terriblement douloureux pour le patient en question.
+                </p>
+                <p class="text-justify">
+                    Bien que les principes de l’anesthésie soient pratiquement inconnus dans l’Empire, les chirurgiens ne sont pas totalement dépourvus de pitié: ils proposent généralement à leurs patients une petite pièce de bois entourée de corde ou d’une lanière de cuir, afin qu’ils puissent mordre dedans. Lors d’une opération chirurgicale, le PJ concerné doit réussir un test de Force Mentale Difficile (-20%) sous peine de se mettre à hurler et à se débattre. Si personne ne peut l’immobiliser à l’aide d’une prise, ses contorsions imposent aux tests de Soins du chirurgien un malus cumulatif de -5% par minute durant laquelle le patient s’agite durant l’opération. Certains patients préfèrent se présenter ivres morts afin de s’empêcher de se débattre en hurlant, mais dans ce cas le bonus conféré par les efforts du chirurgien à leur test d’Endurance tombe à +10%.
+                </p>
+                <p class="text-justify">
+                    Si l’opération destinée à préserver les fonctionnalités de l’organe touché réussit, le patient bénéficie d’un bonus de +20% à son test de Résistance. En cas d’échec, en plus du fait que ce bonus de +20% ne s’applique plus, le patient court également le risque de voir la zone opérée s’infecter. Pour éviter cela, il doit effectuer un nouveau test de Résistance, comme s’il avait subi une blessure sans bénéficier de soins médicaux appropriés (cf. Primo-infection, plus haut), si ce n’est que ce sont les modificateurs de la Table 5-3 qui s’appliquent. En cas d’échec, le patient perd immédiatement 1 point de Blessures par tranche de 10% d’échec au test et la zone concernée s’infecte, avec tous les malus et les effets à long terme décrits au paragraphe Primo-infection.
+                </p>
+                <p class="text-justify">
+                    Si l’opération destinée à éliminer des tissus atteints de gangrène est couronnée de succès, l’infection «revient» au stade normal et le patient bénéficie alors d’un bonus de +20% à tous ses tests de Résistance effectués par la suite afin de résister aux effets de cette infection. En outre, elle peut alors être soignée grâce à un test de Soins normal. En cas d’échec de l’opération, la difficulté de l’infection augmente de +10% et la gangrène progresse.
+                </p>
+
+                <h3>Prothèses</h3>
+                <p class="text-justify">
+                    Un autre rôle important d’un chirurgien est de fabriquer et d’adapter des prothèses de toutes sortes: jambes de bois, mains de vétéran, yeux de verre, plaques crâniennes et dentiers en bois. Si une prothèse ou un appendice quelconque est fixé au cours d’une opération qui provoque une infection ou adapté à une partie du corps frappée de gangrène, l’objet doit être détruit et un nouvel appareillage devra être fourni au patient.
+                </p>
+            </div>
+            <div class="section">
+                <h3>Prothèses</h3>
+            </div>
+        </div>
+    </div>
+</div>

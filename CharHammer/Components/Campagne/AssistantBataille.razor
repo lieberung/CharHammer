@@ -1,0 +1,33 @@
+﻿@using CharHammer.Components.Bestiole
+
+@inject AppState AppState
+@implements IDisposable
+@code{
+    [Parameter, EditorRequired] public IEnumerable<CombattantDto> Protagonistes { get; set; } = null!;
+
+    protected override void OnInitialized() => AppState.OnChange += StateHasChanged;
+    public void Dispose() => AppState.OnChange -= StateHasChanged;
+}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th class="tgroupe"></th>
+        <th class="tgroupe ps-2">Combattant</th>
+        <th class="tgroupe ps-2">Adversaire</th>
+        <th class="tgroupe ps-2">Compétences</th>
+        <th class="tgroupe ps-2 text-center">CC</th>
+        <th class="tgroupe ps-2 text-center">BF</th>
+        <th class="tgroupe ps-2 text-center">BE</th>
+        <th class="tgroupe ps-2">Avantage</th>
+        <th class="tgroupe ps-2">Blessures</th>
+        <th class="tgroupe ps-2">Protections</th>
+        <th class="tgroupe ps-2">Aptitudes</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var combattant in Protagonistes)
+    {
+        <CombattantRow Item=@combattant Adversaires=@Protagonistes.Where(p => p.Ennemi != combattant.Ennemi) />
+    }
+    </tbody>
+</table>

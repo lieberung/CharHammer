@@ -1,0 +1,52 @@
+﻿@using CharHammer.Components.Carriere
+
+@inject CarrieresService CarrieresService
+@code {
+    [Parameter] public AptitudeDto Item { get; set; } = null!;
+    
+    bool AfficherSousElements { get; set; }
+    bool AfficherCarrieres { get; set; }
+}
+<tr>
+    <td>
+        @if (Item.CarrieresLiees.Any())
+        {
+            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
+                <OiIcon Icon="badge"/>
+            </span>
+        }
+    </td>
+    <td>
+        @if (Item.SousElements.Any())
+        {
+            <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+                <OiIcon Icon="layers"/>
+            </span>
+        }
+    </td>
+    <td>
+        @if (Item.Parent != null)
+        {
+            <SousElement/>
+        }
+        <AptitudeItem Item=@Item />
+    </td>
+    <td>@Item.CaracteristiqueAssociee</td>
+    <td><CheckedIfTrue Condition=@Item.EstUneCompetenceDeBase /> </td>
+    <td><AptitudeItemList Items=@Item.TalentsLies /></td>
+</tr>
+@if (AfficherCarrieres && Item.CarrieresLiees.Any())
+{
+    <tr class="zone-detail">
+        <td colspan="6" class="p-3">
+            <CarriereItemList Items=@Item.CarrieresLiees />
+        </td>
+    </tr>
+}
+@if (AfficherSousElements && Item.SousElements.Any())
+{
+    @foreach (var sousElement in Item.SousElements)
+    {
+        <CompetenceRow Item=@sousElement />
+    }
+}

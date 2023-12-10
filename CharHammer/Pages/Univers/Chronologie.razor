@@ -1,0 +1,25 @@
+﻿@page "/chronologie"
+
+@inject ChronologieService Service
+@inject AppState AppState
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Chronologie");
+    }
+}
+<table class="table table-striped">
+    <thead>
+        <tr><th>Période</th><th>Evènement</th><th>Titre</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var chrono in Service.Chronologie)
+        {
+            <tr>
+                <td>@chrono.Periode</td>
+                <td>@chrono.Resume</td>
+                <td>@chrono.Titre</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,19 @@
+﻿@inject AppState AppState
+<PageTitle>
+    @AppState.PageHeadTitle
+</PageTitle>
+<div class="navbar fixed-top">
+    <div class="container">
+        <span>
+            <HomeIcon />
+            @if (AppState.MainTopRowTitle != "")
+            {
+                <span class="h2 ms-3">@AppState.MainTopRowTitle</span>
+            }
+        </span>
+        <TopRowSearchBar />
+        <LogoWarhammer />
+        <GodMode />
+    </div>
+</div>
+<div style="height:56px;"></div>

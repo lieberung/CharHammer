@@ -1,0 +1,25 @@
+﻿@page "/campagne/{CampagneId}/seances/"
+
+@using CharHammer.Components.Campagne
+
+@inject CampagnesService Service
+@inject AppState AppState
+@code {
+    [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Carnets de Campagne");
+    }
+}
+<div class="row section">
+    @foreach (var campagne in Service.AllCampagnes)
+    {
+        <div class="col-3">
+            <LinkCampagne Titre=@campagne.Titre CampagneId=@campagne.Id Actif=@(campagne.Id == int.Parse(CampagneId)) />
+        </div>
+    }
+</div>
+<div class="section">
+    <CampagneDetail Campagne=@Service.AllCampagnes.First(c => c.Id == int.Parse(CampagneId)) />
+</div>

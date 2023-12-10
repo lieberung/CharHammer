@@ -1,0 +1,92 @@
+﻿@page "/tables-traits-et-troubles/{GroupeActif}/"
+
+@using CharHammer.Components.Aptitude
+@using CharHammer.Helpers
+
+@inject AptitudesService Service
+@inject AppState AppState
+@code {
+        [Parameter, EditorRequired] public string GroupeActif { get; set; } = null!;
+
+    private AptitudeDto[] Traits { get; set; } = null!;
+    private AptitudeDto? _traitAleatoire;
+    private int _nbColonnes;
+    private string _determinant = "";
+    private string _typeDeTrait = "";
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Tables des traits et troubles");
+    }
+
+    protected override void OnParametersSet()
+    {
+        _nbColonnes = 3;
+        switch (GroupeActif)
+        {
+            case "traits":
+                Traits = Service.SignesDistinctifs.ToArray();
+                _nbColonnes = 4;
+                _determinant = "un";
+                _typeDeTrait = "signe distinctif";
+                break;
+            case "troubles-mineurs":
+                Traits = Service.TroublesMineurs.ToArray();
+                _determinant = "un";
+                _typeDeTrait = "trouble mineur";
+                break;
+            case "folies":
+                Traits = Service.Folies.ToArray();
+                _determinant = "une";
+                _typeDeTrait = "folie";
+                break;
+            case "maladies":
+                Traits = Service.Maladies.ToArray();
+                _determinant = "une";
+                _typeDeTrait = "maladie";
+                break;
+        }
+        StateHasChanged();
+    }
+
+    private void TirerUnTraitAleatoire()
+    {
+        _traitAleatoire = AptitudeHelper.TirerUneAptitudeAleatoire(Traits, _traitAleatoire is null ? [] : new[] { _traitAleatoire });
+    }
+}
+<div class="row">
+    <div class="col-9">
+        <div class="section">
+            <LinkGroupeDeTraits Groupe="traits" Text="Signes distinctifs" Actif=@(GroupeActif == "traits") />
+            <LinkGroupeDeTraits Groupe="troubles-mineurs" Text="Troubles mineurs" Actif=@(GroupeActif == "troubles-mineurs") />
+            <LinkGroupeDeTraits Groupe="folies" Text="Folies" Actif=@(GroupeActif == "folies") />
+            <LinkGroupeDeTraits Groupe="maladies" Text="Maladies" Actif=@(GroupeActif == "maladies") />
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="section">
+            <button class="btn btn-primary" type="button" @onclick="TirerUnTraitAleatoire">
+                <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                Tirer @_determinant @_typeDeTrait aléatoire
+            </button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-9">
+        <div class="section">
+            <TableTraits Traits=@Traits NbColonnes=@_nbColonnes />
+        </div>
+    </div>
+    <div class="col-3">
+        @if (_traitAleatoire is not null)
+        {
+            <div class="bulle mt-4">
+                <div class="section">
+                    <h3>@_traitAleatoire.NomComplet <em>@_traitAleatoire.CategSpeSexy</em></h3>
+                    <AptitudeDescription Item=@_traitAleatoire />
+                </div>
+            </div>
+        }
+    </div>
+</div>

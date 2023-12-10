@@ -1,0 +1,98 @@
+﻿@using CharHammer.Components.Reference
+@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Profil
+@using CharHammer.Shared.Oi
+@code
+{
+    [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
+
+    private bool AfficherSousElements { get; set; }
+    private bool AfficherPlanDeCarriere { get; set; }
+    private bool AfficherFilieresEtDebouches { get; set; }
+}
+<tr>
+    <td>
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherPlanDeCarriere = !AfficherPlanDeCarriere">
+            <OiIcon Icon="eye"/>
+        </span>
+        <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherFilieresEtDebouches = !AfficherFilieresEtDebouches">
+            <OiIcon Icon="loop"/>
+        </span>
+        @if (Item.SousElements.Any())
+        {
+            <span class="btn btn-primary btn-item-action table-btn me-1 ms-3" @onclick="_ => AfficherSousElements = !AfficherSousElements">
+                <OiIcon Icon="layers"/>
+            </span>
+        }
+    </td>
+    <td>
+        @if (Item.Parent is not null)
+        {
+            <SousElement/>
+        }
+        <CarriereItem Item=@Item />
+    </td>
+    <!--
+    <td>
+        @if (Item.Source?.Book is not null)
+        {
+            <ReferenceItem Item=@Item.Source?.Book Page=@Item.Source />
+        }
+    </td>
+    <td>@Item.ScoreAcademique</td>
+    <td>@Item.ScoreRodeur</td>
+    <td>@Item.ScoreDeLOmbre</td>
+    <td>@Item.ScoreMartialAuContact</td>
+    <td>@Item.ScoreMartialADistance</td>
+    <td>@Item.ScoreCavalerie</td>
+    <td>@Item.ScoreSocial</td>
+    <td>@Item.ScoreCommerce</td>
+    <td>@Item.ScoreArcanique</td>
+    <td>@Item.ScoreArtisanat</td>
+    -->
+</tr>
+@if (AfficherPlanDeCarriere)
+{
+    <tr>
+        <td colspan="4" class="p-3">
+            <div class="bulle shadow-sm">
+                <h6>Plan de carrière</h6>
+                <p>
+                    <Profil PlanDeCarriere=@Item.PlanDeCarriere />
+                </p>
+                <h6>Compétences</h6>
+                <p>
+                    <AptitudeItemList Items=@Item.Competences ItemsChoix=@Item.ChoixCompetences />
+                </p>
+                <h6>Talents</h6>
+                <p>
+                    <AptitudeItemList Items=@Item.Talents ItemsChoix=@Item.ChoixTalents />
+                </p>
+            </div>
+        </td>
+    </tr>
+}
+@if (AfficherFilieresEtDebouches)
+{
+    <tr>
+        <td colspan="4" class="px-3 pt-1 pb-3">
+            <div class="bulle shadow-sm">
+                <h6>Filières</h6>
+                <p>
+                    <CarriereItemList Items=@Item.Filieres HideIndicatorBase=false HideIndicatorRestriction=true />
+                </p>
+                <h6>Débouchés</h6>
+                <p>
+                    <CarriereItemList Items=@Item.Debouches HideIndicatorBase=true HideIndicatorRestriction=false />
+                </p>
+            </div>
+        </td>
+    </tr>
+}
+@if (AfficherSousElements && Item.SousElements.Any())
+{
+    @foreach (var sousElement in Item.SousElements)
+    {
+        <CarriereRow Item=@sousElement />
+    }
+}

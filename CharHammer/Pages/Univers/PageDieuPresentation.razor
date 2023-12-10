@@ -1,0 +1,293 @@
+﻿@page "/univers/pantheon/{Dieu}/"
+
+@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Dieu
+@using CharHammer.Components.Sortilege
+
+@inject DieuxService Service
+@inject AptitudesService AptitudesService
+@inject SortilegesService SortilegesService
+@inject AppState AppState
+@code {
+    [Parameter, EditorRequired] public string Dieu { get; set; } = null!;
+
+    private DieuDto _dieu = null!;
+    private string? _dieuSiege;
+    private AptitudeDto? _inspirationDivine;
+
+    protected override void OnParametersSet()
+    {
+        switch (Dieu)
+        {
+            case "manann":
+                _dieu = Service.GetDieu(11);
+                _inspirationDivine = AptitudesService.InspirationDivineManann;
+                break;
+            case "morr":
+                _dieu = Service.GetDieu(12);
+                _inspirationDivine = AptitudesService.InspirationDivineMorr;
+                break;
+            case "myrmidia":
+                _dieu = Service.GetDieu(13);
+                _inspirationDivine = AptitudesService.InspirationDivineMyrmidia;
+                break;
+            case "ranald":
+                _dieu = Service.GetDieu(14);
+                _inspirationDivine = AptitudesService.InspirationDivineRanald;
+                break;
+            case "rhya":
+                _dieu = Service.GetDieu(15);
+                _inspirationDivine = AptitudesService.InspirationDivineRhya;
+                break;
+            case "shallya":
+                _dieu = Service.GetDieu(16);
+                _inspirationDivine = AptitudesService.InspirationDivineShallya;
+                break;
+            case "sigmar":
+                _dieu = Service.GetDieu(10);
+                _inspirationDivine = AptitudesService.InspirationDivineSigmar;
+                break;
+            case "taal":
+                _dieu = Service.GetDieu(17);
+                _inspirationDivine = AptitudesService.InspirationDivineTaal;
+                break;
+            case "ulric":
+                _dieu = Service.GetDieu(18);
+                _inspirationDivine = AptitudesService.InspirationDivineUlric;
+                break;
+            case "verena":
+                _dieu = Service.GetDieu(19);
+                _inspirationDivine = AptitudesService.InspirationDivineVerena;
+                break;
+            case "khorne":
+                _dieu = Service.GetDieu(20);
+                _inspirationDivine = null;
+                break;
+            case "nurgle":
+                _dieu = Service.GetDieu(21);
+                _inspirationDivine = AptitudesService.TalentSombreSavoirNurgle;
+                break;
+            case "slaanesh":
+                _dieu = Service.GetDieu(22);
+                _inspirationDivine = AptitudesService.TalentSombreSavoirSlaanesh;
+                break;
+            case "tzeench":
+                _dieu = Service.GetDieu(23);
+                _inspirationDivine = AptitudesService.TalentSombreSavoirTzeench;
+                break;
+            case "arianka":
+                _dieu = Service.GetDieu(31);
+                _inspirationDivine = null;
+                break;
+            case "khaine":
+                _dieu = Service.GetDieu(24);
+                _inspirationDivine = null;
+                break;
+            case "stromfels":
+                _dieu = Service.GetDieu(25);
+                _inspirationDivine = null;
+                break;
+            case "haendrik":
+                _dieu = Service.GetDieu(26);
+                _inspirationDivine = null;
+                break;
+            case "solkan":
+                _dieu = Service.GetDieu(30);
+                _inspirationDivine = null;
+                break;
+            case "illuminas":
+                _dieu = Service.GetDieu(32);
+                _inspirationDivine = null;
+                break;
+        }
+        _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
+
+        AppState.SetMainTopRowTitle(_dieu.Nom);
+    }
+}
+<div class="row">
+
+    <div class="col-5">
+        <h3>Le Culte de @_dieu.Nom</h3>
+        <CardBody Titre="" Image="@("images/dieux/" + _dieu.Id + ".png")">
+            <ul>
+                <li><strong>Domaines :</strong> @_dieu.Domaines</li>
+                <li><strong>Symboles :</strong> @_dieu.Symboles</li>
+                <li><strong>Siège :</strong> @_dieuSiege</li>
+                <li><strong>Chef du culte :</strong> @_dieu.Chef</li>
+                <li><strong>Fêtes religieuses :</strong> @_dieu.Fetes</li>
+                <li><strong>Livres saints :</strong> @_dieu.LivresSaints</li>
+                <li><strong>Fidèles :</strong> @_dieu.Fideles</li>
+            </ul>
+            <CardParagraphes Text="@_dieu.Intro" />
+        </CardBody>
+    </div>
+
+    <div class="col-7">
+        <h3>Le Dogme</h3>
+        <CardBody Titre="" Image="">
+            <div class="bulle shadow-sm ms-4 px-4 w-31rem float-end">
+                <h5>Commandements</h5>
+                <ul>
+                    @foreach (var cmd in _dieu.Commandements)
+                    {
+                        <li>@cmd</li>
+                    }
+                </ul>
+            </div>
+
+            <CardParagraphes Text=@_dieu.Dogme />
+
+            <h5>Pénitences</h5>
+            <p class="text-justify">@_dieu.Penitences</p>
+        </CardBody>
+    </div>
+
+</div>
+
+<PageSectionDivider />
+
+<div class="row">
+
+    <div class="col-6">
+        <h3>Le Culte</h3>
+        <CardBody Titre="" Image="">
+            <CardParagraphes Text=@_dieu.Culte />
+        </CardBody>
+    </div>
+
+    <div class="col-6">
+        <h3>Les Cultistes</h3>
+        <CardBody Titre="" Image="">
+            <CardParagraphes Text=@_dieu.Cultistes />
+        </CardBody>
+    </div>
+
+</div>
+
+<PageSectionDivider />
+
+<div class="row">
+
+    <div class="col-6">
+        <h3>L'initiation</h3>
+        <CardBody Titre="" Image="">
+            @if (_dieu.Aptitudes.Inities.Any())
+            {
+                <AptitudeItemList Items=@_dieu.Aptitudes.Inities />
+            }
+            <CardParagraphes Text=@_dieu.Initiation />
+        </CardBody>
+    </div>
+
+    <div class="col-6">
+        <h3>La prêtrise</h3>
+        <CardBody Titre="" Image="">
+            @if (_dieu.Aptitudes.PretesSansOrdre.Any())
+            {
+                <AptitudeItemList Items=@_dieu.Aptitudes.PretesSansOrdre />
+            }
+            <CardParagraphes Text=@_dieu.Pretrise />
+        </CardBody>
+    </div>
+
+</div>
+
+<PageSectionDivider />
+
+
+<div class="row">
+
+    <div class="col-4">
+        <h3>Structure</h3>
+        <CardBody Titre="" Image="">
+            <CardParagraphes Text=@_dieu.Structure />
+        </CardBody>
+    </div>
+
+    <div class="col-4">
+        <h3>Lieux de Culte</h3>
+        @foreach (var temple in _dieu.Temples)
+        {
+            <CardBody Titre=@temple.Nom Image="">
+                <CardParagraphes Text=@temple.Description />
+            </CardBody>
+        }
+    </div>
+
+    <div class="col-4">
+        <h3>Personnalités</h3>
+        @foreach (var perso in _dieu.Personnalites)
+        {
+            <CardBody Titre=@perso.Nom Image="">
+                <CardParagraphes Text=@perso.Description />
+            </CardBody>
+        }
+        <div class="section">
+            <h5>Croyances populaires</h5>
+            @foreach (var ambiance in _dieu.Ambiance)
+            {
+                <p class="text-justify">
+                    <em class="p-2">@ambiance</em>
+                </p>
+            }
+        </div>
+    </div>
+
+</div>
+
+<PageSectionDivider />
+
+<div class="row">
+    <div class="col-6">
+        <h3>Les Ordres</h3>
+        @foreach (var ordre in _dieu.Ordres)
+        {
+            <CulteDescription Culte=@ordre />
+        }
+
+    </div>
+
+    <div class="col-6">
+        <h3>Les Sectes</h3>
+        <CardBody Titre="" Image="">
+            @foreach (var secte in _dieu.Sectes)
+            {
+                @if (!string.IsNullOrWhiteSpace(secte.Nom))
+                {
+                    <h5>@secte.Nom</h5>
+                }
+                <CardParagraphes Text=@secte.Description />
+            }
+        </CardBody>
+    </div>
+</div>
+@if (_inspirationDivine is not null)
+{
+    <PageSectionDivider />
+
+    <div class="row">
+        <div class="col-6">
+            <h3>Bénédictions</h3>
+            @foreach (var benediction in SortilegesService.AllSortileges.Where(s => s.Type == "bénédiction" && s.Aptitudes.Contains(_inspirationDivine)))
+            {
+                <div class="bulle shadow-sm m-4 w-31rem">
+                    <div class="section">
+                        <SortilegeDetail Item=@benediction />
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-6">
+            <h3>Miracles</h3>
+            @foreach (var miracle in SortilegesService.AllSortileges.Where(s => s.Type == "miracle" && s.Aptitudes.Contains(_inspirationDivine)))
+            {
+                <div class="bulle shadow-sm m-4 w-31rem">
+                    <div class="section">
+                        <SortilegeDetail Item=@miracle />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}

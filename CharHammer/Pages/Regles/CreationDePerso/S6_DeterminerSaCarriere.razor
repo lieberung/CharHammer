@@ -1,0 +1,85 @@
+﻿@using CharHammer.Components.Carriere
+
+@inject TableDesCarrieresInitialesService Service
+@code {
+    [Parameter, EditorRequired] public RaceSelectionnee Selection { get; set; } = null!;
+
+    List<CarriereDto> _carrieresObtenues = [];
+
+    void TirerUneCarriereInitiale()
+    {
+        if (_carrieresObtenues.Count == 3)
+        {
+            _carrieresObtenues = [];
+            return;
+        }
+
+        CarriereDto? ca = null;
+        while (ca is null || _carrieresObtenues.Contains(ca))
+            ca = Service.GetRandomStartingCareer(Selection.Race.Id);
+        _carrieresObtenues.Add(ca);
+    }
+}
+<PageSectionRowTitle Title="6. Déterminer sa carrière initiale" />
+<div class="row">
+    <div class="col-7">
+        <div class="section rounded-2 bg-white">
+            <p class="text-justify">
+                Tirer une première carrière aléatoire sur la table de votre race.<br />
+                Si celle-ci ne vous convient pas, vous pouvez :
+            </p>
+            <ul>
+                <li>dépenser <strong>100 xp</strong> pour tirer deux carrières supplémentaires et en choisir une parmi les trois.</li>
+                <li>dépenser <strong>250 xp</strong> et choisir une carrière dans la table.</li>
+            </ul>
+            <p class="text-justify">
+                Une fois votre carrière déterminée, vous pouvez choisir <strong>8 Aptitudes parmi les Compétences<span class="oi oi-target item-icon ms-1" aria-hidden="true"></span>, Talents<span class="oi oi-brush item-icon ms-1" aria-hidden="true"></span> et Traits<span class="oi oi-droplet item-icon ms-1" aria-hidden="true"></span></strong> proposés dans la carrière, en respectant les régles suivantes :
+            </p>
+            <ul>
+                <li>Vous ne pouvez acquérir qu'un seul Talent.</li>
+                <li>Vous ne pouvez acquérir qu'un seul Trait (si la carrière en propose).</li>
+                <li>Si une liste de choix est proposée (A <em>ou</em> B), vous ne pouvez acquérir qu'une seule des propositions).</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <div class="section">
+            <p class="text-justify">
+                Enfin, vous obtenez gratuitement un <strong>avancement (+5%) de Caractéristique</strong> parmi ceux proposés.
+            </p>
+            <p class="text-justify">
+                S'il vous reste de l'expérience, vous pouvez la dépenser en vous référant aux tableaux en bas de page.
+                <br />
+                Les éventuels <strong>Traits</strong> restant sont pour le moment innaccessibles. Vous pourrez toutefois les acquérir en dépensant de l'expérience une fois votre carrière achevée (voir 'Compléter une carrière' dans la section <a href="regles/cheminement-professionnel/">Cheminement professionnel</a>).
+            </p>
+        </div>
+        <div class="section">
+            <p class="text-justify mt-1 mb-1 ps-3">
+                <button class="btn btn-primary" type="button" @onclick="TirerUneCarriereInitiale">
+                    <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                    Tirer une carrière initiale (@Selection.Race.NomMasculin)
+                </button>
+            </p>
+            <p class="text-justify p-3">
+                <CarriereItemList Items=@_carrieresObtenues HideIndicatorBase=true />
+            </p>
+        </div>
+    </div>
+</div>
+@if (!_carrieresObtenues.Any())
+{
+    <div class="row">
+        <TableDeDepart RaceId=@Selection.Race.Id />
+    </div>
+}
+<div class="row">
+    @foreach (var co in _carrieresObtenues)
+    {
+        <div class="col-4">
+            <div class="bulle shadow-sm ps-3" style="min-height: 550px">
+                <h5>@co.Nom</h5>
+                <CarriereDescription Item=@co />
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,45 @@
+﻿@page "/traits/{TraitId}/"
+
+@using CharHammer.Components.Carriere
+@using CharHammer.Components.Aptitude
+
+@inject AptitudesService Service
+@inject CarrieresService CarrieresService
+@inject AppState AppState
+@code {
+    [Parameter, EditorRequired] public string TraitId { get; set; } = null!;
+
+    AptitudeDto Item { get; set; } = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Trait");
+    }
+
+    protected override void OnParametersSet()
+    {
+        Item = Service.GetAptitude(int.Parse(TraitId));
+        AppState.SetMainTopRowTitle(Item.CategSpe);
+    }
+}
+<div class="row">
+    <ColFrise />
+    <div class="col-5">
+        <div class="section">
+            <h1>@Item.Nom</h1>
+            <h5><em>@Item.CategSpeSexy</em></h5>
+            <AptitudeDescription Item=@Item />
+        </div>
+    </div>
+    <div class="col-5">
+        @if (Item.CarrieresLiees.Any())
+        {
+            <div class="section pe-0">
+                <h5>Carrières proposant ce trait</h5>
+                <p>
+                    <CarriereItemList Items=@Item.CarrieresLiees />
+                </p>
+            </div>
+        }
+    </div>
+</div>

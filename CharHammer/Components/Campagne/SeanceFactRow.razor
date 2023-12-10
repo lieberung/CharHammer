@@ -1,0 +1,17 @@
+﻿@using CharHammer.Components.Bestiole
+@code {
+    [Parameter, EditorRequired] public FactDto Fact { get; set; } = null!;
+}
+<tr style="border-top:1px dotted;">
+    <td class="w-9rem">
+        <BestioleItemList Items=@Fact.Pjs NomCourt=true/>
+    </td>
+    <td>
+        <ul>
+            @foreach (var line in Fact.Fact.Split('\n'))
+            {
+                <li>@line</li>
+            }
+        </ul>
+    </td>
+</tr>

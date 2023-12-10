@@ -1,0 +1,31 @@
+﻿@using CharHammer.Components.Carriere
+
+@inject CarrieresService CarrSvc
+@code
+{
+    [Parameter, EditorRequired] public ReferenceDto Item { get; set; } = null!;
+
+    bool AfficherCarrieres { get; set; }
+    IEnumerable<CarriereDto> _carrieresLiees = null!;
+
+    protected override void OnInitialized()
+    {
+        _carrieresLiees = CarrSvc.GetCarrieresParuesDans(Item);
+    }
+}
+<tr>
+    <td><img class="w-12rem" src="@Item.Image" alt="@Item.Titre" /></td>
+    <td class="w-4rem">
+        @if (_carrieresLiees.Any())
+        {
+            <span class="btn btn-primary btn-sm table-btn me-1" @onclick="_ => AfficherCarrieres = !AfficherCarrieres">
+                <OiIcon Icon="fork"/>
+            </span>
+        }
+    </td>
+    <td><ReferenceItem Item=@Item /></td>
+</tr>
+@if (AfficherCarrieres)
+{
+    <tr><td colspan="3"><CarriereItemList Items=@_carrieresLiees /></td></tr>
+}

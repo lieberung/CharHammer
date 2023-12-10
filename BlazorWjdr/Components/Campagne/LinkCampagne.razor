@@ -1,6 +1,0 @@
-﻿@code {
-    [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
-    [Parameter, EditorRequired] public string Titre { get; set; } = null!;
-    [Parameter] public bool Actif { get; set; }
-}
-<a href="campagne/@CampagneId/seances/" class="btn @(Actif ? "btn-primary" : "btn-secondary") me-1 w-18rem">@Titre</a>

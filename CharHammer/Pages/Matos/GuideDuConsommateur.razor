@@ -1,0 +1,73 @@
+﻿@page "/guide-du-consommateur/{Groupe}/"
+
+@using CharHammer.Components.Equipement
+@using CharHammer.Components.Regle
+@using CharHammer.Components.Table
+
+@inject ArmesService ArmesService
+@inject TablesService TablesService
+@inject AppState AppState
+@code {
+    [Parameter] public string Groupe { get; set; } = "";
+
+    IEnumerable<string> _allGroupes = null!;
+    IEnumerable<string> _showGroupes = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Guide du Consommateur");
+    }
+
+    protected override void OnParametersSet()
+    {
+        _allGroupes = ArmesService.AllEquipements.SelectMany(e => e.Groupes).Distinct().OrderBy(g => g);
+        _showGroupes = Groupe == "tout" ? _allGroupes : [Groupe];
+    }
+
+    static string Clean(string s) => GenericService.GetUrlChunck(s);
+
+    IEnumerable<EquipementDto> GetEquipement(string groupe)
+    {
+        var cleanGroupe = Clean(groupe);
+        return ArmesService.AllEquipements
+            .Where(e => e.Groupes.Any(g => Clean(g) == cleanGroupe))
+            .OrderBy(e => e.Nom);
+    }
+
+    string GetGroupeLabel(string groupe) => _allGroupes.First(g => Clean(g) == Clean(groupe));
+}
+<div class="navbar">
+    <a href="guide-du-consommateur/tout/" class="btn btn-sm @(Clean(Groupe) == "tout" ? "btn-primary" : "btn-secondary")">
+        <span class="oi oi-box item-icon text-white" aria-hidden="true"></span>
+        <strong>Tout</strong>
+    </a>
+    @foreach (var grp in _allGroupes)
+    {
+        <a href="guide-du-consommateur/@Clean(grp)/" class="btn btn-sm @(Clean(Groupe) == Clean(grp) ? "btn-primary" : "btn-secondary")">@grp</a>
+    }
+</div>
+
+<div class="section">
+    @foreach (var grp in _showGroupes)
+    {
+        <div class="row">
+            <div class="col">
+                <h3>@GetGroupeLabel(grp)</h3>
+                <TableEquipements Items=@GetEquipement(grp) AfficherContenance=@(grp == "contenants") />
+            </div>
+            @if (_showGroupes.Count() == 1)
+            {
+                <div class="col-1"></div>
+                <div class="col">
+                    <div class="section">
+                        <TableDetail Item=@TablesService.GetTable(86) />
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+@if (_showGroupes.Count() == 1)
+{
+    <RowEncombrement />
+}

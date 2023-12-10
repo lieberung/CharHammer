@@ -1,0 +1,16 @@
+﻿@code {
+    [Parameter, EditorRequired] public ArmeDto Item { get; set; } = null!;
+
+    string _tooltip = "";
+
+    protected override void OnParametersSet()
+    {
+        _tooltip = $"Dégâts {Item.Degats}";
+        _tooltip += Item.EstUneArmeDeCaC ? $"\nAllonge {Item.Allonge}" : $"\nPortée {Item.Portee}";
+        _tooltip += Item.Attributs.Any() ? $"\nAttributs : {string.Join(", ", Item.Attributs.Select(a => a.Nom))}" : "";
+    }
+}
+<span class="btn btn-light btn-item" target="_blank">
+    <ItemIcon Icon="location" Classes="me-1" />
+    <Tooltip Text=@_tooltip>@Item.Nom</Tooltip>
+</span>

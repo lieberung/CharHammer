@@ -1,0 +1,58 @@
+﻿@page "/talents/{TalentId}/"
+
+@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Carriere
+@using CharHammer.Components.Sortilege
+
+@inject AptitudesService Service
+@inject CarrieresService CarrieresService
+@inject SortilegesService SortilegesService
+@inject AppState AppState
+
+@code {
+    [Parameter, EditorRequired] public string TalentId { get; set; } = null!;
+
+    AptitudeDto Item { get; set; } = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Talent");
+    }
+
+    protected override void OnParametersSet()
+    {
+        Item = Service.GetTalent(int.Parse(TalentId));
+    }
+}
+<div class="row">
+
+    <ColFrise />
+    <div class="col-5">
+        <div class="section">
+            <h1>@Item.Nom</h1>
+            <AptitudeDescription Item=@Item />
+        </div>
+    </div>
+
+    <div class="col-5">
+        @if (Item.CarrieresLiees.Any())
+        {
+            <div class="section pe-0">
+                <h3>Carrières proposant ce talent</h3>
+                <p>
+                    <CarriereItemList Items=@Item.CarrieresLiees />
+                </p>
+            </div>
+        }
+        @if (AptitudesService.DonneAccesADesSortileges(Item))
+        {
+            <div class="section pe-0">
+                <h3>Sortilèges accessibles via ce talent</h3>
+                <p>
+                    <SortilegeItemList Items=@SortilegesService.AllSortileges.Where(s => s.Aptitudes.Contains(Item)) />
+                </p>
+            </div>
+        }
+    </div>
+
+</div>

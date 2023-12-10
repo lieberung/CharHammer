@@ -1,0 +1,15 @@
+﻿@code{
+    [Parameter, EditorRequired] public IEnumerable<AptitudeDto> Items { get; set; } = null!;
+    [Parameter] public IEnumerable<IEnumerable<AptitudeDto>> ItemsChoix { get; set; } = [];
+    [Parameter] public bool PasDeTooltip { get; set; }
+}
+<div class="list-btn-item">
+    @foreach (var item in Items)
+    {
+        <AptitudeItem Item=@item PasDeTooltip=@PasDeTooltip />
+    }
+    @foreach (var choix in ItemsChoix)
+    {
+        <ChoixDAptitudeItem Choix=@choix PasDeTooltip=@PasDeTooltip />
+    }
+</div>

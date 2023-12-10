@@ -1,0 +1,22 @@
+{
+  "name": "CharHammer",
+  "short_name": "CharHammer",
+  "id": "./",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3e3c1",
+  "theme_color": "#5e1a05",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "images/favicon/apple-touch-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "images/favicon/apple-touch-icon-512.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ]
+}

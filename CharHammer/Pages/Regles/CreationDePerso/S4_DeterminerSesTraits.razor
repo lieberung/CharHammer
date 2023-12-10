@@ -1,0 +1,89 @@
+﻿@using CharHammer.Components.Aptitude
+@using CharHammer.Components.Regle
+
+@inject RacesService RacesSvc
+@inject ReglesService ReglesSvc
+@code {
+    [Parameter, EditorRequired] public RaceSelectionnee Selection { get; set; } = null!;
+}
+<div class="row">
+    <div class="col-12">
+        <PageSectionRowTitle Title="4. Déterminer ses traits raciaux et culturels" />
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <div class="section ps-0">
+            <p class="text-justify">
+                Vous disposez <strong>automatiquement des Aptitudes dites Innées ou Raciales</strong>. Elles vous sont toutes octroyées au niveau 1, et sont listées à droite.
+            </p>
+            <p class="text-justify">
+                Vous pouvez ensuite <strong>choisir des Aptitudes culturelles</strong> (liste et nombre de choix possibles détaillés ci-dessous)
+                parmi les <strong>Compétences<span class="oi oi-target item-icon ms-1" aria-hidden="true"></span>, Talents<span class="oi oi-brush item-icon ms-1" aria-hidden="true"></span> et/ou Traits<span class="oi oi-droplet item-icon ms-1" aria-hidden="true"></span></strong>
+                proposés par votre race et votre origine, en respectant les régles suivantes :
+            </p>
+            <ul>
+                <li>Vous ne pouvez pas choisir plus de 2 Talents.</li>
+                <li>Vous ne pouvez pas acquérir deux fois la même Aptitude (que ce soit une compétence, un talent ou un trait).</li>
+                <li>Si une liste de choix est proposée (A <em>ou</em> B), vous ne pouvez acquérir qu'une seule des propositions).</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <div class="section pe-0">
+            <h5>Aptitudes raciales - @Selection.Race.Autochtones</h5>
+            @if (Selection.RaceDesHumainsSelectionnee)
+            {
+                <AptitudeItemList Items=@RacesSvc.HumainsImperiaux.Aptitudes />
+            }
+            else
+            {
+                <AptitudeItemList Items=@Selection.Race.Aptitudes />
+            }
+        </div>
+    </div>
+</div>
+<!-- Traits raciaux/provinciaux -->
+@if (Selection.RaceDesHumainsSelectionnee)
+{
+    <TraitsRaciauxHumains ProvinceActive="Empire" />
+}
+else
+{
+    <div class="section bulle p-3">
+        @if (Selection.RaceDesGnomesSelectionnee)
+        {
+            <RegleDetail Item=@ReglesSvc.GetRegle(22) MasquerTitre=false />
+        }
+        else if (Selection.RaceDesHalflingsSelectionnee)
+        {
+            <RegleDetail Item=@ReglesSvc.GetRegle(18) MasquerTitre=false />
+        }
+        else if (Selection.RaceDesNainsSelectionnee)
+        {
+            <RegleDetail Item=@ReglesSvc.GetRegle(20) MasquerTitre=false />
+        }
+        else if (Selection.RaceDesElfesSylvainsSelectionnee)
+        {
+            <RegleDetail Item=@ReglesSvc.GetRegle(17) MasquerTitre=false />
+        }
+        else if (Selection.RaceDesHautsElfesSelectionnee)
+        {
+            <RegleDetail Item=@ReglesSvc.GetRegle(23) MasquerTitre=false />
+        }
+    </div>
+}
+@if (Selection.RaceDesHalflingsSelectionnee || Selection.RaceDesHumainsSelectionnee)
+{
+    <div class="row">
+        <div class="col-4">
+            <div class="section">
+                <h5>4-1. Détermination aléatoire des talents</h5>
+                <div class="text-justify">
+                    Consultez vos traits raciaux / culturels pour savoir à combien de talents aléatoires vous avez droit (0 à 2).
+                </div>
+                <TableTalentsInitiaux />
+            </div>
+        </div>
+    </div>
+}

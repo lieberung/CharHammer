@@ -1,0 +1,22 @@
+﻿@page "/bestiaire"
+
+@using CharHammer.Components.Bestiole
+
+@inject BestiolesService Service
+@inject AppState AppState
+@code {
+    private IReadOnlyDictionary<string, IEnumerable<BestioleDto>> _groupes = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Bestiaire");
+        _groupes = Service.BestiolesRegroupees(AppState.JeSuisDieu);
+    }
+}
+@foreach (var groupe in _groupes.Keys)
+{
+    <div class="section">
+        <h3>@groupe</h3>
+        <BestioleTable Items=@_groupes[groupe] />
+    </div>
+}

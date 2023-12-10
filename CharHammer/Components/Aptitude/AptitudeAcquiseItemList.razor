@@ -1,0 +1,10 @@
+﻿@code{
+    [Parameter, EditorRequired] public IEnumerable<AptitudeAcquiseDto> Items { get; set; } = null!;
+    [Parameter] public bool AfficherBonusDeCompetence { get; set; }
+}
+<div class="list-btn-item">
+    @foreach (var item in Items)
+    {
+        <AptitudeAcquiseItem Item=@item AfficherBonusDeCompetence=@AfficherBonusDeCompetence />
+    }
+</div>

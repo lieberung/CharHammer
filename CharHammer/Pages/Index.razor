@@ -1,0 +1,53 @@
+﻿@page "/"
+
+@using CharHammer.Components.Index
+@using CharHammer.Components.Index.CreationPerso
+@using CharHammer.Components.Index.Religion
+
+@inject AppState AppState
+@code {
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Charente Hammer");
+    }
+}
+<!--div class="w-100 h-100" style="position: absolute; opacity: 50%; background-image: url(images/hand420.png); background-repeat: no-repeat; background-position: center center;">
+</div-->
+<div class="row">
+    <div class="col-lg-4">
+        <div class="py-4">
+            <IndexCarrieresEtAptitudes />
+        </div>
+        <div class="py-4">
+            <IndexCreationPerso/>
+        </div>
+        <div class="py-4">
+            <IndexDernieresRecrues />
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="py-4">
+            <IndexAventureRegles />
+         </div>
+        <div class="py-4">
+           <IndexMatos />
+        </div>
+        <div class="py-4">
+            <IndexMagie />
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="py-4">
+            <IndexLore />
+        </div>
+        <div class="py-4">
+            <IndexReligion />
+        </div>
+        <div class="py-4">
+            <IndexCampagne />
+        </div>
+        <div class="py-4">
+            <IndexLink Href="todo" Title="Au travail !" />
+        </div>
+    </div>
+</div>

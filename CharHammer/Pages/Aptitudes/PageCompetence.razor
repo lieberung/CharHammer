@@ -1,0 +1,54 @@
+﻿@page "/competences/{CompetenceId}/"
+
+@using CharHammer.Components.Carriere
+@using CharHammer.Components.Arme
+@using CharHammer.Components.Aptitude
+
+@inject AptitudesService Service
+@inject ArmesService ArmesService
+@inject CarrieresService CarrieresService
+@inject AppState AppState
+@code {
+    [Parameter] public string CompetenceId { get; set; } = null!;
+
+    AptitudeDto Item { get; set; } = null!;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Compétence");
+    }
+
+    protected override void OnParametersSet()
+    {
+        Item = Service.GetAptitude(int.Parse(CompetenceId));
+    }
+}
+<div class="row">
+    <ColFrise />
+    <div class="col-5">
+        <div class="section">
+            <h1>@Item.Nom</h1>
+            <AptitudeDescription Item=@Item />
+        </div>
+    </div>
+    <div class="col-5">
+        @if (Item.CarrieresLiees.Any())
+        {
+            <div class="section pe-0">
+                <h3>Carrières proposant cette compétence</h3>
+                <p>
+                    <CarriereItemList Items=@Item.CarrieresLiees />
+                </p>
+            </div>
+        }
+        @if (Service.DonneAccesADesArmes(Item))
+        {
+            <div class="section pe-0">
+                <h3>Armes accessibles via ce talent</h3>
+                <p>
+                    <ArmeItemList Items=@ArmesService.GetArmesDeMaitrise(Item) />
+                </p>
+            </div>
+        }
+    </div>
+</div>

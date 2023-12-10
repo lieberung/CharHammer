@@ -1,0 +1,10 @@
+﻿@code {
+    [Parameter, EditorRequired] public IEnumerable<BestioleDto> Items { get; set; } = null!;
+    [Parameter] public bool NomCourt { get; set; }
+}
+<div class="list-btn-item">
+    @foreach (var bestiole in Items.OrderBy(c=>c.Nom))
+    {
+        <BestioleItem Item=@bestiole Nom=@(NomCourt ? bestiole.NomCourt : bestiole.Nom) MasquerCarriere=@NomCourt />
+    }
+</div>

@@ -1,0 +1,18 @@
+﻿@page "/regles/{RegleId}/"
+
+@using CharHammer.Components.Regle
+
+@inject ReglesService Service
+@inject AppState AppState
+@code {
+    [Parameter, EditorRequired] public string RegleId { get; set; } = null!;
+
+    private RegleDto _regle = null!;
+
+    protected override void OnParametersSet()
+    {
+        _regle = Service.GetRegle(int.Parse(RegleId));
+        AppState.SetMainTopRowTitle(_regle.Titre);
+    }
+}
+<RegleDetail Item=@_regle />

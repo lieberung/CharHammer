@@ -12,21 +12,21 @@ jobs:
     steps:
     
     # uses GitHub's checkout action to checkout code form the master branch
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     
-    # sets up .NET Core SDK 6.0
+    # sets up .NET Core SDK 8.0
     - name: Setup .NET Core SDK
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.403
+        dotnet-version: 8.0.*
         
     # publishes Blazor project to the release-folder
     - name: Publish .NET Core Project
-      run: dotnet publish BlazorWjdr/BlazorWjdr.csproj -c Release -o release --nologo
+      run: dotnet publish CharHammer/CharHammer.csproj -c Release -o release --nologo
       
-    # changes the base-tag in index.html from '/' to 'BlazorWjdr' to match GitHub Pages repository subdirectory
-    - name: Change base-tag in index.html from / to BlazorWjdr
-      run: sed -i 's/<base href="\/" \/>/<base href="\/blazor-wjdr\/" \/>/g' release/wwwroot/index.html
+    # changes the base-tag in index.html from '/' to 'CharHammer' to match GitHub Pages repository subdirectory
+    - name: Change base-tag in index.html from / to CharHammer
+      run: sed -i 's/<base href="\/" \/>/<base href="\/CharHammer\/" \/>/g' release/wwwroot/index.html
       
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
     - name: Add .nojekyll file

@@ -1,0 +1,40 @@
+﻿@page "/scenarios/"
+@layout FluidLayout
+
+@using CharHammer.Components.Campagne
+
+@inject ScenariosService Service
+@inject AppState AppState
+@code {
+    string Filtre { get; set; } = "";
+    string Auteur { get; set; } = "";
+    bool PasDeDaubes { get; set; } = true;
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Scénarios");
+    }
+}
+<div class="px-5 py-2">
+    <div class="navbar">
+        <span>
+            <input class="form-control" type="text" @bind-value="@Filtre" @bind-value:event="oninput" placeholder="Filtrer"/>
+        </span>
+        <span>
+            <select class="form-select d-inline-block" @bind="@Auteur">
+                <option value="" class="text-gray"></option>
+                @foreach (var a in Service.AllAuteurs)
+                {
+                    <option value="@a">@a</option>
+                }
+            </select>
+        </span>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" @bind="@PasDeDaubes" id="chkDaubes">
+            <label class="form-check-label" for="chkDaubes">
+                Masquer les daubes
+            </label>
+        </div>
+    </div>
+</div>
+<ScenarioTable Items=@Service.AllScenarios(PasDeDaubes, Filtre, Auteur)/>

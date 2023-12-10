@@ -1,0 +1,73 @@
+﻿@page "/table-carrieres-initiales/{RaceId}/"
+
+@using CharHammer.Components.Carriere
+@using CharHammer.Components.Race
+
+@inject RacesService RacesSvc
+@inject TableDesCarrieresInitialesService TableDesCarrInitService
+@inject AppState AppState
+@code {
+    [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
+
+    bool _afficherTirage;
+    RaceDto Race = null!;
+    List<CarriereDto> _tirage = [];
+
+    protected override void OnInitialized()
+    {
+        AppState.SetMainTopRowTitle("Table des carrières initiales");
+    }
+
+    protected override void OnParametersSet()
+    {
+        var idRaceSelectionnee = int.Parse(RaceId);
+        Race = RacesSvc.GetRace(idRaceSelectionnee);
+        _afficherTirage = false;
+        _tirage = [];
+    }
+
+    void TirerUneCarriereInitiale()
+    {
+        if (_tirage.Count == 3)
+            _tirage = [];
+        _tirage.Add(TableDesCarrInitService.GetRandomStartingCareer(Race.Id));
+        _afficherTirage = true;
+    }
+}
+<SousMenu>
+    @foreach (var race in new[] { RacesSvc.Humains, RacesSvc.Halflings, RacesSvc.Nains, RacesSvc.ElfesSylvains, RacesSvc.HautsElfes, RacesSvc.Gnomes })
+    {
+        <a href="table-carrieres-initiales/@race.Id/" class="btn btn-sm @(Race.Id == race.Id ? "btn-primary" : "btn-secondary")">@race.NomMasculin</a>
+    }
+    <button class="btn btn-sm btn-primary ms-5" type="button" @onclick="TirerUneCarriereInitiale">
+        <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+        Tirer une carrière initiale
+    </button>
+</SousMenu>
+@if (_afficherTirage && _tirage.Any())
+{
+    <div class="row pt-5">
+        @if (_tirage.Count == 1) {
+            <div class="col-md-4 offset-md-4">
+                <CarriereTirage Item=@_tirage.First() />
+            </div>
+        } else {
+            @if (_tirage.Count == 2)
+            {
+                <div class="col-md-2"></div>
+            }
+            @foreach (var carr in _tirage)
+            {
+                <div class="col-md-4">
+                    <CarriereTirage Item=@carr />
+                </div>
+            }
+        }
+    </div>
+}
+else
+{
+    <div class="section">
+        <TableDeDepart RaceId=@Race.Id />
+    </div>
+}
