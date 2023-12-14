@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-LRO26CEUCkZfE+yOfTw\/7yzXW9o4X0yWRHfXO+5XQwA=",
+      "hash": "sha256-fGYc0alC47wKi1qrCUA0QDUh0WSR5zWcnuwNF9Cv7mM=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-l4v1I99bx7MTurILKfQRqmZfurK8k\/HB0KqvtPkGafY=",
+      "hash": "sha256-yJGyyw7sql2vTIztXoaKLvM7qo9NkEogkn\/\/mbN01+E=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-3fcO442uJZPLJI8yodXIkOU7dSqB9ecwoejJEXJPRd8=",
+      "hash": "sha256-3q026mCYvJebjXwFqDmx\/1FjynN9Igf6BqulAlSaQT4=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-mRvoQKQIVQUQX8EUqqe\/lUorwjVQfMywoWPYTpnmLGg=",
+      "hash": "sha256-qS9WjaNorhqO9Jgyab9fKabGK4u3AjhwjWJIQrMjqxg=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -169,7 +169,7 @@
       "url": "_framework\/System.Linq.Expressions.wasm"
     },
     {
-      "hash": "sha256-Jo1n9EMUsQlNhan9CB1E0Uj75bb5+8yxP0\/L4oZbwHw=",
+      "hash": "sha256-2v6mQvSksmP8bG0p6m8NRB8SX0ccGtI7bO2G6WeCxVc=",
       "url": "_framework\/System.Linq.wasm"
     },
     {
@@ -2461,7 +2461,7 @@
       "url": "images\/favicon\/favicon-16x16.png"
     },
     {
-      "hash": "sha256-7lWZn2gCHvc1n7A8DIyFN0eVzCain3PqqW1rR7s8P8w=",
+      "hash": "sha256-BOsjZqT3t3Qvz7yXhD7m76gpPm3v1WAxinzaAyvctkE=",
       "url": "images\/favicon\/favicon-32x32.png"
     },
     {
@@ -2469,8 +2469,12 @@
       "url": "images\/favicon\/favicon.ico"
     },
     {
-      "hash": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
+      "hash": "sha256-BOsjZqT3t3Qvz7yXhD7m76gpPm3v1WAxinzaAyvctkE=",
       "url": "images\/favicon\/favicon.png"
+    },
+    {
+      "hash": "sha256-Uwp9qX4ObxCzMz6Ls4WgiQEPyfi5xi07XnyAzChcZA4=",
+      "url": "images\/favicon\/favicon2.png"
     },
     {
       "hash": "sha256-gcuNmpG\/6G6BxgiDdkEQxjGteDT1le3upjfgE0WTfSE=",
@@ -2479,6 +2483,30 @@
     {
       "hash": "sha256-P\/aY+hOGhgz7YUDphY4CDYxzeg7A+\/sYDOU9qKKi2NY=",
       "url": "images\/frise-verticale.png"
+    },
+    {
+      "hash": "sha256-TxkYXPD8amNTGRktXBzG8VJSDMWkTnX6ggMOFpapNoQ=",
+      "url": "images\/hand32.png"
+    },
+    {
+      "hash": "sha256-W9S8H5AZUAlPphKL97tLp6USK4Yg1paCzBkoGBsbZKg=",
+      "url": "images\/hand36.png"
+    },
+    {
+      "hash": "sha256-5sHrBU4nLFx3XuPA5DyKeZ3+PoXMZCLAJP2Ju4H3s2M=",
+      "url": "images\/hand420.png"
+    },
+    {
+      "hash": "sha256-39SuOXvKV0mZ6lh\/9VUVlKDRk1Af0+GW9G0Xu\/yzwZI=",
+      "url": "images\/hand420pale.png"
+    },
+    {
+      "hash": "sha256-vkycH9d2\/TuBt2TivnmolSyxlVyVJB80zrSi2Sq1d1c=",
+      "url": "images\/hand48.png"
+    },
+    {
+      "hash": "sha256-iTrdRB0DtHPuL+dSe6tOWFL4BmSObc+sX0ySqpZ7rh4=",
+      "url": "images\/hand48fat.png"
     },
     {
       "hash": "sha256-8zqkzQYn\/84xBXDHUobpuyOpL44o6FZ7yVJV0VZlHHc=",
@@ -2697,7 +2725,7 @@
       "url": "json-data\/campagne.json"
     },
     {
-      "hash": "sha256-rdD0uar9zz9NAWBomscI8JKHncpaHFMFXj4phHZF3UI=",
+      "hash": "sha256-K3fCPYC\/bF\/ZA2S+YIEP1Cmic750qgBD0hQY4zYf0aQ=",
       "url": "json-data\/carriere.json"
     },
     {
@@ -2749,5 +2777,5 @@
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "ilqG+edO"
+  "version": "jFt0eC34"
 };
