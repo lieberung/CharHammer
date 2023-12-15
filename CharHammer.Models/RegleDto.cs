@@ -14,7 +14,8 @@ public record RegleDto(
     IEnumerable<TableDto> Tables,
     //IEnumerable<LieuDto> Lieux,
     IEnumerable<AptitudeDto> Aptitudes,
-    IEnumerable<IEnumerable<AptitudeDto>> AptitudesChoix)
+    IEnumerable<IEnumerable<AptitudeDto>> AptitudesChoix,
+    IEnumerable<LieuDto> Lieux)
 {
     public IEnumerable<RegleDto> SousRegles = [];
 

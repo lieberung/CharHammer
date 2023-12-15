@@ -49,11 +49,11 @@ public class BestiolesService(IReadOnlyDictionary<int, BestioleDto> data)
         {
             AptitudesService.TraitGabaritMinusculeId => 1,
             AptitudesService.TraitGabaritToutPetitId => profil.Be,
-            AptitudesService.TraitGabaritPetitId => (2 * profil.Be) + profil.Bfm,
-            AptitudesService.TraitGabaritMoyenId => profil.Bf + (2 * profil.Be) + profil.Bfm,
-            AptitudesService.TraitGabaritLargeId => 2 * (profil.Bf + (2 * profil.Be) + profil.Bfm),
-            AptitudesService.TraitGabaritEnormeId => 4 * (profil.Bf + (2 * profil.Be) + profil.Bfm),
-            AptitudesService.TraitGabaritMonstrueuxId => 8 * (profil.Bf + (2 * profil.Be) + profil.Bfm),
+            AptitudesService.TraitGabaritPetitId => 2 * profil.Be + profil.Bfm,
+            AptitudesService.TraitGabaritMoyenId => profil.Bf + 2 * profil.Be + profil.Bfm,
+            AptitudesService.TraitGabaritLargeId => 2 * (profil.Bf + 2 * profil.Be + profil.Bfm),
+            AptitudesService.TraitGabaritEnormeId => 4 * (profil.Bf + 2 * profil.Be + profil.Bfm),
+            AptitudesService.TraitGabaritMonstrueuxId => 8 * (profil.Bf + 2 * profil.Be + profil.Bfm),
             _ => throw new Exception("Gabarit invalide pour calcul des Blessures")
         };
         if (durACuir)

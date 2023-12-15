@@ -28,7 +28,7 @@ public record AptitudeDto(
     public IEnumerable<AptitudeDto> SousElements = [];
     public List<AptitudeDto> AptitudesLiees { get; set; } = [];
     public List<AptitudeDto> Incompatibles { get; set; } = null!;
-    public List<CarriereDto> CarrieresLiees { get; set; } = [];
+    public List<CarriereDto> CarrieresLiees { get; } = [];
 
     public IEnumerable<AptitudeDto> CompetencesLiees => AptitudesLiees.Where(a => a.EstUneCompetence);
     public IEnumerable<AptitudeDto> TalentsLies => AptitudesLiees.Where(a => a.EstUnTalent);

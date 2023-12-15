@@ -41,7 +41,7 @@ public class ArmesService(
     {
         get
         {
-            _armesDeContactPourTable ??= new Dictionary<string, IEnumerable<ArmeDto>>()
+            _armesDeContactPourTable ??= new Dictionary<string, IEnumerable<ArmeDto>>
             {
                 { "Ordinaires", AllArmes.Where(a => a.EstUneArmeDeCaC
                                                  && a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdMeleeOrdinaires)
@@ -71,7 +71,7 @@ public class ArmesService(
     {
         get
         {
-            _armesADistancePourTable ??= new Dictionary<string, IEnumerable<ArmeDto>>()
+            _armesADistancePourTable ??= new Dictionary<string, IEnumerable<ArmeDto>>
                 {
                     { "Arbalètes", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirArbaletes)) },
                     { "Arcs", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirArcs)) },

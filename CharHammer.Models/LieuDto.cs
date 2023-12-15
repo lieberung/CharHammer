@@ -14,8 +14,6 @@ public record LieuDto(
 {
     public LieuDto? Parent;
     public List<LieuDto> SousElements = [];
-    
-    public string Image => $"lieux/{Id}.png";
 
     public int ParentsCount {
         get

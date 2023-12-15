@@ -1,6 +1,7 @@
 ﻿@using CharHammer.Components.Bestiole
 @using CharHammer.Components.Carriere
 @using CharHammer.Components.Aptitude
+@using CharHammer.Components.Lieu
 @using CharHammer.Components.Table
 @code {
     [Parameter, EditorRequired] public RegleDto Item { get; set; } = null!;
@@ -42,15 +43,22 @@
 @if (Item.Carrieres.Any())
 {
     <h5>Carrières liées</h5>
-    <p class="text-justify">
+    <p>
         <CarriereItemList Items=@Item.Carrieres />
+    </p>
+}
+@if (Item.Lieux.Any())
+{
+    <h5>Lieux concernés</h5>
+    <p>
+        <LieuItemList Items=@Item.Lieux />
     </p>
 }
 @if (MasquerTables == false)
 {
     @foreach (var table in Item.Tables)
     {
-        <p class="text-justify">
+        <p>
             <TableDetail Item=@table />
         </p>
     }

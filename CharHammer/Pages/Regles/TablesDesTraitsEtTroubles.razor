@@ -51,7 +51,7 @@
 
     private void TirerUnTraitAleatoire()
     {
-        _traitAleatoire = AptitudeHelper.TirerUneAptitudeAleatoire(Traits, _traitAleatoire is null ? [] : new[] { _traitAleatoire });
+        _traitAleatoire = Traits.TirerUneAptitudeAleatoire(_traitAleatoire is null ? [] : new[] { _traitAleatoire });
     }
 }
 <div class="row">

@@ -18,7 +18,7 @@
             return;
         }
 
-        var a = AptitudeHelper.TirerUneAptitudeAleatoire(CttService.SignesDistinctifs, _traitsObtenus);
+        var a = CttService.SignesDistinctifs.ToArray().TirerUneAptitudeAleatoire(_traitsObtenus);
         _traitsObtenus.Add(a);
     }
 }

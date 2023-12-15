@@ -130,7 +130,7 @@ internal static class Initializer
                 AptitudesChoix: (r.aptitudes_choix ?? []).Select(choix => GetAptitudes(choix, aptitudes)),
                 Bestioles: (r.bestioles ?? []).Select(id => bestioles[id]),
                 Tables: (r.tables ?? []).Select(id => tables[id]),
-                //Lieux: (r.lieux ?? []).Select(id => lieux[id]),
+                Lieux: (r.lieux ?? []).Select(id => lieux[id]),
                 Regle: r.regle
             ))
             .ToDictionary(k => k.Id, v => v);
