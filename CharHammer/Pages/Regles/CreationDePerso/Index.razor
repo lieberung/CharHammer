@@ -15,7 +15,7 @@
     protected override void OnParametersSet()
     {
         var race = Service.GetRace(int.Parse(RaceId));
-        _selection = new(race);
+        _selection = new RaceSelectionnee(race);
     }
 }
 <S1_DeterminerLaRace Selection=@_selection />

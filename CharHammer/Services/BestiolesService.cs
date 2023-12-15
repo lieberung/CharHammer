@@ -108,7 +108,7 @@ public class BestiolesService(IReadOnlyDictionary<int, BestioleDto> data)
     private static CombattantDto JetDInitiativeDeCombat(CombattantDto combattant)
     {
         var profil = combattant.Combattant.ProfilActuel;
-        var initiative = (profil.BonusDInitiative * 2) + profil.BonusDAgilite;
+        var initiative = profil.BonusDInitiative * 2 + profil.BonusDAgilite;
         var detail = $"2 x {profil.BonusDInitiative} (BI) + {profil.BonusDAgilite} (BAg)";
         
         var reflexes = combattant.Combattant.AptitudesAcquises.SingleOrDefault(a => a.Aptitude.Id == AptitudesService.TalentReflexesDeCombatId)?.Niveau ?? 0;

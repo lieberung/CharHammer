@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace CharHammer.Services;
+﻿namespace CharHammer.Services;
 
 public static class GenericService
 {
