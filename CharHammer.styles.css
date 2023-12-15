@@ -15,10 +15,6 @@
     margin-bottom: 2px;
     line-height: 1.4;
 }
-/* /Components/Carriere/TableDeDepart.razor.rz.scp.css */
-[b-4ky00w1iox] .vocation {
-    background-color: var(--table-alternate-bg-color);
-}
 /* /Components/Index/CreationPerso/IndexCreationPersoRaces.razor.rz.scp.css */
 .hstack:not(:last-child)[b-71ye0wixph] {
     margin-bottom: 0.25rem;
