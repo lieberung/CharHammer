@@ -1,3 +1,13 @@
+/* /Components/Carriere/CarriereInitialeCell.razor.rz.scp.css */
+.vocation-first[b-vz8er4qtcf] {
+    border-top: 2px dotted var(--table-alternate-bg-color);
+}
+/* /Components/Carriere/CarriereInitialeGroupeCol.razor.rz.scp.css */
+.vocation[b-mwe4j61b4v] {
+    width: 5.5rem;
+    border-top: 2px solid var(--table-alternate-bg-color);
+    background-color: var(--table-alternate-bg-color);
+}
 /* /Components/Carriere/CarriereRestriction.razor.rz.scp.css */
 .alert[b-5icnvouq22] {
     padding: .12rem .60rem;
@@ -6,9 +16,8 @@
     line-height: 1.4;
 }
 /* /Components/Carriere/TableDeDepart.razor.rz.scp.css */
-.vocation[b-4ky00w1iox] {
-    width: 80px;
-    font-size: small;
+[b-4ky00w1iox] .vocation {
+    background-color: var(--table-alternate-bg-color);
 }
 /* /Components/Index/CreationPerso/IndexCreationPersoRaces.razor.rz.scp.css */
 .hstack:not(:last-child)[b-71ye0wixph] {

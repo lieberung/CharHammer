@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-8rSFk1AHFdu+uQBt2r3QJ9VeWor3nLz+FmsKNDJN9bk=",
+      "hash": "sha256-Q0OQwWnDy8kXDgjIvHivJ0awJ8UnlKbNHUiBAkM5YiQ=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-Q41jqNDVijpPWSXQ0fIFADqAsv994iJKt5KN02qFyYI=",
+      "hash": "sha256-qT1\/kuQjdL0WjpAcOYtrUaybzUsOiWdWliGsg01thG0=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-DgS7p8jj+2zcvh\/kJ\/USc5A5lAr\/wX7Udn9n60UkixY=",
+      "hash": "sha256-quq8l4dM3kreWLJuIFK2acmW030Qz3No+nEqjFugsBY=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-oIdyfn1o\/58jUl5fLbB\/636KMbcdYUyNvpuGiwSpQ3U=",
+      "hash": "sha256-v2TugFY7uA0LST0iaNneqDhoXQrHPQ0U3KOTbHX8riA=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -285,11 +285,11 @@
       "url": "_framework\/System.Xml.XDocument.wasm"
     },
     {
-      "hash": "sha256-KPfogIR7hoVr3gsECvn4erzPL\/4n\/SdFWKLkXFFfJjA=",
+      "hash": "sha256-kg7MEm95heobHoky2wlIOH0UuclYCxYFv+LI73fJW34=",
       "url": "CharHammer.styles.css"
     },
     {
-      "hash": "sha256-VJX0txSapC\/XKyKvwUWePM3z6sgADCBuKtLcoktG1S0=",
+      "hash": "sha256-jxSxZcHc+GUtJ3ax1RfPc7YwdRtn3VeEbixl6nnoi9g=",
       "url": "css\/app.css"
     },
     {
@@ -2777,5 +2777,5 @@
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "QMunVUUR"
+  "version": "Wkrrf3BU"
 };
