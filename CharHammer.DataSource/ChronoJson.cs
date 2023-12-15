@@ -8,8 +8,8 @@ public record ChronoJson(
     string resume,
     string? titre,
     string? comment,
-    IEnumerable<int> sources,
-    IEnumerable<int> domaines
+    ICollection<int> sources,
+    ICollection<int> domaines
 );
 
-public record RootChrono(IEnumerable<DomaineJson> domaines, IEnumerable<ChronoJson> items);
+public record RootChrono(ICollection<DomaineJson> domaines, ICollection<ChronoJson> items);

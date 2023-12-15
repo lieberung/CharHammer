@@ -46,4 +46,4 @@ public record DieuJson(
     PersonnaliteJson[]? personnalites,
     OrdreJson[]? ordres);
 
-public record RootDieu(IEnumerable<DieuJson> items);
+public record RootDieu(ICollection<DieuJson> items);

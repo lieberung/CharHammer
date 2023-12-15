@@ -15,4 +15,4 @@ public record RegleJson(
     int[]? tables,
     int[]? lieux);
 
-public record RootRegle(IEnumerable<RegleJson> items);
+public record RootRegle(ICollection<RegleJson> items);

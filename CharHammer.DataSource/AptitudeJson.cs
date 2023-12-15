@@ -10,8 +10,8 @@ public record AptitudeJson(
     string nom,
     string? nom_en,
     string? spe,
-    IEnumerable<int>? aptitudes,
-    IEnumerable<int>? incompatibles,
+    ICollection<int>? aptitudes,
+    ICollection<int>? incompatibles,
     bool ignorer,
     bool martial,
     string? carac,
@@ -23,4 +23,4 @@ public record AptitudeJson(
     string? guerison,
     bool? contagieux);
 
-public record RootAptitude(IEnumerable<AptitudeJson> items);
+public record RootAptitude(ICollection<AptitudeJson> items);

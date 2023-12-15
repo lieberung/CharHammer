@@ -23,4 +23,4 @@ public record EquipementJson(
     int[]? lieuxtypes,
     PotionJson? potion);
 
-public record RootEquipement(IEnumerable<EquipementJson> items);
+public record RootEquipement(ICollection<EquipementJson> items);

@@ -33,4 +33,4 @@ public record ArmureJson(
     string description,
     int[]? attributs);
 
-public record RootArme(IEnumerable<ArmeAttributJson> attributs, IEnumerable<ArmeJson> armes, IEnumerable<ArmureJson> armures);
+public record RootArme(ICollection<ArmeAttributJson> attributs, ICollection<ArmeJson> armes, ICollection<ArmureJson> armures);
