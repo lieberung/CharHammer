@@ -13,6 +13,7 @@
     --theme-orange-dark: #cf8d42;
     --theme-orange: #e79f4c;
     --theme-orange-light: #ffba6a;
+    --table-alternate-bg-color: #cebfb5;
     /* --bs-override */
     --bs-primary: var(--theme-color);
     --bs-secondary: var(--theme-orange);
@@ -80,7 +81,7 @@
 
 .table {
     --bs-table-border-color: transparent;
-    --bs-table-bg: #cebfb5;
+    --bs-table-bg: var(--table-alternate-bg-color);
     --bs-table-striped-bg: var(--bs-body-bg);
 }
 
@@ -124,10 +125,6 @@
 .top-row-icon {
     font-size: 1.7rem;
     color: var(--theme-color);
-}
-
-.bt-black-dashed {
-    border-top: 1px black dashed;
 }
 
 .hover-help:hover { cursor: help; }

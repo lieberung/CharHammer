@@ -1,0 +1,5 @@
+﻿.vocation {
+    width: 5.5rem;
+    border-top: 2px solid var(--table-alternate-bg-color);
+    background-color: var(--table-alternate-bg-color);
+}

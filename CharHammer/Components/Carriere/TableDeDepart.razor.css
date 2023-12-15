@@ -1,4 +1,3 @@
-﻿.vocation {
-    width: 80px;
-    font-size: small;
+﻿::deep .vocation {
+    background-color: var(--table-alternate-bg-color);
 }

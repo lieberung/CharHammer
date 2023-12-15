@@ -1,6 +1,4 @@
 ﻿@using CharHammer.Components.Carriere
-
-@inject CarrieresService CarrSvc
 @code {
     [Parameter, EditorRequired] public AptitudeDto Item { get; set; } = null!;
 
@@ -17,7 +15,7 @@
         }
     </td>
     <td>
-        @if (Item.SousElements.Where(t => t.Ignore == false).Any())
+        @if (Item.SousElements.Any(t => t.Ignore == false))
         {
             <span class="btn btn-primary btn-item-action table-btn me-1" @onclick="_ => AfficherSousElements = !AfficherSousElements">
                 <OiIcon Icon="layers" />

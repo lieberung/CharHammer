@@ -1,9 +1,4 @@
-﻿<tr>
-    <td class="w-13rem@(BorderTop ? " bt-black-dashed" : "")">
-        <CarriereItem Item=Item.Carriere HideIndicatorBase=true HideIndicatorRestriction=false Tooltip=@_tooltip />
-    </td>
-</tr>
-@code {
+﻿@code {
     [Parameter, EditorRequired] public LigneDeCarriereInitialeDto Item { get; set; } = null!;
     [Parameter] public bool BorderTop { get; set; }
 
@@ -21,3 +16,6 @@
         _tooltip += "\n\nPlus le facteur est élevé, plus grandes sont les chances de tirer cette carrière spécifique.";
     }
 }
+<td class="w-13rem@(BorderTop ? " vocation-first" : "")">
+    <CarriereItem Item=Item.Carriere HideIndicatorBase=true HideIndicatorRestriction=false Tooltip=@_tooltip />
+</td>
