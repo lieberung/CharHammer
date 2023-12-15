@@ -19,12 +19,12 @@
     protected override void OnParametersSet()
     {
         var campagne = Service.AllCampagnes.First(c => c.Id == int.Parse(CampagneId));
-        if (DateSeance == "seance-actuelle")
-            _seance = campagne.SeanceActuelle();
-        else if (DateSeance == "seance-precedente")
-            _seance = campagne.SeancePrecedente();
-        else
-            _seance = Service.GetSeance(int.Parse(CampagneId), DateSeance);
+        _seance = DateSeance switch
+        {
+            "seance-actuelle" => campagne.SeanceActuelle(),
+            "seance-precedente" => campagne.SeancePrecedente(),
+            _ => Service.GetSeance(int.Parse(CampagneId), DateSeance)
+        };
 
         AppState.SetMainTopRowTitle(_seance.Quand + " - " + _seance.Titre);
 
