@@ -29,7 +29,12 @@
     {
         if (_tirage.Count == 3)
             _tirage = [];
-        _tirage.Add(TableDesCarrInitService.GetRandomStartingCareer(Race.Id));
+
+        CarriereDto? ca = null;
+        while (ca is null || _tirage.Contains(ca))
+            ca = TableDesCarrInitService.GetRandomStartingCareer(Race.Id);
+        
+        _tirage.Add(ca);
         _afficherTirage = true;
     }
 }
