@@ -211,10 +211,7 @@ input[b-wvoxovx6ew] {
 .career-img[b-rfvqrfxean] { float:right; margin-left:15px; }
 /* /Shared/PageSectionRowTitle.razor.rz.scp.css */
 /* /Shared/SousMenu.razor.rz.scp.css */
-[b-8zfus3aaa2] a {
-    width: 8rem;
-}
-[b-8zfus3aaa2] a:not(:last-child) {
+[b-8zfus3aaa2] .btn:not(:last-child) {
     margin-right: 2rem;
 }
 /* /Shared/Tooltip.razor.rz.scp.css */

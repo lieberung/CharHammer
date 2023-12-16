@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "CharHammer",
   "resources": {
-    "hash": "sha256-sg3S23Z8x73vOKPFZxspMhuH3M3w5RDCE5wo9iHLDJA=",
+    "hash": "sha256-aozm7nWj+3le8G1xy3jhSLlMFyZWWjTUdoanwEmD6p8=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -17,9 +17,9 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "CharHammer.DataSource.wasm": "sha256-NcVq84EjoX79oN0HDenEuFQ9X0/iHQdlnSj0gmQ4Q+c=",
-      "CharHammer.Models.wasm": "sha256-mXTnxsEX7FbmNwsStPo9S4zpJGGnTYNFDvcAHmlv/kM=",
-      "CharHammer.wasm": "sha256-w+okdRCb8ejqj2zdBXHuHhF9iE/pE+yTvdTBBpXQujY=",
+      "CharHammer.DataSource.wasm": "sha256-9FZKvGu6Ahj68QGskznTcEIAsTrcfrlsHyRXWEtRe6s=",
+      "CharHammer.Models.wasm": "sha256-PnpGBpJ/XWyia9rCfVvefvQgdB3kWeTwkHt9ggsfTeo=",
+      "CharHammer.wasm": "sha256-OLpgf4nfdkR5H/jwuD97zZVbg7gcKO9BX9jmh3/oH7w=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-KM8xI0m4JWGR6PHk6b6XMvG95Xlqw64PZCVQdEUDM3A=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-RNAqR0ff+baVaIhI+uEcLo9eT+pxGnBEvkCzqD+3roM=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-jxT5OPvGNxCa5Ode34Vj10dSuqq5umUUvi5WqGMI6uA=",
@@ -43,7 +43,7 @@
       "System.ComponentModel.Primitives.wasm": "sha256-/ScotgWvJ1AVNPU5vchvdQFkxruLBTf0SBqXKnFhOh0=",
       "System.ComponentModel.TypeConverter.wasm": "sha256-kQEtfI0kB2oiAthLMcR6dXFCkuAPh8FWOc8E1mZf5ic=",
       "System.ComponentModel.wasm": "sha256-hit5i9iR+DgRmAIS+/EyoBClY0N8JfLdVV8wV5jM1dE=",
-      "System.Console.wasm": "sha256-prcAEsJJXHULEsBDmyAteANd+jPToYH8MtsJaHGQPMI=",
+      "System.Console.wasm": "sha256-O25aCNIbwkEK4jknpCP+gHdUoM218XFNniGWv3Vhy7Y=",
       "System.Data.Common.wasm": "sha256-rk9phl23qHPUEMLl60oEEeRp+pQBekSxIswnzK99WFU=",
       "System.Diagnostics.DiagnosticSource.wasm": "sha256-jQuxmMdXPhZ4+HlLWanqVQZ+gwf74I/3JxWFzWtBKmM=",
       "System.Diagnostics.TraceSource.wasm": "sha256-9I89fTt452+42ZDGVwyx5nG+GrUFUO1ocB1K9iqncwE=",
