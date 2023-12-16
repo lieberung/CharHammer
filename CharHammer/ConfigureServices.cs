@@ -6,12 +6,14 @@ public static class Configuration
 {
     public static void ConfigureServices(this IServiceCollection services, ADataClassToRuleThemAllService data)
     {
+        Console.Write("Initializing data... ");
         var startTime = DateTime.Now;
         var dataUsers = Initializer.InitializeUsers(data.Campagne!.users);
 
         var dataAptitudes = Initializer.InitializeAptitudes(data.Aptitudes!.aptitudes);
         var dataReferences = Initializer.InitializeReferences(data.References!.references);
-        var listChrono = Initializer.InitializeChronologie(data.Chrono!.items, dataReferences);
+        var dataDomaines = Initializer.InitializeDomaines(data.Chrono!.domaines);
+        var listChrono = Initializer.InitializeChronologie(data.Chrono!.chrono, dataReferences, dataDomaines);
         var dataLieuxTypes = Initializer.InitializeLieuxTypes(data.Lieux!.types);
         var dataLieux = Initializer.InitializeLieux(data.Lieux!.items, dataLieuxTypes);
         var dataEquipements = Initializer.InitializeEquipements(data.Equipements!.items, dataLieux, dataLieuxTypes);
@@ -31,14 +33,14 @@ public static class Configuration
         var dataTeams = Initializer.InitializeTeams(data.Campagne!.teams);
         var dataCampagnes = Initializer.InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataScenarios, dataBestioles, dataCarrieres, dataLieux);
 
-        Console.WriteLine($"Initializing data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
+        Console.WriteLine($"{DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
 
         services.AddSingleton(_ => new AptitudesService(dataAptitudes));
         services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
         services.AddSingleton(_ => new DieuxService(dataDieux));
         services.AddSingleton(_ => new ReferencesService(dataReferences));
         services.AddSingleton(_ => new TablesService(dataTables));
-        services.AddSingleton(_ => new ChronologieService(listChrono));
+        services.AddSingleton(_ => new ChronologieService(listChrono, dataDomaines));
         services.AddSingleton(_ => new ArmesService(dataArmesAttributs, dataArmes, dataArmures, dataEquipements));
         services.AddSingleton(_ => new CarrieresService(dataCarrieres));
         services.AddSingleton(_ => new RacesService(dataRaces));

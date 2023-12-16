@@ -14,8 +14,6 @@ public record TempleJson(string? nom, string? description);
 
 public record PersonnaliteJson(string? nom, string? description);
 
-public record DomaineJson(int id, string nom, string comment);
-
 public record DieuJson(
     int id,
     int? patron,

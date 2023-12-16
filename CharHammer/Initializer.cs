@@ -1,6 +1,7 @@
 ﻿using CharHammer.DataSource;
 using CharHammer.Models;
 using CharHammer.Services;
+using System.Linq;
 
 namespace CharHammer;
 
@@ -133,7 +134,7 @@ internal static class Initializer
                 Lieux: (r.lieux ?? []).Select(id => lieux[id]),
                 Regle: r.regle
             ))
-            .ToDictionary(k => k.Id, v => v);
+            .ToDictionary(k => k.Id);
 
         foreach (var regle in cacheRegle.Values)
         {
@@ -404,7 +405,7 @@ internal static class Initializer
                 StylesRows: c.styles_td ?? [],
                 Lignes: c.lignes
             ))
-            .ToDictionary(k => k.Id, v => v);
+            .ToDictionary(k => k.Id);
     }
 
     internal static IReadOnlyDictionary<int, DieuDto> InitializeDieux(
@@ -453,7 +454,7 @@ internal static class Initializer
                     Nom: jc.nom ?? ""
                 ))
             ))
-            .ToDictionary(k => k.Id, v => v);
+            .ToDictionary(k => k.Id);
 
         foreach (var dieu in cache.Values.Where(d => d.PatronId.HasValue))
         {
@@ -470,7 +471,7 @@ internal static class Initializer
                 Nom: t.libelle,
                 ParentId: t.parentid
             ))
-            .ToDictionary(k => k.Id, v => v);
+            .ToDictionary(k => k.Id);
 
         foreach (var lieuType in result.Values.Where(t => t.ParentId.HasValue))
         {
@@ -523,11 +524,15 @@ internal static class Initializer
                 Titre: c.titre,
                 Version: c.version
             ))
-            .ToDictionary(k => k.Id, v => v);
+            .ToDictionary(k => k.Id);
 
-    internal static IReadOnlyDictionary<int, AptitudeDto> InitializeAptitudes(IEnumerable<AptitudeJson> aptitudes)
+    internal static IReadOnlyDictionary<int, DomaineDto> InitializeDomaines(IEnumerable<DomaineJson> items)
+        => items
+            .Select(c => new DomaineDto(c.id, c.nom)).ToDictionary(k => k.Id);
+
+    internal static IReadOnlyDictionary<int, AptitudeDto> InitializeAptitudes(IEnumerable<AptitudeJson> items)
     {
-        var result = aptitudes
+        var result = items
             .Select(c => new AptitudeDto(
                 Id: c.id,
                 Ignore: c.ignorer,
@@ -550,7 +555,7 @@ internal static class Initializer
                 Resume = c.resume ?? "",
                 Description = c.description ?? "",
             })
-            .ToDictionary(k => k.Id, v => v);
+            .ToDictionary(k => k.Id);
 
         foreach (var apt in result.Values)
         {
@@ -629,7 +634,7 @@ internal static class Initializer
                 Restriction = c.restriction ?? "",
                 Statut = c.revenu ?? "",
             })
-            .ToDictionary(k => k.Id, v => v);
+            .ToDictionary(k => k.Id);
 
         foreach (var fille in cache.Values.Where(c => c.CarriereMereId.HasValue))
         {
@@ -709,17 +714,16 @@ internal static class Initializer
     private static IEnumerable<AptitudeDto> GetAptitudes(int[]? argAptitudes, IReadOnlyDictionary<int, AptitudeDto> cacheAptitudes)
         => (argAptitudes ?? []).Select(id => cacheAptitudes[id]).OrderBy(a => a.NomComplet);
 
-    internal static IEnumerable<ChronologieDto> InitializeChronologie(
-        IEnumerable<ChronoJson> chrono,
-        IReadOnlyDictionary<int, ReferenceDto> cache)
+    internal static IEnumerable<ChronologieDto> InitializeChronologie(IEnumerable<ChronoJson> chrono, IReadOnlyDictionary<int, ReferenceDto> references, IReadOnlyDictionary<int, DomaineDto> domaines)
         => chrono
-            .Select(c => new ChronologieDto(
-                c.debut,
-                c.fin,
-                c.resume,
-                c.titre ?? "",
-                c.comment ?? "",
-                c.sources.Select(id => cache[id])
-            ))
-            .OrderBy(c => c.Debut).ThenBy(c => c.Fin);
+                .Select(c => new ChronologieDto(
+                    c.debut,
+                    c.fin,
+                    c.resume,
+                    c.titre ?? "",
+                    c.comment ?? "",
+                    (c.sources ?? []).Select(id => references[id]),
+                    (c.domaines ?? []).Select(id => domaines[id])
+                ))
+                .OrderBy(c => c.Debut).ThenBy(c => c.Fin);
 }

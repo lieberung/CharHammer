@@ -3,17 +3,37 @@
 @inject ChronologieService Service
 @inject AppState AppState
 @code {
+    string selectedDomaine = "Tous";
+
     protected override void OnInitialized()
     {
         AppState.SetMainTopRowTitle("Chronologie");
     }
+
+    void SelectDomaine(string domaine)
+    {
+        selectedDomaine = domaine;
+    }
 }
+<div class="section">
+    <button class="btn btn-sm me-2 mb-1 @(selectedDomaine == "Tous" ? "btn-primary" : "btn-secondary")"
+            @onclick=@(e => SelectDomaine("Tous"))>
+            Tous
+    </button>
+    @foreach (var domaine in Service.Domaines)
+    {
+        <button class="btn btn-sm me-2 mb-1 @(selectedDomaine == domaine.Nom ? "btn-primary" : "btn-secondary")"
+                @onclick=@(e => SelectDomaine(domaine.Nom))>
+            @domaine.Nom
+        </button>
+    }
+</div>
 <table class="table table-striped">
     <thead>
         <tr><th>Période</th><th>Evènement</th><th>Titre</th></tr>
     </thead>
     <tbody>
-        @foreach (var chrono in Service.Chronologie)
+        @foreach (var chrono in Service.Chronologie.Where(c => c.Domaines.Any(d => selectedDomaine == "Tous" || d.Nom == selectedDomaine)))
         {
             <tr>
                 <td>@chrono.Periode</td>

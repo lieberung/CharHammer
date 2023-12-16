@@ -7,6 +7,7 @@ public class ADataClassToRuleThemAllService(HttpClient httpClient)
 {
     public async Task InitializeDataAsync()
     {
+        Console.Write("Loading json data... ");
         var startTime = DateTime.Now;
         Aptitudes = await GetAptitudes();
         Armes = await GetArmes();
@@ -23,7 +24,7 @@ public class ADataClassToRuleThemAllService(HttpClient httpClient)
         Sortileges = await GetSortileges();
         Tables = await GetTables();
         Scenarios = await GetScenarios();
-        Console.WriteLine($"Loading json data... {DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
+        Console.WriteLine($"{DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
     }
 
     public RootAptitude? Aptitudes { get; private set; }
