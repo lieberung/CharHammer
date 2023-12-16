@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-isNTrXJpa6uMD96V+Vw\/d5gkFlUJUSlvNa1Y3y2sQgg=",
+      "hash": "sha256-mvZ5LPnSZv4Opp2I1f3Qc+axoc9xroLmO8itUOHrbZI=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-Nhy1vNiAQ\/fTOd8eneoB9FaCggJ9085I8EqzD0ZP\/Z0=",
+      "hash": "sha256-NcVq84EjoX79oN0HDenEuFQ9X0\/iHQdlnSj0gmQ4Q+c=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-JsmWHNpQtAiDC546JaGZRm3uVIvM3I++XYQaPPYW\/OE=",
+      "hash": "sha256-mXTnxsEX7FbmNwsStPo9S4zpJGGnTYNFDvcAHmlv\/kM=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-BXEtg\/QkeEiXK5WWkZTbqWzYcO23b2cBt\/qOp09vBkc=",
+      "hash": "sha256-w+okdRCb8ejqj2zdBXHuHhF9iE\/pE+yTvdTBBpXQujY=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -2713,7 +2713,7 @@
       "url": "json-data\/amorces.json"
     },
     {
-      "hash": "sha256-\/oFdGKrBdizZCqITIUP83h+3YBFWoSzeFKnlwYaM3VU=",
+      "hash": "sha256-ghshmM7QFHH7W4kISzyqsB9pDmy+T\/fM1cNh7njCmN0=",
       "url": "json-data\/aptitude.json"
     },
     {
@@ -2753,7 +2753,7 @@
       "url": "json-data\/race.json"
     },
     {
-      "hash": "sha256-SE56ml3lrpHih6Fd0pD87P5jFTAaoMxJm2LSN4P+ZaA=",
+      "hash": "sha256-kHBLQSJEhw+nR8Bp3HZkgBkrIZSHBljm3NRa46O\/Iw4=",
       "url": "json-data\/reference.json"
     },
     {
@@ -2777,5 +2777,5 @@
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "vYk9sv1v"
+  "version": "vXmntUrQ"
 };
