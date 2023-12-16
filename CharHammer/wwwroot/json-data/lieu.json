@@ -1,5 +1,5 @@
 {
-  "types":[
+  "lieuxtypes":[
     {"id":1,"parentid":null,"libelle":"Monde"},
     {"id":2,"parentid":1,"libelle":"Terre civilisée, zone administrative, communauté"},
     {"id":3,"parentid":2,"libelle":"Empire"},
@@ -49,7 +49,7 @@
     {"id":47,"parentid":1,"libelle":"Oratoire"},
     {"id":48,"parentid":27,"libelle":"Col"}
   ],
-  "items":[
+  "lieux":[
     {"id":3,"type":2,"parent":1,"nom":"Le Pays-Perdu","description":""},
     {"id":8,"type":8,"parent":4,"nom":"L'Anguille","description":""},
     {"id":9,"type":8,"parent":4,"nom":"Aquitanie","description":""},

@@ -30,4 +30,4 @@ public record SourceJson(int? id, string? info);
 
 public record CitationJson(string c, string? a, string? s);
 
-public record RootCarriere(ICollection<CarriereJson> items);
+public record RootCarriere(ICollection<CarriereJson> carrieres);

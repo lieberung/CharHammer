@@ -44,4 +44,4 @@ public record DieuJson(
     PersonnaliteJson[]? personnalites,
     OrdreJson[]? ordres);
 
-public record RootDieu(ICollection<DieuJson> items);
+public record RootDieu(ICollection<DieuJson> dieux);

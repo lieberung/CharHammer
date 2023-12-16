@@ -41,4 +41,4 @@ public record CreatureJson(
     int[]? equipement,
     int[]? sorts);
 
-public record RootCreature(ICollection<CreatureJson> items);
+public record RootCreature(ICollection<CreatureJson> creatures);

@@ -1,4 +1,4 @@
-{"items":[
+{"carrieres":[
   {"id":194,"nom":"Interrogateur","avancements":[377],"debouch":[377,154,156,162,165,52,209,207,286,285],"revenu":"A1","source":{"id":52,"info":"p.83"},
     "profil":{"cc":15,"ct":15,"f":10,"e":5,"i":10,"ag":15,"dex":10,"intel":10,"fm":15,"soc":10},
     "metier":1034,"aptitudes":[1008,1624,1053,1034,1210,1048,1051,1056,1042,2245,3200],

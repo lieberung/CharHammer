@@ -1,5 +1,5 @@
 ﻿{
-  "items": [
+  "equipements": [
 
     {"id":100,"groupes":["Contenants"],"nom":"Bourse","prix":"4s","enc":"0","contenance":"1","dispo":"Commune",
       "description":""},

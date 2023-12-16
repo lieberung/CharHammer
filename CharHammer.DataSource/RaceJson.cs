@@ -20,4 +20,4 @@ public record OpinionJson(int race, string ambiance);
 
 public record InfoJson(string? titre, string detail);
 
-public record RootRace(ICollection<RaceJson> items);
+public record RootRace(ICollection<RaceJson> races);
