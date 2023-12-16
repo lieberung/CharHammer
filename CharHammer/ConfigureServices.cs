@@ -9,8 +9,8 @@ public static class Configuration
         var startTime = DateTime.Now;
         var dataUsers = Initializer.InitializeUsers(data.Campagne!.users);
 
-        var dataAptitudes = Initializer.InitializeAptitudes(data.Aptitudes!.items);
-        var dataReferences = Initializer.InitializeReferences(data.References!.items);
+        var dataAptitudes = Initializer.InitializeAptitudes(data.Aptitudes!.aptitudes);
+        var dataReferences = Initializer.InitializeReferences(data.References!.references);
         var listChrono = Initializer.InitializeChronologie(data.Chrono!.items, dataReferences);
         var dataLieuxTypes = Initializer.InitializeLieuxTypes(data.Lieux!.types);
         var dataLieux = Initializer.InitializeLieux(data.Lieux!.items, dataLieuxTypes);

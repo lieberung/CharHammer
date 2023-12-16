@@ -23,4 +23,4 @@ public record AptitudeJson(
     string? guerison,
     bool? contagieux);
 
-public record RootAptitude(ICollection<AptitudeJson> items);
+public record RootAptitude(ICollection<AptitudeJson> aptitudes);
