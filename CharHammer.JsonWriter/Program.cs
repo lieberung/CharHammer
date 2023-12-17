@@ -1,0 +1,1 @@
+﻿new CharHammer.Services.DataService().MakeTheFileToRuleThemAll();

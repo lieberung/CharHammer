@@ -1,37 +1,38 @@
-﻿using CharHammer.Services;
+﻿using CharHammer.DataSource;
+using CharHammer.Services;
 
 namespace CharHammer;
 
 public static class Configuration
 {
-    public static void ConfigureServices(this IServiceCollection services, ADataClassToRuleThemAllService data)
+    public static void ConfigureServices(this IServiceCollection services, DataJson data)
     {
         Console.Write("Initializing data... ");
         var startTime = DateTime.Now;
-        var dataUsers = Initializer.InitializeUsers(data.Campagne!.users);
+        var dataUsers = Initializer.InitializeUsers(data.users);
 
-        var dataAptitudes = Initializer.InitializeAptitudes(data.Aptitudes!.aptitudes);
-        var dataReferences = Initializer.InitializeReferences(data.References!.references);
-        var dataDomaines = Initializer.InitializeDomaines(data.Chrono!.domaines);
-        var dataChrono = Initializer.InitializeChronologie(data.Chrono!.chrono, dataReferences, dataDomaines);
-        var dataLieuxTypes = Initializer.InitializeLieuxTypes(data.Lieux!.lieuxtypes);
-        var dataLieux = Initializer.InitializeLieux(data.Lieux!.lieux, dataLieuxTypes);
-        var dataEquipements = Initializer.InitializeEquipements(data.Equipements!.equipements, dataLieux, dataLieuxTypes);
-        var dataDieux = Initializer.InitializeDieux(data.Dieux!.dieux, dataAptitudes, dataLieux);
-        var dataTables = Initializer.InitializeTables(data.Tables!.tables);
-        var dataArmesAttributs = Initializer.InitializeArmesAttributs(data.Armes!.attributs);
-        var dataArmes = Initializer.InitializeArmes(data.Armes!.armes, dataArmesAttributs, dataAptitudes);
-        var dataArmures = Initializer.InitializeArmures(data.Armes!.armures, dataArmesAttributs);
-        var dataSortileges = Initializer.InitializeSortileges(data.Sortileges!.sortileges, dataAptitudes);
-        var dataRaces = Initializer.InitializeRaces(data.Races!.races, dataAptitudes, dataLieux);
-        var dataCarrieres = Initializer.InitializeCarrieres(data.Carrieres!.carrieres, dataRaces, dataAptitudes, dataReferences);
+        var dataAptitudes = Initializer.InitializeAptitudes(data.aptitudes);
+        var dataReferences = Initializer.InitializeReferences(data.references);
+        var dataDomaines = Initializer.InitializeDomaines(data.domaines);
+        var dataChrono = Initializer.InitializeChronologie(data.chrono, dataReferences, dataDomaines);
+        var dataLieuxTypes = Initializer.InitializeLieuxTypes(data.lieuxtypes);
+        var dataLieux = Initializer.InitializeLieux(data.lieux, dataLieuxTypes);
+        var dataEquipements = Initializer.InitializeEquipements(data.equipements, dataLieux, dataLieuxTypes);
+        var dataDieux = Initializer.InitializeDieux(data.dieux, dataAptitudes, dataLieux);
+        var dataTables = Initializer.InitializeTables(data.tables);
+        var dataArmesAttributs = Initializer.InitializeArmesAttributs(data.attributs);
+        var dataArmes = Initializer.InitializeArmes(data.armes, dataArmesAttributs, dataAptitudes);
+        var dataArmures = Initializer.InitializeArmures(data.armures, dataArmesAttributs);
+        var dataSortileges = Initializer.InitializeSortileges(data.sortileges, dataAptitudes);
+        var dataRaces = Initializer.InitializeRaces(data.races, dataAptitudes, dataLieux);
+        var dataCarrieres = Initializer.InitializeCarrieres(data.carrieres, dataRaces, dataAptitudes, dataReferences);
         var dataTablesCarrInit = Initializer.InitializeTablesCarrieresInitiales(dataCarrieres);
-        var dataBestioles = Initializer.InitializeCreatures(data.Creatures!.creatures, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataSortileges, dataUsers);
-        var dataRegles = Initializer.InitializeRegles(data.Regles!.regles, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
+        var dataBestioles = Initializer.InitializeCreatures(data.creatures, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataSortileges, dataUsers);
+        var dataRegles = Initializer.InitializeRegles(data.regles, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
 
-        var dataScenarios = Initializer.InitializeScenarios(data.Scenarios!.scenarios, dataLieux, dataLieuxTypes);
-        var dataTeams = Initializer.InitializeTeams(data.Campagne!.teams);
-        var dataCampagnes = Initializer.InitializeCampagnes(dataUsers, dataTeams, data.Campagne!.campagnes, dataScenarios, dataBestioles, dataCarrieres, dataLieux);
+        var dataScenarios = Initializer.InitializeScenarios(data.scenarios, dataLieux, dataLieuxTypes);
+        var dataTeams = Initializer.InitializeTeams(data.teams);
+        var dataCampagnes = Initializer.InitializeCampagnes(dataUsers, dataTeams, data.campagnes, dataScenarios, dataBestioles, dataCarrieres, dataLieux);
 
         Console.WriteLine($"{DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
 
