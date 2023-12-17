@@ -1,5 +1,5 @@
 using CharHammer;
-using CharHammer.Services;
+using CharHammer.Services.Startup;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 

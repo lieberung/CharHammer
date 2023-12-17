@@ -1,9 +1,8 @@
 ﻿using CharHammer.DataSource;
 using CharHammer.Models;
 using CharHammer.Services;
-using System.Linq;
 
-namespace CharHammer;
+namespace CharHammer.Services.Startup;
 
 internal static class Initializer
 {
@@ -88,7 +87,7 @@ internal static class Initializer
             Ennemis: (r.ennemis ?? []).Select(a => GetRencontreCombattantDtoFromJson(a, true, bestioles)));
 
     private static CombattantDto GetRencontreCombattantDtoFromJson(CombattantJson c, bool ennemi, IReadOnlyDictionary<int, BestioleDto> bestioles)
-        => new (Combattant: bestioles[c.id], Nom: c.nom ?? bestioles[c.id].Nom, Ennemi: ennemi);
+        => new(Combattant: bestioles[c.id], Nom: c.nom ?? bestioles[c.id].Nom, Ennemi: ennemi);
 
     internal static IReadOnlyDictionary<int, TeamDto> InitializeTeams(IEnumerable<TeamJson> teams)
         => teams.Select(t => new TeamDto(t.id, t.nom)).ToDictionary(k => k.Id);
@@ -121,7 +120,7 @@ internal static class Initializer
         IReadOnlyDictionary<int, CarriereDto> carrieres)
     {
         var cacheRegle = items
-            .Select(r => new RegleDto (
+            .Select(r => new RegleDto(
                 Id: r.id,
                 Html: r.html,
                 Titre: r.titre,
@@ -370,7 +369,7 @@ internal static class Initializer
         IReadOnlyDictionary<int, AptitudeDto> cacheCompetences)
     {
         var result = items
-            .Select(l => new ArmeDto(            
+            .Select(l => new ArmeDto(
                 Id: l.id,
                 ParentId: l.parent,
                 Nom: l.nom,
@@ -445,7 +444,7 @@ internal static class Initializer
                 Structure: c.structure ?? "",
                 Temples: (c.temples ?? []).Select(t => new TempleDto(t.nom ?? "", t.description ?? "")),
                 LivresSaints: c.livres ?? "aucun.",
-                Ordres: (c.ordres ?? []).Select(jc => new CulteDto (
+                Ordres: (c.ordres ?? []).Select(jc => new CulteDto(
                     Ambiance: jc.ambiance ?? "",
                     Aptitudes: (jc.aptitudes ?? []).Select(id => aptitudes[id]),
                     Description: jc.description ?? "",
@@ -549,7 +548,8 @@ internal static class Initializer
                 Severite: c.severite ?? 0,
                 IncompatiblesIds: c.incompatibles ?? [],
                 AptitudesLieesIds: c.aptitudes ?? []
-            ) {
+            )
+            {
                 Tests = c.tests ?? "",
                 CaracteristiqueAssociee = c.carac ?? "",
                 Resume = c.resume ?? "",
@@ -625,7 +625,8 @@ internal static class Initializer
                 Source: JsonToDto(c.source, cacheReferences),
                 Aptitudes: GetAptitudes(c.aptitudes, cacheAptitudes),
                 AptitudesChoix: (c.aptitudes_choix ?? []).Select(choix => GetAptitudes(choix, cacheAptitudes))
-            ) {
+            )
+            {
                 Ambiance = (c.ambiance ?? []).Select(ca => new CitationDto(ca.c, ca.a ?? "", ca.s ?? "")),
                 CompetenceDeMetier = c.metier is null ? null : cacheAptitudes[c.metier.Value],
                 Description = c.description,
@@ -677,7 +678,7 @@ internal static class Initializer
             carriere.Filieres = cache.Values
                 .Where(c => c.Debouches.Contains(carriere))
                 .OrderBy(c => c.Nom);
-            
+
             foreach (var apt in carriere.AptitudesPourScore)
             {
                 apt.CarrieresLiees.Add(carriere);

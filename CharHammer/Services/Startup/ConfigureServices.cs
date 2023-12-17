@@ -1,7 +1,7 @@
 ﻿using CharHammer.DataSource;
 using CharHammer.Services;
 
-namespace CharHammer;
+namespace CharHammer.Services.Startup;
 
 public static class Configuration
 {

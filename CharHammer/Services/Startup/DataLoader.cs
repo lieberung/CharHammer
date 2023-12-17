@@ -1,7 +1,7 @@
 ﻿using CharHammer.DataSource;
 using System.Net.Http.Json;
 
-namespace CharHammer.Services;
+namespace CharHammer.Services.Startup;
 
 public class DataLoader(HttpClient httpClient)
 {
