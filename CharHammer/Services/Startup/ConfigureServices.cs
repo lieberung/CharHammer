@@ -34,8 +34,6 @@ public static class Configuration
         var dataTeams = Initializer.InitializeTeams(data.teams);
         var dataCampagnes = Initializer.InitializeCampagnes(dataUsers, dataTeams, data.campagnes, dataScenarios, dataBestioles, dataCarrieres, dataLieux);
 
-        Console.WriteLine($"{DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
-
         services.AddSingleton(_ => new AptitudesService(dataAptitudes));
         services.AddSingleton(_ => new LieuxService(dataLieuxTypes, dataLieux));
         services.AddSingleton(_ => new DieuxService(dataDieux));
@@ -51,6 +49,8 @@ public static class Configuration
         services.AddSingleton(_ => new SortilegesService(dataSortileges));
         services.AddSingleton(_ => new CampagnesService(dataCampagnes));
         services.AddSingleton(_ => new ScenariosService(dataScenarios));
+
+        Console.WriteLine($"{DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
 
         services.AddSingleton(_ => new AppState());
     }
