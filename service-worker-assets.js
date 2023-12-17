@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-B4+H67FQ6aU+oaJCl70qRYDmfmZdlnDWz57ltqh\/0G0=",
+      "hash": "sha256-b+euy1ZlyEr+sN+DSnMu7TcfaGgZ2ZL8PNcww8tnSB0=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-9FZKvGu6Ahj68QGskznTcEIAsTrcfrlsHyRXWEtRe6s=",
+      "hash": "sha256-u8UsdFXhbt0j20VlXnrkYaC\/dlVX4I5\/QckRfFQXe30=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-PnpGBpJ\/XWyia9rCfVvefvQgdB3kWeTwkHt9ggsfTeo=",
+      "hash": "sha256-d6s9RRQx0EFPW+UgDEOhmo3LaeWFMenqHnL3lrte6QY=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-OLpgf4nfdkR5H\/jwuD97zZVbg7gcKO9BX9jmh3\/oH7w=",
+      "hash": "sha256-aBro6JxkgSBYm88JbVJUPfKGUJAEAHUAn7JFUqoxjas=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -2709,73 +2709,13 @@
       "url": "index.html"
     },
     {
-      "hash": "sha256-k\/QdBgO6aY+2ugb+VOLlMUgB9pU5Z4EiP2kKhIesodM=",
-      "url": "json-data\/amorces.json"
-    },
-    {
-      "hash": "sha256-ghshmM7QFHH7W4kISzyqsB9pDmy+T\/fM1cNh7njCmN0=",
-      "url": "json-data\/aptitude.json"
-    },
-    {
-      "hash": "sha256-82YW\/HEOVd3fvNLndcfbgmBXzUhnig4wVSpBnTdKzKs=",
-      "url": "json-data\/arme.json"
-    },
-    {
-      "hash": "sha256-AhFP95w3Nm4HGaF24Prl+VvCbVuTShKGs4P5\/iYVY2g=",
-      "url": "json-data\/campagne.json"
-    },
-    {
-      "hash": "sha256-K3fCPYC\/bF\/ZA2S+YIEP1Cmic750qgBD0hQY4zYf0aQ=",
-      "url": "json-data\/carriere.json"
-    },
-    {
-      "hash": "sha256-L4FFuelHuOlh1D569GsleA094gpSV0y4UdT\/PIg3\/BU=",
-      "url": "json-data\/chrono.json"
-    },
-    {
-      "hash": "sha256-jTWGsIBrkSAWkUcL2MoqcmYBdoKgXTe7qpQ1QmUigSs=",
-      "url": "json-data\/creature.json"
-    },
-    {
-      "hash": "sha256-yMlbz7r6TQUqBCnsIC0i4QIaVC7BZ06dcryf\/DmEYh8=",
-      "url": "json-data\/dieu.json"
-    },
-    {
-      "hash": "sha256-u3zUPbVMUtCQySilCDOztbetMXub8YIAdvwOMJdh63w=",
-      "url": "json-data\/equipement.json"
-    },
-    {
-      "hash": "sha256-JblhAetQ7abtnOJ9dlpaaZCB96hwWOAr6fWRDQvrzhE=",
-      "url": "json-data\/lieu.json"
-    },
-    {
-      "hash": "sha256-ktdWgpNoMd5SwgCD4lCYCBnY7DacmPldqHAxg2KzCbM=",
-      "url": "json-data\/race.json"
-    },
-    {
-      "hash": "sha256-kHBLQSJEhw+nR8Bp3HZkgBkrIZSHBljm3NRa46O\/Iw4=",
-      "url": "json-data\/reference.json"
-    },
-    {
-      "hash": "sha256-lTM\/uqVBT7nCoB6DXsjr0Y2dBb0UFhdP2RkM1vaZdds=",
-      "url": "json-data\/regle.json"
-    },
-    {
-      "hash": "sha256-\/ufn51qQnlt7xfv\/TU5ZpPg8bjGYNF4CR1N3ZETxBBY=",
-      "url": "json-data\/scenarios.json"
-    },
-    {
-      "hash": "sha256-\/hJ4oTbv8QJBDHFsZndVbE+zfNbASrf7j+7ojyDkukc=",
-      "url": "json-data\/sortilege.json"
-    },
-    {
-      "hash": "sha256-GzEdpLDF7x4ZDDHF6dBYA4DIoDQQEfWInS8A9yYzLH0=",
-      "url": "json-data\/table.json"
+      "hash": "sha256-OjA2lx+IsqzwdgBBdXF+CyoRG7HZ56Cp7rx4d4IRFWQ=",
+      "url": "json-data\/data.json"
     },
     {
       "hash": "sha256-xO4gko6\/gbbQ2Zk+sQSdy62KMmduLb9jow5xLYFTXsg=",
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "PmEURnpp"
+  "version": "5dfWudS\/"
 };
