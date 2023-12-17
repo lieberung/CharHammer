@@ -9,7 +9,7 @@ public class DataLoader(HttpClient httpClient)
     {
         Console.Write("Loading json data... ");
         var startTime = DateTime.Now;
-        var data = await httpClient.GetFromJsonAsync<DataJson>("json-data/data.json");
+        var data = await httpClient.GetFromJsonAsync<DataJson>("data/data.json");
         ArgumentNullException.ThrowIfNull(data);
         Console.WriteLine($"{DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
         return data;
