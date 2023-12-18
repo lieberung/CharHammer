@@ -1,5 +1,6 @@
 ﻿using CharHammer.DataSource;
 using Newtonsoft.Json;
+using System.IO.Compression;
 using System.Text;
 
 namespace CharHammer.Services;
@@ -7,16 +8,16 @@ namespace CharHammer.Services;
 public class DataService()
 {
     const string JsonDataSourcePath = @"..\..\..\json";
-    const string JsonDataTargetPath = @"..\..\..\..\CharHammer\wwwroot\json-data\data.json";
+    const string JsonDataTargetPath = @"..\..\..\..\CharHammer\wwwroot\data";
+    const string JsonDataTargetFile = @"\data.json.gz";
 
     public void MakeTheFileToRuleThemAll()
     {
         var data = BuildDataInstance();
         var dataToJson = JsonConvert.SerializeObject(data
             , new JsonSerializerSettings { Formatting = Formatting.None, NullValueHandling = NullValueHandling.Ignore });
-        Console.WriteLine($"Writing json data to {JsonDataTargetPath}...");
+        Console.WriteLine($"Writing json data to {JsonDataTargetPath}{JsonDataTargetFile}...");
         WriteFile(dataToJson);
-        //var check = GetData();
         Console.WriteLine("Done!");
         Console.ReadKey();
     }
@@ -106,14 +107,24 @@ public class DataService()
     private static RootRegle GetRegles() => LoadRootFromJson<RootRegle>($"{JsonDataSourcePath}\\regle.json");
     private static RootScenario GetScenarios() => LoadRootFromJson<RootScenario>($"{JsonDataSourcePath}\\scenarios.json");
     
-    private static DataJson GetData() => LoadRootFromJson<DataJson>(JsonDataTargetPath);
+    //private static DataJson GetData() => LoadRootFromJson<DataJson>(JsonDataTargetPath);
 
     static void WriteFile(string dataInput)
     {
-        using FileStream fs = File.Create(JsonDataTargetPath);
-
-        // writing data in string
-        byte[] info = new UTF8Encoding(true).GetBytes(dataInput);
+        using FileStream fs = File.Create(JsonDataTargetPath + JsonDataTargetFile);
+        byte[] info = CompressToGzip(dataInput);
         fs.Write(info, 0, info.Length);
+    }
+
+    static byte[] CompressToGzip(string inputStr)
+    {
+        byte[] inputBytes = Encoding.UTF8.GetBytes(inputStr);
+
+        using var outputStream = new MemoryStream();
+        using (var gZipStream = new GZipStream(outputStream, CompressionMode.Compress))
+            gZipStream.Write(inputBytes, 0, inputBytes.Length);
+
+        var outputBytes = outputStream.ToArray();
+        return outputBytes;
     }
 }
