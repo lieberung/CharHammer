@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "CharHammer",
   "resources": {
-    "hash": "sha256-afO1gxNi2ZmWenpo9QE2vk56XKsVCvOqeMbRC2f/Mic=",
+    "hash": "sha256-oM1CN5rGM+NjlhQtNDaMa7koFks4utoBpSITSkIKQZQ=",
     "jsModuleNative": {
       "dotnet.native.8.0.0.45ykigla5r.js": "sha256-LjLDIz9+J7uuiwMlQ4HbNx2BnSpphOtO2MwkoI28vdI="
     },
@@ -17,9 +17,9 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "CharHammer.DataSource.wasm": "sha256-vz6IXwJ6brTfTy7G+OTnnspqIJLUPoRE9mCrgbtM3fc=",
-      "CharHammer.Models.wasm": "sha256-toNtiMsmBjPZSrB19ZfW8EZAzHiqFNu6CXLKHNEZNvA=",
-      "CharHammer.wasm": "sha256-mpNnkcmezb1WJ4tAT1KCrd3uDDoYIKY5MEFMqhaPf4U=",
+      "CharHammer.DataSource.wasm": "sha256-dUYndOcI3HZGXW2jbKMWC8/+OPlfhUQ8QwUVEzXeFn0=",
+      "CharHammer.Models.wasm": "sha256-cUsxBLg/ZATg4XbW5K3nE7B+XR5ZQKFmkw/wAuVhDIM=",
+      "CharHammer.wasm": "sha256-RmVwiSYGgvGU0MPiOFUI/G7nI4qZ8Czj/ybscQ0qRMs=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-KM8xI0m4JWGR6PHk6b6XMvG95Xlqw64PZCVQdEUDM3A=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-RNAqR0ff+baVaIhI+uEcLo9eT+pxGnBEvkCzqD+3roM=",
       "Microsoft.AspNetCore.Components.WebAssembly.wasm": "sha256-jxT5OPvGNxCa5Ode34Vj10dSuqq5umUUvi5WqGMI6uA=",

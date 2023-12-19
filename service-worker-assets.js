@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-tQaksIWamutBtqMGsbmyZxDjmCAyOkU1+Lj+2LBbvRU=",
+      "hash": "sha256-HWZ5kVAC\/W68rkXekUeOTpz432oqu5VfgHUtYslxW1I=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-vz6IXwJ6brTfTy7G+OTnnspqIJLUPoRE9mCrgbtM3fc=",
+      "hash": "sha256-dUYndOcI3HZGXW2jbKMWC8\/+OPlfhUQ8QwUVEzXeFn0=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-toNtiMsmBjPZSrB19ZfW8EZAzHiqFNu6CXLKHNEZNvA=",
+      "hash": "sha256-cUsxBLg\/ZATg4XbW5K3nE7B+XR5ZQKFmkw\/wAuVhDIM=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-mpNnkcmezb1WJ4tAT1KCrd3uDDoYIKY5MEFMqhaPf4U=",
+      "hash": "sha256-RmVwiSYGgvGU0MPiOFUI\/G7nI4qZ8Czj\/ybscQ0qRMs=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -2709,7 +2709,7 @@
       "url": "images\/races\/66s.png"
     },
     {
-      "hash": "sha256-dYO+RfOmawi5tn4gd2yorPmXooj1\/iJe\/YbEE33wF5w=",
+      "hash": "sha256-1j\/txTlBzecfA56ahTkmACiYmf9z2K1ERv+AjcCKUHU=",
       "url": "index.html"
     },
     {
@@ -2717,5 +2717,5 @@
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "SalAgneT"
+  "version": "bHWwyZQq"
 };
