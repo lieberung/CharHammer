@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-HWZ5kVAC\/W68rkXekUeOTpz432oqu5VfgHUtYslxW1I=",
+      "hash": "sha256-rntdz1pMtqtfaH+eMxmUBqlo\/lhW8I61bO2XYQR5XjY=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-dUYndOcI3HZGXW2jbKMWC8\/+OPlfhUQ8QwUVEzXeFn0=",
+      "hash": "sha256-L3XqdFHzvF5sf2tbl\/gAWewsL\/d6ThL4B252ztATKn4=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-cUsxBLg\/ZATg4XbW5K3nE7B+XR5ZQKFmkw\/wAuVhDIM=",
+      "hash": "sha256-KeYYCgePP+1l6zZMEOlECpk6tfN4SuPL\/TqSVYfk\/UY=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-RmVwiSYGgvGU0MPiOFUI\/G7nI4qZ8Czj\/ybscQ0qRMs=",
+      "hash": "sha256-LWA\/9xuNKnf1wom026RaYS87ckHe6RTkU0UI1436fzw=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -2709,7 +2709,7 @@
       "url": "images\/races\/66s.png"
     },
     {
-      "hash": "sha256-1j\/txTlBzecfA56ahTkmACiYmf9z2K1ERv+AjcCKUHU=",
+      "hash": "sha256-BOsGQDATfKEVwTvE\/qjsQab0PDfvajXNIg4\/FqSF50Q=",
       "url": "index.html"
     },
     {
@@ -2717,5 +2717,5 @@
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "bHWwyZQq"
+  "version": "75Rcmwvd"
 };
