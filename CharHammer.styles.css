@@ -151,13 +151,6 @@ main[b-z9g7u8iihb] {
         padding-right: 1.5rem !important;
     }
 }
-/* /Layout/MainTopRow/GodMode.razor.rz.scp.css */
-input[b-mriqqng6e4] {
-    font-size: .7rem;
-    padding: 0.2rem 0.5rem;
-    background-color: var(--bs-body-bg);
-    border: var(--bs-border-width) solid var(--bs-border-color);
-}
 /* /Layout/MainTopRow/TopRow.razor.rz.scp.css */
 .navbar[b-b5aj77rttq] {
     --bs-navbar-padding-y: 0.2rem;
@@ -191,6 +184,10 @@ input[b-wvoxovx6ew] {
 .pnj-estalien[b-xjipggcyf2] { color:#5e1a05; }
 .pnj-kanter[b-xjipggcyf2], .pnj-initie[b-xjipggcyf2] { color:darkslategrey; }
 .pnj-maitre[b-xjipggcyf2] { color: #a65a09 }
+/* /Pages/Index.razor.rz.scp.css */
+[b-6etnoxmyfl] .py-4 p:last-child {
+    margin-bottom: 0;
+}
 /* /Pages/Matos/EquipementArmures.razor.rz.scp.css */
 .table tbody[b-ylk0nf74yw] { font-size: 14px; }
 [b-ylk0nf74yw] .btn.btn-item { font-size: 14px; }
