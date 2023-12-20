@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.DataSource;
+﻿namespace CharHammer.DataSource;
 
 public record ScenarioJson(
     string nom,
@@ -17,4 +15,4 @@ public record ScenarioJson(
     string? difficulte
 );
 
-public record RootScenario(ICollection<ScenarioJson> scenarios);
+public record RootScenario(ScenarioJson[] scenarios);

@@ -1,6 +1,4 @@
-﻿using CharHammer.Models;
-
-namespace CharHammer.Services;
+﻿namespace CharHammer.Services;
 
 public class ChronologieService(IEnumerable<ChronologieDto> data, IReadOnlyDictionary<int, DomaineDto> domaines)
 {

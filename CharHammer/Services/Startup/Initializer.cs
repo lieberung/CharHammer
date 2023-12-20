@@ -560,8 +560,8 @@ internal static class Initializer
         {
             apt.NomPourRecherche = GenericService.NettoyerPourRecherche(apt.Nom);
             apt.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(apt.NomPourRecherche);
-            apt.AptitudesLiees = apt.AptitudesLieesIds.Select(id => result[id]).OrderBy(a => a.NomComplet).ToList();
-            apt.Incompatibles = apt.IncompatiblesIds.Select(id => result[id]).OrderBy(a => a.NomComplet).ToList();
+            apt.AptitudesLiees = [.. apt.AptitudesLieesIds.Select(id => result[id]).OrderBy(a => a.NomComplet)];
+            apt.Incompatibles = [.. apt.IncompatiblesIds.Select(id => result[id]).OrderBy(a => a.NomComplet)];
         }
 
         foreach (var apt in result.Values)

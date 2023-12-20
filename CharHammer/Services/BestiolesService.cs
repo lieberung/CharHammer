@@ -1,9 +1,5 @@
 ﻿namespace CharHammer.Services;
 
-using Models;
-using System.Collections.Generic;
-using System.Linq;
-
 public class BestiolesService(IReadOnlyDictionary<int, BestioleDto> data)
 {
     private IEnumerable<BestioleDto> AllBestioles { get; } = data.Values.OrderBy(b => b.Nom).ToArray();

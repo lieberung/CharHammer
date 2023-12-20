@@ -1,8 +1,5 @@
 ﻿namespace CharHammer.Models;
 
-using System.Linq;
-using System.Collections.Generic;
-
 public record AptitudeDto(
     int Id, bool Ignore, bool Martial, string Nom, string? NomEn, string? Spe,
     string Categ, string CategSpe, string? Max, int Severite, string Guerison,

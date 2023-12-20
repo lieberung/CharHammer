@@ -1,8 +1,4 @@
-﻿using System.Linq;
-
-namespace CharHammer.Models;
-
-using System.Collections.Generic;
+﻿namespace CharHammer.Models;
 
 public record ArmeDto(
     int Id, 

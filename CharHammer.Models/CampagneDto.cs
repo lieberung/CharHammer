@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record UserDto(int Id, string Email, string Pseudo);
 

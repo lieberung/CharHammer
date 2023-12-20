@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record DieuDto(int Id, string Nom, string Domaines, string Fideles, string Symboles, string Histoire, 
     string Commentaire, int? PatronId, LieuDto? Siege, string Chef, string Fetes, string LivresSaints, 

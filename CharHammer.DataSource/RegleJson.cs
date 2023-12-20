@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.DataSource;
+﻿namespace CharHammer.DataSource;
 
 public record RegleJson(
     int id,
@@ -15,4 +13,4 @@ public record RegleJson(
     int[]? tables,
     int[]? lieux);
 
-public record RootRegle(ICollection<RegleJson> regles);
+public record RootRegle(RegleJson[] regles);

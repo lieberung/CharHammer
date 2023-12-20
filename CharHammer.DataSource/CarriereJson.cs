@@ -1,7 +1,5 @@
 ﻿namespace CharHammer.DataSource;
 
-using System.Collections.Generic;
-
 public record CarriereJson(
     int id,
     int? parent,
@@ -30,4 +28,4 @@ public record SourceJson(int? id, string? info);
 
 public record CitationJson(string c, string? a, string? s);
 
-public record RootCarriere(ICollection<CarriereJson> carrieres);
+public record RootCarriere(CarriereJson[] carrieres);

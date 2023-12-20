@@ -33,6 +33,7 @@
 
 .h-12rem { height: 12rem; }
 .w-2rem { width: 2rem; }
+.w-3rem { width: 3rem; }
 .w-4rem { width: 4rem; }
 .w-5rem { width: 5rem; }
 .w-8rem { width: 8rem; }
@@ -71,7 +72,7 @@
     background-color: var(--theme-brown-lighter) !important;
 }
 
-.tgroupe {
+.tgroupe th {
     background-color: var(--theme-color) !important;
     color: white !important;
     font-family: var(--theme-font-family) !important;

@@ -60,5 +60,5 @@ public static class GenericService
 
     #endregion
 
-    public static bool DieuEstDAccord(string? password) => password == "666";
+    public static bool DieuEstDAccord(string? password) => password == "6800";
 }

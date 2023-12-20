@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.DataSource;
+﻿namespace CharHammer.DataSource;
 
 public record UserJson(int id, string email, string pseudo);
 
@@ -44,4 +42,4 @@ public record SeanceJson(
     FactJson[]? facts,
     RencontreJson[]? rencontres);
 
-public record RootCampagne(ICollection<UserJson> users, ICollection<CampagneJson> campagnes, ICollection<TeamJson> teams);
+public record RootCampagne(UserJson[] users, CampagneJson[] campagnes, TeamJson[] teams);

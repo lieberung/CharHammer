@@ -1,6 +1,4 @@
-﻿using CharHammer.Models;
-
-namespace CharHammer.Services;
+﻿namespace CharHammer.Services;
 
 public class CampagnesService(IEnumerable<CampagneDto> data)
 {

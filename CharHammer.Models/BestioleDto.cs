@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record BestioleDto(
     int Id, string DateDeCreation, int UserId, string Joueur, string Nom, string NomCourt,

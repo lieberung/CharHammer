@@ -11,13 +11,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharHammer.Models", "CharHa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{AB7B0BD3-BE33-42EC-B504-22CF0E226FCA}"
 	ProjectSection(SolutionItems) = preProject
-		Documents\bootstrap-javascript.txt = Documents\bootstrap-javascript.txt
-		Documents\chartre-codage.txt = Documents\chartre-codage.txt
-		Documents\idees-a-trier.txt = Documents\idees-a-trier.txt
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Documents\code-style.txt = Documents\code-style.txt
 		Documents\Idees.txt = Documents\Idees.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CharHammer.JsonWriter", "CharHammer.JsonWriter\CharHammer.JsonWriter.csproj", "{819FF163-6923-4A9D-A38F-9B62DD307E34}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Archives", "Archives", "{4693EF47-F203-4844-A41D-BEB1ADB1A685}"
+	ProjectSection(SolutionItems) = preProject
+		Documents\bootstrap-javascript.txt = Documents\bootstrap-javascript.txt
+		Documents\GodModeInput.css = Documents\GodModeInput.css
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +50,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4693EF47-F203-4844-A41D-BEB1ADB1A685} = {AB7B0BD3-BE33-42EC-B504-22CF0E226FCA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B029A413-1D23-42E6-9538-A72936418A09}

@@ -1,7 +1,5 @@
 ﻿namespace CharHammer.DataSource;
 
-using System.Collections.Generic;
-
 public record AptitudeJson(
     int id,
     int? parent,
@@ -10,8 +8,8 @@ public record AptitudeJson(
     string nom,
     string? nom_en,
     string? spe,
-    ICollection<int>? aptitudes,
-    ICollection<int>? incompatibles,
+    int[]? aptitudes,
+    int[]? incompatibles,
     bool ignorer,
     bool martial,
     string? carac,
@@ -23,4 +21,4 @@ public record AptitudeJson(
     string? guerison,
     bool? contagieux);
 
-public record RootAptitude(ICollection<AptitudeJson> aptitudes);
+public record RootAptitude(AptitudeJson[] aptitudes);

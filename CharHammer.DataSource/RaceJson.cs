@@ -1,7 +1,5 @@
 ﻿namespace CharHammer.DataSource;
 
-using System.Collections.Generic;
-
 public record RaceJson(
     int id,
     int? parent,
@@ -20,4 +18,4 @@ public record OpinionJson(int race, string ambiance);
 
 public record InfoJson(string? titre, string detail);
 
-public record RootRace(ICollection<RaceJson> races);
+public record RootRace(RaceJson[] races);

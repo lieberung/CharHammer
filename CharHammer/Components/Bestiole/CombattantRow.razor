@@ -7,8 +7,8 @@
     [Parameter, EditorRequired] public CombattantDto Item { get; set; } = null!;
     [Parameter, EditorRequired] public IEnumerable<CombattantDto> Adversaires { get; set; } = null!;
 
-    private string AdversaireActuel { get; set; } = "";
-    private bool AfficherFiche { get; set; }
+    string AdversaireActuel { get; set; } = "";
+    bool AfficherFiche { get; set; }
     
     void EngageContre(ChangeEventArgs e)
     {

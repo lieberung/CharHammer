@@ -1,9 +1,5 @@
 ﻿namespace CharHammer.Services;
 
-using Models;
-using System.Collections.Generic;
-using System.Linq;
-
 public class AptitudesService
 {
     private readonly IReadOnlyDictionary<int, AptitudeDto> _data;

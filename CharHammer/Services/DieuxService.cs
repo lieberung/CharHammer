@@ -1,9 +1,5 @@
 ﻿namespace CharHammer.Services;
 
-using Models;
-using System.Collections.Generic;
-using System.Linq;
-
 public class DieuxService(IReadOnlyDictionary<int, DieuDto> dataDieux)
 {
     //public IEnumerable<DieuDto> AllDieux { get; } dataDieux.Values.OrderBy(d => d.Nom).ToArray();

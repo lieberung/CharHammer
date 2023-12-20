@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record SortilegeDto(
     int Id, IEnumerable<AptitudeDto> Aptitudes, string Nom, string Type, string Distance,

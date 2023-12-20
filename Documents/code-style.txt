@@ -7,10 +7,13 @@ css :
  - override variables bootstrap quand c'est pertinent
 
 javascript :
- - pas de js
+ - pas de js (parce que c'est de la merde)
 
 razor :
  - éviter les .razor.cs
  - @code { } en début de composant
  - éviter les [Parameter] string Style
+ - pas de 'private', c'est la valeur par défaut et 99% des membres d'un component le sont
 
+cs :
+ - pas de get;set; inutiles

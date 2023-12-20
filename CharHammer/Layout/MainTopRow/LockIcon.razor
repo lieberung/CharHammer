@@ -1,4 +1,35 @@
-﻿@code {
-    [Parameter] public bool Unlocked { get; set; }
+﻿@inject AppState AppState
+@code {
+    bool Unlocked { get; set; }
+    bool Show { get; set; }
+
+    void OnIconClick()
+    {
+        if (Unlocked)
+            Verrouillage();
+        else
+            Show = !Show;
+    }
+
+    void Verrouillage()
+    {
+        Unlocked = false;
+        Show = false;
+        AppState.RenoncerAuStatutDivin();
+    }
+
+    void OnValidatePassword(string password)
+    {
+        AppState.PretendreEtreUnDieu(password);
+        Unlocked = AppState.JeSuisDieu;
+    }
+
+    void OnClose() { Show = false; }
 }
-<span class="oi oi-lock-@(Unlocked ? "unlocked" : "locked") top-row-icon" aria-hidden="true" style="top: -0.1rem;"></span>
+<span @onclick=@OnIconClick class="oi oi-lock-@(Unlocked ? "unlocked" : "locked") top-row-icon mt-1 hover-pointer" aria-hidden="true" style="top: -0.1rem;"></span>
+@if (Show && Unlocked == false)
+{
+    <div class="dropdown-menu shadow-lg show p-2 w-auto bg-brown-lighter" style="top:95%; left:40%;">
+        <NumPad OnCloseRequest=OnClose OnValidatePassword=OnValidatePassword />
+    </div>
+}

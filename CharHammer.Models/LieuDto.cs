@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record LieuTypeDto(int Id, string Nom, int? ParentId)
 {

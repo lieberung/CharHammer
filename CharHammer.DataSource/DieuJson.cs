@@ -1,7 +1,5 @@
 ﻿namespace CharHammer.DataSource;
 
-using System.Collections.Generic;
-
 public record OrdreJson(int id, string? nom, int[]? aptitudes, string? description, bool mineur, string? ambiance);
 
 public record AptitudesAssocieesJson(int[]? initie, int[]? pretre_sans_ordre);
@@ -44,4 +42,4 @@ public record DieuJson(
     PersonnaliteJson[]? personnalites,
     OrdreJson[]? ordres);
 
-public record RootDieu(ICollection<DieuJson> dieux);
+public record RootDieu(DieuJson[] dieux);

@@ -80,3 +80,43 @@ Réaction/ = Dexterité (1-3) + Intuition (1-3) + Vivacité (1-3)
 Un instrument/ une musique d'ambiance par classe de PNJ lorsque le dialogue est initié.
 Certains PNJ spéciaux ont leur propre musique/instrument.
 
+########################## A TRIER #############################
+
+chronologie : la reine des glaces p.17
+
+illustrations : pb des droits d'auteur : tout passer en noir plein : on ne garde que les contours et l'intérieur est noir comme les dessins dans le grimoire (fanzine)
+filtres sur carrières :
+checkbox :	listes des références (livres)
+radio :		base & avancé / base uniquement / avancées uniquement
+thèmes (voir les mille trones 1) :	martiales / de sorcellerie / théologiques / marchandes / de bourgeoisie / de filouterie / connaissance / voyageurs / rurales / urbaines / naines / elfes / chevaleresques (pas que bretonnie) / militaires / maritimes
+officielles / non officiels / adaptations v1
+
+système de mémorisation des carrières "naviguées" d'une session
+calcul des chemins les plus courts pour accéder à la carrière affichée (par rapport à son perso 'actif')
+
+sondage : comment s'appelle votre perso / quelle est votre race (avec compteur par race) / votre carrière préférée / carrières les plus typiques/mythiques de l'univers (5 choix)
+
+calcul de points d'intervention sur le site avec grades genre le cercle/conseil des huit
+acolyte
+magus
+magister impedimenta
+membre du conseil intérieur
+chef du conseil intérieur
+porte parole de Tzeentch
+
+règles :
+- parade
+- esquive
+- poisons (principautés frontalières p.84)
+- folies (v1 + v2 + v3)
+
+générateur de noms (mettre des images par sexe/race) :
+- royaumes renégats p.114-116
+- nains pierre et acier
+
+générateur de persos :
+- 3 modes : assistant (suivant, suivant), aléatoire (règles de base), personnalisé (on choisit tout, ce choix est accessible dans le upper menu tout le temps)
+- choisir le nb de persos à générer et ouvrir x onglets
+- permettre aux utilisateurs d'ajouter des carrières persos ?
+
+Astrologie : plan de carrière non renseigné

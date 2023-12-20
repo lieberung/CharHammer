@@ -1,7 +1,5 @@
 ﻿namespace CharHammer.DataSource;
 
-using System.Collections.Generic;
-
 public record CreatureJson(
     int id,
     ProfilJson profil_actuel,
@@ -41,4 +39,4 @@ public record CreatureJson(
     int[]? equipement,
     int[]? sorts);
 
-public record RootCreature(ICollection<CreatureJson> creatures);
+public record RootCreature(CreatureJson[] creatures);

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record IngredientsDto(string Prix, string Localisation, string Difficulte);
 

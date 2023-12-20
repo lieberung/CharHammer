@@ -1,8 +1,5 @@
 ﻿namespace CharHammer.Services;
 
-using Models;
-using System.Collections.Generic;
-
 public class RacesService(IReadOnlyDictionary<int, RaceDto> data)
 {
     public IEnumerable<RaceDto> AllRaces { get; } = data.Values.ToArray();

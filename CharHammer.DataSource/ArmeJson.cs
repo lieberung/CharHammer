@@ -1,7 +1,5 @@
 ﻿namespace CharHammer.DataSource;
 
-using System.Collections.Generic;
-
 public record ArmeAttributJson(int id, string type, string nom, string description);
 
 public record ArmeJson(
@@ -33,4 +31,4 @@ public record ArmureJson(
     string description,
     int[]? attributs);
 
-public record RootArme(ICollection<ArmeAttributJson> attributs, ICollection<ArmeJson> armes, ICollection<ArmureJson> armures);
+public record RootArme(ArmeAttributJson[] attributs, ArmeJson[] armes, ArmureJson[] armures);

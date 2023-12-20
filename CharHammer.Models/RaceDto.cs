@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record RaceDto(
     int Id, bool PourPj, bool GroupOnly, string NomMasculin, string NomFeminin, string Autochtones, string Description, int? ParentId,

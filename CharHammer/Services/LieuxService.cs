@@ -1,9 +1,5 @@
 ﻿namespace CharHammer.Services;
 
-using Models;
-using System.Collections.Generic;
-using System.Linq;
-
 public class LieuxService(IReadOnlyDictionary<int, LieuTypeDto> dataLieuxTypes, IReadOnlyDictionary<int, LieuDto> data)
 {
     protected IReadOnlyDictionary<int, LieuTypeDto> AllTypesDeLieu => dataLieuxTypes;

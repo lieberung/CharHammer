@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.DataSource;
+﻿namespace CharHammer.DataSource;
 
 public record IngredientsJson(string prix, string localisation, string difficulte);
 
@@ -23,4 +21,4 @@ public record EquipementJson(
     int[]? lieuxtypes,
     PotionJson? potion);
 
-public record RootEquipement(ICollection<EquipementJson> equipements);
+public record RootEquipement(EquipementJson[] equipements);

@@ -1,9 +1,5 @@
 ﻿namespace CharHammer.Services;
 
-using Models;
-using System.Collections.Generic;
-using System.Linq;
-
 public class CarrieresService(IReadOnlyDictionary<int, CarriereDto> data)
 {
     public IEnumerable<CarriereDto> AllCarrieres { get; } = data.Values.OrderBy(t => t.Nom).ToArray();

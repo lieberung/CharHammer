@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record ScenarioDto(
     string Nom, int Note, string Difficulte, string Lien, string Duree, string Resume, 

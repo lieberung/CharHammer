@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CharHammer.DataSource;
+﻿namespace CharHammer.DataSource;
 
 public record SortilegeJson(
     int id,
@@ -14,4 +12,4 @@ public record SortilegeJson(
     string effet,
     int? ns);
 
-public record RootSortilege(ICollection<SortilegeJson> sortileges);
+public record RootSortilege(SortilegeJson[] sortileges);

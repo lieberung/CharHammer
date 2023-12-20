@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record ProfilDto(int Cc, int Ct, int F, int E, int I, int Ag, int Dex, int Int, int Fm, int Soc, int M, int B)
 {

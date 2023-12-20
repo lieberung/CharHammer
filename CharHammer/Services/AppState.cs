@@ -31,4 +31,10 @@ public class AppState
         JeSuisDieu = GenericService.DieuEstDAccord(password);
         NotifyStateChanged();
     }
+
+    public void RenoncerAuStatutDivin()
+    {
+        JeSuisDieu = false;
+        NotifyStateChanged();
+    }
 }

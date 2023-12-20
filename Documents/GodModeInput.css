@@ -1,4 +1,4 @@
-﻿input {
+﻿input { /* + class="w-5rem rounded" */
     font-size: .7rem;
     padding: 0.2rem 0.5rem;
     background-color: var(--bs-body-bg);

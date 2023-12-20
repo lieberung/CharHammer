@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record CombattantDto(BestioleDto Combattant, string Nom, bool Ennemi)
 {
