@@ -4,7 +4,6 @@
 @using CharHammer.Components.Equipement
 
 @inject ArmesService Service
-@inject AppState AppState
 @code {
     [Parameter] public string Groupe { get; set; } = "";
 
@@ -13,13 +12,8 @@
     private bool AfficherArmuresLegeres => Groupe is "toutes" or "legeres";
     private bool AfficherArmuresMoyennes => Groupe is "toutes" or "moyennes";
     private bool AfficherArmuresLourdes => Groupe is "toutes" or "lourdes";
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Armures et Vêtements");
-    }
 }
-
+<TopRowTitleSection Title="Armures et Vêtements" />
 <SousMenu>
     <a href="equipement/armures/toutes/" class="btn btn-sm w-8rem @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
     <a href="equipement/armures/legeres/" class="btn btn-sm w-8rem @(Groupe == "legeres" ? "btn-primary" : "btn-secondary")">Légères</a>

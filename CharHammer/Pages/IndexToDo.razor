@@ -5,13 +5,8 @@
 
 @inject CarrieresService CarrSvc
 @inject AptitudesService AptSvc
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Au travail !");
-    }
-}
+
+<TopRowTitleSection Title="Au travail !" />
 <div class="section">
     <h4>Carrières sans Description</h4>
     <CarriereItemList Items=@CarrSvc.AllCarrieres.Where(c => string.IsNullOrWhiteSpace(c.Description)) />

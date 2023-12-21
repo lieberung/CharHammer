@@ -4,17 +4,12 @@
 @using CharHammer.Components.Campagne
 
 @inject ScenariosService Service
-@inject AppState AppState
 @code {
     string Filtre { get; set; } = "";
     string Auteur { get; set; } = "";
     bool PasDeDaubes { get; set; } = true;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Scénarios");
-    }
 }
+<TopRowTitleSection Title="Scénarios" />
 <div class="px-5 py-2">
     <div class="navbar">
         <span>

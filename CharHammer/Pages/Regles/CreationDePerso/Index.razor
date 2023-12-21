@@ -1,16 +1,10 @@
 ﻿@page "/regles/creation-de-personnage/{RaceId}/"
 
 @inject RacesService Service
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
 
     private RaceSelectionnee _selection = null!;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Création de personnage");
-    }
 
     protected override void OnParametersSet()
     {
@@ -18,6 +12,7 @@
         _selection = new RaceSelectionnee(race);
     }
 }
+<TopRowTitleSection Title="Création de personnage" />
 <S1_DeterminerLaRace Selection=@_selection />
 <PageSectionDivider />
 <S2_DeterminerSesCarac />

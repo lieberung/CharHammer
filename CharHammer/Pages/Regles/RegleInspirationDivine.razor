@@ -7,13 +7,9 @@
 @inject CarrieresService CarrSvc
 @inject TablesService TablesSvc
 @inject AptitudesService CttSvc
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Inspiration et Colère Divine");
-    }
-}
+
+<TopRowTitleSection Title="Inspiration et Colère Divine" />
+
 <div class="row">
     <div class="col-4">
         <div class="section">

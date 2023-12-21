@@ -26,8 +26,6 @@
             _ => Service.GetSeance(int.Parse(CampagneId), DateSeance)
         };
 
-        AppState.SetMainTopRowTitle(_seance.Quand + " - " + _seance.Titre);
-
         _aptitudes = _seance.Pjs
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
             .Distinct()
@@ -52,6 +50,7 @@
         _localisationRoll = GenericService.GetLocalisation(d100);
     }
 }
+<TopRowTitleSection Title=@(_seance.Quand + " - " + _seance.Titre) />
 <div class="row">
     <div class="col-6">
         <div class="section rounded-2 bg-white">

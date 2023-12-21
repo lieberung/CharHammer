@@ -5,22 +5,17 @@
 @using CharHammer.Components.Profil
 
 @inject CarrieresService Service
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CarriereId { get; set; } = null!;
 
-    private CarriereDto Item { get; set; } = null!;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Carrière");
-    }
+    CarriereDto Item { get; set; } = null!;
 
     protected override void OnParametersSet()
     {
         Item = Service.GetCarriere(int.Parse(CarriereId));
     }
 }
+<TopRowTitleSection Title="Carrière" />
 <div class="row">
 
     <div class="col pe-0">

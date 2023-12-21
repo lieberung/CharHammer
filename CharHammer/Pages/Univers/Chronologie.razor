@@ -1,20 +1,15 @@
 ﻿@page "/chronologie"
 
 @inject ChronologieService Service
-@inject AppState AppState
 @code {
     string selectedDomaine = "Tous";
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Chronologie");
-    }
 
     void SelectDomaine(string domaine)
     {
         selectedDomaine = domaine;
     }
 }
+<TopRowTitleSection Title="Chronologie" />
 <div class="section">
     <button class="btn btn-sm me-2 mb-1 @(selectedDomaine == "Tous" ? "btn-primary" : "btn-secondary")"
             @onclick=@(_ => SelectDomaine("Tous"))>

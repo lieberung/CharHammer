@@ -4,13 +4,9 @@
 @using CharHammer.Components.Regle
 
 @inject AptitudesService CttService
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Corruption et Mutations");
-    }
-}
+
+<TopRowTitleSection Title="Corruption et Mutations" />
+
 <div class="row">
     <div class="col-4">
         <div class="section">

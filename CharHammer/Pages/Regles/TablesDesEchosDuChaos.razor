@@ -3,13 +3,9 @@
 @using CharHammer.Components.Table
 
 @inject TablesService Service
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Sorcellerie");
-    }
-}
+
+<TopRowTitleSection Title="Sorcellerie" />
+
 <div class="row mb-3">
     <div class="col-5">
         <TableDetail Item=@Service.GetTable(667) />

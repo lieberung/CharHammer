@@ -4,18 +4,12 @@
 
 @inject RacesService RacesSvc
 @inject TableDesCarrieresInitialesService TableDesCarrInitService
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string RaceId { get; set; } = null!;
 
     bool _afficherTirage;
     RaceDto Race = null!;
     List<CarriereDto> _tirage = [];
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Table des carrières initiales");
-    }
 
     protected override void OnParametersSet()
     {
@@ -38,6 +32,8 @@
         _afficherTirage = true;
     }
 }
+<TopRowTitleSection Title="Table des carrières initiales" />
+
 <SousMenu>
     @foreach (var race in new[] { RacesSvc.Humains, RacesSvc.Halflings, RacesSvc.Nains, RacesSvc.ElfesSylvains, RacesSvc.HautsElfes, RacesSvc.Gnomes })
     {

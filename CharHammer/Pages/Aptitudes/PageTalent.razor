@@ -6,23 +6,17 @@
 
 @inject AptitudesService Service
 @inject SortilegesService SortilegesService
-@inject AppState AppState
-
 @code {
     [Parameter, EditorRequired] public string TalentId { get; set; } = null!;
 
     AptitudeDto Item { get; set; } = null!;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Talent");
-    }
 
     protected override void OnParametersSet()
     {
         Item = Service.GetTalent(int.Parse(TalentId));
     }
 }
+<TopRowTitleSection Title="Talent" />
 <div class="row">
 
     <ColFrise />

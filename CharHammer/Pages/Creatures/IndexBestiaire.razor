@@ -9,10 +9,10 @@
 
     protected override void OnInitialized()
     {
-        AppState.SetMainTopRowTitle("Bestiaire");
         _groupes = Service.BestiolesRegroupees(AppState.JeSuisDieu);
     }
 }
+<TopRowTitleSection Title="Bestiaire" />
 @foreach (var groupe in _groupes.Keys)
 {
     <div class="section">

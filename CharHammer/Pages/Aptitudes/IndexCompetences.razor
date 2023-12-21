@@ -3,16 +3,15 @@
 @using CharHammer.Components.Aptitude
 
 @inject AptitudesService Service
-@inject AppState AppState
 @code {
     private IEnumerable<AptitudeDto> _items = null!;
 
     protected override void OnInitialized()
     {
-        AppState.SetMainTopRowTitle("Compétences");
         _items = Service.AllCompetences;
     }
 }
+<TopRowTitleSection Title="Compétences" />
 <div class="row">
     <div class="col">
         <p class="text-justify">

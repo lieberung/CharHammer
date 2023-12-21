@@ -9,9 +9,9 @@
 @code {
     [Parameter, EditorRequired] public string LieuId { get; set; } = null!;
 
-    private LieuDto Item { get; set; } = null!;
-    private IEnumerable<ScenarioDto> _scenarios = [];
-    private string _topRowTitle = "";
+    LieuDto Item { get; set; } = null!;
+    IEnumerable<ScenarioDto> _scenarios = [];
+    string _topRowTitle = "";
 
     protected override void OnParametersSet()
     {
@@ -20,7 +20,6 @@
         _topRowTitle = $"{Item.Nom}, {Item.TypeDeLieu.Nom}";
         if (Item.Parent is not null)
             _topRowTitle += $" ({Item.Parent?.Nom})";
-        AppState.SetMainTopRowTitle(_topRowTitle);
 
         if (AppState.JeSuisDieu)
         {
@@ -29,9 +28,9 @@
                 .AllScenarios(lieux.Union(Item.SousElements).ToArray())
                 .Where(s => s.Note is 0 or > 2);
         }
-
     }
 }
+<TopRowTitleSection Title=@_topRowTitle />
 <div class="row">
     <div class="col-6">
         <div class="section">

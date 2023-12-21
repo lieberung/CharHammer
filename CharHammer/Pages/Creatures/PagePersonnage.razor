@@ -5,18 +5,17 @@
 
 @inject BestiolesService Service
 @inject CampagnesService CampagnesService
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CreatureId { get; set; } = null!;
 
-    private BestioleDto? Item { get; set; }
+    BestioleDto? Item { get; set; }
 
     protected override void OnParametersSet()
     {
         Item = Service.GetBestiole(int.Parse(CreatureId));
-        AppState.SetMainTopRowTitle("Créé le " + Item.DateDeCreation);
     }
 }
+<TopRowTitleSection Title=@("Créé le " + Item?.DateDeCreation ?? "") />
 <div class="row pt-2">
     <div class="col-8">
         <div class="py-2">

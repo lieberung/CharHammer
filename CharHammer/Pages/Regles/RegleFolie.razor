@@ -5,13 +5,9 @@
 
 @inject TablesService TablesService
 @inject AptitudesService CttService
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Psychologie et Folies");
-    }
-}
+
+<TopRowTitleSection Title="Psychologie et Folies" />
+
 <div class="row">
     <div class="col-5">
         <div class="section">

@@ -6,17 +6,11 @@
 
 @inject ArmesService ArmesService
 @inject TablesService TablesService
-@inject AppState AppState
 @code {
     [Parameter] public string Groupe { get; set; } = "";
 
     IEnumerable<string> _allGroupes = null!;
     IEnumerable<string> _showGroupes = null!;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Guide du Consommateur");
-    }
 
     protected override void OnParametersSet()
     {
@@ -36,6 +30,7 @@
 
     string GetGroupeLabel(string groupe) => _allGroupes.First(g => Clean(g) == Clean(groupe));
 }
+<TopRowTitleSection Title="Guide du Consommateur" />
 <div class="navbar">
     <a href="guide-du-consommateur/tout/" class="btn btn-sm @(Clean(Groupe) == "tout" ? "btn-primary" : "btn-secondary")">
         <span class="oi oi-box item-icon text-white" aria-hidden="true"></span>

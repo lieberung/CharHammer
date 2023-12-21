@@ -7,13 +7,8 @@
 
 @inject ReglesService ReglesService
 @inject TablesService TablesService
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Environnement : Les égouts");
-    }
-}
+
+<TopRowTitleSection Title="Environnement : Les égouts" />
 <div class="row">
     <div class="col px-0">
         <div class="section">

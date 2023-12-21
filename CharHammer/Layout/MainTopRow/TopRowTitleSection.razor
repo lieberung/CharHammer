@@ -1,0 +1,6 @@
+﻿@code {
+    [Parameter, EditorRequired] public string Title { get; set; } = null!;
+}
+<SectionContent SectionName="top-row-title">
+    <TopRowTitle Title=@Title />
+</SectionContent>

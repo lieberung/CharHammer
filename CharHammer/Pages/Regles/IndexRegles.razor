@@ -1,13 +1,8 @@
 ﻿@page "/regles/"
 
 @inject ReglesService Service
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Règles en vrac");
-    }
-}
+
+<TopRowTitleSection Title="Règles en vrac" />
 <table class="table table-striped">
     <tbody>
     @foreach (var regle in Service.AllRegles.OrderBy(r => r.Titre))

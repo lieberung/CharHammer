@@ -4,12 +4,8 @@
 
 @inject RacesService Service
 @inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Races");
-    }
-}
+
+<TopRowTitleSection Title="Races" />
 <table class="table table-striped">
     <thead>
         <tr><th></th><th>Nom</th><th>PJ</th><th></th><th>Lieux</th></tr>

@@ -4,7 +4,6 @@
 @using CharHammer.Helpers
 
 @inject AptitudesService Service
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string GroupeActif { get; set; } = null!;
 
@@ -13,11 +12,6 @@
     int _nbColonnes;
     string _determinant = "";
     string _typeDeTrait = "";
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Tables des traits et troubles");
-    }
 
     protected override void OnParametersSet()
     {
@@ -54,6 +48,8 @@
         _traitAleatoire = Traits.TirerUneAptitudeAleatoire(_traitAleatoire is null ? [] : [_traitAleatoire]);
     }
 }
+<TopRowTitleSection Title="Tables des traits et troubles" />
+
 <div class="row">
     <div class="col-9">
         <div class="section">

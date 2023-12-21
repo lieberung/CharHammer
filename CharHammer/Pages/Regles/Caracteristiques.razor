@@ -5,18 +5,13 @@
 
 @inject AptitudesService Service
 @inject TablesService TablesService
-@inject AppState AppState
 @code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Caractéristiques");
-    }
-
     private IEnumerable<AptitudeDto> GetByCarac(string carac) =>
         Service.AllCompetences.Where(c =>
             (c.CaracteristiqueAssociee == carac || c.CaracteristiqueAssociee.StartsWith($"{carac}/") || c.CaracteristiqueAssociee.EndsWith($"/{carac}"))
             && c.Parent is null);
 }
+<TopRowTitleSection Title="Caractéristiques" />
 <div class="row">
     <div class="col-4">
         <div class="section">

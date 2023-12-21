@@ -4,23 +4,17 @@
 @using CharHammer.Components.Aptitude
 
 @inject AptitudesService Service
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string TraitId { get; set; } = null!;
 
     AptitudeDto Item { get; set; } = null!;
 
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Trait");
-    }
-
     protected override void OnParametersSet()
     {
         Item = Service.GetAptitude(int.Parse(TraitId));
-        AppState.SetMainTopRowTitle(Item.CategSpe);
     }
 }
+<TopRowTitleSection Title=@Item.CategSpe />
 <div class="row">
     <ColFrise />
     <div class="col-5">

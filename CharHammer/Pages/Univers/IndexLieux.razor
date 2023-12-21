@@ -3,16 +3,10 @@
 @using CharHammer.Components.Lieu
 
 @inject LieuxService Service
-@inject AppState AppState
 @code {
     [Parameter] public string Reference { get; set; } = "monde";
 
     IEnumerable<LieuDto> _items = null!;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Lieux");
-    }
 
     protected override void OnParametersSet()
     {
@@ -25,6 +19,7 @@
         };
     }
 }
+<TopRowTitleSection Title="Lieux" />
 <SousMenu>
     <a href="lieux/monde/" class="btn btn-sm w-8rem @(Reference == "monde" ? "btn-primary" : "btn-secondary")">Monde</a>
     <a href="lieux/vieux-monde/" class="btn btn-sm w-8rem @(Reference == "vieux-monde" ? "btn-primary" : "btn-secondary")">Le Vieux Monde</a>

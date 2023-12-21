@@ -1,12 +1,6 @@
 ﻿@page "/univers/introduction/"
 
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Le Monde de Warhammer");
-    }
-}
+<TopRowTitleSection Title="Le Monde de Warhammer" />
 <div class="row">
     <div class="col">
         <div class="section bg-white rounded-2">

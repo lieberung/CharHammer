@@ -3,15 +3,10 @@
 @using CharHammer.Components.Campagne
 
 @inject CampagnesService Service
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Carnets de Campagne");
-    }
 }
+<TopRowTitleSection Title="Carnets de Campagne" />
 <div class="row section">
     @foreach (var campagne in Service.AllCampagnes)
     {

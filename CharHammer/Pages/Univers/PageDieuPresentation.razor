@@ -7,7 +7,6 @@
 @inject DieuxService Service
 @inject AptitudesService AptitudesService
 @inject SortilegesService SortilegesService
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string Dieu { get; set; } = null!;
 
@@ -101,10 +100,9 @@
                 break;
         }
         _dieuSiege = _dieu.Siege != null ? $"{_dieu.Siege!.Nom}, {_dieu.Siege.Parent!.Nom}" : "aucun.";
-
-        AppState.SetMainTopRowTitle(_dieu.Nom);
     }
 }
+<TopRowTitleSection Title=@_dieu.Nom />
 <div class="row">
 
     <div class="col-5">

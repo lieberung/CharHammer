@@ -1,15 +1,7 @@
 ﻿@page "/regles/base/"
 
-@* @inject CarrieresService _carrSvc *@
-@* @inject TablesService _tableSvc *@
-@* @inject AptitudesService _aptSvc *@
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Les Tests, la base...");
-    }
-}
+<TopRowTitleSection Title="Les Tests, la base..." />
+
 <div class="row mb-3">
 
     <div class="col-4">

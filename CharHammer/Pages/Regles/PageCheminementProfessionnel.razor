@@ -4,13 +4,8 @@
 @using CharHammer.Components.Regle
 
 @inject CarrieresService CarrSvc
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Cheminement professionnel");
-    }
-}
+
+<TopRowTitleSection Title="Cheminement professionnel" />
 <div class="row">
     <div class="col-7">
         <div class="section">

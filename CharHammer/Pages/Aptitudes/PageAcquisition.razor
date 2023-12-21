@@ -3,13 +3,8 @@
 @using CharHammer.Components.Table
 
 @inject TablesService Service
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("");
-    }
-}
+
+<TopRowTitleSection Title="Acquisition" />
 <div class="row">
 
     <div class="col-4 pr-0">

@@ -5,21 +5,15 @@
 
 @inject ArmesService Service
 @inject AptitudesService AptitudesService
-@inject AppState AppState
 @code {
-        [Parameter] public string Filtre { get; set; } = "";
-        [Parameter] public string Groupe { get; set; } = "";
+    [Parameter] public string Filtre { get; set; } = "";
+    [Parameter] public string Groupe { get; set; } = "";
 
-        AptitudeDto? CompetenceActuelle { get; set; }
-        ArmeAttributDto? GroupeActuel { get; set; }
+    AptitudeDto? CompetenceActuelle { get; set; }
+    ArmeAttributDto? GroupeActuel { get; set; }
 
-        IEnumerable<ArmeDto> _armesDeCaC = ArraySegment<ArmeDto>.Empty;
-        IEnumerable<ArmeDto> _armesDeTir = ArraySegment<ArmeDto>.Empty;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Armes");
-    }
+    IEnumerable<ArmeDto> _armesDeCaC = ArraySegment<ArmeDto>.Empty;
+    IEnumerable<ArmeDto> _armesDeTir = ArraySegment<ArmeDto>.Empty;
 
     protected override void OnParametersSet()
     {
@@ -68,7 +62,7 @@
         return str[..1].ToUpper() + str[1..];
     }
 }
-
+<TopRowTitleSection Title="Armes" />
 <SousMenu>
     <a href="equipement/armes-liste/toutes/@Groupe/" class="btn btn-sm w-8rem @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
     <a href="equipement/armes-liste/melee/@Groupe/" class="btn btn-sm w-8rem @(Filtre == "melee" ? "btn-primary" : "btn-secondary")">Mélee</a>

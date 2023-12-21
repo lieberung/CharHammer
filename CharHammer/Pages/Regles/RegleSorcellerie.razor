@@ -6,13 +6,9 @@
 
 @inject TablesService TablesSvc
 @inject AptitudesService AptSvc
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Sorcellerie");
-    }
-}
+
+<TopRowTitleSection Title="Sorcellerie" />
+
 <div class="row">
     <div class="col-4">
         <div class="section">

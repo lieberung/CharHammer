@@ -3,7 +3,6 @@
 @using CharHammer.Components.Aptitude
 
 @inject RacesService Service
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string Race { get; set; } = null!;
 
@@ -32,10 +31,9 @@
             if (i == 0)
                 _autochtones = _autochtones.ToUpper();
         }
-
-        AppState.SetMainTopRowTitle("Les " + _autochtones);
     }
 }
+<TopRowTitleSection Title=@("Les " + _autochtones) />
 <div class="row">
 
     <div class="col">

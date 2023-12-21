@@ -8,7 +8,6 @@
 @using System.Linq
 
 @inject CampagnesService Service
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
 
@@ -24,8 +23,6 @@
         _seancePrecedente = _campagne.SeancePrecedente();
         _seanceActuelle = _campagne.SeanceActuelle();
 
-        AppState.SetMainTopRowTitle(_campagne.Titre);
-
         _aptitudes = _seanceActuelle.Pjs
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
             .Distinct()
@@ -37,6 +34,7 @@
             .OrderBy(a => a.Nom);
     }
 }
+<TopRowTitleSection Title=@_campagne.Titre />
 <div class="row mt-3">
     <div class="col-6">
         <div class="section rounded-2 bg-white">

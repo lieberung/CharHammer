@@ -26,7 +26,7 @@
 
     void OnClose() { Show = false; }
 }
-<span @onclick=@OnIconClick class="oi oi-lock-@(Unlocked ? "unlocked" : "locked") top-row-icon mt-1 hover-pointer" aria-hidden="true" style="top: -0.1rem;"></span>
+<span @onclick=@OnIconClick class="oi oi-lock-@(Unlocked ? "unlocked" : "locked") top-row-icon float-end hover-pointer" aria-hidden="true" style="top: .1rem;"></span>
 @if (Show && Unlocked == false)
 {
     <div class="dropdown-menu shadow-lg show p-2 w-auto bg-brown-lighter" style="top:95%; left:40%;">

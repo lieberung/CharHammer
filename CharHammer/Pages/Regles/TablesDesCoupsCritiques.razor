@@ -7,16 +7,10 @@
 @inject ReglesService ReglesService
 @inject TablesService TablesService
 @inject AptitudesService AptitudesService
-@inject AppState AppState
 @code {
     [Parameter, EditorRequired] public string Zone { get; set; } = null!;
 
     int _tableId;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Tables des coups critiques");
-    }
 
     protected override void OnParametersSet()
     {
@@ -39,6 +33,8 @@
     {
     }
 }
+<TopRowTitleSection Title="Tables des coups critiques" />
+
 <div class="row">
     <div class="col-9">
         <div class="section">

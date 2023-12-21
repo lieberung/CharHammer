@@ -7,13 +7,9 @@
 @inject TablesService TablesService
 @inject AptitudesService AptSvc
 @inject ArmesService ArmesService
-@inject AppState AppState
-@code {
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Déroulement d'une bataille");
-    }
-}
+
+<TopRowTitleSection Title="Déroulement d'une bataille" />
+
 <img class="shadow p-1 mb-5 bg-white rounded w-100" src="images/ambiance/bataille.jpg" alt="Baston !!!" />
 
 <div class="row">

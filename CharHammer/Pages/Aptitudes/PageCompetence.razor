@@ -6,22 +6,17 @@
 
 @inject AptitudesService Service
 @inject ArmesService ArmesService
-@inject AppState AppState
 @code {
     [Parameter] public string CompetenceId { get; set; } = null!;
 
     AptitudeDto Item { get; set; } = null!;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Compétence");
-    }
 
     protected override void OnParametersSet()
     {
         Item = Service.GetAptitude(int.Parse(CompetenceId));
     }
 }
+<TopRowTitleSection Title="Compétence" />
 <div class="row">
     <ColFrise />
     <div class="col-5">

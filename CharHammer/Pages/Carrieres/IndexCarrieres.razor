@@ -3,7 +3,6 @@
 @using CharHammer.Components.Carriere
 
 @inject CarrieresService Service
-@inject AppState AppState
 @code {
     [Parameter] public string Theme { get; set; } = "";
     [Parameter] public string Filtre { get; set; } = "";
@@ -11,11 +10,6 @@
     private List<CarriereDto> _carrieresLines = null!;
     private IEnumerable<CarriereDto> _carrieresDeBase = null!;
     private IEnumerable<CarriereDto> _carrieresAvancees = null!;
-
-    protected override void OnInitialized()
-    {
-        AppState.SetMainTopRowTitle("Carrières");
-    }
 
     protected override void OnParametersSet()
     {
@@ -59,7 +53,7 @@
         _carrieresAvancees = _carrieresLines.Where(c => c.Parent is null && c.EstUneCarriereAvancee);
     }
 }
-
+<TopRowTitleSection Title="Carrières" />
 <SousMenu>
     <a href="carrieres-liste/@Theme/toutes/" class="btn btn-sm w-8rem @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
     <a href="carrieres-liste/@Theme/de-base/" class="btn btn-sm w-8rem @(Filtre == "de-base" ? "btn-primary" : "btn-secondary")">Base</a>
