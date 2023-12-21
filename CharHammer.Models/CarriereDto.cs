@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CharHammer.Models;
+﻿namespace CharHammer.Models;
 
 public record TirageDto(RaceDto Race, int Facteur);
 

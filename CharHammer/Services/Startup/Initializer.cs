@@ -1,5 +1,4 @@
 ﻿using CharHammer.DataSource;
-using CharHammer.Models;
 
 namespace CharHammer.Services.Startup;
 

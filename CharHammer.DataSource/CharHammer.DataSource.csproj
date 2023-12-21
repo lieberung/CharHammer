@@ -10,4 +10,12 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="E:\Projets\GitHub\CharHammer\CharHammer.DataSource\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="E:\Projets\GitHub\CharHammer\CharHammer.DataSource\.editorconfig" />
+  </ItemGroup>
+
 </Project>

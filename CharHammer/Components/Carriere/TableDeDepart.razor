@@ -13,7 +13,7 @@
 
     protected override void OnParametersSet()
     {
-        _splitedLines = Service.GetByRace(RaceId).ToArray().SplitOnMaxSlices(4);
+        _splitedLines = Service.GetByRace(RaceId).ToArray().SplitOnMaxSlices(4).ToArray();
 
         _col1Lines = _splitedLines.ElementAt(0).ToArray();
         _col2Lines = _splitedLines.ElementAt(1).ToArray();
@@ -23,7 +23,7 @@
 }
 <table>
     <tbody>
-    @for (var i = 0; i < _col1Lines.Count(); i++)
+    @for (var i = 0; i < _col1Lines.Length; i++)
     {
         <tr>
             @if (i == 0 || _col1Lines[i - 1].Carriere.Groupe != _col1Lines[i].Carriere.Groupe)
@@ -36,7 +36,7 @@
                 <td></td>
                 <CarriereInitialeCell Item=@_col1Lines[i] />
             }
-            @if (i < _col2Lines.Count())
+            @if (i < _col2Lines.Length)
             {
                 if (i == 0 || _col2Lines[i - 1].Carriere.Groupe != _col2Lines[i].Carriere.Groupe)
                 {
@@ -50,7 +50,7 @@
                 }
                 
             }
-            @if (i < _col3Lines.Count())
+            @if (i < _col3Lines.Length)
             {
                 if (i == 0 || _col3Lines[i - 1].Carriere.Groupe != _col3Lines[i].Carriere.Groupe)
                 {
@@ -63,7 +63,7 @@
                     <CarriereInitialeCell Item=@_col3Lines[i] />
                 }
             }
-             @if (i < _col4Lines.Count())
+            @if (i < _col4Lines.Length)
             {
                 if (i == 0 || _col4Lines[i - 1].Carriere.Groupe != _col4Lines[i].Carriere.Groupe)
                 {

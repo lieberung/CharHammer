@@ -2,7 +2,7 @@
     [Parameter] public EventCallback OnCloseRequest { get; set; }
     [Parameter] public EventCallback<string> OnValidatePassword { get; set; }
 
-    int[] _numbers = {1,2,3,4,5,6,7,8,9,0};
+    int[] _numbers = [1,2,3,4,5,6,7,8,9,0];
     int[] _initial = [];
     string _sequence = "";
 
@@ -14,7 +14,7 @@
 
     void RandomizeKeys()
     {
-        _numbers = _numbers.OrderBy(n => new Random().Next()).ToArray();
+        _numbers = _numbers.OrderBy(_ => new Random().Next()).ToArray();
     }
 
     void PressKey(int index)
@@ -43,26 +43,26 @@
 }
 <div class="p-2">
     <div class="rounded-4 bg-white">
-        <p class="text-center mb-1" style="font-size:1.3rem; min-height:2rem;">@(string.Join("", _sequence.Select(c => "x")))</p>
+        <p class="text-center mb-1" style="font-size:1.3rem; min-height:2rem;">@(string.Join("", _sequence.Select(_ => "x")))</p>
     </div>
 </div>
 <div class="mb-1">
-    <span><button @onclick=@(e => PressKey(1)) class="btn btn-primary w-3rem">@_numbers[1]</button></span>
-    <span><button @onclick=@(e => PressKey(2)) class="btn btn-primary w-3rem">@_numbers[2]</button></span>
-    <span><button @onclick=@(e => PressKey(3)) class="btn btn-primary w-3rem">@_numbers[3]</button></span>
+    <span><button @onclick=@(_ => PressKey(1)) class="btn btn-primary w-3rem">@_numbers[1]</button></span>
+    <span><button @onclick=@(_ => PressKey(2)) class="btn btn-primary w-3rem">@_numbers[2]</button></span>
+    <span><button @onclick=@(_ => PressKey(3)) class="btn btn-primary w-3rem">@_numbers[3]</button></span>
 </div>
 <div class="mb-1">
-    <span><button @onclick=@(e => PressKey(4)) class="btn btn-primary w-3rem">@_numbers[4]</button></span>
-    <span><button @onclick=@(e => PressKey(5)) class="btn btn-primary w-3rem">@_numbers[5]</button></span>
-    <span><button @onclick=@(e => PressKey(6)) class="btn btn-primary w-3rem">@_numbers[6]</button></span>
+    <span><button @onclick=@(_ => PressKey(4)) class="btn btn-primary w-3rem">@_numbers[4]</button></span>
+    <span><button @onclick=@(_ => PressKey(5)) class="btn btn-primary w-3rem">@_numbers[5]</button></span>
+    <span><button @onclick=@(_ => PressKey(6)) class="btn btn-primary w-3rem">@_numbers[6]</button></span>
 </div>
 <div class="mb-1">
-    <span><button @onclick=@(e => PressKey(7)) class="btn btn-primary w-3rem">@_numbers[7]</button></span>
-    <span><button @onclick=@(e => PressKey(8)) class="btn btn-primary w-3rem">@_numbers[8]</button></span>
-    <span><button @onclick=@(e => PressKey(9)) class="btn btn-primary w-3rem">@_numbers[9]</button></span>
+    <span><button @onclick=@(_ => PressKey(7)) class="btn btn-primary w-3rem">@_numbers[7]</button></span>
+    <span><button @onclick=@(_ => PressKey(8)) class="btn btn-primary w-3rem">@_numbers[8]</button></span>
+    <span><button @onclick=@(_ => PressKey(9)) class="btn btn-primary w-3rem">@_numbers[9]</button></span>
 </div>
 <div>
     <span><button @onclick=@CloseRequest class="btn btn-primary w-3rem text-orange"><OiIcon Icon="x" /></button></span>
-    <span><button @onclick=@(e => PressKey(0)) class="btn btn-primary w-3rem">@_numbers[0]</button></span>
+    <span><button @onclick=@(_ => PressKey(0)) class="btn btn-primary w-3rem">@_numbers[0]</button></span>
     <span><button @onclick=@ValidatePassword class="btn btn-primary w-3rem text-orange"><OiIcon Icon="check" /></button></span>
 </div>

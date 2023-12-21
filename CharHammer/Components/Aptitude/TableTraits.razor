@@ -4,25 +4,27 @@
     [Parameter] public int NbColonnes { get; set; }
     [Parameter, EditorRequired] public AptitudeDto[] Traits { get; set; } = null!;
 
-    IEnumerable<IEnumerable<AptitudeDto>> _splitedTraits = null!;
+    IEnumerable<AptitudeDto>[] _splitedTraits = null!;
+    int _firstColCount;
+    int _lastColCount;
 
     protected override void OnParametersSet()
     {
-        _splitedTraits = Traits.SplitOnMaxSlices(NbColonnes);
-        Console.WriteLine("TableTraits OnPSet: " + _splitedTraits.Count() + " First: " + _splitedTraits.First().Count() + " - Last: " + _splitedTraits.Last().Count());
+        _splitedTraits = Traits.SplitOnMaxSlices(NbColonnes).ToArray();
+        _firstColCount = _splitedTraits.First().Count();
+        _lastColCount = _splitedTraits.Last().Count();
     }
 }
 <table>
     <tbody>
-        @for (var iRow = 0; iRow < _splitedTraits.First().Count(); iRow++)
+        @for (var iRow = 0; iRow < _firstColCount; iRow++)
         {
             <tr>
-                @for (var iCol = 0; iCol < _splitedTraits.Count(); iCol++)
+                @for (var iCol = 0; iCol < _splitedTraits.Length; iCol++)
                 {
-                    Console.WriteLine($"Items[{iCol}][{iRow}]");
-                    @if (iCol != _splitedTraits.Count() - 1 ||  iRow < _splitedTraits.Last().Count())
+                    @if (iCol != _splitedTraits.Length - 1 || iRow < _lastColCount)
                     {
-                        <td><AptitudeItem Item=@_splitedTraits.ElementAt(iCol).ElementAt(iRow) /></td>
+                        <td><AptitudeItem Item=@_splitedTraits[iCol].ElementAt(iRow) /></td>
                     }
                 }
             </tr>
