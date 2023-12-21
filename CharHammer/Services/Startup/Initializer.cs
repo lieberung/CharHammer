@@ -625,7 +625,7 @@ internal static class Initializer
                 AptitudesChoix: (c.aptitudes_choix ?? []).Select(choix => GetAptitudes(choix, cacheAptitudes))
             )
             {
-                Ambiance = (c.ambiance ?? []).Select(ca => new CitationDto(ca.c, ca.a ?? "", ca.s ?? "")),
+                Ambiance = (c.ambiance ?? []).Select(ca => new CitationDto(ca.c, ca.a ?? "", ca.s ?? "")).ToArray(),
                 CompetenceDeMetier = c.metier is null ? null : cacheAptitudes[c.metier.Value],
                 Description = c.description,
                 Groupe = c.groupe ?? "",
@@ -638,7 +638,7 @@ internal static class Initializer
         foreach (var fille in cache.Values.Where(c => c.CarriereMereId.HasValue))
         {
             fille.Parent = cache[fille.CarriereMereId!.Value];
-            if (!fille.Ambiance.Any())
+            if (fille.Ambiance.Length == 0)
                 fille.Ambiance = fille.Parent.Ambiance;
             fille.CompetenceDeMetier ??= fille.Parent.CompetenceDeMetier;
             if (fille.Description == "")

@@ -26,7 +26,7 @@
         {
             IEnumerable<LieuDto> lieux = [Item];
             _scenarios = ScenariosService
-                .AllScenarios(lieux.Union(Item.SousElements), [])
+                .AllScenarios(lieux.Union(Item.SousElements).ToArray())
                 .Where(s => s.Note is 0 or > 2);
         }
 

@@ -1,20 +1,19 @@
-﻿using CharHammer.Models;
-using CharHammer.Services;
+﻿using CharHammer.Services;
 
 namespace CharHammer.Helpers;
 
 public static class AptitudeHelper
 {
-    public static AptitudeDto TirerUneAptitudeAleatoire(this IEnumerable<AptitudeDto> aptitudes, IEnumerable<AptitudeDto> dejaObtenues)
+    public static AptitudeDto TirerUneAptitudeAleatoire(this IEnumerable<AptitudeDto> aptitudes, AptitudeDto[] dejaObtenues)
     {
-        var exclusions = dejaObtenues.Union(dejaObtenues.SelectMany(a => a.Incompatibles));
-        var liste = aptitudes.Except(exclusions);
+        var exclusions = dejaObtenues.Union(dejaObtenues.SelectMany(a => a.Incompatibles)).ToArray();
+        var liste = aptitudes.Except(exclusions).ToArray();
 
         AptitudeDto? ta = null;
         while (ta is null || ta.Incompatibles.Intersect(dejaObtenues).Any())
         {
-            var i = GenericService.RollIndex(liste.Count());
-            ta = liste.ElementAt(i);
+            var i = GenericService.RollIndex(liste.Length);
+            ta = liste[i];
         }
         return ta;
     }

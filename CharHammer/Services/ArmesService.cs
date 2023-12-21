@@ -9,16 +9,16 @@ public class ArmesService(
     private IReadOnlyDictionary<string, IEnumerable<ArmeDto>>? _armesDeContactPourTable;
     private IReadOnlyDictionary<string, IEnumerable<ArmeDto>>? _armesADistancePourTable;
 
-    public IEnumerable<ArmeAttributDto> AllGroupesDArmes => dataArmesAttributs.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom);
+    public ArmeAttributDto[] AllGroupesDArmes => dataArmesAttributs.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToArray();
 
-    public IEnumerable<ArmeDto> AllArmes { get; } = dataArmes.Values.ToArray();
-    public IEnumerable<ArmureDto> AllArmures { get; } = dataArmures.Values.ToArray();
-    public IEnumerable<EquipementDto> AllEquipements { get; } = dataEquipements.Values.ToArray();
+    public ArmeDto[] AllArmes { get; } = dataArmes.Values.ToArray();
+    public ArmureDto[] AllArmures { get; } = dataArmures.Values.ToArray();
+    public EquipementDto[] AllEquipements { get; } = dataEquipements.Values.ToArray();
     
     private ArmeAttributDto GetAttributDArme(int id) => dataArmesAttributs[id];
 
-    public IEnumerable<ArmeDto> GetArmesDeMaitrise(AptitudeDto maitrise) =>
-        AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == maitrise.Id)).OrderBy(a => a.Nom);
+    public ArmeDto[] GetArmesDeMaitrise(AptitudeDto maitrise) =>
+        AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == maitrise.Id)).OrderBy(a => a.Nom).ToArray();
 
     //public IEnumerable<ArmeDto> GetArmes(IEnumerable<int> ids) => ids.Select(GetArme);
 

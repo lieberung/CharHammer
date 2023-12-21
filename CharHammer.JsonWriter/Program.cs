@@ -1,1 +1,1 @@
-﻿new CharHammer.Services.DataService().MakeTheFileToRuleThemAll();
+﻿new CharHammer.JsonWriter.DataService().MakeTheFileToRuleThemAll();

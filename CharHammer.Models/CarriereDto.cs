@@ -14,7 +14,7 @@ public record CarriereDto(int Id, int? NiveauSpecifie, string Nom, string NomAng
     public string Groupe = null!;
     public string Statut = null!;
     public string Description = null!;
-    public IEnumerable<CitationDto> Ambiance = [];
+    public CitationDto[] Ambiance = [];
     public string Restriction = null!;
     public string Leitmotiv = null!;
     public AptitudeDto? CompetenceDeMetier;

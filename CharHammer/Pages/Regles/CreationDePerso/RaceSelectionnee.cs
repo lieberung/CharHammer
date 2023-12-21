@@ -1,5 +1,4 @@
-﻿using CharHammer.Models;
-using CharHammer.Services;
+﻿using CharHammer.Services;
 
 namespace CharHammer.Pages.Regles.CreationDePerso;
 

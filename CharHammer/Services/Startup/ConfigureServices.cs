@@ -1,5 +1,4 @@
 ﻿using CharHammer.DataSource;
-using CharHammer.Services;
 
 namespace CharHammer.Services.Startup;
 
@@ -30,7 +29,7 @@ public static class Configuration
         var dataBestioles = Initializer.InitializeCreatures(data.creatures, dataRaces, dataAptitudes, dataLieux, dataCarrieres, dataArmes, dataArmures, dataEquipements, dataSortileges, dataUsers);
         var dataRegles = Initializer.InitializeRegles(data.regles, dataTables, dataBestioles, dataAptitudes, dataLieux, dataCarrieres);
 
-        var dataScenarios = Initializer.InitializeScenarios(data.scenarios, dataLieux, dataLieuxTypes);
+        var dataScenarios = Initializer.InitializeScenarios(data.scenarios, dataLieux, dataLieuxTypes).ToArray();
         var dataTeams = Initializer.InitializeTeams(data.teams);
         var dataCampagnes = Initializer.InitializeCampagnes(dataUsers, dataTeams, data.campagnes, dataScenarios, dataBestioles, dataCarrieres, dataLieux);
 

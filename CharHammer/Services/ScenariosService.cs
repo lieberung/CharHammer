@@ -22,9 +22,9 @@ public class ScenariosService
             (auteur == "" || s.Auteurs.Contains(auteur))
         );
     }
-    public IEnumerable<ScenarioDto> AllScenarios(IEnumerable<LieuDto> lieux, IEnumerable<LieuTypeDto> typesDeLieux)
+    public IEnumerable<ScenarioDto> AllScenarios(LieuDto[] lieux)
     {
-        var tousLesTypes = typesDeLieux.Union(lieux.Select(l => l.TypeDeLieu)).Distinct();
+        var tousLesTypes = lieux.Select(l => l.TypeDeLieu).Distinct();
         return _scenarios.Where(s => s.Lieux.Intersect(lieux).Any() || s.LieuxTypes.Intersect(tousLesTypes).Any());
     }
 
