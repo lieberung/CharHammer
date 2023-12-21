@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-JMzd\/RH8bapmtt47rpX48XXZ9DGif41jkP96Pw8i1zA=",
+      "hash": "sha256-ZOW2gtwyK8C8OnFq0GCWkUUtZ5UT4Qv8gio1sHizUgE=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-gWjOAFGDr0SaaTSTwThv1lfZPGPh0XbXTNpWCHrLRMs=",
+      "hash": "sha256-HNVQR7jgIGTyXHgw1KEf71Pj+ohpUGmvx2c2mE1\/+2I=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-YQTyVOu\/QRlNnp5vynQsaKjjFeNxciqim9vsi7LGKSQ=",
+      "hash": "sha256-3snRatSd7GDaiEX3f027PWF5IsNXTcbnS67kcuJ5Wls=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-Yi2E6EvdMWQBBGwGW9oh1wxKnaJSWORRnn+laoYUPVc=",
+      "hash": "sha256-Txldk1PW5nMpzQsnnlia\/AnJLadxwFqJ2XgtSi\/oWcw=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -2473,7 +2473,7 @@
       "url": "images\/favicon\/favicon-32x32 - Copie.png"
     },
     {
-      "hash": "sha256-1xpDuAgUG7WPFY2cXWkdcOAPjjjEjaSi4oE0Fyutr+o=",
+      "hash": "sha256-mjZG77UFc\/b8nWmX11o0crI1fZCnNCpeo5xg4Ff5RY4=",
       "url": "images\/favicon\/favicon-32x32.png"
     },
     {
@@ -2733,5 +2733,5 @@
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "PJ4fPoxz"
+  "version": "\/4+Jho7j"
 };
