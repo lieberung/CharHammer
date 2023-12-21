@@ -2,7 +2,7 @@
 
 public static class ArrayHelper
 {
-  /// <summary>Diviser une liste en autant de listes que nécessaires afin que chacune contienne un maximum de <paramref name="maxLength"/> éléments.</summary>
+  // <summary>Diviser une liste en autant de listes que nécessaires afin que chacune contienne un maximum de <paramref name="maxLength"/> éléments.</summary>
   //public static IEnumerable<IEnumerable<T>> SplitOnMaxLength<T>(this T[] array, int maxLength)
   //{
   //    for (var i = 0; i < (float)array.Length / maxLength; i++)

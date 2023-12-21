@@ -6,13 +6,13 @@
 @inject AptitudesService Service
 @inject AppState AppState
 @code {
-        [Parameter, EditorRequired] public string GroupeActif { get; set; } = null!;
+    [Parameter, EditorRequired] public string GroupeActif { get; set; } = null!;
 
-    private AptitudeDto[] Traits { get; set; } = null!;
-    private AptitudeDto? _traitAleatoire;
-    private int _nbColonnes;
-    private string _determinant = "";
-    private string _typeDeTrait = "";
+    AptitudeDto[] Traits { get; set; } = null!;
+    AptitudeDto? _traitAleatoire;
+    int _nbColonnes;
+    string _determinant = "";
+    string _typeDeTrait = "";
 
     protected override void OnInitialized()
     {
@@ -49,9 +49,9 @@
         StateHasChanged();
     }
 
-    private void TirerUnTraitAleatoire()
+    void TirerUnTraitAleatoire()
     {
-        _traitAleatoire = Traits.TirerUneAptitudeAleatoire(_traitAleatoire is null ? [] : new[] { _traitAleatoire });
+        _traitAleatoire = Traits.TirerUneAptitudeAleatoire(_traitAleatoire is null ? [] : [_traitAleatoire]);
     }
 }
 <div class="row">
