@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-Ni3TalcKKlI5r2oaN3ZwzvwBwwNPVy6cOoBEiBwaMzc=",
+      "hash": "sha256-9yrzX4vkURWdQNYlV\/IIfaR2aAhBb+hgNuqUa2bHFCg=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-7RO4QgWtXx4BRC8tJbKo7WzEHBfxKGprI\/bhu6YvbH4=",
+      "hash": "sha256-PrN3YELD5rI+x2+u4tDrv291NBv0mY7Hm9INzRHCx60=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-1fh96QpgwY5p\/oMFDPrIMkAkWq8Z8CakRX9h1OBwVaY=",
+      "hash": "sha256-GzXtac5Nl+vCbkCicAPV1dxrXK3cxzUqWHWWVvDH9DQ=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-\/wNyrpPtiPyo5TiZgwe0k\/oSG6gN5jQopJwgPBL7ZbU=",
+      "hash": "sha256-8tzxNp8GSlmz9IH7j6l8I4sYiGQVawCJI96Y7XPYhxE=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -2441,60 +2441,32 @@
       "url": "images\/divider4.png"
     },
     {
-      "hash": "sha256-A2p9yEPf9\/xG4EzkAVXJZZg7CCF23G\/9GZzhKFxvYqI=",
-      "url": "images\/favicon\/android-chrome-192x192.png"
-    },
-    {
-      "hash": "sha256-gxHADBhYCOKnFNheHkVJxg2mzQDdoq1H1uCOgBolWQQ=",
-      "url": "images\/favicon\/android-chrome-512x512.png"
-    },
-    {
-      "hash": "sha256-DbpQaq68ZSb5IoPosBErM1QWBfsbTxpJqhU0REi6wP4=",
-      "url": "images\/favicon\/apple-touch-icon-192.png"
-    },
-    {
-      "hash": "sha256-oEo6d+KqX5fjxTiZk\/w9NB3Mi0+ycS5yLwCKwr4IkbA=",
-      "url": "images\/favicon\/apple-touch-icon-512.png"
-    },
-    {
-      "hash": "sha256-BzDVD8o698dpRjd1Z7CwSSxQke22UYqlk\/hfx3m6G\/Y=",
-      "url": "images\/favicon\/apple-touch-icon.png"
-    },
-    {
-      "hash": "sha256-uGtlF8rcPg\/Zgv+rIpAqMnzZCfzqg1rkA+VIzUBgDyU=",
-      "url": "images\/favicon\/favicon-16x16 - Copie.png"
-    },
-    {
       "hash": "sha256-sI+73hgimC6DIL6S1BbfH+SuY6wYfhQUyHd7YbL\/wbg=",
       "url": "images\/favicon\/favicon-16x16.png"
     },
     {
-      "hash": "sha256-BOsjZqT3t3Qvz7yXhD7m76gpPm3v1WAxinzaAyvctkE=",
-      "url": "images\/favicon\/favicon-32x32 - Copie.png"
-    },
-    {
-      "hash": "sha256-mjZG77UFc\/b8nWmX11o0crI1fZCnNCpeo5xg4Ff5RY4=",
+      "hash": "sha256-Eu+SaoU+ZuHVJsmIm7ly4tpqust\/3zqC83WzLoH1CDk=",
       "url": "images\/favicon\/favicon-32x32.png"
     },
     {
-      "hash": "sha256-BAdbMEaM5CgJlHvWETl47f2fS6GDU4BDx96q6H8gO6I=",
+      "hash": "sha256-dzF+a83X0rTlf+BZNGvweAj8qkTOhvttbPvOuMZQjVM=",
       "url": "images\/favicon\/favicon-48x48.ico"
     },
     {
-      "hash": "sha256-BAdbMEaM5CgJlHvWETl47f2fS6GDU4BDx96q6H8gO6I=",
+      "hash": "sha256-G0hWV8l7BTKujMJaFbfZB3Qkl7RtSgITAEcqH\/gwtIo=",
+      "url": "images\/favicon\/favicon-48x48.png"
+    },
+    {
+      "hash": "sha256-dzF+a83X0rTlf+BZNGvweAj8qkTOhvttbPvOuMZQjVM=",
       "url": "images\/favicon\/favicon.ico"
     },
     {
-      "hash": "sha256-BOsjZqT3t3Qvz7yXhD7m76gpPm3v1WAxinzaAyvctkE=",
-      "url": "images\/favicon\/favicon.png"
+      "hash": "sha256-A2p9yEPf9\/xG4EzkAVXJZZg7CCF23G\/9GZzhKFxvYqI=",
+      "url": "images\/favicon\/hand-192x192.png"
     },
     {
-      "hash": "sha256-gMYzU4\/ECVFqHqvmYbVG0AUBgKSNJCAaq\/cI8tei11k=",
-      "url": "images\/favicon\/hammer16.png"
-    },
-    {
-      "hash": "sha256-YbhUOIaYL97OA4G\/raZTlfhliKAJaPUhnMhaQh\/PJ2o=",
-      "url": "images\/favicon\/hand16.png"
+      "hash": "sha256-gxHADBhYCOKnFNheHkVJxg2mzQDdoq1H1uCOgBolWQQ=",
+      "url": "images\/favicon\/hand-512x512.png"
     },
     {
       "hash": "sha256-gcuNmpG\/6G6BxgiDdkEQxjGteDT1le3upjfgE0WTfSE=",
@@ -2725,7 +2697,7 @@
       "url": "images\/races\/66s.png"
     },
     {
-      "hash": "sha256-BOsGQDATfKEVwTvE\/qjsQab0PDfvajXNIg4\/FqSF50Q=",
+      "hash": "sha256-0OoFSqkLWX4q0rnmwD27Jx4+BqzdJJz9ulIfw9vHSnU=",
       "url": "index.html"
     },
     {
@@ -2733,5 +2705,5 @@
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "BawaQIno"
+  "version": "8myopAx0"
 };
