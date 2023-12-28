@@ -33,19 +33,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-9yrzX4vkURWdQNYlV\/IIfaR2aAhBb+hgNuqUa2bHFCg=",
+      "hash": "sha256-9mcOs1pm9EHBVE229rSoV3XJAseRq3NJ41T9SQ0Dokw=",
       "url": "_framework\/blazor.boot.json"
     },
     {
-      "hash": "sha256-PrN3YELD5rI+x2+u4tDrv291NBv0mY7Hm9INzRHCx60=",
+      "hash": "sha256-+ENTb4tN+NfRQL59ORErpY4k7wcNQLFSZoj4UmQIRyg=",
       "url": "_framework\/CharHammer.DataSource.wasm"
     },
     {
-      "hash": "sha256-GzXtac5Nl+vCbkCicAPV1dxrXK3cxzUqWHWWVvDH9DQ=",
+      "hash": "sha256-Mk6CI7WKo1sjBtt6FFnsuMNUa7oH19uDH108OkahXRQ=",
       "url": "_framework\/CharHammer.Models.wasm"
     },
     {
-      "hash": "sha256-8tzxNp8GSlmz9IH7j6l8I4sYiGQVawCJI96Y7XPYhxE=",
+      "hash": "sha256-a7e8JHOxK7D\/NFooaMxLKPPxuat0f72wp4iW6kaU9rg=",
       "url": "_framework\/CharHammer.wasm"
     },
     {
@@ -289,7 +289,7 @@
       "url": "CharHammer.styles.css"
     },
     {
-      "hash": "sha256-cD+w1KvF4s4TuZzXZ2thSQMSZD0PxnOF7kk8KfGaM9E=",
+      "hash": "sha256-Up7l8TUKwXE4FkG\/ZWx1\/k65rlDBwJ01dyIEUlvpJeg=",
       "url": "css\/app.css"
     },
     {
@@ -2705,5 +2705,5 @@
       "url": "manifest.webmanifest"
     }
   ],
-  "version": "8myopAx0"
+  "version": "2cEG3V+4"
 };

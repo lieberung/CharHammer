@@ -72,7 +72,7 @@
     background-color: var(--theme-brown-lighter) !important;
 }
 
-.tgroupe th {
+.tgroupe th, .tgroupe td {
     background-color: var(--theme-color) !important;
     color: white !important;
     font-family: var(--theme-font-family) !important;
