@@ -5,18 +5,18 @@
 <table class="table table-striped">
     <tbody>
         <tr class="tgroupe">
-            <td>Nom</td>
-            <td>Enc.</td>
+            <th>Nom</th>
+            <th>Enc.</th>
             @if (AfficherContenance)
             {
-                <td>Capacité</td>
+                <th>Capacité</th>
             }
-            <td>Prix</td>
-            <td>Disponibilité</td>
+            <th>Prix</th>
+            <th>Disponibilité</th>
         </tr>
-    @foreach (var item in Items)
-    {
+        @foreach (var item in Items)
+        {
         <EquipementRow Item=@item AfficherContenance=@AfficherContenance />
-    }
+        }
     </tbody>
 </table>

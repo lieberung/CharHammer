@@ -1,25 +1,15 @@
-﻿<tr><td colspan="8"></td></tr>
+﻿@code {
+    [Parameter] public string Groupe { get; set; } = "";
+    [Parameter] public bool ArmeDeTir { get; set; }
+}
+<tr><td colspan="8"></td></tr>
 <tr class="tgroupe">
     <td class="ps-4">@Groupe</td>
     <td>Maîtrise</td>
     <td>Dégâts</td>
-    @if (ArmeDeTir)
-    {
-        <td>Portée</td>
-    }
-    else
-    {
-        <td>Allonge</td>
-    }
+    <td>@(ArmeDeTir ? "Portée" : "Allonge")</td>
     <td>Attributs</td>
     <td>Enc.</td>
     <td>Prix</td>
     <td>Disponibilité</td>
 </tr>
-@code
-{
-    [Parameter]
-    public string Groupe { get; set; } = "";
-    [Parameter]
-    public bool ArmeDeTir { get; set; }
-}
