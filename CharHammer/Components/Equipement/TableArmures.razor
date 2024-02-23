@@ -2,17 +2,19 @@
     [Parameter, EditorRequired] public IEnumerable<ArmureDto> Items { get; set; } = null!;
 }
 <table class="table table-striped">
+    <thead>
+        <tr class="tgroupe">
+            <th>Nom</th>
+            <th>Type</th>
+            <th>PA</th>
+            <th>Zones</th>
+            <th>Enc.</th>
+            <th>Attributs</th>
+            <th>Prix</th>
+            <th>Disponibilité</th>
+        </tr>
+    </thead>
     <tbody>
-    <tr class="tgroupe">
-        <th>Nom</th>
-        <th>Type</th>
-        <th>PA</th>
-        <th>Zones</th>
-        <th>Enc.</th>
-        <th>Attributs</th>
-        <th>Prix</th>
-        <th>Disponibilité</th>
-    </tr>
     @foreach (var item in Items)
     {
         <ArmureRow Item=@item />

@@ -2,14 +2,15 @@
     [Parameter] public string Groupe { get; set; } = "";
     [Parameter] public bool ArmeDeTir { get; set; }
 }
-<tr><td colspan="8"></td></tr>
-<tr class="tgroupe">
-    <td class="ps-4">@Groupe</td>
-    <td>Maîtrise</td>
-    <td>Dégâts</td>
-    <td>@(ArmeDeTir ? "Portée" : "Allonge")</td>
-    <td>Attributs</td>
-    <td>Enc.</td>
-    <td>Prix</td>
-    <td>Disponibilité</td>
-</tr>
+<thead>
+    <tr class="tgroupe">
+        <td class="ps-4">@Groupe</td>
+        <td>Maîtrise</td>
+        <td>Dégâts</td>
+        <td>@(ArmeDeTir ? "Portée" : "Allonge")</td>
+        <td>Attributs</td>
+        <td>Enc.</td>
+        <td>Prix</td>
+        <td>Disponibilité</td>
+    </tr>
+</thead>

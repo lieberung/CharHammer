@@ -3,7 +3,7 @@
     [Parameter] public bool AfficherContenance { get; set; }
 }
 <table class="table table-striped">
-    <tbody>
+    <thead>
         <tr class="tgroupe">
             <th>Nom</th>
             <th>Enc.</th>
@@ -14,6 +14,8 @@
             <th>Prix</th>
             <th>Disponibilité</th>
         </tr>
+    </thead>
+    <tbody>
         @foreach (var item in Items)
         {
         <EquipementRow Item=@item AfficherContenance=@AfficherContenance />

@@ -2,13 +2,12 @@
 @using CharHammer.Components.Aptitude
 @using CharHammer.Components.Profil
 @using CharHammer.Shared.Oi
-@code
-{
+@code {
     [Parameter, EditorRequired] public CarriereDto Item { get; set; } = null!;
 
-    private bool AfficherSousElements { get; set; }
-    private bool AfficherPlanDeCarriere { get; set; }
-    private bool AfficherFilieresEtDebouches { get; set; }
+    bool AfficherSousElements { get; set; }
+    bool AfficherPlanDeCarriere { get; set; }
+    bool AfficherFilieresEtDebouches { get; set; }
 }
 <tr>
     <td>
