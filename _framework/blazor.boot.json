@@ -1,11 +1,11 @@
 {
   "mainAssemblyName": "CharHammer",
   "resources": {
-    "hash": "sha256-mR/V/FcTeZlg2oQFyON5I9EbO6+skMpzsbwxm7yy/Fs=",
+    "hash": "sha256-yZuqaUrFVN9D9EpVWjmP6j1daQHrlX0JTxqIU3pSy3k=",
     "fingerprinting": {
-      "CharHammer.DataSource.qvxyqr6rp0.wasm": "CharHammer.DataSource.wasm",
-      "CharHammer.Models.kk605rsceo.wasm": "CharHammer.Models.wasm",
-      "CharHammer.a8k1hgtvgn.wasm": "CharHammer.wasm",
+      "CharHammer.DataSource.y8imck9qgu.wasm": "CharHammer.DataSource.wasm",
+      "CharHammer.Models.t6iedphqgi.wasm": "CharHammer.Models.wasm",
+      "CharHammer.deuyu7nbas.wasm": "CharHammer.wasm",
       "Microsoft.AspNetCore.Components.wfpeh9het3.wasm": "Microsoft.AspNetCore.Components.wasm",
       "Microsoft.AspNetCore.Components.Web.tl25f7384q.wasm": "Microsoft.AspNetCore.Components.Web.wasm",
       "Microsoft.AspNetCore.Components.WebAssembly.5nhv0jic9d.wasm": "Microsoft.AspNetCore.Components.WebAssembly.wasm",
@@ -94,9 +94,9 @@
       "System.Runtime.InteropServices.JavaScript.lnedh9fxsl.wasm": "sha256-cTDlU0sLp3hCmTKUK2AVqrlAjuFjQveVBhCUZiIdUkc="
     },
     "assembly": {
-      "CharHammer.DataSource.qvxyqr6rp0.wasm": "sha256-+lmpb0RQ6xfJGmjhT7NDLERbCbxn+7Jt/b7HOvBeSqI=",
-      "CharHammer.Models.kk605rsceo.wasm": "sha256-vK1RNsDS9L/fqMmokXBtIhRpI45ezKBHywhUjREiLxU=",
-      "CharHammer.a8k1hgtvgn.wasm": "sha256-qp0JtL5S/9s4FZbuiS/oob4yE+8EPvlPNLgnlZ5LnCc=",
+      "CharHammer.DataSource.y8imck9qgu.wasm": "sha256-Ho7VIM14OQWN8U1tWVdfIFHtoelBjL9aHFoem5pR1aM=",
+      "CharHammer.Models.t6iedphqgi.wasm": "sha256-a+uDDNVnrfzbHOcDS+PKtjFVFJ5k8qMAGtAPKSudNH8=",
+      "CharHammer.deuyu7nbas.wasm": "sha256-m6dqz2cG++/yxaCGlfk6q1sPPb0zX9GvxYq0bMc4Uac=",
       "Microsoft.AspNetCore.Components.wfpeh9het3.wasm": "sha256-tIJhsJuY1yTHufXfs1pBDjYJa+XSZybytoLX228LIpo=",
       "Microsoft.AspNetCore.Components.Web.tl25f7384q.wasm": "sha256-cbdpU9Qkyxl3fr7cz9GCuDPqgy9c2KmA5P92+BpkPKY=",
       "Microsoft.AspNetCore.Components.WebAssembly.5nhv0jic9d.wasm": "sha256-Ebc3wgBbbpwGo1EPqW+rZpMTqoqAC6gsiBS0Bk+1wLY=",

@@ -1,21 +1,21 @@
 self.assetsManifest = {
-  "version": "eIeiF3w0",
+  "version": "1oMipvcx",
   "assets": [
     {
       "hash": "sha256-Z47Xlr8+ldxLyAqO73vDBYRQVrkni3fFr5Rca7GJJm4=",
       "url": "CharHammer.styles.css"
     },
     {
-      "hash": "sha256-+lmpb0RQ6xfJGmjhT7NDLERbCbxn+7Jt/b7HOvBeSqI=",
-      "url": "_framework/CharHammer.DataSource.qvxyqr6rp0.wasm"
+      "hash": "sha256-Ho7VIM14OQWN8U1tWVdfIFHtoelBjL9aHFoem5pR1aM=",
+      "url": "_framework/CharHammer.DataSource.y8imck9qgu.wasm"
     },
     {
-      "hash": "sha256-vK1RNsDS9L/fqMmokXBtIhRpI45ezKBHywhUjREiLxU=",
-      "url": "_framework/CharHammer.Models.kk605rsceo.wasm"
+      "hash": "sha256-a+uDDNVnrfzbHOcDS+PKtjFVFJ5k8qMAGtAPKSudNH8=",
+      "url": "_framework/CharHammer.Models.t6iedphqgi.wasm"
     },
     {
-      "hash": "sha256-qp0JtL5S/9s4FZbuiS/oob4yE+8EPvlPNLgnlZ5LnCc=",
-      "url": "_framework/CharHammer.a8k1hgtvgn.wasm"
+      "hash": "sha256-m6dqz2cG++/yxaCGlfk6q1sPPb0zX9GvxYq0bMc4Uac=",
+      "url": "_framework/CharHammer.deuyu7nbas.wasm"
     },
     {
       "hash": "sha256-cbdpU9Qkyxl3fr7cz9GCuDPqgy9c2KmA5P92+BpkPKY=",
@@ -262,7 +262,7 @@ self.assetsManifest = {
       "url": "_framework/System.wznexm8bk2.wasm"
     },
     {
-      "hash": "sha256-lvLF2zbbhMLOLcf3IRXBSbysfpP3J5Hij9LENbxI7SM=",
+      "hash": "sha256-yKbhstS+kkT29gUk4XDv828Y1P+ACLabXKuX7f9Y/dM=",
       "url": "_framework/blazor.boot.json"
     },
     {
