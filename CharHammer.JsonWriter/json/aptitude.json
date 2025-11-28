@@ -762,7 +762,7 @@
   {"id":3169,"categ":"trait","categ_spe":"trait","nom":"Boucle d'oreille"},
   {"id":3170,"categ":"trait","categ_spe":"trait","nom":"Troublé","description":"Vous êtes atteint d'un trouble psychologique mineur. Faites un jet sur la table concernée."},
   {"id":3171,"categ":"trait","categ_spe":"trait","nom":"Oreille abîmée"},
-  {"id":3172,"categ":"trait","categ_spe":"trait","nom":"Anneau nasale"},
+  {"id":3172,"categ":"trait","categ_spe":"trait","nom":"Anneau nasal"},
   {"id":3173,"categ":"trait","categ_spe":"trait","nom":"Dent en moins"},
   {"id":3174,"categ":"trait","categ_spe":"trait","nom":"Dentission crasseuse","incompatibles":[3120],"description":"Dans votre profil initial, diminuez votre [Soc] de 1d4"},
   {"id":3175,"categ":"trait","categ_spe":"trait","nom":"Sourcil manquant"},
@@ -794,6 +794,7 @@
   {"id":3204,"categ":"trait","categ_spe":"trait","nom":"Bâtard","description":"L'un de vos parents est issue d'une lignée noble, un seul hélas..."},
   {"id":3205,"categ":"trait","categ_spe":"trait","nom":"Pas du matin","description":"Vous n'êtes pas du matin, c'est un fait. Vous subissez une malus de -10% en Sociabilité durant la première heure qui suit votre réveil."},
   {"id":3206,"categ":"trait","categ_spe":"trait","nom":"Dents du bonheur","description":"Vous avez les dents du bonheur. Vous bénéficiez d'un bonus de +5% aux tests d'Art - chant."},
+  {"id":3207,"categ":"trait","categ_spe":"trait","nom":"Poissard","description":"Tous les jets de chance échouent automatiquement. Vous ne pouvez en aucun avoir de la chance. Lorsque vous voyez une personne en situation de danger ou face au hasard, vous pouvez l'encourager en tachant de paraitre scincère : sur un jet de Soc (si vous feintez)/FM (si vous le souhaitez) réussi vous parviendrez à lui porter la poisse, infligeant un malus de sa marge de réussite? échec auto? sur son jet de chance. Si la personne connait votre réputation, un bonus peut s'appliquer à votre jet en fonction de si elle est superstitieuse ou pas (la superstition, ça porte malheur !)."},
   
   {"id":3250,"categ":"trait","categ_spe":"nevrose","nom":"Toxicomanie (variable)","description":"L'idée que quelqu'un puisse être dépendant à l'alcool ou aux drogues reste un concept inexistant dans le Vieux Monde. Il existe bien quelques prêtres en croisade contre les méfaits de la boisson, mais ils condamnent invariablement la substance et jamais les ivrognes. Rares sont d'ailleurs les personnes à prendre les élucubrations de ces prêtres au sérieux.\nLa consommation de drogues reste essentiellement privée et clandestine. Les toxicomanes sont issus de toutes les classes sociales du Vieux Monde, et les drogues fréquemment utilisées lors de cérémonies religieuses ou sur le champ de bataille. Ceci dit, la dépendance créée par la drogue reste un phénomène méconnu, même parmi les médecins, et les bienfaits curatifs de nombreuses substances semblent faire oublier les risques d'effets secondaires. La drogue n'est pas aussi accessible pour le public que ne l'est l'alcool et seuls quelques érudits éclaira ont jusqu'ici corrélé sa consommation avec le crime, la pauvreté et la folie.","severite":1},
   {"id":3251,"categ":"trait","categ_spe":"nevrose","nom":"Distraction","severite":1},

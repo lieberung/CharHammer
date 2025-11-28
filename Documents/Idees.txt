@@ -120,3 +120,26 @@ générateur de persos :
 - permettre aux utilisateurs d'ajouter des carrières persos ?
 
 Astrologie : plan de carrière non renseigné
+
+fiche mémo PJ avec description des skills talents région d'origine etc...
+
+menu contextuel (copier coller) : icônes en position "barre d'outils", ou disposé en cercle autours du curseur
+
+-------------------------------------------------
+{
+  "id": 54,
+  "titre": "Echecs critiques (armes à distance sans poudre)",
+  "description": "Tout test de combat échoué qui est aussi un multiple de 11 est un échec critique, qui se traduit par un jet sur cette table.",
+  "styles_th": [ "width:55px;" ],
+  "lignes": [
+	[ "d100", "Résultat" ],
+	[ "11", "" ],
+	[ "22", "" ],
+	[ "33", "" ],
+	[ "44", "" ],
+	[ "55", "" ],
+	[ "66", "" ],
+	[ "77-88", "" ],
+	[ "99-00", "" ]
+  ]
+},
