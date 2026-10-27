@@ -1,38 +1,105 @@
-﻿@using Microsoft.AspNetCore.Components
-@using System.Net.Mime
-@using CharHammer.Components.Aptitude
+﻿@using CharHammer.Components.Aptitude
 @using CharHammer.Components.Bestiole
 @using CharHammer.Components.Carriere
 @using CharHammer.Components.Lieu
+
+@implements IDisposable
 
 @inject CarrieresService CarrieresSvc
 @inject AptitudesService AptitudesSvc
 @inject BestiolesService BestiolesSvc
 @inject LieuxService LieuxService
 @code {
-    string _search { get; set; } = "";
+    private const int DelaiDeSaisieMs = 200;
+    private const int LongueurMinimale = 3;
 
-    bool ResultFound => FoundCarrieres.Any() || FoundAptitudes.Any() || FoundBestioles.Any() || FoundLieux.Any();
+    private string _search = "";
+    private CancellationTokenSource? _debounce;
 
-    IEnumerable<CarriereDto> FoundCarrieres => _search.Length < 3 ? [] : CarrieresSvc.Recherche(_search);
-    IEnumerable<AptitudeDto> FoundAptitudes => _search.Length < 3 ? [] : AptitudesSvc.RechercheAptitudes(_search);
-    IEnumerable<BestioleDto> FoundBestioles => _search.Length < 3 ? [] : BestiolesSvc.Recherche(_search);
-    IEnumerable<LieuDto> FoundLieux => _search.Length < 3 ? [] : LieuxService.Recherche(_search);
+    // Résultats calculés une seule fois par saisie (après le délai), puis seulement lus au rendu.
+    private CarriereDto[] _carrieres = [];
+    private AptitudeDto[] _competences = [];
+    private AptitudeDto[] _talents = [];
+    private AptitudeDto[] _traits = [];
+    private BestioleDto[] _bestioles = [];
+    private LieuDto[] _lieux = [];
+    private bool _resultFound;
 
-    private void ClearSearch() { _search = ""; }
+    private async Task OnInput(ChangeEventArgs e)
+    {
+        _search = e.Value?.ToString() ?? "";
+        AnnulerRechercheEnAttente();
+
+        if (_search.Length < LongueurMinimale)
+        {
+            ViderResultats();
+            return;
+        }
+
+        var debounce = _debounce = new CancellationTokenSource();
+        try
+        {
+            await Task.Delay(DelaiDeSaisieMs, debounce.Token);
+        }
+        catch (TaskCanceledException)
+        {
+            return; // une frappe plus récente a pris le relais
+        }
+
+        Rechercher(_search);
+    }
+
+    private void Rechercher(string texte)
+    {
+        _carrieres = CarrieresSvc.Recherche(texte).ToArray();
+        var aptitudes = AptitudesSvc.RechercheAptitudes(texte).ToArray();
+        _competences = aptitudes.Where(a => a.EstUneCompetence).ToArray();
+        _talents = aptitudes.Where(a => a.EstUnTalent).ToArray();
+        _traits = aptitudes.Where(a => a.EstUnTrait).ToArray();
+        _bestioles = BestiolesSvc.Recherche(texte).ToArray();
+        _lieux = LieuxService.Recherche(texte).ToArray();
+        _resultFound = _carrieres.Length > 0 || aptitudes.Length > 0 || _bestioles.Length > 0 || _lieux.Length > 0;
+    }
+
+    private void ViderResultats()
+    {
+        _carrieres = [];
+        _competences = [];
+        _talents = [];
+        _traits = [];
+        _bestioles = [];
+        _lieux = [];
+        _resultFound = false;
+    }
+
+    private void AnnulerRechercheEnAttente()
+    {
+        _debounce?.Cancel();
+        _debounce?.Dispose();
+        _debounce = null;
+    }
+
+    private void ClearSearch()
+    {
+        AnnulerRechercheEnAttente();
+        _search = "";
+        ViderResultats();
+    }
+
+    public void Dispose() => AnnulerRechercheEnAttente();
 }
 <div class="btn-group" >
-    <input class="dropdown-toggle rounded-4 py-1 px-3" @bind-value="_search" @bind-value:event="oninput" placeholder="Recherche..." />
+    <input class="dropdown-toggle rounded-4 py-1 px-3" value="@_search" @oninput="OnInput" placeholder="Recherche..." />
     <span class="oi oi-magnifying-glass theme-color ms-2" aria-hidden="true"></span>
-    @if (_search.Length > 2 && ResultFound)
+    @if (_resultFound)
     {
         <div class="dropdown-menu shadow show p-2" @onclick="ClearSearch">
-            <TopRowSearchResult Items=@FoundCarrieres />
-            <TopRowSearchResult Items=@FoundAptitudes.Where(a => a.EstUneCompetence) />
-            <TopRowSearchResult Items=@FoundAptitudes.Where(a => a.EstUnTalent) />
-            <TopRowSearchResult Items=@FoundAptitudes.Where(a => a.EstUnTrait) />
-            <TopRowSearchResult Items=@FoundBestioles />
-            <TopRowSearchResult Items=@FoundLieux />
+            <TopRowSearchResult Items=@_carrieres />
+            <TopRowSearchResult Items=@_competences />
+            <TopRowSearchResult Items=@_talents />
+            <TopRowSearchResult Items=@_traits />
+            <TopRowSearchResult Items=@_bestioles />
+            <TopRowSearchResult Items=@_lieux />
         </div>
     }
 </div>
