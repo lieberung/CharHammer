@@ -12,41 +12,27 @@ public class DataLoader(HttpClient httpClient)
     Console.Write("Loading json data... ");
     var startTime = DateTime.Now;
 
-    var response = await httpClient.GetAsync("data/data.json.gz");
-    var gzipData = await response.Content.ReadAsByteArrayAsync();
-    ArgumentNullException.ThrowIfNull(gzipData);
+    using var response = await httpClient.GetAsync("data/data.json.gz", HttpCompletionOption.ResponseHeadersRead);
+    response.EnsureSuccessStatusCode();
 
-    var jsonData = DecompressGzip(gzipData);
-    var data = JsonConvert.DeserializeObject<DataJson>(jsonData);
-    /*
-    var data = await httpClient.GetFromJsonAsync<DataJson>("data/data.json");
-    */
+    // En WebAssembly, le flux réseau n'accepte pas les lectures synchrones (celles de GZipStream et de Newtonsoft) :
+    // on recopie donc de façon asynchrone le fichier compressé (≈ 570 Ko) dans un MemoryStream, puis on décompresse
+    // et on désérialise en flux, sans matérialiser ni le JSON décompressé en byte[], ni la chaîne complète.
+    using var compressed = new MemoryStream();
+    await response.Content.CopyToAsync(compressed);
+    compressed.Position = 0;
+
+    var data = Deserialize(compressed);
     ArgumentNullException.ThrowIfNull(data);
     Console.WriteLine($"{DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
     return data;
   }
 
-  private static string DecompressGzip(byte[] buffer)
+  private static DataJson? Deserialize(Stream gzipStream)
   {
-    byte[] decompressed;
-    using (var inputStream = new MemoryStream(buffer))
-    {
-      using var outputStream = new MemoryStream();
-      using (var gzip = new GZipStream(inputStream, CompressionMode.Decompress, leaveOpen: true))
-      {
-        gzip.CopyTo(outputStream);
-      }
-      decompressed = outputStream.ToArray();
-    }
-    return Encoding.UTF8.GetString(decompressed);
+    using var gzip = new GZipStream(gzipStream, CompressionMode.Decompress, leaveOpen: true);
+    using var streamReader = new StreamReader(gzip, Encoding.UTF8);
+    using var jsonReader = new JsonTextReader(streamReader);
+    return JsonSerializer.CreateDefault().Deserialize<DataJson>(jsonReader);
   }
-
-  // Plus lent comme ça
-  //static string DecompressGzip(byte[] inputBytes)
-  //{
-  //    using var inputStream = new MemoryStream(inputBytes);
-  //    using var gZipStream = new GZipStream(inputStream, CompressionMode.Decompress);
-  //    using var streamReader = new StreamReader(gZipStream);
-  //    return streamReader.ReadToEnd();
-  //}
 }
