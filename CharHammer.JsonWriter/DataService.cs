@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using System.IO.Compression;
 using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Json.Serialization;
 
 namespace CharHammer.JsonWriter;
 
@@ -14,8 +16,14 @@ public class DataService
   public void MakeTheFileToRuleThemAll()
   {
     var data = BuildDataInstance();
-    var dataToJson = JsonConvert.SerializeObject(data
-        , new JsonSerializerSettings { Formatting = Formatting.None, NullValueHandling = NullValueHandling.Ignore });
+    // Écriture avec System.Text.Json et le même contexte généré que celui utilisé par le client pour la lecture :
+    // le contrat est garanti identique des deux côtés. Les sources restent lues avec Newtonsoft (plus tolérant).
+    var options = new System.Text.Json.JsonSerializerOptions
+    {
+      DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+      Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, // garde les accents tels quels (fichier plus compact)
+    };
+    var dataToJson = System.Text.Json.JsonSerializer.Serialize(data, new DataJsonContext(options).DataJson);
     Console.WriteLine($"Writing json data to {JsonDataTargetPath}{JsonDataTargetFile}...");
     WriteFile(dataToJson);
     Console.WriteLine("Done!");
