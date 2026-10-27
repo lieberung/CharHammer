@@ -1,8 +1,8 @@
 ﻿namespace CharHammer.Services;
 
-public class CampagnesService(IEnumerable<CampagneDto> data)
+public class CampagnesService(IReadOnlyList<CampagneDto> data)
 {
-    public IEnumerable<CampagneDto> AllCampagnes => data;
+    public IReadOnlyList<CampagneDto> AllCampagnes => data;
 
     public SeanceDto GetSeance(int campagneId, string date) => data.First(c => c.Id == campagneId).Seances.First(s => s.Quand == date);
 

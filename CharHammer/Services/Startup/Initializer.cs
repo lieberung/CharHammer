@@ -12,8 +12,8 @@ internal static class Initializer
             .Select(s => new ScenarioDto(
                 Difficulte: s.difficulte ?? "",
                 Duree: s.duree ?? "",
-                Lieux: (s.lieux ?? []).Select(id => lieux[id]),
-                LieuxTypes: (s.lieuxtypes ?? []).Select(id => lieuxTypes[id]),
+                Lieux: (s.lieux ?? []).Select(id => lieux[id]).ToArray(),
+                LieuxTypes: (s.lieuxtypes ?? []).Select(id => lieuxTypes[id]).ToArray(),
                 Nom: s.nom,
                 Lien: s.lien ?? "",
                 Note: s.note,
@@ -23,7 +23,7 @@ internal static class Initializer
                 Styles: s.styles ?? [],
                 DejaJoue: s.deja_joue ?? ""));
 
-    internal static IEnumerable<CampagneDto> InitializeCampagnes(
+    internal static IReadOnlyList<CampagneDto> InitializeCampagnes(
         IReadOnlyDictionary<int, UserDto> users,
         IReadOnlyDictionary<int, TeamDto> teams,
         IEnumerable<CampagneJson> campagnes,
@@ -35,10 +35,11 @@ internal static class Initializer
             .Select(c => new CampagneDto(
                 Id: c.id,
                 Mj: users[c.mj],
-                Seances: (c.seances ?? []).Select(s => GetSeanceDtoFromJson(s, bestioles, scenarios, lieux)),
-                Contacts: (c.contacts ?? []).Select(s => GetContactDeCampagneDtoFromJson(s, bestioles, carrieres, lieux)),
+                Seances: (c.seances ?? []).Select(s => GetSeanceDtoFromJson(s, bestioles, scenarios, lieux)).ToArray(),
+                Contacts: (c.contacts ?? []).Select(s => GetContactDeCampagneDtoFromJson(s, bestioles, carrieres, lieux)).ToArray(),
                 Team: teams[c.team],
-                Titre: c.titre));
+                Titre: c.titre))
+            .ToArray();
 
     private static SeanceDto GetSeanceDtoFromJson(
         SeanceJson s,
@@ -49,13 +50,13 @@ internal static class Initializer
             Acte: s.acte,
             Debut: s.debut ?? "",
             Duree: s.duree,
-            Lieux: (s.lieux ?? []).Select(id => lieux[id]),
+            Lieux: (s.lieux ?? []).Select(id => lieux[id]).ToArray(),
             Facts: (s.facts ?? []).Select(f => new FactDto(
                 Fact: f.fact,
-                Pjs: (f.pjs ?? []).Select(id => bestioles[id]),
+                Pjs: (f.pjs ?? []).Select(id => bestioles[id]).ToArray(),
                 Tri: f.tri
-            )),
-            Pjs: (s.pjs ?? []).Select(id => bestioles[id]),
+            )).ToArray(),
+            Pjs: (s.pjs ?? []).Select(id => bestioles[id]).ToArray(),
             Quand: s.quand,
             Resume: s.resume ?? "",
             Secret: s.secret,
@@ -63,7 +64,7 @@ internal static class Initializer
             Scenario: s.scenario is null ? null : scenarios.SingleOrDefault(sc => string.Equals(sc.Nom, s.scenario, StringComparison.CurrentCultureIgnoreCase)),
             Xp: s.xp,
             XpComment: s.xp_comment,
-            Rencontres: (s.rencontres ?? []).Select(r => GetRencontreDtoFromJson(r, bestioles)));
+            Rencontres: (s.rencontres ?? []).Select(r => GetRencontreDtoFromJson(r, bestioles)).ToArray());
 
     private static ContactDeCampagneDto GetContactDeCampagneDtoFromJson(
         ContactDeCampagneJson s,
@@ -76,13 +77,13 @@ internal static class Initializer
             Pnj: bestioles[s.pnj],
             LieuDeRencontre: lieux[s.lieu_de_rencontre],
             LieuDeResidence: s.lieu_de_residence == 0 ? null : lieux[s.lieu_de_residence],
-            ProposeLesCarrieres: (s.employeur ?? []).Select(id => carrieres[id]));
+            ProposeLesCarrieres: (s.employeur ?? []).Select(id => carrieres[id]).ToArray());
 
     private static RencontreDto GetRencontreDtoFromJson(RencontreJson r, IReadOnlyDictionary<int, BestioleDto> bestioles)
         => new(
             Groupe: r.groupe,
-            Allies: (r.allies ?? []).Select(a => GetRencontreCombattantDtoFromJson(a, false, bestioles)),
-            Ennemis: (r.ennemis ?? []).Select(a => GetRencontreCombattantDtoFromJson(a, true, bestioles)));
+            Allies: (r.allies ?? []).Select(a => GetRencontreCombattantDtoFromJson(a, false, bestioles)).ToArray(),
+            Ennemis: (r.ennemis ?? []).Select(a => GetRencontreCombattantDtoFromJson(a, true, bestioles)).ToArray());
 
     private static CombattantDto GetRencontreCombattantDtoFromJson(CombattantJson c, bool ennemi, IReadOnlyDictionary<int, BestioleDto> bestioles)
         => new(Combattant: bestioles[c.id], Nom: c.nom ?? bestioles[c.id].Nom, Ennemi: ennemi);
@@ -583,7 +584,7 @@ internal static class Initializer
             if (aptitude.Tests == "" && aptitude.Parent.Tests != "")
                 aptitude.Tests = aptitude.Parent.Tests;
             if (aptitude.AptitudesLiees.Count == 0)
-                aptitude.AptitudesLiees = aptitude.Parent.AptitudesLiees;
+                aptitude.AptitudesLiees = [.. aptitude.Parent.AptitudesLiees];
         }
 
         foreach (var aptitude in result.Values.Where(t => t.Parent is not null).Select(t => t.Parent).Distinct())

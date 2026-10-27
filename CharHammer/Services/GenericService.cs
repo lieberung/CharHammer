@@ -1,8 +1,11 @@
-﻿namespace CharHammer.Services;
+﻿using System.Globalization;
+using System.Text;
+
+namespace CharHammer.Services;
 
 public static class GenericService
 {
-    public static int RollIndex(int max) => new Random().Next(0, max);
+    public static int RollIndex(int max) => Random.Shared.Next(0, max);
     public static int RollDice(int nombreDeFaces, int nombreDeDes = 1)
     {
         var total = 0;
@@ -23,32 +26,55 @@ public static class GenericService
     
     #region Supprimer les caractères indésirables
 
-    private const string CaracteresARemplacer =     "àáâãäåòóôõöøèéêëìíîïùúûüÿñç-'";
-    private const string CaracteresDeRemplacement = "aaaaaaooooooeeeeiiiiuuuuync  ";
-
     internal static string GetUrlChunck(string chaine) => ConvertirCaracteres(chaine).Replace(" ", "-");
 
     internal static string NettoyerPourRecherche(string chaine)
     {
-        chaine = chaine.ToLower();
+        chaine = chaine.ToLowerInvariant();
         chaine = chaine.Replace("armes", "arme");
         return ConvertirCaracteres(chaine);
     }
 
+    /// <summary>
+    /// Passe en minuscules, retire les diacritiques (é → e, ç → c…), développe les ligatures (œ → oe, æ → ae),
+    /// remplace tirets, apostrophes (droites ou typographiques) et espaces spéciales par une espace simple,
+    /// et fusionne les espaces consécutives.
+    /// </summary>
     private static string ConvertirCaracteres(string chaine)
     {
-        chaine = chaine.ToLower();
-        
-        var tableauFind = CaracteresDeRemplacement.ToCharArray();
-        var tableauReplace = CaracteresARemplacer.ToCharArray();
+        var decomposee = chaine.ToLowerInvariant().Normalize(NormalizationForm.FormD);
+        var resultat = new StringBuilder(decomposee.Length);
 
-        for (var i = 0; i < tableauReplace.Length; i++)
-            chaine = chaine.Replace(tableauReplace[i], tableauFind[i]);
+        foreach (var c in decomposee)
+        {
+            if (CharUnicodeInfo.GetUnicodeCategory(c) == UnicodeCategory.NonSpacingMark)
+                continue;
 
-        while (chaine.Contains("  "))
-            chaine = chaine.Replace("  ", " ");
-                
-        return chaine;
+            switch (c)
+            {
+                case 'œ': resultat.Append("oe"); break;
+                case 'æ': resultat.Append("ae"); break;
+                case 'ø': resultat.Append('o'); break;
+                case 'ß': resultat.Append("ss"); break;
+                case '\'' or '’' or '‘' or 'ʼ' or '-' or '‐' or '‑' or '–' or '—':
+                    AjouterEspace(resultat);
+                    break;
+                default:
+                    if (char.IsWhiteSpace(c))
+                        AjouterEspace(resultat);
+                    else
+                        resultat.Append(c);
+                    break;
+            }
+        }
+
+        return resultat.ToString();
+    }
+
+    private static void AjouterEspace(StringBuilder resultat)
+    {
+        if (resultat.Length == 0 || resultat[resultat.Length - 1] != ' ')
+            resultat.Append(' ');
     }
 
     internal static IEnumerable<string> MotsClefsDeRecherche(string chaineADecouper)
