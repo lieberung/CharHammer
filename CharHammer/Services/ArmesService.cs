@@ -56,7 +56,7 @@ public class ArmesService(
                 { "Fléaux", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeFleaux)) },
                 { "Escrime", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeEscrime)) },
                 { "Parade", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeParade)) },
-                { "Paralysantes", AllArmes.Where(a => a.Groupes.Any(s => s.Id == AptitudesService.IdMeleeParalysantes)) },
+                { "Paralysantes", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeParalysantes)) },
                 { "Cavalerie", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeCavalerie)) },
                 { "Exotiques", AllArmes.Where(a => a.EstUneArmeDeCaC && a.Groupes.Contains(GroupeExotique)) }
             });
@@ -82,6 +82,8 @@ public class ArmesService(
                                     a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirExplosifs)
                                 ) },
                     { "Armes de jet", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirArmesDeJet)) },
+                    // Bolas, filet, fouet, lasso : compétence de Mêlée mais armes à portée
+                    { "Paralysantes", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdMeleeParalysantes)) },
                     { "Exotiques", AllArmes.Where(a => a.EstUneArmeDeTir && a.Groupes.Contains(GroupeExotique)) }
                 });
             return _armesADistancePourTable;

@@ -1,4 +1,4 @@
-﻿@page "/equipement/armes-liste/{Filtre}/{Groupe}/"
+﻿@page "/equipement/armes-liste/{Type}/{SousFiltre}/{Groupe?}/"
 @layout FluidLayout
 
 @using CharHammer.Components.Arme
@@ -6,54 +6,106 @@
 @inject ArmesService Service
 @inject AptitudesService AptitudesService
 @code {
-    [Parameter] public string Filtre { get; set; } = "";
-    [Parameter] public string Groupe { get; set; } = "";
+    // Adresse : /equipement/armes-liste/{toutes|melee|tir}/{sous-filtre|toutes}/{groupe d'armes|toutes}/
+    [Parameter] public string Type { get; set; } = "toutes";
+    [Parameter] public string SousFiltre { get; set; } = "toutes";
+    [Parameter] public string? Groupe { get; set; }
 
-    AptitudeDto? CompetenceActuelle { get; set; }
-    ArmeAttributDto? GroupeActuel { get; set; }
+    /// <summary>Un bouton de sous-filtre : une spécialisation de Mêlée ou de Tir, ou les munitions.</summary>
+    sealed record Categorie(string Slug, string Libelle, bool DeMelee, IReadOnlyList<ArmeDto> ArmesDeContact, IReadOnlyList<ArmeDto> ArmesDeTir);
 
-    IEnumerable<ArmeDto> _armesDeCaC = ArraySegment<ArmeDto>.Empty;
-    IEnumerable<ArmeDto> _armesDeTir = ArraySegment<ArmeDto>.Empty;
+    sealed record Tableau(string Titre, IReadOnlyList<ArmeDto> Armes, bool ArmesDeTir);
+
+    // Ne dépendent que des données : calculées une fois.
+    IReadOnlyList<Categorie> _categoriesMelee = [];
+    IReadOnlyList<Categorie> _categoriesTir = [];
+    Categorie _munitions = null!;
+
+    string _type = "toutes";
+    Categorie? _categorie;
+    ArmeAttributDto? _groupe;
+    IReadOnlyList<Tableau> _tableaux = [];
+
+    protected override void OnInitialized()
+    {
+        _categoriesMelee = AptitudesService.AllMeleeSpecialisations
+            .Select(c => CreerCategorie(c, NomCourt(c.Spe!), deMelee: true))
+            .Where(c => c.ArmesDeContact.Count + c.ArmesDeTir.Count > 0)
+            .ToArray();
+        _categoriesTir = AptitudesService.AllTirSpecialisations
+            .Select(c => CreerCategorie(c, c.Spe!, deMelee: false))
+            .Where(c => c.ArmesDeContact.Count + c.ArmesDeTir.Count > 0)
+            .ToArray();
+        _munitions = new Categorie("munitions", "Munitions", false, [], Service.AllArmes.Where(a => a.EstUneMunition).OrderBy(a => a.Nom).ToArray());
+    }
 
     protected override void OnParametersSet()
     {
-        var armes = Service.AllArmes;
+        _type = Type is "melee" or "tir" ? Type : "toutes";
+        _categorie = Categories.FirstOrDefault(c => c.Slug == SousFiltre && EstVisible(c, _type));
+        _groupe = Groupe is null or "toutes" ? null : Service.AllGroupesDArmes.FirstOrDefault(g => Slug(g.Nom) == Groupe);
 
-        //var filtresNonSpe = new List<string>{"toutes","melee","tir","boucliers","munitions"};
+        var avecContact = _type != "tir";
+        var avecTir = _type != "melee";
+        var tableaux = new List<Tableau>();
 
-        if (Filtre is not ("toutes" or "melee" or "tir"))
+        if (_categorie is null)
         {
-            CompetenceActuelle = AptitudesService.AllArmesSpecialisations.Single(a => GenericService.GetUrlChunck(a.Spe ?? "") == Filtre);
-            if (CompetenceActuelle.Parent == AptitudesService.CompetenceGroupeMelee)
-            {
-                _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC && a.CompetencesDeMaitrise.Contains(CompetenceActuelle));
-            }
-            else if (CompetenceActuelle.Parent == AptitudesService.CompetenceGroupeTir)
-            {
-                _armesDeTir = armes.Where(a => a.EstUneArmeDeTir && a.CompetencesDeMaitrise.Contains(CompetenceActuelle));
-            }
+            // Pas de sous-filtre : toutes les armes du type choisi, réparties par famille.
+            if (avecContact)
+                tableaux.AddRange(ParFamille(Service.ArmesDeContactPourTable, Service.AllArmes.Where(a => a.EstUneArmeDeCaC), false));
+            if (avecTir)
+                tableaux.AddRange(ParFamille(Service.ArmesADistancePourTable, Service.AllArmes.Where(a => a.EstUneArmeDeTir), true));
         }
         else
         {
-            CompetenceActuelle = null;
-            if (Filtre is "toutes" or "melee")
-                _armesDeCaC = armes.Where(a => a.EstUneArmeDeCaC);
-            if (Filtre is "toutes" or "tir")
-                _armesDeTir = armes.Where(a => a.EstUneArmeDeTir);
+            // Sous-filtre : exactement les armes de cette catégorie.
+            if (avecContact)
+                tableaux.Add(new Tableau(_categorie.Libelle, FiltrerParGroupe(_categorie.ArmesDeContact), false));
+            if (avecTir)
+                tableaux.Add(new Tableau(_categorie.Libelle, FiltrerParGroupe(_categorie.ArmesDeTir), true));
         }
 
-        GroupeActuel = Groupe != "toutes" ? Service.AllGroupesDArmes.Single(g => GenericService.GetUrlChunck(g.Nom) == Groupe) : null;
+        _tableaux = tableaux.Where(t => t.Armes.Count > 0).ToArray();
     }
 
-    static IEnumerable<ArmeDto> GetArmesByGroupe(IEnumerable<ArmeDto> armes, IEnumerable<ArmeDto> intersect, ArmeAttributDto? groupe)
+    IEnumerable<Categorie> Categories => _categoriesMelee.Concat(_categoriesTir).Append(_munitions);
+
+    /// <summary>
+    /// Mêlée : spécialisations de Mêlée ayant au moins une arme de contact (les catégories de Tir et les munitions sont masquées).
+    /// Tir : l'inverse, spécialisations de Tir et munitions ayant au moins une arme de tir.
+    /// </summary>
+    static bool EstVisible(Categorie categorie, string type) => type switch
     {
-        var result = armes.Intersect(intersect);
-        if (groupe is not null)
-            result = result.Where(a => a.Groupes.Contains(groupe));
-        return result;
+        "melee" => categorie.DeMelee && categorie.ArmesDeContact.Count > 0,
+        "tir" => !categorie.DeMelee && categorie.ArmesDeTir.Count > 0,
+        _ => true
+    };
+
+    Categorie CreerCategorie(AptitudeDto competence, string libelle, bool deMelee)
+    {
+        var armes = Service.AllArmes
+            .Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == competence.Id))
+            .OrderBy(a => a.Nom)
+            .ToArray();
+        return new Categorie(Slug(libelle), libelle, deMelee, armes.Where(a => a.EstUneArmeDeCaC).ToArray(), armes.Where(a => a.EstUneArmeDeTir).ToArray());
     }
 
-    static string CleanMeleeSpeName(string spe)
+    IEnumerable<Tableau> ParFamille(IReadOnlyDictionary<string, IReadOnlyList<ArmeDto>> familles, IEnumerable<ArmeDto> armesDuType, bool armesDeTir)
+    {
+        var retenues = armesDuType.ToHashSet();
+        return familles.Select(f => new Tableau(f.Key, FiltrerParGroupe(f.Value.Where(retenues.Contains)), armesDeTir));
+    }
+
+    IReadOnlyList<ArmeDto> FiltrerParGroupe(IEnumerable<ArmeDto> armes)
+    {
+        var groupe = _groupe;
+        return (groupe is null ? armes : armes.Where(a => a.Groupes.Contains(groupe))).ToArray();
+    }
+
+    static string Slug(string libelle) => GenericService.GetUrlChunck(libelle);
+
+    static string NomCourt(string spe)
     {
         var str = spe
             .Replace("Armes d'", "")
@@ -61,73 +113,76 @@
             .Replace("Armes ", "");
         return str[..1].ToUpper() + str[1..];
     }
+
+    string Lien(string type, string sousFiltre, string? groupe)
+        => $"equipement/armes-liste/{type}/{sousFiltre}/{groupe ?? "toutes"}/";
+
+    string GroupeCourant => _groupe is null ? "toutes" : Slug(_groupe.Nom);
+
+    // Changer de type garde le sous-filtre s'il existe encore pour ce type.
+    string LienType(string type)
+        => Lien(type, _categorie is not null && EstVisible(_categorie, type) ? _categorie.Slug : "toutes", GroupeCourant);
+
+    // Cliquer sur le sous-filtre actif le désélectionne.
+    string LienCategorie(Categorie c) => Lien(_type, c == _categorie ? "toutes" : c.Slug, GroupeCourant);
+
+    string LienGroupe(ArmeAttributDto g) => Lien(_type, _categorie?.Slug ?? "toutes", g == _groupe ? "toutes" : Slug(g.Nom));
+
+    static string Bouton(bool actif) => $"mb-1 me-1 btn btn-sm {(actif ? "btn-primary" : "btn-secondary")}";
 }
 <TopRowTitleSection Title="Armes" />
-<SousMenu>
-    <a href="equipement/armes-liste/toutes/@Groupe/" class="btn btn-sm w-8rem @(Filtre == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
-    <a href="equipement/armes-liste/melee/@Groupe/" class="btn btn-sm w-8rem @(Filtre == "melee" ? "btn-primary" : "btn-secondary")">Mélee</a>
-    <a href="equipement/armes-liste/tir/@Groupe/" class="btn btn-sm w-8rem @(Filtre == "tir" ? "btn-primary" : "btn-secondary")">Tir</a>
-    <a href="equipement/armes-liste/toutes/munitions/" class="btn btn-sm w-8rem @(Filtre == "munitions" ? "btn-primary" : "btn-secondary")">Munitions</a>
-</SousMenu>
 
-<div>
+<div class="mt-2">
     <div>
-        <a href="equipement/armes-liste/toutes/@Groupe/" class="mb-1 me-1 btn btn-sm @(Groupe == "toutes" ? "btn-primary" : "btn-secondary")">Toutes</a>
+        <a href="@LienType("toutes")" class="@Bouton(_type == "toutes")">Toutes</a>
+        <a href="@LienType("melee")" class="@Bouton(_type == "melee")">Mélée</a>
+        <a href="@LienType("tir")" class="@Bouton(_type == "tir")">Tir</a>
 
-        <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
-
-        @foreach (var skillMelee in AptitudesService.AllMeleeSpecialisations)
+        @if (_categoriesMelee.Any(c => EstVisible(c, _type)))
         {
-            <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string")/toutes/" class="mb-1 me-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillMelee.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@CleanMeleeSpeName(skillMelee.Spe!)</a>
+            <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
+            @foreach (var c in _categoriesMelee.Where(c => EstVisible(c, _type)))
+            {
+                <a href="@LienCategorie(c)" class="@Bouton(c == _categorie)">@c.Libelle</a>
+            }
         }
 
-        <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
-
-        @foreach (var skillTir in AptitudesService.AllTirSpecialisations)
+        @if (_categoriesTir.Any(c => EstVisible(c, _type)) || EstVisible(_munitions, _type))
         {
-            <a href="equipement/armes-liste/@GenericService.GetUrlChunck(skillTir.Spe ?? "null-string")/toutes/" class="mb-1 me-1 btn btn-sm @(Filtre == GenericService.GetUrlChunck(skillTir.Spe ?? "null-string") ? "btn-primary" : "btn-secondary")">@skillTir.Spe</a>
+            <ItemIcon Icon="infinity" Classes="ms-3 me-4" />
+            @foreach (var c in _categoriesTir.Where(c => EstVisible(c, _type)))
+            {
+                <a href="@LienCategorie(c)" class="@Bouton(c == _categorie)">@c.Libelle</a>
+            }
+            @if (EstVisible(_munitions, _type))
+            {
+                <a href="@LienCategorie(_munitions)" class="@Bouton(_munitions == _categorie)">@_munitions.Libelle</a>
+            }
         }
     </div>
     <div>
         @foreach (var groupeDArmes in Service.AllGroupesDArmes)
         {
-            var groupeDArme = GenericService.GetUrlChunck(groupeDArmes.Nom);
-            <a href="equipement/armes-liste/toutes/@groupeDArme/" class="mb-1 me-1 btn btn-sm @(Groupe == groupeDArme ? "btn-primary" : "btn-secondary")">@groupeDArmes.Nom</a>
+            <a href="@LienGroupe(groupeDArmes)" class="@Bouton(groupeDArmes == _groupe)">@groupeDArmes.Nom</a>
         }
     </div>
 </div>
 
-@if (_armesDeCaC.Any())
+@foreach (var tableau in _tableaux)
 {
-    @foreach (var groupe in Service.ArmesDeContactPourTable)
-    {
-        if (GetArmesByGroupe(groupe.Value, _armesDeCaC, GroupeActuel).Any())
-        {
-            <ArmeGroupeTable Armes=@GetArmesByGroupe(groupe.Value, _armesDeCaC, GroupeActuel) Groupe=@groupe.Key ArmesDeTir=false />
-        }
-    }
+    <ArmeGroupeTable Armes=@tableau.Armes Groupe=@tableau.Titre ArmesDeTir=@tableau.ArmesDeTir />
 }
-@if (_armesDeTir.Any())
+@if (_tableaux.Count == 0)
 {
-    @foreach (var groupe in Service.ArmesADistancePourTable)
-    {
-        if (GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel).Any())
-        {
-            <ArmeGroupeTable Armes=@GetArmesByGroupe(groupe.Value, _armesDeTir, GroupeActuel) Groupe=@groupe.Key ArmesDeTir=true />
-        }
-    }
+    <p class="mt-3 fst-italic">Aucune arme ne correspond à ces filtres.</p>
 }
-@if (Groupe == "munitions")
-{
-    <ArmeGroupeTable Armes=@Service.AllArmes.Where(a => a.EstUneMunition) Groupe="Munitions" ArmesDeTir=true />
-}
-@if (GroupeActuel is not null)
+@if (_groupe is not null)
 {
     <div class="row">
         <div class="col">
             <div class="bulle shadow-sm">
-                <h6>@GroupeActuel.Nom</h6>
-                <CardParagraphes Text=@GroupeActuel.Description />
+                <h6>@_groupe.Nom</h6>
+                <CardParagraphes Text=@_groupe.Description />
             </div>
         </div>
     </div>
