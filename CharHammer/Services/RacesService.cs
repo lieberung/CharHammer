@@ -64,6 +64,10 @@ public class RacesService(IReadOnlyDictionary<int, RaceDto> data)
         "Mousillon" => 82,
         "Parravon" => 83,
         "Quenelles" => 84,
+        "Kislev" => 87,
+        "Gospodars" => 88,
+        "Ungols" => 89,
+        "Norsca" => 90,
         _ => -1
     };
 }

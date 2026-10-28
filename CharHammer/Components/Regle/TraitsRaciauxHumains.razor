@@ -4,6 +4,7 @@
 
     IEnumerable<string> _empireProvinces = ["Empire", "Averland", "Hochland", "Middenland", "Nordland", "Ostermark", "Ostland", "Reikland", "Stirland", "Talabecland", "Wissenland", "Sylvanie", "Strigany", "Mutant"];
     IEnumerable<string> _bretonnieDuches = ["Bretonnie", "L'Anguille", "Aquitanie", "Artenois", "Bastogne", "Bordeleaux", "Brionne", "Couronne", "Gasconnie", "Gisoreux", "Lyonesse", "Monfort", "Mousillon", "Parravon", "Quenelles"];
+    IEnumerable<string> _kislevPeuples = ["Kislev", "Gospodars", "Ungols"];
 
     private void Selectionner(MouseEventArgs mouseEventArgs, string province)
     {
@@ -18,7 +19,7 @@
         <button type="button" @onclick="@(e => Selectionner(e, "Empire"))" class="btn @(ProvinceActive == "Empire" ? "btn-primary" : "btn-secondary")">
             Impérial
         </button>
-        <button type="button" @onclick="@(e => Selectionner(e, "Kislev"))" class="btn @(ProvinceActive == "Kislev" ? "btn-primary" : "btn-secondary")">
+        <button type="button" @onclick="@(e => Selectionner(e, "Kislev"))" class="btn @(_kislevPeuples.Contains(ProvinceActive) ? "btn-primary" : "btn-secondary")">
             Kislevite
         </button>
         <button type="button" @onclick="@(e => Selectionner(e, "Norsca"))" class="btn @(ProvinceActive == "Norsca" ? "btn-primary" : "btn-secondary")">
@@ -115,13 +116,13 @@
                 Quenelles
             </button>
         }
-        else if (ProvinceActive == "Kislev")
+        else if (_kislevPeuples.Contains(ProvinceActive))
         {
             <button type="button" @onclick="@(e => Selectionner(e, "Gospodars"))" class="me-1 btn btn-sm @(ProvinceActive == "Gospodars" ? "btn-primary" : "btn-secondary")">
-                Parravon
+                Gospodars
             </button>
             <button type="button" @onclick="@(e => Selectionner(e, "Ungols"))" class="me-1 btn btn-sm @(ProvinceActive == "Ungols" ? "btn-primary" : "btn-secondary")">
-                Quenelles
+                Ungols
             </button>
         }
         else if (ProvinceActive == "Norsca")
