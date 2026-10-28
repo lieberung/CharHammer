@@ -1,56 +1,80 @@
-﻿@page "/aventuriers/{CampagneId}/"
+﻿@page "/aventuriers/{CampagneId:int}/"
 
 @using CharHammer.Components.Aptitude
 @using CharHammer.Components.Bestiole
 @using CharHammer.Components.Campagne
 @using CharHammer.Components.Campagne.Contact
 @using CharHammer.Components.Sortilege
-@using System.Linq
 
 @inject CampagnesService Service
 @code {
-    [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
+    [Parameter] public int CampagneId { get; set; }
 
-    CampagneDto _campagne = null!;
-    SeanceDto _seancePrecedente = null!;
-    SeanceDto _seanceActuelle = null!;
-    IEnumerable<AptitudeDto> _aptitudes = null!;
-    IEnumerable<SortilegeDto> _sortileges = null!;
+    CampagneDto? _campagne;
+    SeanceDto? _seancePrecedente;
+    SeanceDto? _seanceActuelle;
+    IEnumerable<AptitudeDto> _aptitudes = [];
+    IEnumerable<SortilegeDto> _sortileges = [];
 
     protected override void OnParametersSet()
     {
-        _campagne = Service.AllCampagnes.First(c => c.Id == int.Parse(CampagneId));
-        _seancePrecedente = _campagne.SeancePrecedente();
-        _seanceActuelle = _campagne.SeanceActuelle();
+        _campagne = Service.GetCampagne(CampagneId);
+        _seancePrecedente = _campagne?.SeancePrecedente();
+        _seanceActuelle = _campagne?.SeanceActuelle();
 
-        _aptitudes = _seanceActuelle.Pjs
+        var pjs = _seanceActuelle?.Pjs ?? [];
+        _aptitudes = pjs
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
             .Distinct()
-            .OrderBy(a => a.NomComplet);
-
-        _sortileges = _seanceActuelle.Pjs
+            .OrderBy(a => a.Nom)
+            .ToArray();
+        _sortileges = pjs
             .SelectMany(p => p.Sorts)
             .Distinct()
-            .OrderBy(a => a.Nom);
+            .OrderBy(a => a.Nom)
+            .ToArray();
     }
+}
+@if (_campagne is null)
+{
+    <TopRowTitleSection Title="Campagne introuvable" />
+    <div class="section rounded-2 bg-white mt-3 p-3">
+        <p role="alert" class="mb-2">Aucune campagne ne porte ce numéro.</p>
+        <a href="campagne/@(Service.AllCampagnes.FirstOrDefault()?.Id)/seances/" class="btn btn-sm btn-primary">Voir les campagnes</a>
+    </div>
+    return;
 }
 <TopRowTitleSection Title=@_campagne.Titre />
 <div class="row mt-3">
     <div class="col-6">
         <div class="section rounded-2 bg-white">
-            <h3>@_seancePrecedente.Titre</h3>
-            <SeanceDetail Item=@_seancePrecedente CampagneId=@int.Parse(CampagneId) MasquerAventuriers=true />
+            @if (_seancePrecedente is null)
+            {
+                <p class="fst-italic">Aucune séance n'a encore été jouée.</p>
+            }
+            else
+            {
+                <h3>@_seancePrecedente.Titre</h3>
+                <SeanceDetail Item=@_seancePrecedente CampagneId=@CampagneId MasquerAventuriers=true />
+            }
         </div>
     </div>
     <div class="col-6">
         <div class="bulle shadow-sm py-3 px-4">
             <h3>Aventuriers</h3>
-            <BestioleItemList Items=@_seanceActuelle.Pjs />
-            <AptitudeItemListSummary Aptitudes=@_aptitudes CompetencesAvanceesUniquement=true GrosTitres=true />
-            @if (_seanceActuelle.Pjs.Any(p => p.Sorts.Any()))
+            @if (_seanceActuelle is null)
             {
-                <h4>Sortilèges</h4>
-                <SortilegeItemList Items=@_sortileges />
+                <p class="fst-italic">Pas de prochaine séance prévue.</p>
+            }
+            else
+            {
+                <BestioleItemList Items=@_seanceActuelle.Pjs />
+                <AptitudeItemListSummary Aptitudes=@_aptitudes CompetencesAvanceesUniquement=true GrosTitres=true />
+                @if (_sortileges.Any())
+                {
+                    <h4>Sortilèges</h4>
+                    <SortilegeItemList Items=@_sortileges />
+                }
             }
         </div>
     </div>
@@ -61,8 +85,10 @@
 <h3>Connaissances, Contacts, Alliés</h3>
 <CampagneContactRows Items=@_campagne.Contacts />
 
-<PageSectionDivider />
+@if ((_seancePrecedente ?? _seanceActuelle) is { } seance)
+{
+    <PageSectionDivider />
 
-<h3>Aventuriers</h3>
-<BestioleFicheRows Items=@_seancePrecedente.Pjs />
-
+    <h3>Aventuriers</h3>
+    <BestioleFicheRows Items=@seance.Pjs />
+}

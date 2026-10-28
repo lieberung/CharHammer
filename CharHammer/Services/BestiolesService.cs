@@ -122,7 +122,7 @@ public class BestiolesService
     }
 
     /// <summary>Lance l'initiative une seule fois : le résultat est matérialisé pour que les dés ne soient pas relancés à chaque énumération.</summary>
-    public static IReadOnlyList<CombattantDto> InitiativeDeCombat(IEnumerable<CombattantDto> combattants)
+    public static IReadOnlyList<CombattantEnJeu> InitiativeDeCombat(IEnumerable<CombattantDto> combattants)
     {
         return combattants
             .Select(JetDInitiativeDeCombat)
@@ -131,7 +131,7 @@ public class BestiolesService
             .ToArray();
     }
 
-    private static CombattantDto JetDInitiativeDeCombat(CombattantDto combattant)
+    private static CombattantEnJeu JetDInitiativeDeCombat(CombattantDto combattant)
     {
         var profil = combattant.Combattant.ProfilActuel;
         var initiative = profil.BonusDInitiative * 2 + profil.BonusDAgilite;
@@ -148,9 +148,6 @@ public class BestiolesService
         initiative += dice;
         detail += $" + {dice} (1d10)";
 
-        combattant.JetDInitiative = initiative;
-        combattant.DetailDuJet = detail;
-        
-        return combattant;
+        return new CombattantEnJeu(combattant, initiative, detail);
     }
 }

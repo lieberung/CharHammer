@@ -2,24 +2,31 @@
 
 public class TableDesCarrieresInitialesService(IReadOnlyDictionary<int, IReadOnlyList<LigneDeCarriereInitialeDto>> data)
 {
-    public IReadOnlyList<LigneDeCarriereInitialeDto> GetByRace(int idRace) => data[idRace];
+    /// <summary>Table des carrières initiales de la race ; vide si la race n'en a pas.</summary>
+    public IReadOnlyList<LigneDeCarriereInitialeDto> GetByRace(int idRace)
+        => data.TryGetValue(idRace, out var lignes) ? lignes : [];
 
-    public CarriereDto GetRandomStartingCareer(int idRace)
+    /// <summary>
+    /// Tire une carrière initiale de la race, pondérée par son facteur, en ignorant les carrières <paramref name="exclues"/>.
+    /// </summary>
+    /// <returns>La carrière tirée, ou <c>null</c> si la table est vide ou si toutes ses carrières sont exclues.</returns>
+    public CarriereDto? GetRandomStartingCareer(int idRace, IReadOnlyCollection<CarriereDto>? exclues = null)
     {
-        Dictionary<int, CarriereDto> dico = [];
-        var key = 0;
-        var plage = 0;
-        foreach (var carriere in data[idRace].OrderBy(c => c.Carriere.Id))
+        var lignes = GetByRace(idRace)
+            .Where(l => l.Facteur > 0 && (exclues is null || !exclues.Contains(l.Carriere)))
+            .ToArray();
+
+        var total = lignes.Sum(l => l.Facteur);
+        if (total == 0)
+            return null;
+
+        var jet = GenericService.RollDice(total);
+        foreach (var ligne in lignes)
         {
-            plage += carriere.Facteur;
-            for (var i = 1; i <= carriere.Facteur; i++)
-            {
-                key += 1;
-                dico[key] = carriere.Carriere;
-            }
+            jet -= ligne.Facteur;
+            if (jet <= 0)
+                return ligne.Carriere;
         }
-        
-        var dice = GenericService.RollDice(plage);
-        return dico[dice];
+        return lignes[^1].Carriere;
     }
 }

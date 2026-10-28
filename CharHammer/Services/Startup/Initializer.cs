@@ -217,41 +217,15 @@ internal static class Initializer
         return bestioles;
     }
 
+    /// <summary>Une table par race citée dans le tirage d'au moins une carrière, triée par groupe puis par nom.</summary>
     internal static IReadOnlyDictionary<int, IReadOnlyList<LigneDeCarriereInitialeDto>> InitializeTablesCarrieresInitiales(
         IReadOnlyDictionary<int, CarriereDto> carrieres)
-    {
-        //ToDo: automatiser ?
-        var gather = new Dictionary<int, List<LigneDeCarriereInitialeDto>>
-        {
-            { 1,  [] },
-            { 4,  [] },
-            { 7,  [] },
-            { 22, [] },
-            { 23, [] },
-            { 26, [] },
-            { 27, [] },
-            { 28, [] },
-            { 63, [] },
-            { 65, [] },
-            { 66, [] }
-        };
-
-        var carrieresInitiales = carrieres.Values.Where(c => c.TirageInitial.Any());
-
-        foreach (var ci in carrieresInitiales)
-        {
-            foreach (var ti in ci.TirageInitial)
-            {
-                gather[ti.Race.Id].Add(new LigneDeCarriereInitialeDto(Carriere: ci, Facteur: ti.Facteur));
-            }
-        }
-
-        var result = new Dictionary<int, IReadOnlyList<LigneDeCarriereInitialeDto>>();
-        foreach (var key in gather.Keys)
-            result.Add(key, gather[key].OrderBy(l => l.Carriere.Groupe).ThenBy(l => l.Carriere.Nom).ToArray());
-
-        return result;
-    }
+        => carrieres.Values
+            .SelectMany(c => c.TirageInitial.Select(ti => (RaceId: ti.Race.Id, Ligne: new LigneDeCarriereInitialeDto(Carriere: c, Facteur: ti.Facteur))))
+            .GroupBy(x => x.RaceId, x => x.Ligne)
+            .ToDictionary(
+                g => g.Key,
+                IReadOnlyList<LigneDeCarriereInitialeDto> (g) => g.OrderBy(l => l.Carriere.Groupe).ThenBy(l => l.Carriere.Nom).ToArray());
 
     internal static IReadOnlyDictionary<int, RaceDto> InitializeRaces(
         IEnumerable<RaceJson> items,
@@ -262,7 +236,7 @@ internal static class Initializer
             .Select(r => new RaceDto(
                 Id: r.id,
                 Description: r.description ?? "",
-                Aptitudes: (r.aptitudes ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToArray(),
+                Aptitudes: (r.aptitudes ?? []).Select(id => aptitudes[id]).OrderBy(a => a.Nom).ToArray(),
                 Lieux: (r.lieux ?? []).Select(id => lieux[id]).OrderBy(l => l.Nom).ToArray(),
                 GroupOnly: r.group_only,
                 NomFeminin: r.nom_feminin ?? "",
@@ -298,7 +272,6 @@ internal static class Initializer
         var result = items
             .Select(a => new ArmureDto(
                 a.id,
-                a.parent,
                 a.nom,
                 a.type,
                 a.pa,
@@ -310,10 +283,6 @@ internal static class Initializer
                 (a.attributs ?? []).Select(id => attributs[id]).OrderBy(at => at.Nom).ToArray())
             ).ToDictionary(k => k.Id);
 
-        //foreach (var arme in result.Values.Where(a => a.ParentId.HasValue))
-        //{
-        //    arme.Parent = result[arme.ParentId!.Value];
-        //}
         return result;
     }
 
@@ -371,7 +340,6 @@ internal static class Initializer
         var result = items
             .Select(l => new ArmeDto(
                 Id: l.id,
-                ParentId: l.parent,
                 Nom: l.nom,
                 Description: l.description ?? "",
                 Attributs: (l.attributs ?? []).Select(id => cacheAttributs[id]).ToArray(),
@@ -387,10 +355,6 @@ internal static class Initializer
             ))
             .ToDictionary(k => k.Id);
 
-        //foreach (var arme in result.Values.Where(a => a.ParentId.HasValue))
-        //{
-        //    arme.Parent = result[arme.ParentId!.Value];
-        //}
         return result;
     }
 
@@ -424,8 +388,8 @@ internal static class Initializer
                 PatronId: c.patron,
                 Ambiance: c.ambiance ?? [],
                 Aptitudes: new AptitudesAssocieesDto(
-                    Inities: (c.aptitudes?.initie ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToArray(),
-                    PretesSansOrdre: (c.aptitudes?.pretre_sans_ordre ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToArray()
+                    Inities: (c.aptitudes?.initie ?? []).Select(id => aptitudes[id]).OrderBy(a => a.Nom).ToArray(),
+                    PretesSansOrdre: (c.aptitudes?.pretre_sans_ordre ?? []).Select(id => aptitudes[id]).OrderBy(a => a.Nom).ToArray()
                 ),
                 Chef: c.chef ?? "",
                 Commandements: c.commandements ?? [],
@@ -550,10 +514,10 @@ internal static class Initializer
                 AptitudesLieesIds: c.aptitudes ?? []
             )
             {
-                Tests = c.tests ?? "",
-                CaracteristiqueAssociee = c.carac ?? "",
-                Resume = c.resume ?? "",
-                Description = c.description ?? "",
+                TestsPropres = c.tests ?? "",
+                CaracteristiqueAssocieePropre = c.carac ?? "",
+                ResumePropre = c.resume ?? "",
+                DescriptionPropre = c.description ?? "",
             })
             .ToDictionary(k => k.Id);
 
@@ -561,8 +525,8 @@ internal static class Initializer
         {
             apt.NomPourRecherche = GenericService.NettoyerPourRecherche(apt.Nom);
             apt.MotsClefDeRecherche = GenericService.MotsClefsDeRecherche(apt.NomPourRecherche);
-            apt.AptitudesLiees = [.. apt.AptitudesLieesIds.Select(id => result[id]).OrderBy(a => a.NomComplet)];
-            apt.Incompatibles = [.. apt.IncompatiblesIds.Select(id => result[id]).OrderBy(a => a.NomComplet)];
+            apt.AptitudesLiees = [.. apt.AptitudesLieesIds.Select(id => result[id]).OrderBy(a => a.Nom)];
+            apt.Incompatibles = [.. apt.IncompatiblesIds.Select(id => result[id]).OrderBy(a => a.Nom)];
         }
 
         foreach (var apt in result.Values)
@@ -575,15 +539,8 @@ internal static class Initializer
 
         foreach (var aptitude in result.Values.Where(c => c.AptitudeMereId.HasValue))
         {
+            // Description, résumé, tests et caractéristique se lisent ensuite sur la mère si besoin (voir AptitudeDto).
             aptitude.Parent = result[aptitude.AptitudeMereId!.Value];
-            if (aptitude.Description == "")
-                aptitude.Description = aptitude.Parent.Description;
-            if (aptitude.Resume == "")
-                aptitude.Resume = aptitude.Parent.Resume;
-            if (aptitude.CaracteristiqueAssociee == "" && aptitude.Parent.CaracteristiqueAssociee != "")
-                aptitude.CaracteristiqueAssociee = aptitude.Parent.CaracteristiqueAssociee;
-            if (aptitude.Tests == "" && aptitude.Parent.Tests != "")
-                aptitude.Tests = aptitude.Parent.Tests;
             if (aptitude.AptitudesLiees.Count == 0)
                 aptitude.AptitudesLiees = [.. aptitude.Parent.AptitudesLiees];
         }
@@ -630,32 +587,20 @@ internal static class Initializer
                 AptitudesChoix: (c.aptitudes_choix ?? []).Select(choix => GetAptitudes(choix, cacheAptitudes)).ToArray()
             )
             {
-                Ambiance = (c.ambiance ?? []).Select(ca => new CitationDto(ca.c, ca.a ?? "", ca.s ?? "")).ToArray(),
-                CompetenceDeMetier = c.metier is null ? null : cacheAptitudes[c.metier.Value],
-                Description = c.description,
-                Groupe = c.groupe ?? "",
-                Leitmotiv = c.leitmotiv ?? "",
-                Restriction = c.restriction ?? "",
-                Statut = c.revenu ?? "",
+                AmbiancePropre = (c.ambiance ?? []).Select(ca => new CitationDto(ca.c, ca.a ?? "", ca.s ?? "")).ToArray(),
+                CompetenceDeMetierPropre = c.metier is null ? null : cacheAptitudes[c.metier.Value],
+                DescriptionPropre = c.description ?? "",
+                GroupePropre = c.groupe ?? "",
+                LeitmotivPropre = c.leitmotiv ?? "",
+                RestrictionPropre = c.restriction ?? "",
+                StatutPropre = c.revenu ?? "",
             })
             .ToDictionary(k => k.Id);
 
         foreach (var fille in cache.Values.Where(c => c.CarriereMereId.HasValue))
         {
+            // Groupe, statut, description, etc. se lisent ensuite sur la mère si besoin (voir CarriereDto).
             fille.Parent = cache[fille.CarriereMereId!.Value];
-            if (fille.Ambiance.Length == 0)
-                fille.Ambiance = fille.Parent.Ambiance;
-            fille.CompetenceDeMetier ??= fille.Parent.CompetenceDeMetier;
-            if (fille.Description == "")
-                fille.Description = fille.Parent.Description;
-            if (fille.Groupe == "")
-                fille.Groupe = fille.Parent.Groupe;
-            if (fille.Leitmotiv == "")
-                fille.Leitmotiv = fille.Parent.Leitmotiv;
-            if (fille.Restriction == "")
-                fille.Restriction = fille.Parent.Restriction;
-            if (fille.Statut == "")
-                fille.Statut = fille.Parent.Statut;
         }
 
         foreach (var filiere in cache.Values.Where(c => c.DebouchesIds.Any()))
@@ -668,7 +613,6 @@ internal static class Initializer
         foreach (var carriere in tousLesAvancements)
         {
             carriere.FilieresDAvancement = cache.Values.Where(c => c.DebouchesDAvancements.Contains(carriere)).OrderBy(c => c.Nom).ToArray();
-            SetDescriptionParFiliere(carriere);
         }
 
         foreach (var carriereMere in cache.Values.Where(c => c.Parent is not null).Select(c => c.Parent).Distinct())
@@ -691,32 +635,11 @@ internal static class Initializer
         return cache;
     }
 
-    private static void SetDescriptionParFiliere(CarriereDto avancement)
-    {
-        if (avancement.Description != "")
-            return;
-
-        var filiere = avancement.FilieresDAvancement.FirstOrDefault(f => f.Description != "");
-        if (filiere is not null)
-        {
-            avancement.Description = filiere.Description;
-            return;
-        }
-
-        // Désactivé car inutile actuellement
-        //filiere = avancement.FilieresDAvancement.FirstOrDefault(f => f.FilieresDAvancement.Any());
-        //if (filiere is not null)
-        //{
-        //    SetDescriptionParFiliere(filiere);
-        //    avancement.Description = filiere.Description;
-        //}
-    }
-
     private static SourceDto? JsonToDto(SourceJson? source, IReadOnlyDictionary<int, ReferenceDto> references)
         => source?.id is null ? null : new SourceDto(Book: references[source.id!.Value], Info: source.info ?? "");
 
     private static IReadOnlyList<AptitudeDto> GetAptitudes(int[]? argAptitudes, IReadOnlyDictionary<int, AptitudeDto> cacheAptitudes)
-        => (argAptitudes ?? []).Select(id => cacheAptitudes[id]).OrderBy(a => a.NomComplet).ToArray();
+        => (argAptitudes ?? []).Select(id => cacheAptitudes[id]).OrderBy(a => a.Nom).ToArray();
 
     internal static IEnumerable<ChronologieDto> InitializeChronologie(IEnumerable<ChronoJson> chrono, IReadOnlyDictionary<int, ReferenceDto> references, IReadOnlyDictionary<int, DomaineDto> domaines)
         => chrono

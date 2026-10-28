@@ -1,0 +1,25 @@
+﻿@using System.Text.Json
+@code {
+    /// <summary>Erreur levée pendant le téléchargement, la lecture ou l'initialisation des données.</summary>
+    [Parameter, EditorRequired] public Exception Exception { get; set; } = null!;
+
+    string Explication => Exception switch
+    {
+        HttpRequestException => "Le fichier de données n'a pas pu être téléchargé. Vérifiez votre connexion, puis réessayez.",
+        InvalidDataException or JsonException => "Le fichier de données est illisible ou abîmé. Il faut le régénérer avec CharHammer.JsonWriter puis redéployer.",
+        _ => "Les données ont été téléchargées mais sont incohérentes (une référence pointe vers un élément qui n'existe pas, par exemple)."
+    };
+}
+<PageTitle>Erreur de chargement - Charente Hammer</PageTitle>
+
+<div class="container py-5">
+    <div class="alert alert-danger" role="alert">
+        <h1 class="h4 alert-heading">Impossible de charger Charente Hammer</h1>
+        <p>@Explication</p>
+        <button type="button" class="btn btn-danger btn-sm" onclick="location.reload()">Réessayer</button>
+        <details class="mt-3">
+            <summary>Détail technique</summary>
+            <pre class="mb-0 mt-2 small">@Exception.GetType().Name : @Exception.Message</pre>
+        </details>
+    </div>
+</div>

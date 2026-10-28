@@ -14,10 +14,9 @@
             return; // ré-affiche la table
         }
 
-        CarriereDto? ca = null;
-        while (ca is null || _carrieresObtenues.Contains(ca))
-            ca = Service.GetRandomStartingCareer(Selection.Race.Id);
-        _carrieresObtenues.Add(ca);
+        var ca = Service.GetRandomStartingCareer(Selection.Race.Id, _carrieresObtenues);
+        if (ca is not null)
+            _carrieresObtenues.Add(ca);
     }
 }
 <PageSectionRowTitle Title="6. Déterminer sa carrière initiale" />

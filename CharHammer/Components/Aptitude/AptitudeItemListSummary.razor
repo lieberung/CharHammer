@@ -10,9 +10,9 @@
 
     protected override void OnParametersSet()
     {
-        _competences = Aptitudes.Where(a => a.Categ == "skill" && (!CompetencesAvanceesUniquement || !a.EstUneCompetenceDeBase)).OrderBy(a => a.NomComplet);
-        _talents = Aptitudes.Where(a => a.Categ == "talent").OrderBy(a => a.NomComplet);
-        _traits = Aptitudes.Where(a => a.Categ == "trait").OrderBy(a => a.NomComplet);
+        _competences = Aptitudes.Where(a => a.Categ == "skill" && (!CompetencesAvanceesUniquement || !a.EstUneCompetenceDeBase)).OrderBy(a => a.Nom);
+        _talents = Aptitudes.Where(a => a.Categ == "talent").OrderBy(a => a.Nom);
+        _traits = Aptitudes.Where(a => a.Categ == "trait").OrderBy(a => a.Nom);
         HeaderClass = GrosTitres ? "h5" : "h4";
     }
 }

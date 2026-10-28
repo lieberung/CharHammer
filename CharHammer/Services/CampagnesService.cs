@@ -4,7 +4,9 @@ public class CampagnesService(IReadOnlyList<CampagneDto> data)
 {
     public IReadOnlyList<CampagneDto> AllCampagnes => data;
 
-    public SeanceDto GetSeance(int campagneId, string date) => data.First(c => c.Id == campagneId).Seances.First(s => s.Quand == date);
+    public CampagneDto? GetCampagne(int campagneId) => data.FirstOrDefault(c => c.Id == campagneId);
+
+    public SeanceDto? GetSeance(int campagneId, string date) => GetCampagne(campagneId)?.Seances.FirstOrDefault(s => s.Quand == date);
 
     public IEnumerable<CampagneDto> CampagnesAuxquellesAParticipe(BestioleDto pj)
         => data

@@ -1,6 +1,6 @@
 ﻿namespace CharHammer.Models;
 
-public record BestioleDto(
+public class BestioleDto(
     int Id, string DateDeCreation, int UserId, string Joueur, string Nom, string NomCourt,
     RaceDto Race,
     ProfilDto? ProfilInitial, ProfilDto ProfilActuel,
@@ -18,6 +18,45 @@ public record BestioleDto(
     int XpActuel, int XpTotal
 ) : ISearchable
 {
+    public int Id { get; } = Id;
+    public string DateDeCreation { get; } = DateDeCreation;
+    public int UserId { get; } = UserId;
+    public string Joueur { get; } = Joueur;
+    public string Nom { get; } = Nom;
+    public string NomCourt { get; } = NomCourt;
+    public RaceDto Race { get; } = Race;
+    public ProfilDto? ProfilInitial { get; } = ProfilInitial;
+    public ProfilDto ProfilActuel { get; } = ProfilActuel;
+    public string Description { get; } = Description;
+    public string Histoire { get; } = Histoire;
+    public string Notes { get; } = Notes;
+    public string Psychologie { get; } = Psychologie;
+    public IReadOnlyList<string> Ambitions { get; } = Ambitions;
+    public IReadOnlyList<CarriereDto> CheminementPro { get; } = CheminementPro;
+    public IReadOnlyList<AptitudeAcquiseDto> AptitudesAcquises { get; } = AptitudesAcquises;
+    public IReadOnlyList<AptitudeAcquiseDto> AptitudesOptionnels { get; } = AptitudesOptionnels;
+    public IReadOnlyList<LieuDto> Origines { get; } = Origines;
+    public IReadOnlyList<string> MembreDe { get; } = MembreDe;
+    public int? Poids { get; } = Poids;
+    public int? Taille { get; } = Taille;
+    public int? Age { get; } = Age;
+    public int? Sexe { get; } = Sexe;
+    public string? Cheveux { get; } = Cheveux;
+    public string? Yeux { get; } = Yeux;
+    public int MainDirectrice { get; } = MainDirectrice;
+    public IReadOnlyList<ArmeDto> Armes { get; } = Armes;
+    public IReadOnlyList<ArmureDto> Armures { get; } = Armures;
+    public IReadOnlyList<EquipementDto> Equipement { get; } = Equipement;
+    public IReadOnlyList<SortilegeDto> Sorts { get; } = Sorts;
+    public CarriereDto? CarriereDuPere { get; } = CarriereDuPere;
+    public CarriereDto? CarriereDeLaMere { get; } = CarriereDeLaMere;
+    public string? FreresEtSoeurs { get; } = FreresEtSoeurs;
+    public int? SigneAstralId { get; } = SigneAstralId;
+    public bool Mort { get; } = Mort;
+    public bool Masquer { get; } = Masquer;
+    public int XpActuel { get; } = XpActuel;
+    public int XpTotal { get; } = XpTotal;
+
     public bool EstUnPersonnage => CheminementPro.Any();
     public bool EstUnPersonnageJoueur => UserId != 0 && UserId != 999;
     public bool EstUnPersonnagePretire => EstUnPersonnage && UserId == 999;

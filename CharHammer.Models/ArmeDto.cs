@@ -1,8 +1,7 @@
 ﻿namespace CharHammer.Models;
 
-public record ArmeDto(
+public class ArmeDto(
     int Id, 
-    int? ParentId, 
     IReadOnlyList<AptitudeDto> CompetencesDeMaitrise, 
     IReadOnlyList<ArmeAttributDto> Attributs, 
     IReadOnlyList<ArmeAttributDto> Groupes, 
@@ -16,7 +15,20 @@ public record ArmeDto(
     string Disponibilite, 
     string Description)
 {
-    //public ArmeDto? Parent;
+    public int Id { get; } = Id;
+    public IReadOnlyList<AptitudeDto> CompetencesDeMaitrise { get; } = CompetencesDeMaitrise;
+    public IReadOnlyList<ArmeAttributDto> Attributs { get; } = Attributs;
+    public IReadOnlyList<ArmeAttributDto> Groupes { get; } = Groupes;
+    public string Nom { get; } = Nom;
+    public string Degats { get; } = Degats;
+    public string Allonge { get; } = Allonge;
+    public string Portee { get; } = Portee;
+    public string Rechargement { get; } = Rechargement;
+    public string Encombrement { get; } = Encombrement;
+    public string Prix { get; } = Prix;
+    public string Disponibilite { get; } = Disponibilite;
+    public string Description { get; } = Description;
+
     public bool EstUneArmeDeCaC => Allonge != "";
     public bool EstUneArmeDeTir => Portee != "" && !EstUneMunition;
     public bool EstUneMunition => Groupes.Any(g => g.Nom == "Munitions");

@@ -2,17 +2,10 @@
 
 public class AppState
 {
-  public string PageHeadTitle { get; private set; } = "Charente Hammer";
   public bool JeSuisDieu { get; private set; }
   public event Action? OnChange;
 
   private void NotifyStateChanged() => OnChange?.Invoke();
-
-  //public void SetPageHeadTitle(string title)
-  //{
-  //  PageHeadTitle = title;
-  //  NotifyStateChanged();
-  //}
 
   public void UnCombattantEnEngageUnAutre()
   {

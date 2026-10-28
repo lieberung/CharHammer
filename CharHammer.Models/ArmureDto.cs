@@ -1,8 +1,7 @@
 ﻿namespace CharHammer.Models;
 
-public record ArmureDto(
+public class ArmureDto(
     int Id,
-    int? ParentId,
     string Nom,
     string Type,
     string Pa,
@@ -13,7 +12,17 @@ public record ArmureDto(
     string Description,
     IReadOnlyList<ArmeAttributDto> Attributs)
 {
-    //public ArmureDto? Parent { get; set; }
+    public int Id { get; } = Id;
+    public string Nom { get; } = Nom;
+    public string Type { get; } = Type;
+    public string Pa { get; } = Pa;
+    public string Zones { get; } = Zones;
+    public string Prix { get; } = Prix;
+    public string Enc { get; } = Enc;
+    public string Disponibilite { get; } = Disponibilite;
+    public string Description { get; } = Description;
+    public IReadOnlyList<ArmeAttributDto> Attributs { get; } = Attributs;
+
     public bool TypeLegere => Type == "Cuir";
     public bool TypeMoyenne => Type == "Mailles";
     public bool TypeLourde => Type == "Plaques";

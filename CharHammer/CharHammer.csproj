@@ -2,18 +2,9 @@
 
   <PropertyGroup>
     <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
-    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
     <!-- .NET 10 : remplace #[.{fingerprint}], le préchargement et l'import map de wwwroot/index.html à la compilation -->
     <OverrideHtmlAssetPlaceholders>true</OverrideHtmlAssetPlaceholders>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="Pages\Index.razor.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Pages\Index.razor.css" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
@@ -23,10 +14,6 @@
   <ItemGroup>
     <ProjectReference Include="..\CharHammer.DataSource\CharHammer.DataSource.csproj" />
     <ProjectReference Include="..\CharHammer.Models\CharHammer.Models.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
   </ItemGroup>
 
 </Project>

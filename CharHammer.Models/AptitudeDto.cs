@@ -1,19 +1,42 @@
 ﻿namespace CharHammer.Models;
 
-public record AptitudeDto(
+public class AptitudeDto(
     int Id, bool Ignore, bool Martial, string Nom, string? NomEn, string? Spe,
     string Categ, string CategSpe, string? Max, int Severite, string Guerison,
     bool? Contagieux, int? AptitudeMereId,
     IReadOnlyList<int> AptitudesLieesIds, IReadOnlyList<int> IncompatiblesIds
 ) : ISearchable
 {
+    public int Id { get; } = Id;
+    public bool Ignore { get; } = Ignore;
+    public bool Martial { get; } = Martial;
+    public string Nom { get; } = Nom;
+    public string? NomEn { get; } = NomEn;
+    public string? Spe { get; } = Spe;
+    public string Categ { get; } = Categ;
+    public string CategSpe { get; } = CategSpe;
+    public string? Max { get; } = Max;
+    public int Severite { get; } = Severite;
+    public string Guerison { get; } = Guerison;
+    public bool? Contagieux { get; } = Contagieux;
+    public int? AptitudeMereId { get; } = AptitudeMereId;
+    public IReadOnlyList<int> AptitudesLieesIds { get; } = AptitudesLieesIds;
+    public IReadOnlyList<int> IncompatiblesIds { get; } = IncompatiblesIds;
+
     public IReadOnlyList<string> MotsClefDeRecherche = [];
     public string NomPourRecherche = "";
 
-    public string CaracteristiqueAssociee = "";
-    public string Description = "";
-    public string Resume = "";
-    public string Tests = "";
+    // Valeurs saisies dans aptitude.json. Vides quand elles doivent venir de l'aptitude mère.
+    public string CaracteristiqueAssocieePropre { get; init; } = "";
+    public string DescriptionPropre { get; init; } = "";
+    public string ResumePropre { get; init; } = "";
+    public string TestsPropres { get; init; } = "";
+
+    // Valeurs affichées : celles de l'aptitude, sinon celles de sa mère (spécialisation sans texte propre).
+    public string CaracteristiqueAssociee => CaracteristiqueAssocieePropre != "" ? CaracteristiqueAssocieePropre : Parent?.CaracteristiqueAssociee ?? "";
+    public string Description => DescriptionPropre != "" ? DescriptionPropre : Parent?.Description ?? "";
+    public string Resume => ResumePropre != "" ? ResumePropre : Parent?.Resume ?? "";
+    public string Tests => TestsPropres != "" ? TestsPropres : Parent?.Tests ?? "";
 
     public bool EstUneCompetence => Categ == "skill";
     public bool EstUneCompetenceDeBase => EstUneCompetence && CategSpe == "bas";
@@ -40,7 +63,6 @@ public record AptitudeDto(
     }
 
     public string Icon => EstUneCompetence ? "bullseye" : EstUnTalent ? "brush" : EstUnTrait ? "droplet" : "x-circle";
-    public string NomComplet { get; } = Nom + (string.IsNullOrWhiteSpace(Spe) ? "" : $" : {Spe}");
     public string CategSpeSexy
     {
         get
@@ -105,6 +127,6 @@ public class AptitudeAcquiseDto
         {
             aptAcq.ChancesDeSucces = profil.GetStat(aptAcq.Aptitude.CaracteristiqueAssociee) + aptAcq.Niveau * 5;
         }
-        return liste.OrderBy(c => c.Aptitude.NomComplet).ToArray();
+        return liste.OrderBy(c => c.Aptitude.Nom).ToArray();
     }
 }

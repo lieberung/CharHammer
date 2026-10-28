@@ -1,4 +1,4 @@
-﻿@page "/maitre-du-jeu/{CampagneId}/{DateSeance}/"
+﻿@page "/maitre-du-jeu/{CampagneId:int}/{DateSeance}/"
 
 @using CharHammer.Components.Aptitude
 @using CharHammer.Components.Bestiole
@@ -7,29 +7,29 @@
 @inject CampagnesService Service
 @inject AppState AppState
 @code {
-    [Parameter, EditorRequired] public string CampagneId { get; set; } = null!;
+    [Parameter] public int CampagneId { get; set; }
     [Parameter, EditorRequired] public string DateSeance { get; set; } = null!;
 
     RencontreDto? Rencontre { get; set; }
-    SeanceDto _seance = null!;
+    SeanceDto? _seance;
     IEnumerable<AptitudeDto> _aptitudes = null!;
-    IEnumerable<CombattantDto> _combattants = [];
+    IEnumerable<CombattantEnJeu> _combattants = [];
     string _localisationRoll = "...";
 
     protected override void OnParametersSet()
     {
-        var campagne = Service.AllCampagnes.First(c => c.Id == int.Parse(CampagneId));
+        var campagne = Service.GetCampagne(CampagneId);
         _seance = DateSeance switch
         {
-            "seance-actuelle" => campagne.SeanceActuelle(),
-            "seance-precedente" => campagne.SeancePrecedente(),
-            _ => Service.GetSeance(int.Parse(CampagneId), DateSeance)
+            "seance-actuelle" => campagne?.SeanceActuelle(),
+            "seance-precedente" => campagne?.SeancePrecedente(),
+            _ => Service.GetSeance(CampagneId, DateSeance)
         };
 
-        _aptitudes = _seance.Pjs
+        _aptitudes = (_seance?.Pjs ?? [])
             .SelectMany(pj => pj.AptitudesAcquises.Select(aa => aa.Aptitude))
             .Distinct()
-            .OrderBy(a => a.NomComplet);
+            .OrderBy(a => a.Nom);
     }
 
     void CalculerInitiativeDeCombatPjsUniquement() => CalculerInitiativeDeCombat(null);
@@ -37,7 +37,7 @@
     {
         Rencontre = rencontre;
 
-        var protagonistes = _seance.Pjs
+        var protagonistes = _seance!.Pjs
             .Select(pj => new CombattantDto(Combattant: pj, Nom: pj.Nom, false))
             .Union(Rencontre is not null ? Rencontre.Allies.Union(Rencontre.Ennemis) : []);
 
@@ -49,6 +49,15 @@
         var d100 = GenericService.RollDice(100);
         _localisationRoll = GenericService.GetLocalisation(d100);
     }
+}
+@if (_seance is null)
+{
+    <TopRowTitleSection Title="Séance introuvable" />
+    <div class="section rounded-2 bg-white mt-3 p-3">
+        <p role="alert" class="mb-2">Cette campagne ou cette séance n'existe pas, ou aucune séance ne correspond encore.</p>
+        <a href="campagne/@CampagneId/seances/" class="btn btn-sm btn-primary">Voir les campagnes</a>
+    </div>
+    return;
 }
 <TopRowTitleSection Title=@(_seance.Quand + " - " + _seance.Titre) />
 <div class="row">

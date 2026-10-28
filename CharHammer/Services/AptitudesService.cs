@@ -22,7 +22,7 @@ public class AptitudesService
     Addictions = AllTraits.Where(t => t.CategSpe == "addiction").ToArray();
     Alergies = AllTraits.Where(t => t.CategSpe == "allergie").ToArray();
     Phobies = AllTraits.Where(t => t.CategSpe == "phobie").ToArray();
-    Conditions = AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.NomComplet).ToArray();
+    Conditions = AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.Nom).ToArray();
     TroublesMineurs = Alergies.Where(t => t.Severite == 1)
         .Union(Nevroses.Where(t => t.Severite == 1))
         .Union(Phobies.Where(t => t.Severite == 1))

@@ -4,8 +4,8 @@
 
 @inject AppState AppState
 @code {
-    [Parameter, EditorRequired] public CombattantDto Item { get; set; } = null!;
-    [Parameter, EditorRequired] public IEnumerable<CombattantDto> Adversaires { get; set; } = null!;
+    [Parameter, EditorRequired] public CombattantEnJeu Item { get; set; } = null!;
+    [Parameter, EditorRequired] public IEnumerable<CombattantEnJeu> Adversaires { get; set; } = null!;
 
     string AdversaireActuel { get; set; } = "";
     bool AfficherFiche { get; set; }
