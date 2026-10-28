@@ -18,8 +18,9 @@
             return;
         }
 
-        var a = CttService.SignesDistinctifs.ToArray().TirerUneAptitudeAleatoire(_traitsObtenus.ToArray());
-        _traitsObtenus.Add(a);
+        var a = CttService.SignesDistinctifs.TirerUneAptitudeAleatoire(_traitsObtenus);
+        if (a is not null)
+            _traitsObtenus.Add(a);
     }
 }
 
@@ -33,7 +34,7 @@
                 Vous pouvez dépenser <strong>100 xp</strong> (une seule fois) pour en tirer un supplémentaire et en écarter un parmi l'ensemble.
             </p>
             <button class="btn btn-primary m-3" type="button" @onclick="TirerUnSigneAleatoire">
-                <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                <span class="bi bi-lightning-fill ms-2 me-1" aria-hidden="true"></span>
                 Tirer un signe aléatoire
             </button>
             <AptitudeItemList Items=@_traitsObtenus />

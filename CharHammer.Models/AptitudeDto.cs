@@ -39,7 +39,7 @@ public record AptitudeDto(
         TraitsLies = AptitudesLiees.Where(a => a.EstUnTrait).ToArray();
     }
 
-    public string Icon => EstUneCompetence ? "target" : EstUnTalent ? "brush" : EstUnTrait ? "droplet" : "error";
+    public string Icon => EstUneCompetence ? "bullseye" : EstUnTalent ? "brush" : EstUnTrait ? "droplet" : "x-circle";
     public string NomComplet { get; } = Nom + (string.IsNullOrWhiteSpace(Spe) ? "" : $" : {Spe}");
     public string CategSpeSexy
     {

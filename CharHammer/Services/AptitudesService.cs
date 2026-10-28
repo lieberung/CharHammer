@@ -162,8 +162,8 @@ public class AptitudesService
   public AptitudeDto TraitCourseAPied => GetTrait(3020);
   public AptitudeDto TraitDurACuir => GetTrait(TraitDurACuirId);
 
-  public AptitudeDto TalentCostaud => GetTrait(2239);
-  public AptitudeDto TalentRobuste => GetTalent(2074);
+  public AptitudeDto TalentInfatigable => GetTalent(2239); // Strong Back
+  public AptitudeDto TalentCostaud => GetTalent(2074); // Sturdy (« Robuste » en v2)
 
   // Académique
   public AptitudeDto CompetenceGroupeSavoir => GetAptitude(1013);
@@ -207,7 +207,6 @@ public class AptitudesService
   public AptitudeDto TalentTraditionSorcellerie => GetTalent(2164);
   public AptitudeDto TalentMagieNoireDemonologie => GetTalent(2046);
   public AptitudeDto TalentMagieNoireNecromancie => GetTalent(2459);
-  public AptitudeDto TalentMagieCommuneVulgaire => GetTalent(2163);
 
   // Martial
   public AptitudeDto CompetenceLangSecretBataille => GetAptitude(1148);
@@ -215,7 +214,6 @@ public class AptitudesService
   public AptitudeDto TalentCoupsPrécis => GetTalent(2020);
   public AptitudeDto TalentSurSesGardes => GetTalent(2085);
   public AptitudeDto TalentTroublant => GetTalent(2091);
-  public AptitudeDto TalentMaitriseUneAuChoix => GetTalent(2153);
   public AptitudeDto TalentReflexesDeCombat => GetTalent(TalentReflexesDeCombatId);
   public static int TalentReflexesDeCombatId => 2218;
 
@@ -229,8 +227,7 @@ public class AptitudesService
   public AptitudeDto TalentCoupsPuissants => GetTalent(2021);
   public AptitudeDto TalentCoupsAssomants => GetTalent(2019);
   public AptitudeDto TalentDesarmement => GetTalent(2023);
-  public AptitudeDto TalentDurACuir => GetTalent(2024);
-  public AptitudeDto TalentFrenesie => GetTalent(2020);
+  public AptitudeDto TalentFrenesie => GetTalent(2030);
   public AptitudeDto TalentParadeEclair => GetTalent(2065);
   public AptitudeDto TalentLutte => GetTalent(2043);
   public AptitudeDto TraitValeureux => GetTalent(3906);
@@ -242,7 +239,6 @@ public class AptitudesService
   public AptitudeDto TalentHommeBouclier => GetTalent(2231);
   public AptitudeDto TalentAssautBrutal => GetTalent(2223);
   public AptitudeDto TalentChargeBerserk => GetTalent(2245);
-  public AptitudeDto TalentDetermine => GetTalent(2273);
   public AptitudeDto TalentRiposte => GetTalent(2241);
   public AptitudeDto TalentFrappeReactive => GetTalent(2213);
   public AptitudeDto TalentRetournement => GetTalent(2242);
@@ -294,8 +290,7 @@ public class AptitudesService
   public AptitudeDto TalentAccuiteGustativeEtOlfactive => GetTalent(2209);
   public AptitudeDto TalentAccuiteVisuelle => GetTalent(2003);
   public AptitudeDto TalentAffiniteAnimale => GetTalent(2298);
-  public AptitudeDto TalentFilature => GetTalent(2020);
-  public AptitudeDto TalentPistage => GetTalent(2049);
+  public AptitudeDto CompetenceFilature => GetAptitude(1030);
 
   // Sociales ( + TalentCodeDeLaRue)
   public AptitudeDto CompetenceBaratin => GetAptitude(1004);
@@ -312,7 +307,7 @@ public class AptitudesService
   // Commerce  + TalentCalculMental
   public AptitudeDto CompetenceMarchandage => GetAptitude(1043);
   public AptitudeDto CompetenceMetierMarchand => GetAptitude(1078);
-  public AptitudeDto CompetenceEvaluation => GetAptitude(1179);
+  public AptitudeDto CompetenceEvaluation => GetAptitude(1027);
   public AptitudeDto CompetenceExpressionArtistiqueConteur => GetAptitude(1123);
   public AptitudeDto TalentDurEnAffaires => GetTalent(2025);
 
@@ -345,7 +340,7 @@ public class AptitudesService
 
   // Rôdeurs  + AptitudeDeplacementSilencieux, AptitudeDissimulation, AptitudeEmpriseSurLesAnimaux, AptitudeGroupeLangue
   //          , AptitudePerception, AptitudeFouille, AptitudeEscalade, TalentLinguistique, TalentConnaissanceDesPieges
-  public AptitudeDto CompetenceBraconnage => GetAptitude(105);
+  public AptitudeDto CompetenceBraconnage => GetAptitude(1005);
   public AptitudeDto CompetenceAlphabetSecretPisteurs => GetAptitude(1086);
   public AptitudeDto CompetenceLangageSecretRodeurs => GetAptitude(1087);
   public AptitudeDto CompetenceLangageSecretTroisAuChoix => GetAptitude(1038);
@@ -389,7 +384,6 @@ public class AptitudesService
   public AptitudeDto TalentResistanceAuxPoisons => GetTalent(2073);
   public AptitudeDto TalentSainDEsprit => GetTalent(2075);
   public AptitudeDto TraitVisionNocturne => GetTrait(3903);
-  public AptitudeDto TalentSensAiguisés => GetTalent(2080);
 
   public AptitudeDto TalentDictionInstinctive => GetAptitude(2226);
   public AptitudeDto TalentMagieArcaniqueMetal => GetAptitude(2455);
@@ -419,8 +413,8 @@ public class AptitudesService
   public AptitudeDto ConditionInconscient => GetTrait(3461);
   public AptitudeDto ConditionExtenue => GetTrait(3456);
 
-  public AptitudeDto TraitPsychoHaine => GetTrait(3217);
-  public AptitudeDto TraitPsychoAnimosite => GetTrait(3215);
+  public AptitudeDto TraitPsychoHaine => GetTrait(3259);
+  public AptitudeDto TraitPsychoAnimosite => GetTrait(3257);
   public AptitudeDto TraitEffrayant => GetTrait(3199);
 
   #endregion

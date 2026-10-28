@@ -5,7 +5,7 @@
 }
 <div class="hstack gap-2">
     <span class="hover-pointer" @onclick="_ => AfficherLiensHumains = !AfficherLiensHumains">
-        <BtnChevron Icon=@(AfficherLiensHumains ? "chevron-top" : "chevron-bottom") />
+        <BtnChevron Icon=@(AfficherLiensHumains ? "chevron-up" : "chevron-down") />
     </span>
     <BtnRace Race="Humains" Href="regles/creation-de-personnage/1/" />
     <BtnList Href="table-carrieres-initiales/1/" />
@@ -15,7 +15,7 @@
 {
     <div class="hstack gap-2">
         <span>
-            <BtnChevron Icon="chevron-top" Invisible=true />
+            <BtnChevron Icon="chevron-up" Invisible=true />
         </span>
         <BtnRace Race="Impériaux" />
         <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHumainsImperiaux}/") />
@@ -23,7 +23,7 @@
     </div>
     <div class="hstack gap-2">
         <span>
-            <BtnChevron Icon="chevron-top" Invisible=true />
+            <BtnChevron Icon="chevron-up" Invisible=true />
         </span>
         <BtnRace Race="Bretonniens" />
         <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHumainsBretonniens}/") />
@@ -31,7 +31,7 @@
     </div>
     <div class="hstack gap-2">
         <span>
-            <BtnChevron Icon="chevron-top" Invisible=true />
+            <BtnChevron Icon="chevron-up" Invisible=true />
         </span>
         <BtnRace Race="Gospodars" />
         <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHumainsGospodars}/") />
@@ -39,7 +39,7 @@
     </div>
     <div class="hstack gap-2">
         <span>
-            <BtnChevron Icon="chevron-top" Invisible=true />
+            <BtnChevron Icon="chevron-up" Invisible=true />
         </span>
         <BtnRace Race="Ungols" />
         <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHumainsUngols}/") />
@@ -48,7 +48,7 @@
 }
 <div class="hstack gap-2">
     <span>
-        <BtnChevron Icon="chevron-top" Invisible=true />
+        <BtnChevron Icon="chevron-up" Invisible=true />
     </span>
     <BtnRace Race="Halflings" Href="regles/creation-de-personnage/26/" />
     <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHalflings}/") />
@@ -56,7 +56,7 @@
 </div>
 <div class="hstack gap-2">
     <span>
-        <BtnChevron Icon="chevron-top" Invisible=true />
+        <BtnChevron Icon="chevron-up" Invisible=true />
     </span>
     <BtnRace Race="Nains" Href="regles/creation-de-personnage/27/" />
     <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdNains}/") />
@@ -64,7 +64,7 @@
 </div>
 <div class="hstack gap-2">
     <span>
-        <BtnChevron Icon="chevron-top" Invisible=true />
+        <BtnChevron Icon="chevron-up" Invisible=true />
     </span>
     <BtnRace Race="Gnômes" Href="regles/creation-de-personnage/63/" />
     <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdGnomes}/") />
@@ -72,7 +72,7 @@
 </div>
 <div class="hstack gap-2">
     <span class="me-auto hover-pointer" @onclick="_ => AfficherLiensElfes = !AfficherLiensElfes">
-        <BtnChevron Icon=@(AfficherLiensElfes ? "chevron-top" : "chevron-bottom") />
+        <BtnChevron Icon=@(AfficherLiensElfes ? "chevron-up" : "chevron-down") />
     </span>
     <BtnRace Race="Elfes"/>
     <BtnList/>
@@ -82,7 +82,7 @@
 {
     <div class="hstack gap-2">
         <span>
-            <BtnChevron Icon="chevron-top" Invisible=true />
+            <BtnChevron Icon="chevron-up" Invisible=true />
         </span>
         <BtnRace Race="Elfes sylvains" Href="regles/creation-de-personnage/65/" />
         <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdElfesSylvains}/") />
@@ -90,7 +90,7 @@
     </div>
     <div class="hstack gap-2">
         <span>
-            <BtnChevron Icon="chevron-top" Invisible=true />
+            <BtnChevron Icon="chevron-up" Invisible=true />
         </span>
         <BtnRace Race="Hauts-elfes" Href="regles/creation-de-personnage/66/" />
         <BtnList Href=@($"table-carrieres-initiales/{RacesService.IdHautsElfes}/") />

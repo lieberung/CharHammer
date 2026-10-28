@@ -7,7 +7,7 @@ public static class Configuration
     public static void ConfigureServices(this IServiceCollection services, DataJson data)
     {
         Console.Write("Initializing data... ");
-        var startTime = DateTime.Now;
+        var chrono = System.Diagnostics.Stopwatch.StartNew();
         var dataUsers = Initializer.InitializeUsers(data.users);
 
         var dataAptitudes = Initializer.InitializeAptitudes(data.aptitudes);
@@ -49,7 +49,7 @@ public static class Configuration
         services.AddSingleton(_ => new CampagnesService(dataCampagnes));
         services.AddSingleton(_ => new ScenariosService(dataScenarios));
 
-        Console.WriteLine($"{DateTime.Now.Subtract(startTime).TotalSeconds}sec.");
+        Console.WriteLine($"{chrono.ElapsedMilliseconds} ms.");
 
         services.AddSingleton(_ => new AppState());
     }

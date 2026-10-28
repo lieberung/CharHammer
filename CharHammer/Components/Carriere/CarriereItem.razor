@@ -7,7 +7,7 @@
     [Parameter] public bool Special { get; set; }
 }
 <a href="carrieres/@Item.Id/" class="btn btn-light btn-item@(Special ? " btn-special" : "")">
-    <ItemIcon Icon="badge" />
+    <ItemIcon Icon="award" />
     <span class="ms-1"></span>
     @if (!string.IsNullOrWhiteSpace(Tooltip))
     {
@@ -19,11 +19,11 @@
     }
     @if (!HideIndicatorBase && Item.EstUneCarriereDeBase)
     {
-        <TooltipIcon Icon="home" Classes="ms-2 text-brown"
+        <TooltipIcon Icon="house" Classes="ms-2 text-brown"
                      Text="Vous pouvez entreprendre cette carrière à tout moment contre 200 points d'expérience (100 si vous avez complété votre carrière actuelle)."/>
     }
     @if (!HideIndicatorRestriction && !string.IsNullOrWhiteSpace(Item.Restriction))
     {
-        <TooltipIcon Icon="info" Classes="ms-2 text-danger" Text=@Item.Restriction />
+        <TooltipIcon Icon="info-circle" Classes="ms-2 text-danger" Text=@Item.Restriction />
     }
 </a>

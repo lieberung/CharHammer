@@ -1,0 +1,23 @@
+﻿@code {
+    [Parameter, EditorRequired] public RenderFragment ChildContent { get; set; } = null!;
+
+    private ErrorBoundary? _errorBoundary;
+
+    // Le layout fournit une nouvelle page à chaque navigation : on efface l'erreur de la page précédente.
+    protected override void OnParametersSet() => _errorBoundary?.Recover();
+}
+<ErrorBoundary @ref="_errorBoundary">
+    <ChildContent>
+        @ChildContent
+    </ChildContent>
+    <ErrorContent Context="exception">
+        <div class="alert alert-danger mt-3" role="alert">
+            <h4 class="alert-heading">Cette page a rencontré une erreur</h4>
+            <p>Le reste de l'application fonctionne : revenez à l'<a href="" class="alert-link">accueil</a> ou ouvrez une autre page.</p>
+            <details>
+                <summary>Détail technique</summary>
+                <pre class="mb-0 mt-2 small">@exception.GetType().Name : @exception.Message</pre>
+            </details>
+        </div>
+    </ErrorContent>
+</ErrorBoundary>

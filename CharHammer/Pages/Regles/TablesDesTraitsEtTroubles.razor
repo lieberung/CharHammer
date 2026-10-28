@@ -45,7 +45,9 @@
 
     void TirerUnTraitAleatoire()
     {
-        _traitAleatoire = Traits.TirerUneAptitudeAleatoire(_traitAleatoire is null ? [] : [_traitAleatoire]);
+        // Évite de retirer le même trait deux fois de suite ; si la table n'en contient qu'un, on le retire quand même.
+        _traitAleatoire = Traits.TirerUneAptitudeAleatoire(_traitAleatoire is null ? [] : [_traitAleatoire])
+                          ?? Traits.TirerUneAptitudeAleatoire([]);
     }
 }
 <TopRowTitleSection Title="Tables des traits et troubles" />
@@ -62,7 +64,7 @@
     <div class="col-3">
         <div class="section">
             <button class="btn btn-primary" type="button" @onclick="TirerUnTraitAleatoire">
-                <span class="oi oi-flash ms-2 me-1" aria-hidden="true"></span>
+                <span class="bi bi-lightning-fill ms-2 me-1" aria-hidden="true"></span>
                 Tirer @_determinant @_typeDeTrait aléatoire
             </button>
         </div>

@@ -2,6 +2,8 @@
   <Folder Name="/Documents/">
     <File Path=".editorconfig" />
     <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
     <File Path="Documents/code-style.txt" />
     <File Path="Documents/Idees.txt" />
   </Folder>
