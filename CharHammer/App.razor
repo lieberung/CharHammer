@@ -1,6 +1,47 @@
-﻿<Router AppAssembly="@typeof(App).Assembly" NotFoundPage="typeof(Pages.NotFound)">
-    <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
-        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
-    </Found>
-</Router>
+﻿@using CharHammer.Services.Startup
+
+@inject DataLoader DataLoader
+@inject Catalogue Catalogue
+@code {
+    string _etape = "Téléchargement des données…";
+    Exception? _erreur;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (Catalogue.EstCharge)
+            return;
+
+        try
+        {
+            var data = await DataLoader.LoadData();
+
+            _etape = "Préparation des carrières, créatures et règles…";
+            StateHasChanged();
+            await Task.Delay(1); // laisse le navigateur afficher la nouvelle étape avant le calcul (≈ 1 s)
+
+            Catalogue.Initialiser(data);
+        }
+        catch (Exception exception)
+        {
+            Console.Error.WriteLine($"Échec du chargement des données : {exception}");
+            _erreur = exception;
+        }
+    }
+}
+@if (_erreur is not null)
+{
+    <ErreurDeChargement Exception=@_erreur />
+}
+else if (!Catalogue.EstCharge)
+{
+    <EcranDeChargement Etape=@_etape />
+}
+else
+{
+    <Router AppAssembly="@typeof(App).Assembly" NotFoundPage="typeof(Pages.NotFound)">
+        <Found Context="routeData">
+            <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+    </Router>
+}

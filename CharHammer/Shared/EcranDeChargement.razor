@@ -1,0 +1,11 @@
+﻿@code {
+    /// <summary>Ce que l'application est en train de faire, affiché sous le sablier.</summary>
+    [Parameter, EditorRequired] public string Etape { get; set; } = null!;
+}
+<PageTitle>Chargement - Charente Hammer</PageTitle>
+
+<div class="container d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 60vh;" role="status" aria-live="polite">
+    <img src="images/favicon/apple-touch-icon-192.png" alt="" width="96" height="96" class="rounded-3 mb-4" />
+    <div class="spinner-border text-secondary mb-3" aria-hidden="true"></div>
+    <p class="mb-0">@Etape</p>
+</div>
