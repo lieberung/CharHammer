@@ -20,10 +20,10 @@ public class AptitudesService
     Mutations = AllTraits.Where(t => t.CategSpe == "mutation").ToArray();
     Nevroses = AllTraits.Where(t => t.CategSpe == "nevrose").ToArray();
     Addictions = AllTraits.Where(t => t.CategSpe == "addiction").ToArray();
-    Alergies = AllTraits.Where(t => t.CategSpe == "allergie").ToArray();
+    Allergies = AllTraits.Where(t => t.CategSpe == "allergie").ToArray();
     Phobies = AllTraits.Where(t => t.CategSpe == "phobie").ToArray();
     Conditions = AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.Nom).ToArray();
-    TroublesMineurs = Alergies.Where(t => t.Severite == 1)
+    TroublesMineurs = Allergies.Where(t => t.Severite == 1)
         .Union(Nevroses.Where(t => t.Severite == 1))
         .Union(Phobies.Where(t => t.Severite == 1))
         .ToArray();
@@ -51,7 +51,7 @@ public class AptitudesService
   public IReadOnlyList<AptitudeDto> Mutations { get; }
   private IReadOnlyList<AptitudeDto> Nevroses { get; }
   public IReadOnlyList<AptitudeDto> Addictions { get; }
-  private IReadOnlyList<AptitudeDto> Alergies { get; }
+  private IReadOnlyList<AptitudeDto> Allergies { get; }
   private IReadOnlyList<AptitudeDto> Phobies { get; }
   public IReadOnlyList<AptitudeDto> Conditions { get; }
 
@@ -211,7 +211,7 @@ public class AptitudesService
   // Martial
   public AptitudeDto CompetenceLangSecretBataille => GetAptitude(1148);
   public AptitudeDto TalentAmbidextrie => GetTalent(2005);
-  public AptitudeDto TalentCoupsPrécis => GetTalent(2020);
+  public AptitudeDto TalentCoupsPrecis => GetTalent(2020);
   public AptitudeDto TalentSurSesGardes => GetTalent(2085);
   public AptitudeDto TalentTroublant => GetTalent(2091);
   public AptitudeDto TalentReflexesDeCombat => GetTalent(TalentReflexesDeCombatId);

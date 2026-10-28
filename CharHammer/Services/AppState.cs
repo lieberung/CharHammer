@@ -7,7 +7,7 @@ public class AppState
 
   private void NotifyStateChanged() => OnChange?.Invoke();
 
-  public void UnCombattantEnEngageUnAutre()
+  public void UnCombattantEngageUnAutre()
   {
     NotifyStateChanged();
   }

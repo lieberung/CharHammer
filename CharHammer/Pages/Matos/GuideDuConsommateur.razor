@@ -18,7 +18,7 @@
         _showGroupes = Groupe == "tout" ? _allGroupes : [Groupe];
     }
 
-    static string Clean(string s) => GenericService.GetUrlChunck(s);
+    static string Clean(string s) => GenericService.GetUrlChunk(s);
 
     IEnumerable<EquipementDto> GetEquipement(string groupe)
     {

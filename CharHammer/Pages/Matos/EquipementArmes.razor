@@ -103,7 +103,7 @@
         return (groupe is null ? armes : armes.Where(a => a.Groupes.Contains(groupe))).ToArray();
     }
 
-    static string Slug(string libelle) => GenericService.GetUrlChunck(libelle);
+    static string Slug(string libelle) => GenericService.GetUrlChunk(libelle);
 
     static string NomCourt(string spe)
     {

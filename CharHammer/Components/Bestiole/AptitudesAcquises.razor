@@ -32,11 +32,11 @@
     <p><AptitudeAcquiseItemList Items=@Item.Traits /></p>
 }
 
-@if (Item.AptitudesOptionnels.Any())
+@if (Item.AptitudesOptionnelles.Any())
 {
     if (!MasquerTitres)
     {
         <h5>Traits optionnels</h5>
     }
-    <p><AptitudeAcquiseItemList Items=@Item.AptitudesOptionnels /></p>
+    <p><AptitudeAcquiseItemList Items=@Item.AptitudesOptionnelles /></p>
 }

@@ -26,7 +26,7 @@ public static class GenericService
     
     #region Supprimer les caractères indésirables
 
-    internal static string GetUrlChunck(string chaine) => ConvertirCaracteres(chaine).Replace(" ", "-");
+    internal static string GetUrlChunk(string chaine) => ConvertirCaracteres(chaine).Replace(" ", "-");
 
     internal static string NettoyerPourRecherche(string chaine)
     {

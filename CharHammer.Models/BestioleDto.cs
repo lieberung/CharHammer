@@ -6,7 +6,7 @@ public class BestioleDto(
     ProfilDto? ProfilInitial, ProfilDto ProfilActuel,
     string Description, string Histoire, string Notes, string Psychologie, IReadOnlyList<string> Ambitions,
     IReadOnlyList<CarriereDto> CheminementPro,
-    IReadOnlyList<AptitudeAcquiseDto> AptitudesAcquises, IReadOnlyList<AptitudeAcquiseDto> AptitudesOptionnels,
+    IReadOnlyList<AptitudeAcquiseDto> AptitudesAcquises, IReadOnlyList<AptitudeAcquiseDto> AptitudesOptionnelles,
     IReadOnlyList<LieuDto> Origines,
     IReadOnlyList<string> MembreDe,
     int? Poids, int? Taille, int? Age, int? Sexe, string? Cheveux, string? Yeux, int MainDirectrice,
@@ -34,7 +34,7 @@ public class BestioleDto(
     public IReadOnlyList<string> Ambitions { get; } = Ambitions;
     public IReadOnlyList<CarriereDto> CheminementPro { get; } = CheminementPro;
     public IReadOnlyList<AptitudeAcquiseDto> AptitudesAcquises { get; } = AptitudesAcquises;
-    public IReadOnlyList<AptitudeAcquiseDto> AptitudesOptionnels { get; } = AptitudesOptionnels;
+    public IReadOnlyList<AptitudeAcquiseDto> AptitudesOptionnelles { get; } = AptitudesOptionnelles;
     public IReadOnlyList<LieuDto> Origines { get; } = Origines;
     public IReadOnlyList<string> MembreDe { get; } = MembreDe;
     public int? Poids { get; } = Poids;

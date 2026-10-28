@@ -179,7 +179,7 @@ internal static class Initializer
                     (c.aptitudes ?? []).Select(id => aptitudes[id]),
                     JsonToDto(c.profil_actuel)
                 ),
-                AptitudesOptionnels: AptitudeAcquiseDto.GetList(
+                AptitudesOptionnelles: AptitudeAcquiseDto.GetList(
                     (c.aptitudes_facultatives ?? []).Select(id => aptitudes[id]),
                     JsonToDto(c.profil_actuel)
                 ),

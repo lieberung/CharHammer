@@ -21,7 +21,7 @@ public class NormalisationTests(DonneesReelles donnees)
   [InlineData("Arbalètes", "arbaletes")]
   public void Morceau_d_url(string nom, string attendu)
   {
-    Assert.Equal(attendu, GenericService.GetUrlChunck(nom));
+    Assert.Equal(attendu, GenericService.GetUrlChunk(nom));
   }
 
   [Fact]

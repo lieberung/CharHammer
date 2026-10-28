@@ -110,7 +110,7 @@ public class CarrieresScoreService(CarriereDto[] carrieres, AptitudesService apt
 
           score += carriere.TalentsPourScore.Count(c
               => c == aptitudesService.TalentAmbidextrie
-                 || c == aptitudesService.TalentCoupsPrécis
+                 || c == aptitudesService.TalentCoupsPrecis
                  || c == aptitudesService.TalentDurACuir
                  || c == aptitudesService.TalentSurSesGardes
                  || c == aptitudesService.TalentValeureux
