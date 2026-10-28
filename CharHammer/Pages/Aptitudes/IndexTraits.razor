@@ -23,7 +23,7 @@
     <tbody>
         @foreach (var talent in Service.AllTraitsRoot)
         {
-            <TraitRow Item=@talent />
+            <TraitRow @key=@talent Item=@talent />
         }
     </tbody>
 </table>

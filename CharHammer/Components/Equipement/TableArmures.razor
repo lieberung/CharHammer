@@ -17,7 +17,7 @@
     <tbody>
     @foreach (var item in Items)
     {
-        <ArmureRow Item=@item />
+        <ArmureRow @key=@item Item=@item />
     }
     </tbody>
 </table>

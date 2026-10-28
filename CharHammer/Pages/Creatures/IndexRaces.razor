@@ -13,7 +13,7 @@
     <tbody>
         @foreach (var race in Service.AllRaces.Where(l => l.ParentsCount == 0).OrderBy(r => r.NomMasculin))
         {
-            <RaceRow Item=@race />
+            <RaceRow @key=@race Item=@race />
         }
     </tbody>
 </table>

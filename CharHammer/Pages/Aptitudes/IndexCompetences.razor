@@ -44,7 +44,7 @@
     <tbody>
         @foreach (var competence in _items.Where(c => c is { Ignore: false, Parent: null }))
         {
-            <CompetenceRow Item=@competence />
+            <CompetenceRow @key=@competence Item=@competence />
         }
     </tbody>
 </table>

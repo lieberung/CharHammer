@@ -32,6 +32,6 @@
 {
     @foreach (var sousElement in Item.SousElements)
     {
-        <LieuRow Item=@sousElement />
+        <LieuRow @key=@sousElement Item=@sousElement />
     }
 }

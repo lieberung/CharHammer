@@ -5,7 +5,18 @@
 @code{
     [Parameter, EditorRequired] public IEnumerable<CombattantEnJeu> Protagonistes { get; set; } = null!;
 
+    // Adversaires possibles de chaque camp : calculés une fois par paramétrage plutôt qu'une fois par ligne.
+    CombattantEnJeu[] _ennemis = [];
+    CombattantEnJeu[] _allies = [];
+
     protected override void OnInitialized() => AppState.OnChange += StateHasChanged;
+
+    protected override void OnParametersSet()
+    {
+        _ennemis = Protagonistes.Where(p => p.Ennemi).ToArray();
+        _allies = Protagonistes.Where(p => !p.Ennemi).ToArray();
+    }
+
     public void Dispose() => AppState.OnChange -= StateHasChanged;
 }
 <table class="table table-striped">
@@ -27,7 +38,7 @@
     <tbody>
     @foreach (var combattant in Protagonistes)
     {
-        <CombattantRow Item=@combattant Adversaires=@Protagonistes.Where(p => p.Ennemi != combattant.Ennemi) />
+        <CombattantRow @key=@combattant Item=@combattant Adversaires=@(combattant.Ennemi ? _allies : _ennemis) />
     }
     </tbody>
 </table>

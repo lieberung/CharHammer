@@ -45,6 +45,6 @@
 {
     @foreach (var sousElement in Item.SousElements)
     {
-        <CompetenceRow Item=@sousElement />
+        <CompetenceRow @key=@sousElement Item=@sousElement />
     }
 }

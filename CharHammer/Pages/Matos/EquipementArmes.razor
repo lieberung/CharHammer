@@ -170,7 +170,7 @@
 
 @foreach (var tableau in _tableaux)
 {
-    <ArmeGroupeTable Armes=@tableau.Armes Groupe=@tableau.Titre ArmesDeTir=@tableau.ArmesDeTir />
+    <ArmeGroupeTable @key=@((tableau.Titre, tableau.ArmesDeTir)) Armes=@tableau.Armes Groupe=@tableau.Titre ArmesDeTir=@tableau.ArmesDeTir />
 }
 @if (_tableaux.Count == 0)
 {

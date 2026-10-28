@@ -8,7 +8,7 @@
     <tbody>
     @foreach (var arme in Armes)
     {
-        <ArmeRow Item=@arme ArmeDeTir=@ArmesDeTir />
+        <ArmeRow @key=@arme Item=@arme ArmeDeTir=@ArmesDeTir />
     }
     </tbody>
 </table>

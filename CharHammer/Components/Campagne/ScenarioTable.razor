@@ -24,7 +24,7 @@
     <tbody>
         @foreach (var scenar in Items)
         {
-            <ScenarioRow Item=@scenar LigneCourte=@LigneCourte />
+            <ScenarioRow @key=@scenar Item=@scenar LigneCourte=@LigneCourte />
         }
     </tbody>
 </table>

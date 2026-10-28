@@ -19,7 +19,7 @@
     <tbody>
     @foreach (var seance in Campagne.SeancesPourLActe(Acte, AppState.JeSuisDieu).OrderByDescending(s => s.Quand))
     {
-        <SeanceRow Item=@seance CampagneId=@Campagne.Id />
+        <SeanceRow @key=@seance Item=@seance CampagneId=@Campagne.Id />
     }
     </tbody>
 </table>

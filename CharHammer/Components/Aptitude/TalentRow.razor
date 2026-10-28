@@ -48,6 +48,6 @@
 {
     @foreach (var sousElement in Item.SousElements.Where(t => t.Ignore == false))
     {
-        <TalentRow Item=@sousElement />
+        <TalentRow @key=@sousElement Item=@sousElement />
     }
 }

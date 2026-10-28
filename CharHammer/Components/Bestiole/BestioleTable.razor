@@ -5,7 +5,7 @@
     <tbody>
     @foreach (var bestiole in Items)
     {
-        <BestioleRow Item=@bestiole />
+        <BestioleRow @key=@bestiole Item=@bestiole />
     }
     </tbody>
 </table>

@@ -32,7 +32,7 @@
 {
     @foreach (var sousElement in Item.SousElements)
     {
-        <RaceRow Item="@sousElement" />
+        <RaceRow @key=@sousElement Item="@sousElement" />
     }
 }
 @code

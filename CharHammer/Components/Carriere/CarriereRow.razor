@@ -92,6 +92,6 @@
 {
     @foreach (var sousElement in Item.SousElements)
     {
-        <CarriereRow Item=@sousElement />
+        <CarriereRow @key=@sousElement Item=@sousElement />
     }
 }

@@ -40,7 +40,7 @@
             @foreach (var adversaire in Adversaires)
             {
                 var isSelected = Item.EngageContre == adversaire;
-                <CombattantOption Item=@adversaire Selected=@isSelected />
+                <CombattantOption @key=@adversaire Item=@adversaire Selected=@isSelected />
             }
         </select>
     </td>

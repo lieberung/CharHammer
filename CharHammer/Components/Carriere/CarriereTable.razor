@@ -11,7 +11,7 @@
     <tbody>
     @foreach (var carriere in Items)
     {
-        <CarriereRow Item=@carriere />
+        <CarriereRow @key=@carriere Item=@carriere />
     }
     </tbody>
 </table>
