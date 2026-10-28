@@ -14,6 +14,16 @@ public class DataService(string dossierSources, string fichierCible)
   {
     var data = BuildDataInstance();
 
+    // Les références cassées font échouer l'outil (code de sortie 1, donc la CI) avant toute écriture.
+    var erreurs = Validateur.Valider(data);
+    if (erreurs.Count > 0)
+    {
+      foreach (var erreur in erreurs)
+        Console.Error.WriteLine($"  - {erreur}");
+      throw new InvalidDataException($"{erreurs.Count} référence(s) invalide(s) dans les sources : data.json.gz n'a pas été écrit.");
+    }
+    Console.WriteLine("References checked: OK.");
+
     Console.Write($"Writing json data to {fichierCible}... ");
     var chrono = Stopwatch.StartNew();
     WriteFile(data);
