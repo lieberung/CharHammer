@@ -1,0 +1,66 @@
+name: Deploy to GitHub Pages
+
+# Déploiement à chaque push sur master, ou à la demande depuis l'onglet Actions
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+# Le déploiement pousse le site sur la branche gh-pages
+permissions:
+  contents: write
+
+# Un seul déploiement à la fois ; un push récent attend la fin du précédent au lieu de l'interrompre
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy-to-github-pages:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    - name: Setup .NET 10 SDK
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: 10.0.x
+
+    # Cache des paquets NuGet, invalidé dès qu'un .csproj change
+    - name: Cache NuGet
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj') }}
+        restore-keys: nuget-${{ runner.os }}-
+
+    # Régénère data.json.gz à partir des sources json/*.json (le fichier versionné n'est plus la seule référence)
+    - name: Generate data.json.gz
+      run: dotnet run --project CharHammer.JsonWriter/CharHammer.JsonWriter.csproj -c Release
+
+    # Aucun déploiement si un test échoue (les données viennent d'être régénérées : on teste celles qui seront publiées)
+    - name: Tests
+      run: dotnet test CharHammer.slnx -c Release --nologo
+
+    - name: Publish Blazor project
+      run: dotnet publish CharHammer/CharHammer.csproj -c Release -o release --nologo
+
+    # Le site est servi sous /CharHammer/ : on adapte la balise <base>
+    - name: Change base-tag in index.html from / to /CharHammer/
+      run: sed -i 's/<base href="\/" \/>/<base href="\/CharHammer\/" \/>/g' release/wwwroot/index.html
+
+    # GitHub Pages renvoie 404.html pour toute URL inconnue : on y sert l'application, dont le routeur affiche la bonne page
+    - name: Add 404.html for deep links
+      run: cp release/wwwroot/index.html release/wwwroot/404.html
+
+    # Sans .nojekyll, GitHub Pages ignore les dossiers commençant par "_" (dont _framework)
+    - name: Add .nojekyll file
+      run: touch release/wwwroot/.nojekyll
+
+    - name: Deploy to gh-pages branch
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: release/wwwroot

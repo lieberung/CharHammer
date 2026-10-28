@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Tests xUnit v3 exécutés sur les vraies données (CharHammer.JsonWriter/json) : dotnet test CharHammer.slnx -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <!-- L'application Blazor WebAssembly est un exécutable autonome : on la référence comme une simple bibliothèque -->
+    <ValidateExecutableReferencesMatchSelfContained>false</ValidateExecutableReferencesMatchSelfContained>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit.v3" />
+    <PackageReference Include="xunit.runner.visualstudio" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CharHammer\CharHammer.csproj" />
+    <ProjectReference Include="..\CharHammer.JsonWriter\CharHammer.JsonWriter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+    <Using Include="CharHammer.DataSource" />
+    <Using Include="CharHammer.Models" />
+    <Using Include="CharHammer.Services" />
+    <Using Include="CharHammer.Services.Startup" />
+  </ItemGroup>
+
+</Project>

@@ -12,7 +12,7 @@ public class DataService(string dossierSources, string fichierCible)
 {
   public void MakeTheFileToRuleThemAll()
   {
-    var data = BuildDataInstance();
+    var data = ChargerLesSources(dossierSources);
 
     // Les références cassées font échouer l'outil (code de sortie 1, donc la CI) avant toute écriture.
     var erreurs = Validateur.Valider(data);
@@ -30,26 +30,27 @@ public class DataService(string dossierSources, string fichierCible)
     Console.WriteLine($"{chrono.ElapsedMilliseconds} ms.");
   }
 
-  DataJson BuildDataInstance()
+  /// <summary>Lit et fusionne les fichiers sources du dossier (utilisé aussi par les tests de CharHammer.Tests).</summary>
+  public static DataJson ChargerLesSources(string dossierSources)
   {
     Console.Write($"Loading json data from {dossierSources}... ");
     var chrono = Stopwatch.StartNew();
 
-    var aptitudes = Load<RootAptitude>("aptitude.json");
-    var armes = Load<RootArme>("arme.json");
-    var campagnes = Load<RootCampagne>("campagne.json");
-    var creatures = Load<RootCreature>("creature.json");
-    var carrieres = Load<RootCarriere>("carriere.json");
-    var chronologie = Load<RootChrono>("chrono.json");
-    var dieux = Load<RootDieu>("dieu.json");
-    var equipements = Load<RootEquipement>("equipement.json");
-    var lieux = Load<RootLieu>("lieu.json");
-    var races = Load<RootRace>("race.json");
-    var references = Load<RootReference>("reference.json");
-    var regles = Load<RootRegle>("regle.json");
-    var sortileges = Load<RootSortilege>("sortilege.json");
-    var tables = Load<RootTable>("table.json");
-    var scenarios = Load<RootScenario>("scenarios.json");
+    var aptitudes = Load<RootAptitude>(dossierSources, "aptitude.json");
+    var armes = Load<RootArme>(dossierSources, "arme.json");
+    var campagnes = Load<RootCampagne>(dossierSources, "campagne.json");
+    var creatures = Load<RootCreature>(dossierSources, "creature.json");
+    var carrieres = Load<RootCarriere>(dossierSources, "carriere.json");
+    var chronologie = Load<RootChrono>(dossierSources, "chrono.json");
+    var dieux = Load<RootDieu>(dossierSources, "dieu.json");
+    var equipements = Load<RootEquipement>(dossierSources, "equipement.json");
+    var lieux = Load<RootLieu>(dossierSources, "lieu.json");
+    var races = Load<RootRace>(dossierSources, "race.json");
+    var references = Load<RootReference>(dossierSources, "reference.json");
+    var regles = Load<RootRegle>(dossierSources, "regle.json");
+    var sortileges = Load<RootSortilege>(dossierSources, "sortilege.json");
+    var tables = Load<RootTable>(dossierSources, "table.json");
+    var scenarios = Load<RootScenario>(dossierSources, "scenarios.json");
 
     Console.WriteLine($"{chrono.ElapsedMilliseconds} ms.");
 
@@ -79,7 +80,7 @@ public class DataService(string dossierSources, string fichierCible)
   }
 
   /// <summary>Lit un fichier source avec Newtonsoft, plus tolérant que System.Text.Json pour des fichiers saisis à la main.</summary>
-  T Load<T>(string nomDeFichier)
+  static T Load<T>(string dossierSources, string nomDeFichier)
   {
     var chemin = Path.Combine(dossierSources, nomDeFichier);
     return JsonConvert.DeserializeObject<T>(File.ReadAllText(chemin))

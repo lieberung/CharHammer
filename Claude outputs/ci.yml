@@ -1,0 +1,46 @@
+name: CI
+
+# Compilation et tests sur toute branche autre que master (master est testé par le déploiement) et sur chaque pull request
+on:
+  push:
+    branches-ignore: [ master ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Un nouveau push annule la vérification en cours sur la même branche
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v5
+
+    - name: Setup .NET 10 SDK
+      uses: actions/setup-dotnet@v5
+      with:
+        dotnet-version: 10.0.x
+
+    - name: Cache NuGet
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: nuget-${{ runner.os }}-${{ hashFiles('**/*.csproj', 'Directory.Packages.props') }}
+        restore-keys: nuget-${{ runner.os }}-
+
+    # Valide les références des sources json/*.json et régénère data.json.gz (échoue au moindre identifiant cassé)
+    - name: Generate data.json.gz
+      run: dotnet run --project CharHammer.JsonWriter/CharHammer.JsonWriter.csproj -c Release
+
+    - name: Build
+      run: dotnet build CharHammer.slnx -c Release --nologo
+
+    - name: Tests
+      run: dotnet test CharHammer.slnx -c Release --no-build --nologo --logger "console;verbosity=normal"

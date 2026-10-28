@@ -7,6 +7,10 @@
     <File Path="Documents/code-style.txt" />
     <File Path="Documents/Idees.txt" />
   </Folder>
+  <Folder Name="/.github/">
+    <File Path=".github/workflows/ci.yml" />
+    <File Path=".github/workflows/main.yml" />
+  </Folder>
   <Folder Name="/Documents/Archives/">
     <File Path="Documents/bootstrap-javascript.txt" />
     <File Path="Documents/GodModeInput.css" />
@@ -15,4 +19,5 @@
   <Project Path="CharHammer.JsonWriter/CharHammer.JsonWriter.csproj" />
   <Project Path="CharHammer.Models/CharHammer.Models.csproj" />
   <Project Path="CharHammer/CharHammer.csproj" />
+  <Project Path="CharHammer.Tests/CharHammer.Tests.csproj" />
 </Solution>
