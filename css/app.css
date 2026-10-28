@@ -1,5 +1,8 @@
-@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('bootstrap-icons/bootstrap-icons.min.css');
 @import url('caslon-antique-regular/font/css/caslon-antique-regular.css');
+
+/* Bootstrap Icons : même boîte que les anciennes icônes Open Iconic (décalages "top" et tailles conservés) */
+.bi { position: relative; display: inline-block; line-height: 1; }
 
 :root {
     --theme-font-family: 'calecon-antique', fantasy;
