@@ -351,3 +351,6 @@ MigrationBackup/
 /.idea/.idea.folder.dir/.idea
 /.gitignore
 /.gitignore
+
+# JetBrains Rider (configuration locale de l IDE)
+/.idea/
