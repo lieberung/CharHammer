@@ -1,6 +1,6 @@
 ﻿namespace CharHammer.Models;
 
-public record ChronologieDto(int Debut, int? Fin, string Resume, string Titre, string Commentaire, IEnumerable<ReferenceDto> Sources, IEnumerable<DomaineDto> Domaines)
+public record ChronologieDto(int Debut, int? Fin, string Resume, string Titre, string Commentaire, IReadOnlyList<ReferenceDto> Sources, IReadOnlyList<DomaineDto> Domaines)
 {
     public string Periode => $"{Debut}{(Fin.HasValue ? $" ~ {Fin}" : "")}";
 }

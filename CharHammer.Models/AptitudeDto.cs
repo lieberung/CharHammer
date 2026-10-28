@@ -4,10 +4,10 @@ public record AptitudeDto(
     int Id, bool Ignore, bool Martial, string Nom, string? NomEn, string? Spe,
     string Categ, string CategSpe, string? Max, int Severite, string Guerison,
     bool? Contagieux, int? AptitudeMereId,
-    IEnumerable<int> AptitudesLieesIds, IEnumerable<int> IncompatiblesIds
+    IReadOnlyList<int> AptitudesLieesIds, IReadOnlyList<int> IncompatiblesIds
 ) : ISearchable
 {
-    public IEnumerable<string> MotsClefDeRecherche = [];
+    public IReadOnlyList<string> MotsClefDeRecherche = [];
     public string NomPourRecherche = "";
 
     public string CaracteristiqueAssociee = "";
@@ -22,17 +22,25 @@ public record AptitudeDto(
     public bool EstUnSigneDistinctif => EstUnTrait && CategSpe == "trait";
 
     public AptitudeDto? Parent { get; set; }
-    public IEnumerable<AptitudeDto> SousElements = [];
+    public IReadOnlyList<AptitudeDto> SousElements = [];
     public List<AptitudeDto> AptitudesLiees { get; set; } = [];
     public List<AptitudeDto> Incompatibles { get; set; } = null!;
     public List<CarriereDto> CarrieresLiees { get; } = [];
 
-    public IEnumerable<AptitudeDto> CompetencesLiees => AptitudesLiees.Where(a => a.EstUneCompetence);
-    public IEnumerable<AptitudeDto> TalentsLies => AptitudesLiees.Where(a => a.EstUnTalent);
-    public IEnumerable<AptitudeDto> TraitsLies => AptitudesLiees.Where(a => a.EstUnTrait);
+    public IReadOnlyList<AptitudeDto> CompetencesLiees { get; private set; } = [];
+    public IReadOnlyList<AptitudeDto> TalentsLies { get; private set; } = [];
+    public IReadOnlyList<AptitudeDto> TraitsLies { get; private set; } = [];
+
+    /// <summary>Répartit <see cref="AptitudesLiees"/> par catégorie. À appeler une fois la liste définitivement remplie.</summary>
+    public void FigerAptitudesLiees()
+    {
+        CompetencesLiees = AptitudesLiees.Where(a => a.EstUneCompetence).ToArray();
+        TalentsLies = AptitudesLiees.Where(a => a.EstUnTalent).ToArray();
+        TraitsLies = AptitudesLiees.Where(a => a.EstUnTrait).ToArray();
+    }
 
     public string Icon => EstUneCompetence ? "target" : EstUnTalent ? "brush" : EstUnTrait ? "droplet" : "error";
-    public string NomComplet => Nom + (string.IsNullOrWhiteSpace(Spe) ? "" : $" : {Spe}");
+    public string NomComplet { get; } = Nom + (string.IsNullOrWhiteSpace(Spe) ? "" : $" : {Spe}");
     public string CategSpeSexy
     {
         get
@@ -81,7 +89,7 @@ public class AptitudeAcquiseDto
         return $"{Aptitude.Nom}{niveau}";
     }
 
-    public static IEnumerable<AptitudeAcquiseDto> GetList(IEnumerable<AptitudeDto> aptitudes, ProfilDto profil)
+    public static IReadOnlyList<AptitudeAcquiseDto> GetList(IEnumerable<AptitudeDto> aptitudes, ProfilDto profil)
     {
         var liste = new List<AptitudeAcquiseDto>();
         foreach (var apt in aptitudes)
@@ -97,6 +105,6 @@ public class AptitudeAcquiseDto
         {
             aptAcq.ChancesDeSucces = profil.GetStat(aptAcq.Aptitude.CaracteristiqueAssociee) + aptAcq.Niveau * 5;
         }
-        return liste.OrderBy(c => c.Aptitude.NomComplet);
+        return liste.OrderBy(c => c.Aptitude.NomComplet).ToArray();
     }
 }

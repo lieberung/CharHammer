@@ -5,7 +5,7 @@
 @inject BestiolesService Service
 @inject AppState AppState
 @code {
-    private IReadOnlyDictionary<string, IEnumerable<BestioleDto>> _groupes = null!;
+    private IReadOnlyDictionary<string, IReadOnlyList<BestioleDto>> _groupes = null!;
 
     protected override void OnInitialized()
     {

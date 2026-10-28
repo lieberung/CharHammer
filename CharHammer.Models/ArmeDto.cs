@@ -3,9 +3,9 @@
 public record ArmeDto(
     int Id, 
     int? ParentId, 
-    IEnumerable<AptitudeDto> CompetencesDeMaitrise, 
-    IEnumerable<ArmeAttributDto> Attributs, 
-    IEnumerable<ArmeAttributDto> Groupes, 
+    IReadOnlyList<AptitudeDto> CompetencesDeMaitrise, 
+    IReadOnlyList<ArmeAttributDto> Attributs, 
+    IReadOnlyList<ArmeAttributDto> Groupes, 
     string Nom, 
     string Degats, 
     string Allonge, 

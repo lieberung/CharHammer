@@ -3,26 +3,26 @@
 public record RegleDto(
     int Id,
     bool Html,
-    IEnumerable<int> ReglesId,
+    IReadOnlyList<int> ReglesId,
     string Titre,
     string Regle,
-    IEnumerable<CarriereDto> Carrieres,
-    IEnumerable<BestioleDto> Bestioles,
-    IEnumerable<TableDto> Tables,
-    //IEnumerable<LieuDto> Lieux,
-    IEnumerable<AptitudeDto> Aptitudes,
-    IEnumerable<IEnumerable<AptitudeDto>> AptitudesChoix,
-    IEnumerable<LieuDto> Lieux)
+    IReadOnlyList<CarriereDto> Carrieres,
+    IReadOnlyList<BestioleDto> Bestioles,
+    IReadOnlyList<TableDto> Tables,
+    //IReadOnlyList<LieuDto> Lieux,
+    IReadOnlyList<AptitudeDto> Aptitudes,
+    IReadOnlyList<IReadOnlyList<AptitudeDto>> AptitudesChoix,
+    IReadOnlyList<LieuDto> Lieux)
 {
-    public IEnumerable<RegleDto> SousRegles = [];
+    public IReadOnlyList<RegleDto> SousRegles = [];
 
-    public IEnumerable<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence);
-    public IEnumerable<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent);
-    public IEnumerable<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait);
+    public IReadOnlyList<AptitudeDto> Competences { get; } = Aptitudes.Where(a => a.EstUneCompetence).ToArray();
+    public IReadOnlyList<AptitudeDto> Talents { get; } = Aptitudes.Where(a => a.EstUnTalent).ToArray();
+    public IReadOnlyList<AptitudeDto> Traits { get; } = Aptitudes.Where(a => a.EstUnTrait).ToArray();
 
-    public IEnumerable<IEnumerable<AptitudeDto>> ChoixCompetences => AptitudesChoix.Where(choix => choix.First().EstUneCompetence);
-    public IEnumerable<IEnumerable<AptitudeDto>> ChoixTalents => AptitudesChoix.Where(choix => choix.First().EstUnTalent);
-    public IEnumerable<IEnumerable<AptitudeDto>> ChoixTraits => AptitudesChoix.Where(choix => choix.First().EstUnTrait);
+    public IReadOnlyList<IReadOnlyList<AptitudeDto>> ChoixCompetences { get; } = AptitudesChoix.Where(choix => choix.Count > 0 && choix[0].EstUneCompetence).ToArray();
+    public IReadOnlyList<IReadOnlyList<AptitudeDto>> ChoixTalents { get; } = AptitudesChoix.Where(choix => choix.Count > 0 && choix[0].EstUnTalent).ToArray();
+    public IReadOnlyList<IReadOnlyList<AptitudeDto>> ChoixTraits { get; } = AptitudesChoix.Where(choix => choix.Count > 0 && choix[0].EstUnTrait).ToArray();
 
     public bool ProposeAuMoinsUnTalent => Talents.Any() || ChoixTalents.Any();
     public bool ProposeAuMoinsUnTrait => Traits.Any() || ChoixTraits.Any();

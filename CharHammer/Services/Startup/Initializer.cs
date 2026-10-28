@@ -4,7 +4,7 @@ namespace CharHammer.Services.Startup;
 
 internal static class Initializer
 {
-    internal static IEnumerable<ScenarioDto> InitializeScenarios(
+    internal static IReadOnlyList<ScenarioDto> InitializeScenarios(
         IEnumerable<ScenarioJson> items,
         IReadOnlyDictionary<int, LieuDto> lieux,
         IReadOnlyDictionary<int, LieuTypeDto> lieuxTypes)
@@ -21,7 +21,8 @@ internal static class Initializer
                 Source: s.source ?? "",
                 Auteurs: s.auteurs ?? [],
                 Styles: s.styles ?? [],
-                DejaJoue: s.deja_joue ?? ""));
+                DejaJoue: s.deja_joue ?? ""))
+            .ToArray();
 
     internal static IReadOnlyList<CampagneDto> InitializeCampagnes(
         IReadOnlyDictionary<int, UserDto> users,
@@ -98,7 +99,7 @@ internal static class Initializer
         => items
             .Select(i => new SortilegeDto(
                 Id: i.id,
-                Aptitudes: (i.aptitudes ?? []).Select(id => dataAptitudes[id]),
+                Aptitudes: (i.aptitudes ?? []).Select(id => dataAptitudes[id]).ToArray(),
                 Cible: i.cible,
                 Distance: i.distance,
                 Duree: i.duree,
@@ -124,19 +125,19 @@ internal static class Initializer
                 Html: r.html,
                 Titre: r.titre,
                 ReglesId: r.regles ?? [],
-                Carrieres: (r.carrieres ?? []).Select(id => carrieres[id]),
+                Carrieres: (r.carrieres ?? []).Select(id => carrieres[id]).ToArray(),
                 Aptitudes: GetAptitudes(r.aptitudes, aptitudes),
-                AptitudesChoix: (r.aptitudes_choix ?? []).Select(choix => GetAptitudes(choix, aptitudes)),
-                Bestioles: (r.bestioles ?? []).Select(id => bestioles[id]),
-                Tables: (r.tables ?? []).Select(id => tables[id]),
-                Lieux: (r.lieux ?? []).Select(id => lieux[id]),
+                AptitudesChoix: (r.aptitudes_choix ?? []).Select(choix => GetAptitudes(choix, aptitudes)).ToArray(),
+                Bestioles: (r.bestioles ?? []).Select(id => bestioles[id]).ToArray(),
+                Tables: (r.tables ?? []).Select(id => tables[id]).ToArray(),
+                Lieux: (r.lieux ?? []).Select(id => lieux[id]).ToArray(),
                 Regle: r.regle
             ))
             .ToDictionary(k => k.Id);
 
         foreach (var regle in cacheRegle.Values)
         {
-            regle.SousRegles = regle.ReglesId.Select(id => cacheRegle[id]);
+            regle.SousRegles = regle.ReglesId.Select(id => cacheRegle[id]).ToArray();
         }
         return cacheRegle;
     }
@@ -182,11 +183,11 @@ internal static class Initializer
                     (c.aptitudes_facultatives ?? []).Select(id => aptitudes[id]),
                     JsonToDto(c.profil_actuel)
                 ),
-                Origines: (c.origines ?? []).Select(id => lieux[id]),
-                Armes: (c.armes ?? []).Select(id => armes[id]),
-                Armures: (c.armures ?? []).Select(id => armures[id]),
-                Equipement: (c.equipement ?? []).Select(id => equipement[id]),
-                Sorts: (c.sorts ?? []).Select(id => sorts[id]),
+                Origines: (c.origines ?? []).Select(id => lieux[id]).ToArray(),
+                Armes: (c.armes ?? []).Select(id => armes[id]).ToArray(),
+                Armures: (c.armures ?? []).Select(id => armures[id]).ToArray(),
+                Equipement: (c.equipement ?? []).Select(id => equipement[id]).ToArray(),
+                Sorts: (c.sorts ?? []).Select(id => sorts[id]).ToArray(),
                 SigneAstralId: c.fk_signeastralid,
                 Cheveux: c.cheveux,
                 Yeux: c.yeux,
@@ -196,7 +197,7 @@ internal static class Initializer
                 CarriereDuPere: c.carriere_du_pere.HasValue ? carrieres[c.carriere_du_pere.Value] : null,
                 CarriereDeLaMere: c.carriere_de_la_mere.HasValue ? carrieres[c.carriere_de_la_mere.Value] : null,
                 Joueur: c.user is not null ? users[c.user.Value].Pseudo : "",
-                CheminementPro: (c.cheminement ?? []).Select(id => carrieres[id]),
+                CheminementPro: (c.cheminement ?? []).Select(id => carrieres[id]).ToArray(),
                 XpActuel: c.xp_actuel ?? 0,
                 XpTotal: c.xp_total ?? 0
             ))
@@ -216,7 +217,7 @@ internal static class Initializer
         return bestioles;
     }
 
-    internal static IReadOnlyDictionary<int, IEnumerable<LigneDeCarriereInitialeDto>> InitializeTablesCarrieresInitiales(
+    internal static IReadOnlyDictionary<int, IReadOnlyList<LigneDeCarriereInitialeDto>> InitializeTablesCarrieresInitiales(
         IReadOnlyDictionary<int, CarriereDto> carrieres)
     {
         //ToDo: automatiser ?
@@ -245,9 +246,9 @@ internal static class Initializer
             }
         }
 
-        var result = new Dictionary<int, IEnumerable<LigneDeCarriereInitialeDto>>();
+        var result = new Dictionary<int, IReadOnlyList<LigneDeCarriereInitialeDto>>();
         foreach (var key in gather.Keys)
-            result.Add(key, gather[key].OrderBy(l => l.Carriere.Groupe).ThenBy(l => l.Carriere.Nom));
+            result.Add(key, gather[key].OrderBy(l => l.Carriere.Groupe).ThenBy(l => l.Carriere.Nom).ToArray());
 
         return result;
     }
@@ -261,16 +262,16 @@ internal static class Initializer
             .Select(r => new RaceDto(
                 Id: r.id,
                 Description: r.description ?? "",
-                Aptitudes: (r.aptitudes ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet),
-                Lieux: (r.lieux ?? []).Select(id => lieux[id]).OrderBy(l => l.Nom),
+                Aptitudes: (r.aptitudes ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToArray(),
+                Lieux: (r.lieux ?? []).Select(id => lieux[id]).OrderBy(l => l.Nom).ToArray(),
                 GroupOnly: r.group_only,
                 NomFeminin: r.nom_feminin ?? "",
                 NomMasculin: r.nom_masculin,
                 Autochtones: r.nom_autoch ?? "",
                 ParentId: r.parent,
                 PourPj: r.pj,
-                Opinions: (r.opinions ?? []).Select(o => new OpinionDto(RaceId: o.race, Ambiance: o.ambiance)),
-                Infos: (r.infos ?? []).Select(i => new RaceInfoDto(Titre: i.titre, Detail: i.detail))
+                Opinions: (r.opinions ?? []).Select(o => new OpinionDto(RaceId: o.race, Ambiance: o.ambiance)).ToArray(),
+                Infos: (r.infos ?? []).Select(i => new RaceInfoDto(Titre: i.titre, Detail: i.detail)).ToArray()
             ))
             .ToDictionary(k => k.Id);
 
@@ -281,7 +282,7 @@ internal static class Initializer
 
         foreach (var race in cache.Values)
         {
-            race.SousElements = cache.Values.Where(c => c.Parent == race).OrderBy(c => c.NomMasculin);
+            race.SousElements = cache.Values.Where(c => c.Parent == race).OrderBy(c => c.NomMasculin).ToArray();
 
             foreach (var opinion in race.Opinions.Where(opinion => opinion.RaceId != 0))
             {
@@ -306,7 +307,7 @@ internal static class Initializer
                 a.enc,
                 a.dispo,
                 a.description,
-                (a.attributs ?? []).Select(id => attributs[id]).OrderBy(at => at.Nom))
+                (a.attributs ?? []).Select(id => attributs[id]).OrderBy(at => at.Nom).ToArray())
             ).ToDictionary(k => k.Id);
 
         //foreach (var arme in result.Values.Where(a => a.ParentId.HasValue))
@@ -333,8 +334,8 @@ internal static class Initializer
                 Prix: t.prix,
                 Contenance: t.contenance,
                 Addiction: t.addiction,
-                Lieux: (t.lieux ?? []).Select(id => lieux[id]),
-                LieuxTypes: (t.lieuxtypes ?? []).Select(id => lieuxtypes[id]),
+                Lieux: (t.lieux ?? []).Select(id => lieux[id]).ToArray(),
+                LieuxTypes: (t.lieuxtypes ?? []).Select(id => lieuxtypes[id]).ToArray(),
                 Potion: t.potion is null ? null : GetPotionDtoFromJson(t.potion)
             ))
             .ToDictionary(k => k.Id);
@@ -373,16 +374,16 @@ internal static class Initializer
                 ParentId: l.parent,
                 Nom: l.nom,
                 Description: l.description ?? "",
-                Attributs: (l.attributs ?? []).Select(id => cacheAttributs[id]),
+                Attributs: (l.attributs ?? []).Select(id => cacheAttributs[id]).ToArray(),
                 Degats: l.degats,
                 Disponibilite: l.dispo,
                 Encombrement: l.enc,
-                Groupes: (l.groupes ?? []).Select(id => cacheAttributs[id]),
+                Groupes: (l.groupes ?? []).Select(id => cacheAttributs[id]).ToArray(),
                 Allonge: l.allonge ?? "",
                 Portee: l.portee ?? "",
                 Prix: l.prix,
                 Rechargement: l.rechargement ?? "",
-                CompetencesDeMaitrise: l.competences.Select(id => cacheCompetences[id])
+                CompetencesDeMaitrise: l.competences.Select(id => cacheCompetences[id]).ToArray()
             ))
             .ToDictionary(k => k.Id);
 
@@ -423,8 +424,8 @@ internal static class Initializer
                 PatronId: c.patron,
                 Ambiance: c.ambiance ?? [],
                 Aptitudes: new AptitudesAssocieesDto(
-                    Inities: (c.aptitudes?.initie ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet),
-                    PretesSansOrdre: (c.aptitudes?.pretre_sans_ordre ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet)
+                    Inities: (c.aptitudes?.initie ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToArray(),
+                    PretesSansOrdre: (c.aptitudes?.pretre_sans_ordre ?? []).Select(id => aptitudes[id]).OrderBy(a => a.NomComplet).ToArray()
                 ),
                 Chef: c.chef ?? "",
                 Commandements: c.commandements ?? [],
@@ -435,22 +436,22 @@ internal static class Initializer
                 Initiation: c.initiation ?? "",
                 Intro: c.intro ?? "",
                 Penitences: c.penitences ?? "",
-                Personnalites: (c.personnalites ?? []).Select(p => new PersonnaliteDto(p.nom ?? "", p.description ?? "")),
+                Personnalites: (c.personnalites ?? []).Select(p => new PersonnaliteDto(p.nom ?? "", p.description ?? "")).ToArray(),
                 Pretrise: c.pretrise ?? "",
-                Regles: (c.regles ?? []).Select(r => new RegleAssocieeDto(r.titre ?? "", r.description ?? "")),
-                Sectes: (c.sectes ?? []).Select(p => new SecteDto(p.nom ?? "", p.description ?? "")),
+                Regles: (c.regles ?? []).Select(r => new RegleAssocieeDto(r.titre ?? "", r.description ?? "")).ToArray(),
+                Sectes: (c.sectes ?? []).Select(p => new SecteDto(p.nom ?? "", p.description ?? "")).ToArray(),
                 Siege: c.siege.HasValue ? lieux[c.siege.Value] : null,
                 Structure: c.structure ?? "",
-                Temples: (c.temples ?? []).Select(t => new TempleDto(t.nom ?? "", t.description ?? "")),
+                Temples: (c.temples ?? []).Select(t => new TempleDto(t.nom ?? "", t.description ?? "")).ToArray(),
                 LivresSaints: c.livres ?? "aucun.",
                 Ordres: (c.ordres ?? []).Select(jc => new CulteDto(
                     Ambiance: jc.ambiance ?? "",
-                    Aptitudes: (jc.aptitudes ?? []).Select(id => aptitudes[id]),
+                    Aptitudes: (jc.aptitudes ?? []).Select(id => aptitudes[id]).ToArray(),
                     Description: jc.description ?? "",
                     Id: jc.id,
                     Mineur: jc.mineur,
                     Nom: jc.nom ?? ""
-                ))
+                )).ToArray()
             ))
             .ToDictionary(k => k.Id);
 
@@ -589,8 +590,11 @@ internal static class Initializer
 
         foreach (var aptitude in result.Values.Where(t => t.Parent is not null).Select(t => t.Parent).Distinct())
         {
-            aptitude!.SousElements = result.Values.Where(c => c.Parent == aptitude).OrderBy(c => c.Nom);
+            aptitude!.SousElements = result.Values.Where(c => c.Parent == aptitude).OrderBy(c => c.Nom).ToArray();
         }
+
+        foreach (var aptitude in result.Values)
+            aptitude.FigerAptitudesLiees();
 
         return result;
     }
@@ -598,8 +602,8 @@ internal static class Initializer
     private static ProfilDto JsonToDto(ProfilJson p)
         => new(Cc: p.cc, Ct: p.ct, F: p.f, E: p.e, I: p.i, Ag: p.ag, Dex: p.dex, Int: p.intel, Fm: p.fm, Soc: p.soc, M: p.m, B: p.b);
 
-    private static IEnumerable<CarriereDto> GetCarrieres(IEnumerable<int>? ids, IReadOnlyDictionary<int, CarriereDto> cache)
-        => (ids ?? []).Select(id => cache[id]).OrderBy(c => c.Nom);
+    private static IReadOnlyList<CarriereDto> GetCarrieres(IEnumerable<int>? ids, IReadOnlyDictionary<int, CarriereDto> cache)
+        => (ids ?? []).Select(id => cache[id]).OrderBy(c => c.Nom).ToArray();
 
     internal static IReadOnlyDictionary<int, CarriereDto> InitializeCarrieres(
         IEnumerable<CarriereJson> carrieres,
@@ -617,13 +621,13 @@ internal static class Initializer
                 CarriereMereId: c.parent,
                 DebouchesIds: c.debouch ?? [],
                 AvancementsIds: c.avancements ?? [],
-                TirageInitial: (c.tirage ?? []).Select(ti => new TirageDto(Facteur: ti.f, Race: cacheRaces[ti.r])),
+                TirageInitial: (c.tirage ?? []).Select(ti => new TirageDto(Facteur: ti.f, Race: cacheRaces[ti.r])).ToArray(),
                 Dotations: c.dotations,
                 Image: $"images/careers/{c.id}.png",
                 PlanDeCarriere: JsonToDto(c.profil),
                 Source: JsonToDto(c.source, cacheReferences),
                 Aptitudes: GetAptitudes(c.aptitudes, cacheAptitudes),
-                AptitudesChoix: (c.aptitudes_choix ?? []).Select(choix => GetAptitudes(choix, cacheAptitudes))
+                AptitudesChoix: (c.aptitudes_choix ?? []).Select(choix => GetAptitudes(choix, cacheAptitudes)).ToArray()
             )
             {
                 Ambiance = (c.ambiance ?? []).Select(ca => new CitationDto(ca.c, ca.a ?? "", ca.s ?? "")).ToArray(),
@@ -663,20 +667,20 @@ internal static class Initializer
         var tousLesAvancements = cache.Values.SelectMany(c => c.DebouchesDAvancements).Distinct();
         foreach (var carriere in tousLesAvancements)
         {
-            carriere.FilieresDAvancement = cache.Values.Where(c => c.DebouchesDAvancements.Contains(carriere)).OrderBy(c => c.Nom);
+            carriere.FilieresDAvancement = cache.Values.Where(c => c.DebouchesDAvancements.Contains(carriere)).OrderBy(c => c.Nom).ToArray();
             SetDescriptionParFiliere(carriere);
         }
 
         foreach (var carriereMere in cache.Values.Where(c => c.Parent is not null).Select(c => c.Parent).Distinct())
             carriereMere!.SousElements = cache.Values
                 .Where(c => c.Parent == carriereMere)
-                .OrderBy(c => c.Nom);
+                .OrderBy(c => c.Nom).ToArray();
 
         foreach (var carriere in cache.Values)
         {
             carriere.Filieres = cache.Values
                 .Where(c => c.Debouches.Contains(carriere))
-                .OrderBy(c => c.Nom);
+                .OrderBy(c => c.Nom).ToArray();
 
             foreach (var apt in carriere.AptitudesPourScore)
             {
@@ -711,8 +715,8 @@ internal static class Initializer
     private static SourceDto? JsonToDto(SourceJson? source, IReadOnlyDictionary<int, ReferenceDto> references)
         => source?.id is null ? null : new SourceDto(Book: references[source.id!.Value], Info: source.info ?? "");
 
-    private static IEnumerable<AptitudeDto> GetAptitudes(int[]? argAptitudes, IReadOnlyDictionary<int, AptitudeDto> cacheAptitudes)
-        => (argAptitudes ?? []).Select(id => cacheAptitudes[id]).OrderBy(a => a.NomComplet);
+    private static IReadOnlyList<AptitudeDto> GetAptitudes(int[]? argAptitudes, IReadOnlyDictionary<int, AptitudeDto> cacheAptitudes)
+        => (argAptitudes ?? []).Select(id => cacheAptitudes[id]).OrderBy(a => a.NomComplet).ToArray();
 
     internal static IEnumerable<ChronologieDto> InitializeChronologie(IEnumerable<ChronoJson> chrono, IReadOnlyDictionary<int, ReferenceDto> references, IReadOnlyDictionary<int, DomaineDto> domaines)
         => chrono
@@ -722,8 +726,8 @@ internal static class Initializer
                     c.resume,
                     c.titre ?? "",
                     c.comment ?? "",
-                    (c.sources ?? []).Select(id => references[id]),
-                    (c.domaines ?? []).Select(id => domaines[id])
+                    (c.sources ?? []).Select(id => references[id]).ToArray(),
+                    (c.domaines ?? []).Select(id => domaines[id]).ToArray()
                 ))
                 .OrderBy(c => c.Debut).ThenBy(c => c.Fin);
 }

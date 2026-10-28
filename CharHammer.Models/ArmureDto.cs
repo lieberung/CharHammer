@@ -11,7 +11,7 @@ public record ArmureDto(
     string Enc,
     string Disponibilite,
     string Description,
-    IEnumerable<ArmeAttributDto> Attributs)
+    IReadOnlyList<ArmeAttributDto> Attributs)
 {
     //public ArmureDto? Parent { get; set; }
     public bool TypeLegere => Type == "Cuir";

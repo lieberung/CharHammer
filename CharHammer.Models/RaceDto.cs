@@ -2,10 +2,10 @@
 
 public record RaceDto(
     int Id, bool PourPj, bool GroupOnly, string NomMasculin, string NomFeminin, string Autochtones, string Description, int? ParentId,
-    IEnumerable<AptitudeDto> Aptitudes, IEnumerable<LieuDto> Lieux, IEnumerable<OpinionDto> Opinions, IEnumerable<RaceInfoDto> Infos)
+    IReadOnlyList<AptitudeDto> Aptitudes, IReadOnlyList<LieuDto> Lieux, IReadOnlyList<OpinionDto> Opinions, IReadOnlyList<RaceInfoDto> Infos)
 {
   public RaceDto? Parent;
-  public IEnumerable<RaceDto> SousElements = [];
+  public IReadOnlyList<RaceDto> SousElements = [];
 
   public int ParentsCount => Parent is null ? 0 : Parent.ParentsCount + 1;
 }

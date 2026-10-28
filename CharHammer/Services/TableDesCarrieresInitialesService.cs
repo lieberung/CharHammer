@@ -1,8 +1,8 @@
 ﻿namespace CharHammer.Services;
 
-public class TableDesCarrieresInitialesService(IReadOnlyDictionary<int, IEnumerable<LigneDeCarriereInitialeDto>> data)
+public class TableDesCarrieresInitialesService(IReadOnlyDictionary<int, IReadOnlyList<LigneDeCarriereInitialeDto>> data)
 {
-    public IEnumerable<LigneDeCarriereInitialeDto> GetByRace(int idRace) => data[idRace];
+    public IReadOnlyList<LigneDeCarriereInitialeDto> GetByRace(int idRace) => data[idRace];
 
     public CarriereDto GetRandomStartingCareer(int idRace)
     {

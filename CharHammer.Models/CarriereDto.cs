@@ -5,10 +5,10 @@ public record TirageDto(RaceDto Race, int Facteur);
 public record SourceDto(ReferenceDto Book, string Info);
 
 public record CarriereDto(int Id, int? NiveauSpecifie, string Nom, string NomAnglais, string Image,
-    IEnumerable<string> MotsClefDeRecherche, IEnumerable<int> DebouchesIds, IEnumerable<int> AvancementsIds,
+    IReadOnlyList<string> MotsClefDeRecherche, IReadOnlyList<int> DebouchesIds, IReadOnlyList<int> AvancementsIds,
     string Dotations, int? CarriereMereId, ProfilDto PlanDeCarriere,
-    IEnumerable<AptitudeDto> Aptitudes, IEnumerable<IEnumerable<AptitudeDto>> AptitudesChoix,
-    IEnumerable<TirageDto> TirageInitial, SourceDto? Source
+    IReadOnlyList<AptitudeDto> Aptitudes, IReadOnlyList<IReadOnlyList<AptitudeDto>> AptitudesChoix,
+    IReadOnlyList<TirageDto> TirageInitial, SourceDto? Source
 ) : ISearchable
 {
     public string Groupe = null!;
@@ -20,13 +20,13 @@ public record CarriereDto(int Id, int? NiveauSpecifie, string Nom, string NomAng
     public AptitudeDto? CompetenceDeMetier;
 
     public CarriereDto? Parent;
-    public IEnumerable<CarriereDto> SousElements = [];
+    public IReadOnlyList<CarriereDto> SousElements = [];
 
-    public IEnumerable<CarriereDto> Debouches = [];
-    public IEnumerable<CarriereDto> Filieres = [];
+    public IReadOnlyList<CarriereDto> Debouches = [];
+    public IReadOnlyList<CarriereDto> Filieres = [];
 
-    public IEnumerable<CarriereDto> FilieresDAvancement = [];
-    public IEnumerable<CarriereDto> DebouchesDAvancements = [];
+    public IReadOnlyList<CarriereDto> FilieresDAvancement = [];
+    public IReadOnlyList<CarriereDto> DebouchesDAvancements = [];
 
     public string StatutPretty()
     {
@@ -60,13 +60,13 @@ public record CarriereDto(int Id, int? NiveauSpecifie, string Nom, string NomAng
     public bool EstUneCarriereDeBase => TirageInitial.Any() ||  Parent is { EstUneCarriereDeBase: true };
     public bool EstUneCarriereAvancee => !EstUneCarriereDeBase;
 
-    public IEnumerable<AptitudeDto> Competences => Aptitudes.Where(a => a.EstUneCompetence).OrderBy(a => a.NomComplet);
-    public IEnumerable<AptitudeDto> Talents => Aptitudes.Where(a => a.EstUnTalent).OrderBy(a => a.NomComplet);
-    public IEnumerable<AptitudeDto> Traits => Aptitudes.Where(a => a.EstUnTrait).OrderBy(a => a.NomComplet);
+    public IReadOnlyList<AptitudeDto> Competences { get; } = Aptitudes.Where(a => a.EstUneCompetence).OrderBy(a => a.NomComplet).ToArray();
+    public IReadOnlyList<AptitudeDto> Talents { get; } = Aptitudes.Where(a => a.EstUnTalent).OrderBy(a => a.NomComplet).ToArray();
+    public IReadOnlyList<AptitudeDto> Traits { get; } = Aptitudes.Where(a => a.EstUnTrait).OrderBy(a => a.NomComplet).ToArray();
 
-    public IEnumerable<IEnumerable<AptitudeDto>> ChoixCompetences => AptitudesChoix.Where(choix => choix.First().EstUneCompetence);
-    public IEnumerable<IEnumerable<AptitudeDto>> ChoixTalents => AptitudesChoix.Where(choix => choix.First().EstUnTalent);
-    public IEnumerable<IEnumerable<AptitudeDto>> ChoixTraits => AptitudesChoix.Where(choix => choix.First().EstUnTrait);
+    public IReadOnlyList<IReadOnlyList<AptitudeDto>> ChoixCompetences { get; } = AptitudesChoix.Where(choix => choix.Count > 0 && choix[0].EstUneCompetence).ToArray();
+    public IReadOnlyList<IReadOnlyList<AptitudeDto>> ChoixTalents { get; } = AptitudesChoix.Where(choix => choix.Count > 0 && choix[0].EstUnTalent).ToArray();
+    public IReadOnlyList<IReadOnlyList<AptitudeDto>> ChoixTraits { get; } = AptitudesChoix.Where(choix => choix.Count > 0 && choix[0].EstUnTrait).ToArray();
     
     public bool ProposeAuMoinsUnTrait => Traits.Any() || ChoixTraits.Any();
 
@@ -82,7 +82,7 @@ public record CarriereDto(int Id, int? NiveauSpecifie, string Nom, string NomAng
         }
     }
 
-    public IEnumerable<AptitudeDto> AptitudesPourScore => Aptitudes.Union(AptitudesChoix.SelectMany(c => c));
+    public IReadOnlyList<AptitudeDto> AptitudesPourScore { get; } = Aptitudes.Union(AptitudesChoix.SelectMany(c => c)).ToArray();
 
     // public int ScoreAcademique { get; }
     // public int ScoreMartialAuContact { get; }

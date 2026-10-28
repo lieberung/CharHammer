@@ -5,11 +5,11 @@ public class ScenariosService
     public ScenariosService(IEnumerable<ScenarioDto> scenarios)
     {
         _scenarios = scenarios.OrderBy(s => s.Nom).ToArray();
-        AllAuteurs = _scenarios.SelectMany(s => s.Auteurs).Distinct().OrderBy(a => a);
+        AllAuteurs = _scenarios.SelectMany(s => s.Auteurs).Distinct().OrderBy(a => a).ToArray();
     }
 
     private readonly IEnumerable<ScenarioDto> _scenarios;
-    public IEnumerable<string> AllAuteurs { get; }
+    public IReadOnlyList<string> AllAuteurs { get; }
 
     private static string Npr(string s) => GenericService.NettoyerPourRecherche(s);
 

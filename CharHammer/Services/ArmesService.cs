@@ -6,16 +6,20 @@ public class ArmesService(
     IReadOnlyDictionary<int, ArmureDto> dataArmures,
     IReadOnlyDictionary<int, EquipementDto> dataEquipements)
 {
-    private IReadOnlyDictionary<string, IEnumerable<ArmeDto>>? _armesDeContactPourTable;
-    private IReadOnlyDictionary<string, IEnumerable<ArmeDto>>? _armesADistancePourTable;
+    private IReadOnlyDictionary<string, IReadOnlyList<ArmeDto>>? _armesDeContactPourTable;
+    private IReadOnlyDictionary<string, IReadOnlyList<ArmeDto>>? _armesADistancePourTable;
 
-    public ArmeAttributDto[] AllGroupesDArmes => dataArmesAttributs.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToArray();
+    public ArmeAttributDto[] AllGroupesDArmes { get; } = dataArmesAttributs.Values.Where(a => a.Type == "groupe").OrderBy(g => g.Nom).ToArray();
 
     public ArmeDto[] AllArmes { get; } = dataArmes.Values.ToArray();
     public ArmureDto[] AllArmures { get; } = dataArmures.Values.ToArray();
     public EquipementDto[] AllEquipements { get; } = dataEquipements.Values.ToArray();
     
     private ArmeAttributDto GetAttributDArme(int id) => dataArmesAttributs[id];
+
+    /// <summary>Exécute une fois chaque requête du regroupement (l'ordre d'insertion des groupes est conservé).</summary>
+    private static IReadOnlyDictionary<string, IReadOnlyList<ArmeDto>> Materialiser(Dictionary<string, IEnumerable<ArmeDto>> groupes)
+        => groupes.ToDictionary(g => g.Key, IReadOnlyList<ArmeDto> (g) => g.Value.ToArray());
 
     public ArmeDto[] GetArmesDeMaitrise(AptitudeDto maitrise) =>
         AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == maitrise.Id)).OrderBy(a => a.Nom).ToArray();
@@ -33,11 +37,11 @@ public class ArmesService(
     private ArmeAttributDto GroupeExotique => GetAttributDArme(100);
 
             
-    public IReadOnlyDictionary<string, IEnumerable<ArmeDto>> ArmesDeContactPourTable
+    public IReadOnlyDictionary<string, IReadOnlyList<ArmeDto>> ArmesDeContactPourTable
     {
         get
         {
-            _armesDeContactPourTable ??= new Dictionary<string, IEnumerable<ArmeDto>>
+            _armesDeContactPourTable ??= Materialiser(new Dictionary<string, IEnumerable<ArmeDto>>
             {
                 { "Ordinaires", AllArmes.Where(a => a.EstUneArmeDeCaC
                                                  && a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdMeleeOrdinaires)
@@ -55,7 +59,7 @@ public class ArmesService(
                 { "Paralysantes", AllArmes.Where(a => a.Groupes.Any(s => s.Id == AptitudesService.IdMeleeParalysantes)) },
                 { "Cavalerie", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(s => s.Id == AptitudesService.IdMeleeCavalerie)) },
                 { "Exotiques", AllArmes.Where(a => a.EstUneArmeDeCaC && a.Groupes.Contains(GroupeExotique)) }
-            };
+            });
             return _armesDeContactPourTable;
         }
     }
@@ -63,11 +67,11 @@ public class ArmesService(
     // A distance
     public ArmeAttributDto GroupePoudreNoire => GetAttributDArme(61);
     
-    public IReadOnlyDictionary<string, IEnumerable<ArmeDto>> ArmesADistancePourTable
+    public IReadOnlyDictionary<string, IReadOnlyList<ArmeDto>> ArmesADistancePourTable
     {
         get
         {
-            _armesADistancePourTable ??= new Dictionary<string, IEnumerable<ArmeDto>>
+            _armesADistancePourTable ??= Materialiser(new Dictionary<string, IEnumerable<ArmeDto>>
                 {
                     { "Arbalètes", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirArbaletes)) },
                     { "Arcs", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirArcs)) },
@@ -79,7 +83,7 @@ public class ArmesService(
                                 ) },
                     { "Armes de jet", AllArmes.Where(a => a.CompetencesDeMaitrise.Any(c => c.Id == AptitudesService.IdTirArmesDeJet)) },
                     { "Exotiques", AllArmes.Where(a => a.EstUneArmeDeTir && a.Groupes.Contains(GroupeExotique)) }
-                };
+                });
             return _armesADistancePourTable;
         }
     }

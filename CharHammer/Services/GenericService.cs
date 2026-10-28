@@ -77,11 +77,12 @@ public static class GenericService
             resultat.Append(' ');
     }
 
-    internal static IEnumerable<string> MotsClefsDeRecherche(string chaineADecouper)
+    internal static string[] MotsClefsDeRecherche(string chaineADecouper)
     {
         return chaineADecouper
             .Split(' ')
-            .Where(m => !string.IsNullOrWhiteSpace(m) && m != "de" && m != "des" && m != "du" && m != "la" && m != "a" && m != "l");
+            .Where(m => !string.IsNullOrWhiteSpace(m) && m != "de" && m != "des" && m != "du" && m != "la" && m != "a" && m != "l")
+            .ToArray();
     }
 
     #endregion

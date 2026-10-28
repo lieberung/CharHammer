@@ -9,53 +9,56 @@ public class AptitudesService
     _data = data;
     AllAptitudes = _data.Values.OrderBy(c => c.Nom).ThenBy(c => c.Spe).ToArray();
 
-    AllCompetences = AllAptitudes.Where(a => a.EstUneCompetence);
-    AllTalents = AllAptitudes.Where(a => a.EstUnTalent);
+    AllCompetences = AllAptitudes.Where(a => a.EstUneCompetence).ToArray();
+    AllTalents = AllAptitudes.Where(a => a.EstUnTalent).ToArray();
     AllTraits = AllAptitudes.Where(a => a.EstUnTrait).ToArray();
 
-    AllTraitsRoot = AllTraits.Where(t => t is { Ignore: false, EstUnTrait: true, Parent: null });
-    SignesDistinctifs = AllTraits.Where(t => t.EstUnSigneDistinctif);
-    Folies = AllTraits.Where(t => t.CategSpe == "folie");
-    Maladies = AllTraits.Where(t => t.CategSpe == "maladie");
-    Mutations = AllTraits.Where(t => t.CategSpe == "mutation");
-    Nevroses = AllTraits.Where(t => t.CategSpe == "nevrose");
-    Addictions = AllTraits.Where(t => t.CategSpe == "addiction");
-    Alergies = AllTraits.Where(t => t.CategSpe == "allergie");
-    Phobies = AllTraits.Where(t => t.CategSpe == "phobie");
-    Conditions = AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.NomComplet);
+    AllTraitsRoot = AllTraits.Where(t => t is { Ignore: false, EstUnTrait: true, Parent: null }).ToArray();
+    SignesDistinctifs = AllTraits.Where(t => t.EstUnSigneDistinctif).ToArray();
+    Folies = AllTraits.Where(t => t.CategSpe == "folie").ToArray();
+    Maladies = AllTraits.Where(t => t.CategSpe == "maladie").ToArray();
+    Mutations = AllTraits.Where(t => t.CategSpe == "mutation").ToArray();
+    Nevroses = AllTraits.Where(t => t.CategSpe == "nevrose").ToArray();
+    Addictions = AllTraits.Where(t => t.CategSpe == "addiction").ToArray();
+    Alergies = AllTraits.Where(t => t.CategSpe == "allergie").ToArray();
+    Phobies = AllTraits.Where(t => t.CategSpe == "phobie").ToArray();
+    Conditions = AllTraits.Where(t => t.CategSpe == "condition").OrderBy(t => t.NomComplet).ToArray();
     TroublesMineurs = Alergies.Where(t => t.Severite == 1)
         .Union(Nevroses.Where(t => t.Severite == 1))
-        .Union(Phobies.Where(t => t.Severite == 1));
+        .Union(Phobies.Where(t => t.Severite == 1))
+        .ToArray();
+
+    AllMeleeSpecialisations = CompetenceGroupeMelee.SousElements.Where(s => !s.Ignore).OrderBy(a => a.Spe).ToArray();
+    AllTirSpecialisations = CompetenceGroupeTir.SousElements.Where(s => !s.Ignore).OrderBy(a => a.Spe).ToArray();
+    AllArmesSpecialisations = AllMeleeSpecialisations.Union(AllTirSpecialisations).ToArray();
   }
 
   public AptitudeDto GetAptitude(int id) => _data[id];
   public AptitudeDto GetTalent(int id) => _data[id];
   private AptitudeDto GetTrait(int id) => _data[id];
 
-  public IEnumerable<AptitudeDto> AllAptitudes { get; }
+  public IReadOnlyList<AptitudeDto> AllAptitudes { get; }
 
-  public IEnumerable<AptitudeDto> AllCompetences { get; }
-  public IEnumerable<AptitudeDto> AllTalents { get; }
-  private IEnumerable<AptitudeDto> AllTraits { get; }
+  public IReadOnlyList<AptitudeDto> AllCompetences { get; }
+  public IReadOnlyList<AptitudeDto> AllTalents { get; }
+  private IReadOnlyList<AptitudeDto> AllTraits { get; }
 
-  public IEnumerable<AptitudeDto> AllTraitsRoot { get; }
-  public IEnumerable<AptitudeDto> SignesDistinctifs { get; }
-  public IEnumerable<AptitudeDto> TroublesMineurs { get; }
-  public IEnumerable<AptitudeDto> Folies { get; }
-  public IEnumerable<AptitudeDto> Maladies { get; }
-  public IEnumerable<AptitudeDto> Mutations { get; }
-  private IEnumerable<AptitudeDto> Nevroses { get; }
-  public IEnumerable<AptitudeDto> Addictions { get; }
-  private IEnumerable<AptitudeDto> Alergies { get; }
-  private IEnumerable<AptitudeDto> Phobies { get; }
-  public IEnumerable<AptitudeDto> Conditions { get; }
+  public IReadOnlyList<AptitudeDto> AllTraitsRoot { get; }
+  public IReadOnlyList<AptitudeDto> SignesDistinctifs { get; }
+  public IReadOnlyList<AptitudeDto> TroublesMineurs { get; }
+  public IReadOnlyList<AptitudeDto> Folies { get; }
+  public IReadOnlyList<AptitudeDto> Maladies { get; }
+  public IReadOnlyList<AptitudeDto> Mutations { get; }
+  private IReadOnlyList<AptitudeDto> Nevroses { get; }
+  public IReadOnlyList<AptitudeDto> Addictions { get; }
+  private IReadOnlyList<AptitudeDto> Alergies { get; }
+  private IReadOnlyList<AptitudeDto> Phobies { get; }
+  public IReadOnlyList<AptitudeDto> Conditions { get; }
 
-  public IEnumerable<AptitudeDto> AllArmesSpecialisations => AllMeleeSpecialisations.Union(AllTirSpecialisations);
+  public IReadOnlyList<AptitudeDto> AllArmesSpecialisations { get; }
 
-  public IEnumerable<AptitudeDto> AllMeleeSpecialisations =>
-      CompetenceGroupeMelee.SousElements.Where(s => !s.Ignore).OrderBy(a => a.Spe);
-  public IEnumerable<AptitudeDto> AllTirSpecialisations =>
-      CompetenceGroupeTir.SousElements.Where(s => !s.Ignore).OrderBy(a => a.Spe);
+  public IReadOnlyList<AptitudeDto> AllMeleeSpecialisations { get; }
+  public IReadOnlyList<AptitudeDto> AllTirSpecialisations { get; }
 
   public bool DonneAccesADesArmes(AptitudeDto a)
       => a.Parent == CompetenceGroupeMelee || a.Parent == CompetenceGroupeTir || a == CompetenceGroupeExplosifs;
@@ -66,13 +69,12 @@ public class AptitudesService
   {
     searchText = GenericService.NettoyerPourRecherche(searchText);
     var motsClefRecherches = GenericService.MotsClefsDeRecherche(searchText);
-
     return AllAptitudes
-        .Where(c => c.Ignore == false && (
-                    c.NomPourRecherche.Contains(searchText) || c.MotsClefDeRecherche.Intersect(motsClefRecherches).Any()
-            )
-        )
-        .OrderByDescending(c => c.MotsClefDeRecherche.Intersect(motsClefRecherches).Count());
+        .Where(c => c.Ignore == false)
+        .Select(c => (Aptitude: c, Score: c.MotsClefDeRecherche.Intersect(motsClefRecherches).Count()))
+        .Where(x => x.Score > 0 || x.Aptitude.NomPourRecherche.Contains(searchText))
+        .OrderByDescending(x => x.Score)
+        .Select(x => x.Aptitude);
   }
 
   //public IEnumerable<AptitudeDto> TalentsInitiaux => [

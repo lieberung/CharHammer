@@ -4,14 +4,14 @@ public record BestioleDto(
     int Id, string DateDeCreation, int UserId, string Joueur, string Nom, string NomCourt,
     RaceDto Race,
     ProfilDto? ProfilInitial, ProfilDto ProfilActuel,
-    string Description, string Histoire, string Notes, string Psychologie, IEnumerable<string> Ambitions,
-    IEnumerable<CarriereDto> CheminementPro,
-    IEnumerable<AptitudeAcquiseDto> AptitudesAcquises, IEnumerable<AptitudeAcquiseDto> AptitudesOptionnels,
-    IEnumerable<LieuDto> Origines,
-    IEnumerable<string> MembreDe,
+    string Description, string Histoire, string Notes, string Psychologie, IReadOnlyList<string> Ambitions,
+    IReadOnlyList<CarriereDto> CheminementPro,
+    IReadOnlyList<AptitudeAcquiseDto> AptitudesAcquises, IReadOnlyList<AptitudeAcquiseDto> AptitudesOptionnels,
+    IReadOnlyList<LieuDto> Origines,
+    IReadOnlyList<string> MembreDe,
     int? Poids, int? Taille, int? Age, int? Sexe, string? Cheveux, string? Yeux, int MainDirectrice,
-    IEnumerable<ArmeDto> Armes, IEnumerable<ArmureDto> Armures, IEnumerable<EquipementDto> Equipement,
-    IEnumerable<SortilegeDto> Sorts,
+    IReadOnlyList<ArmeDto> Armes, IReadOnlyList<ArmureDto> Armures, IReadOnlyList<EquipementDto> Equipement,
+    IReadOnlyList<SortilegeDto> Sorts,
     CarriereDto? CarriereDuPere, CarriereDto? CarriereDeLaMere, string? FreresEtSoeurs,
     int? SigneAstralId,
     bool Mort, bool Masquer,
@@ -25,39 +25,38 @@ public record BestioleDto(
     public bool EstUnArchetype => EstUnPersonnageNonJoueur && Nom == "Archétype";
     public bool EstUneCreature => !EstUnPersonnage;
 
-    public IEnumerable<AptitudeAcquiseDto> Competences => AptitudesAcquises.Where(a => a.Aptitude.EstUneCompetence);
-    public IEnumerable<AptitudeAcquiseDto> Talents => AptitudesAcquises.Where(a => a.Aptitude.EstUnTalent);
-    public IEnumerable<AptitudeAcquiseDto> Traits => AptitudesAcquises.Where(a => a.Aptitude.EstUnTrait);
+    public IReadOnlyList<AptitudeAcquiseDto> Competences { get; } = AptitudesAcquises.Where(a => a.Aptitude.EstUneCompetence).ToArray();
+    public IReadOnlyList<AptitudeAcquiseDto> Talents { get; } = AptitudesAcquises.Where(a => a.Aptitude.EstUnTalent).ToArray();
+    public IReadOnlyList<AptitudeAcquiseDto> Traits { get; } = AptitudesAcquises.Where(a => a.Aptitude.EstUnTrait).ToArray();
 
-    public ProtectionsDto Protections
+    public ProtectionsDto Protections { get; } = CalculerProtections(Armures, AptitudesAcquises);
+
+    private static ProtectionsDto CalculerProtections(IReadOnlyList<ArmureDto> armures, IReadOnlyList<AptitudeAcquiseDto> aptitudesAcquises)
     {
-        get
+        var synthese = new ProtectionsDto();
+        foreach (var armure in armures.Where(a => a.Pa != "" && a.Pa != "0"))
         {
-            var synthese = new ProtectionsDto();
-            foreach (var armure in Armures.Where(a => a.Pa != "" && a.Pa != "0"))
-            {
-                var zones = armure.Zones.ToLower();
-                if (!int.TryParse(armure.Pa, out var pa))
-                    continue;
-                if (zones.Contains("toutes") || zones.Contains("tête"))
-                    synthese.Tete += pa;
-                if (zones.Contains("toutes") || zones.Contains("bras"))
-                    synthese.Bras += pa;
-                if (zones.Contains("toutes") || zones.Contains("torse"))
-                    synthese.Torse += pa;
-                if (zones.Contains("toutes") || zones.Contains("jambes"))
-                    synthese.Jambes += pa;
-            }
-            var armureNaturelle = AptitudesAcquises.SingleOrDefault(aa => aa.Aptitude.Id == 4001);
-            if (armureNaturelle is not null)
-            {
-                synthese.Tete += armureNaturelle.Niveau;
-                synthese.Bras += armureNaturelle.Niveau;
-                synthese.Torse += armureNaturelle.Niveau;
-                synthese.Jambes += armureNaturelle.Niveau;
-            }
-            return synthese;
+            var zones = armure.Zones.ToLower();
+            if (!int.TryParse(armure.Pa, out var pa))
+                continue;
+            if (zones.Contains("toutes") || zones.Contains("tête"))
+                synthese.Tete += pa;
+            if (zones.Contains("toutes") || zones.Contains("bras"))
+                synthese.Bras += pa;
+            if (zones.Contains("toutes") || zones.Contains("torse"))
+                synthese.Torse += pa;
+            if (zones.Contains("toutes") || zones.Contains("jambes"))
+                synthese.Jambes += pa;
         }
+        var armureNaturelle = aptitudesAcquises.SingleOrDefault(aa => aa.Aptitude.Id == 4001);
+        if (armureNaturelle is not null)
+        {
+            synthese.Tete += armureNaturelle.Niveau;
+            synthese.Bras += armureNaturelle.Niveau;
+            synthese.Torse += armureNaturelle.Niveau;
+            synthese.Jambes += armureNaturelle.Niveau;
+        }
+        return synthese;
     }
 
     public CarriereDto? CarriereActuelle => CheminementPro.LastOrDefault();
@@ -67,7 +66,7 @@ public record BestioleDto(
     public string BlessuresDetailDuCalcul = "";
     public string BlessuresFormuleDeCalcul = "";
 
-    public string EquipementDeCarrieres => string.Join(", ", CheminementPro.SelectMany(c => c.Dotations.Split(", ")).Distinct().OrderBy(s => s));
+    public string EquipementDeCarrieres { get; } = string.Join(", ", CheminementPro.SelectMany(c => c.Dotations.Split(", ")).Distinct().OrderBy(s => s));
 
     public class ProtectionsDto
     {
